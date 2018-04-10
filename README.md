@@ -6,7 +6,7 @@ A Kotlin DSL for devops
 
 ## Example
 
-See Main.kt
+See https://github.com/amelki/koops/blob/master/samples/src/main/kotlin/codingue/koops/samples/Helloworld.kt
 
 ## Status
 
