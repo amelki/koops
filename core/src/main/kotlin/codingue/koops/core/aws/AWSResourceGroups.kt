@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -45,9 +46,11 @@ class AWSResourceGroupsCreateGroupCommand(val name: String, val resourceQuery: c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.resourcegroups.model.CreateGroupResult {
 	  return com.amazonaws.services.resourcegroups.model.CreateGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.resourcegroups.model.CreateGroupResult {
 		return environment.resource_groups.createGroup(build())
@@ -79,9 +82,11 @@ class AWSResourceGroupsDeleteGroupCommand(val groupName: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.resourcegroups.model.DeleteGroupResult {
 	  return com.amazonaws.services.resourcegroups.model.DeleteGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.resourcegroups.model.DeleteGroupResult {
 		return environment.resource_groups.deleteGroup(build())
@@ -110,9 +115,11 @@ class AWSResourceGroupsGetGroupCommand(val groupName: String) : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.resourcegroups.model.GetGroupResult {
 	  return com.amazonaws.services.resourcegroups.model.GetGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.resourcegroups.model.GetGroupResult {
 		return environment.resource_groups.getGroup(build())
@@ -141,9 +148,11 @@ class AWSResourceGroupsGetGroupQueryCommand(val groupName: String) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.resourcegroups.model.GetGroupQueryResult {
 	  return com.amazonaws.services.resourcegroups.model.GetGroupQueryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.resourcegroups.model.GetGroupQueryResult {
 		return environment.resource_groups.getGroupQuery(build())
@@ -172,9 +181,11 @@ class AWSResourceGroupsGetTagsCommand(val arn: String) : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.resourcegroups.model.GetTagsResult {
 	  return com.amazonaws.services.resourcegroups.model.GetTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.resourcegroups.model.GetTagsResult {
 		return environment.resource_groups.getTags(build())
@@ -206,9 +217,11 @@ class AWSResourceGroupsListGroupResourcesCommand(val groupName: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.resourcegroups.model.ListGroupResourcesResult {
 	  return com.amazonaws.services.resourcegroups.model.ListGroupResourcesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.resourcegroups.model.ListGroupResourcesResult {
 		return environment.resource_groups.listGroupResources(build())
@@ -241,9 +254,11 @@ class AWSResourceGroupsListGroupsCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.resourcegroups.model.ListGroupsResult {
 	  return com.amazonaws.services.resourcegroups.model.ListGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.resourcegroups.model.ListGroupsResult {
 		return environment.resource_groups.listGroups(build())
@@ -276,9 +291,11 @@ class AWSResourceGroupsSearchResourcesCommand(val resourceQuery: com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.resourcegroups.model.SearchResourcesResult {
 	  return com.amazonaws.services.resourcegroups.model.SearchResourcesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.resourcegroups.model.SearchResourcesResult {
 		return environment.resource_groups.searchResources(build())
@@ -310,9 +327,11 @@ class AWSResourceGroupsTagCommand(val arn: String, val tags: Map<String, String>
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.resourcegroups.model.TagResult {
 	  return com.amazonaws.services.resourcegroups.model.TagResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.resourcegroups.model.TagResult {
 		return environment.resource_groups.tag(build())
@@ -343,9 +362,11 @@ class AWSResourceGroupsUntagCommand(val arn: String, val keys: List<String>) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.resourcegroups.model.UntagResult {
 	  return com.amazonaws.services.resourcegroups.model.UntagResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.resourcegroups.model.UntagResult {
 		return environment.resource_groups.untag(build())
@@ -376,9 +397,11 @@ class AWSResourceGroupsUpdateGroupCommand(val groupName: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.resourcegroups.model.UpdateGroupResult {
 	  return com.amazonaws.services.resourcegroups.model.UpdateGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.resourcegroups.model.UpdateGroupResult {
 		return environment.resource_groups.updateGroup(build())
@@ -409,9 +432,11 @@ class AWSResourceGroupsUpdateGroupQueryCommand(val groupName: String, val resour
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.resourcegroups.model.UpdateGroupQueryResult {
 	  return com.amazonaws.services.resourcegroups.model.UpdateGroupQueryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.resourcegroups.model.UpdateGroupQueryResult {
 		return environment.resource_groups.updateGroupQuery(build())

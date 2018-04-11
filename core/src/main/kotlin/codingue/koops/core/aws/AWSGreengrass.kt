@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -42,9 +43,11 @@ class AWSGreengrassAssociateRoleToGroupCommand(val groupId: String) : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.AssociateRoleToGroupResult {
 	  return com.amazonaws.services.greengrass.model.AssociateRoleToGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.AssociateRoleToGroupResult {
 		return environment.greengrass.associateRoleToGroup(build())
@@ -74,9 +77,11 @@ class AWSGreengrassAssociateServiceRoleToAccountCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.AssociateServiceRoleToAccountResult {
 	  return com.amazonaws.services.greengrass.model.AssociateServiceRoleToAccountResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.AssociateServiceRoleToAccountResult {
 		return environment.greengrass.associateServiceRoleToAccount(build())
@@ -109,9 +114,11 @@ class AWSGreengrassCreateCoreDefinitionCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.CreateCoreDefinitionResult {
 	  return com.amazonaws.services.greengrass.model.CreateCoreDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.CreateCoreDefinitionResult {
 		return environment.greengrass.createCoreDefinition(build())
@@ -145,9 +152,11 @@ class AWSGreengrassCreateCoreDefinitionVersionCommand(val coreDefinitionId: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.CreateCoreDefinitionVersionResult {
 	  return com.amazonaws.services.greengrass.model.CreateCoreDefinitionVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.CreateCoreDefinitionVersionResult {
 		return environment.greengrass.createCoreDefinitionVersion(build())
@@ -185,9 +194,11 @@ class AWSGreengrassCreateDeploymentCommand(val groupId: String) : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.CreateDeploymentResult {
 	  return com.amazonaws.services.greengrass.model.CreateDeploymentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.CreateDeploymentResult {
 		return environment.greengrass.createDeployment(build())
@@ -224,9 +235,11 @@ class AWSGreengrassCreateDeviceDefinitionCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.CreateDeviceDefinitionResult {
 	  return com.amazonaws.services.greengrass.model.CreateDeviceDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.CreateDeviceDefinitionResult {
 		return environment.greengrass.createDeviceDefinition(build())
@@ -260,9 +273,11 @@ class AWSGreengrassCreateDeviceDefinitionVersionCommand(val deviceDefinitionId: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.CreateDeviceDefinitionVersionResult {
 	  return com.amazonaws.services.greengrass.model.CreateDeviceDefinitionVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.CreateDeviceDefinitionVersionResult {
 		return environment.greengrass.createDeviceDefinitionVersion(build())
@@ -297,9 +312,11 @@ class AWSGreengrassCreateFunctionDefinitionCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.CreateFunctionDefinitionResult {
 	  return com.amazonaws.services.greengrass.model.CreateFunctionDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.CreateFunctionDefinitionResult {
 		return environment.greengrass.createFunctionDefinition(build())
@@ -333,9 +350,11 @@ class AWSGreengrassCreateFunctionDefinitionVersionCommand(val functionDefinition
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.CreateFunctionDefinitionVersionResult {
 	  return com.amazonaws.services.greengrass.model.CreateFunctionDefinitionVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.CreateFunctionDefinitionVersionResult {
 		return environment.greengrass.createFunctionDefinitionVersion(build())
@@ -370,9 +389,11 @@ class AWSGreengrassCreateGroupCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.CreateGroupResult {
 	  return com.amazonaws.services.greengrass.model.CreateGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.CreateGroupResult {
 		return environment.greengrass.createGroup(build())
@@ -404,9 +425,11 @@ class AWSGreengrassCreateGroupCertificateAuthorityCommand(val groupId: String) :
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.CreateGroupCertificateAuthorityResult {
 	  return com.amazonaws.services.greengrass.model.CreateGroupCertificateAuthorityResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.CreateGroupCertificateAuthorityResult {
 		return environment.greengrass.createGroupCertificateAuthority(build())
@@ -449,9 +472,11 @@ class AWSGreengrassCreateGroupVersionCommand(val groupId: String) : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.CreateGroupVersionResult {
 	  return com.amazonaws.services.greengrass.model.CreateGroupVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.CreateGroupVersionResult {
 		return environment.greengrass.createGroupVersion(build())
@@ -491,9 +516,11 @@ class AWSGreengrassCreateLoggerDefinitionCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.CreateLoggerDefinitionResult {
 	  return com.amazonaws.services.greengrass.model.CreateLoggerDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.CreateLoggerDefinitionResult {
 		return environment.greengrass.createLoggerDefinition(build())
@@ -527,9 +554,11 @@ class AWSGreengrassCreateLoggerDefinitionVersionCommand(val loggerDefinitionId: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.CreateLoggerDefinitionVersionResult {
 	  return com.amazonaws.services.greengrass.model.CreateLoggerDefinitionVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.CreateLoggerDefinitionVersionResult {
 		return environment.greengrass.createLoggerDefinitionVersion(build())
@@ -564,9 +593,11 @@ class AWSGreengrassCreateResourceDefinitionCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.CreateResourceDefinitionResult {
 	  return com.amazonaws.services.greengrass.model.CreateResourceDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.CreateResourceDefinitionResult {
 		return environment.greengrass.createResourceDefinition(build())
@@ -600,9 +631,11 @@ class AWSGreengrassCreateResourceDefinitionVersionCommand(val resourceDefinition
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.CreateResourceDefinitionVersionResult {
 	  return com.amazonaws.services.greengrass.model.CreateResourceDefinitionVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.CreateResourceDefinitionVersionResult {
 		return environment.greengrass.createResourceDefinitionVersion(build())
@@ -645,9 +678,11 @@ class AWSGreengrassCreateSoftwareUpdateJobCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.CreateSoftwareUpdateJobResult {
 	  return com.amazonaws.services.greengrass.model.CreateSoftwareUpdateJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.CreateSoftwareUpdateJobResult {
 		return environment.greengrass.createSoftwareUpdateJob(build())
@@ -686,9 +721,11 @@ class AWSGreengrassCreateSubscriptionDefinitionCommand() : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.CreateSubscriptionDefinitionResult {
 	  return com.amazonaws.services.greengrass.model.CreateSubscriptionDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.CreateSubscriptionDefinitionResult {
 		return environment.greengrass.createSubscriptionDefinition(build())
@@ -722,9 +759,11 @@ class AWSGreengrassCreateSubscriptionDefinitionVersionCommand(val subscriptionDe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.CreateSubscriptionDefinitionVersionResult {
 	  return com.amazonaws.services.greengrass.model.CreateSubscriptionDefinitionVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.CreateSubscriptionDefinitionVersionResult {
 		return environment.greengrass.createSubscriptionDefinitionVersion(build())
@@ -755,9 +794,11 @@ class AWSGreengrassDeleteCoreDefinitionCommand(val coreDefinitionId: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.DeleteCoreDefinitionResult {
 	  return com.amazonaws.services.greengrass.model.DeleteCoreDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.DeleteCoreDefinitionResult {
 		return environment.greengrass.deleteCoreDefinition(build())
@@ -786,9 +827,11 @@ class AWSGreengrassDeleteDeviceDefinitionCommand(val deviceDefinitionId: String)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.DeleteDeviceDefinitionResult {
 	  return com.amazonaws.services.greengrass.model.DeleteDeviceDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.DeleteDeviceDefinitionResult {
 		return environment.greengrass.deleteDeviceDefinition(build())
@@ -817,9 +860,11 @@ class AWSGreengrassDeleteFunctionDefinitionCommand(val functionDefinitionId: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.DeleteFunctionDefinitionResult {
 	  return com.amazonaws.services.greengrass.model.DeleteFunctionDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.DeleteFunctionDefinitionResult {
 		return environment.greengrass.deleteFunctionDefinition(build())
@@ -848,9 +893,11 @@ class AWSGreengrassDeleteGroupCommand(val groupId: String) : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.DeleteGroupResult {
 	  return com.amazonaws.services.greengrass.model.DeleteGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.DeleteGroupResult {
 		return environment.greengrass.deleteGroup(build())
@@ -879,9 +926,11 @@ class AWSGreengrassDeleteLoggerDefinitionCommand(val loggerDefinitionId: String)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.DeleteLoggerDefinitionResult {
 	  return com.amazonaws.services.greengrass.model.DeleteLoggerDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.DeleteLoggerDefinitionResult {
 		return environment.greengrass.deleteLoggerDefinition(build())
@@ -910,9 +959,11 @@ class AWSGreengrassDeleteResourceDefinitionCommand(val resourceDefinitionId: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.DeleteResourceDefinitionResult {
 	  return com.amazonaws.services.greengrass.model.DeleteResourceDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.DeleteResourceDefinitionResult {
 		return environment.greengrass.deleteResourceDefinition(build())
@@ -941,9 +992,11 @@ class AWSGreengrassDeleteSubscriptionDefinitionCommand(val subscriptionDefinitio
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.DeleteSubscriptionDefinitionResult {
 	  return com.amazonaws.services.greengrass.model.DeleteSubscriptionDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.DeleteSubscriptionDefinitionResult {
 		return environment.greengrass.deleteSubscriptionDefinition(build())
@@ -972,9 +1025,11 @@ class AWSGreengrassDisassociateRoleFromGroupCommand(val groupId: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.DisassociateRoleFromGroupResult {
 	  return com.amazonaws.services.greengrass.model.DisassociateRoleFromGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.DisassociateRoleFromGroupResult {
 		return environment.greengrass.disassociateRoleFromGroup(build())
@@ -1003,9 +1058,11 @@ class AWSGreengrassDisassociateServiceRoleFromAccountCommand() : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.DisassociateServiceRoleFromAccountResult {
 	  return com.amazonaws.services.greengrass.model.DisassociateServiceRoleFromAccountResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.DisassociateServiceRoleFromAccountResult {
 		return environment.greengrass.disassociateServiceRoleFromAccount(build())
@@ -1034,9 +1091,11 @@ class AWSGreengrassGetAssociatedRoleCommand(val groupId: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.GetAssociatedRoleResult {
 	  return com.amazonaws.services.greengrass.model.GetAssociatedRoleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.GetAssociatedRoleResult {
 		return environment.greengrass.getAssociatedRole(build())
@@ -1065,9 +1124,11 @@ class AWSGreengrassGetConnectivityInfoCommand(val thingName: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.GetConnectivityInfoResult {
 	  return com.amazonaws.services.greengrass.model.GetConnectivityInfoResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.GetConnectivityInfoResult {
 		return environment.greengrass.getConnectivityInfo(build())
@@ -1096,9 +1157,11 @@ class AWSGreengrassGetCoreDefinitionCommand(val coreDefinitionId: String) : Amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.GetCoreDefinitionResult {
 	  return com.amazonaws.services.greengrass.model.GetCoreDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.GetCoreDefinitionResult {
 		return environment.greengrass.getCoreDefinition(build())
@@ -1128,9 +1191,11 @@ class AWSGreengrassGetCoreDefinitionVersionCommand(val coreDefinitionId: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.GetCoreDefinitionVersionResult {
 	  return com.amazonaws.services.greengrass.model.GetCoreDefinitionVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.GetCoreDefinitionVersionResult {
 		return environment.greengrass.getCoreDefinitionVersion(build())
@@ -1161,9 +1226,11 @@ class AWSGreengrassGetDeploymentStatusCommand(val deploymentId: String, val grou
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.GetDeploymentStatusResult {
 	  return com.amazonaws.services.greengrass.model.GetDeploymentStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.GetDeploymentStatusResult {
 		return environment.greengrass.getDeploymentStatus(build())
@@ -1193,9 +1260,11 @@ class AWSGreengrassGetDeviceDefinitionCommand(val deviceDefinitionId: String) : 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.GetDeviceDefinitionResult {
 	  return com.amazonaws.services.greengrass.model.GetDeviceDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.GetDeviceDefinitionResult {
 		return environment.greengrass.getDeviceDefinition(build())
@@ -1225,9 +1294,11 @@ class AWSGreengrassGetDeviceDefinitionVersionCommand(val deviceDefinitionId: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.GetDeviceDefinitionVersionResult {
 	  return com.amazonaws.services.greengrass.model.GetDeviceDefinitionVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.GetDeviceDefinitionVersionResult {
 		return environment.greengrass.getDeviceDefinitionVersion(build())
@@ -1257,9 +1328,11 @@ class AWSGreengrassGetFunctionDefinitionCommand(val functionDefinitionId: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.GetFunctionDefinitionResult {
 	  return com.amazonaws.services.greengrass.model.GetFunctionDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.GetFunctionDefinitionResult {
 		return environment.greengrass.getFunctionDefinition(build())
@@ -1289,9 +1362,11 @@ class AWSGreengrassGetFunctionDefinitionVersionCommand(val functionDefinitionId:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.GetFunctionDefinitionVersionResult {
 	  return com.amazonaws.services.greengrass.model.GetFunctionDefinitionVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.GetFunctionDefinitionVersionResult {
 		return environment.greengrass.getFunctionDefinitionVersion(build())
@@ -1321,9 +1396,11 @@ class AWSGreengrassGetGroupCommand(val groupId: String) : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.GetGroupResult {
 	  return com.amazonaws.services.greengrass.model.GetGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.GetGroupResult {
 		return environment.greengrass.getGroup(build())
@@ -1353,9 +1430,11 @@ class AWSGreengrassGetGroupCertificateAuthorityCommand(val certificateAuthorityI
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.GetGroupCertificateAuthorityResult {
 	  return com.amazonaws.services.greengrass.model.GetGroupCertificateAuthorityResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.GetGroupCertificateAuthorityResult {
 		return environment.greengrass.getGroupCertificateAuthority(build())
@@ -1385,9 +1464,11 @@ class AWSGreengrassGetGroupCertificateConfigurationCommand(val groupId: String) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.GetGroupCertificateConfigurationResult {
 	  return com.amazonaws.services.greengrass.model.GetGroupCertificateConfigurationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.GetGroupCertificateConfigurationResult {
 		return environment.greengrass.getGroupCertificateConfiguration(build())
@@ -1417,9 +1498,11 @@ class AWSGreengrassGetGroupVersionCommand(val groupId: String, val groupVersionI
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.GetGroupVersionResult {
 	  return com.amazonaws.services.greengrass.model.GetGroupVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.GetGroupVersionResult {
 		return environment.greengrass.getGroupVersion(build())
@@ -1449,9 +1532,11 @@ class AWSGreengrassGetLoggerDefinitionCommand(val loggerDefinitionId: String) : 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.GetLoggerDefinitionResult {
 	  return com.amazonaws.services.greengrass.model.GetLoggerDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.GetLoggerDefinitionResult {
 		return environment.greengrass.getLoggerDefinition(build())
@@ -1481,9 +1566,11 @@ class AWSGreengrassGetLoggerDefinitionVersionCommand(val loggerDefinitionId: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.GetLoggerDefinitionVersionResult {
 	  return com.amazonaws.services.greengrass.model.GetLoggerDefinitionVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.GetLoggerDefinitionVersionResult {
 		return environment.greengrass.getLoggerDefinitionVersion(build())
@@ -1513,9 +1600,11 @@ class AWSGreengrassGetResourceDefinitionCommand(val resourceDefinitionId: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.GetResourceDefinitionResult {
 	  return com.amazonaws.services.greengrass.model.GetResourceDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.GetResourceDefinitionResult {
 		return environment.greengrass.getResourceDefinition(build())
@@ -1545,9 +1634,11 @@ class AWSGreengrassGetResourceDefinitionVersionCommand(val resourceDefinitionId:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.GetResourceDefinitionVersionResult {
 	  return com.amazonaws.services.greengrass.model.GetResourceDefinitionVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.GetResourceDefinitionVersionResult {
 		return environment.greengrass.getResourceDefinitionVersion(build())
@@ -1577,9 +1668,11 @@ class AWSGreengrassGetServiceRoleForAccountCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.GetServiceRoleForAccountResult {
 	  return com.amazonaws.services.greengrass.model.GetServiceRoleForAccountResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.GetServiceRoleForAccountResult {
 		return environment.greengrass.getServiceRoleForAccount(build())
@@ -1608,9 +1701,11 @@ class AWSGreengrassGetSubscriptionDefinitionCommand(val subscriptionDefinitionId
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.GetSubscriptionDefinitionResult {
 	  return com.amazonaws.services.greengrass.model.GetSubscriptionDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.GetSubscriptionDefinitionResult {
 		return environment.greengrass.getSubscriptionDefinition(build())
@@ -1640,9 +1735,11 @@ class AWSGreengrassGetSubscriptionDefinitionVersionCommand(val subscriptionDefin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.GetSubscriptionDefinitionVersionResult {
 	  return com.amazonaws.services.greengrass.model.GetSubscriptionDefinitionVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.GetSubscriptionDefinitionVersionResult {
 		return environment.greengrass.getSubscriptionDefinitionVersion(build())
@@ -1675,9 +1772,11 @@ class AWSGreengrassListCoreDefinitionVersionsCommand(val coreDefinitionId: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.ListCoreDefinitionVersionsResult {
 	  return com.amazonaws.services.greengrass.model.ListCoreDefinitionVersionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.ListCoreDefinitionVersionsResult {
 		return environment.greengrass.listCoreDefinitionVersions(build())
@@ -1710,9 +1809,11 @@ class AWSGreengrassListCoreDefinitionsCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.ListCoreDefinitionsResult {
 	  return com.amazonaws.services.greengrass.model.ListCoreDefinitionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.ListCoreDefinitionsResult {
 		return environment.greengrass.listCoreDefinitions(build())
@@ -1745,9 +1846,11 @@ class AWSGreengrassListDeploymentsCommand(val groupId: String) : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.ListDeploymentsResult {
 	  return com.amazonaws.services.greengrass.model.ListDeploymentsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.ListDeploymentsResult {
 		return environment.greengrass.listDeployments(build())
@@ -1781,9 +1884,11 @@ class AWSGreengrassListDeviceDefinitionVersionsCommand(val deviceDefinitionId: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.ListDeviceDefinitionVersionsResult {
 	  return com.amazonaws.services.greengrass.model.ListDeviceDefinitionVersionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.ListDeviceDefinitionVersionsResult {
 		return environment.greengrass.listDeviceDefinitionVersions(build())
@@ -1816,9 +1921,11 @@ class AWSGreengrassListDeviceDefinitionsCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.ListDeviceDefinitionsResult {
 	  return com.amazonaws.services.greengrass.model.ListDeviceDefinitionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.ListDeviceDefinitionsResult {
 		return environment.greengrass.listDeviceDefinitions(build())
@@ -1851,9 +1958,11 @@ class AWSGreengrassListFunctionDefinitionVersionsCommand(val functionDefinitionI
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.ListFunctionDefinitionVersionsResult {
 	  return com.amazonaws.services.greengrass.model.ListFunctionDefinitionVersionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.ListFunctionDefinitionVersionsResult {
 		return environment.greengrass.listFunctionDefinitionVersions(build())
@@ -1886,9 +1995,11 @@ class AWSGreengrassListFunctionDefinitionsCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.ListFunctionDefinitionsResult {
 	  return com.amazonaws.services.greengrass.model.ListFunctionDefinitionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.ListFunctionDefinitionsResult {
 		return environment.greengrass.listFunctionDefinitions(build())
@@ -1918,9 +2029,11 @@ class AWSGreengrassListGroupCertificateAuthoritiesCommand(val groupId: String) :
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.ListGroupCertificateAuthoritiesResult {
 	  return com.amazonaws.services.greengrass.model.ListGroupCertificateAuthoritiesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.ListGroupCertificateAuthoritiesResult {
 		return environment.greengrass.listGroupCertificateAuthorities(build())
@@ -1952,9 +2065,11 @@ class AWSGreengrassListGroupVersionsCommand(val groupId: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.ListGroupVersionsResult {
 	  return com.amazonaws.services.greengrass.model.ListGroupVersionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.ListGroupVersionsResult {
 		return environment.greengrass.listGroupVersions(build())
@@ -1987,9 +2102,11 @@ class AWSGreengrassListGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.ListGroupsResult {
 	  return com.amazonaws.services.greengrass.model.ListGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.ListGroupsResult {
 		return environment.greengrass.listGroups(build())
@@ -2022,9 +2139,11 @@ class AWSGreengrassListLoggerDefinitionVersionsCommand(val loggerDefinitionId: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.ListLoggerDefinitionVersionsResult {
 	  return com.amazonaws.services.greengrass.model.ListLoggerDefinitionVersionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.ListLoggerDefinitionVersionsResult {
 		return environment.greengrass.listLoggerDefinitionVersions(build())
@@ -2057,9 +2176,11 @@ class AWSGreengrassListLoggerDefinitionsCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.ListLoggerDefinitionsResult {
 	  return com.amazonaws.services.greengrass.model.ListLoggerDefinitionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.ListLoggerDefinitionsResult {
 		return environment.greengrass.listLoggerDefinitions(build())
@@ -2092,9 +2213,11 @@ class AWSGreengrassListResourceDefinitionVersionsCommand(val resourceDefinitionI
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.ListResourceDefinitionVersionsResult {
 	  return com.amazonaws.services.greengrass.model.ListResourceDefinitionVersionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.ListResourceDefinitionVersionsResult {
 		return environment.greengrass.listResourceDefinitionVersions(build())
@@ -2127,9 +2250,11 @@ class AWSGreengrassListResourceDefinitionsCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.ListResourceDefinitionsResult {
 	  return com.amazonaws.services.greengrass.model.ListResourceDefinitionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.ListResourceDefinitionsResult {
 		return environment.greengrass.listResourceDefinitions(build())
@@ -2162,9 +2287,11 @@ class AWSGreengrassListSubscriptionDefinitionVersionsCommand(val subscriptionDef
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.ListSubscriptionDefinitionVersionsResult {
 	  return com.amazonaws.services.greengrass.model.ListSubscriptionDefinitionVersionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.ListSubscriptionDefinitionVersionsResult {
 		return environment.greengrass.listSubscriptionDefinitionVersions(build())
@@ -2197,9 +2324,11 @@ class AWSGreengrassListSubscriptionDefinitionsCommand() : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.ListSubscriptionDefinitionsResult {
 	  return com.amazonaws.services.greengrass.model.ListSubscriptionDefinitionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.ListSubscriptionDefinitionsResult {
 		return environment.greengrass.listSubscriptionDefinitions(build())
@@ -2232,9 +2361,11 @@ class AWSGreengrassResetDeploymentsCommand(val groupId: String) : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.ResetDeploymentsResult {
 	  return com.amazonaws.services.greengrass.model.ResetDeploymentsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.ResetDeploymentsResult {
 		return environment.greengrass.resetDeployments(build())
@@ -2266,9 +2397,11 @@ class AWSGreengrassUpdateConnectivityInfoCommand(val thingName: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.UpdateConnectivityInfoResult {
 	  return com.amazonaws.services.greengrass.model.UpdateConnectivityInfoResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.UpdateConnectivityInfoResult {
 		return environment.greengrass.updateConnectivityInfo(build())
@@ -2299,9 +2432,11 @@ class AWSGreengrassUpdateCoreDefinitionCommand(val coreDefinitionId: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.UpdateCoreDefinitionResult {
 	  return com.amazonaws.services.greengrass.model.UpdateCoreDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.UpdateCoreDefinitionResult {
 		return environment.greengrass.updateCoreDefinition(build())
@@ -2332,9 +2467,11 @@ class AWSGreengrassUpdateDeviceDefinitionCommand(val deviceDefinitionId: String)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.UpdateDeviceDefinitionResult {
 	  return com.amazonaws.services.greengrass.model.UpdateDeviceDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.UpdateDeviceDefinitionResult {
 		return environment.greengrass.updateDeviceDefinition(build())
@@ -2365,9 +2502,11 @@ class AWSGreengrassUpdateFunctionDefinitionCommand(val functionDefinitionId: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.UpdateFunctionDefinitionResult {
 	  return com.amazonaws.services.greengrass.model.UpdateFunctionDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.UpdateFunctionDefinitionResult {
 		return environment.greengrass.updateFunctionDefinition(build())
@@ -2398,9 +2537,11 @@ class AWSGreengrassUpdateGroupCommand(val groupId: String) : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.UpdateGroupResult {
 	  return com.amazonaws.services.greengrass.model.UpdateGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.UpdateGroupResult {
 		return environment.greengrass.updateGroup(build())
@@ -2431,9 +2572,11 @@ class AWSGreengrassUpdateGroupCertificateConfigurationCommand(val groupId: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.UpdateGroupCertificateConfigurationResult {
 	  return com.amazonaws.services.greengrass.model.UpdateGroupCertificateConfigurationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.UpdateGroupCertificateConfigurationResult {
 		return environment.greengrass.updateGroupCertificateConfiguration(build())
@@ -2464,9 +2607,11 @@ class AWSGreengrassUpdateLoggerDefinitionCommand(val loggerDefinitionId: String)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.UpdateLoggerDefinitionResult {
 	  return com.amazonaws.services.greengrass.model.UpdateLoggerDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.UpdateLoggerDefinitionResult {
 		return environment.greengrass.updateLoggerDefinition(build())
@@ -2497,9 +2642,11 @@ class AWSGreengrassUpdateResourceDefinitionCommand(val resourceDefinitionId: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.UpdateResourceDefinitionResult {
 	  return com.amazonaws.services.greengrass.model.UpdateResourceDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.UpdateResourceDefinitionResult {
 		return environment.greengrass.updateResourceDefinition(build())
@@ -2530,9 +2677,11 @@ class AWSGreengrassUpdateSubscriptionDefinitionCommand(val subscriptionDefinitio
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.greengrass.model.UpdateSubscriptionDefinitionResult {
 	  return com.amazonaws.services.greengrass.model.UpdateSubscriptionDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.greengrass.model.UpdateSubscriptionDefinitionResult {
 		return environment.greengrass.updateSubscriptionDefinition(build())

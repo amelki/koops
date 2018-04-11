@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -42,9 +43,11 @@ class AmazonAutoScalingAttachInstancesCommand(val autoScalingGroupName: String) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.AttachInstancesResult {
 	  return com.amazonaws.services.autoscaling.model.AttachInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.AttachInstancesResult {
 		return environment.autoscaling.attachInstances(build())
@@ -75,9 +78,11 @@ class AmazonAutoScalingAttachLoadBalancerTargetGroupsCommand(val autoScalingGrou
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.AttachLoadBalancerTargetGroupsResult {
 	  return com.amazonaws.services.autoscaling.model.AttachLoadBalancerTargetGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.AttachLoadBalancerTargetGroupsResult {
 		return environment.autoscaling.attachLoadBalancerTargetGroups(build())
@@ -108,9 +113,11 @@ class AmazonAutoScalingAttachLoadBalancersCommand(val autoScalingGroupName: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.AttachLoadBalancersResult {
 	  return com.amazonaws.services.autoscaling.model.AttachLoadBalancersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.AttachLoadBalancersResult {
 		return environment.autoscaling.attachLoadBalancers(build())
@@ -145,9 +152,11 @@ class AmazonAutoScalingCompleteLifecycleActionCommand(val lifecycleHookName: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.CompleteLifecycleActionResult {
 	  return com.amazonaws.services.autoscaling.model.CompleteLifecycleActionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.CompleteLifecycleActionResult {
 		return environment.autoscaling.completeLifecycleAction(build())
@@ -215,9 +224,11 @@ class AmazonAutoScalingCreateAutoScalingGroupCommand(val autoScalingGroupName: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.CreateAutoScalingGroupResult {
 	  return com.amazonaws.services.autoscaling.model.CreateAutoScalingGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.CreateAutoScalingGroupResult {
 		return environment.autoscaling.createAutoScalingGroup(build())
@@ -298,9 +309,11 @@ class AmazonAutoScalingCreateLaunchConfigurationCommand(val launchConfigurationN
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.CreateLaunchConfigurationResult {
 	  return com.amazonaws.services.autoscaling.model.CreateLaunchConfigurationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.CreateLaunchConfigurationResult {
 		return environment.autoscaling.createLaunchConfiguration(build())
@@ -346,9 +359,11 @@ class AmazonAutoScalingCreateOrUpdateTagsCommand(val tags: List<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.CreateOrUpdateTagsResult {
 	  return com.amazonaws.services.autoscaling.model.CreateOrUpdateTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.CreateOrUpdateTagsResult {
 		return environment.autoscaling.createOrUpdateTags(build())
@@ -378,9 +393,11 @@ class AmazonAutoScalingDeleteAutoScalingGroupCommand(val autoScalingGroupName: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.DeleteAutoScalingGroupResult {
 	  return com.amazonaws.services.autoscaling.model.DeleteAutoScalingGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.DeleteAutoScalingGroupResult {
 		return environment.autoscaling.deleteAutoScalingGroup(build())
@@ -410,9 +427,11 @@ class AmazonAutoScalingDeleteLaunchConfigurationCommand(val launchConfigurationN
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.DeleteLaunchConfigurationResult {
 	  return com.amazonaws.services.autoscaling.model.DeleteLaunchConfigurationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.DeleteLaunchConfigurationResult {
 		return environment.autoscaling.deleteLaunchConfiguration(build())
@@ -442,9 +461,11 @@ class AmazonAutoScalingDeleteLifecycleHookCommand(val lifecycleHookName: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.DeleteLifecycleHookResult {
 	  return com.amazonaws.services.autoscaling.model.DeleteLifecycleHookResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.DeleteLifecycleHookResult {
 		return environment.autoscaling.deleteLifecycleHook(build())
@@ -475,9 +496,11 @@ class AmazonAutoScalingDeleteNotificationConfigurationCommand(val autoScalingGro
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.DeleteNotificationConfigurationResult {
 	  return com.amazonaws.services.autoscaling.model.DeleteNotificationConfigurationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.DeleteNotificationConfigurationResult {
 		return environment.autoscaling.deleteNotificationConfiguration(build())
@@ -508,9 +531,11 @@ class AmazonAutoScalingDeletePolicyCommand(val policyName: String) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.DeletePolicyResult {
 	  return com.amazonaws.services.autoscaling.model.DeletePolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.DeletePolicyResult {
 		return environment.autoscaling.deletePolicy(build())
@@ -541,9 +566,11 @@ class AmazonAutoScalingDeleteScheduledActionCommand(val autoScalingGroupName: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.DeleteScheduledActionResult {
 	  return com.amazonaws.services.autoscaling.model.DeleteScheduledActionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.DeleteScheduledActionResult {
 		return environment.autoscaling.deleteScheduledAction(build())
@@ -573,9 +600,11 @@ class AmazonAutoScalingDeleteTagsCommand(val tags: List<com.amazonaws.services.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.DeleteTagsResult {
 	  return com.amazonaws.services.autoscaling.model.DeleteTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.DeleteTagsResult {
 		return environment.autoscaling.deleteTags(build())
@@ -604,9 +633,11 @@ class AmazonAutoScalingDescribeAccountLimitsCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.DescribeAccountLimitsResult {
 	  return com.amazonaws.services.autoscaling.model.DescribeAccountLimitsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.DescribeAccountLimitsResult {
 		return environment.autoscaling.describeAccountLimits(build())
@@ -635,9 +666,11 @@ class AmazonAutoScalingDescribeAdjustmentTypesCommand() : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.DescribeAdjustmentTypesResult {
 	  return com.amazonaws.services.autoscaling.model.DescribeAdjustmentTypesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.DescribeAdjustmentTypesResult {
 		return environment.autoscaling.describeAdjustmentTypes(build())
@@ -670,9 +703,11 @@ class AmazonAutoScalingDescribeAutoScalingGroupsCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.DescribeAutoScalingGroupsResult {
 	  return com.amazonaws.services.autoscaling.model.DescribeAutoScalingGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.DescribeAutoScalingGroupsResult {
 		return environment.autoscaling.describeAutoScalingGroups(build())
@@ -707,9 +742,11 @@ class AmazonAutoScalingDescribeAutoScalingInstancesCommand() : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.DescribeAutoScalingInstancesResult {
 	  return com.amazonaws.services.autoscaling.model.DescribeAutoScalingInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.DescribeAutoScalingInstancesResult {
 		return environment.autoscaling.describeAutoScalingInstances(build())
@@ -740,9 +777,11 @@ class AmazonAutoScalingDescribeAutoScalingNotificationTypesCommand() : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.DescribeAutoScalingNotificationTypesResult {
 	  return com.amazonaws.services.autoscaling.model.DescribeAutoScalingNotificationTypesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.DescribeAutoScalingNotificationTypesResult {
 		return environment.autoscaling.describeAutoScalingNotificationTypes(build())
@@ -775,9 +814,11 @@ class AmazonAutoScalingDescribeLaunchConfigurationsCommand() : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.DescribeLaunchConfigurationsResult {
 	  return com.amazonaws.services.autoscaling.model.DescribeLaunchConfigurationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.DescribeLaunchConfigurationsResult {
 		return environment.autoscaling.describeLaunchConfigurations(build())
@@ -808,9 +849,11 @@ class AmazonAutoScalingDescribeLifecycleHookTypesCommand() : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.DescribeLifecycleHookTypesResult {
 	  return com.amazonaws.services.autoscaling.model.DescribeLifecycleHookTypesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.DescribeLifecycleHookTypesResult {
 		return environment.autoscaling.describeLifecycleHookTypes(build())
@@ -840,9 +883,11 @@ class AmazonAutoScalingDescribeLifecycleHooksCommand(val autoScalingGroupName: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.DescribeLifecycleHooksResult {
 	  return com.amazonaws.services.autoscaling.model.DescribeLifecycleHooksResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.DescribeLifecycleHooksResult {
 		return environment.autoscaling.describeLifecycleHooks(build())
@@ -875,9 +920,11 @@ class AmazonAutoScalingDescribeLoadBalancerTargetGroupsCommand(val autoScalingGr
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.DescribeLoadBalancerTargetGroupsResult {
 	  return com.amazonaws.services.autoscaling.model.DescribeLoadBalancerTargetGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.DescribeLoadBalancerTargetGroupsResult {
 		return environment.autoscaling.describeLoadBalancerTargetGroups(build())
@@ -911,9 +958,11 @@ class AmazonAutoScalingDescribeLoadBalancersCommand(val autoScalingGroupName: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.DescribeLoadBalancersResult {
 	  return com.amazonaws.services.autoscaling.model.DescribeLoadBalancersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.DescribeLoadBalancersResult {
 		return environment.autoscaling.describeLoadBalancers(build())
@@ -944,9 +993,11 @@ class AmazonAutoScalingDescribeMetricCollectionTypesCommand() : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.DescribeMetricCollectionTypesResult {
 	  return com.amazonaws.services.autoscaling.model.DescribeMetricCollectionTypesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.DescribeMetricCollectionTypesResult {
 		return environment.autoscaling.describeMetricCollectionTypes(build())
@@ -979,9 +1030,11 @@ class AmazonAutoScalingDescribeNotificationConfigurationsCommand() : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.DescribeNotificationConfigurationsResult {
 	  return com.amazonaws.services.autoscaling.model.DescribeNotificationConfigurationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.DescribeNotificationConfigurationsResult {
 		return environment.autoscaling.describeNotificationConfigurations(build())
@@ -1020,9 +1073,11 @@ class AmazonAutoScalingDescribePoliciesCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.DescribePoliciesResult {
 	  return com.amazonaws.services.autoscaling.model.DescribePoliciesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.DescribePoliciesResult {
 		return environment.autoscaling.describePolicies(build())
@@ -1061,9 +1116,11 @@ class AmazonAutoScalingDescribeScalingActivitiesCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.DescribeScalingActivitiesResult {
 	  return com.amazonaws.services.autoscaling.model.DescribeScalingActivitiesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.DescribeScalingActivitiesResult {
 		return environment.autoscaling.describeScalingActivities(build())
@@ -1095,9 +1152,11 @@ class AmazonAutoScalingDescribeScalingProcessTypesCommand() : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.DescribeScalingProcessTypesResult {
 	  return com.amazonaws.services.autoscaling.model.DescribeScalingProcessTypesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.DescribeScalingProcessTypesResult {
 		return environment.autoscaling.describeScalingProcessTypes(build())
@@ -1136,9 +1195,11 @@ class AmazonAutoScalingDescribeScheduledActionsCommand() : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.DescribeScheduledActionsResult {
 	  return com.amazonaws.services.autoscaling.model.DescribeScheduledActionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.DescribeScheduledActionsResult {
 		return environment.autoscaling.describeScheduledActions(build())
@@ -1176,9 +1237,11 @@ class AmazonAutoScalingDescribeTagsCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.DescribeTagsResult {
 	  return com.amazonaws.services.autoscaling.model.DescribeTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.DescribeTagsResult {
 		return environment.autoscaling.describeTags(build())
@@ -1209,9 +1272,11 @@ class AmazonAutoScalingDescribeTerminationPolicyTypesCommand() : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.DescribeTerminationPolicyTypesResult {
 	  return com.amazonaws.services.autoscaling.model.DescribeTerminationPolicyTypesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.DescribeTerminationPolicyTypesResult {
 		return environment.autoscaling.describeTerminationPolicyTypes(build())
@@ -1242,9 +1307,11 @@ class AmazonAutoScalingDetachInstancesCommand(val autoScalingGroupName: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.DetachInstancesResult {
 	  return com.amazonaws.services.autoscaling.model.DetachInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.DetachInstancesResult {
 		return environment.autoscaling.detachInstances(build())
@@ -1276,9 +1343,11 @@ class AmazonAutoScalingDetachLoadBalancerTargetGroupsCommand(val autoScalingGrou
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.DetachLoadBalancerTargetGroupsResult {
 	  return com.amazonaws.services.autoscaling.model.DetachLoadBalancerTargetGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.DetachLoadBalancerTargetGroupsResult {
 		return environment.autoscaling.detachLoadBalancerTargetGroups(build())
@@ -1309,9 +1378,11 @@ class AmazonAutoScalingDetachLoadBalancersCommand(val autoScalingGroupName: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.DetachLoadBalancersResult {
 	  return com.amazonaws.services.autoscaling.model.DetachLoadBalancersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.DetachLoadBalancersResult {
 		return environment.autoscaling.detachLoadBalancers(build())
@@ -1342,9 +1413,11 @@ class AmazonAutoScalingDisableMetricsCollectionCommand(val autoScalingGroupName:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.DisableMetricsCollectionResult {
 	  return com.amazonaws.services.autoscaling.model.DisableMetricsCollectionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.DisableMetricsCollectionResult {
 		return environment.autoscaling.disableMetricsCollection(build())
@@ -1376,9 +1449,11 @@ class AmazonAutoScalingEnableMetricsCollectionCommand(val autoScalingGroupName: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.EnableMetricsCollectionResult {
 	  return com.amazonaws.services.autoscaling.model.EnableMetricsCollectionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.EnableMetricsCollectionResult {
 		return environment.autoscaling.enableMetricsCollection(build())
@@ -1411,9 +1486,11 @@ class AmazonAutoScalingEnterStandbyCommand(val autoScalingGroupName: String, val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.EnterStandbyResult {
 	  return com.amazonaws.services.autoscaling.model.EnterStandbyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.EnterStandbyResult {
 		return environment.autoscaling.enterStandby(build())
@@ -1451,9 +1528,11 @@ class AmazonAutoScalingExecutePolicyCommand(val policyName: String) : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.ExecutePolicyResult {
 	  return com.amazonaws.services.autoscaling.model.ExecutePolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.ExecutePolicyResult {
 		return environment.autoscaling.executePolicy(build())
@@ -1487,9 +1566,11 @@ class AmazonAutoScalingExitStandbyCommand(val autoScalingGroupName: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.ExitStandbyResult {
 	  return com.amazonaws.services.autoscaling.model.ExitStandbyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.ExitStandbyResult {
 		return environment.autoscaling.exitStandby(build())
@@ -1531,9 +1612,11 @@ class AmazonAutoScalingPutLifecycleHookCommand(val lifecycleHookName: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.PutLifecycleHookResult {
 	  return com.amazonaws.services.autoscaling.model.PutLifecycleHookResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.PutLifecycleHookResult {
 		return environment.autoscaling.putLifecycleHook(build())
@@ -1571,9 +1654,11 @@ class AmazonAutoScalingPutNotificationConfigurationCommand(val autoScalingGroupN
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.PutNotificationConfigurationResult {
 	  return com.amazonaws.services.autoscaling.model.PutNotificationConfigurationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.PutNotificationConfigurationResult {
 		return environment.autoscaling.putNotificationConfiguration(build())
@@ -1624,9 +1709,11 @@ class AmazonAutoScalingPutScalingPolicyCommand(val autoScalingGroupName: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.PutScalingPolicyResult {
 	  return com.amazonaws.services.autoscaling.model.PutScalingPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.PutScalingPolicyResult {
 		return environment.autoscaling.putScalingPolicy(build())
@@ -1680,9 +1767,11 @@ class AmazonAutoScalingPutScheduledUpdateGroupActionCommand(val autoScalingGroup
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.PutScheduledUpdateGroupActionResult {
 	  return com.amazonaws.services.autoscaling.model.PutScheduledUpdateGroupActionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.PutScheduledUpdateGroupActionResult {
 		return environment.autoscaling.putScheduledUpdateGroupAction(build())
@@ -1723,9 +1812,11 @@ class AmazonAutoScalingRecordLifecycleActionHeartbeatCommand(val lifecycleHookNa
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.RecordLifecycleActionHeartbeatResult {
 	  return com.amazonaws.services.autoscaling.model.RecordLifecycleActionHeartbeatResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.RecordLifecycleActionHeartbeatResult {
 		return environment.autoscaling.recordLifecycleActionHeartbeat(build())
@@ -1758,9 +1849,11 @@ class AmazonAutoScalingResumeProcessesCommand(val autoScalingGroupName: String) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.ResumeProcessesResult {
 	  return com.amazonaws.services.autoscaling.model.ResumeProcessesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.ResumeProcessesResult {
 		return environment.autoscaling.resumeProcesses(build())
@@ -1792,9 +1885,11 @@ class AmazonAutoScalingSetDesiredCapacityCommand(val autoScalingGroupName: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.SetDesiredCapacityResult {
 	  return com.amazonaws.services.autoscaling.model.SetDesiredCapacityResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.SetDesiredCapacityResult {
 		return environment.autoscaling.setDesiredCapacity(build())
@@ -1827,9 +1922,11 @@ class AmazonAutoScalingSetInstanceHealthCommand(val instanceId: String, val heal
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.SetInstanceHealthResult {
 	  return com.amazonaws.services.autoscaling.model.SetInstanceHealthResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.SetInstanceHealthResult {
 		return environment.autoscaling.setInstanceHealth(build())
@@ -1862,9 +1959,11 @@ class AmazonAutoScalingSetInstanceProtectionCommand(val instanceIds: List<String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.SetInstanceProtectionResult {
 	  return com.amazonaws.services.autoscaling.model.SetInstanceProtectionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.SetInstanceProtectionResult {
 		return environment.autoscaling.setInstanceProtection(build())
@@ -1896,9 +1995,11 @@ class AmazonAutoScalingSuspendProcessesCommand(val autoScalingGroupName: String)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.SuspendProcessesResult {
 	  return com.amazonaws.services.autoscaling.model.SuspendProcessesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.SuspendProcessesResult {
 		return environment.autoscaling.suspendProcesses(build())
@@ -1929,9 +2030,11 @@ class AmazonAutoScalingTerminateInstanceInAutoScalingGroupCommand(val instanceId
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.TerminateInstanceInAutoScalingGroupResult {
 	  return com.amazonaws.services.autoscaling.model.TerminateInstanceInAutoScalingGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.TerminateInstanceInAutoScalingGroupResult {
 		return environment.autoscaling.terminateInstanceInAutoScalingGroup(build())
@@ -1988,9 +2091,11 @@ class AmazonAutoScalingUpdateAutoScalingGroupCommand(val autoScalingGroupName: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscaling.model.UpdateAutoScalingGroupResult {
 	  return com.amazonaws.services.autoscaling.model.UpdateAutoScalingGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscaling.model.UpdateAutoScalingGroupResult {
 		return environment.autoscaling.updateAutoScalingGroup(build())

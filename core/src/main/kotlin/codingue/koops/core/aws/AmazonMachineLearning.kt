@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -43,9 +44,11 @@ class AmazonMachineLearningAddTagsCommand(val tags: List<com.amazonaws.services.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.machinelearning.model.AddTagsResult {
 	  return com.amazonaws.services.machinelearning.model.AddTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.AddTagsResult {
 		return environment.machinelearning.addTags(build())
@@ -80,9 +83,11 @@ class AmazonMachineLearningCreateBatchPredictionCommand(val batchPredictionId: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.machinelearning.model.CreateBatchPredictionResult {
 	  return com.amazonaws.services.machinelearning.model.CreateBatchPredictionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.CreateBatchPredictionResult {
 		return environment.machinelearning.createBatchPrediction(build())
@@ -120,9 +125,11 @@ class AmazonMachineLearningCreateDataSourceFromRDSCommand(val dataSourceId: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.machinelearning.model.CreateDataSourceFromRDSResult {
 	  return com.amazonaws.services.machinelearning.model.CreateDataSourceFromRDSResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.CreateDataSourceFromRDSResult {
 		return environment.machinelearning.createDataSourceFromRDS(build())
@@ -160,9 +167,11 @@ class AmazonMachineLearningCreateDataSourceFromRedshiftCommand(val dataSourceId:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.machinelearning.model.CreateDataSourceFromRedshiftResult {
 	  return com.amazonaws.services.machinelearning.model.CreateDataSourceFromRedshiftResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.CreateDataSourceFromRedshiftResult {
 		return environment.machinelearning.createDataSourceFromRedshift(build())
@@ -199,9 +208,11 @@ class AmazonMachineLearningCreateDataSourceFromS3Command(val dataSourceId: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.machinelearning.model.CreateDataSourceFromS3Result {
 	  return com.amazonaws.services.machinelearning.model.CreateDataSourceFromS3Result()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.CreateDataSourceFromS3Result {
 		return environment.machinelearning.createDataSourceFromS3(build())
@@ -236,9 +247,11 @@ class AmazonMachineLearningCreateEvaluationCommand(val evaluationId: String, val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.machinelearning.model.CreateEvaluationResult {
 	  return com.amazonaws.services.machinelearning.model.CreateEvaluationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.CreateEvaluationResult {
 		return environment.machinelearning.createEvaluation(build())
@@ -279,9 +292,11 @@ class AmazonMachineLearningCreateMLModelCommand(val mLModelId: String, val mLMod
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.machinelearning.model.CreateMLModelResult {
 	  return com.amazonaws.services.machinelearning.model.CreateMLModelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.CreateMLModelResult {
 		return environment.machinelearning.createMLModel(build())
@@ -316,9 +331,11 @@ class AmazonMachineLearningCreateRealtimeEndpointCommand(val mLModelId: String) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.machinelearning.model.CreateRealtimeEndpointResult {
 	  return com.amazonaws.services.machinelearning.model.CreateRealtimeEndpointResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.CreateRealtimeEndpointResult {
 		return environment.machinelearning.createRealtimeEndpoint(build())
@@ -347,9 +364,11 @@ class AmazonMachineLearningDeleteBatchPredictionCommand(val batchPredictionId: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.machinelearning.model.DeleteBatchPredictionResult {
 	  return com.amazonaws.services.machinelearning.model.DeleteBatchPredictionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.DeleteBatchPredictionResult {
 		return environment.machinelearning.deleteBatchPrediction(build())
@@ -378,9 +397,11 @@ class AmazonMachineLearningDeleteDataSourceCommand(val dataSourceId: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.machinelearning.model.DeleteDataSourceResult {
 	  return com.amazonaws.services.machinelearning.model.DeleteDataSourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.DeleteDataSourceResult {
 		return environment.machinelearning.deleteDataSource(build())
@@ -409,9 +430,11 @@ class AmazonMachineLearningDeleteEvaluationCommand(val evaluationId: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.machinelearning.model.DeleteEvaluationResult {
 	  return com.amazonaws.services.machinelearning.model.DeleteEvaluationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.DeleteEvaluationResult {
 		return environment.machinelearning.deleteEvaluation(build())
@@ -440,9 +463,11 @@ class AmazonMachineLearningDeleteMLModelCommand(val mLModelId: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.machinelearning.model.DeleteMLModelResult {
 	  return com.amazonaws.services.machinelearning.model.DeleteMLModelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.DeleteMLModelResult {
 		return environment.machinelearning.deleteMLModel(build())
@@ -471,9 +496,11 @@ class AmazonMachineLearningDeleteRealtimeEndpointCommand(val mLModelId: String) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.machinelearning.model.DeleteRealtimeEndpointResult {
 	  return com.amazonaws.services.machinelearning.model.DeleteRealtimeEndpointResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.DeleteRealtimeEndpointResult {
 		return environment.machinelearning.deleteRealtimeEndpoint(build())
@@ -504,9 +531,11 @@ class AmazonMachineLearningDeleteTagsCommand(val tagKeys: List<String>, val reso
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.machinelearning.model.DeleteTagsResult {
 	  return com.amazonaws.services.machinelearning.model.DeleteTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.DeleteTagsResult {
 		return environment.machinelearning.deleteTags(build())
@@ -557,9 +586,11 @@ class AmazonMachineLearningDescribeBatchPredictionsCommand() : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.machinelearning.model.DescribeBatchPredictionsResult {
 	  return com.amazonaws.services.machinelearning.model.DescribeBatchPredictionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.DescribeBatchPredictionsResult {
 		return environment.machinelearning.describeBatchPredictions(build())
@@ -618,9 +649,11 @@ class AmazonMachineLearningDescribeDataSourcesCommand() : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.machinelearning.model.DescribeDataSourcesResult {
 	  return com.amazonaws.services.machinelearning.model.DescribeDataSourcesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.DescribeDataSourcesResult {
 		return environment.machinelearning.describeDataSources(build())
@@ -679,9 +712,11 @@ class AmazonMachineLearningDescribeEvaluationsCommand() : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.machinelearning.model.DescribeEvaluationsResult {
 	  return com.amazonaws.services.machinelearning.model.DescribeEvaluationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.DescribeEvaluationsResult {
 		return environment.machinelearning.describeEvaluations(build())
@@ -740,9 +775,11 @@ class AmazonMachineLearningDescribeMLModelsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.machinelearning.model.DescribeMLModelsResult {
 	  return com.amazonaws.services.machinelearning.model.DescribeMLModelsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.DescribeMLModelsResult {
 		return environment.machinelearning.describeMLModels(build())
@@ -782,9 +819,11 @@ class AmazonMachineLearningDescribeTagsCommand(val resourceId: String, val resou
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.machinelearning.model.DescribeTagsResult {
 	  return com.amazonaws.services.machinelearning.model.DescribeTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.DescribeTagsResult {
 		return environment.machinelearning.describeTags(build())
@@ -814,9 +853,11 @@ class AmazonMachineLearningGetBatchPredictionCommand(val batchPredictionId: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.machinelearning.model.GetBatchPredictionResult {
 	  return com.amazonaws.services.machinelearning.model.GetBatchPredictionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.GetBatchPredictionResult {
 		return environment.machinelearning.getBatchPrediction(build())
@@ -846,9 +887,11 @@ class AmazonMachineLearningGetDataSourceCommand(val dataSourceId: String) : Amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.machinelearning.model.GetDataSourceResult {
 	  return com.amazonaws.services.machinelearning.model.GetDataSourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.GetDataSourceResult {
 		return environment.machinelearning.getDataSource(build())
@@ -878,9 +921,11 @@ class AmazonMachineLearningGetEvaluationCommand(val evaluationId: String) : Amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.machinelearning.model.GetEvaluationResult {
 	  return com.amazonaws.services.machinelearning.model.GetEvaluationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.GetEvaluationResult {
 		return environment.machinelearning.getEvaluation(build())
@@ -910,9 +955,11 @@ class AmazonMachineLearningGetMLModelCommand(val mLModelId: String) : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.machinelearning.model.GetMLModelResult {
 	  return com.amazonaws.services.machinelearning.model.GetMLModelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.GetMLModelResult {
 		return environment.machinelearning.getMLModel(build())
@@ -944,9 +991,11 @@ class AmazonMachineLearningPredictCommand(val mLModelId: String, val record: Map
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.machinelearning.model.PredictResult {
 	  return com.amazonaws.services.machinelearning.model.PredictResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.PredictResult {
 		return environment.machinelearning.predict(build())
@@ -978,9 +1027,11 @@ class AmazonMachineLearningUpdateBatchPredictionCommand(val batchPredictionId: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.machinelearning.model.UpdateBatchPredictionResult {
 	  return com.amazonaws.services.machinelearning.model.UpdateBatchPredictionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.UpdateBatchPredictionResult {
 		return environment.machinelearning.updateBatchPrediction(build())
@@ -1011,9 +1062,11 @@ class AmazonMachineLearningUpdateDataSourceCommand(val dataSourceId: String, val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.machinelearning.model.UpdateDataSourceResult {
 	  return com.amazonaws.services.machinelearning.model.UpdateDataSourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.UpdateDataSourceResult {
 		return environment.machinelearning.updateDataSource(build())
@@ -1044,9 +1097,11 @@ class AmazonMachineLearningUpdateEvaluationCommand(val evaluationId: String, val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.machinelearning.model.UpdateEvaluationResult {
 	  return com.amazonaws.services.machinelearning.model.UpdateEvaluationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.UpdateEvaluationResult {
 		return environment.machinelearning.updateEvaluation(build())
@@ -1079,9 +1134,11 @@ class AmazonMachineLearningUpdateMLModelCommand(val mLModelId: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.machinelearning.model.UpdateMLModelResult {
 	  return com.amazonaws.services.machinelearning.model.UpdateMLModelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.UpdateMLModelResult {
 		return environment.machinelearning.updateMLModel(build())

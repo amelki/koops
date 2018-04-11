@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -41,9 +42,11 @@ class AWSSecretsManagerCancelRotateSecretCommand(val secretId: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.secretsmanager.model.CancelRotateSecretResult {
 	  return com.amazonaws.services.secretsmanager.model.CancelRotateSecretResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.secretsmanager.model.CancelRotateSecretResult {
 		return environment.secretsmanager.cancelRotateSecret(build())
@@ -83,9 +86,11 @@ class AWSSecretsManagerCreateSecretCommand(val name: String) : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.secretsmanager.model.CreateSecretResult {
 	  return com.amazonaws.services.secretsmanager.model.CreateSecretResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.secretsmanager.model.CreateSecretResult {
 		return environment.secretsmanager.createSecret(build())
@@ -121,9 +126,11 @@ class AWSSecretsManagerDeleteSecretCommand(val secretId: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.secretsmanager.model.DeleteSecretResult {
 	  return com.amazonaws.services.secretsmanager.model.DeleteSecretResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.secretsmanager.model.DeleteSecretResult {
 		return environment.secretsmanager.deleteSecret(build())
@@ -153,9 +160,11 @@ class AWSSecretsManagerDescribeSecretCommand(val secretId: String) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.secretsmanager.model.DescribeSecretResult {
 	  return com.amazonaws.services.secretsmanager.model.DescribeSecretResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.secretsmanager.model.DescribeSecretResult {
 		return environment.secretsmanager.describeSecret(build())
@@ -198,9 +207,11 @@ class AWSSecretsManagerGetRandomPasswordCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.secretsmanager.model.GetRandomPasswordResult {
 	  return com.amazonaws.services.secretsmanager.model.GetRandomPasswordResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.secretsmanager.model.GetRandomPasswordResult {
 		return environment.secretsmanager.getRandomPassword(build())
@@ -239,9 +250,11 @@ class AWSSecretsManagerGetSecretValueCommand(val secretId: String) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.secretsmanager.model.GetSecretValueResult {
 	  return com.amazonaws.services.secretsmanager.model.GetSecretValueResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.secretsmanager.model.GetSecretValueResult {
 		return environment.secretsmanager.getSecretValue(build())
@@ -277,9 +290,11 @@ class AWSSecretsManagerListSecretVersionIdsCommand(val secretId: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.secretsmanager.model.ListSecretVersionIdsResult {
 	  return com.amazonaws.services.secretsmanager.model.ListSecretVersionIdsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.secretsmanager.model.ListSecretVersionIdsResult {
 		return environment.secretsmanager.listSecretVersionIds(build())
@@ -313,9 +328,11 @@ class AWSSecretsManagerListSecretsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.secretsmanager.model.ListSecretsResult {
 	  return com.amazonaws.services.secretsmanager.model.ListSecretsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.secretsmanager.model.ListSecretsResult {
 		return environment.secretsmanager.listSecrets(build())
@@ -352,9 +369,11 @@ class AWSSecretsManagerPutSecretValueCommand(val secretId: String) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.secretsmanager.model.PutSecretValueResult {
 	  return com.amazonaws.services.secretsmanager.model.PutSecretValueResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.secretsmanager.model.PutSecretValueResult {
 		return environment.secretsmanager.putSecretValue(build())
@@ -387,9 +406,11 @@ class AWSSecretsManagerRestoreSecretCommand(val secretId: String) : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.secretsmanager.model.RestoreSecretResult {
 	  return com.amazonaws.services.secretsmanager.model.RestoreSecretResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.secretsmanager.model.RestoreSecretResult {
 		return environment.secretsmanager.restoreSecret(build())
@@ -423,9 +444,11 @@ class AWSSecretsManagerRotateSecretCommand(val secretId: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.secretsmanager.model.RotateSecretResult {
 	  return com.amazonaws.services.secretsmanager.model.RotateSecretResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.secretsmanager.model.RotateSecretResult {
 		return environment.secretsmanager.rotateSecret(build())
@@ -458,9 +481,11 @@ class AWSSecretsManagerTagResourceCommand(val secretId: String, val tags: List<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.secretsmanager.model.TagResourceResult {
 	  return com.amazonaws.services.secretsmanager.model.TagResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.secretsmanager.model.TagResourceResult {
 		return environment.secretsmanager.tagResource(build())
@@ -491,9 +516,11 @@ class AWSSecretsManagerUntagResourceCommand(val secretId: String, val tagKeys: L
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.secretsmanager.model.UntagResourceResult {
 	  return com.amazonaws.services.secretsmanager.model.UntagResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.secretsmanager.model.UntagResourceResult {
 		return environment.secretsmanager.untagResource(build())
@@ -532,9 +559,11 @@ class AWSSecretsManagerUpdateSecretCommand(val secretId: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.secretsmanager.model.UpdateSecretResult {
 	  return com.amazonaws.services.secretsmanager.model.UpdateSecretResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.secretsmanager.model.UpdateSecretResult {
 		return environment.secretsmanager.updateSecret(build())
@@ -572,9 +601,11 @@ class AWSSecretsManagerUpdateSecretVersionStageCommand(val secretId: String, val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.secretsmanager.model.UpdateSecretVersionStageResult {
 	  return com.amazonaws.services.secretsmanager.model.UpdateSecretVersionStageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.secretsmanager.model.UpdateSecretVersionStageResult {
 		return environment.secretsmanager.updateSecretVersionStage(build())

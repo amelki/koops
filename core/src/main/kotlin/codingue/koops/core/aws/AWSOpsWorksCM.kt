@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -43,9 +44,11 @@ class AWSOpsWorksCMAssociateNodeCommand(val serverName: String, val nodeName: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworkscm.model.AssociateNodeResult {
 	  return com.amazonaws.services.opsworkscm.model.AssociateNodeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworkscm.model.AssociateNodeResult {
 		return environment.opsworks_cm.associateNode(build())
@@ -77,9 +80,11 @@ class AWSOpsWorksCMCreateBackupCommand(val serverName: String) : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworkscm.model.CreateBackupResult {
 	  return com.amazonaws.services.opsworkscm.model.CreateBackupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworkscm.model.CreateBackupResult {
 		return environment.opsworks_cm.createBackup(build())
@@ -137,9 +142,11 @@ class AWSOpsWorksCMCreateServerCommand(val serverName: String, val instanceProfi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworkscm.model.CreateServerResult {
 	  return com.amazonaws.services.opsworkscm.model.CreateServerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworkscm.model.CreateServerResult {
 		return environment.opsworks_cm.createServer(build())
@@ -184,9 +191,11 @@ class AWSOpsWorksCMDeleteBackupCommand(val backupId: String) : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworkscm.model.DeleteBackupResult {
 	  return com.amazonaws.services.opsworkscm.model.DeleteBackupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworkscm.model.DeleteBackupResult {
 		return environment.opsworks_cm.deleteBackup(build())
@@ -215,9 +224,11 @@ class AWSOpsWorksCMDeleteServerCommand(val serverName: String) : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworkscm.model.DeleteServerResult {
 	  return com.amazonaws.services.opsworkscm.model.DeleteServerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworkscm.model.DeleteServerResult {
 		return environment.opsworks_cm.deleteServer(build())
@@ -246,9 +257,11 @@ class AWSOpsWorksCMDescribeAccountAttributesCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworkscm.model.DescribeAccountAttributesResult {
 	  return com.amazonaws.services.opsworkscm.model.DescribeAccountAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworkscm.model.DescribeAccountAttributesResult {
 		return environment.opsworks_cm.describeAccountAttributes(build())
@@ -283,9 +296,11 @@ class AWSOpsWorksCMDescribeBackupsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworkscm.model.DescribeBackupsResult {
 	  return com.amazonaws.services.opsworkscm.model.DescribeBackupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworkscm.model.DescribeBackupsResult {
 		return environment.opsworks_cm.describeBackups(build())
@@ -320,9 +335,11 @@ class AWSOpsWorksCMDescribeEventsCommand(val serverName: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworkscm.model.DescribeEventsResult {
 	  return com.amazonaws.services.opsworkscm.model.DescribeEventsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworkscm.model.DescribeEventsResult {
 		return environment.opsworks_cm.describeEvents(build())
@@ -354,9 +371,11 @@ class AWSOpsWorksCMDescribeNodeAssociationStatusCommand(val nodeAssociationStatu
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworkscm.model.DescribeNodeAssociationStatusResult {
 	  return com.amazonaws.services.opsworkscm.model.DescribeNodeAssociationStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworkscm.model.DescribeNodeAssociationStatusResult {
 		return environment.opsworks_cm.describeNodeAssociationStatus(build())
@@ -390,9 +409,11 @@ class AWSOpsWorksCMDescribeServersCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworkscm.model.DescribeServersResult {
 	  return com.amazonaws.services.opsworkscm.model.DescribeServersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworkscm.model.DescribeServersResult {
 		return environment.opsworks_cm.describeServers(build())
@@ -425,9 +446,11 @@ class AWSOpsWorksCMDisassociateNodeCommand(val serverName: String, val nodeName:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworkscm.model.DisassociateNodeResult {
 	  return com.amazonaws.services.opsworkscm.model.DisassociateNodeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworkscm.model.DisassociateNodeResult {
 		return environment.opsworks_cm.disassociateNode(build())
@@ -462,9 +485,11 @@ class AWSOpsWorksCMRestoreServerCommand(val backupId: String, val serverName: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworkscm.model.RestoreServerResult {
 	  return com.amazonaws.services.opsworkscm.model.RestoreServerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworkscm.model.RestoreServerResult {
 		return environment.opsworks_cm.restoreServer(build())
@@ -497,9 +522,11 @@ class AWSOpsWorksCMStartMaintenanceCommand(val serverName: String) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworkscm.model.StartMaintenanceResult {
 	  return com.amazonaws.services.opsworkscm.model.StartMaintenanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworkscm.model.StartMaintenanceResult {
 		return environment.opsworks_cm.startMaintenance(build())
@@ -536,9 +563,11 @@ class AWSOpsWorksCMUpdateServerCommand(val serverName: String) : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworkscm.model.UpdateServerResult {
 	  return com.amazonaws.services.opsworkscm.model.UpdateServerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworkscm.model.UpdateServerResult {
 		return environment.opsworks_cm.updateServer(build())
@@ -573,9 +602,11 @@ class AWSOpsWorksCMUpdateServerEngineAttributesCommand(val serverName: String, v
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworkscm.model.UpdateServerEngineAttributesResult {
 	  return com.amazonaws.services.opsworkscm.model.UpdateServerEngineAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworkscm.model.UpdateServerEngineAttributesResult {
 		return environment.opsworks_cm.updateServerEngineAttributes(build())

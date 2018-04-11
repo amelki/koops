@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -41,9 +42,11 @@ class AmazonECSCreateClusterCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecs.model.CreateClusterResult {
 	  return com.amazonaws.services.ecs.model.CreateClusterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecs.model.CreateClusterResult {
 		return environment.ecs.createCluster(build())
@@ -100,9 +103,11 @@ class AmazonECSCreateServiceCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecs.model.CreateServiceResult {
 	  return com.amazonaws.services.ecs.model.CreateServiceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecs.model.CreateServiceResult {
 		return environment.ecs.createService(build())
@@ -147,9 +152,11 @@ class AmazonECSDeleteAttributesCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecs.model.DeleteAttributesResult {
 	  return com.amazonaws.services.ecs.model.DeleteAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecs.model.DeleteAttributesResult {
 		return environment.ecs.deleteAttributes(build())
@@ -179,9 +186,11 @@ class AmazonECSDeleteClusterCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecs.model.DeleteClusterResult {
 	  return com.amazonaws.services.ecs.model.DeleteClusterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecs.model.DeleteClusterResult {
 		return environment.ecs.deleteCluster(build())
@@ -212,9 +221,11 @@ class AmazonECSDeleteServiceCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecs.model.DeleteServiceResult {
 	  return com.amazonaws.services.ecs.model.DeleteServiceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecs.model.DeleteServiceResult {
 		return environment.ecs.deleteService(build())
@@ -248,9 +259,11 @@ class AmazonECSDeregisterContainerInstanceCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecs.model.DeregisterContainerInstanceResult {
 	  return com.amazonaws.services.ecs.model.DeregisterContainerInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecs.model.DeregisterContainerInstanceResult {
 		return environment.ecs.deregisterContainerInstance(build())
@@ -281,9 +294,11 @@ class AmazonECSDeregisterTaskDefinitionCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecs.model.DeregisterTaskDefinitionResult {
 	  return com.amazonaws.services.ecs.model.DeregisterTaskDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecs.model.DeregisterTaskDefinitionResult {
 		return environment.ecs.deregisterTaskDefinition(build())
@@ -314,9 +329,11 @@ class AmazonECSDescribeClustersCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecs.model.DescribeClustersResult {
 	  return com.amazonaws.services.ecs.model.DescribeClustersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecs.model.DescribeClustersResult {
 		return environment.ecs.describeClusters(build())
@@ -348,9 +365,11 @@ class AmazonECSDescribeContainerInstancesCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecs.model.DescribeContainerInstancesResult {
 	  return com.amazonaws.services.ecs.model.DescribeContainerInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecs.model.DescribeContainerInstancesResult {
 		return environment.ecs.describeContainerInstances(build())
@@ -382,9 +401,11 @@ class AmazonECSDescribeServicesCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecs.model.DescribeServicesResult {
 	  return com.amazonaws.services.ecs.model.DescribeServicesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecs.model.DescribeServicesResult {
 		return environment.ecs.describeServices(build())
@@ -414,9 +435,11 @@ class AmazonECSDescribeTaskDefinitionCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecs.model.DescribeTaskDefinitionResult {
 	  return com.amazonaws.services.ecs.model.DescribeTaskDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecs.model.DescribeTaskDefinitionResult {
 		return environment.ecs.describeTaskDefinition(build())
@@ -447,9 +470,11 @@ class AmazonECSDescribeTasksCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecs.model.DescribeTasksResult {
 	  return com.amazonaws.services.ecs.model.DescribeTasksResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecs.model.DescribeTasksResult {
 		return environment.ecs.describeTasks(build())
@@ -481,9 +506,11 @@ class AmazonECSDiscoverPollEndpointCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecs.model.DiscoverPollEndpointResult {
 	  return com.amazonaws.services.ecs.model.DiscoverPollEndpointResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecs.model.DiscoverPollEndpointResult {
 		return environment.ecs.discoverPollEndpoint(build())
@@ -523,9 +550,11 @@ class AmazonECSListAttributesCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecs.model.ListAttributesResult {
 	  return com.amazonaws.services.ecs.model.ListAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecs.model.ListAttributesResult {
 		return environment.ecs.listAttributes(build())
@@ -561,9 +590,11 @@ class AmazonECSListClustersCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecs.model.ListClustersResult {
 	  return com.amazonaws.services.ecs.model.ListClustersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecs.model.ListClustersResult {
 		return environment.ecs.listClusters(build())
@@ -601,9 +632,11 @@ class AmazonECSListContainerInstancesCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecs.model.ListContainerInstancesResult {
 	  return com.amazonaws.services.ecs.model.ListContainerInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecs.model.ListContainerInstancesResult {
 		return environment.ecs.listContainerInstances(build())
@@ -642,9 +675,11 @@ class AmazonECSListServicesCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecs.model.ListServicesResult {
 	  return com.amazonaws.services.ecs.model.ListServicesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecs.model.ListServicesResult {
 		return environment.ecs.listServices(build())
@@ -682,9 +717,11 @@ class AmazonECSListTaskDefinitionFamiliesCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecs.model.ListTaskDefinitionFamiliesResult {
 	  return com.amazonaws.services.ecs.model.ListTaskDefinitionFamiliesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecs.model.ListTaskDefinitionFamiliesResult {
 		return environment.ecs.listTaskDefinitionFamilies(build())
@@ -724,9 +761,11 @@ class AmazonECSListTaskDefinitionsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecs.model.ListTaskDefinitionsResult {
 	  return com.amazonaws.services.ecs.model.ListTaskDefinitionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecs.model.ListTaskDefinitionsResult {
 		return environment.ecs.listTaskDefinitions(build())
@@ -775,9 +814,11 @@ class AmazonECSListTasksCommand() : AmazonWebServiceCommand<com.amazonaws.servic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecs.model.ListTasksResult {
 	  return com.amazonaws.services.ecs.model.ListTasksResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecs.model.ListTasksResult {
 		return environment.ecs.listTasks(build())
@@ -816,9 +857,11 @@ class AmazonECSPutAttributesCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecs.model.PutAttributesResult {
 	  return com.amazonaws.services.ecs.model.PutAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecs.model.PutAttributesResult {
 		return environment.ecs.putAttributes(build())
@@ -860,9 +903,11 @@ class AmazonECSRegisterContainerInstanceCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecs.model.RegisterContainerInstanceResult {
 	  return com.amazonaws.services.ecs.model.RegisterContainerInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecs.model.RegisterContainerInstanceResult {
 		return environment.ecs.registerContainerInstance(build())
@@ -915,9 +960,11 @@ class AmazonECSRegisterTaskDefinitionCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecs.model.RegisterTaskDefinitionResult {
 	  return com.amazonaws.services.ecs.model.RegisterTaskDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecs.model.RegisterTaskDefinitionResult {
 		return environment.ecs.registerTaskDefinition(build())
@@ -975,9 +1022,11 @@ class AmazonECSRunTaskCommand() : AmazonWebServiceCommand<com.amazonaws.services
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecs.model.RunTaskResult {
 	  return com.amazonaws.services.ecs.model.RunTaskResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecs.model.RunTaskResult {
 		return environment.ecs.runTask(build())
@@ -1028,9 +1077,11 @@ class AmazonECSStartTaskCommand() : AmazonWebServiceCommand<com.amazonaws.servic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecs.model.StartTaskResult {
 	  return com.amazonaws.services.ecs.model.StartTaskResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecs.model.StartTaskResult {
 		return environment.ecs.startTask(build())
@@ -1069,9 +1120,11 @@ class AmazonECSStopTaskCommand() : AmazonWebServiceCommand<com.amazonaws.service
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecs.model.StopTaskResult {
 	  return com.amazonaws.services.ecs.model.StopTaskResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecs.model.StopTaskResult {
 		return environment.ecs.stopTask(build())
@@ -1114,9 +1167,11 @@ class AmazonECSSubmitContainerStateChangeCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecs.model.SubmitContainerStateChangeResult {
 	  return com.amazonaws.services.ecs.model.SubmitContainerStateChangeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecs.model.SubmitContainerStateChangeResult {
 		return environment.ecs.submitContainerStateChange(build())
@@ -1167,9 +1222,11 @@ class AmazonECSSubmitTaskStateChangeCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecs.model.SubmitTaskStateChangeResult {
 	  return com.amazonaws.services.ecs.model.SubmitTaskStateChangeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecs.model.SubmitTaskStateChangeResult {
 		return environment.ecs.submitTaskStateChange(build())
@@ -1208,9 +1265,11 @@ class AmazonECSUpdateContainerAgentCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecs.model.UpdateContainerAgentResult {
 	  return com.amazonaws.services.ecs.model.UpdateContainerAgentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecs.model.UpdateContainerAgentResult {
 		return environment.ecs.updateContainerAgent(build())
@@ -1244,9 +1303,11 @@ class AmazonECSUpdateContainerInstancesStateCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecs.model.UpdateContainerInstancesStateResult {
 	  return com.amazonaws.services.ecs.model.UpdateContainerInstancesStateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecs.model.UpdateContainerInstancesStateResult {
 		return environment.ecs.updateContainerInstancesState(build())
@@ -1293,9 +1354,11 @@ class AmazonECSUpdateServiceCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecs.model.UpdateServiceResult {
 	  return com.amazonaws.services.ecs.model.UpdateServiceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecs.model.UpdateServiceResult {
 		return environment.ecs.updateService(build())

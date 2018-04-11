@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -42,9 +43,11 @@ class AWSCognitoIdentityProviderAddCustomAttributesCommand(val userPoolId: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.AddCustomAttributesResult {
 	  return com.amazonaws.services.cognitoidp.model.AddCustomAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.AddCustomAttributesResult {
 		return environment.cognito_idp.addCustomAttributes(build())
@@ -76,9 +79,11 @@ class AWSCognitoIdentityProviderAdminAddUserToGroupCommand(val userPoolId: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.AdminAddUserToGroupResult {
 	  return com.amazonaws.services.cognitoidp.model.AdminAddUserToGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.AdminAddUserToGroupResult {
 		return environment.cognito_idp.adminAddUserToGroup(build())
@@ -110,9 +115,11 @@ class AWSCognitoIdentityProviderAdminConfirmSignUpCommand(val userPoolId: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.AdminConfirmSignUpResult {
 	  return com.amazonaws.services.cognitoidp.model.AdminConfirmSignUpResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.AdminConfirmSignUpResult {
 		return environment.cognito_idp.adminConfirmSignUp(build())
@@ -154,9 +161,11 @@ class AWSCognitoIdentityProviderAdminCreateUserCommand(val userPoolId: String, v
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.AdminCreateUserResult {
 	  return com.amazonaws.services.cognitoidp.model.AdminCreateUserResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.AdminCreateUserResult {
 		return environment.cognito_idp.adminCreateUser(build())
@@ -193,9 +202,11 @@ class AWSCognitoIdentityProviderAdminDeleteUserCommand(val userPoolId: String, v
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.AdminDeleteUserResult {
 	  return com.amazonaws.services.cognitoidp.model.AdminDeleteUserResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.AdminDeleteUserResult {
 		return environment.cognito_idp.adminDeleteUser(build())
@@ -227,9 +238,11 @@ class AWSCognitoIdentityProviderAdminDeleteUserAttributesCommand(val userPoolId:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.AdminDeleteUserAttributesResult {
 	  return com.amazonaws.services.cognitoidp.model.AdminDeleteUserAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.AdminDeleteUserAttributesResult {
 		return environment.cognito_idp.adminDeleteUserAttributes(build())
@@ -261,9 +274,11 @@ class AWSCognitoIdentityProviderAdminDisableProviderForUserCommand(val userPoolI
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.AdminDisableProviderForUserResult {
 	  return com.amazonaws.services.cognitoidp.model.AdminDisableProviderForUserResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.AdminDisableProviderForUserResult {
 		return environment.cognito_idp.adminDisableProviderForUser(build())
@@ -294,9 +309,11 @@ class AWSCognitoIdentityProviderAdminDisableUserCommand(val userPoolId: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.AdminDisableUserResult {
 	  return com.amazonaws.services.cognitoidp.model.AdminDisableUserResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.AdminDisableUserResult {
 		return environment.cognito_idp.adminDisableUser(build())
@@ -327,9 +344,11 @@ class AWSCognitoIdentityProviderAdminEnableUserCommand(val userPoolId: String, v
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.AdminEnableUserResult {
 	  return com.amazonaws.services.cognitoidp.model.AdminEnableUserResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.AdminEnableUserResult {
 		return environment.cognito_idp.adminEnableUser(build())
@@ -361,9 +380,11 @@ class AWSCognitoIdentityProviderAdminForgetDeviceCommand(val userPoolId: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.AdminForgetDeviceResult {
 	  return com.amazonaws.services.cognitoidp.model.AdminForgetDeviceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.AdminForgetDeviceResult {
 		return environment.cognito_idp.adminForgetDevice(build())
@@ -396,9 +417,11 @@ class AWSCognitoIdentityProviderAdminGetDeviceCommand(val deviceKey: String, val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.AdminGetDeviceResult {
 	  return com.amazonaws.services.cognitoidp.model.AdminGetDeviceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.AdminGetDeviceResult {
 		return environment.cognito_idp.adminGetDevice(build())
@@ -430,9 +453,11 @@ class AWSCognitoIdentityProviderAdminGetUserCommand(val userPoolId: String, val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.AdminGetUserResult {
 	  return com.amazonaws.services.cognitoidp.model.AdminGetUserResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.AdminGetUserResult {
 		return environment.cognito_idp.adminGetUser(build())
@@ -471,9 +496,11 @@ class AWSCognitoIdentityProviderAdminInitiateAuthCommand(val userPoolId: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.AdminInitiateAuthResult {
 	  return com.amazonaws.services.cognitoidp.model.AdminInitiateAuthResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.AdminInitiateAuthResult {
 		return environment.cognito_idp.adminInitiateAuth(build())
@@ -510,9 +537,11 @@ class AWSCognitoIdentityProviderAdminLinkProviderForUserCommand(val userPoolId: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.AdminLinkProviderForUserResult {
 	  return com.amazonaws.services.cognitoidp.model.AdminLinkProviderForUserResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.AdminLinkProviderForUserResult {
 		return environment.cognito_idp.adminLinkProviderForUser(build())
@@ -547,9 +576,11 @@ class AWSCognitoIdentityProviderAdminListDevicesCommand(val userPoolId: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.AdminListDevicesResult {
 	  return com.amazonaws.services.cognitoidp.model.AdminListDevicesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.AdminListDevicesResult {
 		return environment.cognito_idp.adminListDevices(build())
@@ -585,9 +616,11 @@ class AWSCognitoIdentityProviderAdminListGroupsForUserCommand(val username: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.AdminListGroupsForUserResult {
 	  return com.amazonaws.services.cognitoidp.model.AdminListGroupsForUserResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.AdminListGroupsForUserResult {
 		return environment.cognito_idp.adminListGroupsForUser(build())
@@ -623,9 +656,11 @@ class AWSCognitoIdentityProviderAdminListUserAuthEventsCommand(val userPoolId: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.AdminListUserAuthEventsResult {
 	  return com.amazonaws.services.cognitoidp.model.AdminListUserAuthEventsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.AdminListUserAuthEventsResult {
 		return environment.cognito_idp.adminListUserAuthEvents(build())
@@ -659,9 +694,11 @@ class AWSCognitoIdentityProviderAdminRemoveUserFromGroupCommand(val userPoolId: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.AdminRemoveUserFromGroupResult {
 	  return com.amazonaws.services.cognitoidp.model.AdminRemoveUserFromGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.AdminRemoveUserFromGroupResult {
 		return environment.cognito_idp.adminRemoveUserFromGroup(build())
@@ -693,9 +730,11 @@ class AWSCognitoIdentityProviderAdminResetUserPasswordCommand(val userPoolId: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.AdminResetUserPasswordResult {
 	  return com.amazonaws.services.cognitoidp.model.AdminResetUserPasswordResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.AdminResetUserPasswordResult {
 		return environment.cognito_idp.adminResetUserPassword(build())
@@ -734,9 +773,11 @@ class AWSCognitoIdentityProviderAdminRespondToAuthChallengeCommand(val userPoolI
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.AdminRespondToAuthChallengeResult {
 	  return com.amazonaws.services.cognitoidp.model.AdminRespondToAuthChallengeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.AdminRespondToAuthChallengeResult {
 		return environment.cognito_idp.adminRespondToAuthChallenge(build())
@@ -775,9 +816,11 @@ class AWSCognitoIdentityProviderAdminSetUserMFAPreferenceCommand(val username: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.AdminSetUserMFAPreferenceResult {
 	  return com.amazonaws.services.cognitoidp.model.AdminSetUserMFAPreferenceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.AdminSetUserMFAPreferenceResult {
 		return environment.cognito_idp.adminSetUserMFAPreference(build())
@@ -811,9 +854,11 @@ class AWSCognitoIdentityProviderAdminSetUserSettingsCommand(val userPoolId: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.AdminSetUserSettingsResult {
 	  return com.amazonaws.services.cognitoidp.model.AdminSetUserSettingsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.AdminSetUserSettingsResult {
 		return environment.cognito_idp.adminSetUserSettings(build())
@@ -847,9 +892,11 @@ class AWSCognitoIdentityProviderAdminUpdateAuthEventFeedbackCommand(val userPool
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.AdminUpdateAuthEventFeedbackResult {
 	  return com.amazonaws.services.cognitoidp.model.AdminUpdateAuthEventFeedbackResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.AdminUpdateAuthEventFeedbackResult {
 		return environment.cognito_idp.adminUpdateAuthEventFeedback(build())
@@ -884,9 +931,11 @@ class AWSCognitoIdentityProviderAdminUpdateDeviceStatusCommand(val userPoolId: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.AdminUpdateDeviceStatusResult {
 	  return com.amazonaws.services.cognitoidp.model.AdminUpdateDeviceStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.AdminUpdateDeviceStatusResult {
 		return environment.cognito_idp.adminUpdateDeviceStatus(build())
@@ -920,9 +969,11 @@ class AWSCognitoIdentityProviderAdminUpdateUserAttributesCommand(val userPoolId:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.AdminUpdateUserAttributesResult {
 	  return com.amazonaws.services.cognitoidp.model.AdminUpdateUserAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.AdminUpdateUserAttributesResult {
 		return environment.cognito_idp.adminUpdateUserAttributes(build())
@@ -954,9 +1005,11 @@ class AWSCognitoIdentityProviderAdminUserGlobalSignOutCommand(val userPoolId: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.AdminUserGlobalSignOutResult {
 	  return com.amazonaws.services.cognitoidp.model.AdminUserGlobalSignOutResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.AdminUserGlobalSignOutResult {
 		return environment.cognito_idp.adminUserGlobalSignOut(build())
@@ -988,9 +1041,11 @@ class AWSCognitoIdentityProviderAssociateSoftwareTokenCommand() : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.AssociateSoftwareTokenResult {
 	  return com.amazonaws.services.cognitoidp.model.AssociateSoftwareTokenResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.AssociateSoftwareTokenResult {
 		return environment.cognito_idp.associateSoftwareToken(build())
@@ -1022,9 +1077,11 @@ class AWSCognitoIdentityProviderChangePasswordCommand(val previousPassword: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.ChangePasswordResult {
 	  return com.amazonaws.services.cognitoidp.model.ChangePasswordResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.ChangePasswordResult {
 		return environment.cognito_idp.changePassword(build())
@@ -1059,9 +1116,11 @@ class AWSCognitoIdentityProviderConfirmDeviceCommand(val accessToken: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.ConfirmDeviceResult {
 	  return com.amazonaws.services.cognitoidp.model.ConfirmDeviceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.ConfirmDeviceResult {
 		return environment.cognito_idp.confirmDevice(build())
@@ -1101,9 +1160,11 @@ class AWSCognitoIdentityProviderConfirmForgotPasswordCommand(val clientId: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.ConfirmForgotPasswordResult {
 	  return com.amazonaws.services.cognitoidp.model.ConfirmForgotPasswordResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.ConfirmForgotPasswordResult {
 		return environment.cognito_idp.confirmForgotPassword(build())
@@ -1147,9 +1208,11 @@ class AWSCognitoIdentityProviderConfirmSignUpCommand(val clientId: String, val u
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.ConfirmSignUpResult {
 	  return com.amazonaws.services.cognitoidp.model.ConfirmSignUpResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.ConfirmSignUpResult {
 		return environment.cognito_idp.confirmSignUp(build())
@@ -1190,9 +1253,11 @@ class AWSCognitoIdentityProviderCreateGroupCommand(val groupName: String, val us
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.CreateGroupResult {
 	  return com.amazonaws.services.cognitoidp.model.CreateGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.CreateGroupResult {
 		return environment.cognito_idp.createGroup(build())
@@ -1231,9 +1296,11 @@ class AWSCognitoIdentityProviderCreateIdentityProviderCommand(val userPoolId: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.CreateIdentityProviderResult {
 	  return com.amazonaws.services.cognitoidp.model.CreateIdentityProviderResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.CreateIdentityProviderResult {
 		return environment.cognito_idp.createIdentityProvider(build())
@@ -1270,9 +1337,11 @@ class AWSCognitoIdentityProviderCreateResourceServerCommand(val userPoolId: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.CreateResourceServerResult {
 	  return com.amazonaws.services.cognitoidp.model.CreateResourceServerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.CreateResourceServerResult {
 		return environment.cognito_idp.createResourceServer(build())
@@ -1306,9 +1375,11 @@ class AWSCognitoIdentityProviderCreateUserImportJobCommand(val jobName: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.CreateUserImportJobResult {
 	  return com.amazonaws.services.cognitoidp.model.CreateUserImportJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.CreateUserImportJobResult {
 		return environment.cognito_idp.createUserImportJob(build())
@@ -1374,9 +1445,11 @@ class AWSCognitoIdentityProviderCreateUserPoolCommand(val poolName: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.CreateUserPoolResult {
 	  return com.amazonaws.services.cognitoidp.model.CreateUserPoolResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.CreateUserPoolResult {
 		return environment.cognito_idp.createUserPool(build())
@@ -1449,9 +1522,11 @@ class AWSCognitoIdentityProviderCreateUserPoolClientCommand(val userPoolId: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.CreateUserPoolClientResult {
 	  return com.amazonaws.services.cognitoidp.model.CreateUserPoolClientResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.CreateUserPoolClientResult {
 		return environment.cognito_idp.createUserPoolClient(build())
@@ -1495,9 +1570,11 @@ class AWSCognitoIdentityProviderCreateUserPoolDomainCommand(val domain: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.CreateUserPoolDomainResult {
 	  return com.amazonaws.services.cognitoidp.model.CreateUserPoolDomainResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.CreateUserPoolDomainResult {
 		return environment.cognito_idp.createUserPoolDomain(build())
@@ -1528,9 +1605,11 @@ class AWSCognitoIdentityProviderDeleteGroupCommand(val groupName: String, val us
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.DeleteGroupResult {
 	  return com.amazonaws.services.cognitoidp.model.DeleteGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.DeleteGroupResult {
 		return environment.cognito_idp.deleteGroup(build())
@@ -1561,9 +1640,11 @@ class AWSCognitoIdentityProviderDeleteIdentityProviderCommand(val userPoolId: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.DeleteIdentityProviderResult {
 	  return com.amazonaws.services.cognitoidp.model.DeleteIdentityProviderResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.DeleteIdentityProviderResult {
 		return environment.cognito_idp.deleteIdentityProvider(build())
@@ -1594,9 +1675,11 @@ class AWSCognitoIdentityProviderDeleteResourceServerCommand(val userPoolId: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.DeleteResourceServerResult {
 	  return com.amazonaws.services.cognitoidp.model.DeleteResourceServerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.DeleteResourceServerResult {
 		return environment.cognito_idp.deleteResourceServer(build())
@@ -1626,9 +1709,11 @@ class AWSCognitoIdentityProviderDeleteUserCommand(val accessToken: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.DeleteUserResult {
 	  return com.amazonaws.services.cognitoidp.model.DeleteUserResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.DeleteUserResult {
 		return environment.cognito_idp.deleteUser(build())
@@ -1658,9 +1743,11 @@ class AWSCognitoIdentityProviderDeleteUserAttributesCommand(val userAttributeNam
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.DeleteUserAttributesResult {
 	  return com.amazonaws.services.cognitoidp.model.DeleteUserAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.DeleteUserAttributesResult {
 		return environment.cognito_idp.deleteUserAttributes(build())
@@ -1690,9 +1777,11 @@ class AWSCognitoIdentityProviderDeleteUserPoolCommand(val userPoolId: String) : 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.DeleteUserPoolResult {
 	  return com.amazonaws.services.cognitoidp.model.DeleteUserPoolResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.DeleteUserPoolResult {
 		return environment.cognito_idp.deleteUserPool(build())
@@ -1722,9 +1811,11 @@ class AWSCognitoIdentityProviderDeleteUserPoolClientCommand(val userPoolId: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.DeleteUserPoolClientResult {
 	  return com.amazonaws.services.cognitoidp.model.DeleteUserPoolClientResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.DeleteUserPoolClientResult {
 		return environment.cognito_idp.deleteUserPoolClient(build())
@@ -1755,9 +1846,11 @@ class AWSCognitoIdentityProviderDeleteUserPoolDomainCommand(val domain: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.DeleteUserPoolDomainResult {
 	  return com.amazonaws.services.cognitoidp.model.DeleteUserPoolDomainResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.DeleteUserPoolDomainResult {
 		return environment.cognito_idp.deleteUserPoolDomain(build())
@@ -1788,9 +1881,11 @@ class AWSCognitoIdentityProviderDescribeIdentityProviderCommand(val userPoolId: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.DescribeIdentityProviderResult {
 	  return com.amazonaws.services.cognitoidp.model.DescribeIdentityProviderResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.DescribeIdentityProviderResult {
 		return environment.cognito_idp.describeIdentityProvider(build())
@@ -1821,9 +1916,11 @@ class AWSCognitoIdentityProviderDescribeResourceServerCommand(val userPoolId: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.DescribeResourceServerResult {
 	  return com.amazonaws.services.cognitoidp.model.DescribeResourceServerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.DescribeResourceServerResult {
 		return environment.cognito_idp.describeResourceServer(build())
@@ -1854,9 +1951,11 @@ class AWSCognitoIdentityProviderDescribeRiskConfigurationCommand(val userPoolId:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.DescribeRiskConfigurationResult {
 	  return com.amazonaws.services.cognitoidp.model.DescribeRiskConfigurationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.DescribeRiskConfigurationResult {
 		return environment.cognito_idp.describeRiskConfiguration(build())
@@ -1887,9 +1986,11 @@ class AWSCognitoIdentityProviderDescribeUserImportJobCommand(val userPoolId: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.DescribeUserImportJobResult {
 	  return com.amazonaws.services.cognitoidp.model.DescribeUserImportJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.DescribeUserImportJobResult {
 		return environment.cognito_idp.describeUserImportJob(build())
@@ -1919,9 +2020,11 @@ class AWSCognitoIdentityProviderDescribeUserPoolCommand(val userPoolId: String) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.DescribeUserPoolResult {
 	  return com.amazonaws.services.cognitoidp.model.DescribeUserPoolResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.DescribeUserPoolResult {
 		return environment.cognito_idp.describeUserPool(build())
@@ -1951,9 +2054,11 @@ class AWSCognitoIdentityProviderDescribeUserPoolClientCommand(val userPoolId: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.DescribeUserPoolClientResult {
 	  return com.amazonaws.services.cognitoidp.model.DescribeUserPoolClientResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.DescribeUserPoolClientResult {
 		return environment.cognito_idp.describeUserPoolClient(build())
@@ -1983,9 +2088,11 @@ class AWSCognitoIdentityProviderDescribeUserPoolDomainCommand(val domain: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.DescribeUserPoolDomainResult {
 	  return com.amazonaws.services.cognitoidp.model.DescribeUserPoolDomainResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.DescribeUserPoolDomainResult {
 		return environment.cognito_idp.describeUserPoolDomain(build())
@@ -2015,9 +2122,11 @@ class AWSCognitoIdentityProviderForgetDeviceCommand(val deviceKey: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.ForgetDeviceResult {
 	  return com.amazonaws.services.cognitoidp.model.ForgetDeviceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.ForgetDeviceResult {
 		return environment.cognito_idp.forgetDevice(build())
@@ -2053,9 +2162,11 @@ class AWSCognitoIdentityProviderForgotPasswordCommand(val clientId: String, val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.ForgotPasswordResult {
 	  return com.amazonaws.services.cognitoidp.model.ForgotPasswordResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.ForgotPasswordResult {
 		return environment.cognito_idp.forgotPassword(build())
@@ -2088,9 +2199,11 @@ class AWSCognitoIdentityProviderGetCSVHeaderCommand(val userPoolId: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.GetCSVHeaderResult {
 	  return com.amazonaws.services.cognitoidp.model.GetCSVHeaderResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.GetCSVHeaderResult {
 		return environment.cognito_idp.getCSVHeader(build())
@@ -2120,9 +2233,11 @@ class AWSCognitoIdentityProviderGetDeviceCommand(val deviceKey: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.GetDeviceResult {
 	  return com.amazonaws.services.cognitoidp.model.GetDeviceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.GetDeviceResult {
 		return environment.cognito_idp.getDevice(build())
@@ -2153,9 +2268,11 @@ class AWSCognitoIdentityProviderGetGroupCommand(val groupName: String, val userP
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.GetGroupResult {
 	  return com.amazonaws.services.cognitoidp.model.GetGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.GetGroupResult {
 		return environment.cognito_idp.getGroup(build())
@@ -2186,9 +2303,11 @@ class AWSCognitoIdentityProviderGetIdentityProviderByIdentifierCommand(val userP
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.GetIdentityProviderByIdentifierResult {
 	  return com.amazonaws.services.cognitoidp.model.GetIdentityProviderByIdentifierResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.GetIdentityProviderByIdentifierResult {
 		return environment.cognito_idp.getIdentityProviderByIdentifier(build())
@@ -2218,9 +2337,11 @@ class AWSCognitoIdentityProviderGetSigningCertificateCommand(val userPoolId: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.GetSigningCertificateResult {
 	  return com.amazonaws.services.cognitoidp.model.GetSigningCertificateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.GetSigningCertificateResult {
 		return environment.cognito_idp.getSigningCertificate(build())
@@ -2250,9 +2371,11 @@ class AWSCognitoIdentityProviderGetUICustomizationCommand(val userPoolId: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.GetUICustomizationResult {
 	  return com.amazonaws.services.cognitoidp.model.GetUICustomizationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.GetUICustomizationResult {
 		return environment.cognito_idp.getUICustomization(build())
@@ -2282,9 +2405,11 @@ class AWSCognitoIdentityProviderGetUserCommand(val accessToken: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.GetUserResult {
 	  return com.amazonaws.services.cognitoidp.model.GetUserResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.GetUserResult {
 		return environment.cognito_idp.getUser(build())
@@ -2314,9 +2439,11 @@ class AWSCognitoIdentityProviderGetUserAttributeVerificationCodeCommand(val acce
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.GetUserAttributeVerificationCodeResult {
 	  return com.amazonaws.services.cognitoidp.model.GetUserAttributeVerificationCodeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.GetUserAttributeVerificationCodeResult {
 		return environment.cognito_idp.getUserAttributeVerificationCode(build())
@@ -2346,9 +2473,11 @@ class AWSCognitoIdentityProviderGetUserPoolMfaConfigCommand(val userPoolId: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.GetUserPoolMfaConfigResult {
 	  return com.amazonaws.services.cognitoidp.model.GetUserPoolMfaConfigResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.GetUserPoolMfaConfigResult {
 		return environment.cognito_idp.getUserPoolMfaConfig(build())
@@ -2377,9 +2506,11 @@ class AWSCognitoIdentityProviderGlobalSignOutCommand(val accessToken: String) : 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.GlobalSignOutResult {
 	  return com.amazonaws.services.cognitoidp.model.GlobalSignOutResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.GlobalSignOutResult {
 		return environment.cognito_idp.globalSignOut(build())
@@ -2416,9 +2547,11 @@ class AWSCognitoIdentityProviderInitiateAuthCommand(val authFlow: AuthFlowType, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.InitiateAuthResult {
 	  return com.amazonaws.services.cognitoidp.model.InitiateAuthResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.InitiateAuthResult {
 		return environment.cognito_idp.initiateAuth(build())
@@ -2455,9 +2588,11 @@ class AWSCognitoIdentityProviderListDevicesCommand(val accessToken: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.ListDevicesResult {
 	  return com.amazonaws.services.cognitoidp.model.ListDevicesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.ListDevicesResult {
 		return environment.cognito_idp.listDevices(build())
@@ -2491,9 +2626,11 @@ class AWSCognitoIdentityProviderListGroupsCommand(val userPoolId: String) : Amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.ListGroupsResult {
 	  return com.amazonaws.services.cognitoidp.model.ListGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.ListGroupsResult {
 		return environment.cognito_idp.listGroups(build())
@@ -2527,9 +2664,11 @@ class AWSCognitoIdentityProviderListIdentityProvidersCommand(val userPoolId: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.ListIdentityProvidersResult {
 	  return com.amazonaws.services.cognitoidp.model.ListIdentityProvidersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.ListIdentityProvidersResult {
 		return environment.cognito_idp.listIdentityProviders(build())
@@ -2563,9 +2702,11 @@ class AWSCognitoIdentityProviderListResourceServersCommand(val userPoolId: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.ListResourceServersResult {
 	  return com.amazonaws.services.cognitoidp.model.ListResourceServersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.ListResourceServersResult {
 		return environment.cognito_idp.listResourceServers(build())
@@ -2598,9 +2739,11 @@ class AWSCognitoIdentityProviderListUserImportJobsCommand(val userPoolId: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.ListUserImportJobsResult {
 	  return com.amazonaws.services.cognitoidp.model.ListUserImportJobsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.ListUserImportJobsResult {
 		return environment.cognito_idp.listUserImportJobs(build())
@@ -2634,9 +2777,11 @@ class AWSCognitoIdentityProviderListUserPoolClientsCommand(val userPoolId: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.ListUserPoolClientsResult {
 	  return com.amazonaws.services.cognitoidp.model.ListUserPoolClientsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.ListUserPoolClientsResult {
 		return environment.cognito_idp.listUserPoolClients(build())
@@ -2668,9 +2813,11 @@ class AWSCognitoIdentityProviderListUserPoolsCommand(val maxResults: Int) : Amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.ListUserPoolsResult {
 	  return com.amazonaws.services.cognitoidp.model.ListUserPoolsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.ListUserPoolsResult {
 		return environment.cognito_idp.listUserPools(build())
@@ -2707,9 +2854,11 @@ class AWSCognitoIdentityProviderListUsersCommand(val userPoolId: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.ListUsersResult {
 	  return com.amazonaws.services.cognitoidp.model.ListUsersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.ListUsersResult {
 		return environment.cognito_idp.listUsers(build())
@@ -2746,9 +2895,11 @@ class AWSCognitoIdentityProviderListUsersInGroupCommand(val userPoolId: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.ListUsersInGroupResult {
 	  return com.amazonaws.services.cognitoidp.model.ListUsersInGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.ListUsersInGroupResult {
 		return environment.cognito_idp.listUsersInGroup(build())
@@ -2786,9 +2937,11 @@ class AWSCognitoIdentityProviderResendConfirmationCodeCommand(val clientId: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.ResendConfirmationCodeResult {
 	  return com.amazonaws.services.cognitoidp.model.ResendConfirmationCodeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.ResendConfirmationCodeResult {
 		return environment.cognito_idp.resendConfirmationCode(build())
@@ -2829,9 +2982,11 @@ class AWSCognitoIdentityProviderRespondToAuthChallengeCommand(val clientId: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.RespondToAuthChallengeResult {
 	  return com.amazonaws.services.cognitoidp.model.RespondToAuthChallengeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.RespondToAuthChallengeResult {
 		return environment.cognito_idp.respondToAuthChallenge(build())
@@ -2872,9 +3027,11 @@ class AWSCognitoIdentityProviderSetRiskConfigurationCommand(val userPoolId: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.SetRiskConfigurationResult {
 	  return com.amazonaws.services.cognitoidp.model.SetRiskConfigurationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.SetRiskConfigurationResult {
 		return environment.cognito_idp.setRiskConfiguration(build())
@@ -2912,9 +3069,11 @@ class AWSCognitoIdentityProviderSetUICustomizationCommand(val userPoolId: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.SetUICustomizationResult {
 	  return com.amazonaws.services.cognitoidp.model.SetUICustomizationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.SetUICustomizationResult {
 		return environment.cognito_idp.setUICustomization(build())
@@ -2949,9 +3108,11 @@ class AWSCognitoIdentityProviderSetUserMFAPreferenceCommand(val accessToken: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.SetUserMFAPreferenceResult {
 	  return com.amazonaws.services.cognitoidp.model.SetUserMFAPreferenceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.SetUserMFAPreferenceResult {
 		return environment.cognito_idp.setUserMFAPreference(build())
@@ -2987,9 +3148,11 @@ class AWSCognitoIdentityProviderSetUserPoolMfaConfigCommand(val userPoolId: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.SetUserPoolMfaConfigResult {
 	  return com.amazonaws.services.cognitoidp.model.SetUserPoolMfaConfigResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.SetUserPoolMfaConfigResult {
 		return environment.cognito_idp.setUserPoolMfaConfig(build())
@@ -3022,9 +3185,11 @@ class AWSCognitoIdentityProviderSetUserSettingsCommand(val accessToken: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.SetUserSettingsResult {
 	  return com.amazonaws.services.cognitoidp.model.SetUserSettingsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.SetUserSettingsResult {
 		return environment.cognito_idp.setUserSettings(build())
@@ -3065,9 +3230,11 @@ class AWSCognitoIdentityProviderSignUpCommand(val clientId: String, val username
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.SignUpResult {
 	  return com.amazonaws.services.cognitoidp.model.SignUpResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.SignUpResult {
 		return environment.cognito_idp.signUp(build())
@@ -3104,9 +3271,11 @@ class AWSCognitoIdentityProviderStartUserImportJobCommand(val userPoolId: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.StartUserImportJobResult {
 	  return com.amazonaws.services.cognitoidp.model.StartUserImportJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.StartUserImportJobResult {
 		return environment.cognito_idp.startUserImportJob(build())
@@ -3137,9 +3306,11 @@ class AWSCognitoIdentityProviderStopUserImportJobCommand(val userPoolId: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.StopUserImportJobResult {
 	  return com.amazonaws.services.cognitoidp.model.StopUserImportJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.StopUserImportJobResult {
 		return environment.cognito_idp.stopUserImportJob(build())
@@ -3173,9 +3344,11 @@ class AWSCognitoIdentityProviderUpdateAuthEventFeedbackCommand(val userPoolId: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.UpdateAuthEventFeedbackResult {
 	  return com.amazonaws.services.cognitoidp.model.UpdateAuthEventFeedbackResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.UpdateAuthEventFeedbackResult {
 		return environment.cognito_idp.updateAuthEventFeedback(build())
@@ -3210,9 +3383,11 @@ class AWSCognitoIdentityProviderUpdateDeviceStatusCommand(val accessToken: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.UpdateDeviceStatusResult {
 	  return com.amazonaws.services.cognitoidp.model.UpdateDeviceStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.UpdateDeviceStatusResult {
 		return environment.cognito_idp.updateDeviceStatus(build())
@@ -3249,9 +3424,11 @@ class AWSCognitoIdentityProviderUpdateGroupCommand(val groupName: String, val us
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.UpdateGroupResult {
 	  return com.amazonaws.services.cognitoidp.model.UpdateGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.UpdateGroupResult {
 		return environment.cognito_idp.updateGroup(build())
@@ -3290,9 +3467,11 @@ class AWSCognitoIdentityProviderUpdateIdentityProviderCommand(val userPoolId: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.UpdateIdentityProviderResult {
 	  return com.amazonaws.services.cognitoidp.model.UpdateIdentityProviderResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.UpdateIdentityProviderResult {
 		return environment.cognito_idp.updateIdentityProvider(build())
@@ -3328,9 +3507,11 @@ class AWSCognitoIdentityProviderUpdateResourceServerCommand(val userPoolId: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.UpdateResourceServerResult {
 	  return com.amazonaws.services.cognitoidp.model.UpdateResourceServerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.UpdateResourceServerResult {
 		return environment.cognito_idp.updateResourceServer(build())
@@ -3363,9 +3544,11 @@ class AWSCognitoIdentityProviderUpdateUserAttributesCommand(val userAttributes: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.UpdateUserAttributesResult {
 	  return com.amazonaws.services.cognitoidp.model.UpdateUserAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.UpdateUserAttributesResult {
 		return environment.cognito_idp.updateUserAttributes(build())
@@ -3424,9 +3607,11 @@ class AWSCognitoIdentityProviderUpdateUserPoolCommand(val userPoolId: String) : 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.UpdateUserPoolResult {
 	  return com.amazonaws.services.cognitoidp.model.UpdateUserPoolResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.UpdateUserPoolResult {
 		return environment.cognito_idp.updateUserPool(build())
@@ -3496,9 +3681,11 @@ class AWSCognitoIdentityProviderUpdateUserPoolClientCommand(val userPoolId: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.UpdateUserPoolClientResult {
 	  return com.amazonaws.services.cognitoidp.model.UpdateUserPoolClientResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.UpdateUserPoolClientResult {
 		return environment.cognito_idp.updateUserPoolClient(build())
@@ -3546,9 +3733,11 @@ class AWSCognitoIdentityProviderVerifySoftwareTokenCommand(val userCode: String)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.VerifySoftwareTokenResult {
 	  return com.amazonaws.services.cognitoidp.model.VerifySoftwareTokenResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.VerifySoftwareTokenResult {
 		return environment.cognito_idp.verifySoftwareToken(build())
@@ -3582,9 +3771,11 @@ class AWSCognitoIdentityProviderVerifyUserAttributeCommand(val accessToken: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidp.model.VerifyUserAttributeResult {
 	  return com.amazonaws.services.cognitoidp.model.VerifyUserAttributeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidp.model.VerifyUserAttributeResult {
 		return environment.cognito_idp.verifyUserAttribute(build())

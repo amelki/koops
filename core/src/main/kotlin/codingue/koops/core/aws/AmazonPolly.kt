@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -41,9 +42,11 @@ class AmazonPollyDeleteLexiconCommand(val name: String) : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.polly.model.DeleteLexiconResult {
 	  return com.amazonaws.services.polly.model.DeleteLexiconResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.polly.model.DeleteLexiconResult {
 		return environment.polly.deleteLexicon(build())
@@ -74,9 +77,11 @@ class AmazonPollyDescribeVoicesCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.polly.model.DescribeVoicesResult {
 	  return com.amazonaws.services.polly.model.DescribeVoicesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.polly.model.DescribeVoicesResult {
 		return environment.polly.describeVoices(build())
@@ -106,9 +111,11 @@ class AmazonPollyGetLexiconCommand(val name: String) : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.polly.model.GetLexiconResult {
 	  return com.amazonaws.services.polly.model.GetLexiconResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.polly.model.GetLexiconResult {
 		return environment.polly.getLexicon(build())
@@ -137,9 +144,11 @@ class AmazonPollyListLexiconsCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.polly.model.ListLexiconsResult {
 	  return com.amazonaws.services.polly.model.ListLexiconsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.polly.model.ListLexiconsResult {
 		return environment.polly.listLexicons(build())
@@ -169,9 +178,11 @@ class AmazonPollyPutLexiconCommand(val name: String, val content: String) : Amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.polly.model.PutLexiconResult {
 	  return com.amazonaws.services.polly.model.PutLexiconResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.polly.model.PutLexiconResult {
 		return environment.polly.putLexicon(build())
@@ -210,9 +221,11 @@ class AmazonPollySynthesizeSpeechCommand(val outputFormat: OutputFormat, val tex
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.polly.model.SynthesizeSpeechResult {
 	  return com.amazonaws.services.polly.model.SynthesizeSpeechResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.polly.model.SynthesizeSpeechResult {
 		return environment.polly.synthesizeSpeech(build())

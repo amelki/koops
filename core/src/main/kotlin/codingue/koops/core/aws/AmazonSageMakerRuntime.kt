@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -45,9 +46,11 @@ class AmazonSageMakerRuntimeInvokeEndpointCommand(val endpointName: String, val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemakerruntime.model.InvokeEndpointResult {
 	  return com.amazonaws.services.sagemakerruntime.model.InvokeEndpointResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemakerruntime.model.InvokeEndpointResult {
 		return environment.sagemakerruntime.invokeEndpoint(build())

@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -42,9 +43,11 @@ class AmazonElasticMapReduceAddInstanceFleetCommand(val clusterId: String, val i
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.AddInstanceFleetResult {
 	  return com.amazonaws.services.elasticmapreduce.model.AddInstanceFleetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.AddInstanceFleetResult {
 		return environment.elasticmapreduce.addInstanceFleet(build())
@@ -75,9 +78,11 @@ class AmazonElasticMapReduceAddInstanceGroupsCommand(val instanceGroups: List<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.AddInstanceGroupsResult {
 	  return com.amazonaws.services.elasticmapreduce.model.AddInstanceGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.AddInstanceGroupsResult {
 		return environment.elasticmapreduce.addInstanceGroups(build())
@@ -108,9 +113,11 @@ class AmazonElasticMapReduceAddJobFlowStepsCommand(val jobFlowId: String, val st
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.AddJobFlowStepsResult {
 	  return com.amazonaws.services.elasticmapreduce.model.AddJobFlowStepsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.AddJobFlowStepsResult {
 		return environment.elasticmapreduce.addJobFlowSteps(build())
@@ -141,9 +148,11 @@ class AmazonElasticMapReduceAddTagsCommand(val resourceId: String, val tags: Lis
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.AddTagsResult {
 	  return com.amazonaws.services.elasticmapreduce.model.AddTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.AddTagsResult {
 		return environment.elasticmapreduce.addTags(build())
@@ -175,9 +184,11 @@ class AmazonElasticMapReduceCancelStepsCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.CancelStepsResult {
 	  return com.amazonaws.services.elasticmapreduce.model.CancelStepsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.CancelStepsResult {
 		return environment.elasticmapreduce.cancelSteps(build())
@@ -208,9 +219,11 @@ class AmazonElasticMapReduceCreateSecurityConfigurationCommand(val name: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.CreateSecurityConfigurationResult {
 	  return com.amazonaws.services.elasticmapreduce.model.CreateSecurityConfigurationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.CreateSecurityConfigurationResult {
 		return environment.elasticmapreduce.createSecurityConfiguration(build())
@@ -240,9 +253,11 @@ class AmazonElasticMapReduceDeleteSecurityConfigurationCommand(val name: String)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.DeleteSecurityConfigurationResult {
 	  return com.amazonaws.services.elasticmapreduce.model.DeleteSecurityConfigurationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.DeleteSecurityConfigurationResult {
 		return environment.elasticmapreduce.deleteSecurityConfiguration(build())
@@ -271,9 +286,11 @@ class AmazonElasticMapReduceDescribeClusterCommand(val clusterId: String) : Amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.DescribeClusterResult {
 	  return com.amazonaws.services.elasticmapreduce.model.DescribeClusterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.DescribeClusterResult {
 		return environment.elasticmapreduce.describeCluster(build())
@@ -308,9 +325,11 @@ class AmazonElasticMapReduceDescribeJobFlowsCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.DescribeJobFlowsResult {
 	  return com.amazonaws.services.elasticmapreduce.model.DescribeJobFlowsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.DescribeJobFlowsResult {
 		return environment.elasticmapreduce.describeJobFlows(build())
@@ -342,9 +361,11 @@ class AmazonElasticMapReduceDescribeSecurityConfigurationCommand(val name: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.DescribeSecurityConfigurationResult {
 	  return com.amazonaws.services.elasticmapreduce.model.DescribeSecurityConfigurationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.DescribeSecurityConfigurationResult {
 		return environment.elasticmapreduce.describeSecurityConfiguration(build())
@@ -374,9 +395,11 @@ class AmazonElasticMapReduceDescribeStepCommand(val clusterId: String, val stepI
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.DescribeStepResult {
 	  return com.amazonaws.services.elasticmapreduce.model.DescribeStepResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.DescribeStepResult {
 		return environment.elasticmapreduce.describeStep(build())
@@ -407,9 +430,11 @@ class AmazonElasticMapReduceListBootstrapActionsCommand(val clusterId: String) :
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.ListBootstrapActionsResult {
 	  return com.amazonaws.services.elasticmapreduce.model.ListBootstrapActionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.ListBootstrapActionsResult {
 		return environment.elasticmapreduce.listBootstrapActions(build())
@@ -445,9 +470,11 @@ class AmazonElasticMapReduceListClustersCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.ListClustersResult {
 	  return com.amazonaws.services.elasticmapreduce.model.ListClustersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.ListClustersResult {
 		return environment.elasticmapreduce.listClusters(build())
@@ -480,9 +507,11 @@ class AmazonElasticMapReduceListInstanceFleetsCommand(val clusterId: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.ListInstanceFleetsResult {
 	  return com.amazonaws.services.elasticmapreduce.model.ListInstanceFleetsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.ListInstanceFleetsResult {
 		return environment.elasticmapreduce.listInstanceFleets(build())
@@ -513,9 +542,11 @@ class AmazonElasticMapReduceListInstanceGroupsCommand(val clusterId: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.ListInstanceGroupsResult {
 	  return com.amazonaws.services.elasticmapreduce.model.ListInstanceGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.ListInstanceGroupsResult {
 		return environment.elasticmapreduce.listInstanceGroups(build())
@@ -556,9 +587,11 @@ class AmazonElasticMapReduceListInstancesCommand(val clusterId: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.ListInstancesResult {
 	  return com.amazonaws.services.elasticmapreduce.model.ListInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.ListInstancesResult {
 		return environment.elasticmapreduce.listInstances(build())
@@ -593,9 +626,11 @@ class AmazonElasticMapReduceListSecurityConfigurationsCommand() : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.ListSecurityConfigurationsResult {
 	  return com.amazonaws.services.elasticmapreduce.model.ListSecurityConfigurationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.ListSecurityConfigurationsResult {
 		return environment.elasticmapreduce.listSecurityConfigurations(build())
@@ -629,9 +664,11 @@ class AmazonElasticMapReduceListStepsCommand(val clusterId: String) : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.ListStepsResult {
 	  return com.amazonaws.services.elasticmapreduce.model.ListStepsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.ListStepsResult {
 		return environment.elasticmapreduce.listSteps(build())
@@ -664,9 +701,11 @@ class AmazonElasticMapReduceModifyInstanceFleetCommand(val clusterId: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.ModifyInstanceFleetResult {
 	  return com.amazonaws.services.elasticmapreduce.model.ModifyInstanceFleetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.ModifyInstanceFleetResult {
 		return environment.elasticmapreduce.modifyInstanceFleet(build())
@@ -698,9 +737,11 @@ class AmazonElasticMapReduceModifyInstanceGroupsCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.ModifyInstanceGroupsResult {
 	  return com.amazonaws.services.elasticmapreduce.model.ModifyInstanceGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.ModifyInstanceGroupsResult {
 		return environment.elasticmapreduce.modifyInstanceGroups(build())
@@ -732,9 +773,11 @@ class AmazonElasticMapReducePutAutoScalingPolicyCommand(val clusterId: String, v
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.PutAutoScalingPolicyResult {
 	  return com.amazonaws.services.elasticmapreduce.model.PutAutoScalingPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.PutAutoScalingPolicyResult {
 		return environment.elasticmapreduce.putAutoScalingPolicy(build())
@@ -766,9 +809,11 @@ class AmazonElasticMapReduceRemoveAutoScalingPolicyCommand(val clusterId: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.RemoveAutoScalingPolicyResult {
 	  return com.amazonaws.services.elasticmapreduce.model.RemoveAutoScalingPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.RemoveAutoScalingPolicyResult {
 		return environment.elasticmapreduce.removeAutoScalingPolicy(build())
@@ -799,9 +844,11 @@ class AmazonElasticMapReduceRemoveTagsCommand(val resourceId: String, val tagKey
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.RemoveTagsResult {
 	  return com.amazonaws.services.elasticmapreduce.model.RemoveTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.RemoveTagsResult {
 		return environment.elasticmapreduce.removeTags(build())
@@ -873,9 +920,11 @@ class AmazonElasticMapReduceRunJobFlowCommand(val name: String, val instances: c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.RunJobFlowResult {
 	  return com.amazonaws.services.elasticmapreduce.model.RunJobFlowResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.RunJobFlowResult {
 		return environment.elasticmapreduce.runJobFlow(build())
@@ -927,9 +976,11 @@ class AmazonElasticMapReduceSetTerminationProtectionCommand(val jobFlowIds: List
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.SetTerminationProtectionResult {
 	  return com.amazonaws.services.elasticmapreduce.model.SetTerminationProtectionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.SetTerminationProtectionResult {
 		return environment.elasticmapreduce.setTerminationProtection(build())
@@ -960,9 +1011,11 @@ class AmazonElasticMapReduceSetVisibleToAllUsersCommand(val jobFlowIds: List<Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.SetVisibleToAllUsersResult {
 	  return com.amazonaws.services.elasticmapreduce.model.SetVisibleToAllUsersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.SetVisibleToAllUsersResult {
 		return environment.elasticmapreduce.setVisibleToAllUsers(build())
@@ -992,9 +1045,11 @@ class AmazonElasticMapReduceTerminateJobFlowsCommand(val jobFlowIds: List<String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.TerminateJobFlowsResult {
 	  return com.amazonaws.services.elasticmapreduce.model.TerminateJobFlowsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.TerminateJobFlowsResult {
 		return environment.elasticmapreduce.terminateJobFlows(build())

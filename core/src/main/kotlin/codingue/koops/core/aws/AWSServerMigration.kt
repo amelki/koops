@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -51,9 +52,11 @@ class AWSServerMigrationCreateReplicationJobCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servermigration.model.CreateReplicationJobResult {
 	  return com.amazonaws.services.servermigration.model.CreateReplicationJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servermigration.model.CreateReplicationJobResult {
 		return environment.sms.createReplicationJob(build())
@@ -87,9 +90,11 @@ class AWSServerMigrationDeleteReplicationJobCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servermigration.model.DeleteReplicationJobResult {
 	  return com.amazonaws.services.servermigration.model.DeleteReplicationJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servermigration.model.DeleteReplicationJobResult {
 		return environment.sms.deleteReplicationJob(build())
@@ -118,9 +123,11 @@ class AWSServerMigrationDeleteServerCatalogCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servermigration.model.DeleteServerCatalogResult {
 	  return com.amazonaws.services.servermigration.model.DeleteServerCatalogResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servermigration.model.DeleteServerCatalogResult {
 		return environment.sms.deleteServerCatalog(build())
@@ -149,9 +156,11 @@ class AWSServerMigrationDisassociateConnectorCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servermigration.model.DisassociateConnectorResult {
 	  return com.amazonaws.services.servermigration.model.DisassociateConnectorResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servermigration.model.DisassociateConnectorResult {
 		return environment.sms.disassociateConnector(build())
@@ -182,9 +191,11 @@ class AWSServerMigrationGetConnectorsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servermigration.model.GetConnectorsResult {
 	  return com.amazonaws.services.servermigration.model.GetConnectorsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servermigration.model.GetConnectorsResult {
 		return environment.sms.getConnectors(build())
@@ -218,9 +229,11 @@ class AWSServerMigrationGetReplicationJobsCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servermigration.model.GetReplicationJobsResult {
 	  return com.amazonaws.services.servermigration.model.GetReplicationJobsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servermigration.model.GetReplicationJobsResult {
 		return environment.sms.getReplicationJobs(build())
@@ -255,9 +268,11 @@ class AWSServerMigrationGetReplicationRunsCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servermigration.model.GetReplicationRunsResult {
 	  return com.amazonaws.services.servermigration.model.GetReplicationRunsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servermigration.model.GetReplicationRunsResult {
 		return environment.sms.getReplicationRuns(build())
@@ -290,9 +305,11 @@ class AWSServerMigrationGetServersCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servermigration.model.GetServersResult {
 	  return com.amazonaws.services.servermigration.model.GetServersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servermigration.model.GetServersResult {
 		return environment.sms.getServers(build())
@@ -322,9 +339,11 @@ class AWSServerMigrationImportServerCatalogCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servermigration.model.ImportServerCatalogResult {
 	  return com.amazonaws.services.servermigration.model.ImportServerCatalogResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servermigration.model.ImportServerCatalogResult {
 		return environment.sms.importServerCatalog(build())
@@ -355,9 +374,11 @@ class AWSServerMigrationStartOnDemandReplicationRunCommand() : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servermigration.model.StartOnDemandReplicationRunResult {
 	  return com.amazonaws.services.servermigration.model.StartOnDemandReplicationRunResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servermigration.model.StartOnDemandReplicationRunResult {
 		return environment.sms.startOnDemandReplicationRun(build())
@@ -397,9 +418,11 @@ class AWSServerMigrationUpdateReplicationJobCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servermigration.model.UpdateReplicationJobResult {
 	  return com.amazonaws.services.servermigration.model.UpdateReplicationJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servermigration.model.UpdateReplicationJobResult {
 		return environment.sms.updateReplicationJob(build())

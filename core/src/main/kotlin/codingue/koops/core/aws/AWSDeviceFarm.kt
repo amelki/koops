@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -47,9 +48,11 @@ class AWSDeviceFarmCreateDevicePoolCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.CreateDevicePoolResult {
 	  return com.amazonaws.services.devicefarm.model.CreateDevicePoolResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.CreateDevicePoolResult {
 		return environment.devicefarm.createDevicePool(build())
@@ -89,9 +92,11 @@ class AWSDeviceFarmCreateInstanceProfileCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.CreateInstanceProfileResult {
 	  return com.amazonaws.services.devicefarm.model.CreateInstanceProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.CreateInstanceProfileResult {
 		return environment.devicefarm.createInstanceProfile(build())
@@ -146,9 +151,11 @@ class AWSDeviceFarmCreateNetworkProfileCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.CreateNetworkProfileResult {
 	  return com.amazonaws.services.devicefarm.model.CreateNetworkProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.CreateNetworkProfileResult {
 		return environment.devicefarm.createNetworkProfile(build())
@@ -190,9 +197,11 @@ class AWSDeviceFarmCreateProjectCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.CreateProjectResult {
 	  return com.amazonaws.services.devicefarm.model.CreateProjectResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.CreateProjectResult {
 		return environment.devicefarm.createProject(build())
@@ -244,9 +253,11 @@ class AWSDeviceFarmCreateRemoteAccessSessionCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.CreateRemoteAccessSessionResult {
 	  return com.amazonaws.services.devicefarm.model.CreateRemoteAccessSessionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.CreateRemoteAccessSessionResult {
 		return environment.devicefarm.createRemoteAccessSession(build())
@@ -292,9 +303,11 @@ class AWSDeviceFarmCreateUploadCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.CreateUploadResult {
 	  return com.amazonaws.services.devicefarm.model.CreateUploadResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.CreateUploadResult {
 		return environment.devicefarm.createUpload(build())
@@ -326,9 +339,11 @@ class AWSDeviceFarmDeleteDevicePoolCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.DeleteDevicePoolResult {
 	  return com.amazonaws.services.devicefarm.model.DeleteDevicePoolResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.DeleteDevicePoolResult {
 		return environment.devicefarm.deleteDevicePool(build())
@@ -357,9 +372,11 @@ class AWSDeviceFarmDeleteInstanceProfileCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.DeleteInstanceProfileResult {
 	  return com.amazonaws.services.devicefarm.model.DeleteInstanceProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.DeleteInstanceProfileResult {
 		return environment.devicefarm.deleteInstanceProfile(build())
@@ -388,9 +405,11 @@ class AWSDeviceFarmDeleteNetworkProfileCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.DeleteNetworkProfileResult {
 	  return com.amazonaws.services.devicefarm.model.DeleteNetworkProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.DeleteNetworkProfileResult {
 		return environment.devicefarm.deleteNetworkProfile(build())
@@ -419,9 +438,11 @@ class AWSDeviceFarmDeleteProjectCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.DeleteProjectResult {
 	  return com.amazonaws.services.devicefarm.model.DeleteProjectResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.DeleteProjectResult {
 		return environment.devicefarm.deleteProject(build())
@@ -450,9 +471,11 @@ class AWSDeviceFarmDeleteRemoteAccessSessionCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.DeleteRemoteAccessSessionResult {
 	  return com.amazonaws.services.devicefarm.model.DeleteRemoteAccessSessionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.DeleteRemoteAccessSessionResult {
 		return environment.devicefarm.deleteRemoteAccessSession(build())
@@ -481,9 +504,11 @@ class AWSDeviceFarmDeleteRunCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.DeleteRunResult {
 	  return com.amazonaws.services.devicefarm.model.DeleteRunResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.DeleteRunResult {
 		return environment.devicefarm.deleteRun(build())
@@ -512,9 +537,11 @@ class AWSDeviceFarmDeleteUploadCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.DeleteUploadResult {
 	  return com.amazonaws.services.devicefarm.model.DeleteUploadResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.DeleteUploadResult {
 		return environment.devicefarm.deleteUpload(build())
@@ -543,9 +570,11 @@ class AWSDeviceFarmGetAccountSettingsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.GetAccountSettingsResult {
 	  return com.amazonaws.services.devicefarm.model.GetAccountSettingsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.GetAccountSettingsResult {
 		return environment.devicefarm.getAccountSettings(build())
@@ -574,9 +603,11 @@ class AWSDeviceFarmGetDeviceCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.GetDeviceResult {
 	  return com.amazonaws.services.devicefarm.model.GetDeviceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.GetDeviceResult {
 		return environment.devicefarm.getDevice(build())
@@ -605,9 +636,11 @@ class AWSDeviceFarmGetDeviceInstanceCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.GetDeviceInstanceResult {
 	  return com.amazonaws.services.devicefarm.model.GetDeviceInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.GetDeviceInstanceResult {
 		return environment.devicefarm.getDeviceInstance(build())
@@ -636,9 +669,11 @@ class AWSDeviceFarmGetDevicePoolCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.GetDevicePoolResult {
 	  return com.amazonaws.services.devicefarm.model.GetDevicePoolResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.GetDevicePoolResult {
 		return environment.devicefarm.getDevicePool(build())
@@ -673,9 +708,11 @@ class AWSDeviceFarmGetDevicePoolCompatibilityCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.GetDevicePoolCompatibilityResult {
 	  return com.amazonaws.services.devicefarm.model.GetDevicePoolCompatibilityResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.GetDevicePoolCompatibilityResult {
 		return environment.devicefarm.getDevicePoolCompatibility(build())
@@ -707,9 +744,11 @@ class AWSDeviceFarmGetInstanceProfileCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.GetInstanceProfileResult {
 	  return com.amazonaws.services.devicefarm.model.GetInstanceProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.GetInstanceProfileResult {
 		return environment.devicefarm.getInstanceProfile(build())
@@ -738,9 +777,11 @@ class AWSDeviceFarmGetJobCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.GetJobResult {
 	  return com.amazonaws.services.devicefarm.model.GetJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.GetJobResult {
 		return environment.devicefarm.getJob(build())
@@ -769,9 +810,11 @@ class AWSDeviceFarmGetNetworkProfileCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.GetNetworkProfileResult {
 	  return com.amazonaws.services.devicefarm.model.GetNetworkProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.GetNetworkProfileResult {
 		return environment.devicefarm.getNetworkProfile(build())
@@ -800,9 +843,11 @@ class AWSDeviceFarmGetOfferingStatusCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.GetOfferingStatusResult {
 	  return com.amazonaws.services.devicefarm.model.GetOfferingStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.GetOfferingStatusResult {
 		return environment.devicefarm.getOfferingStatus(build())
@@ -831,9 +876,11 @@ class AWSDeviceFarmGetProjectCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.GetProjectResult {
 	  return com.amazonaws.services.devicefarm.model.GetProjectResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.GetProjectResult {
 		return environment.devicefarm.getProject(build())
@@ -862,9 +909,11 @@ class AWSDeviceFarmGetRemoteAccessSessionCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.GetRemoteAccessSessionResult {
 	  return com.amazonaws.services.devicefarm.model.GetRemoteAccessSessionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.GetRemoteAccessSessionResult {
 		return environment.devicefarm.getRemoteAccessSession(build())
@@ -893,9 +942,11 @@ class AWSDeviceFarmGetRunCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.GetRunResult {
 	  return com.amazonaws.services.devicefarm.model.GetRunResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.GetRunResult {
 		return environment.devicefarm.getRun(build())
@@ -924,9 +975,11 @@ class AWSDeviceFarmGetSuiteCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.GetSuiteResult {
 	  return com.amazonaws.services.devicefarm.model.GetSuiteResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.GetSuiteResult {
 		return environment.devicefarm.getSuite(build())
@@ -955,9 +1008,11 @@ class AWSDeviceFarmGetTestCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.GetTestResult {
 	  return com.amazonaws.services.devicefarm.model.GetTestResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.GetTestResult {
 		return environment.devicefarm.getTest(build())
@@ -986,9 +1041,11 @@ class AWSDeviceFarmGetUploadCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.GetUploadResult {
 	  return com.amazonaws.services.devicefarm.model.GetUploadResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.GetUploadResult {
 		return environment.devicefarm.getUpload(build())
@@ -1019,9 +1076,11 @@ class AWSDeviceFarmInstallToRemoteAccessSessionCommand() : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.InstallToRemoteAccessSessionResult {
 	  return com.amazonaws.services.devicefarm.model.InstallToRemoteAccessSessionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.InstallToRemoteAccessSessionResult {
 		return environment.devicefarm.installToRemoteAccessSession(build())
@@ -1055,9 +1114,11 @@ class AWSDeviceFarmListArtifactsCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListArtifactsResult {
 	  return com.amazonaws.services.devicefarm.model.ListArtifactsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListArtifactsResult {
 		return environment.devicefarm.listArtifacts(build())
@@ -1090,9 +1151,11 @@ class AWSDeviceFarmListDeviceInstancesCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListDeviceInstancesResult {
 	  return com.amazonaws.services.devicefarm.model.ListDeviceInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListDeviceInstancesResult {
 		return environment.devicefarm.listDeviceInstances(build())
@@ -1126,9 +1189,11 @@ class AWSDeviceFarmListDevicePoolsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListDevicePoolsResult {
 	  return com.amazonaws.services.devicefarm.model.ListDevicePoolsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListDevicePoolsResult {
 		return environment.devicefarm.listDevicePools(build())
@@ -1161,9 +1226,11 @@ class AWSDeviceFarmListDevicesCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListDevicesResult {
 	  return com.amazonaws.services.devicefarm.model.ListDevicesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListDevicesResult {
 		return environment.devicefarm.listDevices(build())
@@ -1195,9 +1262,11 @@ class AWSDeviceFarmListInstanceProfilesCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListInstanceProfilesResult {
 	  return com.amazonaws.services.devicefarm.model.ListInstanceProfilesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListInstanceProfilesResult {
 		return environment.devicefarm.listInstanceProfiles(build())
@@ -1229,9 +1298,11 @@ class AWSDeviceFarmListJobsCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListJobsResult {
 	  return com.amazonaws.services.devicefarm.model.ListJobsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListJobsResult {
 		return environment.devicefarm.listJobs(build())
@@ -1265,9 +1336,11 @@ class AWSDeviceFarmListNetworkProfilesCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListNetworkProfilesResult {
 	  return com.amazonaws.services.devicefarm.model.ListNetworkProfilesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListNetworkProfilesResult {
 		return environment.devicefarm.listNetworkProfiles(build())
@@ -1298,9 +1371,11 @@ class AWSDeviceFarmListOfferingPromotionsCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListOfferingPromotionsResult {
 	  return com.amazonaws.services.devicefarm.model.ListOfferingPromotionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListOfferingPromotionsResult {
 		return environment.devicefarm.listOfferingPromotions(build())
@@ -1329,9 +1404,11 @@ class AWSDeviceFarmListOfferingTransactionsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListOfferingTransactionsResult {
 	  return com.amazonaws.services.devicefarm.model.ListOfferingTransactionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListOfferingTransactionsResult {
 		return environment.devicefarm.listOfferingTransactions(build())
@@ -1360,9 +1437,11 @@ class AWSDeviceFarmListOfferingsCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListOfferingsResult {
 	  return com.amazonaws.services.devicefarm.model.ListOfferingsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListOfferingsResult {
 		return environment.devicefarm.listOfferings(build())
@@ -1393,9 +1472,11 @@ class AWSDeviceFarmListProjectsCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListProjectsResult {
 	  return com.amazonaws.services.devicefarm.model.ListProjectsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListProjectsResult {
 		return environment.devicefarm.listProjects(build())
@@ -1427,9 +1508,11 @@ class AWSDeviceFarmListRemoteAccessSessionsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListRemoteAccessSessionsResult {
 	  return com.amazonaws.services.devicefarm.model.ListRemoteAccessSessionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListRemoteAccessSessionsResult {
 		return environment.devicefarm.listRemoteAccessSessions(build())
@@ -1461,9 +1544,11 @@ class AWSDeviceFarmListRunsCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListRunsResult {
 	  return com.amazonaws.services.devicefarm.model.ListRunsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListRunsResult {
 		return environment.devicefarm.listRuns(build())
@@ -1495,9 +1580,11 @@ class AWSDeviceFarmListSamplesCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListSamplesResult {
 	  return com.amazonaws.services.devicefarm.model.ListSamplesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListSamplesResult {
 		return environment.devicefarm.listSamples(build())
@@ -1529,9 +1616,11 @@ class AWSDeviceFarmListSuitesCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListSuitesResult {
 	  return com.amazonaws.services.devicefarm.model.ListSuitesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListSuitesResult {
 		return environment.devicefarm.listSuites(build())
@@ -1563,9 +1652,11 @@ class AWSDeviceFarmListTestsCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListTestsResult {
 	  return com.amazonaws.services.devicefarm.model.ListTestsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListTestsResult {
 		return environment.devicefarm.listTests(build())
@@ -1597,9 +1688,11 @@ class AWSDeviceFarmListUniqueProblemsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListUniqueProblemsResult {
 	  return com.amazonaws.services.devicefarm.model.ListUniqueProblemsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListUniqueProblemsResult {
 		return environment.devicefarm.listUniqueProblems(build())
@@ -1631,9 +1724,11 @@ class AWSDeviceFarmListUploadsCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListUploadsResult {
 	  return com.amazonaws.services.devicefarm.model.ListUploadsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListUploadsResult {
 		return environment.devicefarm.listUploads(build())
@@ -1667,9 +1762,11 @@ class AWSDeviceFarmPurchaseOfferingCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.PurchaseOfferingResult {
 	  return com.amazonaws.services.devicefarm.model.PurchaseOfferingResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.PurchaseOfferingResult {
 		return environment.devicefarm.purchaseOffering(build())
@@ -1702,9 +1799,11 @@ class AWSDeviceFarmRenewOfferingCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.RenewOfferingResult {
 	  return com.amazonaws.services.devicefarm.model.RenewOfferingResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.RenewOfferingResult {
 		return environment.devicefarm.renewOffering(build())
@@ -1746,9 +1845,11 @@ class AWSDeviceFarmScheduleRunCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.ScheduleRunResult {
 	  return com.amazonaws.services.devicefarm.model.ScheduleRunResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ScheduleRunResult {
 		return environment.devicefarm.scheduleRun(build())
@@ -1783,9 +1884,11 @@ class AWSDeviceFarmStopRemoteAccessSessionCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.StopRemoteAccessSessionResult {
 	  return com.amazonaws.services.devicefarm.model.StopRemoteAccessSessionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.StopRemoteAccessSessionResult {
 		return environment.devicefarm.stopRemoteAccessSession(build())
@@ -1814,9 +1917,11 @@ class AWSDeviceFarmStopRunCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.StopRunResult {
 	  return com.amazonaws.services.devicefarm.model.StopRunResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.StopRunResult {
 		return environment.devicefarm.stopRun(build())
@@ -1849,9 +1954,11 @@ class AWSDeviceFarmUpdateDeviceInstanceCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.UpdateDeviceInstanceResult {
 	  return com.amazonaws.services.devicefarm.model.UpdateDeviceInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.UpdateDeviceInstanceResult {
 		return environment.devicefarm.updateDeviceInstance(build())
@@ -1888,9 +1995,11 @@ class AWSDeviceFarmUpdateDevicePoolCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.UpdateDevicePoolResult {
 	  return com.amazonaws.services.devicefarm.model.UpdateDevicePoolResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.UpdateDevicePoolResult {
 		return environment.devicefarm.updateDevicePool(build())
@@ -1932,9 +2041,11 @@ class AWSDeviceFarmUpdateInstanceProfileCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.UpdateInstanceProfileResult {
 	  return com.amazonaws.services.devicefarm.model.UpdateInstanceProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.UpdateInstanceProfileResult {
 		return environment.devicefarm.updateInstanceProfile(build())
@@ -1990,9 +2101,11 @@ class AWSDeviceFarmUpdateNetworkProfileCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.UpdateNetworkProfileResult {
 	  return com.amazonaws.services.devicefarm.model.UpdateNetworkProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.UpdateNetworkProfileResult {
 		return environment.devicefarm.updateNetworkProfile(build())
@@ -2036,9 +2149,11 @@ class AWSDeviceFarmUpdateProjectCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.devicefarm.model.UpdateProjectResult {
 	  return com.amazonaws.services.devicefarm.model.UpdateProjectResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.UpdateProjectResult {
 		return environment.devicefarm.updateProject(build())

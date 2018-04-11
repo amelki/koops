@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -65,9 +66,11 @@ class AmazonMQCreateBrokerCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mq.model.CreateBrokerResult {
 	  return com.amazonaws.services.mq.model.CreateBrokerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.CreateBrokerResult {
 		return environment.mq.createBroker(build())
@@ -112,9 +115,11 @@ class AmazonMQCreateConfigurationCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mq.model.CreateConfigurationResult {
 	  return com.amazonaws.services.mq.model.CreateConfigurationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.CreateConfigurationResult {
 		return environment.mq.createConfiguration(build())
@@ -151,9 +156,11 @@ class AmazonMQCreateUserCommand(val brokerId: String, val username: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mq.model.CreateUserResult {
 	  return com.amazonaws.services.mq.model.CreateUserResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.CreateUserResult {
 		return environment.mq.createUser(build())
@@ -186,9 +193,11 @@ class AmazonMQDeleteBrokerCommand(val brokerId: String) : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mq.model.DeleteBrokerResult {
 	  return com.amazonaws.services.mq.model.DeleteBrokerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.DeleteBrokerResult {
 		return environment.mq.deleteBroker(build())
@@ -218,9 +227,11 @@ class AmazonMQDeleteUserCommand(val brokerId: String, val username: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mq.model.DeleteUserResult {
 	  return com.amazonaws.services.mq.model.DeleteUserResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.DeleteUserResult {
 		return environment.mq.deleteUser(build())
@@ -250,9 +261,11 @@ class AmazonMQDescribeBrokerCommand(val brokerId: String) : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mq.model.DescribeBrokerResult {
 	  return com.amazonaws.services.mq.model.DescribeBrokerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.DescribeBrokerResult {
 		return environment.mq.describeBroker(build())
@@ -281,9 +294,11 @@ class AmazonMQDescribeConfigurationCommand(val configurationId: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mq.model.DescribeConfigurationResult {
 	  return com.amazonaws.services.mq.model.DescribeConfigurationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.DescribeConfigurationResult {
 		return environment.mq.describeConfiguration(build())
@@ -313,9 +328,11 @@ class AmazonMQDescribeConfigurationRevisionCommand(val configurationId: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mq.model.DescribeConfigurationRevisionResult {
 	  return com.amazonaws.services.mq.model.DescribeConfigurationRevisionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.DescribeConfigurationRevisionResult {
 		return environment.mq.describeConfigurationRevision(build())
@@ -346,9 +363,11 @@ class AmazonMQDescribeUserCommand(val brokerId: String, val username: String) : 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mq.model.DescribeUserResult {
 	  return com.amazonaws.services.mq.model.DescribeUserResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.DescribeUserResult {
 		return environment.mq.describeUser(build())
@@ -380,9 +399,11 @@ class AmazonMQListBrokersCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mq.model.ListBrokersResult {
 	  return com.amazonaws.services.mq.model.ListBrokersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.ListBrokersResult {
 		return environment.mq.listBrokers(build())
@@ -415,9 +436,11 @@ class AmazonMQListConfigurationRevisionsCommand(val configurationId: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mq.model.ListConfigurationRevisionsResult {
 	  return com.amazonaws.services.mq.model.ListConfigurationRevisionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.ListConfigurationRevisionsResult {
 		return environment.mq.listConfigurationRevisions(build())
@@ -450,9 +473,11 @@ class AmazonMQListConfigurationsCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mq.model.ListConfigurationsResult {
 	  return com.amazonaws.services.mq.model.ListConfigurationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.ListConfigurationsResult {
 		return environment.mq.listConfigurations(build())
@@ -485,9 +510,11 @@ class AmazonMQListUsersCommand(val brokerId: String) : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mq.model.ListUsersResult {
 	  return com.amazonaws.services.mq.model.ListUsersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.ListUsersResult {
 		return environment.mq.listUsers(build())
@@ -518,9 +545,11 @@ class AmazonMQRebootBrokerCommand(val brokerId: String) : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mq.model.RebootBrokerResult {
 	  return com.amazonaws.services.mq.model.RebootBrokerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.RebootBrokerResult {
 		return environment.mq.rebootBroker(build())
@@ -550,9 +579,11 @@ class AmazonMQUpdateBrokerCommand(val brokerId: String) : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mq.model.UpdateBrokerResult {
 	  return com.amazonaws.services.mq.model.UpdateBrokerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.UpdateBrokerResult {
 		return environment.mq.updateBroker(build())
@@ -585,9 +616,11 @@ class AmazonMQUpdateConfigurationCommand(val configurationId: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mq.model.UpdateConfigurationResult {
 	  return com.amazonaws.services.mq.model.UpdateConfigurationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.UpdateConfigurationResult {
 		return environment.mq.updateConfiguration(build())
@@ -624,9 +657,11 @@ class AmazonMQUpdateUserCommand(val brokerId: String, val username: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mq.model.UpdateUserResult {
 	  return com.amazonaws.services.mq.model.UpdateUserResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.UpdateUserResult {
 		return environment.mq.updateUser(build())

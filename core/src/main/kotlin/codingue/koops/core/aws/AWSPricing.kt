@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -47,9 +48,11 @@ class AWSPricingDescribeServicesCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pricing.model.DescribeServicesResult {
 	  return com.amazonaws.services.pricing.model.DescribeServicesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pricing.model.DescribeServicesResult {
 		return environment.pricing.describeServices(build())
@@ -85,9 +88,11 @@ class AWSPricingGetAttributeValuesCommand(val serviceCode: String, val attribute
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pricing.model.GetAttributeValuesResult {
 	  return com.amazonaws.services.pricing.model.GetAttributeValuesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pricing.model.GetAttributeValuesResult {
 		return environment.pricing.getAttributeValues(build())
@@ -127,9 +132,11 @@ class AWSPricingGetProductsCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pricing.model.GetProductsResult {
 	  return com.amazonaws.services.pricing.model.GetProductsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pricing.model.GetProductsResult {
 		return environment.pricing.getProducts(build())

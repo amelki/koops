@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -42,9 +43,11 @@ class AWSMarketplaceMeteringBatchMeterUsageCommand(val usageRecords: List<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.marketplacemetering.model.BatchMeterUsageResult {
 	  return com.amazonaws.services.marketplacemetering.model.BatchMeterUsageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.marketplacemetering.model.BatchMeterUsageResult {
 		return environment.meteringmarketplace.batchMeterUsage(build())
@@ -78,9 +81,11 @@ class AWSMarketplaceMeteringMeterUsageCommand(val productCode: String, val times
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.marketplacemetering.model.MeterUsageResult {
 	  return com.amazonaws.services.marketplacemetering.model.MeterUsageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.marketplacemetering.model.MeterUsageResult {
 		return environment.meteringmarketplace.meterUsage(build())
@@ -113,9 +118,11 @@ class AWSMarketplaceMeteringResolveCustomerCommand(val registrationToken: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.marketplacemetering.model.ResolveCustomerResult {
 	  return com.amazonaws.services.marketplacemetering.model.ResolveCustomerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.marketplacemetering.model.ResolveCustomerResult {
 		return environment.meteringmarketplace.resolveCustomer(build())

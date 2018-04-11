@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -41,9 +42,11 @@ class AmazonConfigBatchGetResourceConfigCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.BatchGetResourceConfigResult {
 	  return com.amazonaws.services.config.model.BatchGetResourceConfigResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.BatchGetResourceConfigResult {
 		return environment.config.batchGetResourceConfig(build())
@@ -73,9 +76,11 @@ class AmazonConfigDeleteAggregationAuthorizationCommand(val authorizedAccountId:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.DeleteAggregationAuthorizationResult {
 	  return com.amazonaws.services.config.model.DeleteAggregationAuthorizationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DeleteAggregationAuthorizationResult {
 		return environment.config.deleteAggregationAuthorization(build())
@@ -105,9 +110,11 @@ class AmazonConfigDeleteConfigRuleCommand(val configRuleName: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.DeleteConfigRuleResult {
 	  return com.amazonaws.services.config.model.DeleteConfigRuleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DeleteConfigRuleResult {
 		return environment.config.deleteConfigRule(build())
@@ -136,9 +143,11 @@ class AmazonConfigDeleteConfigurationAggregatorCommand(val configurationAggregat
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.DeleteConfigurationAggregatorResult {
 	  return com.amazonaws.services.config.model.DeleteConfigurationAggregatorResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DeleteConfigurationAggregatorResult {
 		return environment.config.deleteConfigurationAggregator(build())
@@ -167,9 +176,11 @@ class AmazonConfigDeleteConfigurationRecorderCommand(val configurationRecorderNa
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.DeleteConfigurationRecorderResult {
 	  return com.amazonaws.services.config.model.DeleteConfigurationRecorderResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DeleteConfigurationRecorderResult {
 		return environment.config.deleteConfigurationRecorder(build())
@@ -198,9 +209,11 @@ class AmazonConfigDeleteDeliveryChannelCommand(val deliveryChannelName: String) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.DeleteDeliveryChannelResult {
 	  return com.amazonaws.services.config.model.DeleteDeliveryChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DeleteDeliveryChannelResult {
 		return environment.config.deleteDeliveryChannel(build())
@@ -229,9 +242,11 @@ class AmazonConfigDeleteEvaluationResultsCommand(val configRuleName: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.DeleteEvaluationResultsResult {
 	  return com.amazonaws.services.config.model.DeleteEvaluationResultsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DeleteEvaluationResultsResult {
 		return environment.config.deleteEvaluationResults(build())
@@ -261,9 +276,11 @@ class AmazonConfigDeletePendingAggregationRequestCommand(val requesterAccountId:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.DeletePendingAggregationRequestResult {
 	  return com.amazonaws.services.config.model.DeletePendingAggregationRequestResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DeletePendingAggregationRequestResult {
 		return environment.config.deletePendingAggregationRequest(build())
@@ -293,9 +310,11 @@ class AmazonConfigDeliverConfigSnapshotCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.DeliverConfigSnapshotResult {
 	  return com.amazonaws.services.config.model.DeliverConfigSnapshotResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DeliverConfigSnapshotResult {
 		return environment.config.deliverConfigSnapshot(build())
@@ -329,9 +348,11 @@ class AmazonConfigDescribeAggregateComplianceByConfigRulesCommand(val configurat
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.DescribeAggregateComplianceByConfigRulesResult {
 	  return com.amazonaws.services.config.model.DescribeAggregateComplianceByConfigRulesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DescribeAggregateComplianceByConfigRulesResult {
 		return environment.config.describeAggregateComplianceByConfigRules(build())
@@ -365,9 +386,11 @@ class AmazonConfigDescribeAggregationAuthorizationsCommand() : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.DescribeAggregationAuthorizationsResult {
 	  return com.amazonaws.services.config.model.DescribeAggregationAuthorizationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DescribeAggregationAuthorizationsResult {
 		return environment.config.describeAggregationAuthorizations(build())
@@ -401,9 +424,11 @@ class AmazonConfigDescribeComplianceByConfigRuleCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.DescribeComplianceByConfigRuleResult {
 	  return com.amazonaws.services.config.model.DescribeComplianceByConfigRuleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DescribeComplianceByConfigRuleResult {
 		return environment.config.describeComplianceByConfigRule(build())
@@ -442,9 +467,11 @@ class AmazonConfigDescribeComplianceByResourceCommand() : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.DescribeComplianceByResourceResult {
 	  return com.amazonaws.services.config.model.DescribeComplianceByResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DescribeComplianceByResourceResult {
 		return environment.config.describeComplianceByResource(build())
@@ -481,9 +508,11 @@ class AmazonConfigDescribeConfigRuleEvaluationStatusCommand() : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.DescribeConfigRuleEvaluationStatusResult {
 	  return com.amazonaws.services.config.model.DescribeConfigRuleEvaluationStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DescribeConfigRuleEvaluationStatusResult {
 		return environment.config.describeConfigRuleEvaluationStatus(build())
@@ -516,9 +545,11 @@ class AmazonConfigDescribeConfigRulesCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.DescribeConfigRulesResult {
 	  return com.amazonaws.services.config.model.DescribeConfigRulesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DescribeConfigRulesResult {
 		return environment.config.describeConfigRules(build())
@@ -553,9 +584,11 @@ class AmazonConfigDescribeConfigurationAggregatorSourcesStatusCommand(val config
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.DescribeConfigurationAggregatorSourcesStatusResult {
 	  return com.amazonaws.services.config.model.DescribeConfigurationAggregatorSourcesStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DescribeConfigurationAggregatorSourcesStatusResult {
 		return environment.config.describeConfigurationAggregatorSourcesStatus(build())
@@ -591,9 +624,11 @@ class AmazonConfigDescribeConfigurationAggregatorsCommand() : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.DescribeConfigurationAggregatorsResult {
 	  return com.amazonaws.services.config.model.DescribeConfigurationAggregatorsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DescribeConfigurationAggregatorsResult {
 		return environment.config.describeConfigurationAggregators(build())
@@ -624,9 +659,11 @@ class AmazonConfigDescribeConfigurationRecorderStatusCommand() : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.DescribeConfigurationRecorderStatusResult {
 	  return com.amazonaws.services.config.model.DescribeConfigurationRecorderStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DescribeConfigurationRecorderStatusResult {
 		return environment.config.describeConfigurationRecorderStatus(build())
@@ -655,9 +692,11 @@ class AmazonConfigDescribeConfigurationRecordersCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.DescribeConfigurationRecordersResult {
 	  return com.amazonaws.services.config.model.DescribeConfigurationRecordersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DescribeConfigurationRecordersResult {
 		return environment.config.describeConfigurationRecorders(build())
@@ -686,9 +725,11 @@ class AmazonConfigDescribeDeliveryChannelStatusCommand() : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.DescribeDeliveryChannelStatusResult {
 	  return com.amazonaws.services.config.model.DescribeDeliveryChannelStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DescribeDeliveryChannelStatusResult {
 		return environment.config.describeDeliveryChannelStatus(build())
@@ -717,9 +758,11 @@ class AmazonConfigDescribeDeliveryChannelsCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.DescribeDeliveryChannelsResult {
 	  return com.amazonaws.services.config.model.DescribeDeliveryChannelsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DescribeDeliveryChannelsResult {
 		return environment.config.describeDeliveryChannels(build())
@@ -750,9 +793,11 @@ class AmazonConfigDescribePendingAggregationRequestsCommand() : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.DescribePendingAggregationRequestsResult {
 	  return com.amazonaws.services.config.model.DescribePendingAggregationRequestsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DescribePendingAggregationRequestsResult {
 		return environment.config.describePendingAggregationRequests(build())
@@ -790,9 +835,11 @@ class AmazonConfigGetAggregateComplianceDetailsByConfigRuleCommand(val configura
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.GetAggregateComplianceDetailsByConfigRuleResult {
 	  return com.amazonaws.services.config.model.GetAggregateComplianceDetailsByConfigRuleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.GetAggregateComplianceDetailsByConfigRuleResult {
 		return environment.config.getAggregateComplianceDetailsByConfigRule(build())
@@ -834,9 +881,11 @@ class AmazonConfigGetAggregateConfigRuleComplianceSummaryCommand(val configurati
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.GetAggregateConfigRuleComplianceSummaryResult {
 	  return com.amazonaws.services.config.model.GetAggregateConfigRuleComplianceSummaryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.GetAggregateConfigRuleComplianceSummaryResult {
 		return environment.config.getAggregateConfigRuleComplianceSummary(build())
@@ -874,9 +923,11 @@ class AmazonConfigGetComplianceDetailsByConfigRuleCommand(val configRuleName: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.GetComplianceDetailsByConfigRuleResult {
 	  return com.amazonaws.services.config.model.GetComplianceDetailsByConfigRuleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.GetComplianceDetailsByConfigRuleResult {
 		return environment.config.getComplianceDetailsByConfigRule(build())
@@ -912,9 +963,11 @@ class AmazonConfigGetComplianceDetailsByResourceCommand(val resourceType: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.GetComplianceDetailsByResourceResult {
 	  return com.amazonaws.services.config.model.GetComplianceDetailsByResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.GetComplianceDetailsByResourceResult {
 		return environment.config.getComplianceDetailsByResource(build())
@@ -946,9 +999,11 @@ class AmazonConfigGetComplianceSummaryByConfigRuleCommand() : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.GetComplianceSummaryByConfigRuleResult {
 	  return com.amazonaws.services.config.model.GetComplianceSummaryByConfigRuleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.GetComplianceSummaryByConfigRuleResult {
 		return environment.config.getComplianceSummaryByConfigRule(build())
@@ -977,9 +1032,11 @@ class AmazonConfigGetComplianceSummaryByResourceTypeCommand() : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.GetComplianceSummaryByResourceTypeResult {
 	  return com.amazonaws.services.config.model.GetComplianceSummaryByResourceTypeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.GetComplianceSummaryByResourceTypeResult {
 		return environment.config.getComplianceSummaryByResourceType(build())
@@ -1012,9 +1069,11 @@ class AmazonConfigGetDiscoveredResourceCountsCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.GetDiscoveredResourceCountsResult {
 	  return com.amazonaws.services.config.model.GetDiscoveredResourceCountsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.GetDiscoveredResourceCountsResult {
 		return environment.config.getDiscoveredResourceCounts(build())
@@ -1057,9 +1116,11 @@ class AmazonConfigGetResourceConfigHistoryCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.GetResourceConfigHistoryResult {
 	  return com.amazonaws.services.config.model.GetResourceConfigHistoryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.GetResourceConfigHistoryResult {
 		return environment.config.getResourceConfigHistory(build())
@@ -1104,9 +1165,11 @@ class AmazonConfigListDiscoveredResourcesCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.ListDiscoveredResourcesResult {
 	  return com.amazonaws.services.config.model.ListDiscoveredResourcesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.ListDiscoveredResourcesResult {
 		return environment.config.listDiscoveredResources(build())
@@ -1141,9 +1204,11 @@ class AmazonConfigPutAggregationAuthorizationCommand(val authorizedAccountId: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.PutAggregationAuthorizationResult {
 	  return com.amazonaws.services.config.model.PutAggregationAuthorizationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.PutAggregationAuthorizationResult {
 		return environment.config.putAggregationAuthorization(build())
@@ -1173,9 +1238,11 @@ class AmazonConfigPutConfigRuleCommand(val configRule: com.amazonaws.services.co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.PutConfigRuleResult {
 	  return com.amazonaws.services.config.model.PutConfigRuleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.PutConfigRuleResult {
 		return environment.config.putConfigRule(build())
@@ -1207,9 +1274,11 @@ class AmazonConfigPutConfigurationAggregatorCommand(val configurationAggregatorN
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.PutConfigurationAggregatorResult {
 	  return com.amazonaws.services.config.model.PutConfigurationAggregatorResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.PutConfigurationAggregatorResult {
 		return environment.config.putConfigurationAggregator(build())
@@ -1240,9 +1309,11 @@ class AmazonConfigPutConfigurationRecorderCommand(val configurationRecorder: com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.PutConfigurationRecorderResult {
 	  return com.amazonaws.services.config.model.PutConfigurationRecorderResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.PutConfigurationRecorderResult {
 		return environment.config.putConfigurationRecorder(build())
@@ -1271,9 +1342,11 @@ class AmazonConfigPutDeliveryChannelCommand(val deliveryChannel: com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.PutDeliveryChannelResult {
 	  return com.amazonaws.services.config.model.PutDeliveryChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.PutDeliveryChannelResult {
 		return environment.config.putDeliveryChannel(build())
@@ -1305,9 +1378,11 @@ class AmazonConfigPutEvaluationsCommand(val resultToken: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.PutEvaluationsResult {
 	  return com.amazonaws.services.config.model.PutEvaluationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.PutEvaluationsResult {
 		return environment.config.putEvaluations(build())
@@ -1338,9 +1413,11 @@ class AmazonConfigStartConfigRulesEvaluationCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.StartConfigRulesEvaluationResult {
 	  return com.amazonaws.services.config.model.StartConfigRulesEvaluationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.StartConfigRulesEvaluationResult {
 		return environment.config.startConfigRulesEvaluation(build())
@@ -1369,9 +1446,11 @@ class AmazonConfigStartConfigurationRecorderCommand(val configurationRecorderNam
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.StartConfigurationRecorderResult {
 	  return com.amazonaws.services.config.model.StartConfigurationRecorderResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.StartConfigurationRecorderResult {
 		return environment.config.startConfigurationRecorder(build())
@@ -1400,9 +1479,11 @@ class AmazonConfigStopConfigurationRecorderCommand(val configurationRecorderName
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.config.model.StopConfigurationRecorderResult {
 	  return com.amazonaws.services.config.model.StopConfigurationRecorderResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.StopConfigurationRecorderResult {
 		return environment.config.stopConfigurationRecorder(build())

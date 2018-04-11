@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -45,9 +46,11 @@ class AmazonGlacierAbortMultipartUploadCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.AbortMultipartUploadResult {
 	  return com.amazonaws.services.glacier.model.AbortMultipartUploadResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.AbortMultipartUploadResult {
 		return environment.glacier.abortMultipartUpload(build())
@@ -80,9 +83,11 @@ class AmazonGlacierAbortVaultLockCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.AbortVaultLockResult {
 	  return com.amazonaws.services.glacier.model.AbortVaultLockResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.AbortVaultLockResult {
 		return environment.glacier.abortVaultLock(build())
@@ -116,9 +121,11 @@ class AmazonGlacierAddTagsToVaultCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.AddTagsToVaultResult {
 	  return com.amazonaws.services.glacier.model.AddTagsToVaultResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.AddTagsToVaultResult {
 		return environment.glacier.addTagsToVault(build())
@@ -157,9 +164,11 @@ class AmazonGlacierCompleteMultipartUploadCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.CompleteMultipartUploadResult {
 	  return com.amazonaws.services.glacier.model.CompleteMultipartUploadResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.CompleteMultipartUploadResult {
 		return environment.glacier.completeMultipartUpload(build())
@@ -196,9 +205,11 @@ class AmazonGlacierCompleteVaultLockCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.CompleteVaultLockResult {
 	  return com.amazonaws.services.glacier.model.CompleteVaultLockResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.CompleteVaultLockResult {
 		return environment.glacier.completeVaultLock(build())
@@ -231,9 +242,11 @@ class AmazonGlacierCreateVaultCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.CreateVaultResult {
 	  return com.amazonaws.services.glacier.model.CreateVaultResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.CreateVaultResult {
 		return environment.glacier.createVault(build())
@@ -267,9 +280,11 @@ class AmazonGlacierDeleteArchiveCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.DeleteArchiveResult {
 	  return com.amazonaws.services.glacier.model.DeleteArchiveResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.DeleteArchiveResult {
 		return environment.glacier.deleteArchive(build())
@@ -302,9 +317,11 @@ class AmazonGlacierDeleteVaultCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.DeleteVaultResult {
 	  return com.amazonaws.services.glacier.model.DeleteVaultResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.DeleteVaultResult {
 		return environment.glacier.deleteVault(build())
@@ -336,9 +353,11 @@ class AmazonGlacierDeleteVaultAccessPolicyCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.DeleteVaultAccessPolicyResult {
 	  return com.amazonaws.services.glacier.model.DeleteVaultAccessPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.DeleteVaultAccessPolicyResult {
 		return environment.glacier.deleteVaultAccessPolicy(build())
@@ -370,9 +389,11 @@ class AmazonGlacierDeleteVaultNotificationsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.DeleteVaultNotificationsResult {
 	  return com.amazonaws.services.glacier.model.DeleteVaultNotificationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.DeleteVaultNotificationsResult {
 		return environment.glacier.deleteVaultNotifications(build())
@@ -406,9 +427,11 @@ class AmazonGlacierDescribeJobCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.DescribeJobResult {
 	  return com.amazonaws.services.glacier.model.DescribeJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.DescribeJobResult {
 		return environment.glacier.describeJob(build())
@@ -441,9 +464,11 @@ class AmazonGlacierDescribeVaultCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.DescribeVaultResult {
 	  return com.amazonaws.services.glacier.model.DescribeVaultResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.DescribeVaultResult {
 		return environment.glacier.describeVault(build())
@@ -473,9 +498,11 @@ class AmazonGlacierGetDataRetrievalPolicyCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.GetDataRetrievalPolicyResult {
 	  return com.amazonaws.services.glacier.model.GetDataRetrievalPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.GetDataRetrievalPolicyResult {
 		return environment.glacier.getDataRetrievalPolicy(build())
@@ -510,9 +537,11 @@ class AmazonGlacierGetJobOutputCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.GetJobOutputResult {
 	  return com.amazonaws.services.glacier.model.GetJobOutputResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.GetJobOutputResult {
 		return environment.glacier.getJobOutput(build())
@@ -546,9 +575,11 @@ class AmazonGlacierGetVaultAccessPolicyCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.GetVaultAccessPolicyResult {
 	  return com.amazonaws.services.glacier.model.GetVaultAccessPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.GetVaultAccessPolicyResult {
 		return environment.glacier.getVaultAccessPolicy(build())
@@ -580,9 +611,11 @@ class AmazonGlacierGetVaultLockCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.GetVaultLockResult {
 	  return com.amazonaws.services.glacier.model.GetVaultLockResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.GetVaultLockResult {
 		return environment.glacier.getVaultLock(build())
@@ -614,9 +647,11 @@ class AmazonGlacierGetVaultNotificationsCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.GetVaultNotificationsResult {
 	  return com.amazonaws.services.glacier.model.GetVaultNotificationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.GetVaultNotificationsResult {
 		return environment.glacier.getVaultNotifications(build())
@@ -650,9 +685,11 @@ class AmazonGlacierInitiateJobCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.InitiateJobResult {
 	  return com.amazonaws.services.glacier.model.InitiateJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.InitiateJobResult {
 		return environment.glacier.initiateJob(build())
@@ -689,9 +726,11 @@ class AmazonGlacierInitiateMultipartUploadCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.InitiateMultipartUploadResult {
 	  return com.amazonaws.services.glacier.model.InitiateMultipartUploadResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.InitiateMultipartUploadResult {
 		return environment.glacier.initiateMultipartUpload(build())
@@ -727,9 +766,11 @@ class AmazonGlacierInitiateVaultLockCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.InitiateVaultLockResult {
 	  return com.amazonaws.services.glacier.model.InitiateVaultLockResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.InitiateVaultLockResult {
 		return environment.glacier.initiateVaultLock(build())
@@ -770,9 +811,11 @@ class AmazonGlacierListJobsCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.ListJobsResult {
 	  return com.amazonaws.services.glacier.model.ListJobsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.ListJobsResult {
 		return environment.glacier.listJobs(build())
@@ -812,9 +855,11 @@ class AmazonGlacierListMultipartUploadsCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.ListMultipartUploadsResult {
 	  return com.amazonaws.services.glacier.model.ListMultipartUploadsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.ListMultipartUploadsResult {
 		return environment.glacier.listMultipartUploads(build())
@@ -854,9 +899,11 @@ class AmazonGlacierListPartsCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.ListPartsResult {
 	  return com.amazonaws.services.glacier.model.ListPartsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.ListPartsResult {
 		return environment.glacier.listParts(build())
@@ -889,9 +936,11 @@ class AmazonGlacierListProvisionedCapacityCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.ListProvisionedCapacityResult {
 	  return com.amazonaws.services.glacier.model.ListProvisionedCapacityResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.ListProvisionedCapacityResult {
 		return environment.glacier.listProvisionedCapacity(build())
@@ -922,9 +971,11 @@ class AmazonGlacierListTagsForVaultCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.ListTagsForVaultResult {
 	  return com.amazonaws.services.glacier.model.ListTagsForVaultResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.ListTagsForVaultResult {
 		return environment.glacier.listTagsForVault(build())
@@ -958,9 +1009,11 @@ class AmazonGlacierListVaultsCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.ListVaultsResult {
 	  return com.amazonaws.services.glacier.model.ListVaultsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.ListVaultsResult {
 		return environment.glacier.listVaults(build())
@@ -991,9 +1044,11 @@ class AmazonGlacierPurchaseProvisionedCapacityCommand() : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.PurchaseProvisionedCapacityResult {
 	  return com.amazonaws.services.glacier.model.PurchaseProvisionedCapacityResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.PurchaseProvisionedCapacityResult {
 		return environment.glacier.purchaseProvisionedCapacity(build())
@@ -1026,9 +1081,11 @@ class AmazonGlacierRemoveTagsFromVaultCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.RemoveTagsFromVaultResult {
 	  return com.amazonaws.services.glacier.model.RemoveTagsFromVaultResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.RemoveTagsFromVaultResult {
 		return environment.glacier.removeTagsFromVault(build())
@@ -1061,9 +1118,11 @@ class AmazonGlacierSetDataRetrievalPolicyCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.SetDataRetrievalPolicyResult {
 	  return com.amazonaws.services.glacier.model.SetDataRetrievalPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.SetDataRetrievalPolicyResult {
 		return environment.glacier.setDataRetrievalPolicy(build())
@@ -1097,9 +1156,11 @@ class AmazonGlacierSetVaultAccessPolicyCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.SetVaultAccessPolicyResult {
 	  return com.amazonaws.services.glacier.model.SetVaultAccessPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.SetVaultAccessPolicyResult {
 		return environment.glacier.setVaultAccessPolicy(build())
@@ -1134,9 +1195,11 @@ class AmazonGlacierSetVaultNotificationsCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.SetVaultNotificationsResult {
 	  return com.amazonaws.services.glacier.model.SetVaultNotificationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.SetVaultNotificationsResult {
 		return environment.glacier.setVaultNotifications(build())
@@ -1177,9 +1240,11 @@ class AmazonGlacierUploadArchiveCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.UploadArchiveResult {
 	  return com.amazonaws.services.glacier.model.UploadArchiveResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.UploadArchiveResult {
 		return environment.glacier.uploadArchive(build())
@@ -1223,9 +1288,11 @@ class AmazonGlacierUploadMultipartPartCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glacier.model.UploadMultipartPartResult {
 	  return com.amazonaws.services.glacier.model.UploadMultipartPartResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.UploadMultipartPartResult {
 		return environment.glacier.uploadMultipartPart(build())

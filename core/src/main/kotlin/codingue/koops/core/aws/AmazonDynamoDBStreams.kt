@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -44,9 +45,11 @@ class AmazonDynamoDBStreamsDescribeStreamCommand(val streamArn: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.DescribeStreamResult {
 	  return com.amazonaws.services.dynamodbv2.model.DescribeStreamResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.DescribeStreamResult {
 		return environment.dynamodbstreams.describeStream(build())
@@ -78,9 +81,11 @@ class AmazonDynamoDBStreamsGetRecordsCommand(val shardIterator: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.GetRecordsResult {
 	  return com.amazonaws.services.dynamodbv2.model.GetRecordsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.GetRecordsResult {
 		return environment.dynamodbstreams.getRecords(build())
@@ -113,9 +118,11 @@ class AmazonDynamoDBStreamsGetShardIteratorCommand(val streamArn: String, val sh
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.GetShardIteratorResult {
 	  return com.amazonaws.services.dynamodbv2.model.GetShardIteratorResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.GetShardIteratorResult {
 		return environment.dynamodbstreams.getShardIterator(build())
@@ -151,9 +158,11 @@ class AmazonDynamoDBStreamsListStreamsCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.ListStreamsResult {
 	  return com.amazonaws.services.dynamodbv2.model.ListStreamsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.ListStreamsResult {
 		return environment.dynamodbstreams.listStreams(build())

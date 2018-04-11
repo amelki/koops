@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -42,9 +43,11 @@ class AmazonElastiCacheAddTagsToResourceCommand(val resourceName: String, val ta
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.AddTagsToResourceResult {
 	  return com.amazonaws.services.elasticache.model.AddTagsToResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.AddTagsToResourceResult {
 		return environment.elasticache.addTagsToResource(build())
@@ -76,9 +79,11 @@ class AmazonElastiCacheAuthorizeCacheSecurityGroupIngressCommand(val cacheSecuri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.CacheSecurityGroup {
 	  return com.amazonaws.services.elasticache.model.CacheSecurityGroup()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.CacheSecurityGroup {
 		return environment.elasticache.authorizeCacheSecurityGroupIngress(build())
@@ -111,9 +116,11 @@ class AmazonElastiCacheCopySnapshotCommand(val sourceSnapshotName: String, val t
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.Snapshot {
 	  return com.amazonaws.services.elasticache.model.Snapshot()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.Snapshot {
 		return environment.elasticache.copySnapshot(build())
@@ -187,9 +194,11 @@ class AmazonElastiCacheCreateCacheClusterCommand(val cacheClusterId: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.CacheCluster {
 	  return com.amazonaws.services.elasticache.model.CacheCluster()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.CacheCluster {
 		return environment.elasticache.createCacheCluster(build())
@@ -242,9 +251,11 @@ class AmazonElastiCacheCreateCacheParameterGroupCommand(val cacheParameterGroupN
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.CacheParameterGroup {
 	  return com.amazonaws.services.elasticache.model.CacheParameterGroup()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.CacheParameterGroup {
 		return environment.elasticache.createCacheParameterGroup(build())
@@ -276,9 +287,11 @@ class AmazonElastiCacheCreateCacheSecurityGroupCommand(val cacheSecurityGroupNam
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.CacheSecurityGroup {
 	  return com.amazonaws.services.elasticache.model.CacheSecurityGroup()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.CacheSecurityGroup {
 		return environment.elasticache.createCacheSecurityGroup(build())
@@ -310,9 +323,11 @@ class AmazonElastiCacheCreateCacheSubnetGroupCommand(val cacheSubnetGroupName: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.CacheSubnetGroup {
 	  return com.amazonaws.services.elasticache.model.CacheSubnetGroup()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.CacheSubnetGroup {
 		return environment.elasticache.createCacheSubnetGroup(build())
@@ -395,9 +410,11 @@ class AmazonElastiCacheCreateReplicationGroupCommand(val replicationGroupId: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.ReplicationGroup {
 	  return com.amazonaws.services.elasticache.model.ReplicationGroup()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.ReplicationGroup {
 		return environment.elasticache.createReplicationGroup(build())
@@ -456,9 +473,11 @@ class AmazonElastiCacheCreateSnapshotCommand(val snapshotName: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.Snapshot {
 	  return com.amazonaws.services.elasticache.model.Snapshot()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.Snapshot {
 		return environment.elasticache.createSnapshot(build())
@@ -490,9 +509,11 @@ class AmazonElastiCacheDeleteCacheClusterCommand(val cacheClusterId: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.CacheCluster {
 	  return com.amazonaws.services.elasticache.model.CacheCluster()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.CacheCluster {
 		return environment.elasticache.deleteCacheCluster(build())
@@ -522,9 +543,11 @@ class AmazonElastiCacheDeleteCacheParameterGroupCommand(val cacheParameterGroupN
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.DeleteCacheParameterGroupResult {
 	  return com.amazonaws.services.elasticache.model.DeleteCacheParameterGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.DeleteCacheParameterGroupResult {
 		return environment.elasticache.deleteCacheParameterGroup(build())
@@ -553,9 +576,11 @@ class AmazonElastiCacheDeleteCacheSecurityGroupCommand(val cacheSecurityGroupNam
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.DeleteCacheSecurityGroupResult {
 	  return com.amazonaws.services.elasticache.model.DeleteCacheSecurityGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.DeleteCacheSecurityGroupResult {
 		return environment.elasticache.deleteCacheSecurityGroup(build())
@@ -584,9 +609,11 @@ class AmazonElastiCacheDeleteCacheSubnetGroupCommand(val cacheSubnetGroupName: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.DeleteCacheSubnetGroupResult {
 	  return com.amazonaws.services.elasticache.model.DeleteCacheSubnetGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.DeleteCacheSubnetGroupResult {
 		return environment.elasticache.deleteCacheSubnetGroup(build())
@@ -618,9 +645,11 @@ class AmazonElastiCacheDeleteReplicationGroupCommand(val replicationGroupId: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.ReplicationGroup {
 	  return com.amazonaws.services.elasticache.model.ReplicationGroup()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.ReplicationGroup {
 		return environment.elasticache.deleteReplicationGroup(build())
@@ -651,9 +680,11 @@ class AmazonElastiCacheDeleteSnapshotCommand(val snapshotName: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.Snapshot {
 	  return com.amazonaws.services.elasticache.model.Snapshot()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.Snapshot {
 		return environment.elasticache.deleteSnapshot(build())
@@ -690,9 +721,11 @@ class AmazonElastiCacheDescribeCacheClustersCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.DescribeCacheClustersResult {
 	  return com.amazonaws.services.elasticache.model.DescribeCacheClustersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.DescribeCacheClustersResult {
 		return environment.elasticache.describeCacheClusters(build())
@@ -735,9 +768,11 @@ class AmazonElastiCacheDescribeCacheEngineVersionsCommand() : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.DescribeCacheEngineVersionsResult {
 	  return com.amazonaws.services.elasticache.model.DescribeCacheEngineVersionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.DescribeCacheEngineVersionsResult {
 		return environment.elasticache.describeCacheEngineVersions(build())
@@ -775,9 +810,11 @@ class AmazonElastiCacheDescribeCacheParameterGroupsCommand() : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.DescribeCacheParameterGroupsResult {
 	  return com.amazonaws.services.elasticache.model.DescribeCacheParameterGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.DescribeCacheParameterGroupsResult {
 		return environment.elasticache.describeCacheParameterGroups(build())
@@ -813,9 +850,11 @@ class AmazonElastiCacheDescribeCacheParametersCommand(val cacheParameterGroupNam
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.DescribeCacheParametersResult {
 	  return com.amazonaws.services.elasticache.model.DescribeCacheParametersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.DescribeCacheParametersResult {
 		return environment.elasticache.describeCacheParameters(build())
@@ -851,9 +890,11 @@ class AmazonElastiCacheDescribeCacheSecurityGroupsCommand() : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.DescribeCacheSecurityGroupsResult {
 	  return com.amazonaws.services.elasticache.model.DescribeCacheSecurityGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.DescribeCacheSecurityGroupsResult {
 		return environment.elasticache.describeCacheSecurityGroups(build())
@@ -888,9 +929,11 @@ class AmazonElastiCacheDescribeCacheSubnetGroupsCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.DescribeCacheSubnetGroupsResult {
 	  return com.amazonaws.services.elasticache.model.DescribeCacheSubnetGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.DescribeCacheSubnetGroupsResult {
 		return environment.elasticache.describeCacheSubnetGroups(build())
@@ -924,9 +967,11 @@ class AmazonElastiCacheDescribeEngineDefaultParametersCommand(val cacheParameter
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.EngineDefaults {
 	  return com.amazonaws.services.elasticache.model.EngineDefaults()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.EngineDefaults {
 		return environment.elasticache.describeEngineDefaultParameters(build())
@@ -969,9 +1014,11 @@ class AmazonElastiCacheDescribeEventsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.DescribeEventsResult {
 	  return com.amazonaws.services.elasticache.model.DescribeEventsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.DescribeEventsResult {
 		return environment.elasticache.describeEvents(build())
@@ -1010,9 +1057,11 @@ class AmazonElastiCacheDescribeReplicationGroupsCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.DescribeReplicationGroupsResult {
 	  return com.amazonaws.services.elasticache.model.DescribeReplicationGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.DescribeReplicationGroupsResult {
 		return environment.elasticache.describeReplicationGroups(build())
@@ -1057,9 +1106,11 @@ class AmazonElastiCacheDescribeReservedCacheNodesCommand() : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.DescribeReservedCacheNodesResult {
 	  return com.amazonaws.services.elasticache.model.DescribeReservedCacheNodesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.DescribeReservedCacheNodesResult {
 		return environment.elasticache.describeReservedCacheNodes(build())
@@ -1107,9 +1158,11 @@ class AmazonElastiCacheDescribeReservedCacheNodesOfferingsCommand() : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.DescribeReservedCacheNodesOfferingsResult {
 	  return com.amazonaws.services.elasticache.model.DescribeReservedCacheNodesOfferingsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.DescribeReservedCacheNodesOfferingsResult {
 		return environment.elasticache.describeReservedCacheNodesOfferings(build())
@@ -1156,9 +1209,11 @@ class AmazonElastiCacheDescribeSnapshotsCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.DescribeSnapshotsResult {
 	  return com.amazonaws.services.elasticache.model.DescribeSnapshotsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.DescribeSnapshotsResult {
 		return environment.elasticache.describeSnapshots(build())
@@ -1195,9 +1250,11 @@ class AmazonElastiCacheListAllowedNodeTypeModificationsCommand() : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.ListAllowedNodeTypeModificationsResult {
 	  return com.amazonaws.services.elasticache.model.ListAllowedNodeTypeModificationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.ListAllowedNodeTypeModificationsResult {
 		return environment.elasticache.listAllowedNodeTypeModifications(build())
@@ -1227,9 +1284,11 @@ class AmazonElastiCacheListTagsForResourceCommand(val resourceName: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.ListTagsForResourceResult {
 	  return com.amazonaws.services.elasticache.model.ListTagsForResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.ListTagsForResourceResult {
 		return environment.elasticache.listTagsForResource(build())
@@ -1289,9 +1348,11 @@ class AmazonElastiCacheModifyCacheClusterCommand(val cacheClusterId: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.CacheCluster {
 	  return com.amazonaws.services.elasticache.model.CacheCluster()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.CacheCluster {
 		return environment.elasticache.modifyCacheCluster(build())
@@ -1337,9 +1398,11 @@ class AmazonElastiCacheModifyCacheParameterGroupCommand(val cacheParameterGroupN
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.ModifyCacheParameterGroupResult {
 	  return com.amazonaws.services.elasticache.model.ModifyCacheParameterGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.ModifyCacheParameterGroupResult {
 		return environment.elasticache.modifyCacheParameterGroup(build())
@@ -1372,9 +1435,11 @@ class AmazonElastiCacheModifyCacheSubnetGroupCommand(val cacheSubnetGroupName: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.CacheSubnetGroup {
 	  return com.amazonaws.services.elasticache.model.CacheSubnetGroup()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.CacheSubnetGroup {
 		return environment.elasticache.modifyCacheSubnetGroup(build())
@@ -1438,9 +1503,11 @@ class AmazonElastiCacheModifyReplicationGroupCommand(val replicationGroupId: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.ReplicationGroup {
 	  return com.amazonaws.services.elasticache.model.ReplicationGroup()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.ReplicationGroup {
 		return environment.elasticache.modifyReplicationGroup(build())
@@ -1491,9 +1558,11 @@ class AmazonElastiCacheModifyReplicationGroupShardConfigurationCommand(val repli
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.ReplicationGroup {
 	  return com.amazonaws.services.elasticache.model.ReplicationGroup()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.ReplicationGroup {
 		return environment.elasticache.modifyReplicationGroupShardConfiguration(build())
@@ -1529,9 +1598,11 @@ class AmazonElastiCachePurchaseReservedCacheNodesOfferingCommand(val reservedCac
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.ReservedCacheNode {
 	  return com.amazonaws.services.elasticache.model.ReservedCacheNode()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.ReservedCacheNode {
 		return environment.elasticache.purchaseReservedCacheNodesOffering(build())
@@ -1563,9 +1634,11 @@ class AmazonElastiCacheRebootCacheClusterCommand(val cacheClusterId: String, val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.CacheCluster {
 	  return com.amazonaws.services.elasticache.model.CacheCluster()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.CacheCluster {
 		return environment.elasticache.rebootCacheCluster(build())
@@ -1596,9 +1669,11 @@ class AmazonElastiCacheRemoveTagsFromResourceCommand(val resourceName: String, v
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.RemoveTagsFromResourceResult {
 	  return com.amazonaws.services.elasticache.model.RemoveTagsFromResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.RemoveTagsFromResourceResult {
 		return environment.elasticache.removeTagsFromResource(build())
@@ -1631,9 +1706,11 @@ class AmazonElastiCacheResetCacheParameterGroupCommand(val cacheParameterGroupNa
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.ResetCacheParameterGroupResult {
 	  return com.amazonaws.services.elasticache.model.ResetCacheParameterGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.ResetCacheParameterGroupResult {
 		return environment.elasticache.resetCacheParameterGroup(build())
@@ -1666,9 +1743,11 @@ class AmazonElastiCacheRevokeCacheSecurityGroupIngressCommand(val cacheSecurityG
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.CacheSecurityGroup {
 	  return com.amazonaws.services.elasticache.model.CacheSecurityGroup()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.CacheSecurityGroup {
 		return environment.elasticache.revokeCacheSecurityGroupIngress(build())
@@ -1700,9 +1779,11 @@ class AmazonElastiCacheTestFailoverCommand(val replicationGroupId: String, val n
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticache.model.ReplicationGroup {
 	  return com.amazonaws.services.elasticache.model.ReplicationGroup()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticache.model.ReplicationGroup {
 		return environment.elasticache.testFailover(build())

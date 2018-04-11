@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -41,9 +42,11 @@ class AmazonCloudFrontCreateCloudFrontOriginAccessIdentityCommand(val cloudFront
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.CreateCloudFrontOriginAccessIdentityResult {
 	  return com.amazonaws.services.cloudfront.model.CreateCloudFrontOriginAccessIdentityResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.CreateCloudFrontOriginAccessIdentityResult {
 		return environment.cloudfront.createCloudFrontOriginAccessIdentity(build())
@@ -72,9 +75,11 @@ class AmazonCloudFrontCreateDistributionCommand(val distributionConfig: com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.CreateDistributionResult {
 	  return com.amazonaws.services.cloudfront.model.CreateDistributionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.CreateDistributionResult {
 		return environment.cloudfront.createDistribution(build())
@@ -103,9 +108,11 @@ class AmazonCloudFrontCreateDistributionWithTagsCommand(val distributionConfigWi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.CreateDistributionWithTagsResult {
 	  return com.amazonaws.services.cloudfront.model.CreateDistributionWithTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.CreateDistributionWithTagsResult {
 		return environment.cloudfront.createDistributionWithTags(build())
@@ -134,9 +141,11 @@ class AmazonCloudFrontCreateFieldLevelEncryptionConfigCommand(val fieldLevelEncr
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.CreateFieldLevelEncryptionConfigResult {
 	  return com.amazonaws.services.cloudfront.model.CreateFieldLevelEncryptionConfigResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.CreateFieldLevelEncryptionConfigResult {
 		return environment.cloudfront.createFieldLevelEncryptionConfig(build())
@@ -165,9 +174,11 @@ class AmazonCloudFrontCreateFieldLevelEncryptionProfileCommand(val fieldLevelEnc
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.CreateFieldLevelEncryptionProfileResult {
 	  return com.amazonaws.services.cloudfront.model.CreateFieldLevelEncryptionProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.CreateFieldLevelEncryptionProfileResult {
 		return environment.cloudfront.createFieldLevelEncryptionProfile(build())
@@ -197,9 +208,11 @@ class AmazonCloudFrontCreateInvalidationCommand(val distributionId: String, val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.CreateInvalidationResult {
 	  return com.amazonaws.services.cloudfront.model.CreateInvalidationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.CreateInvalidationResult {
 		return environment.cloudfront.createInvalidation(build())
@@ -229,9 +242,11 @@ class AmazonCloudFrontCreatePublicKeyCommand(val publicKeyConfig: com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.CreatePublicKeyResult {
 	  return com.amazonaws.services.cloudfront.model.CreatePublicKeyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.CreatePublicKeyResult {
 		return environment.cloudfront.createPublicKey(build())
@@ -260,9 +275,11 @@ class AmazonCloudFrontCreateStreamingDistributionCommand(val streamingDistributi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.CreateStreamingDistributionResult {
 	  return com.amazonaws.services.cloudfront.model.CreateStreamingDistributionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.CreateStreamingDistributionResult {
 		return environment.cloudfront.createStreamingDistribution(build())
@@ -291,9 +308,11 @@ class AmazonCloudFrontCreateStreamingDistributionWithTagsCommand(val streamingDi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.CreateStreamingDistributionWithTagsResult {
 	  return com.amazonaws.services.cloudfront.model.CreateStreamingDistributionWithTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.CreateStreamingDistributionWithTagsResult {
 		return environment.cloudfront.createStreamingDistributionWithTags(build())
@@ -323,9 +342,11 @@ class AmazonCloudFrontDeleteCloudFrontOriginAccessIdentityCommand(val id: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.DeleteCloudFrontOriginAccessIdentityResult {
 	  return com.amazonaws.services.cloudfront.model.DeleteCloudFrontOriginAccessIdentityResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.DeleteCloudFrontOriginAccessIdentityResult {
 		return environment.cloudfront.deleteCloudFrontOriginAccessIdentity(build())
@@ -356,9 +377,11 @@ class AmazonCloudFrontDeleteDistributionCommand(val id: String) : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.DeleteDistributionResult {
 	  return com.amazonaws.services.cloudfront.model.DeleteDistributionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.DeleteDistributionResult {
 		return environment.cloudfront.deleteDistribution(build())
@@ -389,9 +412,11 @@ class AmazonCloudFrontDeleteFieldLevelEncryptionConfigCommand(val id: String) : 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.DeleteFieldLevelEncryptionConfigResult {
 	  return com.amazonaws.services.cloudfront.model.DeleteFieldLevelEncryptionConfigResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.DeleteFieldLevelEncryptionConfigResult {
 		return environment.cloudfront.deleteFieldLevelEncryptionConfig(build())
@@ -422,9 +447,11 @@ class AmazonCloudFrontDeleteFieldLevelEncryptionProfileCommand(val id: String) :
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.DeleteFieldLevelEncryptionProfileResult {
 	  return com.amazonaws.services.cloudfront.model.DeleteFieldLevelEncryptionProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.DeleteFieldLevelEncryptionProfileResult {
 		return environment.cloudfront.deleteFieldLevelEncryptionProfile(build())
@@ -455,9 +482,11 @@ class AmazonCloudFrontDeletePublicKeyCommand(val id: String) : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.DeletePublicKeyResult {
 	  return com.amazonaws.services.cloudfront.model.DeletePublicKeyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.DeletePublicKeyResult {
 		return environment.cloudfront.deletePublicKey(build())
@@ -487,9 +516,11 @@ class AmazonCloudFrontDeleteServiceLinkedRoleCommand(val roleName: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.DeleteServiceLinkedRoleResult {
 	  return com.amazonaws.services.cloudfront.model.DeleteServiceLinkedRoleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.DeleteServiceLinkedRoleResult {
 		return environment.cloudfront.deleteServiceLinkedRole(build())
@@ -519,9 +550,11 @@ class AmazonCloudFrontDeleteStreamingDistributionCommand(val id: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.DeleteStreamingDistributionResult {
 	  return com.amazonaws.services.cloudfront.model.DeleteStreamingDistributionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.DeleteStreamingDistributionResult {
 		return environment.cloudfront.deleteStreamingDistribution(build())
@@ -551,9 +584,11 @@ class AmazonCloudFrontGetCloudFrontOriginAccessIdentityCommand(val id: String) :
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.GetCloudFrontOriginAccessIdentityResult {
 	  return com.amazonaws.services.cloudfront.model.GetCloudFrontOriginAccessIdentityResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.GetCloudFrontOriginAccessIdentityResult {
 		return environment.cloudfront.getCloudFrontOriginAccessIdentity(build())
@@ -582,9 +617,11 @@ class AmazonCloudFrontGetCloudFrontOriginAccessIdentityConfigCommand(val id: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.GetCloudFrontOriginAccessIdentityConfigResult {
 	  return com.amazonaws.services.cloudfront.model.GetCloudFrontOriginAccessIdentityConfigResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.GetCloudFrontOriginAccessIdentityConfigResult {
 		return environment.cloudfront.getCloudFrontOriginAccessIdentityConfig(build())
@@ -613,9 +650,11 @@ class AmazonCloudFrontGetDistributionCommand(val id: String) : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.GetDistributionResult {
 	  return com.amazonaws.services.cloudfront.model.GetDistributionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.GetDistributionResult {
 		return environment.cloudfront.getDistribution(build())
@@ -644,9 +683,11 @@ class AmazonCloudFrontGetDistributionConfigCommand(val id: String) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.GetDistributionConfigResult {
 	  return com.amazonaws.services.cloudfront.model.GetDistributionConfigResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.GetDistributionConfigResult {
 		return environment.cloudfront.getDistributionConfig(build())
@@ -675,9 +716,11 @@ class AmazonCloudFrontGetFieldLevelEncryptionCommand(val id: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.GetFieldLevelEncryptionResult {
 	  return com.amazonaws.services.cloudfront.model.GetFieldLevelEncryptionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.GetFieldLevelEncryptionResult {
 		return environment.cloudfront.getFieldLevelEncryption(build())
@@ -706,9 +749,11 @@ class AmazonCloudFrontGetFieldLevelEncryptionConfigCommand(val id: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.GetFieldLevelEncryptionConfigResult {
 	  return com.amazonaws.services.cloudfront.model.GetFieldLevelEncryptionConfigResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.GetFieldLevelEncryptionConfigResult {
 		return environment.cloudfront.getFieldLevelEncryptionConfig(build())
@@ -737,9 +782,11 @@ class AmazonCloudFrontGetFieldLevelEncryptionProfileCommand(val id: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.GetFieldLevelEncryptionProfileResult {
 	  return com.amazonaws.services.cloudfront.model.GetFieldLevelEncryptionProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.GetFieldLevelEncryptionProfileResult {
 		return environment.cloudfront.getFieldLevelEncryptionProfile(build())
@@ -768,9 +815,11 @@ class AmazonCloudFrontGetFieldLevelEncryptionProfileConfigCommand(val id: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.GetFieldLevelEncryptionProfileConfigResult {
 	  return com.amazonaws.services.cloudfront.model.GetFieldLevelEncryptionProfileConfigResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.GetFieldLevelEncryptionProfileConfigResult {
 		return environment.cloudfront.getFieldLevelEncryptionProfileConfig(build())
@@ -800,9 +849,11 @@ class AmazonCloudFrontGetInvalidationCommand(val distributionId: String, val id:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.GetInvalidationResult {
 	  return com.amazonaws.services.cloudfront.model.GetInvalidationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.GetInvalidationResult {
 		return environment.cloudfront.getInvalidation(build())
@@ -832,9 +883,11 @@ class AmazonCloudFrontGetPublicKeyCommand(val id: String) : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.GetPublicKeyResult {
 	  return com.amazonaws.services.cloudfront.model.GetPublicKeyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.GetPublicKeyResult {
 		return environment.cloudfront.getPublicKey(build())
@@ -863,9 +916,11 @@ class AmazonCloudFrontGetPublicKeyConfigCommand(val id: String) : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.GetPublicKeyConfigResult {
 	  return com.amazonaws.services.cloudfront.model.GetPublicKeyConfigResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.GetPublicKeyConfigResult {
 		return environment.cloudfront.getPublicKeyConfig(build())
@@ -894,9 +949,11 @@ class AmazonCloudFrontGetStreamingDistributionCommand(val id: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.GetStreamingDistributionResult {
 	  return com.amazonaws.services.cloudfront.model.GetStreamingDistributionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.GetStreamingDistributionResult {
 		return environment.cloudfront.getStreamingDistribution(build())
@@ -925,9 +982,11 @@ class AmazonCloudFrontGetStreamingDistributionConfigCommand(val id: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.GetStreamingDistributionConfigResult {
 	  return com.amazonaws.services.cloudfront.model.GetStreamingDistributionConfigResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.GetStreamingDistributionConfigResult {
 		return environment.cloudfront.getStreamingDistributionConfig(build())
@@ -958,9 +1017,11 @@ class AmazonCloudFrontListCloudFrontOriginAccessIdentitiesCommand() : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.ListCloudFrontOriginAccessIdentitiesResult {
 	  return com.amazonaws.services.cloudfront.model.ListCloudFrontOriginAccessIdentitiesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.ListCloudFrontOriginAccessIdentitiesResult {
 		return environment.cloudfront.listCloudFrontOriginAccessIdentities(build())
@@ -992,9 +1053,11 @@ class AmazonCloudFrontListDistributionsCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.ListDistributionsResult {
 	  return com.amazonaws.services.cloudfront.model.ListDistributionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.ListDistributionsResult {
 		return environment.cloudfront.listDistributions(build())
@@ -1027,9 +1090,11 @@ class AmazonCloudFrontListDistributionsByWebACLIdCommand(val webACLId: String) :
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.ListDistributionsByWebACLIdResult {
 	  return com.amazonaws.services.cloudfront.model.ListDistributionsByWebACLIdResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.ListDistributionsByWebACLIdResult {
 		return environment.cloudfront.listDistributionsByWebACLId(build())
@@ -1062,9 +1127,11 @@ class AmazonCloudFrontListFieldLevelEncryptionConfigsCommand() : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.ListFieldLevelEncryptionConfigsResult {
 	  return com.amazonaws.services.cloudfront.model.ListFieldLevelEncryptionConfigsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.ListFieldLevelEncryptionConfigsResult {
 		return environment.cloudfront.listFieldLevelEncryptionConfigs(build())
@@ -1096,9 +1163,11 @@ class AmazonCloudFrontListFieldLevelEncryptionProfilesCommand() : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.ListFieldLevelEncryptionProfilesResult {
 	  return com.amazonaws.services.cloudfront.model.ListFieldLevelEncryptionProfilesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.ListFieldLevelEncryptionProfilesResult {
 		return environment.cloudfront.listFieldLevelEncryptionProfiles(build())
@@ -1131,9 +1200,11 @@ class AmazonCloudFrontListInvalidationsCommand(val distributionId: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.ListInvalidationsResult {
 	  return com.amazonaws.services.cloudfront.model.ListInvalidationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.ListInvalidationsResult {
 		return environment.cloudfront.listInvalidations(build())
@@ -1166,9 +1237,11 @@ class AmazonCloudFrontListPublicKeysCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.ListPublicKeysResult {
 	  return com.amazonaws.services.cloudfront.model.ListPublicKeysResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.ListPublicKeysResult {
 		return environment.cloudfront.listPublicKeys(build())
@@ -1200,9 +1273,11 @@ class AmazonCloudFrontListStreamingDistributionsCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.ListStreamingDistributionsResult {
 	  return com.amazonaws.services.cloudfront.model.ListStreamingDistributionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.ListStreamingDistributionsResult {
 		return environment.cloudfront.listStreamingDistributions(build())
@@ -1232,9 +1307,11 @@ class AmazonCloudFrontListTagsForResourceCommand(val resource: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.ListTagsForResourceResult {
 	  return com.amazonaws.services.cloudfront.model.ListTagsForResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.ListTagsForResourceResult {
 		return environment.cloudfront.listTagsForResource(build())
@@ -1264,9 +1341,11 @@ class AmazonCloudFrontTagResourceCommand(val resource: String, val tags: com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.TagResourceResult {
 	  return com.amazonaws.services.cloudfront.model.TagResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.TagResourceResult {
 		return environment.cloudfront.tagResource(build())
@@ -1297,9 +1376,11 @@ class AmazonCloudFrontUntagResourceCommand(val resource: String, val tagKeys: co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.UntagResourceResult {
 	  return com.amazonaws.services.cloudfront.model.UntagResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.UntagResourceResult {
 		return environment.cloudfront.untagResource(build())
@@ -1331,9 +1412,11 @@ class AmazonCloudFrontUpdateCloudFrontOriginAccessIdentityCommand(val cloudFront
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.UpdateCloudFrontOriginAccessIdentityResult {
 	  return com.amazonaws.services.cloudfront.model.UpdateCloudFrontOriginAccessIdentityResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.UpdateCloudFrontOriginAccessIdentityResult {
 		return environment.cloudfront.updateCloudFrontOriginAccessIdentity(build())
@@ -1366,9 +1449,11 @@ class AmazonCloudFrontUpdateDistributionCommand(val distributionConfig: com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.UpdateDistributionResult {
 	  return com.amazonaws.services.cloudfront.model.UpdateDistributionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.UpdateDistributionResult {
 		return environment.cloudfront.updateDistribution(build())
@@ -1401,9 +1486,11 @@ class AmazonCloudFrontUpdateFieldLevelEncryptionConfigCommand(val fieldLevelEncr
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.UpdateFieldLevelEncryptionConfigResult {
 	  return com.amazonaws.services.cloudfront.model.UpdateFieldLevelEncryptionConfigResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.UpdateFieldLevelEncryptionConfigResult {
 		return environment.cloudfront.updateFieldLevelEncryptionConfig(build())
@@ -1436,9 +1523,11 @@ class AmazonCloudFrontUpdateFieldLevelEncryptionProfileCommand(val fieldLevelEnc
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.UpdateFieldLevelEncryptionProfileResult {
 	  return com.amazonaws.services.cloudfront.model.UpdateFieldLevelEncryptionProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.UpdateFieldLevelEncryptionProfileResult {
 		return environment.cloudfront.updateFieldLevelEncryptionProfile(build())
@@ -1471,9 +1560,11 @@ class AmazonCloudFrontUpdatePublicKeyCommand(val publicKeyConfig: com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.UpdatePublicKeyResult {
 	  return com.amazonaws.services.cloudfront.model.UpdatePublicKeyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.UpdatePublicKeyResult {
 		return environment.cloudfront.updatePublicKey(build())
@@ -1506,9 +1597,11 @@ class AmazonCloudFrontUpdateStreamingDistributionCommand(val streamingDistributi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudfront.model.UpdateStreamingDistributionResult {
 	  return com.amazonaws.services.cloudfront.model.UpdateStreamingDistributionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudfront.model.UpdateStreamingDistributionResult {
 		return environment.cloudfront.updateStreamingDistribution(build())

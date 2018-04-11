@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -41,9 +42,11 @@ class AmazonCognitoSyncBulkPublishCommand(val identityPoolId: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitosync.model.BulkPublishResult {
 	  return com.amazonaws.services.cognitosync.model.BulkPublishResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.BulkPublishResult {
 		return environment.cognito_sync.bulkPublish(build())
@@ -74,9 +77,11 @@ class AmazonCognitoSyncDeleteDatasetCommand(val identityPoolId: String, val iden
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitosync.model.DeleteDatasetResult {
 	  return com.amazonaws.services.cognitosync.model.DeleteDatasetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.DeleteDatasetResult {
 		return environment.cognito_sync.deleteDataset(build())
@@ -109,9 +114,11 @@ class AmazonCognitoSyncDescribeDatasetCommand(val identityPoolId: String, val id
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitosync.model.DescribeDatasetResult {
 	  return com.amazonaws.services.cognitosync.model.DescribeDatasetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.DescribeDatasetResult {
 		return environment.cognito_sync.describeDataset(build())
@@ -142,9 +149,11 @@ class AmazonCognitoSyncDescribeIdentityPoolUsageCommand(val identityPoolId: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitosync.model.DescribeIdentityPoolUsageResult {
 	  return com.amazonaws.services.cognitosync.model.DescribeIdentityPoolUsageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.DescribeIdentityPoolUsageResult {
 		return environment.cognito_sync.describeIdentityPoolUsage(build())
@@ -174,9 +183,11 @@ class AmazonCognitoSyncDescribeIdentityUsageCommand(val identityPoolId: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitosync.model.DescribeIdentityUsageResult {
 	  return com.amazonaws.services.cognitosync.model.DescribeIdentityUsageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.DescribeIdentityUsageResult {
 		return environment.cognito_sync.describeIdentityUsage(build())
@@ -206,9 +217,11 @@ class AmazonCognitoSyncGetBulkPublishDetailsCommand(val identityPoolId: String) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitosync.model.GetBulkPublishDetailsResult {
 	  return com.amazonaws.services.cognitosync.model.GetBulkPublishDetailsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.GetBulkPublishDetailsResult {
 		return environment.cognito_sync.getBulkPublishDetails(build())
@@ -237,9 +250,11 @@ class AmazonCognitoSyncGetCognitoEventsCommand(val identityPoolId: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitosync.model.GetCognitoEventsResult {
 	  return com.amazonaws.services.cognitosync.model.GetCognitoEventsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.GetCognitoEventsResult {
 		return environment.cognito_sync.getCognitoEvents(build())
@@ -268,9 +283,11 @@ class AmazonCognitoSyncGetIdentityPoolConfigurationCommand(val identityPoolId: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitosync.model.GetIdentityPoolConfigurationResult {
 	  return com.amazonaws.services.cognitosync.model.GetIdentityPoolConfigurationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.GetIdentityPoolConfigurationResult {
 		return environment.cognito_sync.getIdentityPoolConfiguration(build())
@@ -303,9 +320,11 @@ class AmazonCognitoSyncListDatasetsCommand(val identityPoolId: String, val ident
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitosync.model.ListDatasetsResult {
 	  return com.amazonaws.services.cognitosync.model.ListDatasetsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.ListDatasetsResult {
 		return environment.cognito_sync.listDatasets(build())
@@ -339,9 +358,11 @@ class AmazonCognitoSyncListIdentityPoolUsageCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitosync.model.ListIdentityPoolUsageResult {
 	  return com.amazonaws.services.cognitosync.model.ListIdentityPoolUsageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.ListIdentityPoolUsageResult {
 		return environment.cognito_sync.listIdentityPoolUsage(build())
@@ -380,9 +401,11 @@ class AmazonCognitoSyncListRecordsCommand(val identityPoolId: String, val identi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitosync.model.ListRecordsResult {
 	  return com.amazonaws.services.cognitosync.model.ListRecordsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.ListRecordsResult {
 		return environment.cognito_sync.listRecords(build())
@@ -420,9 +443,11 @@ class AmazonCognitoSyncRegisterDeviceCommand(val identityPoolId: String, val ide
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitosync.model.RegisterDeviceResult {
 	  return com.amazonaws.services.cognitosync.model.RegisterDeviceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.RegisterDeviceResult {
 		return environment.cognito_sync.registerDevice(build())
@@ -455,9 +480,11 @@ class AmazonCognitoSyncSetCognitoEventsCommand(val identityPoolId: String, val e
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitosync.model.SetCognitoEventsResult {
 	  return com.amazonaws.services.cognitosync.model.SetCognitoEventsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.SetCognitoEventsResult {
 		return environment.cognito_sync.setCognitoEvents(build())
@@ -490,9 +517,11 @@ class AmazonCognitoSyncSetIdentityPoolConfigurationCommand(val identityPoolId: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitosync.model.SetIdentityPoolConfigurationResult {
 	  return com.amazonaws.services.cognitosync.model.SetIdentityPoolConfigurationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.SetIdentityPoolConfigurationResult {
 		return environment.cognito_sync.setIdentityPoolConfiguration(build())
@@ -526,9 +555,11 @@ class AmazonCognitoSyncSubscribeToDatasetCommand(val identityPoolId: String, val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitosync.model.SubscribeToDatasetResult {
 	  return com.amazonaws.services.cognitosync.model.SubscribeToDatasetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.SubscribeToDatasetResult {
 		return environment.cognito_sync.subscribeToDataset(build())
@@ -563,9 +594,11 @@ class AmazonCognitoSyncUnsubscribeFromDatasetCommand(val identityPoolId: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitosync.model.UnsubscribeFromDatasetResult {
 	  return com.amazonaws.services.cognitosync.model.UnsubscribeFromDatasetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.UnsubscribeFromDatasetResult {
 		return environment.cognito_sync.unsubscribeFromDataset(build())
@@ -605,9 +638,11 @@ class AmazonCognitoSyncUpdateRecordsCommand(val identityPoolId: String, val iden
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitosync.model.UpdateRecordsResult {
 	  return com.amazonaws.services.cognitosync.model.UpdateRecordsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.UpdateRecordsResult {
 		return environment.cognito_sync.updateRecords(build())

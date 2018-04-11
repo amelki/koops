@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -42,9 +43,11 @@ class AWSOpsWorksAssignInstanceCommand(val instanceId: String, val layerIds: Lis
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.AssignInstanceResult {
 	  return com.amazonaws.services.opsworks.model.AssignInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.AssignInstanceResult {
 		return environment.opsworks.assignInstance(build())
@@ -75,9 +78,11 @@ class AWSOpsWorksAssignVolumeCommand(val volumeId: String) : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.AssignVolumeResult {
 	  return com.amazonaws.services.opsworks.model.AssignVolumeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.AssignVolumeResult {
 		return environment.opsworks.assignVolume(build())
@@ -108,9 +113,11 @@ class AWSOpsWorksAssociateElasticIpCommand(val elasticIp: String) : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.AssociateElasticIpResult {
 	  return com.amazonaws.services.opsworks.model.AssociateElasticIpResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.AssociateElasticIpResult {
 		return environment.opsworks.associateElasticIp(build())
@@ -141,9 +148,11 @@ class AWSOpsWorksAttachElasticLoadBalancerCommand(val elasticLoadBalancerName: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.AttachElasticLoadBalancerResult {
 	  return com.amazonaws.services.opsworks.model.AttachElasticLoadBalancerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.AttachElasticLoadBalancerResult {
 		return environment.opsworks.attachElasticLoadBalancer(build())
@@ -213,9 +222,11 @@ class AWSOpsWorksCloneStackCommand(val sourceStackId: String, val serviceRoleArn
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.CloneStackResult {
 	  return com.amazonaws.services.opsworks.model.CloneStackResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.CloneStackResult {
 		return environment.opsworks.cloneStack(build())
@@ -284,9 +295,11 @@ class AWSOpsWorksCreateAppCommand(val stackId: String, val name: String, val typ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.CreateAppResult {
 	  return com.amazonaws.services.opsworks.model.CreateAppResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.CreateAppResult {
 		return environment.opsworks.createApp(build())
@@ -336,9 +349,11 @@ class AWSOpsWorksCreateDeploymentCommand(val stackId: String, val command: com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.CreateDeploymentResult {
 	  return com.amazonaws.services.opsworks.model.CreateDeploymentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.CreateDeploymentResult {
 		return environment.opsworks.createDeployment(build())
@@ -404,9 +419,11 @@ class AWSOpsWorksCreateInstanceCommand(val stackId: String, val layerIds: List<S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.CreateInstanceResult {
 	  return com.amazonaws.services.opsworks.model.CreateInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.CreateInstanceResult {
 		return environment.opsworks.createInstance(build())
@@ -482,9 +499,11 @@ class AWSOpsWorksCreateLayerCommand(val stackId: String, val type: LayerType, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.CreateLayerResult {
 	  return com.amazonaws.services.opsworks.model.CreateLayerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.CreateLayerResult {
 		return environment.opsworks.createLayer(build())
@@ -562,9 +581,11 @@ class AWSOpsWorksCreateStackCommand(val name: String, val region: String, val se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.CreateStackResult {
 	  return com.amazonaws.services.opsworks.model.CreateStackResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.CreateStackResult {
 		return environment.opsworks.createStack(build())
@@ -616,9 +637,11 @@ class AWSOpsWorksCreateUserProfileCommand(val iamUserArn: String) : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.CreateUserProfileResult {
 	  return com.amazonaws.services.opsworks.model.CreateUserProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.CreateUserProfileResult {
 		return environment.opsworks.createUserProfile(build())
@@ -650,9 +673,11 @@ class AWSOpsWorksDeleteAppCommand(val appId: String) : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DeleteAppResult {
 	  return com.amazonaws.services.opsworks.model.DeleteAppResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DeleteAppResult {
 		return environment.opsworks.deleteApp(build())
@@ -684,9 +709,11 @@ class AWSOpsWorksDeleteInstanceCommand(val instanceId: String) : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DeleteInstanceResult {
 	  return com.amazonaws.services.opsworks.model.DeleteInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DeleteInstanceResult {
 		return environment.opsworks.deleteInstance(build())
@@ -717,9 +744,11 @@ class AWSOpsWorksDeleteLayerCommand(val layerId: String) : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DeleteLayerResult {
 	  return com.amazonaws.services.opsworks.model.DeleteLayerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DeleteLayerResult {
 		return environment.opsworks.deleteLayer(build())
@@ -748,9 +777,11 @@ class AWSOpsWorksDeleteStackCommand(val stackId: String) : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DeleteStackResult {
 	  return com.amazonaws.services.opsworks.model.DeleteStackResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DeleteStackResult {
 		return environment.opsworks.deleteStack(build())
@@ -779,9 +810,11 @@ class AWSOpsWorksDeleteUserProfileCommand(val iamUserArn: String) : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DeleteUserProfileResult {
 	  return com.amazonaws.services.opsworks.model.DeleteUserProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DeleteUserProfileResult {
 		return environment.opsworks.deleteUserProfile(build())
@@ -810,9 +843,11 @@ class AWSOpsWorksDeregisterEcsClusterCommand(val ecsClusterArn: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DeregisterEcsClusterResult {
 	  return com.amazonaws.services.opsworks.model.DeregisterEcsClusterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DeregisterEcsClusterResult {
 		return environment.opsworks.deregisterEcsCluster(build())
@@ -841,9 +876,11 @@ class AWSOpsWorksDeregisterElasticIpCommand(val elasticIp: String) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DeregisterElasticIpResult {
 	  return com.amazonaws.services.opsworks.model.DeregisterElasticIpResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DeregisterElasticIpResult {
 		return environment.opsworks.deregisterElasticIp(build())
@@ -872,9 +909,11 @@ class AWSOpsWorksDeregisterInstanceCommand(val instanceId: String) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DeregisterInstanceResult {
 	  return com.amazonaws.services.opsworks.model.DeregisterInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DeregisterInstanceResult {
 		return environment.opsworks.deregisterInstance(build())
@@ -903,9 +942,11 @@ class AWSOpsWorksDeregisterRdsDbInstanceCommand(val rdsDbInstanceArn: String) : 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DeregisterRdsDbInstanceResult {
 	  return com.amazonaws.services.opsworks.model.DeregisterRdsDbInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DeregisterRdsDbInstanceResult {
 		return environment.opsworks.deregisterRdsDbInstance(build())
@@ -934,9 +975,11 @@ class AWSOpsWorksDeregisterVolumeCommand(val volumeId: String) : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DeregisterVolumeResult {
 	  return com.amazonaws.services.opsworks.model.DeregisterVolumeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DeregisterVolumeResult {
 		return environment.opsworks.deregisterVolume(build())
@@ -967,9 +1010,11 @@ class AWSOpsWorksDescribeAgentVersionsCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeAgentVersionsResult {
 	  return com.amazonaws.services.opsworks.model.DescribeAgentVersionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeAgentVersionsResult {
 		return environment.opsworks.describeAgentVersions(build())
@@ -1001,9 +1046,11 @@ class AWSOpsWorksDescribeAppsCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeAppsResult {
 	  return com.amazonaws.services.opsworks.model.DescribeAppsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeAppsResult {
 		return environment.opsworks.describeApps(build())
@@ -1037,9 +1084,11 @@ class AWSOpsWorksDescribeCommandsCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeCommandsResult {
 	  return com.amazonaws.services.opsworks.model.DescribeCommandsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeCommandsResult {
 		return environment.opsworks.describeCommands(build())
@@ -1074,9 +1123,11 @@ class AWSOpsWorksDescribeDeploymentsCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeDeploymentsResult {
 	  return com.amazonaws.services.opsworks.model.DescribeDeploymentsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeDeploymentsResult {
 		return environment.opsworks.describeDeployments(build())
@@ -1113,9 +1164,11 @@ class AWSOpsWorksDescribeEcsClustersCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeEcsClustersResult {
 	  return com.amazonaws.services.opsworks.model.DescribeEcsClustersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeEcsClustersResult {
 		return environment.opsworks.describeEcsClusters(build())
@@ -1151,9 +1204,11 @@ class AWSOpsWorksDescribeElasticIpsCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeElasticIpsResult {
 	  return com.amazonaws.services.opsworks.model.DescribeElasticIpsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeElasticIpsResult {
 		return environment.opsworks.describeElasticIps(build())
@@ -1186,9 +1241,11 @@ class AWSOpsWorksDescribeElasticLoadBalancersCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeElasticLoadBalancersResult {
 	  return com.amazonaws.services.opsworks.model.DescribeElasticLoadBalancersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeElasticLoadBalancersResult {
 		return environment.opsworks.describeElasticLoadBalancers(build())
@@ -1222,9 +1279,11 @@ class AWSOpsWorksDescribeInstancesCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeInstancesResult {
 	  return com.amazonaws.services.opsworks.model.DescribeInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeInstancesResult {
 		return environment.opsworks.describeInstances(build())
@@ -1257,9 +1316,11 @@ class AWSOpsWorksDescribeLayersCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeLayersResult {
 	  return com.amazonaws.services.opsworks.model.DescribeLayersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeLayersResult {
 		return environment.opsworks.describeLayers(build())
@@ -1289,9 +1350,11 @@ class AWSOpsWorksDescribeLoadBasedAutoScalingCommand(val layerIds: List<String>)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeLoadBasedAutoScalingResult {
 	  return com.amazonaws.services.opsworks.model.DescribeLoadBasedAutoScalingResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeLoadBasedAutoScalingResult {
 		return environment.opsworks.describeLoadBasedAutoScaling(build())
@@ -1320,9 +1383,11 @@ class AWSOpsWorksDescribeMyUserProfileCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeMyUserProfileResult {
 	  return com.amazonaws.services.opsworks.model.DescribeMyUserProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeMyUserProfileResult {
 		return environment.opsworks.describeMyUserProfile(build())
@@ -1351,9 +1416,11 @@ class AWSOpsWorksDescribeOperatingSystemsCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeOperatingSystemsResult {
 	  return com.amazonaws.services.opsworks.model.DescribeOperatingSystemsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeOperatingSystemsResult {
 		return environment.opsworks.describeOperatingSystems(build())
@@ -1384,9 +1451,11 @@ class AWSOpsWorksDescribePermissionsCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribePermissionsResult {
 	  return com.amazonaws.services.opsworks.model.DescribePermissionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribePermissionsResult {
 		return environment.opsworks.describePermissions(build())
@@ -1420,9 +1489,11 @@ class AWSOpsWorksDescribeRaidArraysCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeRaidArraysResult {
 	  return com.amazonaws.services.opsworks.model.DescribeRaidArraysResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeRaidArraysResult {
 		return environment.opsworks.describeRaidArrays(build())
@@ -1454,9 +1525,11 @@ class AWSOpsWorksDescribeRdsDbInstancesCommand(val stackId: String) : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeRdsDbInstancesResult {
 	  return com.amazonaws.services.opsworks.model.DescribeRdsDbInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeRdsDbInstancesResult {
 		return environment.opsworks.describeRdsDbInstances(build())
@@ -1490,9 +1563,11 @@ class AWSOpsWorksDescribeServiceErrorsCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeServiceErrorsResult {
 	  return com.amazonaws.services.opsworks.model.DescribeServiceErrorsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeServiceErrorsResult {
 		return environment.opsworks.describeServiceErrors(build())
@@ -1523,9 +1598,11 @@ class AWSOpsWorksDescribeStackProvisioningParametersCommand(val stackId: String)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeStackProvisioningParametersResult {
 	  return com.amazonaws.services.opsworks.model.DescribeStackProvisioningParametersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeStackProvisioningParametersResult {
 		return environment.opsworks.describeStackProvisioningParameters(build())
@@ -1554,9 +1631,11 @@ class AWSOpsWorksDescribeStackSummaryCommand(val stackId: String) : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeStackSummaryResult {
 	  return com.amazonaws.services.opsworks.model.DescribeStackSummaryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeStackSummaryResult {
 		return environment.opsworks.describeStackSummary(build())
@@ -1585,9 +1664,11 @@ class AWSOpsWorksDescribeStacksCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeStacksResult {
 	  return com.amazonaws.services.opsworks.model.DescribeStacksResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeStacksResult {
 		return environment.opsworks.describeStacks(build())
@@ -1616,9 +1697,11 @@ class AWSOpsWorksDescribeTimeBasedAutoScalingCommand(val instanceIds: List<Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeTimeBasedAutoScalingResult {
 	  return com.amazonaws.services.opsworks.model.DescribeTimeBasedAutoScalingResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeTimeBasedAutoScalingResult {
 		return environment.opsworks.describeTimeBasedAutoScaling(build())
@@ -1647,9 +1730,11 @@ class AWSOpsWorksDescribeUserProfilesCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeUserProfilesResult {
 	  return com.amazonaws.services.opsworks.model.DescribeUserProfilesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeUserProfilesResult {
 		return environment.opsworks.describeUserProfiles(build())
@@ -1684,9 +1769,11 @@ class AWSOpsWorksDescribeVolumesCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeVolumesResult {
 	  return com.amazonaws.services.opsworks.model.DescribeVolumesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeVolumesResult {
 		return environment.opsworks.describeVolumes(build())
@@ -1719,9 +1806,11 @@ class AWSOpsWorksDetachElasticLoadBalancerCommand(val elasticLoadBalancerName: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DetachElasticLoadBalancerResult {
 	  return com.amazonaws.services.opsworks.model.DetachElasticLoadBalancerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DetachElasticLoadBalancerResult {
 		return environment.opsworks.detachElasticLoadBalancer(build())
@@ -1751,9 +1840,11 @@ class AWSOpsWorksDisassociateElasticIpCommand(val elasticIp: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.DisassociateElasticIpResult {
 	  return com.amazonaws.services.opsworks.model.DisassociateElasticIpResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DisassociateElasticIpResult {
 		return environment.opsworks.disassociateElasticIp(build())
@@ -1782,9 +1873,11 @@ class AWSOpsWorksGetHostnameSuggestionCommand(val layerId: String) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.GetHostnameSuggestionResult {
 	  return com.amazonaws.services.opsworks.model.GetHostnameSuggestionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.GetHostnameSuggestionResult {
 		return environment.opsworks.getHostnameSuggestion(build())
@@ -1814,9 +1907,11 @@ class AWSOpsWorksGrantAccessCommand(val instanceId: String) : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.GrantAccessResult {
 	  return com.amazonaws.services.opsworks.model.GrantAccessResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.GrantAccessResult {
 		return environment.opsworks.grantAccess(build())
@@ -1849,9 +1944,11 @@ class AWSOpsWorksListTagsCommand(val resourceArn: String) : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.ListTagsResult {
 	  return com.amazonaws.services.opsworks.model.ListTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.ListTagsResult {
 		return environment.opsworks.listTags(build())
@@ -1882,9 +1979,11 @@ class AWSOpsWorksRebootInstanceCommand(val instanceId: String) : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.RebootInstanceResult {
 	  return com.amazonaws.services.opsworks.model.RebootInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.RebootInstanceResult {
 		return environment.opsworks.rebootInstance(build())
@@ -1914,9 +2013,11 @@ class AWSOpsWorksRegisterEcsClusterCommand(val ecsClusterArn: String, val stackI
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.RegisterEcsClusterResult {
 	  return com.amazonaws.services.opsworks.model.RegisterEcsClusterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.RegisterEcsClusterResult {
 		return environment.opsworks.registerEcsCluster(build())
@@ -1947,9 +2048,11 @@ class AWSOpsWorksRegisterElasticIpCommand(val elasticIp: String, val stackId: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.RegisterElasticIpResult {
 	  return com.amazonaws.services.opsworks.model.RegisterElasticIpResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.RegisterElasticIpResult {
 		return environment.opsworks.registerElasticIp(build())
@@ -1990,9 +2093,11 @@ class AWSOpsWorksRegisterInstanceCommand(val stackId: String) : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.RegisterInstanceResult {
 	  return com.amazonaws.services.opsworks.model.RegisterInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.RegisterInstanceResult {
 		return environment.opsworks.registerInstance(build())
@@ -2030,9 +2135,11 @@ class AWSOpsWorksRegisterRdsDbInstanceCommand(val stackId: String, val rdsDbInst
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.RegisterRdsDbInstanceResult {
 	  return com.amazonaws.services.opsworks.model.RegisterRdsDbInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.RegisterRdsDbInstanceResult {
 		return environment.opsworks.registerRdsDbInstance(build())
@@ -2065,9 +2172,11 @@ class AWSOpsWorksRegisterVolumeCommand(val stackId: String) : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.RegisterVolumeResult {
 	  return com.amazonaws.services.opsworks.model.RegisterVolumeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.RegisterVolumeResult {
 		return environment.opsworks.registerVolume(build())
@@ -2102,9 +2211,11 @@ class AWSOpsWorksSetLoadBasedAutoScalingCommand(val layerId: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.SetLoadBasedAutoScalingResult {
 	  return com.amazonaws.services.opsworks.model.SetLoadBasedAutoScalingResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.SetLoadBasedAutoScalingResult {
 		return environment.opsworks.setLoadBasedAutoScaling(build())
@@ -2142,9 +2253,11 @@ class AWSOpsWorksSetPermissionCommand(val stackId: String, val iamUserArn: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.SetPermissionResult {
 	  return com.amazonaws.services.opsworks.model.SetPermissionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.SetPermissionResult {
 		return environment.opsworks.setPermission(build())
@@ -2178,9 +2291,11 @@ class AWSOpsWorksSetTimeBasedAutoScalingCommand(val instanceId: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.SetTimeBasedAutoScalingResult {
 	  return com.amazonaws.services.opsworks.model.SetTimeBasedAutoScalingResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.SetTimeBasedAutoScalingResult {
 		return environment.opsworks.setTimeBasedAutoScaling(build())
@@ -2210,9 +2325,11 @@ class AWSOpsWorksStartInstanceCommand(val instanceId: String) : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.StartInstanceResult {
 	  return com.amazonaws.services.opsworks.model.StartInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.StartInstanceResult {
 		return environment.opsworks.startInstance(build())
@@ -2241,9 +2358,11 @@ class AWSOpsWorksStartStackCommand(val stackId: String) : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.StartStackResult {
 	  return com.amazonaws.services.opsworks.model.StartStackResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.StartStackResult {
 		return environment.opsworks.startStack(build())
@@ -2273,9 +2392,11 @@ class AWSOpsWorksStopInstanceCommand(val instanceId: String) : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.StopInstanceResult {
 	  return com.amazonaws.services.opsworks.model.StopInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.StopInstanceResult {
 		return environment.opsworks.stopInstance(build())
@@ -2305,9 +2426,11 @@ class AWSOpsWorksStopStackCommand(val stackId: String) : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.StopStackResult {
 	  return com.amazonaws.services.opsworks.model.StopStackResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.StopStackResult {
 		return environment.opsworks.stopStack(build())
@@ -2337,9 +2460,11 @@ class AWSOpsWorksTagResourceCommand(val resourceArn: String, val tags: Map<Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.TagResourceResult {
 	  return com.amazonaws.services.opsworks.model.TagResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.TagResourceResult {
 		return environment.opsworks.tagResource(build())
@@ -2369,9 +2494,11 @@ class AWSOpsWorksUnassignInstanceCommand(val instanceId: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.UnassignInstanceResult {
 	  return com.amazonaws.services.opsworks.model.UnassignInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.UnassignInstanceResult {
 		return environment.opsworks.unassignInstance(build())
@@ -2400,9 +2527,11 @@ class AWSOpsWorksUnassignVolumeCommand(val volumeId: String) : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.UnassignVolumeResult {
 	  return com.amazonaws.services.opsworks.model.UnassignVolumeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.UnassignVolumeResult {
 		return environment.opsworks.unassignVolume(build())
@@ -2432,9 +2561,11 @@ class AWSOpsWorksUntagResourceCommand(val resourceArn: String, val tagKeys: List
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.UntagResourceResult {
 	  return com.amazonaws.services.opsworks.model.UntagResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.UntagResourceResult {
 		return environment.opsworks.untagResource(build())
@@ -2483,9 +2614,11 @@ class AWSOpsWorksUpdateAppCommand(val appId: String) : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.UpdateAppResult {
 	  return com.amazonaws.services.opsworks.model.UpdateAppResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.UpdateAppResult {
 		return environment.opsworks.updateApp(build())
@@ -2525,9 +2658,11 @@ class AWSOpsWorksUpdateElasticIpCommand(val elasticIp: String) : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.UpdateElasticIpResult {
 	  return com.amazonaws.services.opsworks.model.UpdateElasticIpResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.UpdateElasticIpResult {
 		return environment.opsworks.updateElasticIp(build())
@@ -2578,9 +2713,11 @@ class AWSOpsWorksUpdateInstanceCommand(val instanceId: String) : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.UpdateInstanceResult {
 	  return com.amazonaws.services.opsworks.model.UpdateInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.UpdateInstanceResult {
 		return environment.opsworks.updateInstance(build())
@@ -2651,9 +2788,11 @@ class AWSOpsWorksUpdateLayerCommand(val layerId: String) : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.UpdateLayerResult {
 	  return com.amazonaws.services.opsworks.model.UpdateLayerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.UpdateLayerResult {
 		return environment.opsworks.updateLayer(build())
@@ -2698,9 +2837,11 @@ class AWSOpsWorksUpdateMyUserProfileCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.UpdateMyUserProfileResult {
 	  return com.amazonaws.services.opsworks.model.UpdateMyUserProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.UpdateMyUserProfileResult {
 		return environment.opsworks.updateMyUserProfile(build())
@@ -2732,9 +2873,11 @@ class AWSOpsWorksUpdateRdsDbInstanceCommand(val rdsDbInstanceArn: String) : Amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.UpdateRdsDbInstanceResult {
 	  return com.amazonaws.services.opsworks.model.UpdateRdsDbInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.UpdateRdsDbInstanceResult {
 		return environment.opsworks.updateRdsDbInstance(build())
@@ -2798,9 +2941,11 @@ class AWSOpsWorksUpdateStackCommand(val stackId: String) : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.UpdateStackResult {
 	  return com.amazonaws.services.opsworks.model.UpdateStackResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.UpdateStackResult {
 		return environment.opsworks.updateStack(build())
@@ -2851,9 +2996,11 @@ class AWSOpsWorksUpdateUserProfileCommand(val iamUserArn: String) : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.UpdateUserProfileResult {
 	  return com.amazonaws.services.opsworks.model.UpdateUserProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.UpdateUserProfileResult {
 		return environment.opsworks.updateUserProfile(build())
@@ -2888,9 +3035,11 @@ class AWSOpsWorksUpdateVolumeCommand(val volumeId: String) : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.opsworks.model.UpdateVolumeResult {
 	  return com.amazonaws.services.opsworks.model.UpdateVolumeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.UpdateVolumeResult {
 		return environment.opsworks.updateVolume(build())

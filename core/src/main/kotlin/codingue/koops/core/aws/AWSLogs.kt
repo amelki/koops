@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -43,9 +44,11 @@ class AWSLogsAssociateKmsKeyCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.AssociateKmsKeyResult {
 	  return com.amazonaws.services.logs.model.AssociateKmsKeyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.AssociateKmsKeyResult {
 		return environment.logs.associateKmsKey(build())
@@ -75,9 +78,11 @@ class AWSLogsCancelExportTaskCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.CancelExportTaskResult {
 	  return com.amazonaws.services.logs.model.CancelExportTaskResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.CancelExportTaskResult {
 		return environment.logs.cancelExportTask(build())
@@ -118,9 +123,11 @@ class AWSLogsCreateExportTaskCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.CreateExportTaskResult {
 	  return com.amazonaws.services.logs.model.CreateExportTaskResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.CreateExportTaskResult {
 		return environment.logs.createExportTask(build())
@@ -159,9 +166,11 @@ class AWSLogsCreateLogGroupCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.CreateLogGroupResult {
 	  return com.amazonaws.services.logs.model.CreateLogGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.CreateLogGroupResult {
 		return environment.logs.createLogGroup(build())
@@ -194,9 +203,11 @@ class AWSLogsCreateLogStreamCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.CreateLogStreamResult {
 	  return com.amazonaws.services.logs.model.CreateLogStreamResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.CreateLogStreamResult {
 		return environment.logs.createLogStream(build())
@@ -226,9 +237,11 @@ class AWSLogsDeleteDestinationCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.DeleteDestinationResult {
 	  return com.amazonaws.services.logs.model.DeleteDestinationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.DeleteDestinationResult {
 		return environment.logs.deleteDestination(build())
@@ -257,9 +270,11 @@ class AWSLogsDeleteLogGroupCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.DeleteLogGroupResult {
 	  return com.amazonaws.services.logs.model.DeleteLogGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.DeleteLogGroupResult {
 		return environment.logs.deleteLogGroup(build())
@@ -290,9 +305,11 @@ class AWSLogsDeleteLogStreamCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.DeleteLogStreamResult {
 	  return com.amazonaws.services.logs.model.DeleteLogStreamResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.DeleteLogStreamResult {
 		return environment.logs.deleteLogStream(build())
@@ -324,9 +341,11 @@ class AWSLogsDeleteMetricFilterCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.DeleteMetricFilterResult {
 	  return com.amazonaws.services.logs.model.DeleteMetricFilterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.DeleteMetricFilterResult {
 		return environment.logs.deleteMetricFilter(build())
@@ -356,9 +375,11 @@ class AWSLogsDeleteResourcePolicyCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.DeleteResourcePolicyResult {
 	  return com.amazonaws.services.logs.model.DeleteResourcePolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.DeleteResourcePolicyResult {
 		return environment.logs.deleteResourcePolicy(build())
@@ -387,9 +408,11 @@ class AWSLogsDeleteRetentionPolicyCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.DeleteRetentionPolicyResult {
 	  return com.amazonaws.services.logs.model.DeleteRetentionPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.DeleteRetentionPolicyResult {
 		return environment.logs.deleteRetentionPolicy(build())
@@ -420,9 +443,11 @@ class AWSLogsDeleteSubscriptionFilterCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.DeleteSubscriptionFilterResult {
 	  return com.amazonaws.services.logs.model.DeleteSubscriptionFilterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.DeleteSubscriptionFilterResult {
 		return environment.logs.deleteSubscriptionFilter(build())
@@ -456,9 +481,11 @@ class AWSLogsDescribeDestinationsCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.DescribeDestinationsResult {
 	  return com.amazonaws.services.logs.model.DescribeDestinationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.DescribeDestinationsResult {
 		return environment.logs.describeDestinations(build())
@@ -495,9 +522,11 @@ class AWSLogsDescribeExportTasksCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.DescribeExportTasksResult {
 	  return com.amazonaws.services.logs.model.DescribeExportTasksResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.DescribeExportTasksResult {
 		return environment.logs.describeExportTasks(build())
@@ -533,9 +562,11 @@ class AWSLogsDescribeLogGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.DescribeLogGroupsResult {
 	  return com.amazonaws.services.logs.model.DescribeLogGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.DescribeLogGroupsResult {
 		return environment.logs.describeLogGroups(build())
@@ -576,9 +607,11 @@ class AWSLogsDescribeLogStreamsCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.DescribeLogStreamsResult {
 	  return com.amazonaws.services.logs.model.DescribeLogStreamsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.DescribeLogStreamsResult {
 		return environment.logs.describeLogStreams(build())
@@ -622,9 +655,11 @@ class AWSLogsDescribeMetricFiltersCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.DescribeMetricFiltersResult {
 	  return com.amazonaws.services.logs.model.DescribeMetricFiltersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.DescribeMetricFiltersResult {
 		return environment.logs.describeMetricFilters(build())
@@ -660,9 +695,11 @@ class AWSLogsDescribeResourcePoliciesCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.DescribeResourcePoliciesResult {
 	  return com.amazonaws.services.logs.model.DescribeResourcePoliciesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.DescribeResourcePoliciesResult {
 		return environment.logs.describeResourcePolicies(build())
@@ -698,9 +735,11 @@ class AWSLogsDescribeSubscriptionFiltersCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.DescribeSubscriptionFiltersResult {
 	  return com.amazonaws.services.logs.model.DescribeSubscriptionFiltersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.DescribeSubscriptionFiltersResult {
 		return environment.logs.describeSubscriptionFilters(build())
@@ -732,9 +771,11 @@ class AWSLogsDisassociateKmsKeyCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.DisassociateKmsKeyResult {
 	  return com.amazonaws.services.logs.model.DisassociateKmsKeyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.DisassociateKmsKeyResult {
 		return environment.logs.disassociateKmsKey(build())
@@ -777,9 +818,11 @@ class AWSLogsFilterLogEventsCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.FilterLogEventsResult {
 	  return com.amazonaws.services.logs.model.FilterLogEventsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.FilterLogEventsResult {
 		return environment.logs.filterLogEvents(build())
@@ -827,9 +870,11 @@ class AWSLogsGetLogEventsCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.GetLogEventsResult {
 	  return com.amazonaws.services.logs.model.GetLogEventsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.GetLogEventsResult {
 		return environment.logs.getLogEvents(build())
@@ -864,9 +909,11 @@ class AWSLogsListTagsLogGroupCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.ListTagsLogGroupResult {
 	  return com.amazonaws.services.logs.model.ListTagsLogGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.ListTagsLogGroupResult {
 		return environment.logs.listTagsLogGroup(build())
@@ -899,9 +946,11 @@ class AWSLogsPutDestinationCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.PutDestinationResult {
 	  return com.amazonaws.services.logs.model.PutDestinationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.PutDestinationResult {
 		return environment.logs.putDestination(build())
@@ -934,9 +983,11 @@ class AWSLogsPutDestinationPolicyCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.PutDestinationPolicyResult {
 	  return com.amazonaws.services.logs.model.PutDestinationPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.PutDestinationPolicyResult {
 		return environment.logs.putDestinationPolicy(build())
@@ -972,9 +1023,11 @@ class AWSLogsPutLogEventsCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.PutLogEventsResult {
 	  return com.amazonaws.services.logs.model.PutLogEventsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.PutLogEventsResult {
 		return environment.logs.putLogEvents(build())
@@ -1012,9 +1065,11 @@ class AWSLogsPutMetricFilterCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.PutMetricFilterResult {
 	  return com.amazonaws.services.logs.model.PutMetricFilterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.PutMetricFilterResult {
 		return environment.logs.putMetricFilter(build())
@@ -1048,9 +1103,11 @@ class AWSLogsPutResourcePolicyCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.PutResourcePolicyResult {
 	  return com.amazonaws.services.logs.model.PutResourcePolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.PutResourcePolicyResult {
 		return environment.logs.putResourcePolicy(build())
@@ -1082,9 +1139,11 @@ class AWSLogsPutRetentionPolicyCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.PutRetentionPolicyResult {
 	  return com.amazonaws.services.logs.model.PutRetentionPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.PutRetentionPolicyResult {
 		return environment.logs.putRetentionPolicy(build())
@@ -1124,9 +1183,11 @@ class AWSLogsPutSubscriptionFilterCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.PutSubscriptionFilterResult {
 	  return com.amazonaws.services.logs.model.PutSubscriptionFilterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.PutSubscriptionFilterResult {
 		return environment.logs.putSubscriptionFilter(build())
@@ -1162,9 +1223,11 @@ class AWSLogsTagLogGroupCommand() : AmazonWebServiceCommand<com.amazonaws.servic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.TagLogGroupResult {
 	  return com.amazonaws.services.logs.model.TagLogGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.TagLogGroupResult {
 		return environment.logs.tagLogGroup(build())
@@ -1196,9 +1259,11 @@ class AWSLogsTestMetricFilterCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.TestMetricFilterResult {
 	  return com.amazonaws.services.logs.model.TestMetricFilterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.TestMetricFilterResult {
 		return environment.logs.testMetricFilter(build())
@@ -1230,9 +1295,11 @@ class AWSLogsUntagLogGroupCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.logs.model.UntagLogGroupResult {
 	  return com.amazonaws.services.logs.model.UntagLogGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.logs.model.UntagLogGroupResult {
 		return environment.logs.untagLogGroup(build())

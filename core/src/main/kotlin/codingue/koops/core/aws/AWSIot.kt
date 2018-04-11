@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -43,9 +44,11 @@ class AWSIotAcceptCertificateTransferCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.AcceptCertificateTransferResult {
 	  return com.amazonaws.services.iot.model.AcceptCertificateTransferResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.AcceptCertificateTransferResult {
 		return environment.execute_api.acceptCertificateTransfer(build())
@@ -81,9 +84,11 @@ class AWSIotAddThingToThingGroupCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.AddThingToThingGroupResult {
 	  return com.amazonaws.services.iot.model.AddThingToThingGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.AddThingToThingGroupResult {
 		return environment.execute_api.addThingToThingGroup(build())
@@ -119,9 +124,11 @@ class AWSIotAssociateTargetsWithJobCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.AssociateTargetsWithJobResult {
 	  return com.amazonaws.services.iot.model.AssociateTargetsWithJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.AssociateTargetsWithJobResult {
 		return environment.execute_api.associateTargetsWithJob(build())
@@ -154,9 +161,11 @@ class AWSIotAttachPolicyCommand() : AmazonWebServiceCommand<com.amazonaws.servic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.AttachPolicyResult {
 	  return com.amazonaws.services.iot.model.AttachPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.AttachPolicyResult {
 		return environment.execute_api.attachPolicy(build())
@@ -188,9 +197,11 @@ class AWSIotAttachPrincipalPolicyCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.AttachPrincipalPolicyResult {
 	  return com.amazonaws.services.iot.model.AttachPrincipalPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.AttachPrincipalPolicyResult {
 		return environment.execute_api.attachPrincipalPolicy(build())
@@ -222,9 +233,11 @@ class AWSIotAttachThingPrincipalCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.AttachThingPrincipalResult {
 	  return com.amazonaws.services.iot.model.AttachThingPrincipalResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.AttachThingPrincipalResult {
 		return environment.execute_api.attachThingPrincipal(build())
@@ -254,9 +267,11 @@ class AWSIotCancelCertificateTransferCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.CancelCertificateTransferResult {
 	  return com.amazonaws.services.iot.model.CancelCertificateTransferResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.CancelCertificateTransferResult {
 		return environment.execute_api.cancelCertificateTransfer(build())
@@ -287,9 +302,11 @@ class AWSIotCancelJobCommand() : AmazonWebServiceCommand<com.amazonaws.services.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.CancelJobResult {
 	  return com.amazonaws.services.iot.model.CancelJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.CancelJobResult {
 		return environment.execute_api.cancelJob(build())
@@ -319,9 +336,11 @@ class AWSIotClearDefaultAuthorizerCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.ClearDefaultAuthorizerResult {
 	  return com.amazonaws.services.iot.model.ClearDefaultAuthorizerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.ClearDefaultAuthorizerResult {
 		return environment.execute_api.clearDefaultAuthorizer(build())
@@ -358,9 +377,11 @@ class AWSIotCreateAuthorizerCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.CreateAuthorizerResult {
 	  return com.amazonaws.services.iot.model.CreateAuthorizerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.CreateAuthorizerResult {
 		return environment.execute_api.createAuthorizer(build())
@@ -395,9 +416,11 @@ class AWSIotCreateCertificateFromCsrCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.CreateCertificateFromCsrResult {
 	  return com.amazonaws.services.iot.model.CreateCertificateFromCsrResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.CreateCertificateFromCsrResult {
 		return environment.execute_api.createCertificateFromCsr(build())
@@ -443,9 +466,11 @@ class AWSIotCreateJobCommand() : AmazonWebServiceCommand<com.amazonaws.services.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.CreateJobResult {
 	  return com.amazonaws.services.iot.model.CreateJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.CreateJobResult {
 		return environment.execute_api.createJob(build())
@@ -482,9 +507,11 @@ class AWSIotCreateKeysAndCertificateCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.CreateKeysAndCertificateResult {
 	  return com.amazonaws.services.iot.model.CreateKeysAndCertificateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.CreateKeysAndCertificateResult {
 		return environment.execute_api.createKeysAndCertificate(build())
@@ -525,9 +552,11 @@ class AWSIotCreateOTAUpdateCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.CreateOTAUpdateResult {
 	  return com.amazonaws.services.iot.model.CreateOTAUpdateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.CreateOTAUpdateResult {
 		return environment.execute_api.createOTAUpdate(build())
@@ -564,9 +593,11 @@ class AWSIotCreatePolicyCommand() : AmazonWebServiceCommand<com.amazonaws.servic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.CreatePolicyResult {
 	  return com.amazonaws.services.iot.model.CreatePolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.CreatePolicyResult {
 		return environment.execute_api.createPolicy(build())
@@ -600,9 +631,11 @@ class AWSIotCreatePolicyVersionCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.CreatePolicyVersionResult {
 	  return com.amazonaws.services.iot.model.CreatePolicyVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.CreatePolicyVersionResult {
 		return environment.execute_api.createPolicyVersion(build())
@@ -637,9 +670,11 @@ class AWSIotCreateRoleAliasCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.CreateRoleAliasResult {
 	  return com.amazonaws.services.iot.model.CreateRoleAliasResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.CreateRoleAliasResult {
 		return environment.execute_api.createRoleAlias(build())
@@ -676,9 +711,11 @@ class AWSIotCreateStreamCommand() : AmazonWebServiceCommand<com.amazonaws.servic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.CreateStreamResult {
 	  return com.amazonaws.services.iot.model.CreateStreamResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.CreateStreamResult {
 		return environment.execute_api.createStream(build())
@@ -714,9 +751,11 @@ class AWSIotCreateThingCommand() : AmazonWebServiceCommand<com.amazonaws.service
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.CreateThingResult {
 	  return com.amazonaws.services.iot.model.CreateThingResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.CreateThingResult {
 		return environment.execute_api.createThing(build())
@@ -751,9 +790,11 @@ class AWSIotCreateThingGroupCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.CreateThingGroupResult {
 	  return com.amazonaws.services.iot.model.CreateThingGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.CreateThingGroupResult {
 		return environment.execute_api.createThingGroup(build())
@@ -786,9 +827,11 @@ class AWSIotCreateThingTypeCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.CreateThingTypeResult {
 	  return com.amazonaws.services.iot.model.CreateThingTypeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.CreateThingTypeResult {
 		return environment.execute_api.createThingType(build())
@@ -820,9 +863,11 @@ class AWSIotCreateTopicRuleCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.CreateTopicRuleResult {
 	  return com.amazonaws.services.iot.model.CreateTopicRuleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.CreateTopicRuleResult {
 		return environment.execute_api.createTopicRule(build())
@@ -852,9 +897,11 @@ class AWSIotDeleteAuthorizerCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DeleteAuthorizerResult {
 	  return com.amazonaws.services.iot.model.DeleteAuthorizerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DeleteAuthorizerResult {
 		return environment.execute_api.deleteAuthorizer(build())
@@ -883,9 +930,11 @@ class AWSIotDeleteCACertificateCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DeleteCACertificateResult {
 	  return com.amazonaws.services.iot.model.DeleteCACertificateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DeleteCACertificateResult {
 		return environment.execute_api.deleteCACertificate(build())
@@ -916,9 +965,11 @@ class AWSIotDeleteCertificateCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DeleteCertificateResult {
 	  return com.amazonaws.services.iot.model.DeleteCertificateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DeleteCertificateResult {
 		return environment.execute_api.deleteCertificate(build())
@@ -948,9 +999,11 @@ class AWSIotDeleteOTAUpdateCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DeleteOTAUpdateResult {
 	  return com.amazonaws.services.iot.model.DeleteOTAUpdateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DeleteOTAUpdateResult {
 		return environment.execute_api.deleteOTAUpdate(build())
@@ -979,9 +1032,11 @@ class AWSIotDeletePolicyCommand() : AmazonWebServiceCommand<com.amazonaws.servic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DeletePolicyResult {
 	  return com.amazonaws.services.iot.model.DeletePolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DeletePolicyResult {
 		return environment.execute_api.deletePolicy(build())
@@ -1012,9 +1067,11 @@ class AWSIotDeletePolicyVersionCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DeletePolicyVersionResult {
 	  return com.amazonaws.services.iot.model.DeletePolicyVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DeletePolicyVersionResult {
 		return environment.execute_api.deletePolicyVersion(build())
@@ -1044,9 +1101,11 @@ class AWSIotDeleteRegistrationCodeCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DeleteRegistrationCodeResult {
 	  return com.amazonaws.services.iot.model.DeleteRegistrationCodeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DeleteRegistrationCodeResult {
 		return environment.execute_api.deleteRegistrationCode(build())
@@ -1075,9 +1134,11 @@ class AWSIotDeleteRoleAliasCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DeleteRoleAliasResult {
 	  return com.amazonaws.services.iot.model.DeleteRoleAliasResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DeleteRoleAliasResult {
 		return environment.execute_api.deleteRoleAlias(build())
@@ -1106,9 +1167,11 @@ class AWSIotDeleteStreamCommand() : AmazonWebServiceCommand<com.amazonaws.servic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DeleteStreamResult {
 	  return com.amazonaws.services.iot.model.DeleteStreamResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DeleteStreamResult {
 		return environment.execute_api.deleteStream(build())
@@ -1139,9 +1202,11 @@ class AWSIotDeleteThingCommand() : AmazonWebServiceCommand<com.amazonaws.service
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DeleteThingResult {
 	  return com.amazonaws.services.iot.model.DeleteThingResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DeleteThingResult {
 		return environment.execute_api.deleteThing(build())
@@ -1173,9 +1238,11 @@ class AWSIotDeleteThingGroupCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DeleteThingGroupResult {
 	  return com.amazonaws.services.iot.model.DeleteThingGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DeleteThingGroupResult {
 		return environment.execute_api.deleteThingGroup(build())
@@ -1205,9 +1272,11 @@ class AWSIotDeleteThingTypeCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DeleteThingTypeResult {
 	  return com.amazonaws.services.iot.model.DeleteThingTypeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DeleteThingTypeResult {
 		return environment.execute_api.deleteThingType(build())
@@ -1236,9 +1305,11 @@ class AWSIotDeleteTopicRuleCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DeleteTopicRuleResult {
 	  return com.amazonaws.services.iot.model.DeleteTopicRuleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DeleteTopicRuleResult {
 		return environment.execute_api.deleteTopicRule(build())
@@ -1269,9 +1340,11 @@ class AWSIotDeleteV2LoggingLevelCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DeleteV2LoggingLevelResult {
 	  return com.amazonaws.services.iot.model.DeleteV2LoggingLevelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DeleteV2LoggingLevelResult {
 		return environment.execute_api.deleteV2LoggingLevel(build())
@@ -1303,9 +1376,11 @@ class AWSIotDeprecateThingTypeCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DeprecateThingTypeResult {
 	  return com.amazonaws.services.iot.model.DeprecateThingTypeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DeprecateThingTypeResult {
 		return environment.execute_api.deprecateThingType(build())
@@ -1335,9 +1410,11 @@ class AWSIotDescribeAuthorizerCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DescribeAuthorizerResult {
 	  return com.amazonaws.services.iot.model.DescribeAuthorizerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DescribeAuthorizerResult {
 		return environment.execute_api.describeAuthorizer(build())
@@ -1366,9 +1443,11 @@ class AWSIotDescribeCACertificateCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DescribeCACertificateResult {
 	  return com.amazonaws.services.iot.model.DescribeCACertificateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DescribeCACertificateResult {
 		return environment.execute_api.describeCACertificate(build())
@@ -1397,9 +1476,11 @@ class AWSIotDescribeCertificateCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DescribeCertificateResult {
 	  return com.amazonaws.services.iot.model.DescribeCertificateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DescribeCertificateResult {
 		return environment.execute_api.describeCertificate(build())
@@ -1428,9 +1509,11 @@ class AWSIotDescribeDefaultAuthorizerCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DescribeDefaultAuthorizerResult {
 	  return com.amazonaws.services.iot.model.DescribeDefaultAuthorizerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DescribeDefaultAuthorizerResult {
 		return environment.execute_api.describeDefaultAuthorizer(build())
@@ -1459,9 +1542,11 @@ class AWSIotDescribeEndpointCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DescribeEndpointResult {
 	  return com.amazonaws.services.iot.model.DescribeEndpointResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DescribeEndpointResult {
 		return environment.execute_api.describeEndpoint(build())
@@ -1490,9 +1575,11 @@ class AWSIotDescribeEventConfigurationsCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DescribeEventConfigurationsResult {
 	  return com.amazonaws.services.iot.model.DescribeEventConfigurationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DescribeEventConfigurationsResult {
 		return environment.execute_api.describeEventConfigurations(build())
@@ -1521,9 +1608,11 @@ class AWSIotDescribeIndexCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DescribeIndexResult {
 	  return com.amazonaws.services.iot.model.DescribeIndexResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DescribeIndexResult {
 		return environment.execute_api.describeIndex(build())
@@ -1552,9 +1641,11 @@ class AWSIotDescribeJobCommand() : AmazonWebServiceCommand<com.amazonaws.service
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DescribeJobResult {
 	  return com.amazonaws.services.iot.model.DescribeJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DescribeJobResult {
 		return environment.execute_api.describeJob(build())
@@ -1587,9 +1678,11 @@ class AWSIotDescribeJobExecutionCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DescribeJobExecutionResult {
 	  return com.amazonaws.services.iot.model.DescribeJobExecutionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DescribeJobExecutionResult {
 		return environment.execute_api.describeJobExecution(build())
@@ -1620,9 +1713,11 @@ class AWSIotDescribeRoleAliasCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DescribeRoleAliasResult {
 	  return com.amazonaws.services.iot.model.DescribeRoleAliasResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DescribeRoleAliasResult {
 		return environment.execute_api.describeRoleAlias(build())
@@ -1651,9 +1746,11 @@ class AWSIotDescribeStreamCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DescribeStreamResult {
 	  return com.amazonaws.services.iot.model.DescribeStreamResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DescribeStreamResult {
 		return environment.execute_api.describeStream(build())
@@ -1682,9 +1779,11 @@ class AWSIotDescribeThingCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DescribeThingResult {
 	  return com.amazonaws.services.iot.model.DescribeThingResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DescribeThingResult {
 		return environment.execute_api.describeThing(build())
@@ -1713,9 +1812,11 @@ class AWSIotDescribeThingGroupCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DescribeThingGroupResult {
 	  return com.amazonaws.services.iot.model.DescribeThingGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DescribeThingGroupResult {
 		return environment.execute_api.describeThingGroup(build())
@@ -1744,9 +1845,11 @@ class AWSIotDescribeThingRegistrationTaskCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DescribeThingRegistrationTaskResult {
 	  return com.amazonaws.services.iot.model.DescribeThingRegistrationTaskResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DescribeThingRegistrationTaskResult {
 		return environment.execute_api.describeThingRegistrationTask(build())
@@ -1775,9 +1878,11 @@ class AWSIotDescribeThingTypeCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DescribeThingTypeResult {
 	  return com.amazonaws.services.iot.model.DescribeThingTypeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DescribeThingTypeResult {
 		return environment.execute_api.describeThingType(build())
@@ -1808,9 +1913,11 @@ class AWSIotDetachPolicyCommand() : AmazonWebServiceCommand<com.amazonaws.servic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DetachPolicyResult {
 	  return com.amazonaws.services.iot.model.DetachPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DetachPolicyResult {
 		return environment.execute_api.detachPolicy(build())
@@ -1842,9 +1949,11 @@ class AWSIotDetachPrincipalPolicyCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DetachPrincipalPolicyResult {
 	  return com.amazonaws.services.iot.model.DetachPrincipalPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DetachPrincipalPolicyResult {
 		return environment.execute_api.detachPrincipalPolicy(build())
@@ -1876,9 +1985,11 @@ class AWSIotDetachThingPrincipalCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DetachThingPrincipalResult {
 	  return com.amazonaws.services.iot.model.DetachThingPrincipalResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DetachThingPrincipalResult {
 		return environment.execute_api.detachThingPrincipal(build())
@@ -1908,9 +2019,11 @@ class AWSIotDisableTopicRuleCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.DisableTopicRuleResult {
 	  return com.amazonaws.services.iot.model.DisableTopicRuleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.DisableTopicRuleResult {
 		return environment.execute_api.disableTopicRule(build())
@@ -1939,9 +2052,11 @@ class AWSIotEnableTopicRuleCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.EnableTopicRuleResult {
 	  return com.amazonaws.services.iot.model.EnableTopicRuleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.EnableTopicRuleResult {
 		return environment.execute_api.enableTopicRule(build())
@@ -1974,9 +2089,11 @@ class AWSIotGetEffectivePoliciesCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.GetEffectivePoliciesResult {
 	  return com.amazonaws.services.iot.model.GetEffectivePoliciesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.GetEffectivePoliciesResult {
 		return environment.execute_api.getEffectivePolicies(build())
@@ -2007,9 +2124,11 @@ class AWSIotGetIndexingConfigurationCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.GetIndexingConfigurationResult {
 	  return com.amazonaws.services.iot.model.GetIndexingConfigurationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.GetIndexingConfigurationResult {
 		return environment.execute_api.getIndexingConfiguration(build())
@@ -2038,9 +2157,11 @@ class AWSIotGetJobDocumentCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.GetJobDocumentResult {
 	  return com.amazonaws.services.iot.model.GetJobDocumentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.GetJobDocumentResult {
 		return environment.execute_api.getJobDocument(build())
@@ -2069,9 +2190,11 @@ class AWSIotGetLoggingOptionsCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.GetLoggingOptionsResult {
 	  return com.amazonaws.services.iot.model.GetLoggingOptionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.GetLoggingOptionsResult {
 		return environment.execute_api.getLoggingOptions(build())
@@ -2100,9 +2223,11 @@ class AWSIotGetOTAUpdateCommand() : AmazonWebServiceCommand<com.amazonaws.servic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.GetOTAUpdateResult {
 	  return com.amazonaws.services.iot.model.GetOTAUpdateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.GetOTAUpdateResult {
 		return environment.execute_api.getOTAUpdate(build())
@@ -2131,9 +2256,11 @@ class AWSIotGetPolicyCommand() : AmazonWebServiceCommand<com.amazonaws.services.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.GetPolicyResult {
 	  return com.amazonaws.services.iot.model.GetPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.GetPolicyResult {
 		return environment.execute_api.getPolicy(build())
@@ -2164,9 +2291,11 @@ class AWSIotGetPolicyVersionCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.GetPolicyVersionResult {
 	  return com.amazonaws.services.iot.model.GetPolicyVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.GetPolicyVersionResult {
 		return environment.execute_api.getPolicyVersion(build())
@@ -2196,9 +2325,11 @@ class AWSIotGetRegistrationCodeCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.GetRegistrationCodeResult {
 	  return com.amazonaws.services.iot.model.GetRegistrationCodeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.GetRegistrationCodeResult {
 		return environment.execute_api.getRegistrationCode(build())
@@ -2227,9 +2358,11 @@ class AWSIotGetTopicRuleCommand() : AmazonWebServiceCommand<com.amazonaws.servic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.GetTopicRuleResult {
 	  return com.amazonaws.services.iot.model.GetTopicRuleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.GetTopicRuleResult {
 		return environment.execute_api.getTopicRule(build())
@@ -2258,9 +2391,11 @@ class AWSIotGetV2LoggingOptionsCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.GetV2LoggingOptionsResult {
 	  return com.amazonaws.services.iot.model.GetV2LoggingOptionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.GetV2LoggingOptionsResult {
 		return environment.execute_api.getV2LoggingOptions(build())
@@ -2295,9 +2430,11 @@ class AWSIotListAttachedPoliciesCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.ListAttachedPoliciesResult {
 	  return com.amazonaws.services.iot.model.ListAttachedPoliciesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.ListAttachedPoliciesResult {
 		return environment.execute_api.listAttachedPolicies(build())
@@ -2335,9 +2472,11 @@ class AWSIotListAuthorizersCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.ListAuthorizersResult {
 	  return com.amazonaws.services.iot.model.ListAuthorizersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.ListAuthorizersResult {
 		return environment.execute_api.listAuthorizers(build())
@@ -2373,9 +2512,11 @@ class AWSIotListCACertificatesCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.ListCACertificatesResult {
 	  return com.amazonaws.services.iot.model.ListCACertificatesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.ListCACertificatesResult {
 		return environment.execute_api.listCACertificates(build())
@@ -2410,9 +2551,11 @@ class AWSIotListCertificatesCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.ListCertificatesResult {
 	  return com.amazonaws.services.iot.model.ListCertificatesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.ListCertificatesResult {
 		return environment.execute_api.listCertificates(build())
@@ -2449,9 +2592,11 @@ class AWSIotListCertificatesByCACommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.ListCertificatesByCAResult {
 	  return com.amazonaws.services.iot.model.ListCertificatesByCAResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.ListCertificatesByCAResult {
 		return environment.execute_api.listCertificatesByCA(build())
@@ -2485,9 +2630,11 @@ class AWSIotListIndicesCommand() : AmazonWebServiceCommand<com.amazonaws.service
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.ListIndicesResult {
 	  return com.amazonaws.services.iot.model.ListIndicesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.ListIndicesResult {
 		return environment.execute_api.listIndices(build())
@@ -2523,9 +2670,11 @@ class AWSIotListJobExecutionsForJobCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.ListJobExecutionsForJobResult {
 	  return com.amazonaws.services.iot.model.ListJobExecutionsForJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.ListJobExecutionsForJobResult {
 		return environment.execute_api.listJobExecutionsForJob(build())
@@ -2563,9 +2712,11 @@ class AWSIotListJobExecutionsForThingCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.ListJobExecutionsForThingResult {
 	  return com.amazonaws.services.iot.model.ListJobExecutionsForThingResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.ListJobExecutionsForThingResult {
 		return environment.execute_api.listJobExecutionsForThing(build())
@@ -2607,9 +2758,11 @@ class AWSIotListJobsCommand() : AmazonWebServiceCommand<com.amazonaws.services.i
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.ListJobsResult {
 	  return com.amazonaws.services.iot.model.ListJobsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.ListJobsResult {
 		return environment.execute_api.listJobs(build())
@@ -2647,9 +2800,11 @@ class AWSIotListOTAUpdatesCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.ListOTAUpdatesResult {
 	  return com.amazonaws.services.iot.model.ListOTAUpdatesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.ListOTAUpdatesResult {
 		return environment.execute_api.listOTAUpdates(build())
@@ -2684,9 +2839,11 @@ class AWSIotListOutgoingCertificatesCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.ListOutgoingCertificatesResult {
 	  return com.amazonaws.services.iot.model.ListOutgoingCertificatesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.ListOutgoingCertificatesResult {
 		return environment.execute_api.listOutgoingCertificates(build())
@@ -2721,9 +2878,11 @@ class AWSIotListPoliciesCommand() : AmazonWebServiceCommand<com.amazonaws.servic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.ListPoliciesResult {
 	  return com.amazonaws.services.iot.model.ListPoliciesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.ListPoliciesResult {
 		return environment.execute_api.listPolicies(build())
@@ -2760,9 +2919,11 @@ class AWSIotListPolicyPrincipalsCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.ListPolicyPrincipalsResult {
 	  return com.amazonaws.services.iot.model.ListPolicyPrincipalsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.ListPolicyPrincipalsResult {
 		return environment.execute_api.listPolicyPrincipals(build())
@@ -2794,9 +2955,11 @@ class AWSIotListPolicyVersionsCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.ListPolicyVersionsResult {
 	  return com.amazonaws.services.iot.model.ListPolicyVersionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.ListPolicyVersionsResult {
 		return environment.execute_api.listPolicyVersions(build())
@@ -2831,9 +2994,11 @@ class AWSIotListPrincipalPoliciesCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.ListPrincipalPoliciesResult {
 	  return com.amazonaws.services.iot.model.ListPrincipalPoliciesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.ListPrincipalPoliciesResult {
 		return environment.execute_api.listPrincipalPolicies(build())
@@ -2869,9 +3034,11 @@ class AWSIotListPrincipalThingsCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.ListPrincipalThingsResult {
 	  return com.amazonaws.services.iot.model.ListPrincipalThingsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.ListPrincipalThingsResult {
 		return environment.execute_api.listPrincipalThings(build())
@@ -2906,9 +3073,11 @@ class AWSIotListRoleAliasesCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.ListRoleAliasesResult {
 	  return com.amazonaws.services.iot.model.ListRoleAliasesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.ListRoleAliasesResult {
 		return environment.execute_api.listRoleAliases(build())
@@ -2943,9 +3112,11 @@ class AWSIotListStreamsCommand() : AmazonWebServiceCommand<com.amazonaws.service
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.ListStreamsResult {
 	  return com.amazonaws.services.iot.model.ListStreamsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.ListStreamsResult {
 		return environment.execute_api.listStreams(build())
@@ -2980,9 +3151,11 @@ class AWSIotListTargetsForPolicyCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.ListTargetsForPolicyResult {
 	  return com.amazonaws.services.iot.model.ListTargetsForPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.ListTargetsForPolicyResult {
 		return environment.execute_api.listTargetsForPolicy(build())
@@ -3021,9 +3194,11 @@ class AWSIotListThingGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.ListThingGroupsResult {
 	  return com.amazonaws.services.iot.model.ListThingGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.ListThingGroupsResult {
 		return environment.execute_api.listThingGroups(build())
@@ -3060,9 +3235,11 @@ class AWSIotListThingGroupsForThingCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.ListThingGroupsForThingResult {
 	  return com.amazonaws.services.iot.model.ListThingGroupsForThingResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.ListThingGroupsForThingResult {
 		return environment.execute_api.listThingGroupsForThing(build())
@@ -3093,9 +3270,11 @@ class AWSIotListThingPrincipalsCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.ListThingPrincipalsResult {
 	  return com.amazonaws.services.iot.model.ListThingPrincipalsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.ListThingPrincipalsResult {
 		return environment.execute_api.listThingPrincipals(build())
@@ -3130,9 +3309,11 @@ class AWSIotListThingRegistrationTaskReportsCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.ListThingRegistrationTaskReportsResult {
 	  return com.amazonaws.services.iot.model.ListThingRegistrationTaskReportsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.ListThingRegistrationTaskReportsResult {
 		return environment.execute_api.listThingRegistrationTaskReports(build())
@@ -3168,9 +3349,11 @@ class AWSIotListThingRegistrationTasksCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.ListThingRegistrationTasksResult {
 	  return com.amazonaws.services.iot.model.ListThingRegistrationTasksResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.ListThingRegistrationTasksResult {
 		return environment.execute_api.listThingRegistrationTasks(build())
@@ -3205,9 +3388,11 @@ class AWSIotListThingTypesCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.ListThingTypesResult {
 	  return com.amazonaws.services.iot.model.ListThingTypesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.ListThingTypesResult {
 		return environment.execute_api.listThingTypes(build())
@@ -3246,9 +3431,11 @@ class AWSIotListThingsCommand() : AmazonWebServiceCommand<com.amazonaws.services
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.ListThingsResult {
 	  return com.amazonaws.services.iot.model.ListThingsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.ListThingsResult {
 		return environment.execute_api.listThings(build())
@@ -3287,9 +3474,11 @@ class AWSIotListThingsInThingGroupCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.ListThingsInThingGroupResult {
 	  return com.amazonaws.services.iot.model.ListThingsInThingGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.ListThingsInThingGroupResult {
 		return environment.execute_api.listThingsInThingGroup(build())
@@ -3327,9 +3516,11 @@ class AWSIotListTopicRulesCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.ListTopicRulesResult {
 	  return com.amazonaws.services.iot.model.ListTopicRulesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.ListTopicRulesResult {
 		return environment.execute_api.listTopicRules(build())
@@ -3365,9 +3556,11 @@ class AWSIotListV2LoggingLevelsCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.ListV2LoggingLevelsResult {
 	  return com.amazonaws.services.iot.model.ListV2LoggingLevelsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.ListV2LoggingLevelsResult {
 		return environment.execute_api.listV2LoggingLevels(build())
@@ -3406,9 +3599,11 @@ class AWSIotRegisterCACertificateCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.RegisterCACertificateResult {
 	  return com.amazonaws.services.iot.model.RegisterCACertificateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.RegisterCACertificateResult {
 		return environment.execute_api.registerCACertificate(build())
@@ -3447,9 +3642,11 @@ class AWSIotRegisterCertificateCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.RegisterCertificateResult {
 	  return com.amazonaws.services.iot.model.RegisterCertificateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.RegisterCertificateResult {
 		return environment.execute_api.registerCertificate(build())
@@ -3483,9 +3680,11 @@ class AWSIotRegisterThingCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.RegisterThingResult {
 	  return com.amazonaws.services.iot.model.RegisterThingResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.RegisterThingResult {
 		return environment.execute_api.registerThing(build())
@@ -3517,9 +3716,11 @@ class AWSIotRejectCertificateTransferCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.RejectCertificateTransferResult {
 	  return com.amazonaws.services.iot.model.RejectCertificateTransferResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.RejectCertificateTransferResult {
 		return environment.execute_api.rejectCertificateTransfer(build())
@@ -3555,9 +3756,11 @@ class AWSIotRemoveThingFromThingGroupCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.RemoveThingFromThingGroupResult {
 	  return com.amazonaws.services.iot.model.RemoveThingFromThingGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.RemoveThingFromThingGroupResult {
 		return environment.execute_api.removeThingFromThingGroup(build())
@@ -3591,9 +3794,11 @@ class AWSIotReplaceTopicRuleCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.ReplaceTopicRuleResult {
 	  return com.amazonaws.services.iot.model.ReplaceTopicRuleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.ReplaceTopicRuleResult {
 		return environment.execute_api.replaceTopicRule(build())
@@ -3631,9 +3836,11 @@ class AWSIotSearchIndexCommand() : AmazonWebServiceCommand<com.amazonaws.service
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.SearchIndexResult {
 	  return com.amazonaws.services.iot.model.SearchIndexResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.SearchIndexResult {
 		return environment.execute_api.searchIndex(build())
@@ -3666,9 +3873,11 @@ class AWSIotSetDefaultAuthorizerCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.SetDefaultAuthorizerResult {
 	  return com.amazonaws.services.iot.model.SetDefaultAuthorizerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.SetDefaultAuthorizerResult {
 		return environment.execute_api.setDefaultAuthorizer(build())
@@ -3699,9 +3908,11 @@ class AWSIotSetDefaultPolicyVersionCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.SetDefaultPolicyVersionResult {
 	  return com.amazonaws.services.iot.model.SetDefaultPolicyVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.SetDefaultPolicyVersionResult {
 		return environment.execute_api.setDefaultPolicyVersion(build())
@@ -3731,9 +3942,11 @@ class AWSIotSetLoggingOptionsCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.SetLoggingOptionsResult {
 	  return com.amazonaws.services.iot.model.SetLoggingOptionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.SetLoggingOptionsResult {
 		return environment.execute_api.setLoggingOptions(build())
@@ -3764,9 +3977,11 @@ class AWSIotSetV2LoggingLevelCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.SetV2LoggingLevelResult {
 	  return com.amazonaws.services.iot.model.SetV2LoggingLevelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.SetV2LoggingLevelResult {
 		return environment.execute_api.setV2LoggingLevel(build())
@@ -3800,9 +4015,11 @@ class AWSIotSetV2LoggingOptionsCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.SetV2LoggingOptionsResult {
 	  return com.amazonaws.services.iot.model.SetV2LoggingOptionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.SetV2LoggingOptionsResult {
 		return environment.execute_api.setV2LoggingOptions(build())
@@ -3839,9 +4056,11 @@ class AWSIotStartThingRegistrationTaskCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.StartThingRegistrationTaskResult {
 	  return com.amazonaws.services.iot.model.StartThingRegistrationTaskResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.StartThingRegistrationTaskResult {
 		return environment.execute_api.startThingRegistrationTask(build())
@@ -3873,9 +4092,11 @@ class AWSIotStopThingRegistrationTaskCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.StopThingRegistrationTaskResult {
 	  return com.amazonaws.services.iot.model.StopThingRegistrationTaskResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.StopThingRegistrationTaskResult {
 		return environment.execute_api.stopThingRegistrationTask(build())
@@ -3914,9 +4135,11 @@ class AWSIotTestAuthorizationCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.TestAuthorizationResult {
 	  return com.amazonaws.services.iot.model.TestAuthorizationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.TestAuthorizationResult {
 		return environment.execute_api.testAuthorization(build())
@@ -3954,9 +4177,11 @@ class AWSIotTestInvokeAuthorizerCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.TestInvokeAuthorizerResult {
 	  return com.amazonaws.services.iot.model.TestInvokeAuthorizerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.TestInvokeAuthorizerResult {
 		return environment.execute_api.testInvokeAuthorizer(build())
@@ -3991,9 +4216,11 @@ class AWSIotTransferCertificateCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.TransferCertificateResult {
 	  return com.amazonaws.services.iot.model.TransferCertificateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.TransferCertificateResult {
 		return environment.execute_api.transferCertificate(build())
@@ -4032,9 +4259,11 @@ class AWSIotUpdateAuthorizerCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.UpdateAuthorizerResult {
 	  return com.amazonaws.services.iot.model.UpdateAuthorizerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.UpdateAuthorizerResult {
 		return environment.execute_api.updateAuthorizer(build())
@@ -4075,9 +4304,11 @@ class AWSIotUpdateCACertificateCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.UpdateCACertificateResult {
 	  return com.amazonaws.services.iot.model.UpdateCACertificateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.UpdateCACertificateResult {
 		return environment.execute_api.updateCACertificate(build())
@@ -4112,9 +4343,11 @@ class AWSIotUpdateCertificateCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.UpdateCertificateResult {
 	  return com.amazonaws.services.iot.model.UpdateCertificateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.UpdateCertificateResult {
 		return environment.execute_api.updateCertificate(build())
@@ -4144,9 +4377,11 @@ class AWSIotUpdateEventConfigurationsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.UpdateEventConfigurationsResult {
 	  return com.amazonaws.services.iot.model.UpdateEventConfigurationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.UpdateEventConfigurationsResult {
 		return environment.execute_api.updateEventConfigurations(build())
@@ -4175,9 +4410,11 @@ class AWSIotUpdateIndexingConfigurationCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.UpdateIndexingConfigurationResult {
 	  return com.amazonaws.services.iot.model.UpdateIndexingConfigurationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.UpdateIndexingConfigurationResult {
 		return environment.execute_api.updateIndexingConfiguration(build())
@@ -4210,9 +4447,11 @@ class AWSIotUpdateRoleAliasCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.UpdateRoleAliasResult {
 	  return com.amazonaws.services.iot.model.UpdateRoleAliasResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.UpdateRoleAliasResult {
 		return environment.execute_api.updateRoleAlias(build())
@@ -4249,9 +4488,11 @@ class AWSIotUpdateStreamCommand() : AmazonWebServiceCommand<com.amazonaws.servic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.UpdateStreamResult {
 	  return com.amazonaws.services.iot.model.UpdateStreamResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.UpdateStreamResult {
 		return environment.execute_api.updateStream(build())
@@ -4291,9 +4532,11 @@ class AWSIotUpdateThingCommand() : AmazonWebServiceCommand<com.amazonaws.service
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.UpdateThingResult {
 	  return com.amazonaws.services.iot.model.UpdateThingResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.UpdateThingResult {
 		return environment.execute_api.updateThing(build())
@@ -4330,9 +4573,11 @@ class AWSIotUpdateThingGroupCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.UpdateThingGroupResult {
 	  return com.amazonaws.services.iot.model.UpdateThingGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.UpdateThingGroupResult {
 		return environment.execute_api.updateThingGroup(build())
@@ -4367,9 +4612,11 @@ class AWSIotUpdateThingGroupsForThingCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iot.model.UpdateThingGroupsForThingResult {
 	  return com.amazonaws.services.iot.model.UpdateThingGroupsForThingResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iot.model.UpdateThingGroupsForThingResult {
 		return environment.execute_api.updateThingGroupsForThing(build())

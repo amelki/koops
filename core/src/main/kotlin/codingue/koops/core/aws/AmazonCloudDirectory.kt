@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -44,9 +45,11 @@ class AmazonCloudDirectoryAddFacetToObjectCommand(val directoryArn: String, val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.AddFacetToObjectResult {
 	  return com.amazonaws.services.clouddirectory.model.AddFacetToObjectResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.AddFacetToObjectResult {
 		return environment.clouddirectory.addFacetToObject(build())
@@ -79,9 +82,11 @@ class AmazonCloudDirectoryApplySchemaCommand(val publishedSchemaArn: String, val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.ApplySchemaResult {
 	  return com.amazonaws.services.clouddirectory.model.ApplySchemaResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.ApplySchemaResult {
 		return environment.clouddirectory.applySchema(build())
@@ -114,9 +119,11 @@ class AmazonCloudDirectoryAttachObjectCommand(val directoryArn: String, val pare
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.AttachObjectResult {
 	  return com.amazonaws.services.clouddirectory.model.AttachObjectResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.AttachObjectResult {
 		return environment.clouddirectory.attachObject(build())
@@ -150,9 +157,11 @@ class AmazonCloudDirectoryAttachPolicyCommand(val policyReference: com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.AttachPolicyResult {
 	  return com.amazonaws.services.clouddirectory.model.AttachPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.AttachPolicyResult {
 		return environment.clouddirectory.attachPolicy(build())
@@ -185,9 +194,11 @@ class AmazonCloudDirectoryAttachToIndexCommand(val directoryArn: String, val ind
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.AttachToIndexResult {
 	  return com.amazonaws.services.clouddirectory.model.AttachToIndexResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.AttachToIndexResult {
 		return environment.clouddirectory.attachToIndex(build())
@@ -222,9 +233,11 @@ class AmazonCloudDirectoryAttachTypedLinkCommand(val directoryArn: String, val s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.AttachTypedLinkResult {
 	  return com.amazonaws.services.clouddirectory.model.AttachTypedLinkResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.AttachTypedLinkResult {
 		return environment.clouddirectory.attachTypedLink(build())
@@ -259,9 +272,11 @@ class AmazonCloudDirectoryBatchReadCommand(val directoryArn: String, val operati
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.BatchReadResult {
 	  return com.amazonaws.services.clouddirectory.model.BatchReadResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.BatchReadResult {
 		return environment.clouddirectory.batchRead(build())
@@ -293,9 +308,11 @@ class AmazonCloudDirectoryBatchWriteCommand(val directoryArn: String, val operat
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.BatchWriteResult {
 	  return com.amazonaws.services.clouddirectory.model.BatchWriteResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.BatchWriteResult {
 		return environment.clouddirectory.batchWrite(build())
@@ -326,9 +343,11 @@ class AmazonCloudDirectoryCreateDirectoryCommand(val name: String, val schemaArn
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.CreateDirectoryResult {
 	  return com.amazonaws.services.clouddirectory.model.CreateDirectoryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.CreateDirectoryResult {
 		return environment.clouddirectory.createDirectory(build())
@@ -361,9 +380,11 @@ class AmazonCloudDirectoryCreateFacetCommand(val schemaArn: String, val name: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.CreateFacetResult {
 	  return com.amazonaws.services.clouddirectory.model.CreateFacetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.CreateFacetResult {
 		return environment.clouddirectory.createFacet(build())
@@ -400,9 +421,11 @@ class AmazonCloudDirectoryCreateIndexCommand(val directoryArn: String, val order
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.CreateIndexResult {
 	  return com.amazonaws.services.clouddirectory.model.CreateIndexResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.CreateIndexResult {
 		return environment.clouddirectory.createIndex(build())
@@ -441,9 +464,11 @@ class AmazonCloudDirectoryCreateObjectCommand(val directoryArn: String, val sche
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.CreateObjectResult {
 	  return com.amazonaws.services.clouddirectory.model.CreateObjectResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.CreateObjectResult {
 		return environment.clouddirectory.createObject(build())
@@ -476,9 +501,11 @@ class AmazonCloudDirectoryCreateSchemaCommand(val name: String) : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.CreateSchemaResult {
 	  return com.amazonaws.services.clouddirectory.model.CreateSchemaResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.CreateSchemaResult {
 		return environment.clouddirectory.createSchema(build())
@@ -508,9 +535,11 @@ class AmazonCloudDirectoryCreateTypedLinkFacetCommand(val schemaArn: String, val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.CreateTypedLinkFacetResult {
 	  return com.amazonaws.services.clouddirectory.model.CreateTypedLinkFacetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.CreateTypedLinkFacetResult {
 		return environment.clouddirectory.createTypedLinkFacet(build())
@@ -540,9 +569,11 @@ class AmazonCloudDirectoryDeleteDirectoryCommand(val directoryArn: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.DeleteDirectoryResult {
 	  return com.amazonaws.services.clouddirectory.model.DeleteDirectoryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.DeleteDirectoryResult {
 		return environment.clouddirectory.deleteDirectory(build())
@@ -572,9 +603,11 @@ class AmazonCloudDirectoryDeleteFacetCommand(val schemaArn: String, val name: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.DeleteFacetResult {
 	  return com.amazonaws.services.clouddirectory.model.DeleteFacetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.DeleteFacetResult {
 		return environment.clouddirectory.deleteFacet(build())
@@ -605,9 +638,11 @@ class AmazonCloudDirectoryDeleteObjectCommand(val directoryArn: String, val obje
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.DeleteObjectResult {
 	  return com.amazonaws.services.clouddirectory.model.DeleteObjectResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.DeleteObjectResult {
 		return environment.clouddirectory.deleteObject(build())
@@ -637,9 +672,11 @@ class AmazonCloudDirectoryDeleteSchemaCommand(val schemaArn: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.DeleteSchemaResult {
 	  return com.amazonaws.services.clouddirectory.model.DeleteSchemaResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.DeleteSchemaResult {
 		return environment.clouddirectory.deleteSchema(build())
@@ -669,9 +706,11 @@ class AmazonCloudDirectoryDeleteTypedLinkFacetCommand(val schemaArn: String, val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.DeleteTypedLinkFacetResult {
 	  return com.amazonaws.services.clouddirectory.model.DeleteTypedLinkFacetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.DeleteTypedLinkFacetResult {
 		return environment.clouddirectory.deleteTypedLinkFacet(build())
@@ -703,9 +742,11 @@ class AmazonCloudDirectoryDetachFromIndexCommand(val directoryArn: String, val i
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.DetachFromIndexResult {
 	  return com.amazonaws.services.clouddirectory.model.DetachFromIndexResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.DetachFromIndexResult {
 		return environment.clouddirectory.detachFromIndex(build())
@@ -738,9 +779,11 @@ class AmazonCloudDirectoryDetachObjectCommand(val directoryArn: String, val pare
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.DetachObjectResult {
 	  return com.amazonaws.services.clouddirectory.model.DetachObjectResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.DetachObjectResult {
 		return environment.clouddirectory.detachObject(build())
@@ -773,9 +816,11 @@ class AmazonCloudDirectoryDetachPolicyCommand(val directoryArn: String, val poli
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.DetachPolicyResult {
 	  return com.amazonaws.services.clouddirectory.model.DetachPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.DetachPolicyResult {
 		return environment.clouddirectory.detachPolicy(build())
@@ -807,9 +852,11 @@ class AmazonCloudDirectoryDetachTypedLinkCommand(val directoryArn: String, val t
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.DetachTypedLinkResult {
 	  return com.amazonaws.services.clouddirectory.model.DetachTypedLinkResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.DetachTypedLinkResult {
 		return environment.clouddirectory.detachTypedLink(build())
@@ -839,9 +886,11 @@ class AmazonCloudDirectoryDisableDirectoryCommand(val directoryArn: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.DisableDirectoryResult {
 	  return com.amazonaws.services.clouddirectory.model.DisableDirectoryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.DisableDirectoryResult {
 		return environment.clouddirectory.disableDirectory(build())
@@ -870,9 +919,11 @@ class AmazonCloudDirectoryEnableDirectoryCommand(val directoryArn: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.EnableDirectoryResult {
 	  return com.amazonaws.services.clouddirectory.model.EnableDirectoryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.EnableDirectoryResult {
 		return environment.clouddirectory.enableDirectory(build())
@@ -901,9 +952,11 @@ class AmazonCloudDirectoryGetAppliedSchemaVersionCommand(val schemaArn: String) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.GetAppliedSchemaVersionResult {
 	  return com.amazonaws.services.clouddirectory.model.GetAppliedSchemaVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.GetAppliedSchemaVersionResult {
 		return environment.clouddirectory.getAppliedSchemaVersion(build())
@@ -932,9 +985,11 @@ class AmazonCloudDirectoryGetDirectoryCommand(val directoryArn: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.GetDirectoryResult {
 	  return com.amazonaws.services.clouddirectory.model.GetDirectoryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.GetDirectoryResult {
 		return environment.clouddirectory.getDirectory(build())
@@ -964,9 +1019,11 @@ class AmazonCloudDirectoryGetFacetCommand(val schemaArn: String, val name: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.GetFacetResult {
 	  return com.amazonaws.services.clouddirectory.model.GetFacetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.GetFacetResult {
 		return environment.clouddirectory.getFacet(build())
@@ -998,9 +1055,11 @@ class AmazonCloudDirectoryGetObjectInformationCommand(val directoryArn: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.GetObjectInformationResult {
 	  return com.amazonaws.services.clouddirectory.model.GetObjectInformationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.GetObjectInformationResult {
 		return environment.clouddirectory.getObjectInformation(build())
@@ -1031,9 +1090,11 @@ class AmazonCloudDirectoryGetSchemaAsJsonCommand(val schemaArn: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.GetSchemaAsJsonResult {
 	  return com.amazonaws.services.clouddirectory.model.GetSchemaAsJsonResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.GetSchemaAsJsonResult {
 		return environment.clouddirectory.getSchemaAsJson(build())
@@ -1063,9 +1124,11 @@ class AmazonCloudDirectoryGetTypedLinkFacetInformationCommand(val schemaArn: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.GetTypedLinkFacetInformationResult {
 	  return com.amazonaws.services.clouddirectory.model.GetTypedLinkFacetInformationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.GetTypedLinkFacetInformationResult {
 		return environment.clouddirectory.getTypedLinkFacetInformation(build())
@@ -1100,9 +1163,11 @@ class AmazonCloudDirectoryListAppliedSchemaArnsCommand(val directoryArn: String)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.ListAppliedSchemaArnsResult {
 	  return com.amazonaws.services.clouddirectory.model.ListAppliedSchemaArnsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.ListAppliedSchemaArnsResult {
 		return environment.clouddirectory.listAppliedSchemaArns(build())
@@ -1140,9 +1205,11 @@ class AmazonCloudDirectoryListAttachedIndicesCommand(val directoryArn: String, v
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.ListAttachedIndicesResult {
 	  return com.amazonaws.services.clouddirectory.model.ListAttachedIndicesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.ListAttachedIndicesResult {
 		return environment.clouddirectory.listAttachedIndices(build())
@@ -1177,9 +1244,11 @@ class AmazonCloudDirectoryListDevelopmentSchemaArnsCommand() : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.ListDevelopmentSchemaArnsResult {
 	  return com.amazonaws.services.clouddirectory.model.ListDevelopmentSchemaArnsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.ListDevelopmentSchemaArnsResult {
 		return environment.clouddirectory.listDevelopmentSchemaArns(build())
@@ -1213,9 +1282,11 @@ class AmazonCloudDirectoryListDirectoriesCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.ListDirectoriesResult {
 	  return com.amazonaws.services.clouddirectory.model.ListDirectoriesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.ListDirectoriesResult {
 		return environment.clouddirectory.listDirectories(build())
@@ -1250,9 +1321,11 @@ class AmazonCloudDirectoryListFacetAttributesCommand(val schemaArn: String, val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.ListFacetAttributesResult {
 	  return com.amazonaws.services.clouddirectory.model.ListFacetAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.ListFacetAttributesResult {
 		return environment.clouddirectory.listFacetAttributes(build())
@@ -1287,9 +1360,11 @@ class AmazonCloudDirectoryListFacetNamesCommand(val schemaArn: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.ListFacetNamesResult {
 	  return com.amazonaws.services.clouddirectory.model.ListFacetNamesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.ListFacetNamesResult {
 		return environment.clouddirectory.listFacetNames(build())
@@ -1330,9 +1405,11 @@ class AmazonCloudDirectoryListIncomingTypedLinksCommand(val directoryArn: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.ListIncomingTypedLinksResult {
 	  return com.amazonaws.services.clouddirectory.model.ListIncomingTypedLinksResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.ListIncomingTypedLinksResult {
 		return environment.clouddirectory.listIncomingTypedLinks(build())
@@ -1375,9 +1452,11 @@ class AmazonCloudDirectoryListIndexCommand(val directoryArn: String, val indexRe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.ListIndexResult {
 	  return com.amazonaws.services.clouddirectory.model.ListIndexResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.ListIndexResult {
 		return environment.clouddirectory.listIndex(build())
@@ -1419,9 +1498,11 @@ class AmazonCloudDirectoryListObjectAttributesCommand(val directoryArn: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.ListObjectAttributesResult {
 	  return com.amazonaws.services.clouddirectory.model.ListObjectAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.ListObjectAttributesResult {
 		return environment.clouddirectory.listObjectAttributes(build())
@@ -1461,9 +1542,11 @@ class AmazonCloudDirectoryListObjectChildrenCommand(val directoryArn: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.ListObjectChildrenResult {
 	  return com.amazonaws.services.clouddirectory.model.ListObjectChildrenResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.ListObjectChildrenResult {
 		return environment.clouddirectory.listObjectChildren(build())
@@ -1500,9 +1583,11 @@ class AmazonCloudDirectoryListObjectParentPathsCommand(val directoryArn: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.ListObjectParentPathsResult {
 	  return com.amazonaws.services.clouddirectory.model.ListObjectParentPathsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.ListObjectParentPathsResult {
 		return environment.clouddirectory.listObjectParentPaths(build())
@@ -1540,9 +1625,11 @@ class AmazonCloudDirectoryListObjectParentsCommand(val directoryArn: String, val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.ListObjectParentsResult {
 	  return com.amazonaws.services.clouddirectory.model.ListObjectParentsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.ListObjectParentsResult {
 		return environment.clouddirectory.listObjectParents(build())
@@ -1581,9 +1668,11 @@ class AmazonCloudDirectoryListObjectPoliciesCommand(val directoryArn: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.ListObjectPoliciesResult {
 	  return com.amazonaws.services.clouddirectory.model.ListObjectPoliciesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.ListObjectPoliciesResult {
 		return environment.clouddirectory.listObjectPolicies(build())
@@ -1626,9 +1715,11 @@ class AmazonCloudDirectoryListOutgoingTypedLinksCommand(val directoryArn: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.ListOutgoingTypedLinksResult {
 	  return com.amazonaws.services.clouddirectory.model.ListOutgoingTypedLinksResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.ListOutgoingTypedLinksResult {
 		return environment.clouddirectory.listOutgoingTypedLinks(build())
@@ -1669,9 +1760,11 @@ class AmazonCloudDirectoryListPolicyAttachmentsCommand(val directoryArn: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.ListPolicyAttachmentsResult {
 	  return com.amazonaws.services.clouddirectory.model.ListPolicyAttachmentsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.ListPolicyAttachmentsResult {
 		return environment.clouddirectory.listPolicyAttachments(build())
@@ -1708,9 +1801,11 @@ class AmazonCloudDirectoryListPublishedSchemaArnsCommand() : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.ListPublishedSchemaArnsResult {
 	  return com.amazonaws.services.clouddirectory.model.ListPublishedSchemaArnsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.ListPublishedSchemaArnsResult {
 		return environment.clouddirectory.listPublishedSchemaArns(build())
@@ -1744,9 +1839,11 @@ class AmazonCloudDirectoryListTagsForResourceCommand(val resourceArn: String) : 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.ListTagsForResourceResult {
 	  return com.amazonaws.services.clouddirectory.model.ListTagsForResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.ListTagsForResourceResult {
 		return environment.clouddirectory.listTagsForResource(build())
@@ -1781,9 +1878,11 @@ class AmazonCloudDirectoryListTypedLinkFacetAttributesCommand(val schemaArn: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.ListTypedLinkFacetAttributesResult {
 	  return com.amazonaws.services.clouddirectory.model.ListTypedLinkFacetAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.ListTypedLinkFacetAttributesResult {
 		return environment.clouddirectory.listTypedLinkFacetAttributes(build())
@@ -1818,9 +1917,11 @@ class AmazonCloudDirectoryListTypedLinkFacetNamesCommand(val schemaArn: String) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.ListTypedLinkFacetNamesResult {
 	  return com.amazonaws.services.clouddirectory.model.ListTypedLinkFacetNamesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.ListTypedLinkFacetNamesResult {
 		return environment.clouddirectory.listTypedLinkFacetNames(build())
@@ -1855,9 +1956,11 @@ class AmazonCloudDirectoryLookupPolicyCommand(val directoryArn: String, val obje
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.LookupPolicyResult {
 	  return com.amazonaws.services.clouddirectory.model.LookupPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.LookupPolicyResult {
 		return environment.clouddirectory.lookupPolicy(build())
@@ -1893,9 +1996,11 @@ class AmazonCloudDirectoryPublishSchemaCommand(val developmentSchemaArn: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.PublishSchemaResult {
 	  return com.amazonaws.services.clouddirectory.model.PublishSchemaResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.PublishSchemaResult {
 		return environment.clouddirectory.publishSchema(build())
@@ -1928,9 +2033,11 @@ class AmazonCloudDirectoryPutSchemaFromJsonCommand(val schemaArn: String, val do
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.PutSchemaFromJsonResult {
 	  return com.amazonaws.services.clouddirectory.model.PutSchemaFromJsonResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.PutSchemaFromJsonResult {
 		return environment.clouddirectory.putSchemaFromJson(build())
@@ -1962,9 +2069,11 @@ class AmazonCloudDirectoryRemoveFacetFromObjectCommand(val directoryArn: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.RemoveFacetFromObjectResult {
 	  return com.amazonaws.services.clouddirectory.model.RemoveFacetFromObjectResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.RemoveFacetFromObjectResult {
 		return environment.clouddirectory.removeFacetFromObject(build())
@@ -1996,9 +2105,11 @@ class AmazonCloudDirectoryTagResourceCommand(val resourceArn: String, val tags: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.TagResourceResult {
 	  return com.amazonaws.services.clouddirectory.model.TagResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.TagResourceResult {
 		return environment.clouddirectory.tagResource(build())
@@ -2029,9 +2140,11 @@ class AmazonCloudDirectoryUntagResourceCommand(val resourceArn: String, val tagK
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.UntagResourceResult {
 	  return com.amazonaws.services.clouddirectory.model.UntagResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.UntagResourceResult {
 		return environment.clouddirectory.untagResource(build())
@@ -2065,9 +2178,11 @@ class AmazonCloudDirectoryUpdateFacetCommand(val schemaArn: String, val name: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.UpdateFacetResult {
 	  return com.amazonaws.services.clouddirectory.model.UpdateFacetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.UpdateFacetResult {
 		return environment.clouddirectory.updateFacet(build())
@@ -2101,9 +2216,11 @@ class AmazonCloudDirectoryUpdateObjectAttributesCommand(val directoryArn: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.UpdateObjectAttributesResult {
 	  return com.amazonaws.services.clouddirectory.model.UpdateObjectAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.UpdateObjectAttributesResult {
 		return environment.clouddirectory.updateObjectAttributes(build())
@@ -2135,9 +2252,11 @@ class AmazonCloudDirectoryUpdateSchemaCommand(val schemaArn: String, val name: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.UpdateSchemaResult {
 	  return com.amazonaws.services.clouddirectory.model.UpdateSchemaResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.UpdateSchemaResult {
 		return environment.clouddirectory.updateSchema(build())
@@ -2170,9 +2289,11 @@ class AmazonCloudDirectoryUpdateTypedLinkFacetCommand(val schemaArn: String, val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.UpdateTypedLinkFacetResult {
 	  return com.amazonaws.services.clouddirectory.model.UpdateTypedLinkFacetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.UpdateTypedLinkFacetResult {
 		return environment.clouddirectory.updateTypedLinkFacet(build())
@@ -2206,9 +2327,11 @@ class AmazonCloudDirectoryUpgradeAppliedSchemaCommand(val publishedSchemaArn: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.UpgradeAppliedSchemaResult {
 	  return com.amazonaws.services.clouddirectory.model.UpgradeAppliedSchemaResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.UpgradeAppliedSchemaResult {
 		return environment.clouddirectory.upgradeAppliedSchema(build())
@@ -2242,9 +2365,11 @@ class AmazonCloudDirectoryUpgradePublishedSchemaCommand(val developmentSchemaArn
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.clouddirectory.model.UpgradePublishedSchemaResult {
 	  return com.amazonaws.services.clouddirectory.model.UpgradePublishedSchemaResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.clouddirectory.model.UpgradePublishedSchemaResult {
 		return environment.clouddirectory.upgradePublishedSchema(build())

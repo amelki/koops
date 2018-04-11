@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -41,9 +42,11 @@ class AmazonAthenaBatchGetNamedQueryCommand(val namedQueryIds: List<String>) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.athena.model.BatchGetNamedQueryResult {
 	  return com.amazonaws.services.athena.model.BatchGetNamedQueryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.athena.model.BatchGetNamedQueryResult {
 		return environment.athena.batchGetNamedQuery(build())
@@ -72,9 +75,11 @@ class AmazonAthenaBatchGetQueryExecutionCommand(val queryExecutionIds: List<Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.athena.model.BatchGetQueryExecutionResult {
 	  return com.amazonaws.services.athena.model.BatchGetQueryExecutionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.athena.model.BatchGetQueryExecutionResult {
 		return environment.athena.batchGetQueryExecution(build())
@@ -108,9 +113,11 @@ class AmazonAthenaCreateNamedQueryCommand(val name: String, val database: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.athena.model.CreateNamedQueryResult {
 	  return com.amazonaws.services.athena.model.CreateNamedQueryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.athena.model.CreateNamedQueryResult {
 		return environment.athena.createNamedQuery(build())
@@ -143,9 +150,11 @@ class AmazonAthenaDeleteNamedQueryCommand(val namedQueryId: String) : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.athena.model.DeleteNamedQueryResult {
 	  return com.amazonaws.services.athena.model.DeleteNamedQueryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.athena.model.DeleteNamedQueryResult {
 		return environment.athena.deleteNamedQuery(build())
@@ -174,9 +183,11 @@ class AmazonAthenaGetNamedQueryCommand(val namedQueryId: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.athena.model.GetNamedQueryResult {
 	  return com.amazonaws.services.athena.model.GetNamedQueryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.athena.model.GetNamedQueryResult {
 		return environment.athena.getNamedQuery(build())
@@ -205,9 +216,11 @@ class AmazonAthenaGetQueryExecutionCommand(val queryExecutionId: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.athena.model.GetQueryExecutionResult {
 	  return com.amazonaws.services.athena.model.GetQueryExecutionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.athena.model.GetQueryExecutionResult {
 		return environment.athena.getQueryExecution(build())
@@ -239,9 +252,11 @@ class AmazonAthenaGetQueryResultsCommand(val queryExecutionId: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.athena.model.GetQueryResultsResult {
 	  return com.amazonaws.services.athena.model.GetQueryResultsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.athena.model.GetQueryResultsResult {
 		return environment.athena.getQueryResults(build())
@@ -274,9 +289,11 @@ class AmazonAthenaListNamedQueriesCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.athena.model.ListNamedQueriesResult {
 	  return com.amazonaws.services.athena.model.ListNamedQueriesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.athena.model.ListNamedQueriesResult {
 		return environment.athena.listNamedQueries(build())
@@ -308,9 +325,11 @@ class AmazonAthenaListQueryExecutionsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.athena.model.ListQueryExecutionsResult {
 	  return com.amazonaws.services.athena.model.ListQueryExecutionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.athena.model.ListQueryExecutionsResult {
 		return environment.athena.listQueryExecutions(build())
@@ -344,9 +363,11 @@ class AmazonAthenaStartQueryExecutionCommand(val queryString: String, val result
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.athena.model.StartQueryExecutionResult {
 	  return com.amazonaws.services.athena.model.StartQueryExecutionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.athena.model.StartQueryExecutionResult {
 		return environment.athena.startQueryExecution(build())
@@ -378,9 +399,11 @@ class AmazonAthenaStopQueryExecutionCommand(val queryExecutionId: String) : Amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.athena.model.StopQueryExecutionResult {
 	  return com.amazonaws.services.athena.model.StopQueryExecutionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.athena.model.StopQueryExecutionResult {
 		return environment.athena.stopQueryExecution(build())

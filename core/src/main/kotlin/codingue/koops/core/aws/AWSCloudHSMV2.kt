@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -43,9 +44,11 @@ class AWSCloudHSMV2CreateClusterCommand(val subnetIds: List<String>, val hsmType
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudhsmv2.model.CreateClusterResult {
 	  return com.amazonaws.services.cloudhsmv2.model.CreateClusterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsmv2.model.CreateClusterResult {
 		return environment.cloudhsmv2.createCluster(build())
@@ -78,9 +81,11 @@ class AWSCloudHSMV2CreateHsmCommand(val clusterId: String, val availabilityZone:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudhsmv2.model.CreateHsmResult {
 	  return com.amazonaws.services.cloudhsmv2.model.CreateHsmResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsmv2.model.CreateHsmResult {
 		return environment.cloudhsmv2.createHsm(build())
@@ -111,9 +116,11 @@ class AWSCloudHSMV2DeleteClusterCommand(val clusterId: String) : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudhsmv2.model.DeleteClusterResult {
 	  return com.amazonaws.services.cloudhsmv2.model.DeleteClusterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsmv2.model.DeleteClusterResult {
 		return environment.cloudhsmv2.deleteCluster(build())
@@ -147,9 +154,11 @@ class AWSCloudHSMV2DeleteHsmCommand(val clusterId: String) : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudhsmv2.model.DeleteHsmResult {
 	  return com.amazonaws.services.cloudhsmv2.model.DeleteHsmResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsmv2.model.DeleteHsmResult {
 		return environment.cloudhsmv2.deleteHsm(build())
@@ -185,9 +194,11 @@ class AWSCloudHSMV2DescribeBackupsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudhsmv2.model.DescribeBackupsResult {
 	  return com.amazonaws.services.cloudhsmv2.model.DescribeBackupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsmv2.model.DescribeBackupsResult {
 		return environment.cloudhsmv2.describeBackups(build())
@@ -222,9 +233,11 @@ class AWSCloudHSMV2DescribeClustersCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudhsmv2.model.DescribeClustersResult {
 	  return com.amazonaws.services.cloudhsmv2.model.DescribeClustersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsmv2.model.DescribeClustersResult {
 		return environment.cloudhsmv2.describeClusters(build())
@@ -257,9 +270,11 @@ class AWSCloudHSMV2InitializeClusterCommand(val clusterId: String, val signedCer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudhsmv2.model.InitializeClusterResult {
 	  return com.amazonaws.services.cloudhsmv2.model.InitializeClusterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsmv2.model.InitializeClusterResult {
 		return environment.cloudhsmv2.initializeCluster(build())
@@ -293,9 +308,11 @@ class AWSCloudHSMV2ListTagsCommand(val resourceId: String) : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudhsmv2.model.ListTagsResult {
 	  return com.amazonaws.services.cloudhsmv2.model.ListTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsmv2.model.ListTagsResult {
 		return environment.cloudhsmv2.listTags(build())
@@ -327,9 +344,11 @@ class AWSCloudHSMV2TagResourceCommand(val resourceId: String, val tagList: List<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudhsmv2.model.TagResourceResult {
 	  return com.amazonaws.services.cloudhsmv2.model.TagResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsmv2.model.TagResourceResult {
 		return environment.cloudhsmv2.tagResource(build())
@@ -360,9 +379,11 @@ class AWSCloudHSMV2UntagResourceCommand(val resourceId: String, val tagKeyList: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudhsmv2.model.UntagResourceResult {
 	  return com.amazonaws.services.cloudhsmv2.model.UntagResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsmv2.model.UntagResourceResult {
 		return environment.cloudhsmv2.untagResource(build())

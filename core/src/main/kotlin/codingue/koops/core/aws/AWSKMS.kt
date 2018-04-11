@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -41,9 +42,11 @@ class AWSKMSCancelKeyDeletionCommand(val keyId: String) : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.CancelKeyDeletionResult {
 	  return com.amazonaws.services.kms.model.CancelKeyDeletionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.CancelKeyDeletionResult {
 		return environment.kms.cancelKeyDeletion(build())
@@ -73,9 +76,11 @@ class AWSKMSCreateAliasCommand(val aliasName: String, val targetKeyId: String) :
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.CreateAliasResult {
 	  return com.amazonaws.services.kms.model.CreateAliasResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.CreateAliasResult {
 		return environment.kms.createAlias(build())
@@ -114,9 +119,11 @@ class AWSKMSCreateGrantCommand(val keyId: String, val granteePrincipal: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.CreateGrantResult {
 	  return com.amazonaws.services.kms.model.CreateGrantResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.CreateGrantResult {
 		return environment.kms.createGrant(build())
@@ -161,9 +168,11 @@ class AWSKMSCreateKeyCommand() : AmazonWebServiceCommand<com.amazonaws.services.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.CreateKeyResult {
 	  return com.amazonaws.services.kms.model.CreateKeyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.CreateKeyResult {
 		return environment.kms.createKey(build())
@@ -200,9 +209,11 @@ class AWSKMSDecryptCommand(val ciphertextBlob: java.nio.ByteBuffer) : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.DecryptResult {
 	  return com.amazonaws.services.kms.model.DecryptResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.DecryptResult {
 		return environment.kms.decrypt(build())
@@ -233,9 +244,11 @@ class AWSKMSDeleteAliasCommand(val aliasName: String) : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.DeleteAliasResult {
 	  return com.amazonaws.services.kms.model.DeleteAliasResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.DeleteAliasResult {
 		return environment.kms.deleteAlias(build())
@@ -264,9 +277,11 @@ class AWSKMSDeleteImportedKeyMaterialCommand(val keyId: String) : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.DeleteImportedKeyMaterialResult {
 	  return com.amazonaws.services.kms.model.DeleteImportedKeyMaterialResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.DeleteImportedKeyMaterialResult {
 		return environment.kms.deleteImportedKeyMaterial(build())
@@ -296,9 +311,11 @@ class AWSKMSDescribeKeyCommand(val keyId: String) : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.DescribeKeyResult {
 	  return com.amazonaws.services.kms.model.DescribeKeyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.DescribeKeyResult {
 		return environment.kms.describeKey(build())
@@ -328,9 +345,11 @@ class AWSKMSDisableKeyCommand(val keyId: String) : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.DisableKeyResult {
 	  return com.amazonaws.services.kms.model.DisableKeyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.DisableKeyResult {
 		return environment.kms.disableKey(build())
@@ -359,9 +378,11 @@ class AWSKMSDisableKeyRotationCommand(val keyId: String) : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.DisableKeyRotationResult {
 	  return com.amazonaws.services.kms.model.DisableKeyRotationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.DisableKeyRotationResult {
 		return environment.kms.disableKeyRotation(build())
@@ -390,9 +411,11 @@ class AWSKMSEnableKeyCommand(val keyId: String) : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.EnableKeyResult {
 	  return com.amazonaws.services.kms.model.EnableKeyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.EnableKeyResult {
 		return environment.kms.enableKey(build())
@@ -421,9 +444,11 @@ class AWSKMSEnableKeyRotationCommand(val keyId: String) : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.EnableKeyRotationResult {
 	  return com.amazonaws.services.kms.model.EnableKeyRotationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.EnableKeyRotationResult {
 		return environment.kms.enableKeyRotation(build())
@@ -456,9 +481,11 @@ class AWSKMSEncryptCommand(val keyId: String, val plaintext: java.nio.ByteBuffer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.EncryptResult {
 	  return com.amazonaws.services.kms.model.EncryptResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.EncryptResult {
 		return environment.kms.encrypt(build())
@@ -497,9 +524,11 @@ class AWSKMSGenerateDataKeyCommand(val keyId: String) : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.GenerateDataKeyResult {
 	  return com.amazonaws.services.kms.model.GenerateDataKeyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.GenerateDataKeyResult {
 		return environment.kms.generateDataKey(build())
@@ -539,9 +568,11 @@ class AWSKMSGenerateDataKeyWithoutPlaintextCommand(val keyId: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.GenerateDataKeyWithoutPlaintextResult {
 	  return com.amazonaws.services.kms.model.GenerateDataKeyWithoutPlaintextResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.GenerateDataKeyWithoutPlaintextResult {
 		return environment.kms.generateDataKeyWithoutPlaintext(build())
@@ -574,9 +605,11 @@ class AWSKMSGenerateRandomCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.GenerateRandomResult {
 	  return com.amazonaws.services.kms.model.GenerateRandomResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.GenerateRandomResult {
 		return environment.kms.generateRandom(build())
@@ -606,9 +639,11 @@ class AWSKMSGetKeyPolicyCommand(val keyId: String, val policyName: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.GetKeyPolicyResult {
 	  return com.amazonaws.services.kms.model.GetKeyPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.GetKeyPolicyResult {
 		return environment.kms.getKeyPolicy(build())
@@ -638,9 +673,11 @@ class AWSKMSGetKeyRotationStatusCommand(val keyId: String) : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.GetKeyRotationStatusResult {
 	  return com.amazonaws.services.kms.model.GetKeyRotationStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.GetKeyRotationStatusResult {
 		return environment.kms.getKeyRotationStatus(build())
@@ -671,9 +708,11 @@ class AWSKMSGetParametersForImportCommand(val keyId: String, val wrappingAlgorit
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.GetParametersForImportResult {
 	  return com.amazonaws.services.kms.model.GetParametersForImportResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.GetParametersForImportResult {
 		return environment.kms.getParametersForImport(build())
@@ -709,9 +748,11 @@ class AWSKMSImportKeyMaterialCommand(val keyId: String, val importToken: java.ni
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.ImportKeyMaterialResult {
 	  return com.amazonaws.services.kms.model.ImportKeyMaterialResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.ImportKeyMaterialResult {
 		return environment.kms.importKeyMaterial(build())
@@ -746,9 +787,11 @@ class AWSKMSListAliasesCommand() : AmazonWebServiceCommand<com.amazonaws.service
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.ListAliasesResult {
 	  return com.amazonaws.services.kms.model.ListAliasesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.ListAliasesResult {
 		return environment.kms.listAliases(build())
@@ -781,9 +824,11 @@ class AWSKMSListGrantsCommand(val keyId: String) : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.ListGrantsResult {
 	  return com.amazonaws.services.kms.model.ListGrantsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.ListGrantsResult {
 		return environment.kms.listGrants(build())
@@ -817,9 +862,11 @@ class AWSKMSListKeyPoliciesCommand(val keyId: String) : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.ListKeyPoliciesResult {
 	  return com.amazonaws.services.kms.model.ListKeyPoliciesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.ListKeyPoliciesResult {
 		return environment.kms.listKeyPolicies(build())
@@ -852,9 +899,11 @@ class AWSKMSListKeysCommand() : AmazonWebServiceCommand<com.amazonaws.services.k
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.ListKeysResult {
 	  return com.amazonaws.services.kms.model.ListKeysResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.ListKeysResult {
 		return environment.kms.listKeys(build())
@@ -887,9 +936,11 @@ class AWSKMSListResourceTagsCommand(val keyId: String) : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.ListResourceTagsResult {
 	  return com.amazonaws.services.kms.model.ListResourceTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.ListResourceTagsResult {
 		return environment.kms.listResourceTags(build())
@@ -923,9 +974,11 @@ class AWSKMSListRetirableGrantsCommand(val retiringPrincipal: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.ListRetirableGrantsResult {
 	  return com.amazonaws.services.kms.model.ListRetirableGrantsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.ListRetirableGrantsResult {
 		return environment.kms.listRetirableGrants(build())
@@ -959,9 +1012,11 @@ class AWSKMSPutKeyPolicyCommand(val keyId: String, val policyName: String, val p
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.PutKeyPolicyResult {
 	  return com.amazonaws.services.kms.model.PutKeyPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.PutKeyPolicyResult {
 		return environment.kms.putKeyPolicy(build())
@@ -999,9 +1054,11 @@ class AWSKMSReEncryptCommand(val ciphertextBlob: java.nio.ByteBuffer, val destin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.ReEncryptResult {
 	  return com.amazonaws.services.kms.model.ReEncryptResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.ReEncryptResult {
 		return environment.kms.reEncrypt(build())
@@ -1038,9 +1095,11 @@ class AWSKMSRetireGrantCommand() : AmazonWebServiceCommand<com.amazonaws.service
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.RetireGrantResult {
 	  return com.amazonaws.services.kms.model.RetireGrantResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.RetireGrantResult {
 		return environment.kms.retireGrant(build())
@@ -1072,9 +1131,11 @@ class AWSKMSRevokeGrantCommand(val keyId: String, val grantId: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.RevokeGrantResult {
 	  return com.amazonaws.services.kms.model.RevokeGrantResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.RevokeGrantResult {
 		return environment.kms.revokeGrant(build())
@@ -1105,9 +1166,11 @@ class AWSKMSScheduleKeyDeletionCommand(val keyId: String) : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.ScheduleKeyDeletionResult {
 	  return com.amazonaws.services.kms.model.ScheduleKeyDeletionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.ScheduleKeyDeletionResult {
 		return environment.kms.scheduleKeyDeletion(build())
@@ -1138,9 +1201,11 @@ class AWSKMSTagResourceCommand(val keyId: String, val tags: List<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.TagResourceResult {
 	  return com.amazonaws.services.kms.model.TagResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.TagResourceResult {
 		return environment.kms.tagResource(build())
@@ -1171,9 +1236,11 @@ class AWSKMSUntagResourceCommand(val keyId: String, val tagKeys: List<String>) :
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.UntagResourceResult {
 	  return com.amazonaws.services.kms.model.UntagResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.UntagResourceResult {
 		return environment.kms.untagResource(build())
@@ -1204,9 +1271,11 @@ class AWSKMSUpdateAliasCommand(val aliasName: String, val targetKeyId: String) :
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.UpdateAliasResult {
 	  return com.amazonaws.services.kms.model.UpdateAliasResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.UpdateAliasResult {
 		return environment.kms.updateAlias(build())
@@ -1237,9 +1306,11 @@ class AWSKMSUpdateKeyDescriptionCommand(val keyId: String, val description: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kms.model.UpdateKeyDescriptionResult {
 	  return com.amazonaws.services.kms.model.UpdateKeyDescriptionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kms.model.UpdateKeyDescriptionResult {
 		return environment.kms.updateKeyDescription(build())

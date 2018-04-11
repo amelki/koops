@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -42,9 +43,11 @@ class AmazonSimpleDBBatchDeleteAttributesCommand(val domainName: String, val ite
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpledb.model.BatchDeleteAttributesResult {
 	  return com.amazonaws.services.simpledb.model.BatchDeleteAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpledb.model.BatchDeleteAttributesResult {
 		return environment.sdb.batchDeleteAttributes(build())
@@ -75,9 +78,11 @@ class AmazonSimpleDBBatchPutAttributesCommand(val domainName: String, val items:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpledb.model.BatchPutAttributesResult {
 	  return com.amazonaws.services.simpledb.model.BatchPutAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpledb.model.BatchPutAttributesResult {
 		return environment.sdb.batchPutAttributes(build())
@@ -107,9 +112,11 @@ class AmazonSimpleDBCreateDomainCommand(val domainName: String) : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpledb.model.CreateDomainResult {
 	  return com.amazonaws.services.simpledb.model.CreateDomainResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpledb.model.CreateDomainResult {
 		return environment.sdb.createDomain(build())
@@ -142,9 +149,11 @@ class AmazonSimpleDBDeleteAttributesCommand(val domainName: String, val itemName
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpledb.model.DeleteAttributesResult {
 	  return com.amazonaws.services.simpledb.model.DeleteAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpledb.model.DeleteAttributesResult {
 		return environment.sdb.deleteAttributes(build())
@@ -176,9 +185,11 @@ class AmazonSimpleDBDeleteDomainCommand(val domainName: String) : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpledb.model.DeleteDomainResult {
 	  return com.amazonaws.services.simpledb.model.DeleteDomainResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpledb.model.DeleteDomainResult {
 		return environment.sdb.deleteDomain(build())
@@ -207,9 +218,11 @@ class AmazonSimpleDBDomainMetadataCommand(val domainName: String) : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpledb.model.DomainMetadataResult {
 	  return com.amazonaws.services.simpledb.model.DomainMetadataResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpledb.model.DomainMetadataResult {
 		return environment.sdb.domainMetadata(build())
@@ -242,9 +255,11 @@ class AmazonSimpleDBGetAttributesCommand(val domainName: String, val itemName: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpledb.model.GetAttributesResult {
 	  return com.amazonaws.services.simpledb.model.GetAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpledb.model.GetAttributesResult {
 		return environment.sdb.getAttributes(build())
@@ -278,9 +293,11 @@ class AmazonSimpleDBListDomainsCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpledb.model.ListDomainsResult {
 	  return com.amazonaws.services.simpledb.model.ListDomainsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpledb.model.ListDomainsResult {
 		return environment.sdb.listDomains(build())
@@ -313,9 +330,11 @@ class AmazonSimpleDBPutAttributesCommand(val domainName: String, val itemName: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpledb.model.PutAttributesResult {
 	  return com.amazonaws.services.simpledb.model.PutAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpledb.model.PutAttributesResult {
 		return environment.sdb.putAttributes(build())
@@ -350,9 +369,11 @@ class AmazonSimpleDBSelectCommand(val selectExpression: String) : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpledb.model.SelectResult {
 	  return com.amazonaws.services.simpledb.model.SelectResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpledb.model.SelectResult {
 		return environment.sdb.select(build())

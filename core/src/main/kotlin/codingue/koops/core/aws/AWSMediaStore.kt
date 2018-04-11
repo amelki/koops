@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -41,9 +42,11 @@ class AWSMediaStoreCreateContainerCommand(val containerName: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediastore.model.CreateContainerResult {
 	  return com.amazonaws.services.mediastore.model.CreateContainerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediastore.model.CreateContainerResult {
 		return environment.mediastore.createContainer(build())
@@ -72,9 +75,11 @@ class AWSMediaStoreDeleteContainerCommand(val containerName: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediastore.model.DeleteContainerResult {
 	  return com.amazonaws.services.mediastore.model.DeleteContainerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediastore.model.DeleteContainerResult {
 		return environment.mediastore.deleteContainer(build())
@@ -103,9 +108,11 @@ class AWSMediaStoreDeleteContainerPolicyCommand(val containerName: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediastore.model.DeleteContainerPolicyResult {
 	  return com.amazonaws.services.mediastore.model.DeleteContainerPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediastore.model.DeleteContainerPolicyResult {
 		return environment.mediastore.deleteContainerPolicy(build())
@@ -134,9 +141,11 @@ class AWSMediaStoreDeleteCorsPolicyCommand(val containerName: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediastore.model.DeleteCorsPolicyResult {
 	  return com.amazonaws.services.mediastore.model.DeleteCorsPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediastore.model.DeleteCorsPolicyResult {
 		return environment.mediastore.deleteCorsPolicy(build())
@@ -165,9 +174,11 @@ class AWSMediaStoreDescribeContainerCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediastore.model.DescribeContainerResult {
 	  return com.amazonaws.services.mediastore.model.DescribeContainerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediastore.model.DescribeContainerResult {
 		return environment.mediastore.describeContainer(build())
@@ -196,9 +207,11 @@ class AWSMediaStoreGetContainerPolicyCommand(val containerName: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediastore.model.GetContainerPolicyResult {
 	  return com.amazonaws.services.mediastore.model.GetContainerPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediastore.model.GetContainerPolicyResult {
 		return environment.mediastore.getContainerPolicy(build())
@@ -227,9 +240,11 @@ class AWSMediaStoreGetCorsPolicyCommand(val containerName: String) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediastore.model.GetCorsPolicyResult {
 	  return com.amazonaws.services.mediastore.model.GetCorsPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediastore.model.GetCorsPolicyResult {
 		return environment.mediastore.getCorsPolicy(build())
@@ -260,9 +275,11 @@ class AWSMediaStoreListContainersCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediastore.model.ListContainersResult {
 	  return com.amazonaws.services.mediastore.model.ListContainersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediastore.model.ListContainersResult {
 		return environment.mediastore.listContainers(build())
@@ -293,9 +310,11 @@ class AWSMediaStorePutContainerPolicyCommand(val containerName: String, val poli
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediastore.model.PutContainerPolicyResult {
 	  return com.amazonaws.services.mediastore.model.PutContainerPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediastore.model.PutContainerPolicyResult {
 		return environment.mediastore.putContainerPolicy(build())
@@ -326,9 +345,11 @@ class AWSMediaStorePutCorsPolicyCommand(val containerName: String, val corsPolic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediastore.model.PutCorsPolicyResult {
 	  return com.amazonaws.services.mediastore.model.PutCorsPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediastore.model.PutCorsPolicyResult {
 		return environment.mediastore.putCorsPolicy(build())

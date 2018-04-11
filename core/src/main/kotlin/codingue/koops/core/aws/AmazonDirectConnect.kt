@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -49,9 +50,11 @@ class AmazonDirectConnectAllocateConnectionOnInterconnectCommand() : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.AllocateConnectionOnInterconnectResult {
 	  return com.amazonaws.services.directconnect.model.AllocateConnectionOnInterconnectResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.AllocateConnectionOnInterconnectResult {
 		return environment.directconnect.allocateConnectionOnInterconnect(build())
@@ -92,9 +95,11 @@ class AmazonDirectConnectAllocateHostedConnectionCommand() : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.AllocateHostedConnectionResult {
 	  return com.amazonaws.services.directconnect.model.AllocateHostedConnectionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.AllocateHostedConnectionResult {
 		return environment.directconnect.allocateHostedConnection(build())
@@ -131,9 +136,11 @@ class AmazonDirectConnectAllocatePrivateVirtualInterfaceCommand() : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.AllocatePrivateVirtualInterfaceResult {
 	  return com.amazonaws.services.directconnect.model.AllocatePrivateVirtualInterfaceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.AllocatePrivateVirtualInterfaceResult {
 		return environment.directconnect.allocatePrivateVirtualInterface(build())
@@ -168,9 +175,11 @@ class AmazonDirectConnectAllocatePublicVirtualInterfaceCommand() : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.AllocatePublicVirtualInterfaceResult {
 	  return com.amazonaws.services.directconnect.model.AllocatePublicVirtualInterfaceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.AllocatePublicVirtualInterfaceResult {
 		return environment.directconnect.allocatePublicVirtualInterface(build())
@@ -203,9 +212,11 @@ class AmazonDirectConnectAssociateConnectionWithLagCommand() : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.AssociateConnectionWithLagResult {
 	  return com.amazonaws.services.directconnect.model.AssociateConnectionWithLagResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.AssociateConnectionWithLagResult {
 		return environment.directconnect.associateConnectionWithLag(build())
@@ -237,9 +248,11 @@ class AmazonDirectConnectAssociateHostedConnectionCommand() : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.AssociateHostedConnectionResult {
 	  return com.amazonaws.services.directconnect.model.AssociateHostedConnectionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.AssociateHostedConnectionResult {
 		return environment.directconnect.associateHostedConnection(build())
@@ -271,9 +284,11 @@ class AmazonDirectConnectAssociateVirtualInterfaceCommand() : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.AssociateVirtualInterfaceResult {
 	  return com.amazonaws.services.directconnect.model.AssociateVirtualInterfaceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.AssociateVirtualInterfaceResult {
 		return environment.directconnect.associateVirtualInterface(build())
@@ -303,9 +318,11 @@ class AmazonDirectConnectConfirmConnectionCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.ConfirmConnectionResult {
 	  return com.amazonaws.services.directconnect.model.ConfirmConnectionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.ConfirmConnectionResult {
 		return environment.directconnect.confirmConnection(build())
@@ -338,9 +355,11 @@ class AmazonDirectConnectConfirmPrivateVirtualInterfaceCommand() : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.ConfirmPrivateVirtualInterfaceResult {
 	  return com.amazonaws.services.directconnect.model.ConfirmPrivateVirtualInterfaceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.ConfirmPrivateVirtualInterfaceResult {
 		return environment.directconnect.confirmPrivateVirtualInterface(build())
@@ -371,9 +390,11 @@ class AmazonDirectConnectConfirmPublicVirtualInterfaceCommand() : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.ConfirmPublicVirtualInterfaceResult {
 	  return com.amazonaws.services.directconnect.model.ConfirmPublicVirtualInterfaceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.ConfirmPublicVirtualInterfaceResult {
 		return environment.directconnect.confirmPublicVirtualInterface(build())
@@ -404,9 +425,11 @@ class AmazonDirectConnectCreateBGPPeerCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.CreateBGPPeerResult {
 	  return com.amazonaws.services.directconnect.model.CreateBGPPeerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.CreateBGPPeerResult {
 		return environment.directconnect.createBGPPeer(build())
@@ -442,9 +465,11 @@ class AmazonDirectConnectCreateConnectionCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.CreateConnectionResult {
 	  return com.amazonaws.services.directconnect.model.CreateConnectionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.CreateConnectionResult {
 		return environment.directconnect.createConnection(build())
@@ -478,9 +503,11 @@ class AmazonDirectConnectCreateDirectConnectGatewayCommand() : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.CreateDirectConnectGatewayResult {
 	  return com.amazonaws.services.directconnect.model.CreateDirectConnectGatewayResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.CreateDirectConnectGatewayResult {
 		return environment.directconnect.createDirectConnectGateway(build())
@@ -512,9 +539,11 @@ class AmazonDirectConnectCreateDirectConnectGatewayAssociationCommand() : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.CreateDirectConnectGatewayAssociationResult {
 	  return com.amazonaws.services.directconnect.model.CreateDirectConnectGatewayAssociationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.CreateDirectConnectGatewayAssociationResult {
 		return environment.directconnect.createDirectConnectGatewayAssociation(build())
@@ -550,9 +579,11 @@ class AmazonDirectConnectCreateInterconnectCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.CreateInterconnectResult {
 	  return com.amazonaws.services.directconnect.model.CreateInterconnectResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.CreateInterconnectResult {
 		return environment.directconnect.createInterconnect(build())
@@ -592,9 +623,11 @@ class AmazonDirectConnectCreateLagCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.CreateLagResult {
 	  return com.amazonaws.services.directconnect.model.CreateLagResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.CreateLagResult {
 		return environment.directconnect.createLag(build())
@@ -629,9 +662,11 @@ class AmazonDirectConnectCreatePrivateVirtualInterfaceCommand() : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.CreatePrivateVirtualInterfaceResult {
 	  return com.amazonaws.services.directconnect.model.CreatePrivateVirtualInterfaceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.CreatePrivateVirtualInterfaceResult {
 		return environment.directconnect.createPrivateVirtualInterface(build())
@@ -663,9 +698,11 @@ class AmazonDirectConnectCreatePublicVirtualInterfaceCommand() : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.CreatePublicVirtualInterfaceResult {
 	  return com.amazonaws.services.directconnect.model.CreatePublicVirtualInterfaceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.CreatePublicVirtualInterfaceResult {
 		return environment.directconnect.createPublicVirtualInterface(build())
@@ -699,9 +736,11 @@ class AmazonDirectConnectDeleteBGPPeerCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.DeleteBGPPeerResult {
 	  return com.amazonaws.services.directconnect.model.DeleteBGPPeerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.DeleteBGPPeerResult {
 		return environment.directconnect.deleteBGPPeer(build())
@@ -732,9 +771,11 @@ class AmazonDirectConnectDeleteConnectionCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.DeleteConnectionResult {
 	  return com.amazonaws.services.directconnect.model.DeleteConnectionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.DeleteConnectionResult {
 		return environment.directconnect.deleteConnection(build())
@@ -763,9 +804,11 @@ class AmazonDirectConnectDeleteDirectConnectGatewayCommand() : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.DeleteDirectConnectGatewayResult {
 	  return com.amazonaws.services.directconnect.model.DeleteDirectConnectGatewayResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.DeleteDirectConnectGatewayResult {
 		return environment.directconnect.deleteDirectConnectGateway(build())
@@ -796,9 +839,11 @@ class AmazonDirectConnectDeleteDirectConnectGatewayAssociationCommand() : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.DeleteDirectConnectGatewayAssociationResult {
 	  return com.amazonaws.services.directconnect.model.DeleteDirectConnectGatewayAssociationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.DeleteDirectConnectGatewayAssociationResult {
 		return environment.directconnect.deleteDirectConnectGatewayAssociation(build())
@@ -828,9 +873,11 @@ class AmazonDirectConnectDeleteInterconnectCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.DeleteInterconnectResult {
 	  return com.amazonaws.services.directconnect.model.DeleteInterconnectResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.DeleteInterconnectResult {
 		return environment.directconnect.deleteInterconnect(build())
@@ -859,9 +906,11 @@ class AmazonDirectConnectDeleteLagCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.DeleteLagResult {
 	  return com.amazonaws.services.directconnect.model.DeleteLagResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.DeleteLagResult {
 		return environment.directconnect.deleteLag(build())
@@ -890,9 +939,11 @@ class AmazonDirectConnectDeleteVirtualInterfaceCommand() : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.DeleteVirtualInterfaceResult {
 	  return com.amazonaws.services.directconnect.model.DeleteVirtualInterfaceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.DeleteVirtualInterfaceResult {
 		return environment.directconnect.deleteVirtualInterface(build())
@@ -925,9 +976,11 @@ class AmazonDirectConnectDescribeConnectionLoaCommand() : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.DescribeConnectionLoaResult {
 	  return com.amazonaws.services.directconnect.model.DescribeConnectionLoaResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.DescribeConnectionLoaResult {
 		return environment.directconnect.describeConnectionLoa(build())
@@ -958,9 +1011,11 @@ class AmazonDirectConnectDescribeConnectionsCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.DescribeConnectionsResult {
 	  return com.amazonaws.services.directconnect.model.DescribeConnectionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.DescribeConnectionsResult {
 		return environment.directconnect.describeConnections(build())
@@ -989,9 +1044,11 @@ class AmazonDirectConnectDescribeConnectionsOnInterconnectCommand() : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.DescribeConnectionsOnInterconnectResult {
 	  return com.amazonaws.services.directconnect.model.DescribeConnectionsOnInterconnectResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.DescribeConnectionsOnInterconnectResult {
 		return environment.directconnect.describeConnectionsOnInterconnect(build())
@@ -1026,9 +1083,11 @@ class AmazonDirectConnectDescribeDirectConnectGatewayAssociationsCommand() : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.DescribeDirectConnectGatewayAssociationsResult {
 	  return com.amazonaws.services.directconnect.model.DescribeDirectConnectGatewayAssociationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.DescribeDirectConnectGatewayAssociationsResult {
 		return environment.directconnect.describeDirectConnectGatewayAssociations(build())
@@ -1066,9 +1125,11 @@ class AmazonDirectConnectDescribeDirectConnectGatewayAttachmentsCommand() : Amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.DescribeDirectConnectGatewayAttachmentsResult {
 	  return com.amazonaws.services.directconnect.model.DescribeDirectConnectGatewayAttachmentsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.DescribeDirectConnectGatewayAttachmentsResult {
 		return environment.directconnect.describeDirectConnectGatewayAttachments(build())
@@ -1104,9 +1165,11 @@ class AmazonDirectConnectDescribeDirectConnectGatewaysCommand() : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.DescribeDirectConnectGatewaysResult {
 	  return com.amazonaws.services.directconnect.model.DescribeDirectConnectGatewaysResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.DescribeDirectConnectGatewaysResult {
 		return environment.directconnect.describeDirectConnectGateways(build())
@@ -1137,9 +1200,11 @@ class AmazonDirectConnectDescribeHostedConnectionsCommand() : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.DescribeHostedConnectionsResult {
 	  return com.amazonaws.services.directconnect.model.DescribeHostedConnectionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.DescribeHostedConnectionsResult {
 		return environment.directconnect.describeHostedConnections(build())
@@ -1172,9 +1237,11 @@ class AmazonDirectConnectDescribeInterconnectLoaCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.DescribeInterconnectLoaResult {
 	  return com.amazonaws.services.directconnect.model.DescribeInterconnectLoaResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.DescribeInterconnectLoaResult {
 		return environment.directconnect.describeInterconnectLoa(build())
@@ -1205,9 +1272,11 @@ class AmazonDirectConnectDescribeInterconnectsCommand() : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.DescribeInterconnectsResult {
 	  return com.amazonaws.services.directconnect.model.DescribeInterconnectsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.DescribeInterconnectsResult {
 		return environment.directconnect.describeInterconnects(build())
@@ -1236,9 +1305,11 @@ class AmazonDirectConnectDescribeLagsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.DescribeLagsResult {
 	  return com.amazonaws.services.directconnect.model.DescribeLagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.DescribeLagsResult {
 		return environment.directconnect.describeLags(build())
@@ -1271,9 +1342,11 @@ class AmazonDirectConnectDescribeLoaCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.DescribeLoaResult {
 	  return com.amazonaws.services.directconnect.model.DescribeLoaResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.DescribeLoaResult {
 		return environment.directconnect.describeLoa(build())
@@ -1304,9 +1377,11 @@ class AmazonDirectConnectDescribeLocationsCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.DescribeLocationsResult {
 	  return com.amazonaws.services.directconnect.model.DescribeLocationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.DescribeLocationsResult {
 		return environment.directconnect.describeLocations(build())
@@ -1335,9 +1410,11 @@ class AmazonDirectConnectDescribeTagsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.DescribeTagsResult {
 	  return com.amazonaws.services.directconnect.model.DescribeTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.DescribeTagsResult {
 		return environment.directconnect.describeTags(build())
@@ -1366,9 +1443,11 @@ class AmazonDirectConnectDescribeVirtualGatewaysCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.DescribeVirtualGatewaysResult {
 	  return com.amazonaws.services.directconnect.model.DescribeVirtualGatewaysResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.DescribeVirtualGatewaysResult {
 		return environment.directconnect.describeVirtualGateways(build())
@@ -1399,9 +1478,11 @@ class AmazonDirectConnectDescribeVirtualInterfacesCommand() : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.DescribeVirtualInterfacesResult {
 	  return com.amazonaws.services.directconnect.model.DescribeVirtualInterfacesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.DescribeVirtualInterfacesResult {
 		return environment.directconnect.describeVirtualInterfaces(build())
@@ -1433,9 +1514,11 @@ class AmazonDirectConnectDisassociateConnectionFromLagCommand() : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.DisassociateConnectionFromLagResult {
 	  return com.amazonaws.services.directconnect.model.DisassociateConnectionFromLagResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.DisassociateConnectionFromLagResult {
 		return environment.directconnect.disassociateConnectionFromLag(build())
@@ -1467,9 +1550,11 @@ class AmazonDirectConnectTagResourceCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.TagResourceResult {
 	  return com.amazonaws.services.directconnect.model.TagResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.TagResourceResult {
 		return environment.directconnect.tagResource(build())
@@ -1501,9 +1586,11 @@ class AmazonDirectConnectUntagResourceCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.UntagResourceResult {
 	  return com.amazonaws.services.directconnect.model.UntagResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.UntagResourceResult {
 		return environment.directconnect.untagResource(build())
@@ -1537,9 +1624,11 @@ class AmazonDirectConnectUpdateLagCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directconnect.model.UpdateLagResult {
 	  return com.amazonaws.services.directconnect.model.UpdateLagResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directconnect.model.UpdateLagResult {
 		return environment.directconnect.updateLag(build())

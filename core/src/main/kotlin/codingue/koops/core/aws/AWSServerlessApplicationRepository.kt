@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -67,9 +68,11 @@ class AWSServerlessApplicationRepositoryCreateApplicationCommand() : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.serverlessapplicationrepository.model.CreateApplicationResult {
 	  return com.amazonaws.services.serverlessapplicationrepository.model.CreateApplicationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.serverlessapplicationrepository.model.CreateApplicationResult {
 		return environment.serverlessrepo.createApplication(build())
@@ -117,9 +120,11 @@ class AWSServerlessApplicationRepositoryCreateApplicationVersionCommand(val appl
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.serverlessapplicationrepository.model.CreateApplicationVersionResult {
 	  return com.amazonaws.services.serverlessapplicationrepository.model.CreateApplicationVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.serverlessapplicationrepository.model.CreateApplicationVersionResult {
 		return environment.serverlessrepo.createApplicationVersion(build())
@@ -157,9 +162,11 @@ class AWSServerlessApplicationRepositoryCreateCloudFormationChangeSetCommand(val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.serverlessapplicationrepository.model.CreateCloudFormationChangeSetResult {
 	  return com.amazonaws.services.serverlessapplicationrepository.model.CreateCloudFormationChangeSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.serverlessapplicationrepository.model.CreateCloudFormationChangeSetResult {
 		return environment.serverlessrepo.createCloudFormationChangeSet(build())
@@ -191,9 +198,11 @@ class AWSServerlessApplicationRepositoryDeleteApplicationCommand(val application
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.serverlessapplicationrepository.model.DeleteApplicationResult {
 	  return com.amazonaws.services.serverlessapplicationrepository.model.DeleteApplicationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.serverlessapplicationrepository.model.DeleteApplicationResult {
 		return environment.serverlessrepo.deleteApplication(build())
@@ -223,9 +232,11 @@ class AWSServerlessApplicationRepositoryGetApplicationCommand(val applicationId:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.serverlessapplicationrepository.model.GetApplicationResult {
 	  return com.amazonaws.services.serverlessapplicationrepository.model.GetApplicationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.serverlessapplicationrepository.model.GetApplicationResult {
 		return environment.serverlessrepo.getApplication(build())
@@ -255,9 +266,11 @@ class AWSServerlessApplicationRepositoryGetApplicationPolicyCommand(val applicat
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.serverlessapplicationrepository.model.GetApplicationPolicyResult {
 	  return com.amazonaws.services.serverlessapplicationrepository.model.GetApplicationPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.serverlessapplicationrepository.model.GetApplicationPolicyResult {
 		return environment.serverlessrepo.getApplicationPolicy(build())
@@ -289,9 +302,11 @@ class AWSServerlessApplicationRepositoryListApplicationVersionsCommand(val appli
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.serverlessapplicationrepository.model.ListApplicationVersionsResult {
 	  return com.amazonaws.services.serverlessapplicationrepository.model.ListApplicationVersionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.serverlessapplicationrepository.model.ListApplicationVersionsResult {
 		return environment.serverlessrepo.listApplicationVersions(build())
@@ -324,9 +339,11 @@ class AWSServerlessApplicationRepositoryListApplicationsCommand() : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.serverlessapplicationrepository.model.ListApplicationsResult {
 	  return com.amazonaws.services.serverlessapplicationrepository.model.ListApplicationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.serverlessapplicationrepository.model.ListApplicationsResult {
 		return environment.serverlessrepo.listApplications(build())
@@ -357,9 +374,11 @@ class AWSServerlessApplicationRepositoryPutApplicationPolicyCommand(val applicat
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.serverlessapplicationrepository.model.PutApplicationPolicyResult {
 	  return com.amazonaws.services.serverlessapplicationrepository.model.PutApplicationPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.serverlessapplicationrepository.model.PutApplicationPolicyResult {
 		return environment.serverlessrepo.putApplicationPolicy(build())
@@ -400,9 +419,11 @@ class AWSServerlessApplicationRepositoryUpdateApplicationCommand(val application
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.serverlessapplicationrepository.model.UpdateApplicationResult {
 	  return com.amazonaws.services.serverlessapplicationrepository.model.UpdateApplicationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.serverlessapplicationrepository.model.UpdateApplicationResult {
 		return environment.serverlessrepo.updateApplication(build())

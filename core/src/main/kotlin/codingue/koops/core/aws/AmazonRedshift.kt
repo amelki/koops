@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -46,9 +47,11 @@ class AmazonRedshiftAuthorizeClusterSecurityGroupIngressCommand(val clusterSecur
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.ClusterSecurityGroup {
 	  return com.amazonaws.services.redshift.model.ClusterSecurityGroup()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.ClusterSecurityGroup {
 		return environment.redshift.authorizeClusterSecurityGroupIngress(build())
@@ -82,9 +85,11 @@ class AmazonRedshiftAuthorizeSnapshotAccessCommand(val snapshotIdentifier: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.Snapshot {
 	  return com.amazonaws.services.redshift.model.Snapshot()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.Snapshot {
 		return environment.redshift.authorizeSnapshotAccess(build())
@@ -117,9 +122,11 @@ class AmazonRedshiftCopyClusterSnapshotCommand(val sourceSnapshotIdentifier: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.Snapshot {
 	  return com.amazonaws.services.redshift.model.Snapshot()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.Snapshot {
 		return environment.redshift.copyClusterSnapshot(build())
@@ -198,9 +205,11 @@ class AmazonRedshiftCreateClusterCommand(val clusterIdentifier: String, val node
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.Cluster {
 	  return com.amazonaws.services.redshift.model.Cluster()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.Cluster {
 		return environment.redshift.createCluster(build())
@@ -258,9 +267,11 @@ class AmazonRedshiftCreateClusterParameterGroupCommand(val parameterGroupName: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.ClusterParameterGroup {
 	  return com.amazonaws.services.redshift.model.ClusterParameterGroup()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.ClusterParameterGroup {
 		return environment.redshift.createClusterParameterGroup(build())
@@ -294,9 +305,11 @@ class AmazonRedshiftCreateClusterSecurityGroupCommand(val clusterSecurityGroupNa
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.ClusterSecurityGroup {
 	  return com.amazonaws.services.redshift.model.ClusterSecurityGroup()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.ClusterSecurityGroup {
 		return environment.redshift.createClusterSecurityGroup(build())
@@ -329,9 +342,11 @@ class AmazonRedshiftCreateClusterSnapshotCommand(val snapshotIdentifier: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.Snapshot {
 	  return com.amazonaws.services.redshift.model.Snapshot()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.Snapshot {
 		return environment.redshift.createClusterSnapshot(build())
@@ -365,9 +380,11 @@ class AmazonRedshiftCreateClusterSubnetGroupCommand(val clusterSubnetGroupName: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.ClusterSubnetGroup {
 	  return com.amazonaws.services.redshift.model.ClusterSubnetGroup()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.ClusterSubnetGroup {
 		return environment.redshift.createClusterSubnetGroup(build())
@@ -411,9 +428,11 @@ class AmazonRedshiftCreateEventSubscriptionCommand(val subscriptionName: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.EventSubscription {
 	  return com.amazonaws.services.redshift.model.EventSubscription()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.EventSubscription {
 		return environment.redshift.createEventSubscription(build())
@@ -450,9 +469,11 @@ class AmazonRedshiftCreateHsmClientCertificateCommand(val hsmClientCertificateId
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.HsmClientCertificate {
 	  return com.amazonaws.services.redshift.model.HsmClientCertificate()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.HsmClientCertificate {
 		return environment.redshift.createHsmClientCertificate(build())
@@ -488,9 +509,11 @@ class AmazonRedshiftCreateHsmConfigurationCommand(val hsmConfigurationIdentifier
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.HsmConfiguration {
 	  return com.amazonaws.services.redshift.model.HsmConfiguration()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.HsmConfiguration {
 		return environment.redshift.createHsmConfiguration(build())
@@ -528,9 +551,11 @@ class AmazonRedshiftCreateSnapshotCopyGrantCommand(val snapshotCopyGrantName: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.SnapshotCopyGrant {
 	  return com.amazonaws.services.redshift.model.SnapshotCopyGrant()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.SnapshotCopyGrant {
 		return environment.redshift.createSnapshotCopyGrant(build())
@@ -562,9 +587,11 @@ class AmazonRedshiftCreateTagsCommand(val resourceName: String, val tags: List<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.CreateTagsResult {
 	  return com.amazonaws.services.redshift.model.CreateTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.CreateTagsResult {
 		return environment.redshift.createTags(build())
@@ -597,9 +624,11 @@ class AmazonRedshiftDeleteClusterCommand(val clusterIdentifier: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.Cluster {
 	  return com.amazonaws.services.redshift.model.Cluster()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.Cluster {
 		return environment.redshift.deleteCluster(build())
@@ -630,9 +659,11 @@ class AmazonRedshiftDeleteClusterParameterGroupCommand(val parameterGroupName: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.DeleteClusterParameterGroupResult {
 	  return com.amazonaws.services.redshift.model.DeleteClusterParameterGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DeleteClusterParameterGroupResult {
 		return environment.redshift.deleteClusterParameterGroup(build())
@@ -661,9 +692,11 @@ class AmazonRedshiftDeleteClusterSecurityGroupCommand(val clusterSecurityGroupNa
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.DeleteClusterSecurityGroupResult {
 	  return com.amazonaws.services.redshift.model.DeleteClusterSecurityGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DeleteClusterSecurityGroupResult {
 		return environment.redshift.deleteClusterSecurityGroup(build())
@@ -693,9 +726,11 @@ class AmazonRedshiftDeleteClusterSnapshotCommand(val snapshotIdentifier: String)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.Snapshot {
 	  return com.amazonaws.services.redshift.model.Snapshot()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.Snapshot {
 		return environment.redshift.deleteClusterSnapshot(build())
@@ -725,9 +760,11 @@ class AmazonRedshiftDeleteClusterSubnetGroupCommand(val clusterSubnetGroupName: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.DeleteClusterSubnetGroupResult {
 	  return com.amazonaws.services.redshift.model.DeleteClusterSubnetGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DeleteClusterSubnetGroupResult {
 		return environment.redshift.deleteClusterSubnetGroup(build())
@@ -756,9 +793,11 @@ class AmazonRedshiftDeleteEventSubscriptionCommand(val subscriptionName: String)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.DeleteEventSubscriptionResult {
 	  return com.amazonaws.services.redshift.model.DeleteEventSubscriptionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DeleteEventSubscriptionResult {
 		return environment.redshift.deleteEventSubscription(build())
@@ -787,9 +826,11 @@ class AmazonRedshiftDeleteHsmClientCertificateCommand(val hsmClientCertificateId
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.DeleteHsmClientCertificateResult {
 	  return com.amazonaws.services.redshift.model.DeleteHsmClientCertificateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DeleteHsmClientCertificateResult {
 		return environment.redshift.deleteHsmClientCertificate(build())
@@ -818,9 +859,11 @@ class AmazonRedshiftDeleteHsmConfigurationCommand(val hsmConfigurationIdentifier
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.DeleteHsmConfigurationResult {
 	  return com.amazonaws.services.redshift.model.DeleteHsmConfigurationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DeleteHsmConfigurationResult {
 		return environment.redshift.deleteHsmConfiguration(build())
@@ -849,9 +892,11 @@ class AmazonRedshiftDeleteSnapshotCopyGrantCommand(val snapshotCopyGrantName: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.DeleteSnapshotCopyGrantResult {
 	  return com.amazonaws.services.redshift.model.DeleteSnapshotCopyGrantResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DeleteSnapshotCopyGrantResult {
 		return environment.redshift.deleteSnapshotCopyGrant(build())
@@ -881,9 +926,11 @@ class AmazonRedshiftDeleteTagsCommand(val resourceName: String, val tagKeys: Lis
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.DeleteTagsResult {
 	  return com.amazonaws.services.redshift.model.DeleteTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DeleteTagsResult {
 		return environment.redshift.deleteTags(build())
@@ -921,9 +968,11 @@ class AmazonRedshiftDescribeClusterParameterGroupsCommand() : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeClusterParameterGroupsResult {
 	  return com.amazonaws.services.redshift.model.DescribeClusterParameterGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeClusterParameterGroupsResult {
 		return environment.redshift.describeClusterParameterGroups(build())
@@ -961,9 +1010,11 @@ class AmazonRedshiftDescribeClusterParametersCommand(val parameterGroupName: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeClusterParametersResult {
 	  return com.amazonaws.services.redshift.model.DescribeClusterParametersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeClusterParametersResult {
 		return environment.redshift.describeClusterParameters(build())
@@ -1003,9 +1054,11 @@ class AmazonRedshiftDescribeClusterSecurityGroupsCommand() : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeClusterSecurityGroupsResult {
 	  return com.amazonaws.services.redshift.model.DescribeClusterSecurityGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeClusterSecurityGroupsResult {
 		return environment.redshift.describeClusterSecurityGroups(build())
@@ -1058,9 +1111,11 @@ class AmazonRedshiftDescribeClusterSnapshotsCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeClusterSnapshotsResult {
 	  return com.amazonaws.services.redshift.model.DescribeClusterSnapshotsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeClusterSnapshotsResult {
 		return environment.redshift.describeClusterSnapshots(build())
@@ -1107,9 +1162,11 @@ class AmazonRedshiftDescribeClusterSubnetGroupsCommand() : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeClusterSubnetGroupsResult {
 	  return com.amazonaws.services.redshift.model.DescribeClusterSubnetGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeClusterSubnetGroupsResult {
 		return environment.redshift.describeClusterSubnetGroups(build())
@@ -1148,9 +1205,11 @@ class AmazonRedshiftDescribeClusterVersionsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeClusterVersionsResult {
 	  return com.amazonaws.services.redshift.model.DescribeClusterVersionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeClusterVersionsResult {
 		return environment.redshift.describeClusterVersions(build())
@@ -1190,9 +1249,11 @@ class AmazonRedshiftDescribeClustersCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeClustersResult {
 	  return com.amazonaws.services.redshift.model.DescribeClustersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeClustersResult {
 		return environment.redshift.describeClusters(build())
@@ -1228,9 +1289,11 @@ class AmazonRedshiftDescribeDefaultClusterParametersCommand(val parameterGroupFa
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.DefaultClusterParameters {
 	  return com.amazonaws.services.redshift.model.DefaultClusterParameters()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DefaultClusterParameters {
 		return environment.redshift.describeDefaultClusterParameters(build())
@@ -1261,9 +1324,11 @@ class AmazonRedshiftDescribeEventCategoriesCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeEventCategoriesResult {
 	  return com.amazonaws.services.redshift.model.DescribeEventCategoriesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeEventCategoriesResult {
 		return environment.redshift.describeEventCategories(build())
@@ -1300,9 +1365,11 @@ class AmazonRedshiftDescribeEventSubscriptionsCommand() : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeEventSubscriptionsResult {
 	  return com.amazonaws.services.redshift.model.DescribeEventSubscriptionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeEventSubscriptionsResult {
 		return environment.redshift.describeEventSubscriptions(build())
@@ -1347,9 +1414,11 @@ class AmazonRedshiftDescribeEventsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeEventsResult {
 	  return com.amazonaws.services.redshift.model.DescribeEventsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeEventsResult {
 		return environment.redshift.describeEvents(build())
@@ -1392,9 +1461,11 @@ class AmazonRedshiftDescribeHsmClientCertificatesCommand() : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeHsmClientCertificatesResult {
 	  return com.amazonaws.services.redshift.model.DescribeHsmClientCertificatesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeHsmClientCertificatesResult {
 		return environment.redshift.describeHsmClientCertificates(build())
@@ -1435,9 +1506,11 @@ class AmazonRedshiftDescribeHsmConfigurationsCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeHsmConfigurationsResult {
 	  return com.amazonaws.services.redshift.model.DescribeHsmConfigurationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeHsmConfigurationsResult {
 		return environment.redshift.describeHsmConfigurations(build())
@@ -1470,9 +1543,11 @@ class AmazonRedshiftDescribeLoggingStatusCommand(val clusterIdentifier: String) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeLoggingStatusResult {
 	  return com.amazonaws.services.redshift.model.DescribeLoggingStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeLoggingStatusResult {
 		return environment.redshift.describeLoggingStatus(build())
@@ -1507,9 +1582,11 @@ class AmazonRedshiftDescribeOrderableClusterOptionsCommand() : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeOrderableClusterOptionsResult {
 	  return com.amazonaws.services.redshift.model.DescribeOrderableClusterOptionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeOrderableClusterOptionsResult {
 		return environment.redshift.describeOrderableClusterOptions(build())
@@ -1545,9 +1622,11 @@ class AmazonRedshiftDescribeReservedNodeOfferingsCommand() : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeReservedNodeOfferingsResult {
 	  return com.amazonaws.services.redshift.model.DescribeReservedNodeOfferingsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeReservedNodeOfferingsResult {
 		return environment.redshift.describeReservedNodeOfferings(build())
@@ -1582,9 +1661,11 @@ class AmazonRedshiftDescribeReservedNodesCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeReservedNodesResult {
 	  return com.amazonaws.services.redshift.model.DescribeReservedNodesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeReservedNodesResult {
 		return environment.redshift.describeReservedNodes(build())
@@ -1615,9 +1696,11 @@ class AmazonRedshiftDescribeResizeCommand(val clusterIdentifier: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeResizeResult {
 	  return com.amazonaws.services.redshift.model.DescribeResizeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeResizeResult {
 		return environment.redshift.describeResize(build())
@@ -1654,9 +1737,11 @@ class AmazonRedshiftDescribeSnapshotCopyGrantsCommand() : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeSnapshotCopyGrantsResult {
 	  return com.amazonaws.services.redshift.model.DescribeSnapshotCopyGrantsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeSnapshotCopyGrantsResult {
 		return environment.redshift.describeSnapshotCopyGrants(build())
@@ -1695,9 +1780,11 @@ class AmazonRedshiftDescribeTableRestoreStatusCommand() : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeTableRestoreStatusResult {
 	  return com.amazonaws.services.redshift.model.DescribeTableRestoreStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeTableRestoreStatusResult {
 		return environment.redshift.describeTableRestoreStatus(build())
@@ -1739,9 +1826,11 @@ class AmazonRedshiftDescribeTagsCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeTagsResult {
 	  return com.amazonaws.services.redshift.model.DescribeTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeTagsResult {
 		return environment.redshift.describeTags(build())
@@ -1775,9 +1864,11 @@ class AmazonRedshiftDisableLoggingCommand(val clusterIdentifier: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.DisableLoggingResult {
 	  return com.amazonaws.services.redshift.model.DisableLoggingResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DisableLoggingResult {
 		return environment.redshift.disableLogging(build())
@@ -1806,9 +1897,11 @@ class AmazonRedshiftDisableSnapshotCopyCommand(val clusterIdentifier: String) : 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.Cluster {
 	  return com.amazonaws.services.redshift.model.Cluster()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.Cluster {
 		return environment.redshift.disableSnapshotCopy(build())
@@ -1839,9 +1932,11 @@ class AmazonRedshiftEnableLoggingCommand(val clusterIdentifier: String, val buck
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.EnableLoggingResult {
 	  return com.amazonaws.services.redshift.model.EnableLoggingResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.EnableLoggingResult {
 		return environment.redshift.enableLogging(build())
@@ -1876,9 +1971,11 @@ class AmazonRedshiftEnableSnapshotCopyCommand(val clusterIdentifier: String, val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.Cluster {
 	  return com.amazonaws.services.redshift.model.Cluster()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.Cluster {
 		return environment.redshift.enableSnapshotCopy(build())
@@ -1918,9 +2015,11 @@ class AmazonRedshiftGetClusterCredentialsCommand(val dbUser: String, val cluster
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.GetClusterCredentialsResult {
 	  return com.amazonaws.services.redshift.model.GetClusterCredentialsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.GetClusterCredentialsResult {
 		return environment.redshift.getClusterCredentials(build())
@@ -1987,9 +2086,11 @@ class AmazonRedshiftModifyClusterCommand(val clusterIdentifier: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.Cluster {
 	  return com.amazonaws.services.redshift.model.Cluster()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.Cluster {
 		return environment.redshift.modifyCluster(build())
@@ -2038,9 +2139,11 @@ class AmazonRedshiftModifyClusterIamRolesCommand(val clusterIdentifier: String) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.Cluster {
 	  return com.amazonaws.services.redshift.model.Cluster()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.Cluster {
 		return environment.redshift.modifyClusterIamRoles(build())
@@ -2072,9 +2175,11 @@ class AmazonRedshiftModifyClusterParameterGroupCommand(val parameterGroupName: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.ModifyClusterParameterGroupResult {
 	  return com.amazonaws.services.redshift.model.ModifyClusterParameterGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.ModifyClusterParameterGroupResult {
 		return environment.redshift.modifyClusterParameterGroup(build())
@@ -2106,9 +2211,11 @@ class AmazonRedshiftModifyClusterSubnetGroupCommand(val clusterSubnetGroupName: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.ClusterSubnetGroup {
 	  return com.amazonaws.services.redshift.model.ClusterSubnetGroup()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.ClusterSubnetGroup {
 		return environment.redshift.modifyClusterSubnetGroup(build())
@@ -2150,9 +2257,11 @@ class AmazonRedshiftModifyEventSubscriptionCommand(val subscriptionName: String)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.EventSubscription {
 	  return com.amazonaws.services.redshift.model.EventSubscription()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.EventSubscription {
 		return environment.redshift.modifyEventSubscription(build())
@@ -2188,9 +2297,11 @@ class AmazonRedshiftModifySnapshotCopyRetentionPeriodCommand(val clusterIdentifi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.Cluster {
 	  return com.amazonaws.services.redshift.model.Cluster()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.Cluster {
 		return environment.redshift.modifySnapshotCopyRetentionPeriod(build())
@@ -2221,9 +2332,11 @@ class AmazonRedshiftPurchaseReservedNodeOfferingCommand(val reservedNodeOffering
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.ReservedNode {
 	  return com.amazonaws.services.redshift.model.ReservedNode()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.ReservedNode {
 		return environment.redshift.purchaseReservedNodeOffering(build())
@@ -2253,9 +2366,11 @@ class AmazonRedshiftRebootClusterCommand(val clusterIdentifier: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.Cluster {
 	  return com.amazonaws.services.redshift.model.Cluster()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.Cluster {
 		return environment.redshift.rebootCluster(build())
@@ -2287,9 +2402,11 @@ class AmazonRedshiftResetClusterParameterGroupCommand(val parameterGroupName: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.ResetClusterParameterGroupResult {
 	  return com.amazonaws.services.redshift.model.ResetClusterParameterGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.ResetClusterParameterGroupResult {
 		return environment.redshift.resetClusterParameterGroup(build())
@@ -2360,9 +2477,11 @@ class AmazonRedshiftRestoreFromClusterSnapshotCommand(val clusterIdentifier: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.Cluster {
 	  return com.amazonaws.services.redshift.model.Cluster()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.Cluster {
 		return environment.redshift.restoreFromClusterSnapshot(build())
@@ -2421,9 +2540,11 @@ class AmazonRedshiftRestoreTableFromClusterSnapshotCommand(val clusterIdentifier
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.TableRestoreStatus {
 	  return com.amazonaws.services.redshift.model.TableRestoreStatus()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.TableRestoreStatus {
 		return environment.redshift.restoreTableFromClusterSnapshot(build())
@@ -2464,9 +2585,11 @@ class AmazonRedshiftRevokeClusterSecurityGroupIngressCommand(val clusterSecurity
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.ClusterSecurityGroup {
 	  return com.amazonaws.services.redshift.model.ClusterSecurityGroup()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.ClusterSecurityGroup {
 		return environment.redshift.revokeClusterSecurityGroupIngress(build())
@@ -2500,9 +2623,11 @@ class AmazonRedshiftRevokeSnapshotAccessCommand(val snapshotIdentifier: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.Snapshot {
 	  return com.amazonaws.services.redshift.model.Snapshot()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.Snapshot {
 		return environment.redshift.revokeSnapshotAccess(build())
@@ -2533,9 +2658,11 @@ class AmazonRedshiftRotateEncryptionKeyCommand(val clusterIdentifier: String) : 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.redshift.model.Cluster {
 	  return com.amazonaws.services.redshift.model.Cluster()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.Cluster {
 		return environment.redshift.rotateEncryptionKey(build())

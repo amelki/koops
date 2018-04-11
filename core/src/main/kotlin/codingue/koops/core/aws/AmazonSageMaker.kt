@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -42,9 +43,11 @@ class AmazonSageMakerAddTagsCommand(val resourceArn: String, val tags: List<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.AddTagsResult {
 	  return com.amazonaws.services.sagemaker.model.AddTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.AddTagsResult {
 		return environment.sagemaker.addTags(build())
@@ -76,9 +79,11 @@ class AmazonSageMakerCreateEndpointCommand(val endpointName: String, val endpoin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.CreateEndpointResult {
 	  return com.amazonaws.services.sagemaker.model.CreateEndpointResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.CreateEndpointResult {
 		return environment.sagemaker.createEndpoint(build())
@@ -113,9 +118,11 @@ class AmazonSageMakerCreateEndpointConfigCommand(val endpointConfigName: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.CreateEndpointConfigResult {
 	  return com.amazonaws.services.sagemaker.model.CreateEndpointConfigResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.CreateEndpointConfigResult {
 		return environment.sagemaker.createEndpointConfig(build())
@@ -150,9 +157,11 @@ class AmazonSageMakerCreateModelCommand(val modelName: String, val primaryContai
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.CreateModelResult {
 	  return com.amazonaws.services.sagemaker.model.CreateModelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.CreateModelResult {
 		return environment.sagemaker.createModel(build())
@@ -197,9 +206,11 @@ class AmazonSageMakerCreateNotebookInstanceCommand(val notebookInstanceName: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.CreateNotebookInstanceResult {
 	  return com.amazonaws.services.sagemaker.model.CreateNotebookInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.CreateNotebookInstanceResult {
 		return environment.sagemaker.createNotebookInstance(build())
@@ -239,9 +250,11 @@ class AmazonSageMakerCreateNotebookInstanceLifecycleConfigCommand(val notebookIn
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.CreateNotebookInstanceLifecycleConfigResult {
 	  return com.amazonaws.services.sagemaker.model.CreateNotebookInstanceLifecycleConfigResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.CreateNotebookInstanceLifecycleConfigResult {
 		return environment.sagemaker.createNotebookInstanceLifecycleConfig(build())
@@ -273,9 +286,11 @@ class AmazonSageMakerCreatePresignedNotebookInstanceUrlCommand(val notebookInsta
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.CreatePresignedNotebookInstanceUrlResult {
 	  return com.amazonaws.services.sagemaker.model.CreatePresignedNotebookInstanceUrlResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.CreatePresignedNotebookInstanceUrlResult {
 		return environment.sagemaker.createPresignedNotebookInstanceUrl(build())
@@ -314,9 +329,11 @@ class AmazonSageMakerCreateTrainingJobCommand(val trainingJobName: String, val a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.CreateTrainingJobResult {
 	  return com.amazonaws.services.sagemaker.model.CreateTrainingJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.CreateTrainingJobResult {
 		return environment.sagemaker.createTrainingJob(build())
@@ -353,9 +370,11 @@ class AmazonSageMakerDeleteEndpointCommand(val endpointName: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.DeleteEndpointResult {
 	  return com.amazonaws.services.sagemaker.model.DeleteEndpointResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.DeleteEndpointResult {
 		return environment.sagemaker.deleteEndpoint(build())
@@ -384,9 +403,11 @@ class AmazonSageMakerDeleteEndpointConfigCommand(val endpointConfigName: String)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.DeleteEndpointConfigResult {
 	  return com.amazonaws.services.sagemaker.model.DeleteEndpointConfigResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.DeleteEndpointConfigResult {
 		return environment.sagemaker.deleteEndpointConfig(build())
@@ -415,9 +436,11 @@ class AmazonSageMakerDeleteModelCommand(val modelName: String) : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.DeleteModelResult {
 	  return com.amazonaws.services.sagemaker.model.DeleteModelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.DeleteModelResult {
 		return environment.sagemaker.deleteModel(build())
@@ -446,9 +469,11 @@ class AmazonSageMakerDeleteNotebookInstanceCommand(val notebookInstanceName: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.DeleteNotebookInstanceResult {
 	  return com.amazonaws.services.sagemaker.model.DeleteNotebookInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.DeleteNotebookInstanceResult {
 		return environment.sagemaker.deleteNotebookInstance(build())
@@ -477,9 +502,11 @@ class AmazonSageMakerDeleteNotebookInstanceLifecycleConfigCommand(val notebookIn
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.DeleteNotebookInstanceLifecycleConfigResult {
 	  return com.amazonaws.services.sagemaker.model.DeleteNotebookInstanceLifecycleConfigResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.DeleteNotebookInstanceLifecycleConfigResult {
 		return environment.sagemaker.deleteNotebookInstanceLifecycleConfig(build())
@@ -509,9 +536,11 @@ class AmazonSageMakerDeleteTagsCommand(val resourceArn: String, val tagKeys: Lis
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.DeleteTagsResult {
 	  return com.amazonaws.services.sagemaker.model.DeleteTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.DeleteTagsResult {
 		return environment.sagemaker.deleteTags(build())
@@ -541,9 +570,11 @@ class AmazonSageMakerDescribeEndpointCommand(val endpointName: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.DescribeEndpointResult {
 	  return com.amazonaws.services.sagemaker.model.DescribeEndpointResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.DescribeEndpointResult {
 		return environment.sagemaker.describeEndpoint(build())
@@ -572,9 +603,11 @@ class AmazonSageMakerDescribeEndpointConfigCommand(val endpointConfigName: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.DescribeEndpointConfigResult {
 	  return com.amazonaws.services.sagemaker.model.DescribeEndpointConfigResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.DescribeEndpointConfigResult {
 		return environment.sagemaker.describeEndpointConfig(build())
@@ -603,9 +636,11 @@ class AmazonSageMakerDescribeModelCommand(val modelName: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.DescribeModelResult {
 	  return com.amazonaws.services.sagemaker.model.DescribeModelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.DescribeModelResult {
 		return environment.sagemaker.describeModel(build())
@@ -634,9 +669,11 @@ class AmazonSageMakerDescribeNotebookInstanceCommand(val notebookInstanceName: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.DescribeNotebookInstanceResult {
 	  return com.amazonaws.services.sagemaker.model.DescribeNotebookInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.DescribeNotebookInstanceResult {
 		return environment.sagemaker.describeNotebookInstance(build())
@@ -665,9 +702,11 @@ class AmazonSageMakerDescribeNotebookInstanceLifecycleConfigCommand(val notebook
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.DescribeNotebookInstanceLifecycleConfigResult {
 	  return com.amazonaws.services.sagemaker.model.DescribeNotebookInstanceLifecycleConfigResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.DescribeNotebookInstanceLifecycleConfigResult {
 		return environment.sagemaker.describeNotebookInstanceLifecycleConfig(build())
@@ -696,9 +735,11 @@ class AmazonSageMakerDescribeTrainingJobCommand(val trainingJobName: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.DescribeTrainingJobResult {
 	  return com.amazonaws.services.sagemaker.model.DescribeTrainingJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.DescribeTrainingJobResult {
 		return environment.sagemaker.describeTrainingJob(build())
@@ -739,9 +780,11 @@ class AmazonSageMakerListEndpointConfigsCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.ListEndpointConfigsResult {
 	  return com.amazonaws.services.sagemaker.model.ListEndpointConfigsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.ListEndpointConfigsResult {
 		return environment.sagemaker.listEndpointConfigs(build())
@@ -794,9 +837,11 @@ class AmazonSageMakerListEndpointsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.ListEndpointsResult {
 	  return com.amazonaws.services.sagemaker.model.ListEndpointsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.ListEndpointsResult {
 		return environment.sagemaker.listEndpoints(build())
@@ -846,9 +891,11 @@ class AmazonSageMakerListModelsCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.ListModelsResult {
 	  return com.amazonaws.services.sagemaker.model.ListModelsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.ListModelsResult {
 		return environment.sagemaker.listModels(build())
@@ -899,9 +946,11 @@ class AmazonSageMakerListNotebookInstanceLifecycleConfigsCommand() : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.ListNotebookInstanceLifecycleConfigsResult {
 	  return com.amazonaws.services.sagemaker.model.ListNotebookInstanceLifecycleConfigsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.ListNotebookInstanceLifecycleConfigsResult {
 		return environment.sagemaker.listNotebookInstanceLifecycleConfigs(build())
@@ -958,9 +1007,11 @@ class AmazonSageMakerListNotebookInstancesCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.ListNotebookInstancesResult {
 	  return com.amazonaws.services.sagemaker.model.ListNotebookInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.ListNotebookInstancesResult {
 		return environment.sagemaker.listNotebookInstances(build())
@@ -1002,9 +1053,11 @@ class AmazonSageMakerListTagsCommand(val resourceArn: String) : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.ListTagsResult {
 	  return com.amazonaws.services.sagemaker.model.ListTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.ListTagsResult {
 		return environment.sagemaker.listTags(build())
@@ -1053,9 +1106,11 @@ class AmazonSageMakerListTrainingJobsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.ListTrainingJobsResult {
 	  return com.amazonaws.services.sagemaker.model.ListTrainingJobsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.ListTrainingJobsResult {
 		return environment.sagemaker.listTrainingJobs(build())
@@ -1093,9 +1148,11 @@ class AmazonSageMakerStartNotebookInstanceCommand(val notebookInstanceName: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.StartNotebookInstanceResult {
 	  return com.amazonaws.services.sagemaker.model.StartNotebookInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.StartNotebookInstanceResult {
 		return environment.sagemaker.startNotebookInstance(build())
@@ -1124,9 +1181,11 @@ class AmazonSageMakerStopNotebookInstanceCommand(val notebookInstanceName: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.StopNotebookInstanceResult {
 	  return com.amazonaws.services.sagemaker.model.StopNotebookInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.StopNotebookInstanceResult {
 		return environment.sagemaker.stopNotebookInstance(build())
@@ -1155,9 +1214,11 @@ class AmazonSageMakerStopTrainingJobCommand(val trainingJobName: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.StopTrainingJobResult {
 	  return com.amazonaws.services.sagemaker.model.StopTrainingJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.StopTrainingJobResult {
 		return environment.sagemaker.stopTrainingJob(build())
@@ -1187,9 +1248,11 @@ class AmazonSageMakerUpdateEndpointCommand(val endpointName: String, val endpoin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.UpdateEndpointResult {
 	  return com.amazonaws.services.sagemaker.model.UpdateEndpointResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.UpdateEndpointResult {
 		return environment.sagemaker.updateEndpoint(build())
@@ -1220,9 +1283,11 @@ class AmazonSageMakerUpdateEndpointWeightsAndCapacitiesCommand(val endpointName:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.UpdateEndpointWeightsAndCapacitiesResult {
 	  return com.amazonaws.services.sagemaker.model.UpdateEndpointWeightsAndCapacitiesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.UpdateEndpointWeightsAndCapacitiesResult {
 		return environment.sagemaker.updateEndpointWeightsAndCapacities(build())
@@ -1255,9 +1320,11 @@ class AmazonSageMakerUpdateNotebookInstanceCommand(val notebookInstanceName: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.UpdateNotebookInstanceResult {
 	  return com.amazonaws.services.sagemaker.model.UpdateNotebookInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.UpdateNotebookInstanceResult {
 		return environment.sagemaker.updateNotebookInstance(build())
@@ -1291,9 +1358,11 @@ class AmazonSageMakerUpdateNotebookInstanceLifecycleConfigCommand(val notebookIn
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sagemaker.model.UpdateNotebookInstanceLifecycleConfigResult {
 	  return com.amazonaws.services.sagemaker.model.UpdateNotebookInstanceLifecycleConfigResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.UpdateNotebookInstanceLifecycleConfigResult {
 		return environment.sagemaker.updateNotebookInstanceLifecycleConfig(build())

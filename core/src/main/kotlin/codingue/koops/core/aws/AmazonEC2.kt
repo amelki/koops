@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -42,9 +43,11 @@ class AmazonEC2AcceptReservedInstancesExchangeQuoteCommand(val reservedInstanceI
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.AcceptReservedInstancesExchangeQuoteResult {
 	  return com.amazonaws.services.ec2.model.AcceptReservedInstancesExchangeQuoteResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AcceptReservedInstancesExchangeQuoteResult {
 		return environment.ec2.acceptReservedInstancesExchangeQuote(build())
@@ -75,9 +78,11 @@ class AmazonEC2AcceptVpcEndpointConnectionsCommand(val serviceId: String, val vp
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.AcceptVpcEndpointConnectionsResult {
 	  return com.amazonaws.services.ec2.model.AcceptVpcEndpointConnectionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AcceptVpcEndpointConnectionsResult {
 		return environment.ec2.acceptVpcEndpointConnections(build())
@@ -107,9 +112,11 @@ class AmazonEC2AcceptVpcPeeringConnectionCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.AcceptVpcPeeringConnectionResult {
 	  return com.amazonaws.services.ec2.model.AcceptVpcPeeringConnectionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AcceptVpcPeeringConnectionResult {
 		return environment.ec2.acceptVpcPeeringConnection(build())
@@ -140,9 +147,11 @@ class AmazonEC2AllocateAddressCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.AllocateAddressResult {
 	  return com.amazonaws.services.ec2.model.AllocateAddressResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AllocateAddressResult {
 		return environment.ec2.allocateAddress(build())
@@ -177,9 +186,11 @@ class AmazonEC2AllocateHostsCommand(val availabilityZone: String, val instanceTy
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.AllocateHostsResult {
 	  return com.amazonaws.services.ec2.model.AllocateHostsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AllocateHostsResult {
 		return environment.ec2.allocateHosts(build())
@@ -215,9 +226,11 @@ class AmazonEC2AssignIpv6AddressesCommand(val networkInterfaceId: String) : Amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.AssignIpv6AddressesResult {
 	  return com.amazonaws.services.ec2.model.AssignIpv6AddressesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AssignIpv6AddressesResult {
 		return environment.ec2.assignIpv6Addresses(build())
@@ -253,9 +266,11 @@ class AmazonEC2AssignPrivateIpAddressesCommand(val networkInterfaceId: String) :
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.AssignPrivateIpAddressesResult {
 	  return com.amazonaws.services.ec2.model.AssignPrivateIpAddressesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AssignPrivateIpAddressesResult {
 		return environment.ec2.assignPrivateIpAddresses(build())
@@ -297,9 +312,11 @@ class AmazonEC2AssociateAddressCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.AssociateAddressResult {
 	  return com.amazonaws.services.ec2.model.AssociateAddressResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AssociateAddressResult {
 		return environment.ec2.associateAddress(build())
@@ -334,9 +351,11 @@ class AmazonEC2AssociateDhcpOptionsCommand(val dhcpOptionsId: String, val vpcId:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.AssociateDhcpOptionsResult {
 	  return com.amazonaws.services.ec2.model.AssociateDhcpOptionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AssociateDhcpOptionsResult {
 		return environment.ec2.associateDhcpOptions(build())
@@ -367,9 +386,11 @@ class AmazonEC2AssociateIamInstanceProfileCommand(val iamInstanceProfile: com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.AssociateIamInstanceProfileResult {
 	  return com.amazonaws.services.ec2.model.AssociateIamInstanceProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AssociateIamInstanceProfileResult {
 		return environment.ec2.associateIamInstanceProfile(build())
@@ -400,9 +421,11 @@ class AmazonEC2AssociateRouteTableCommand(val routeTableId: String, val subnetId
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.AssociateRouteTableResult {
 	  return com.amazonaws.services.ec2.model.AssociateRouteTableResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AssociateRouteTableResult {
 		return environment.ec2.associateRouteTable(build())
@@ -433,9 +456,11 @@ class AmazonEC2AssociateSubnetCidrBlockCommand(val ipv6CidrBlock: String, val su
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.AssociateSubnetCidrBlockResult {
 	  return com.amazonaws.services.ec2.model.AssociateSubnetCidrBlockResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AssociateSubnetCidrBlockResult {
 		return environment.ec2.associateSubnetCidrBlock(build())
@@ -468,9 +493,11 @@ class AmazonEC2AssociateVpcCidrBlockCommand(val vpcId: String) : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.AssociateVpcCidrBlockResult {
 	  return com.amazonaws.services.ec2.model.AssociateVpcCidrBlockResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AssociateVpcCidrBlockResult {
 		return environment.ec2.associateVpcCidrBlock(build())
@@ -503,9 +530,11 @@ class AmazonEC2AttachClassicLinkVpcCommand(val groups: List<String>, val instanc
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.AttachClassicLinkVpcResult {
 	  return com.amazonaws.services.ec2.model.AttachClassicLinkVpcResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AttachClassicLinkVpcResult {
 		return environment.ec2.attachClassicLinkVpc(build())
@@ -537,9 +566,11 @@ class AmazonEC2AttachInternetGatewayCommand(val internetGatewayId: String, val v
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.AttachInternetGatewayResult {
 	  return com.amazonaws.services.ec2.model.AttachInternetGatewayResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AttachInternetGatewayResult {
 		return environment.ec2.attachInternetGateway(build())
@@ -571,9 +602,11 @@ class AmazonEC2AttachNetworkInterfaceCommand(val deviceIndex: Int, val instanceI
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.AttachNetworkInterfaceResult {
 	  return com.amazonaws.services.ec2.model.AttachNetworkInterfaceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AttachNetworkInterfaceResult {
 		return environment.ec2.attachNetworkInterface(build())
@@ -606,9 +639,11 @@ class AmazonEC2AttachVolumeCommand(val device: String, val instanceId: String, v
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.AttachVolumeResult {
 	  return com.amazonaws.services.ec2.model.AttachVolumeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AttachVolumeResult {
 		return environment.ec2.attachVolume(build())
@@ -640,9 +675,11 @@ class AmazonEC2AttachVpnGatewayCommand(val vpcId: String, val vpnGatewayId: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.AttachVpnGatewayResult {
 	  return com.amazonaws.services.ec2.model.AttachVpnGatewayResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AttachVpnGatewayResult {
 		return environment.ec2.attachVpnGateway(build())
@@ -685,9 +722,11 @@ class AmazonEC2AuthorizeSecurityGroupEgressCommand(val groupId: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.AuthorizeSecurityGroupEgressResult {
 	  return com.amazonaws.services.ec2.model.AuthorizeSecurityGroupEgressResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AuthorizeSecurityGroupEgressResult {
 		return environment.ec2.authorizeSecurityGroupEgress(build())
@@ -739,9 +778,11 @@ class AmazonEC2AuthorizeSecurityGroupIngressCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.AuthorizeSecurityGroupIngressResult {
 	  return com.amazonaws.services.ec2.model.AuthorizeSecurityGroupIngressResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AuthorizeSecurityGroupIngressResult {
 		return environment.ec2.authorizeSecurityGroupIngress(build())
@@ -779,9 +820,11 @@ class AmazonEC2BundleInstanceCommand(val instanceId: String, val storage: com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.BundleInstanceResult {
 	  return com.amazonaws.services.ec2.model.BundleInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.BundleInstanceResult {
 		return environment.ec2.bundleInstance(build())
@@ -811,9 +854,11 @@ class AmazonEC2CancelBundleTaskCommand(val bundleId: String) : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CancelBundleTaskResult {
 	  return com.amazonaws.services.ec2.model.CancelBundleTaskResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CancelBundleTaskResult {
 		return environment.ec2.cancelBundleTask(build())
@@ -843,9 +888,11 @@ class AmazonEC2CancelConversionTaskCommand(val conversionTaskId: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CancelConversionTaskResult {
 	  return com.amazonaws.services.ec2.model.CancelConversionTaskResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CancelConversionTaskResult {
 		return environment.ec2.cancelConversionTask(build())
@@ -875,9 +922,11 @@ class AmazonEC2CancelExportTaskCommand(val exportTaskId: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CancelExportTaskResult {
 	  return com.amazonaws.services.ec2.model.CancelExportTaskResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CancelExportTaskResult {
 		return environment.ec2.cancelExportTask(build())
@@ -908,9 +957,11 @@ class AmazonEC2CancelImportTaskCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CancelImportTaskResult {
 	  return com.amazonaws.services.ec2.model.CancelImportTaskResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CancelImportTaskResult {
 		return environment.ec2.cancelImportTask(build())
@@ -940,9 +991,11 @@ class AmazonEC2CancelReservedInstancesListingCommand(val reservedInstancesListin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CancelReservedInstancesListingResult {
 	  return com.amazonaws.services.ec2.model.CancelReservedInstancesListingResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CancelReservedInstancesListingResult {
 		return environment.ec2.cancelReservedInstancesListing(build())
@@ -972,9 +1025,11 @@ class AmazonEC2CancelSpotFleetRequestsCommand(val spotFleetRequestIds: List<Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CancelSpotFleetRequestsResult {
 	  return com.amazonaws.services.ec2.model.CancelSpotFleetRequestsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CancelSpotFleetRequestsResult {
 		return environment.ec2.cancelSpotFleetRequests(build())
@@ -1004,9 +1059,11 @@ class AmazonEC2CancelSpotInstanceRequestsCommand(val spotInstanceRequestIds: Lis
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CancelSpotInstanceRequestsResult {
 	  return com.amazonaws.services.ec2.model.CancelSpotInstanceRequestsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CancelSpotInstanceRequestsResult {
 		return environment.ec2.cancelSpotInstanceRequests(build())
@@ -1036,9 +1093,11 @@ class AmazonEC2ConfirmProductInstanceCommand(val instanceId: String, val product
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ConfirmProductInstanceResult {
 	  return com.amazonaws.services.ec2.model.ConfirmProductInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ConfirmProductInstanceResult {
 		return environment.ec2.confirmProductInstance(build())
@@ -1074,9 +1133,11 @@ class AmazonEC2CopyFpgaImageCommand(val sourceFpgaImageId: String, val sourceReg
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CopyFpgaImageResult {
 	  return com.amazonaws.services.ec2.model.CopyFpgaImageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CopyFpgaImageResult {
 		return environment.ec2.copyFpgaImage(build())
@@ -1118,9 +1179,11 @@ class AmazonEC2CopyImageCommand(val name: String, val sourceImageId: String, val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CopyImageResult {
 	  return com.amazonaws.services.ec2.model.CopyImageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CopyImageResult {
 		return environment.ec2.copyImage(build())
@@ -1165,9 +1228,11 @@ class AmazonEC2CopySnapshotCommand(val sourceRegion: String, val sourceSnapshotI
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CopySnapshotResult {
 	  return com.amazonaws.services.ec2.model.CopySnapshotResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CopySnapshotResult {
 		return environment.ec2.copySnapshot(build())
@@ -1204,9 +1269,11 @@ class AmazonEC2CreateCustomerGatewayCommand(val bgpAsn: Int, val publicIp: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateCustomerGatewayResult {
 	  return com.amazonaws.services.ec2.model.CreateCustomerGatewayResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateCustomerGatewayResult {
 		return environment.ec2.createCustomerGateway(build())
@@ -1237,9 +1304,11 @@ class AmazonEC2CreateDefaultSubnetCommand(val availabilityZone: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateDefaultSubnetResult {
 	  return com.amazonaws.services.ec2.model.CreateDefaultSubnetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateDefaultSubnetResult {
 		return environment.ec2.createDefaultSubnet(build())
@@ -1268,9 +1337,11 @@ class AmazonEC2CreateDefaultVpcCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateDefaultVpcResult {
 	  return com.amazonaws.services.ec2.model.CreateDefaultVpcResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateDefaultVpcResult {
 		return environment.ec2.createDefaultVpc(build())
@@ -1299,9 +1370,11 @@ class AmazonEC2CreateDhcpOptionsCommand(val dhcpConfigurations: List<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateDhcpOptionsResult {
 	  return com.amazonaws.services.ec2.model.CreateDhcpOptionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateDhcpOptionsResult {
 		return environment.ec2.createDhcpOptions(build())
@@ -1331,9 +1404,11 @@ class AmazonEC2CreateEgressOnlyInternetGatewayCommand(val vpcId: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateEgressOnlyInternetGatewayResult {
 	  return com.amazonaws.services.ec2.model.CreateEgressOnlyInternetGatewayResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateEgressOnlyInternetGatewayResult {
 		return environment.ec2.createEgressOnlyInternetGateway(build())
@@ -1368,9 +1443,11 @@ class AmazonEC2CreateFlowLogsCommand(val deliverLogsPermissionArn: String, val l
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateFlowLogsResult {
 	  return com.amazonaws.services.ec2.model.CreateFlowLogsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateFlowLogsResult {
 		return environment.ec2.createFlowLogs(build())
@@ -1411,9 +1488,11 @@ class AmazonEC2CreateFpgaImageCommand(val inputStorageLocation: com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateFpgaImageResult {
 	  return com.amazonaws.services.ec2.model.CreateFpgaImageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateFpgaImageResult {
 		return environment.ec2.createFpgaImage(build())
@@ -1452,9 +1531,11 @@ class AmazonEC2CreateImageCommand(val instanceId: String, val name: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateImageResult {
 	  return com.amazonaws.services.ec2.model.CreateImageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateImageResult {
 		return environment.ec2.createImage(build())
@@ -1492,9 +1573,11 @@ class AmazonEC2CreateInstanceExportTaskCommand(val instanceId: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateInstanceExportTaskResult {
 	  return com.amazonaws.services.ec2.model.CreateInstanceExportTaskResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateInstanceExportTaskResult {
 		return environment.ec2.createInstanceExportTask(build())
@@ -1526,9 +1609,11 @@ class AmazonEC2CreateInternetGatewayCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateInternetGatewayResult {
 	  return com.amazonaws.services.ec2.model.CreateInternetGatewayResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateInternetGatewayResult {
 		return environment.ec2.createInternetGateway(build())
@@ -1557,9 +1642,11 @@ class AmazonEC2CreateKeyPairCommand(val keyName: String) : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateKeyPairResult {
 	  return com.amazonaws.services.ec2.model.CreateKeyPairResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateKeyPairResult {
 		return environment.ec2.createKeyPair(build())
@@ -1592,9 +1679,11 @@ class AmazonEC2CreateLaunchTemplateCommand(val launchTemplateName: String, val l
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateLaunchTemplateResult {
 	  return com.amazonaws.services.ec2.model.CreateLaunchTemplateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateLaunchTemplateResult {
 		return environment.ec2.createLaunchTemplate(build())
@@ -1635,9 +1724,11 @@ class AmazonEC2CreateLaunchTemplateVersionCommand(val launchTemplateData: com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateLaunchTemplateVersionResult {
 	  return com.amazonaws.services.ec2.model.CreateLaunchTemplateVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateLaunchTemplateVersionResult {
 		return environment.ec2.createLaunchTemplateVersion(build())
@@ -1673,9 +1764,11 @@ class AmazonEC2CreateNatGatewayCommand(val allocationId: String, val subnetId: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateNatGatewayResult {
 	  return com.amazonaws.services.ec2.model.CreateNatGatewayResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateNatGatewayResult {
 		return environment.ec2.createNatGateway(build())
@@ -1706,9 +1799,11 @@ class AmazonEC2CreateNetworkAclCommand(val vpcId: String) : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateNetworkAclResult {
 	  return com.amazonaws.services.ec2.model.CreateNetworkAclResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateNetworkAclResult {
 		return environment.ec2.createNetworkAcl(build())
@@ -1748,9 +1843,11 @@ class AmazonEC2CreateNetworkAclEntryCommand(val egress: Boolean, val networkAclI
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateNetworkAclEntryResult {
 	  return com.amazonaws.services.ec2.model.CreateNetworkAclEntryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateNetworkAclEntryResult {
 		return environment.ec2.createNetworkAclEntry(build())
@@ -1800,9 +1897,11 @@ class AmazonEC2CreateNetworkInterfaceCommand(val subnetId: String) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateNetworkInterfaceResult {
 	  return com.amazonaws.services.ec2.model.CreateNetworkInterfaceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateNetworkInterfaceResult {
 		return environment.ec2.createNetworkInterface(build())
@@ -1842,9 +1941,11 @@ class AmazonEC2CreateNetworkInterfacePermissionCommand(val networkInterfaceId: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateNetworkInterfacePermissionResult {
 	  return com.amazonaws.services.ec2.model.CreateNetworkInterfacePermissionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateNetworkInterfacePermissionResult {
 		return environment.ec2.createNetworkInterfacePermission(build())
@@ -1877,9 +1978,11 @@ class AmazonEC2CreatePlacementGroupCommand(val groupName: String, val strategy: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreatePlacementGroupResult {
 	  return com.amazonaws.services.ec2.model.CreatePlacementGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreatePlacementGroupResult {
 		return environment.ec2.createPlacementGroup(build())
@@ -1912,9 +2015,11 @@ class AmazonEC2CreateReservedInstancesListingCommand(val clientToken: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateReservedInstancesListingResult {
 	  return com.amazonaws.services.ec2.model.CreateReservedInstancesListingResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateReservedInstancesListingResult {
 		return environment.ec2.createReservedInstancesListing(build())
@@ -1961,9 +2066,11 @@ class AmazonEC2CreateRouteCommand(val routeTableId: String) : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateRouteResult {
 	  return com.amazonaws.services.ec2.model.CreateRouteResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateRouteResult {
 		return environment.ec2.createRoute(build())
@@ -2000,9 +2107,11 @@ class AmazonEC2CreateRouteTableCommand(val vpcId: String) : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateRouteTableResult {
 	  return com.amazonaws.services.ec2.model.CreateRouteTableResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateRouteTableResult {
 		return environment.ec2.createRouteTable(build())
@@ -2033,9 +2142,11 @@ class AmazonEC2CreateSecurityGroupCommand(val description: String, val groupName
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateSecurityGroupResult {
 	  return com.amazonaws.services.ec2.model.CreateSecurityGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateSecurityGroupResult {
 		return environment.ec2.createSecurityGroup(build())
@@ -2069,9 +2180,11 @@ class AmazonEC2CreateSnapshotCommand(val volumeId: String) : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateSnapshotResult {
 	  return com.amazonaws.services.ec2.model.CreateSnapshotResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateSnapshotResult {
 		return environment.ec2.createSnapshot(build())
@@ -2103,9 +2216,11 @@ class AmazonEC2CreateSpotDatafeedSubscriptionCommand(val bucket: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateSpotDatafeedSubscriptionResult {
 	  return com.amazonaws.services.ec2.model.CreateSpotDatafeedSubscriptionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateSpotDatafeedSubscriptionResult {
 		return environment.ec2.createSpotDatafeedSubscription(build())
@@ -2139,9 +2254,11 @@ class AmazonEC2CreateSubnetCommand(val cidrBlock: String, val vpcId: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateSubnetResult {
 	  return com.amazonaws.services.ec2.model.CreateSubnetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateSubnetResult {
 		return environment.ec2.createSubnet(build())
@@ -2174,9 +2291,11 @@ class AmazonEC2CreateTagsCommand(val resources: List<String>, val tags: List<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateTagsResult {
 	  return com.amazonaws.services.ec2.model.CreateTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateTagsResult {
 		return environment.ec2.createTags(build())
@@ -2219,9 +2338,11 @@ class AmazonEC2CreateVolumeCommand(val availabilityZone: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateVolumeResult {
 	  return com.amazonaws.services.ec2.model.CreateVolumeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateVolumeResult {
 		return environment.ec2.createVolume(build())
@@ -2260,9 +2381,11 @@ class AmazonEC2CreateVpcCommand(val cidrBlock: String) : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateVpcResult {
 	  return com.amazonaws.services.ec2.model.CreateVpcResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateVpcResult {
 		return environment.ec2.createVpc(build())
@@ -2307,9 +2430,11 @@ class AmazonEC2CreateVpcEndpointCommand(val vpcId: String, val serviceName: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateVpcEndpointResult {
 	  return com.amazonaws.services.ec2.model.CreateVpcEndpointResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateVpcEndpointResult {
 		return environment.ec2.createVpcEndpoint(build())
@@ -2352,9 +2477,11 @@ class AmazonEC2CreateVpcEndpointConnectionNotificationCommand(val connectionNoti
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateVpcEndpointConnectionNotificationResult {
 	  return com.amazonaws.services.ec2.model.CreateVpcEndpointConnectionNotificationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateVpcEndpointConnectionNotificationResult {
 		return environment.ec2.createVpcEndpointConnectionNotification(build())
@@ -2390,9 +2517,11 @@ class AmazonEC2CreateVpcEndpointServiceConfigurationCommand(val networkLoadBalan
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateVpcEndpointServiceConfigurationResult {
 	  return com.amazonaws.services.ec2.model.CreateVpcEndpointServiceConfigurationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateVpcEndpointServiceConfigurationResult {
 		return environment.ec2.createVpcEndpointServiceConfiguration(build())
@@ -2429,9 +2558,11 @@ class AmazonEC2CreateVpcPeeringConnectionCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateVpcPeeringConnectionResult {
 	  return com.amazonaws.services.ec2.model.CreateVpcPeeringConnectionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateVpcPeeringConnectionResult {
 		return environment.ec2.createVpcPeeringConnection(build())
@@ -2466,9 +2597,11 @@ class AmazonEC2CreateVpnConnectionCommand(val customerGatewayId: String, val typ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateVpnConnectionResult {
 	  return com.amazonaws.services.ec2.model.CreateVpnConnectionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateVpnConnectionResult {
 		return environment.ec2.createVpnConnection(build())
@@ -2501,9 +2634,11 @@ class AmazonEC2CreateVpnConnectionRouteCommand(val destinationCidrBlock: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateVpnConnectionRouteResult {
 	  return com.amazonaws.services.ec2.model.CreateVpnConnectionRouteResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateVpnConnectionRouteResult {
 		return environment.ec2.createVpnConnectionRoute(build())
@@ -2536,9 +2671,11 @@ class AmazonEC2CreateVpnGatewayCommand(val type: GatewayType) : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.CreateVpnGatewayResult {
 	  return com.amazonaws.services.ec2.model.CreateVpnGatewayResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateVpnGatewayResult {
 		return environment.ec2.createVpnGateway(build())
@@ -2569,9 +2706,11 @@ class AmazonEC2DeleteCustomerGatewayCommand(val customerGatewayId: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteCustomerGatewayResult {
 	  return com.amazonaws.services.ec2.model.DeleteCustomerGatewayResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteCustomerGatewayResult {
 		return environment.ec2.deleteCustomerGateway(build())
@@ -2600,9 +2739,11 @@ class AmazonEC2DeleteDhcpOptionsCommand(val dhcpOptionsId: String) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteDhcpOptionsResult {
 	  return com.amazonaws.services.ec2.model.DeleteDhcpOptionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteDhcpOptionsResult {
 		return environment.ec2.deleteDhcpOptions(build())
@@ -2631,9 +2772,11 @@ class AmazonEC2DeleteEgressOnlyInternetGatewayCommand(val egressOnlyInternetGate
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteEgressOnlyInternetGatewayResult {
 	  return com.amazonaws.services.ec2.model.DeleteEgressOnlyInternetGatewayResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteEgressOnlyInternetGatewayResult {
 		return environment.ec2.deleteEgressOnlyInternetGateway(build())
@@ -2662,9 +2805,11 @@ class AmazonEC2DeleteFlowLogsCommand(val flowLogIds: List<String>) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteFlowLogsResult {
 	  return com.amazonaws.services.ec2.model.DeleteFlowLogsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteFlowLogsResult {
 		return environment.ec2.deleteFlowLogs(build())
@@ -2693,9 +2838,11 @@ class AmazonEC2DeleteFpgaImageCommand(val fpgaImageId: String) : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteFpgaImageResult {
 	  return com.amazonaws.services.ec2.model.DeleteFpgaImageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteFpgaImageResult {
 		return environment.ec2.deleteFpgaImage(build())
@@ -2724,9 +2871,11 @@ class AmazonEC2DeleteInternetGatewayCommand(val internetGatewayId: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteInternetGatewayResult {
 	  return com.amazonaws.services.ec2.model.DeleteInternetGatewayResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteInternetGatewayResult {
 		return environment.ec2.deleteInternetGateway(build())
@@ -2755,9 +2904,11 @@ class AmazonEC2DeleteKeyPairCommand(val keyName: String) : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteKeyPairResult {
 	  return com.amazonaws.services.ec2.model.DeleteKeyPairResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteKeyPairResult {
 		return environment.ec2.deleteKeyPair(build())
@@ -2788,9 +2939,11 @@ class AmazonEC2DeleteLaunchTemplateCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteLaunchTemplateResult {
 	  return com.amazonaws.services.ec2.model.DeleteLaunchTemplateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteLaunchTemplateResult {
 		return environment.ec2.deleteLaunchTemplate(build())
@@ -2823,9 +2976,11 @@ class AmazonEC2DeleteLaunchTemplateVersionsCommand(val versions: List<String>) :
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteLaunchTemplateVersionsResult {
 	  return com.amazonaws.services.ec2.model.DeleteLaunchTemplateVersionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteLaunchTemplateVersionsResult {
 		return environment.ec2.deleteLaunchTemplateVersions(build())
@@ -2856,9 +3011,11 @@ class AmazonEC2DeleteNatGatewayCommand(val natGatewayId: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteNatGatewayResult {
 	  return com.amazonaws.services.ec2.model.DeleteNatGatewayResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteNatGatewayResult {
 		return environment.ec2.deleteNatGateway(build())
@@ -2887,9 +3044,11 @@ class AmazonEC2DeleteNetworkAclCommand(val networkAclId: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteNetworkAclResult {
 	  return com.amazonaws.services.ec2.model.DeleteNetworkAclResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteNetworkAclResult {
 		return environment.ec2.deleteNetworkAcl(build())
@@ -2920,9 +3079,11 @@ class AmazonEC2DeleteNetworkAclEntryCommand(val egress: Boolean, val networkAclI
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteNetworkAclEntryResult {
 	  return com.amazonaws.services.ec2.model.DeleteNetworkAclEntryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteNetworkAclEntryResult {
 		return environment.ec2.deleteNetworkAclEntry(build())
@@ -2953,9 +3114,11 @@ class AmazonEC2DeleteNetworkInterfaceCommand(val networkInterfaceId: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteNetworkInterfaceResult {
 	  return com.amazonaws.services.ec2.model.DeleteNetworkInterfaceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteNetworkInterfaceResult {
 		return environment.ec2.deleteNetworkInterface(build())
@@ -2985,9 +3148,11 @@ class AmazonEC2DeleteNetworkInterfacePermissionCommand(val networkInterfacePermi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteNetworkInterfacePermissionResult {
 	  return com.amazonaws.services.ec2.model.DeleteNetworkInterfacePermissionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteNetworkInterfacePermissionResult {
 		return environment.ec2.deleteNetworkInterfacePermission(build())
@@ -3017,9 +3182,11 @@ class AmazonEC2DeletePlacementGroupCommand(val groupName: String) : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeletePlacementGroupResult {
 	  return com.amazonaws.services.ec2.model.DeletePlacementGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeletePlacementGroupResult {
 		return environment.ec2.deletePlacementGroup(build())
@@ -3051,9 +3218,11 @@ class AmazonEC2DeleteRouteCommand(val routeTableId: String) : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteRouteResult {
 	  return com.amazonaws.services.ec2.model.DeleteRouteResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteRouteResult {
 		return environment.ec2.deleteRoute(build())
@@ -3084,9 +3253,11 @@ class AmazonEC2DeleteRouteTableCommand(val routeTableId: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteRouteTableResult {
 	  return com.amazonaws.services.ec2.model.DeleteRouteTableResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteRouteTableResult {
 		return environment.ec2.deleteRouteTable(build())
@@ -3117,9 +3288,11 @@ class AmazonEC2DeleteSecurityGroupCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteSecurityGroupResult {
 	  return com.amazonaws.services.ec2.model.DeleteSecurityGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteSecurityGroupResult {
 		return environment.ec2.deleteSecurityGroup(build())
@@ -3149,9 +3322,11 @@ class AmazonEC2DeleteSnapshotCommand(val snapshotId: String) : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteSnapshotResult {
 	  return com.amazonaws.services.ec2.model.DeleteSnapshotResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteSnapshotResult {
 		return environment.ec2.deleteSnapshot(build())
@@ -3180,9 +3355,11 @@ class AmazonEC2DeleteSpotDatafeedSubscriptionCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteSpotDatafeedSubscriptionResult {
 	  return com.amazonaws.services.ec2.model.DeleteSpotDatafeedSubscriptionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteSpotDatafeedSubscriptionResult {
 		return environment.ec2.deleteSpotDatafeedSubscription(build())
@@ -3211,9 +3388,11 @@ class AmazonEC2DeleteSubnetCommand(val subnetId: String) : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteSubnetResult {
 	  return com.amazonaws.services.ec2.model.DeleteSubnetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteSubnetResult {
 		return environment.ec2.deleteSubnet(build())
@@ -3243,9 +3422,11 @@ class AmazonEC2DeleteTagsCommand(val resources: List<String>) : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteTagsResult {
 	  return com.amazonaws.services.ec2.model.DeleteTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteTagsResult {
 		return environment.ec2.deleteTags(build())
@@ -3275,9 +3456,11 @@ class AmazonEC2DeleteVolumeCommand(val volumeId: String) : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteVolumeResult {
 	  return com.amazonaws.services.ec2.model.DeleteVolumeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteVolumeResult {
 		return environment.ec2.deleteVolume(build())
@@ -3306,9 +3489,11 @@ class AmazonEC2DeleteVpcCommand(val vpcId: String) : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteVpcResult {
 	  return com.amazonaws.services.ec2.model.DeleteVpcResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteVpcResult {
 		return environment.ec2.deleteVpc(build())
@@ -3337,9 +3522,11 @@ class AmazonEC2DeleteVpcEndpointConnectionNotificationsCommand(val connectionNot
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteVpcEndpointConnectionNotificationsResult {
 	  return com.amazonaws.services.ec2.model.DeleteVpcEndpointConnectionNotificationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteVpcEndpointConnectionNotificationsResult {
 		return environment.ec2.deleteVpcEndpointConnectionNotifications(build())
@@ -3368,9 +3555,11 @@ class AmazonEC2DeleteVpcEndpointServiceConfigurationsCommand(val serviceIds: Lis
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteVpcEndpointServiceConfigurationsResult {
 	  return com.amazonaws.services.ec2.model.DeleteVpcEndpointServiceConfigurationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteVpcEndpointServiceConfigurationsResult {
 		return environment.ec2.deleteVpcEndpointServiceConfigurations(build())
@@ -3399,9 +3588,11 @@ class AmazonEC2DeleteVpcEndpointsCommand(val vpcEndpointIds: List<String>) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteVpcEndpointsResult {
 	  return com.amazonaws.services.ec2.model.DeleteVpcEndpointsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteVpcEndpointsResult {
 		return environment.ec2.deleteVpcEndpoints(build())
@@ -3430,9 +3621,11 @@ class AmazonEC2DeleteVpcPeeringConnectionCommand(val vpcPeeringConnectionId: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteVpcPeeringConnectionResult {
 	  return com.amazonaws.services.ec2.model.DeleteVpcPeeringConnectionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteVpcPeeringConnectionResult {
 		return environment.ec2.deleteVpcPeeringConnection(build())
@@ -3461,9 +3654,11 @@ class AmazonEC2DeleteVpnConnectionCommand(val vpnConnectionId: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteVpnConnectionResult {
 	  return com.amazonaws.services.ec2.model.DeleteVpnConnectionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteVpnConnectionResult {
 		return environment.ec2.deleteVpnConnection(build())
@@ -3493,9 +3688,11 @@ class AmazonEC2DeleteVpnConnectionRouteCommand(val destinationCidrBlock: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteVpnConnectionRouteResult {
 	  return com.amazonaws.services.ec2.model.DeleteVpnConnectionRouteResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteVpnConnectionRouteResult {
 		return environment.ec2.deleteVpnConnectionRoute(build())
@@ -3525,9 +3722,11 @@ class AmazonEC2DeleteVpnGatewayCommand(val vpnGatewayId: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteVpnGatewayResult {
 	  return com.amazonaws.services.ec2.model.DeleteVpnGatewayResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteVpnGatewayResult {
 		return environment.ec2.deleteVpnGateway(build())
@@ -3556,9 +3755,11 @@ class AmazonEC2DeregisterImageCommand(val imageId: String) : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DeregisterImageResult {
 	  return com.amazonaws.services.ec2.model.DeregisterImageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeregisterImageResult {
 		return environment.ec2.deregisterImage(build())
@@ -3587,9 +3788,11 @@ class AmazonEC2DescribeAccountAttributesCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeAccountAttributesResult {
 	  return com.amazonaws.services.ec2.model.DescribeAccountAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeAccountAttributesResult {
 		return environment.ec2.describeAccountAttributes(build())
@@ -3622,9 +3825,11 @@ class AmazonEC2DescribeAddressesCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeAddressesResult {
 	  return com.amazonaws.services.ec2.model.DescribeAddressesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeAddressesResult {
 		return environment.ec2.describeAddresses(build())
@@ -3655,9 +3860,11 @@ class AmazonEC2DescribeAggregateIdFormatCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeAggregateIdFormatResult {
 	  return com.amazonaws.services.ec2.model.DescribeAggregateIdFormatResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeAggregateIdFormatResult {
 		return environment.ec2.describeAggregateIdFormat(build())
@@ -3688,9 +3895,11 @@ class AmazonEC2DescribeAvailabilityZonesCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeAvailabilityZonesResult {
 	  return com.amazonaws.services.ec2.model.DescribeAvailabilityZonesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeAvailabilityZonesResult {
 		return environment.ec2.describeAvailabilityZones(build())
@@ -3722,9 +3931,11 @@ class AmazonEC2DescribeBundleTasksCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeBundleTasksResult {
 	  return com.amazonaws.services.ec2.model.DescribeBundleTasksResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeBundleTasksResult {
 		return environment.ec2.describeBundleTasks(build())
@@ -3760,9 +3971,11 @@ class AmazonEC2DescribeClassicLinkInstancesCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeClassicLinkInstancesResult {
 	  return com.amazonaws.services.ec2.model.DescribeClassicLinkInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeClassicLinkInstancesResult {
 		return environment.ec2.describeClassicLinkInstances(build())
@@ -3794,9 +4007,11 @@ class AmazonEC2DescribeConversionTasksCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeConversionTasksResult {
 	  return com.amazonaws.services.ec2.model.DescribeConversionTasksResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeConversionTasksResult {
 		return environment.ec2.describeConversionTasks(build())
@@ -3827,9 +4042,11 @@ class AmazonEC2DescribeCustomerGatewaysCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeCustomerGatewaysResult {
 	  return com.amazonaws.services.ec2.model.DescribeCustomerGatewaysResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeCustomerGatewaysResult {
 		return environment.ec2.describeCustomerGateways(build())
@@ -3861,9 +4078,11 @@ class AmazonEC2DescribeDhcpOptionsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeDhcpOptionsResult {
 	  return com.amazonaws.services.ec2.model.DescribeDhcpOptionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeDhcpOptionsResult {
 		return environment.ec2.describeDhcpOptions(build())
@@ -3897,9 +4116,11 @@ class AmazonEC2DescribeEgressOnlyInternetGatewaysCommand() : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeEgressOnlyInternetGatewaysResult {
 	  return com.amazonaws.services.ec2.model.DescribeEgressOnlyInternetGatewaysResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeEgressOnlyInternetGatewaysResult {
 		return environment.ec2.describeEgressOnlyInternetGateways(build())
@@ -3936,9 +4157,11 @@ class AmazonEC2DescribeElasticGpusCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeElasticGpusResult {
 	  return com.amazonaws.services.ec2.model.DescribeElasticGpusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeElasticGpusResult {
 		return environment.ec2.describeElasticGpus(build())
@@ -3970,9 +4193,11 @@ class AmazonEC2DescribeExportTasksCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeExportTasksResult {
 	  return com.amazonaws.services.ec2.model.DescribeExportTasksResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeExportTasksResult {
 		return environment.ec2.describeExportTasks(build())
@@ -4007,9 +4232,11 @@ class AmazonEC2DescribeFlowLogsCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeFlowLogsResult {
 	  return com.amazonaws.services.ec2.model.DescribeFlowLogsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeFlowLogsResult {
 		return environment.ec2.describeFlowLogs(build())
@@ -4042,9 +4269,11 @@ class AmazonEC2DescribeFpgaImageAttributeCommand(val fpgaImageId: String, val at
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeFpgaImageAttributeResult {
 	  return com.amazonaws.services.ec2.model.DescribeFpgaImageAttributeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeFpgaImageAttributeResult {
 		return environment.ec2.describeFpgaImageAttribute(build())
@@ -4082,9 +4311,11 @@ class AmazonEC2DescribeFpgaImagesCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeFpgaImagesResult {
 	  return com.amazonaws.services.ec2.model.DescribeFpgaImagesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeFpgaImagesResult {
 		return environment.ec2.describeFpgaImages(build())
@@ -4127,9 +4358,11 @@ class AmazonEC2DescribeHostReservationOfferingsCommand() : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeHostReservationOfferingsResult {
 	  return com.amazonaws.services.ec2.model.DescribeHostReservationOfferingsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeHostReservationOfferingsResult {
 		return environment.ec2.describeHostReservationOfferings(build())
@@ -4169,9 +4402,11 @@ class AmazonEC2DescribeHostReservationsCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeHostReservationsResult {
 	  return com.amazonaws.services.ec2.model.DescribeHostReservationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeHostReservationsResult {
 		return environment.ec2.describeHostReservations(build())
@@ -4209,9 +4444,11 @@ class AmazonEC2DescribeHostsCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeHostsResult {
 	  return com.amazonaws.services.ec2.model.DescribeHostsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeHostsResult {
 		return environment.ec2.describeHosts(build())
@@ -4249,9 +4486,11 @@ class AmazonEC2DescribeIamInstanceProfileAssociationsCommand() : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeIamInstanceProfileAssociationsResult {
 	  return com.amazonaws.services.ec2.model.DescribeIamInstanceProfileAssociationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeIamInstanceProfileAssociationsResult {
 		return environment.ec2.describeIamInstanceProfileAssociations(build())
@@ -4283,9 +4522,11 @@ class AmazonEC2DescribeIdFormatCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeIdFormatResult {
 	  return com.amazonaws.services.ec2.model.DescribeIdFormatResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeIdFormatResult {
 		return environment.ec2.describeIdFormat(build())
@@ -4315,9 +4556,11 @@ class AmazonEC2DescribeIdentityIdFormatCommand(val principalArn: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeIdentityIdFormatResult {
 	  return com.amazonaws.services.ec2.model.DescribeIdentityIdFormatResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeIdentityIdFormatResult {
 		return environment.ec2.describeIdentityIdFormat(build())
@@ -4348,9 +4591,11 @@ class AmazonEC2DescribeImageAttributeCommand(val attribute: ImageAttributeName, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeImageAttributeResult {
 	  return com.amazonaws.services.ec2.model.DescribeImageAttributeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeImageAttributeResult {
 		return environment.ec2.describeImageAttribute(build())
@@ -4386,9 +4631,11 @@ class AmazonEC2DescribeImagesCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeImagesResult {
 	  return com.amazonaws.services.ec2.model.DescribeImagesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeImagesResult {
 		return environment.ec2.describeImages(build())
@@ -4426,9 +4673,11 @@ class AmazonEC2DescribeImportImageTasksCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeImportImageTasksResult {
 	  return com.amazonaws.services.ec2.model.DescribeImportImageTasksResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeImportImageTasksResult {
 		return environment.ec2.describeImportImageTasks(build())
@@ -4466,9 +4715,11 @@ class AmazonEC2DescribeImportSnapshotTasksCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeImportSnapshotTasksResult {
 	  return com.amazonaws.services.ec2.model.DescribeImportSnapshotTasksResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeImportSnapshotTasksResult {
 		return environment.ec2.describeImportSnapshotTasks(build())
@@ -4501,9 +4752,11 @@ class AmazonEC2DescribeInstanceAttributeCommand(val attribute: InstanceAttribute
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeInstanceAttributeResult {
 	  return com.amazonaws.services.ec2.model.DescribeInstanceAttributeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeInstanceAttributeResult {
 		return environment.ec2.describeInstanceAttribute(build())
@@ -4539,9 +4792,11 @@ class AmazonEC2DescribeInstanceCreditSpecificationsCommand() : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeInstanceCreditSpecificationsResult {
 	  return com.amazonaws.services.ec2.model.DescribeInstanceCreditSpecificationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeInstanceCreditSpecificationsResult {
 		return environment.ec2.describeInstanceCreditSpecifications(build())
@@ -4581,9 +4836,11 @@ class AmazonEC2DescribeInstanceStatusCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeInstanceStatusResult {
 	  return com.amazonaws.services.ec2.model.DescribeInstanceStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeInstanceStatusResult {
 		return environment.ec2.describeInstanceStatus(build())
@@ -4622,9 +4879,11 @@ class AmazonEC2DescribeInstancesCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeInstancesResult {
 	  return com.amazonaws.services.ec2.model.DescribeInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeInstancesResult {
 		return environment.ec2.describeInstances(build())
@@ -4658,9 +4917,11 @@ class AmazonEC2DescribeInternetGatewaysCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeInternetGatewaysResult {
 	  return com.amazonaws.services.ec2.model.DescribeInternetGatewaysResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeInternetGatewaysResult {
 		return environment.ec2.describeInternetGateways(build())
@@ -4692,9 +4953,11 @@ class AmazonEC2DescribeKeyPairsCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeKeyPairsResult {
 	  return com.amazonaws.services.ec2.model.DescribeKeyPairsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeKeyPairsResult {
 		return environment.ec2.describeKeyPairs(build())
@@ -4738,9 +5001,11 @@ class AmazonEC2DescribeLaunchTemplateVersionsCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeLaunchTemplateVersionsResult {
 	  return com.amazonaws.services.ec2.model.DescribeLaunchTemplateVersionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeLaunchTemplateVersionsResult {
 		return environment.ec2.describeLaunchTemplateVersions(build())
@@ -4784,9 +5049,11 @@ class AmazonEC2DescribeLaunchTemplatesCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeLaunchTemplatesResult {
 	  return com.amazonaws.services.ec2.model.DescribeLaunchTemplatesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeLaunchTemplatesResult {
 		return environment.ec2.describeLaunchTemplates(build())
@@ -4825,9 +5092,11 @@ class AmazonEC2DescribeMovingAddressesCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeMovingAddressesResult {
 	  return com.amazonaws.services.ec2.model.DescribeMovingAddressesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeMovingAddressesResult {
 		return environment.ec2.describeMovingAddresses(build())
@@ -4865,9 +5134,11 @@ class AmazonEC2DescribeNatGatewaysCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeNatGatewaysResult {
 	  return com.amazonaws.services.ec2.model.DescribeNatGatewaysResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeNatGatewaysResult {
 		return environment.ec2.describeNatGateways(build())
@@ -4901,9 +5172,11 @@ class AmazonEC2DescribeNetworkAclsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeNetworkAclsResult {
 	  return com.amazonaws.services.ec2.model.DescribeNetworkAclsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeNetworkAclsResult {
 		return environment.ec2.describeNetworkAcls(build())
@@ -4934,9 +5207,11 @@ class AmazonEC2DescribeNetworkInterfaceAttributeCommand(val networkInterfaceId: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeNetworkInterfaceAttributeResult {
 	  return com.amazonaws.services.ec2.model.DescribeNetworkInterfaceAttributeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeNetworkInterfaceAttributeResult {
 		return environment.ec2.describeNetworkInterfaceAttribute(build())
@@ -4972,9 +5247,11 @@ class AmazonEC2DescribeNetworkInterfacePermissionsCommand() : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeNetworkInterfacePermissionsResult {
 	  return com.amazonaws.services.ec2.model.DescribeNetworkInterfacePermissionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeNetworkInterfacePermissionsResult {
 		return environment.ec2.describeNetworkInterfacePermissions(build())
@@ -5008,9 +5285,11 @@ class AmazonEC2DescribeNetworkInterfacesCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeNetworkInterfacesResult {
 	  return com.amazonaws.services.ec2.model.DescribeNetworkInterfacesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeNetworkInterfacesResult {
 		return environment.ec2.describeNetworkInterfaces(build())
@@ -5042,9 +5321,11 @@ class AmazonEC2DescribePlacementGroupsCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribePlacementGroupsResult {
 	  return com.amazonaws.services.ec2.model.DescribePlacementGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribePlacementGroupsResult {
 		return environment.ec2.describePlacementGroups(build())
@@ -5080,9 +5361,11 @@ class AmazonEC2DescribePrefixListsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribePrefixListsResult {
 	  return com.amazonaws.services.ec2.model.DescribePrefixListsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribePrefixListsResult {
 		return environment.ec2.describePrefixLists(build())
@@ -5118,9 +5401,11 @@ class AmazonEC2DescribePrincipalIdFormatCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribePrincipalIdFormatResult {
 	  return com.amazonaws.services.ec2.model.DescribePrincipalIdFormatResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribePrincipalIdFormatResult {
 		return environment.ec2.describePrincipalIdFormat(build())
@@ -5153,9 +5438,11 @@ class AmazonEC2DescribeRegionsCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeRegionsResult {
 	  return com.amazonaws.services.ec2.model.DescribeRegionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeRegionsResult {
 		return environment.ec2.describeRegions(build())
@@ -5191,9 +5478,11 @@ class AmazonEC2DescribeReservedInstancesCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeReservedInstancesResult {
 	  return com.amazonaws.services.ec2.model.DescribeReservedInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeReservedInstancesResult {
 		return environment.ec2.describeReservedInstances(build())
@@ -5229,9 +5518,11 @@ class AmazonEC2DescribeReservedInstancesListingsCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeReservedInstancesListingsResult {
 	  return com.amazonaws.services.ec2.model.DescribeReservedInstancesListingsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeReservedInstancesListingsResult {
 		return environment.ec2.describeReservedInstancesListings(build())
@@ -5266,9 +5557,11 @@ class AmazonEC2DescribeReservedInstancesModificationsCommand() : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeReservedInstancesModificationsResult {
 	  return com.amazonaws.services.ec2.model.DescribeReservedInstancesModificationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeReservedInstancesModificationsResult {
 		return environment.ec2.describeReservedInstancesModifications(build())
@@ -5325,9 +5618,11 @@ class AmazonEC2DescribeReservedInstancesOfferingsCommand() : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeReservedInstancesOfferingsResult {
 	  return com.amazonaws.services.ec2.model.DescribeReservedInstancesOfferingsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeReservedInstancesOfferingsResult {
 		return environment.ec2.describeReservedInstancesOfferings(build())
@@ -5371,9 +5666,11 @@ class AmazonEC2DescribeRouteTablesCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeRouteTablesResult {
 	  return com.amazonaws.services.ec2.model.DescribeRouteTablesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeRouteTablesResult {
 		return environment.ec2.describeRouteTables(build())
@@ -5413,9 +5710,11 @@ class AmazonEC2DescribeScheduledInstanceAvailabilityCommand(val firstSlotStartTi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeScheduledInstanceAvailabilityResult {
 	  return com.amazonaws.services.ec2.model.DescribeScheduledInstanceAvailabilityResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeScheduledInstanceAvailabilityResult {
 		return environment.ec2.describeScheduledInstanceAvailability(build())
@@ -5458,9 +5757,11 @@ class AmazonEC2DescribeScheduledInstancesCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeScheduledInstancesResult {
 	  return com.amazonaws.services.ec2.model.DescribeScheduledInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeScheduledInstancesResult {
 		return environment.ec2.describeScheduledInstances(build())
@@ -5493,9 +5794,11 @@ class AmazonEC2DescribeSecurityGroupReferencesCommand(val groupId: List<String>)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeSecurityGroupReferencesResult {
 	  return com.amazonaws.services.ec2.model.DescribeSecurityGroupReferencesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeSecurityGroupReferencesResult {
 		return environment.ec2.describeSecurityGroupReferences(build())
@@ -5532,9 +5835,11 @@ class AmazonEC2DescribeSecurityGroupsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeSecurityGroupsResult {
 	  return com.amazonaws.services.ec2.model.DescribeSecurityGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeSecurityGroupsResult {
 		return environment.ec2.describeSecurityGroups(build())
@@ -5568,9 +5873,11 @@ class AmazonEC2DescribeSnapshotAttributeCommand(val attribute: SnapshotAttribute
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeSnapshotAttributeResult {
 	  return com.amazonaws.services.ec2.model.DescribeSnapshotAttributeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeSnapshotAttributeResult {
 		return environment.ec2.describeSnapshotAttribute(build())
@@ -5610,9 +5917,11 @@ class AmazonEC2DescribeSnapshotsCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeSnapshotsResult {
 	  return com.amazonaws.services.ec2.model.DescribeSnapshotsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeSnapshotsResult {
 		return environment.ec2.describeSnapshots(build())
@@ -5646,9 +5955,11 @@ class AmazonEC2DescribeSpotDatafeedSubscriptionCommand() : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeSpotDatafeedSubscriptionResult {
 	  return com.amazonaws.services.ec2.model.DescribeSpotDatafeedSubscriptionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeSpotDatafeedSubscriptionResult {
 		return environment.ec2.describeSpotDatafeedSubscription(build())
@@ -5680,9 +5991,11 @@ class AmazonEC2DescribeSpotFleetInstancesCommand(val spotFleetRequestId: String)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeSpotFleetInstancesResult {
 	  return com.amazonaws.services.ec2.model.DescribeSpotFleetInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeSpotFleetInstancesResult {
 		return environment.ec2.describeSpotFleetInstances(build())
@@ -5719,9 +6032,11 @@ class AmazonEC2DescribeSpotFleetRequestHistoryCommand(val spotFleetRequestId: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeSpotFleetRequestHistoryResult {
 	  return com.amazonaws.services.ec2.model.DescribeSpotFleetRequestHistoryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeSpotFleetRequestHistoryResult {
 		return environment.ec2.describeSpotFleetRequestHistory(build())
@@ -5758,9 +6073,11 @@ class AmazonEC2DescribeSpotFleetRequestsCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeSpotFleetRequestsResult {
 	  return com.amazonaws.services.ec2.model.DescribeSpotFleetRequestsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeSpotFleetRequestsResult {
 		return environment.ec2.describeSpotFleetRequests(build())
@@ -5793,9 +6110,11 @@ class AmazonEC2DescribeSpotInstanceRequestsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeSpotInstanceRequestsResult {
 	  return com.amazonaws.services.ec2.model.DescribeSpotInstanceRequestsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeSpotInstanceRequestsResult {
 		return environment.ec2.describeSpotInstanceRequests(build())
@@ -5839,9 +6158,11 @@ class AmazonEC2DescribeSpotPriceHistoryCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeSpotPriceHistoryResult {
 	  return com.amazonaws.services.ec2.model.DescribeSpotPriceHistoryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeSpotPriceHistoryResult {
 		return environment.ec2.describeSpotPriceHistory(build())
@@ -5880,9 +6201,11 @@ class AmazonEC2DescribeStaleSecurityGroupsCommand(val vpcId: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeStaleSecurityGroupsResult {
 	  return com.amazonaws.services.ec2.model.DescribeStaleSecurityGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeStaleSecurityGroupsResult {
 		return environment.ec2.describeStaleSecurityGroups(build())
@@ -5915,9 +6238,11 @@ class AmazonEC2DescribeSubnetsCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeSubnetsResult {
 	  return com.amazonaws.services.ec2.model.DescribeSubnetsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeSubnetsResult {
 		return environment.ec2.describeSubnets(build())
@@ -5951,9 +6276,11 @@ class AmazonEC2DescribeTagsCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeTagsResult {
 	  return com.amazonaws.services.ec2.model.DescribeTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeTagsResult {
 		return environment.ec2.describeTags(build())
@@ -5985,9 +6312,11 @@ class AmazonEC2DescribeVolumeAttributeCommand(val volumeId: String) : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVolumeAttributeResult {
 	  return com.amazonaws.services.ec2.model.DescribeVolumeAttributeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVolumeAttributeResult {
 		return environment.ec2.describeVolumeAttribute(build())
@@ -6023,9 +6352,11 @@ class AmazonEC2DescribeVolumeStatusCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVolumeStatusResult {
 	  return com.amazonaws.services.ec2.model.DescribeVolumeStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVolumeStatusResult {
 		return environment.ec2.describeVolumeStatus(build())
@@ -6063,9 +6394,11 @@ class AmazonEC2DescribeVolumesCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVolumesResult {
 	  return com.amazonaws.services.ec2.model.DescribeVolumesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVolumesResult {
 		return environment.ec2.describeVolumes(build())
@@ -6103,9 +6436,11 @@ class AmazonEC2DescribeVolumesModificationsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVolumesModificationsResult {
 	  return com.amazonaws.services.ec2.model.DescribeVolumesModificationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVolumesModificationsResult {
 		return environment.ec2.describeVolumesModifications(build())
@@ -6138,9 +6473,11 @@ class AmazonEC2DescribeVpcAttributeCommand(val attribute: VpcAttributeName, val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVpcAttributeResult {
 	  return com.amazonaws.services.ec2.model.DescribeVpcAttributeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVpcAttributeResult {
 		return environment.ec2.describeVpcAttribute(build())
@@ -6172,9 +6509,11 @@ class AmazonEC2DescribeVpcClassicLinkCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVpcClassicLinkResult {
 	  return com.amazonaws.services.ec2.model.DescribeVpcClassicLinkResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVpcClassicLinkResult {
 		return environment.ec2.describeVpcClassicLink(build())
@@ -6208,9 +6547,11 @@ class AmazonEC2DescribeVpcClassicLinkDnsSupportCommand() : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVpcClassicLinkDnsSupportResult {
 	  return com.amazonaws.services.ec2.model.DescribeVpcClassicLinkDnsSupportResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVpcClassicLinkDnsSupportResult {
 		return environment.ec2.describeVpcClassicLinkDnsSupport(build())
@@ -6247,9 +6588,11 @@ class AmazonEC2DescribeVpcEndpointConnectionNotificationsCommand() : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVpcEndpointConnectionNotificationsResult {
 	  return com.amazonaws.services.ec2.model.DescribeVpcEndpointConnectionNotificationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVpcEndpointConnectionNotificationsResult {
 		return environment.ec2.describeVpcEndpointConnectionNotifications(build())
@@ -6285,9 +6628,11 @@ class AmazonEC2DescribeVpcEndpointConnectionsCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVpcEndpointConnectionsResult {
 	  return com.amazonaws.services.ec2.model.DescribeVpcEndpointConnectionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVpcEndpointConnectionsResult {
 		return environment.ec2.describeVpcEndpointConnections(build())
@@ -6324,9 +6669,11 @@ class AmazonEC2DescribeVpcEndpointServiceConfigurationsCommand() : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVpcEndpointServiceConfigurationsResult {
 	  return com.amazonaws.services.ec2.model.DescribeVpcEndpointServiceConfigurationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVpcEndpointServiceConfigurationsResult {
 		return environment.ec2.describeVpcEndpointServiceConfigurations(build())
@@ -6363,9 +6710,11 @@ class AmazonEC2DescribeVpcEndpointServicePermissionsCommand(val serviceId: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVpcEndpointServicePermissionsResult {
 	  return com.amazonaws.services.ec2.model.DescribeVpcEndpointServicePermissionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVpcEndpointServicePermissionsResult {
 		return environment.ec2.describeVpcEndpointServicePermissions(build())
@@ -6403,9 +6752,11 @@ class AmazonEC2DescribeVpcEndpointServicesCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVpcEndpointServicesResult {
 	  return com.amazonaws.services.ec2.model.DescribeVpcEndpointServicesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVpcEndpointServicesResult {
 		return environment.ec2.describeVpcEndpointServices(build())
@@ -6443,9 +6794,11 @@ class AmazonEC2DescribeVpcEndpointsCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVpcEndpointsResult {
 	  return com.amazonaws.services.ec2.model.DescribeVpcEndpointsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVpcEndpointsResult {
 		return environment.ec2.describeVpcEndpoints(build())
@@ -6479,9 +6832,11 @@ class AmazonEC2DescribeVpcPeeringConnectionsCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVpcPeeringConnectionsResult {
 	  return com.amazonaws.services.ec2.model.DescribeVpcPeeringConnectionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVpcPeeringConnectionsResult {
 		return environment.ec2.describeVpcPeeringConnections(build())
@@ -6513,9 +6868,11 @@ class AmazonEC2DescribeVpcsCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVpcsResult {
 	  return com.amazonaws.services.ec2.model.DescribeVpcsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVpcsResult {
 		return environment.ec2.describeVpcs(build())
@@ -6547,9 +6904,11 @@ class AmazonEC2DescribeVpnConnectionsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVpnConnectionsResult {
 	  return com.amazonaws.services.ec2.model.DescribeVpnConnectionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVpnConnectionsResult {
 		return environment.ec2.describeVpnConnections(build())
@@ -6581,9 +6940,11 @@ class AmazonEC2DescribeVpnGatewaysCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVpnGatewaysResult {
 	  return com.amazonaws.services.ec2.model.DescribeVpnGatewaysResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVpnGatewaysResult {
 		return environment.ec2.describeVpnGateways(build())
@@ -6614,9 +6975,11 @@ class AmazonEC2DetachClassicLinkVpcCommand(val instanceId: String, val vpcId: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DetachClassicLinkVpcResult {
 	  return com.amazonaws.services.ec2.model.DetachClassicLinkVpcResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DetachClassicLinkVpcResult {
 		return environment.ec2.detachClassicLinkVpc(build())
@@ -6647,9 +7010,11 @@ class AmazonEC2DetachInternetGatewayCommand(val internetGatewayId: String, val v
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DetachInternetGatewayResult {
 	  return com.amazonaws.services.ec2.model.DetachInternetGatewayResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DetachInternetGatewayResult {
 		return environment.ec2.detachInternetGateway(build())
@@ -6680,9 +7045,11 @@ class AmazonEC2DetachNetworkInterfaceCommand(val attachmentId: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DetachNetworkInterfaceResult {
 	  return com.amazonaws.services.ec2.model.DetachNetworkInterfaceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DetachNetworkInterfaceResult {
 		return environment.ec2.detachNetworkInterface(build())
@@ -6717,9 +7084,11 @@ class AmazonEC2DetachVolumeCommand(val volumeId: String) : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DetachVolumeResult {
 	  return com.amazonaws.services.ec2.model.DetachVolumeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DetachVolumeResult {
 		return environment.ec2.detachVolume(build())
@@ -6752,9 +7121,11 @@ class AmazonEC2DetachVpnGatewayCommand(val vpcId: String, val vpnGatewayId: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DetachVpnGatewayResult {
 	  return com.amazonaws.services.ec2.model.DetachVpnGatewayResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DetachVpnGatewayResult {
 		return environment.ec2.detachVpnGateway(build())
@@ -6785,9 +7156,11 @@ class AmazonEC2DisableVgwRoutePropagationCommand(val gatewayId: String, val rout
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DisableVgwRoutePropagationResult {
 	  return com.amazonaws.services.ec2.model.DisableVgwRoutePropagationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DisableVgwRoutePropagationResult {
 		return environment.ec2.disableVgwRoutePropagation(build())
@@ -6817,9 +7190,11 @@ class AmazonEC2DisableVpcClassicLinkCommand(val vpcId: String) : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DisableVpcClassicLinkResult {
 	  return com.amazonaws.services.ec2.model.DisableVpcClassicLinkResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DisableVpcClassicLinkResult {
 		return environment.ec2.disableVpcClassicLink(build())
@@ -6848,9 +7223,11 @@ class AmazonEC2DisableVpcClassicLinkDnsSupportCommand() : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DisableVpcClassicLinkDnsSupportResult {
 	  return com.amazonaws.services.ec2.model.DisableVpcClassicLinkDnsSupportResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DisableVpcClassicLinkDnsSupportResult {
 		return environment.ec2.disableVpcClassicLinkDnsSupport(build())
@@ -6881,9 +7258,11 @@ class AmazonEC2DisassociateAddressCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DisassociateAddressResult {
 	  return com.amazonaws.services.ec2.model.DisassociateAddressResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DisassociateAddressResult {
 		return environment.ec2.disassociateAddress(build())
@@ -6913,9 +7292,11 @@ class AmazonEC2DisassociateIamInstanceProfileCommand(val associationId: String) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DisassociateIamInstanceProfileResult {
 	  return com.amazonaws.services.ec2.model.DisassociateIamInstanceProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DisassociateIamInstanceProfileResult {
 		return environment.ec2.disassociateIamInstanceProfile(build())
@@ -6944,9 +7325,11 @@ class AmazonEC2DisassociateRouteTableCommand(val associationId: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DisassociateRouteTableResult {
 	  return com.amazonaws.services.ec2.model.DisassociateRouteTableResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DisassociateRouteTableResult {
 		return environment.ec2.disassociateRouteTable(build())
@@ -6975,9 +7358,11 @@ class AmazonEC2DisassociateSubnetCidrBlockCommand(val associationId: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DisassociateSubnetCidrBlockResult {
 	  return com.amazonaws.services.ec2.model.DisassociateSubnetCidrBlockResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DisassociateSubnetCidrBlockResult {
 		return environment.ec2.disassociateSubnetCidrBlock(build())
@@ -7006,9 +7391,11 @@ class AmazonEC2DisassociateVpcCidrBlockCommand(val associationId: String) : Amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.DisassociateVpcCidrBlockResult {
 	  return com.amazonaws.services.ec2.model.DisassociateVpcCidrBlockResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DisassociateVpcCidrBlockResult {
 		return environment.ec2.disassociateVpcCidrBlock(build())
@@ -7038,9 +7425,11 @@ class AmazonEC2EnableVgwRoutePropagationCommand(val gatewayId: String, val route
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.EnableVgwRoutePropagationResult {
 	  return com.amazonaws.services.ec2.model.EnableVgwRoutePropagationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.EnableVgwRoutePropagationResult {
 		return environment.ec2.enableVgwRoutePropagation(build())
@@ -7070,9 +7459,11 @@ class AmazonEC2EnableVolumeIOCommand(val volumeId: String) : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.EnableVolumeIOResult {
 	  return com.amazonaws.services.ec2.model.EnableVolumeIOResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.EnableVolumeIOResult {
 		return environment.ec2.enableVolumeIO(build())
@@ -7101,9 +7492,11 @@ class AmazonEC2EnableVpcClassicLinkCommand(val vpcId: String) : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.EnableVpcClassicLinkResult {
 	  return com.amazonaws.services.ec2.model.EnableVpcClassicLinkResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.EnableVpcClassicLinkResult {
 		return environment.ec2.enableVpcClassicLink(build())
@@ -7132,9 +7525,11 @@ class AmazonEC2EnableVpcClassicLinkDnsSupportCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.EnableVpcClassicLinkDnsSupportResult {
 	  return com.amazonaws.services.ec2.model.EnableVpcClassicLinkDnsSupportResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.EnableVpcClassicLinkDnsSupportResult {
 		return environment.ec2.enableVpcClassicLinkDnsSupport(build())
@@ -7163,9 +7558,11 @@ class AmazonEC2GetConsoleOutputCommand(val instanceId: String) : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.GetConsoleOutputResult {
 	  return com.amazonaws.services.ec2.model.GetConsoleOutputResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.GetConsoleOutputResult {
 		return environment.ec2.getConsoleOutput(build())
@@ -7195,9 +7592,11 @@ class AmazonEC2GetConsoleScreenshotCommand(val instanceId: String) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.GetConsoleScreenshotResult {
 	  return com.amazonaws.services.ec2.model.GetConsoleScreenshotResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.GetConsoleScreenshotResult {
 		return environment.ec2.getConsoleScreenshot(build())
@@ -7228,9 +7627,11 @@ class AmazonEC2GetHostReservationPurchasePreviewCommand(val hostIdSet: List<Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.GetHostReservationPurchasePreviewResult {
 	  return com.amazonaws.services.ec2.model.GetHostReservationPurchasePreviewResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.GetHostReservationPurchasePreviewResult {
 		return environment.ec2.getHostReservationPurchasePreview(build())
@@ -7260,9 +7661,11 @@ class AmazonEC2GetLaunchTemplateDataCommand(val instanceId: String) : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.GetLaunchTemplateDataResult {
 	  return com.amazonaws.services.ec2.model.GetLaunchTemplateDataResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.GetLaunchTemplateDataResult {
 		return environment.ec2.getLaunchTemplateData(build())
@@ -7291,9 +7694,11 @@ class AmazonEC2GetPasswordDataCommand(val instanceId: String) : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.GetPasswordDataResult {
 	  return com.amazonaws.services.ec2.model.GetPasswordDataResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.GetPasswordDataResult {
 		return environment.ec2.getPasswordData(build())
@@ -7323,9 +7728,11 @@ class AmazonEC2GetReservedInstancesExchangeQuoteCommand(val reservedInstanceIds:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.GetReservedInstancesExchangeQuoteResult {
 	  return com.amazonaws.services.ec2.model.GetReservedInstancesExchangeQuoteResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.GetReservedInstancesExchangeQuoteResult {
 		return environment.ec2.getReservedInstancesExchangeQuote(build())
@@ -7371,9 +7778,11 @@ class AmazonEC2ImportImageCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ImportImageResult {
 	  return com.amazonaws.services.ec2.model.ImportImageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ImportImageResult {
 		return environment.ec2.importImage(build())
@@ -7415,9 +7824,11 @@ class AmazonEC2ImportInstanceCommand(val platform: PlatformValues) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ImportInstanceResult {
 	  return com.amazonaws.services.ec2.model.ImportInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ImportInstanceResult {
 		return environment.ec2.importInstance(build())
@@ -7450,9 +7861,11 @@ class AmazonEC2ImportKeyPairCommand(val keyName: String, val publicKeyMaterial: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ImportKeyPairResult {
 	  return com.amazonaws.services.ec2.model.ImportKeyPairResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ImportKeyPairResult {
 		return environment.ec2.importKeyPair(build())
@@ -7490,9 +7903,11 @@ class AmazonEC2ImportSnapshotCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ImportSnapshotResult {
 	  return com.amazonaws.services.ec2.model.ImportSnapshotResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ImportSnapshotResult {
 		return environment.ec2.importSnapshot(build())
@@ -7528,9 +7943,11 @@ class AmazonEC2ImportVolumeCommand(val availabilityZone: String, val image: com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ImportVolumeResult {
 	  return com.amazonaws.services.ec2.model.ImportVolumeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ImportVolumeResult {
 		return environment.ec2.importVolume(build())
@@ -7577,9 +7994,11 @@ class AmazonEC2ModifyFpgaImageAttributeCommand(val fpgaImageId: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyFpgaImageAttributeResult {
 	  return com.amazonaws.services.ec2.model.ModifyFpgaImageAttributeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyFpgaImageAttributeResult {
 		return environment.ec2.modifyFpgaImageAttribute(build())
@@ -7617,9 +8036,11 @@ class AmazonEC2ModifyHostsCommand(val autoPlacement: AutoPlacement, val hostIds:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyHostsResult {
 	  return com.amazonaws.services.ec2.model.ModifyHostsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyHostsResult {
 		return environment.ec2.modifyHosts(build())
@@ -7650,9 +8071,11 @@ class AmazonEC2ModifyIdFormatCommand(val resource: String, val useLongIds: Boole
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyIdFormatResult {
 	  return com.amazonaws.services.ec2.model.ModifyIdFormatResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyIdFormatResult {
 		return environment.ec2.modifyIdFormat(build())
@@ -7684,9 +8107,11 @@ class AmazonEC2ModifyIdentityIdFormatCommand(val principalArn: String, val resou
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyIdentityIdFormatResult {
 	  return com.amazonaws.services.ec2.model.ModifyIdentityIdFormatResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyIdentityIdFormatResult {
 		return environment.ec2.modifyIdentityIdFormat(build())
@@ -7732,9 +8157,11 @@ class AmazonEC2ModifyImageAttributeCommand(val imageId: String) : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyImageAttributeResult {
 	  return com.amazonaws.services.ec2.model.ModifyImageAttributeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyImageAttributeResult {
 		return environment.ec2.modifyImageAttribute(build())
@@ -7798,9 +8225,11 @@ class AmazonEC2ModifyInstanceAttributeCommand(val instanceId: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyInstanceAttributeResult {
 	  return com.amazonaws.services.ec2.model.ModifyInstanceAttributeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyInstanceAttributeResult {
 		return environment.ec2.modifyInstanceAttribute(build())
@@ -7844,9 +8273,11 @@ class AmazonEC2ModifyInstanceCreditSpecificationCommand(val instanceCreditSpecif
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyInstanceCreditSpecificationResult {
 	  return com.amazonaws.services.ec2.model.ModifyInstanceCreditSpecificationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyInstanceCreditSpecificationResult {
 		return environment.ec2.modifyInstanceCreditSpecification(build())
@@ -7883,9 +8314,11 @@ class AmazonEC2ModifyInstancePlacementCommand(val instanceId: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyInstancePlacementResult {
 	  return com.amazonaws.services.ec2.model.ModifyInstancePlacementResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyInstancePlacementResult {
 		return environment.ec2.modifyInstancePlacement(build())
@@ -7924,9 +8357,11 @@ class AmazonEC2ModifyLaunchTemplateCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyLaunchTemplateResult {
 	  return com.amazonaws.services.ec2.model.ModifyLaunchTemplateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyLaunchTemplateResult {
 		return environment.ec2.modifyLaunchTemplate(build())
@@ -7965,9 +8400,11 @@ class AmazonEC2ModifyNetworkInterfaceAttributeCommand(val networkInterfaceId: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyNetworkInterfaceAttributeResult {
 	  return com.amazonaws.services.ec2.model.ModifyNetworkInterfaceAttributeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyNetworkInterfaceAttributeResult {
 		return environment.ec2.modifyNetworkInterfaceAttribute(build())
@@ -8002,9 +8439,11 @@ class AmazonEC2ModifyReservedInstancesCommand(val reservedInstancesIds: List<Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyReservedInstancesResult {
 	  return com.amazonaws.services.ec2.model.ModifyReservedInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyReservedInstancesResult {
 		return environment.ec2.modifyReservedInstances(build())
@@ -8044,9 +8483,11 @@ class AmazonEC2ModifySnapshotAttributeCommand(val snapshotId: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ModifySnapshotAttributeResult {
 	  return com.amazonaws.services.ec2.model.ModifySnapshotAttributeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifySnapshotAttributeResult {
 		return environment.ec2.modifySnapshotAttribute(build())
@@ -8083,9 +8524,11 @@ class AmazonEC2ModifySpotFleetRequestCommand(val spotFleetRequestId: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ModifySpotFleetRequestResult {
 	  return com.amazonaws.services.ec2.model.ModifySpotFleetRequestResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifySpotFleetRequestResult {
 		return environment.ec2.modifySpotFleetRequest(build())
@@ -8119,9 +8562,11 @@ class AmazonEC2ModifySubnetAttributeCommand(val subnetId: String) : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ModifySubnetAttributeResult {
 	  return com.amazonaws.services.ec2.model.ModifySubnetAttributeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifySubnetAttributeResult {
 		return environment.ec2.modifySubnetAttribute(build())
@@ -8157,9 +8602,11 @@ class AmazonEC2ModifyVolumeCommand(val volumeId: String) : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyVolumeResult {
 	  return com.amazonaws.services.ec2.model.ModifyVolumeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyVolumeResult {
 		return environment.ec2.modifyVolume(build())
@@ -8192,9 +8639,11 @@ class AmazonEC2ModifyVolumeAttributeCommand(val volumeId: String) : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyVolumeAttributeResult {
 	  return com.amazonaws.services.ec2.model.ModifyVolumeAttributeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyVolumeAttributeResult {
 		return environment.ec2.modifyVolumeAttribute(build())
@@ -8227,9 +8676,11 @@ class AmazonEC2ModifyVpcAttributeCommand(val vpcId: String) : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyVpcAttributeResult {
 	  return com.amazonaws.services.ec2.model.ModifyVpcAttributeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyVpcAttributeResult {
 		return environment.ec2.modifyVpcAttribute(build())
@@ -8277,9 +8728,11 @@ class AmazonEC2ModifyVpcEndpointCommand(val vpcEndpointId: String) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyVpcEndpointResult {
 	  return com.amazonaws.services.ec2.model.ModifyVpcEndpointResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyVpcEndpointResult {
 		return environment.ec2.modifyVpcEndpoint(build())
@@ -8320,9 +8773,11 @@ class AmazonEC2ModifyVpcEndpointConnectionNotificationCommand(val connectionNoti
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyVpcEndpointConnectionNotificationResult {
 	  return com.amazonaws.services.ec2.model.ModifyVpcEndpointConnectionNotificationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyVpcEndpointConnectionNotificationResult {
 		return environment.ec2.modifyVpcEndpointConnectionNotification(build())
@@ -8358,9 +8813,11 @@ class AmazonEC2ModifyVpcEndpointServiceConfigurationCommand(val serviceId: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyVpcEndpointServiceConfigurationResult {
 	  return com.amazonaws.services.ec2.model.ModifyVpcEndpointServiceConfigurationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyVpcEndpointServiceConfigurationResult {
 		return environment.ec2.modifyVpcEndpointServiceConfiguration(build())
@@ -8395,9 +8852,11 @@ class AmazonEC2ModifyVpcEndpointServicePermissionsCommand(val serviceId: String)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyVpcEndpointServicePermissionsResult {
 	  return com.amazonaws.services.ec2.model.ModifyVpcEndpointServicePermissionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyVpcEndpointServicePermissionsResult {
 		return environment.ec2.modifyVpcEndpointServicePermissions(build())
@@ -8431,9 +8890,11 @@ class AmazonEC2ModifyVpcPeeringConnectionOptionsCommand(val vpcPeeringConnection
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyVpcPeeringConnectionOptionsResult {
 	  return com.amazonaws.services.ec2.model.ModifyVpcPeeringConnectionOptionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyVpcPeeringConnectionOptionsResult {
 		return environment.ec2.modifyVpcPeeringConnectionOptions(build())
@@ -8465,9 +8926,11 @@ class AmazonEC2ModifyVpcTenancyCommand(val vpcId: String, val instanceTenancy: V
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyVpcTenancyResult {
 	  return com.amazonaws.services.ec2.model.ModifyVpcTenancyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyVpcTenancyResult {
 		return environment.ec2.modifyVpcTenancy(build())
@@ -8497,9 +8960,11 @@ class AmazonEC2MonitorInstancesCommand(val instanceIds: List<String>) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.MonitorInstancesResult {
 	  return com.amazonaws.services.ec2.model.MonitorInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.MonitorInstancesResult {
 		return environment.ec2.monitorInstances(build())
@@ -8528,9 +8993,11 @@ class AmazonEC2MoveAddressToVpcCommand(val publicIp: String) : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.MoveAddressToVpcResult {
 	  return com.amazonaws.services.ec2.model.MoveAddressToVpcResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.MoveAddressToVpcResult {
 		return environment.ec2.moveAddressToVpc(build())
@@ -8565,9 +9032,11 @@ class AmazonEC2PurchaseHostReservationCommand(val hostIdSet: List<String>, val o
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.PurchaseHostReservationResult {
 	  return com.amazonaws.services.ec2.model.PurchaseHostReservationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.PurchaseHostReservationResult {
 		return environment.ec2.purchaseHostReservation(build())
@@ -8602,9 +9071,11 @@ class AmazonEC2PurchaseReservedInstancesOfferingCommand(val instanceCount: Int, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.PurchaseReservedInstancesOfferingResult {
 	  return com.amazonaws.services.ec2.model.PurchaseReservedInstancesOfferingResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.PurchaseReservedInstancesOfferingResult {
 		return environment.ec2.purchaseReservedInstancesOffering(build())
@@ -8636,9 +9107,11 @@ class AmazonEC2PurchaseScheduledInstancesCommand(val purchaseRequests: List<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.PurchaseScheduledInstancesResult {
 	  return com.amazonaws.services.ec2.model.PurchaseScheduledInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.PurchaseScheduledInstancesResult {
 		return environment.ec2.purchaseScheduledInstances(build())
@@ -8668,9 +9141,11 @@ class AmazonEC2RebootInstancesCommand(val instanceIds: List<String>) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.RebootInstancesResult {
 	  return com.amazonaws.services.ec2.model.RebootInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.RebootInstancesResult {
 		return environment.ec2.rebootInstances(build())
@@ -8720,9 +9195,11 @@ class AmazonEC2RegisterImageCommand(val name: String) : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.RegisterImageResult {
 	  return com.amazonaws.services.ec2.model.RegisterImageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.RegisterImageResult {
 		return environment.ec2.registerImage(build())
@@ -8763,9 +9240,11 @@ class AmazonEC2RejectVpcEndpointConnectionsCommand(val serviceId: String, val vp
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.RejectVpcEndpointConnectionsResult {
 	  return com.amazonaws.services.ec2.model.RejectVpcEndpointConnectionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.RejectVpcEndpointConnectionsResult {
 		return environment.ec2.rejectVpcEndpointConnections(build())
@@ -8795,9 +9274,11 @@ class AmazonEC2RejectVpcPeeringConnectionCommand(val vpcPeeringConnectionId: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.RejectVpcPeeringConnectionResult {
 	  return com.amazonaws.services.ec2.model.RejectVpcPeeringConnectionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.RejectVpcPeeringConnectionResult {
 		return environment.ec2.rejectVpcPeeringConnection(build())
@@ -8828,9 +9309,11 @@ class AmazonEC2ReleaseAddressCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ReleaseAddressResult {
 	  return com.amazonaws.services.ec2.model.ReleaseAddressResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ReleaseAddressResult {
 		return environment.ec2.releaseAddress(build())
@@ -8860,9 +9343,11 @@ class AmazonEC2ReleaseHostsCommand(val hostIds: List<String>) : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ReleaseHostsResult {
 	  return com.amazonaws.services.ec2.model.ReleaseHostsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ReleaseHostsResult {
 		return environment.ec2.releaseHosts(build())
@@ -8892,9 +9377,11 @@ class AmazonEC2ReplaceIamInstanceProfileAssociationCommand(val iamInstanceProfil
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ReplaceIamInstanceProfileAssociationResult {
 	  return com.amazonaws.services.ec2.model.ReplaceIamInstanceProfileAssociationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ReplaceIamInstanceProfileAssociationResult {
 		return environment.ec2.replaceIamInstanceProfileAssociation(build())
@@ -8925,9 +9412,11 @@ class AmazonEC2ReplaceNetworkAclAssociationCommand(val associationId: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ReplaceNetworkAclAssociationResult {
 	  return com.amazonaws.services.ec2.model.ReplaceNetworkAclAssociationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ReplaceNetworkAclAssociationResult {
 		return environment.ec2.replaceNetworkAclAssociation(build())
@@ -8968,9 +9457,11 @@ class AmazonEC2ReplaceNetworkAclEntryCommand(val egress: Boolean, val networkAcl
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ReplaceNetworkAclEntryResult {
 	  return com.amazonaws.services.ec2.model.ReplaceNetworkAclEntryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ReplaceNetworkAclEntryResult {
 		return environment.ec2.replaceNetworkAclEntry(build())
@@ -9022,9 +9513,11 @@ class AmazonEC2ReplaceRouteCommand(val routeTableId: String) : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ReplaceRouteResult {
 	  return com.amazonaws.services.ec2.model.ReplaceRouteResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ReplaceRouteResult {
 		return environment.ec2.replaceRoute(build())
@@ -9062,9 +9555,11 @@ class AmazonEC2ReplaceRouteTableAssociationCommand(val associationId: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ReplaceRouteTableAssociationResult {
 	  return com.amazonaws.services.ec2.model.ReplaceRouteTableAssociationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ReplaceRouteTableAssociationResult {
 		return environment.ec2.replaceRouteTableAssociation(build())
@@ -9101,9 +9596,11 @@ class AmazonEC2ReportInstanceStatusCommand(val instances: List<String>, val reas
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ReportInstanceStatusResult {
 	  return com.amazonaws.services.ec2.model.ReportInstanceStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ReportInstanceStatusResult {
 		return environment.ec2.reportInstanceStatus(build())
@@ -9137,9 +9634,11 @@ class AmazonEC2RequestSpotFleetCommand(val spotFleetRequestConfig: com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.RequestSpotFleetResult {
 	  return com.amazonaws.services.ec2.model.RequestSpotFleetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.RequestSpotFleetResult {
 		return environment.ec2.requestSpotFleet(build())
@@ -9188,9 +9687,11 @@ class AmazonEC2RequestSpotInstancesCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.RequestSpotInstancesResult {
 	  return com.amazonaws.services.ec2.model.RequestSpotInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.RequestSpotInstancesResult {
 		return environment.ec2.requestSpotInstances(build())
@@ -9230,9 +9731,11 @@ class AmazonEC2ResetFpgaImageAttributeCommand(val fpgaImageId: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ResetFpgaImageAttributeResult {
 	  return com.amazonaws.services.ec2.model.ResetFpgaImageAttributeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ResetFpgaImageAttributeResult {
 		return environment.ec2.resetFpgaImageAttribute(build())
@@ -9263,9 +9766,11 @@ class AmazonEC2ResetImageAttributeCommand(val attribute: ResetImageAttributeName
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ResetImageAttributeResult {
 	  return com.amazonaws.services.ec2.model.ResetImageAttributeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ResetImageAttributeResult {
 		return environment.ec2.resetImageAttribute(build())
@@ -9296,9 +9801,11 @@ class AmazonEC2ResetInstanceAttributeCommand(val attribute: InstanceAttributeNam
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ResetInstanceAttributeResult {
 	  return com.amazonaws.services.ec2.model.ResetInstanceAttributeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ResetInstanceAttributeResult {
 		return environment.ec2.resetInstanceAttribute(build())
@@ -9329,9 +9836,11 @@ class AmazonEC2ResetNetworkInterfaceAttributeCommand(val networkInterfaceId: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ResetNetworkInterfaceAttributeResult {
 	  return com.amazonaws.services.ec2.model.ResetNetworkInterfaceAttributeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ResetNetworkInterfaceAttributeResult {
 		return environment.ec2.resetNetworkInterfaceAttribute(build())
@@ -9362,9 +9871,11 @@ class AmazonEC2ResetSnapshotAttributeCommand(val attribute: SnapshotAttributeNam
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.ResetSnapshotAttributeResult {
 	  return com.amazonaws.services.ec2.model.ResetSnapshotAttributeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ResetSnapshotAttributeResult {
 		return environment.ec2.resetSnapshotAttribute(build())
@@ -9394,9 +9905,11 @@ class AmazonEC2RestoreAddressToClassicCommand(val publicIp: String) : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.RestoreAddressToClassicResult {
 	  return com.amazonaws.services.ec2.model.RestoreAddressToClassicResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.RestoreAddressToClassicResult {
 		return environment.ec2.restoreAddressToClassic(build())
@@ -9438,9 +9951,11 @@ class AmazonEC2RevokeSecurityGroupEgressCommand(val groupId: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.RevokeSecurityGroupEgressResult {
 	  return com.amazonaws.services.ec2.model.RevokeSecurityGroupEgressResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.RevokeSecurityGroupEgressResult {
 		return environment.ec2.revokeSecurityGroupEgress(build())
@@ -9492,9 +10007,11 @@ class AmazonEC2RevokeSecurityGroupIngressCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.RevokeSecurityGroupIngressResult {
 	  return com.amazonaws.services.ec2.model.RevokeSecurityGroupIngressResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.RevokeSecurityGroupIngressResult {
 		return environment.ec2.revokeSecurityGroupIngress(build())
@@ -9585,9 +10102,11 @@ class AmazonEC2RunInstancesCommand(val maxCount: Int, val minCount: Int) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.RunInstancesResult {
 	  return com.amazonaws.services.ec2.model.RunInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.RunInstancesResult {
 		return environment.ec2.runInstances(build())
@@ -9648,9 +10167,11 @@ class AmazonEC2RunScheduledInstancesCommand(val launchSpecification: com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.RunScheduledInstancesResult {
 	  return com.amazonaws.services.ec2.model.RunScheduledInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.RunScheduledInstancesResult {
 		return environment.ec2.runScheduledInstances(build())
@@ -9683,9 +10204,11 @@ class AmazonEC2StartInstancesCommand(val instanceIds: List<String>) : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.StartInstancesResult {
 	  return com.amazonaws.services.ec2.model.StartInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.StartInstancesResult {
 		return environment.ec2.startInstances(build())
@@ -9716,9 +10239,11 @@ class AmazonEC2StopInstancesCommand(val instanceIds: List<String>) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.StopInstancesResult {
 	  return com.amazonaws.services.ec2.model.StopInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.StopInstancesResult {
 		return environment.ec2.stopInstances(build())
@@ -9748,9 +10273,11 @@ class AmazonEC2TerminateInstancesCommand(val instanceIds: List<String>) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.TerminateInstancesResult {
 	  return com.amazonaws.services.ec2.model.TerminateInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.TerminateInstancesResult {
 		return environment.ec2.terminateInstances(build())
@@ -9780,9 +10307,11 @@ class AmazonEC2UnassignIpv6AddressesCommand(val ipv6Addresses: List<String>, val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.UnassignIpv6AddressesResult {
 	  return com.amazonaws.services.ec2.model.UnassignIpv6AddressesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.UnassignIpv6AddressesResult {
 		return environment.ec2.unassignIpv6Addresses(build())
@@ -9813,9 +10342,11 @@ class AmazonEC2UnassignPrivateIpAddressesCommand(val networkInterfaceId: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.UnassignPrivateIpAddressesResult {
 	  return com.amazonaws.services.ec2.model.UnassignPrivateIpAddressesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.UnassignPrivateIpAddressesResult {
 		return environment.ec2.unassignPrivateIpAddresses(build())
@@ -9845,9 +10376,11 @@ class AmazonEC2UnmonitorInstancesCommand(val instanceIds: List<String>) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.UnmonitorInstancesResult {
 	  return com.amazonaws.services.ec2.model.UnmonitorInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.UnmonitorInstancesResult {
 		return environment.ec2.unmonitorInstances(build())
@@ -9879,9 +10412,11 @@ class AmazonEC2UpdateSecurityGroupRuleDescriptionsEgressCommand(val ipPermission
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.UpdateSecurityGroupRuleDescriptionsEgressResult {
 	  return com.amazonaws.services.ec2.model.UpdateSecurityGroupRuleDescriptionsEgressResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.UpdateSecurityGroupRuleDescriptionsEgressResult {
 		return environment.ec2.updateSecurityGroupRuleDescriptionsEgress(build())
@@ -9915,9 +10450,11 @@ class AmazonEC2UpdateSecurityGroupRuleDescriptionsIngressCommand(val ipPermissio
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ec2.model.UpdateSecurityGroupRuleDescriptionsIngressResult {
 	  return com.amazonaws.services.ec2.model.UpdateSecurityGroupRuleDescriptionsIngressResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.UpdateSecurityGroupRuleDescriptionsIngressResult {
 		return environment.ec2.updateSecurityGroupRuleDescriptionsIngress(build())

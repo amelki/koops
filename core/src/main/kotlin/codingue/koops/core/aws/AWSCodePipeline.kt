@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -43,9 +44,11 @@ class AWSCodePipelineAcknowledgeJobCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codepipeline.model.AcknowledgeJobResult {
 	  return com.amazonaws.services.codepipeline.model.AcknowledgeJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.AcknowledgeJobResult {
 		return environment.codepipeline.acknowledgeJob(build())
@@ -79,9 +82,11 @@ class AWSCodePipelineAcknowledgeThirdPartyJobCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codepipeline.model.AcknowledgeThirdPartyJobResult {
 	  return com.amazonaws.services.codepipeline.model.AcknowledgeThirdPartyJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.AcknowledgeThirdPartyJobResult {
 		return environment.codepipeline.acknowledgeThirdPartyJob(build())
@@ -124,9 +129,11 @@ class AWSCodePipelineCreateCustomActionTypeCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codepipeline.model.CreateCustomActionTypeResult {
 	  return com.amazonaws.services.codepipeline.model.CreateCustomActionTypeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.CreateCustomActionTypeResult {
 		return environment.codepipeline.createCustomActionType(build())
@@ -161,9 +168,11 @@ class AWSCodePipelineCreatePipelineCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codepipeline.model.CreatePipelineResult {
 	  return com.amazonaws.services.codepipeline.model.CreatePipelineResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.CreatePipelineResult {
 		return environment.codepipeline.createPipeline(build())
@@ -196,9 +205,11 @@ class AWSCodePipelineDeleteCustomActionTypeCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codepipeline.model.DeleteCustomActionTypeResult {
 	  return com.amazonaws.services.codepipeline.model.DeleteCustomActionTypeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.DeleteCustomActionTypeResult {
 		return environment.codepipeline.deleteCustomActionType(build())
@@ -229,9 +240,11 @@ class AWSCodePipelineDeletePipelineCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codepipeline.model.DeletePipelineResult {
 	  return com.amazonaws.services.codepipeline.model.DeletePipelineResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.DeletePipelineResult {
 		return environment.codepipeline.deletePipeline(build())
@@ -266,9 +279,11 @@ class AWSCodePipelineDisableStageTransitionCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codepipeline.model.DisableStageTransitionResult {
 	  return com.amazonaws.services.codepipeline.model.DisableStageTransitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.DisableStageTransitionResult {
 		return environment.codepipeline.disableStageTransition(build())
@@ -304,9 +319,11 @@ class AWSCodePipelineEnableStageTransitionCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codepipeline.model.EnableStageTransitionResult {
 	  return com.amazonaws.services.codepipeline.model.EnableStageTransitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.EnableStageTransitionResult {
 		return environment.codepipeline.enableStageTransition(build())
@@ -337,9 +354,11 @@ class AWSCodePipelineGetJobDetailsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codepipeline.model.GetJobDetailsResult {
 	  return com.amazonaws.services.codepipeline.model.GetJobDetailsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.GetJobDetailsResult {
 		return environment.codepipeline.getJobDetails(build())
@@ -370,9 +389,11 @@ class AWSCodePipelineGetPipelineCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codepipeline.model.GetPipelineResult {
 	  return com.amazonaws.services.codepipeline.model.GetPipelineResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.GetPipelineResult {
 		return environment.codepipeline.getPipeline(build())
@@ -404,9 +425,11 @@ class AWSCodePipelineGetPipelineExecutionCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codepipeline.model.GetPipelineExecutionResult {
 	  return com.amazonaws.services.codepipeline.model.GetPipelineExecutionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.GetPipelineExecutionResult {
 		return environment.codepipeline.getPipelineExecution(build())
@@ -436,9 +459,11 @@ class AWSCodePipelineGetPipelineStateCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codepipeline.model.GetPipelineStateResult {
 	  return com.amazonaws.services.codepipeline.model.GetPipelineStateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.GetPipelineStateResult {
 		return environment.codepipeline.getPipelineState(build())
@@ -469,9 +494,11 @@ class AWSCodePipelineGetThirdPartyJobDetailsCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codepipeline.model.GetThirdPartyJobDetailsResult {
 	  return com.amazonaws.services.codepipeline.model.GetThirdPartyJobDetailsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.GetThirdPartyJobDetailsResult {
 		return environment.codepipeline.getThirdPartyJobDetails(build())
@@ -503,9 +530,11 @@ class AWSCodePipelineListActionTypesCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codepipeline.model.ListActionTypesResult {
 	  return com.amazonaws.services.codepipeline.model.ListActionTypesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.ListActionTypesResult {
 		return environment.codepipeline.listActionTypes(build())
@@ -539,9 +568,11 @@ class AWSCodePipelineListPipelineExecutionsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codepipeline.model.ListPipelineExecutionsResult {
 	  return com.amazonaws.services.codepipeline.model.ListPipelineExecutionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.ListPipelineExecutionsResult {
 		return environment.codepipeline.listPipelineExecutions(build())
@@ -572,9 +603,11 @@ class AWSCodePipelineListPipelinesCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codepipeline.model.ListPipelinesResult {
 	  return com.amazonaws.services.codepipeline.model.ListPipelinesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.ListPipelinesResult {
 		return environment.codepipeline.listPipelines(build())
@@ -607,9 +640,11 @@ class AWSCodePipelinePollForJobsCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codepipeline.model.PollForJobsResult {
 	  return com.amazonaws.services.codepipeline.model.PollForJobsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.PollForJobsResult {
 		return environment.codepipeline.pollForJobs(build())
@@ -642,9 +677,11 @@ class AWSCodePipelinePollForThirdPartyJobsCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codepipeline.model.PollForThirdPartyJobsResult {
 	  return com.amazonaws.services.codepipeline.model.PollForThirdPartyJobsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.PollForThirdPartyJobsResult {
 		return environment.codepipeline.pollForThirdPartyJobs(build())
@@ -680,9 +717,11 @@ class AWSCodePipelinePutActionRevisionCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codepipeline.model.PutActionRevisionResult {
 	  return com.amazonaws.services.codepipeline.model.PutActionRevisionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.PutActionRevisionResult {
 		return environment.codepipeline.putActionRevision(build())
@@ -722,9 +761,11 @@ class AWSCodePipelinePutApprovalResultCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codepipeline.model.PutApprovalResultResult {
 	  return com.amazonaws.services.codepipeline.model.PutApprovalResultResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.PutApprovalResultResult {
 		return environment.codepipeline.putApprovalResult(build())
@@ -759,9 +800,11 @@ class AWSCodePipelinePutJobFailureResultCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codepipeline.model.PutJobFailureResultResult {
 	  return com.amazonaws.services.codepipeline.model.PutJobFailureResultResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.PutJobFailureResultResult {
 		return environment.codepipeline.putJobFailureResult(build())
@@ -797,9 +840,11 @@ class AWSCodePipelinePutJobSuccessResultCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codepipeline.model.PutJobSuccessResultResult {
 	  return com.amazonaws.services.codepipeline.model.PutJobSuccessResultResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.PutJobSuccessResultResult {
 		return environment.codepipeline.putJobSuccessResult(build())
@@ -835,9 +880,11 @@ class AWSCodePipelinePutThirdPartyJobFailureResultCommand() : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codepipeline.model.PutThirdPartyJobFailureResultResult {
 	  return com.amazonaws.services.codepipeline.model.PutThirdPartyJobFailureResultResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.PutThirdPartyJobFailureResultResult {
 		return environment.codepipeline.putThirdPartyJobFailureResult(build())
@@ -876,9 +923,11 @@ class AWSCodePipelinePutThirdPartyJobSuccessResultCommand() : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codepipeline.model.PutThirdPartyJobSuccessResultResult {
 	  return com.amazonaws.services.codepipeline.model.PutThirdPartyJobSuccessResultResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.PutThirdPartyJobSuccessResultResult {
 		return environment.codepipeline.putThirdPartyJobSuccessResult(build())
@@ -917,9 +966,11 @@ class AWSCodePipelineRetryStageExecutionCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codepipeline.model.RetryStageExecutionResult {
 	  return com.amazonaws.services.codepipeline.model.RetryStageExecutionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.RetryStageExecutionResult {
 		return environment.codepipeline.retryStageExecution(build())
@@ -951,9 +1002,11 @@ class AWSCodePipelineStartPipelineExecutionCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codepipeline.model.StartPipelineExecutionResult {
 	  return com.amazonaws.services.codepipeline.model.StartPipelineExecutionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.StartPipelineExecutionResult {
 		return environment.codepipeline.startPipelineExecution(build())
@@ -982,9 +1035,11 @@ class AWSCodePipelineUpdatePipelineCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codepipeline.model.UpdatePipelineResult {
 	  return com.amazonaws.services.codepipeline.model.UpdatePipelineResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.UpdatePipelineResult {
 		return environment.codepipeline.updatePipeline(build())

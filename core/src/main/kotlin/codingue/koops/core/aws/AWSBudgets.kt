@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -43,9 +44,11 @@ class AWSBudgetsCreateBudgetCommand(val accountId: String, val budget: com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.budgets.model.CreateBudgetResult {
 	  return com.amazonaws.services.budgets.model.CreateBudgetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.budgets.model.CreateBudgetResult {
 		return environment.budgets.createBudget(build())
@@ -79,9 +82,11 @@ class AWSBudgetsCreateNotificationCommand(val accountId: String, val budgetName:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.budgets.model.CreateNotificationResult {
 	  return com.amazonaws.services.budgets.model.CreateNotificationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.budgets.model.CreateNotificationResult {
 		return environment.budgets.createNotification(build())
@@ -116,9 +121,11 @@ class AWSBudgetsCreateSubscriberCommand(val accountId: String, val budgetName: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.budgets.model.CreateSubscriberResult {
 	  return com.amazonaws.services.budgets.model.CreateSubscriberResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.budgets.model.CreateSubscriberResult {
 		return environment.budgets.createSubscriber(build())
@@ -151,9 +158,11 @@ class AWSBudgetsDeleteBudgetCommand(val accountId: String, val budgetName: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.budgets.model.DeleteBudgetResult {
 	  return com.amazonaws.services.budgets.model.DeleteBudgetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.budgets.model.DeleteBudgetResult {
 		return environment.budgets.deleteBudget(build())
@@ -185,9 +194,11 @@ class AWSBudgetsDeleteNotificationCommand(val accountId: String, val budgetName:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.budgets.model.DeleteNotificationResult {
 	  return com.amazonaws.services.budgets.model.DeleteNotificationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.budgets.model.DeleteNotificationResult {
 		return environment.budgets.deleteNotification(build())
@@ -221,9 +232,11 @@ class AWSBudgetsDeleteSubscriberCommand(val accountId: String, val budgetName: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.budgets.model.DeleteSubscriberResult {
 	  return com.amazonaws.services.budgets.model.DeleteSubscriberResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.budgets.model.DeleteSubscriberResult {
 		return environment.budgets.deleteSubscriber(build())
@@ -256,9 +269,11 @@ class AWSBudgetsDescribeBudgetCommand(val accountId: String, val budgetName: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.budgets.model.DescribeBudgetResult {
 	  return com.amazonaws.services.budgets.model.DescribeBudgetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.budgets.model.DescribeBudgetResult {
 		return environment.budgets.describeBudget(build())
@@ -291,9 +306,11 @@ class AWSBudgetsDescribeBudgetsCommand(val accountId: String) : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.budgets.model.DescribeBudgetsResult {
 	  return com.amazonaws.services.budgets.model.DescribeBudgetsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.budgets.model.DescribeBudgetsResult {
 		return environment.budgets.describeBudgets(build())
@@ -328,9 +345,11 @@ class AWSBudgetsDescribeNotificationsForBudgetCommand(val accountId: String, val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.budgets.model.DescribeNotificationsForBudgetResult {
 	  return com.amazonaws.services.budgets.model.DescribeNotificationsForBudgetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.budgets.model.DescribeNotificationsForBudgetResult {
 		return environment.budgets.describeNotificationsForBudget(build())
@@ -367,9 +386,11 @@ class AWSBudgetsDescribeSubscribersForNotificationCommand(val accountId: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.budgets.model.DescribeSubscribersForNotificationResult {
 	  return com.amazonaws.services.budgets.model.DescribeSubscribersForNotificationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.budgets.model.DescribeSubscribersForNotificationResult {
 		return environment.budgets.describeSubscribersForNotification(build())
@@ -403,9 +424,11 @@ class AWSBudgetsUpdateBudgetCommand(val accountId: String, val newBudget: com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.budgets.model.UpdateBudgetResult {
 	  return com.amazonaws.services.budgets.model.UpdateBudgetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.budgets.model.UpdateBudgetResult {
 		return environment.budgets.updateBudget(build())
@@ -438,9 +461,11 @@ class AWSBudgetsUpdateNotificationCommand(val accountId: String, val budgetName:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.budgets.model.UpdateNotificationResult {
 	  return com.amazonaws.services.budgets.model.UpdateNotificationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.budgets.model.UpdateNotificationResult {
 		return environment.budgets.updateNotification(build())
@@ -476,9 +501,11 @@ class AWSBudgetsUpdateSubscriberCommand(val accountId: String, val budgetName: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.budgets.model.UpdateSubscriberResult {
 	  return com.amazonaws.services.budgets.model.UpdateSubscriberResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.budgets.model.UpdateSubscriberResult {
 		return environment.budgets.updateSubscriber(build())

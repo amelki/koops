@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -42,9 +43,11 @@ class AWSServiceCatalogAcceptPortfolioShareCommand(val portfolioId: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.AcceptPortfolioShareResult {
 	  return com.amazonaws.services.servicecatalog.model.AcceptPortfolioShareResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.AcceptPortfolioShareResult {
 		return environment.servicecatalog.acceptPortfolioShare(build())
@@ -77,9 +80,11 @@ class AWSServiceCatalogAssociatePrincipalWithPortfolioCommand(val portfolioId: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.AssociatePrincipalWithPortfolioResult {
 	  return com.amazonaws.services.servicecatalog.model.AssociatePrincipalWithPortfolioResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.AssociatePrincipalWithPortfolioResult {
 		return environment.servicecatalog.associatePrincipalWithPortfolio(build())
@@ -115,9 +120,11 @@ class AWSServiceCatalogAssociateProductWithPortfolioCommand(val productId: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.AssociateProductWithPortfolioResult {
 	  return com.amazonaws.services.servicecatalog.model.AssociateProductWithPortfolioResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.AssociateProductWithPortfolioResult {
 		return environment.servicecatalog.associateProductWithPortfolio(build())
@@ -150,9 +157,11 @@ class AWSServiceCatalogAssociateTagOptionWithResourceCommand(val resourceId: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.AssociateTagOptionWithResourceResult {
 	  return com.amazonaws.services.servicecatalog.model.AssociateTagOptionWithResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.AssociateTagOptionWithResourceResult {
 		return environment.servicecatalog.associateTagOptionWithResource(build())
@@ -192,9 +201,11 @@ class AWSServiceCatalogCopyProductCommand(val sourceProductArn: String, val idem
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.CopyProductResult {
 	  return com.amazonaws.services.servicecatalog.model.CopyProductResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.CopyProductResult {
 		return environment.servicecatalog.copyProduct(build())
@@ -236,9 +247,11 @@ class AWSServiceCatalogCreateConstraintCommand(val portfolioId: String, val prod
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.CreateConstraintResult {
 	  return com.amazonaws.services.servicecatalog.model.CreateConstraintResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.CreateConstraintResult {
 		return environment.servicecatalog.createConstraint(build())
@@ -280,9 +293,11 @@ class AWSServiceCatalogCreatePortfolioCommand(val displayName: String, val provi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.CreatePortfolioResult {
 	  return com.amazonaws.services.servicecatalog.model.CreatePortfolioResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.CreatePortfolioResult {
 		return environment.servicecatalog.createPortfolio(build())
@@ -318,9 +333,11 @@ class AWSServiceCatalogCreatePortfolioShareCommand(val portfolioId: String, val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.CreatePortfolioShareResult {
 	  return com.amazonaws.services.servicecatalog.model.CreatePortfolioShareResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.CreatePortfolioShareResult {
 		return environment.servicecatalog.createPortfolioShare(build())
@@ -368,9 +385,11 @@ class AWSServiceCatalogCreateProductCommand(val name: String, val owner: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.CreateProductResult {
 	  return com.amazonaws.services.servicecatalog.model.CreateProductResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.CreateProductResult {
 		return environment.servicecatalog.createProduct(build())
@@ -424,9 +443,11 @@ class AWSServiceCatalogCreateProvisionedProductPlanCommand(val planName: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.CreateProvisionedProductPlanResult {
 	  return com.amazonaws.services.servicecatalog.model.CreateProvisionedProductPlanResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.CreateProvisionedProductPlanResult {
 		return environment.servicecatalog.createProvisionedProductPlan(build())
@@ -468,9 +489,11 @@ class AWSServiceCatalogCreateProvisioningArtifactCommand(val productId: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.CreateProvisioningArtifactResult {
 	  return com.amazonaws.services.servicecatalog.model.CreateProvisioningArtifactResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.CreateProvisioningArtifactResult {
 		return environment.servicecatalog.createProvisioningArtifact(build())
@@ -503,9 +526,11 @@ class AWSServiceCatalogCreateTagOptionCommand(val key: String, val value: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.CreateTagOptionResult {
 	  return com.amazonaws.services.servicecatalog.model.CreateTagOptionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.CreateTagOptionResult {
 		return environment.servicecatalog.createTagOption(build())
@@ -536,9 +561,11 @@ class AWSServiceCatalogDeleteConstraintCommand(val id: String) : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DeleteConstraintResult {
 	  return com.amazonaws.services.servicecatalog.model.DeleteConstraintResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DeleteConstraintResult {
 		return environment.servicecatalog.deleteConstraint(build())
@@ -569,9 +596,11 @@ class AWSServiceCatalogDeletePortfolioCommand(val id: String) : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DeletePortfolioResult {
 	  return com.amazonaws.services.servicecatalog.model.DeletePortfolioResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DeletePortfolioResult {
 		return environment.servicecatalog.deletePortfolio(build())
@@ -603,9 +632,11 @@ class AWSServiceCatalogDeletePortfolioShareCommand(val portfolioId: String, val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DeletePortfolioShareResult {
 	  return com.amazonaws.services.servicecatalog.model.DeletePortfolioShareResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DeletePortfolioShareResult {
 		return environment.servicecatalog.deletePortfolioShare(build())
@@ -637,9 +668,11 @@ class AWSServiceCatalogDeleteProductCommand(val id: String) : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DeleteProductResult {
 	  return com.amazonaws.services.servicecatalog.model.DeleteProductResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DeleteProductResult {
 		return environment.servicecatalog.deleteProduct(build())
@@ -672,9 +705,11 @@ class AWSServiceCatalogDeleteProvisionedProductPlanCommand(val planId: String) :
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DeleteProvisionedProductPlanResult {
 	  return com.amazonaws.services.servicecatalog.model.DeleteProvisionedProductPlanResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DeleteProvisionedProductPlanResult {
 		return environment.servicecatalog.deleteProvisionedProductPlan(build())
@@ -707,9 +742,11 @@ class AWSServiceCatalogDeleteProvisioningArtifactCommand(val productId: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DeleteProvisioningArtifactResult {
 	  return com.amazonaws.services.servicecatalog.model.DeleteProvisioningArtifactResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DeleteProvisioningArtifactResult {
 		return environment.servicecatalog.deleteProvisioningArtifact(build())
@@ -740,9 +777,11 @@ class AWSServiceCatalogDeleteTagOptionCommand(val id: String) : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DeleteTagOptionResult {
 	  return com.amazonaws.services.servicecatalog.model.DeleteTagOptionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DeleteTagOptionResult {
 		return environment.servicecatalog.deleteTagOption(build())
@@ -772,9 +811,11 @@ class AWSServiceCatalogDescribeConstraintCommand(val id: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DescribeConstraintResult {
 	  return com.amazonaws.services.servicecatalog.model.DescribeConstraintResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DescribeConstraintResult {
 		return environment.servicecatalog.describeConstraint(build())
@@ -805,9 +846,11 @@ class AWSServiceCatalogDescribeCopyProductStatusCommand(val copyProductToken: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DescribeCopyProductStatusResult {
 	  return com.amazonaws.services.servicecatalog.model.DescribeCopyProductStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DescribeCopyProductStatusResult {
 		return environment.servicecatalog.describeCopyProductStatus(build())
@@ -838,9 +881,11 @@ class AWSServiceCatalogDescribePortfolioCommand(val id: String) : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DescribePortfolioResult {
 	  return com.amazonaws.services.servicecatalog.model.DescribePortfolioResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DescribePortfolioResult {
 		return environment.servicecatalog.describePortfolio(build())
@@ -871,9 +916,11 @@ class AWSServiceCatalogDescribeProductCommand(val id: String) : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DescribeProductResult {
 	  return com.amazonaws.services.servicecatalog.model.DescribeProductResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DescribeProductResult {
 		return environment.servicecatalog.describeProduct(build())
@@ -904,9 +951,11 @@ class AWSServiceCatalogDescribeProductAsAdminCommand(val id: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DescribeProductAsAdminResult {
 	  return com.amazonaws.services.servicecatalog.model.DescribeProductAsAdminResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DescribeProductAsAdminResult {
 		return environment.servicecatalog.describeProductAsAdmin(build())
@@ -937,9 +986,11 @@ class AWSServiceCatalogDescribeProductViewCommand(val id: String) : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DescribeProductViewResult {
 	  return com.amazonaws.services.servicecatalog.model.DescribeProductViewResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DescribeProductViewResult {
 		return environment.servicecatalog.describeProductView(build())
@@ -970,9 +1021,11 @@ class AWSServiceCatalogDescribeProvisionedProductCommand(val id: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DescribeProvisionedProductResult {
 	  return com.amazonaws.services.servicecatalog.model.DescribeProvisionedProductResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DescribeProvisionedProductResult {
 		return environment.servicecatalog.describeProvisionedProduct(build())
@@ -1007,9 +1060,11 @@ class AWSServiceCatalogDescribeProvisionedProductPlanCommand(val planId: String)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DescribeProvisionedProductPlanResult {
 	  return com.amazonaws.services.servicecatalog.model.DescribeProvisionedProductPlanResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DescribeProvisionedProductPlanResult {
 		return environment.servicecatalog.describeProvisionedProductPlan(build())
@@ -1045,9 +1100,11 @@ class AWSServiceCatalogDescribeProvisioningArtifactCommand(val provisioningArtif
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DescribeProvisioningArtifactResult {
 	  return com.amazonaws.services.servicecatalog.model.DescribeProvisioningArtifactResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DescribeProvisioningArtifactResult {
 		return environment.servicecatalog.describeProvisioningArtifact(build())
@@ -1083,9 +1140,11 @@ class AWSServiceCatalogDescribeProvisioningParametersCommand(val productId: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DescribeProvisioningParametersResult {
 	  return com.amazonaws.services.servicecatalog.model.DescribeProvisioningParametersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DescribeProvisioningParametersResult {
 		return environment.servicecatalog.describeProvisioningParameters(build())
@@ -1122,9 +1181,11 @@ class AWSServiceCatalogDescribeRecordCommand(val id: String) : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DescribeRecordResult {
 	  return com.amazonaws.services.servicecatalog.model.DescribeRecordResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DescribeRecordResult {
 		return environment.servicecatalog.describeRecord(build())
@@ -1156,9 +1217,11 @@ class AWSServiceCatalogDescribeTagOptionCommand(val id: String) : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DescribeTagOptionResult {
 	  return com.amazonaws.services.servicecatalog.model.DescribeTagOptionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DescribeTagOptionResult {
 		return environment.servicecatalog.describeTagOption(build())
@@ -1189,9 +1252,11 @@ class AWSServiceCatalogDisassociatePrincipalFromPortfolioCommand(val portfolioId
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DisassociatePrincipalFromPortfolioResult {
 	  return com.amazonaws.services.servicecatalog.model.DisassociatePrincipalFromPortfolioResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DisassociatePrincipalFromPortfolioResult {
 		return environment.servicecatalog.disassociatePrincipalFromPortfolio(build())
@@ -1224,9 +1289,11 @@ class AWSServiceCatalogDisassociateProductFromPortfolioCommand(val productId: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DisassociateProductFromPortfolioResult {
 	  return com.amazonaws.services.servicecatalog.model.DisassociateProductFromPortfolioResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DisassociateProductFromPortfolioResult {
 		return environment.servicecatalog.disassociateProductFromPortfolio(build())
@@ -1258,9 +1325,11 @@ class AWSServiceCatalogDisassociateTagOptionFromResourceCommand(val resourceId: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DisassociateTagOptionFromResourceResult {
 	  return com.amazonaws.services.servicecatalog.model.DisassociateTagOptionFromResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DisassociateTagOptionFromResourceResult {
 		return environment.servicecatalog.disassociateTagOptionFromResource(build())
@@ -1292,9 +1361,11 @@ class AWSServiceCatalogExecuteProvisionedProductPlanCommand(val planId: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.ExecuteProvisionedProductPlanResult {
 	  return com.amazonaws.services.servicecatalog.model.ExecuteProvisionedProductPlanResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.ExecuteProvisionedProductPlanResult {
 		return environment.servicecatalog.executeProvisionedProductPlan(build())
@@ -1329,9 +1400,11 @@ class AWSServiceCatalogListAcceptedPortfolioSharesCommand() : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.ListAcceptedPortfolioSharesResult {
 	  return com.amazonaws.services.servicecatalog.model.ListAcceptedPortfolioSharesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.ListAcceptedPortfolioSharesResult {
 		return environment.servicecatalog.listAcceptedPortfolioShares(build())
@@ -1369,9 +1442,11 @@ class AWSServiceCatalogListConstraintsForPortfolioCommand(val portfolioId: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.ListConstraintsForPortfolioResult {
 	  return com.amazonaws.services.servicecatalog.model.ListConstraintsForPortfolioResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.ListConstraintsForPortfolioResult {
 		return environment.servicecatalog.listConstraintsForPortfolio(build())
@@ -1409,9 +1484,11 @@ class AWSServiceCatalogListLaunchPathsCommand(val productId: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.ListLaunchPathsResult {
 	  return com.amazonaws.services.servicecatalog.model.ListLaunchPathsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.ListLaunchPathsResult {
 		return environment.servicecatalog.listLaunchPaths(build())
@@ -1444,9 +1521,11 @@ class AWSServiceCatalogListPortfolioAccessCommand(val portfolioId: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.ListPortfolioAccessResult {
 	  return com.amazonaws.services.servicecatalog.model.ListPortfolioAccessResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.ListPortfolioAccessResult {
 		return environment.servicecatalog.listPortfolioAccess(build())
@@ -1480,9 +1559,11 @@ class AWSServiceCatalogListPortfoliosCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.ListPortfoliosResult {
 	  return com.amazonaws.services.servicecatalog.model.ListPortfoliosResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.ListPortfoliosResult {
 		return environment.servicecatalog.listPortfolios(build())
@@ -1518,9 +1599,11 @@ class AWSServiceCatalogListPortfoliosForProductCommand(val productId: String) : 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.ListPortfoliosForProductResult {
 	  return com.amazonaws.services.servicecatalog.model.ListPortfoliosForProductResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.ListPortfoliosForProductResult {
 		return environment.servicecatalog.listPortfoliosForProduct(build())
@@ -1557,9 +1640,11 @@ class AWSServiceCatalogListPrincipalsForPortfolioCommand(val portfolioId: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.ListPrincipalsForPortfolioResult {
 	  return com.amazonaws.services.servicecatalog.model.ListPrincipalsForPortfolioResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.ListPrincipalsForPortfolioResult {
 		return environment.servicecatalog.listPrincipalsForPortfolio(build())
@@ -1599,9 +1684,11 @@ class AWSServiceCatalogListProvisionedProductPlansCommand() : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.ListProvisionedProductPlansResult {
 	  return com.amazonaws.services.servicecatalog.model.ListProvisionedProductPlansResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.ListProvisionedProductPlansResult {
 		return environment.servicecatalog.listProvisionedProductPlans(build())
@@ -1635,9 +1722,11 @@ class AWSServiceCatalogListProvisioningArtifactsCommand(val productId: String) :
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.ListProvisioningArtifactsResult {
 	  return com.amazonaws.services.servicecatalog.model.ListProvisioningArtifactsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.ListProvisioningArtifactsResult {
 		return environment.servicecatalog.listProvisioningArtifacts(build())
@@ -1675,9 +1764,11 @@ class AWSServiceCatalogListRecordHistoryCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.ListRecordHistoryResult {
 	  return com.amazonaws.services.servicecatalog.model.ListRecordHistoryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.ListRecordHistoryResult {
 		return environment.servicecatalog.listRecordHistory(build())
@@ -1715,9 +1806,11 @@ class AWSServiceCatalogListResourcesForTagOptionCommand(val tagOptionId: String)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.ListResourcesForTagOptionResult {
 	  return com.amazonaws.services.servicecatalog.model.ListResourcesForTagOptionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.ListResourcesForTagOptionResult {
 		return environment.servicecatalog.listResourcesForTagOption(build())
@@ -1753,9 +1846,11 @@ class AWSServiceCatalogListTagOptionsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.ListTagOptionsResult {
 	  return com.amazonaws.services.servicecatalog.model.ListTagOptionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.ListTagOptionsResult {
 		return environment.servicecatalog.listTagOptions(build())
@@ -1798,9 +1893,11 @@ class AWSServiceCatalogProvisionProductCommand(val productId: String, val provis
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.ProvisionProductResult {
 	  return com.amazonaws.services.servicecatalog.model.ProvisionProductResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.ProvisionProductResult {
 		return environment.servicecatalog.provisionProduct(build())
@@ -1838,9 +1935,11 @@ class AWSServiceCatalogRejectPortfolioShareCommand(val portfolioId: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.RejectPortfolioShareResult {
 	  return com.amazonaws.services.servicecatalog.model.RejectPortfolioShareResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.RejectPortfolioShareResult {
 		return environment.servicecatalog.rejectPortfolioShare(build())
@@ -1876,9 +1975,11 @@ class AWSServiceCatalogScanProvisionedProductsCommand() : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.ScanProvisionedProductsResult {
 	  return com.amazonaws.services.servicecatalog.model.ScanProvisionedProductsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.ScanProvisionedProductsResult {
 		return environment.servicecatalog.scanProvisionedProducts(build())
@@ -1920,9 +2021,11 @@ class AWSServiceCatalogSearchProductsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.SearchProductsResult {
 	  return com.amazonaws.services.servicecatalog.model.SearchProductsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.SearchProductsResult {
 		return environment.servicecatalog.searchProducts(build())
@@ -1970,9 +2073,11 @@ class AWSServiceCatalogSearchProductsAsAdminCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.SearchProductsAsAdminResult {
 	  return com.amazonaws.services.servicecatalog.model.SearchProductsAsAdminResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.SearchProductsAsAdminResult {
 		return environment.servicecatalog.searchProductsAsAdmin(build())
@@ -2020,9 +2125,11 @@ class AWSServiceCatalogSearchProvisionedProductsCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.SearchProvisionedProductsResult {
 	  return com.amazonaws.services.servicecatalog.model.SearchProvisionedProductsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.SearchProvisionedProductsResult {
 		return environment.servicecatalog.searchProvisionedProducts(build())
@@ -2064,9 +2171,11 @@ class AWSServiceCatalogTerminateProvisionedProductCommand(val terminateToken: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.TerminateProvisionedProductResult {
 	  return com.amazonaws.services.servicecatalog.model.TerminateProvisionedProductResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.TerminateProvisionedProductResult {
 		return environment.servicecatalog.terminateProvisionedProduct(build())
@@ -2102,9 +2211,11 @@ class AWSServiceCatalogUpdateConstraintCommand(val id: String) : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.UpdateConstraintResult {
 	  return com.amazonaws.services.servicecatalog.model.UpdateConstraintResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.UpdateConstraintResult {
 		return environment.servicecatalog.updateConstraint(build())
@@ -2146,9 +2257,11 @@ class AWSServiceCatalogUpdatePortfolioCommand(val id: String) : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.UpdatePortfolioResult {
 	  return com.amazonaws.services.servicecatalog.model.UpdatePortfolioResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.UpdatePortfolioResult {
 		return environment.servicecatalog.updatePortfolio(build())
@@ -2202,9 +2315,11 @@ class AWSServiceCatalogUpdateProductCommand(val id: String) : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.UpdateProductResult {
 	  return com.amazonaws.services.servicecatalog.model.UpdateProductResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.UpdateProductResult {
 		return environment.servicecatalog.updateProduct(build())
@@ -2256,9 +2371,11 @@ class AWSServiceCatalogUpdateProvisionedProductCommand(val updateToken: String) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.UpdateProvisionedProductResult {
 	  return com.amazonaws.services.servicecatalog.model.UpdateProvisionedProductResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.UpdateProvisionedProductResult {
 		return environment.servicecatalog.updateProvisionedProduct(build())
@@ -2302,9 +2419,11 @@ class AWSServiceCatalogUpdateProvisioningArtifactCommand(val productId: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.UpdateProvisioningArtifactResult {
 	  return com.amazonaws.services.servicecatalog.model.UpdateProvisioningArtifactResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.UpdateProvisioningArtifactResult {
 		return environment.servicecatalog.updateProvisioningArtifact(build())
@@ -2341,9 +2460,11 @@ class AWSServiceCatalogUpdateTagOptionCommand(val id: String) : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicecatalog.model.UpdateTagOptionResult {
 	  return com.amazonaws.services.servicecatalog.model.UpdateTagOptionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.UpdateTagOptionResult {
 		return environment.servicecatalog.updateTagOption(build())

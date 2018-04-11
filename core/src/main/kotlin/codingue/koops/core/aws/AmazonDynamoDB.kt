@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -42,9 +43,11 @@ class AmazonDynamoDBBatchGetItemCommand(val requestItems: Map<String, com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.BatchGetItemResult {
 	  return com.amazonaws.services.dynamodbv2.model.BatchGetItemResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.BatchGetItemResult {
 		return environment.dynamodb.batchGetItem(build())
@@ -77,9 +80,11 @@ class AmazonDynamoDBBatchWriteItemCommand(val requestItems: Map<String, List<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.BatchWriteItemResult {
 	  return com.amazonaws.services.dynamodbv2.model.BatchWriteItemResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.BatchWriteItemResult {
 		return environment.dynamodb.batchWriteItem(build())
@@ -111,9 +116,11 @@ class AmazonDynamoDBCreateBackupCommand(val tableName: String, val backupName: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.CreateBackupResult {
 	  return com.amazonaws.services.dynamodbv2.model.CreateBackupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.CreateBackupResult {
 		return environment.dynamodb.createBackup(build())
@@ -144,9 +151,11 @@ class AmazonDynamoDBCreateGlobalTableCommand(val globalTableName: String, val re
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.CreateGlobalTableResult {
 	  return com.amazonaws.services.dynamodbv2.model.CreateGlobalTableResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.CreateGlobalTableResult {
 		return environment.dynamodb.createGlobalTable(build())
@@ -186,9 +195,11 @@ class AmazonDynamoDBCreateTableCommand(val attributeDefinitions: List<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.CreateTableResult {
 	  return com.amazonaws.services.dynamodbv2.model.CreateTableResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.CreateTableResult {
 		return environment.dynamodb.createTable(build())
@@ -224,9 +235,11 @@ class AmazonDynamoDBDeleteBackupCommand(val backupArn: String) : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.DeleteBackupResult {
 	  return com.amazonaws.services.dynamodbv2.model.DeleteBackupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.DeleteBackupResult {
 		return environment.dynamodb.deleteBackup(build())
@@ -271,9 +284,11 @@ class AmazonDynamoDBDeleteItemCommand(val tableName: String, val key: Map<String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.DeleteItemResult {
 	  return com.amazonaws.services.dynamodbv2.model.DeleteItemResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.DeleteItemResult {
 		return environment.dynamodb.deleteItem(build())
@@ -311,9 +326,11 @@ class AmazonDynamoDBDeleteTableCommand(val tableName: String) : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.DeleteTableResult {
 	  return com.amazonaws.services.dynamodbv2.model.DeleteTableResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.DeleteTableResult {
 		return environment.dynamodb.deleteTable(build())
@@ -342,9 +359,11 @@ class AmazonDynamoDBDescribeBackupCommand(val backupArn: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.DescribeBackupResult {
 	  return com.amazonaws.services.dynamodbv2.model.DescribeBackupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.DescribeBackupResult {
 		return environment.dynamodb.describeBackup(build())
@@ -373,9 +392,11 @@ class AmazonDynamoDBDescribeContinuousBackupsCommand(val tableName: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.DescribeContinuousBackupsResult {
 	  return com.amazonaws.services.dynamodbv2.model.DescribeContinuousBackupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.DescribeContinuousBackupsResult {
 		return environment.dynamodb.describeContinuousBackups(build())
@@ -404,9 +425,11 @@ class AmazonDynamoDBDescribeGlobalTableCommand(val globalTableName: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.DescribeGlobalTableResult {
 	  return com.amazonaws.services.dynamodbv2.model.DescribeGlobalTableResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.DescribeGlobalTableResult {
 		return environment.dynamodb.describeGlobalTable(build())
@@ -435,9 +458,11 @@ class AmazonDynamoDBDescribeLimitsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.DescribeLimitsResult {
 	  return com.amazonaws.services.dynamodbv2.model.DescribeLimitsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.DescribeLimitsResult {
 		return environment.dynamodb.describeLimits(build())
@@ -466,9 +491,11 @@ class AmazonDynamoDBDescribeTableCommand(val tableName: String) : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.DescribeTableResult {
 	  return com.amazonaws.services.dynamodbv2.model.DescribeTableResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.DescribeTableResult {
 		return environment.dynamodb.describeTable(build())
@@ -497,9 +524,11 @@ class AmazonDynamoDBDescribeTimeToLiveCommand(val tableName: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.DescribeTimeToLiveResult {
 	  return com.amazonaws.services.dynamodbv2.model.DescribeTimeToLiveResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.DescribeTimeToLiveResult {
 		return environment.dynamodb.describeTimeToLive(build())
@@ -538,9 +567,11 @@ class AmazonDynamoDBGetItemCommand(val tableName: String, val key: Map<String, c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.GetItemResult {
 	  return com.amazonaws.services.dynamodbv2.model.GetItemResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.GetItemResult {
 		return environment.dynamodb.getItem(build())
@@ -583,9 +614,11 @@ class AmazonDynamoDBListBackupsCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.ListBackupsResult {
 	  return com.amazonaws.services.dynamodbv2.model.ListBackupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.ListBackupsResult {
 		return environment.dynamodb.listBackups(build())
@@ -622,9 +655,11 @@ class AmazonDynamoDBListGlobalTablesCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.ListGlobalTablesResult {
 	  return com.amazonaws.services.dynamodbv2.model.ListGlobalTablesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.ListGlobalTablesResult {
 		return environment.dynamodb.listGlobalTables(build())
@@ -657,9 +692,11 @@ class AmazonDynamoDBListTablesCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.ListTablesResult {
 	  return com.amazonaws.services.dynamodbv2.model.ListTablesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.ListTablesResult {
 		return environment.dynamodb.listTables(build())
@@ -690,9 +727,11 @@ class AmazonDynamoDBListTagsOfResourceCommand(val resourceArn: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.ListTagsOfResourceResult {
 	  return com.amazonaws.services.dynamodbv2.model.ListTagsOfResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.ListTagsOfResourceResult {
 		return environment.dynamodb.listTagsOfResource(build())
@@ -738,9 +777,11 @@ class AmazonDynamoDBPutItemCommand(val tableName: String, val item: Map<String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.PutItemResult {
 	  return com.amazonaws.services.dynamodbv2.model.PutItemResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.PutItemResult {
 		return environment.dynamodb.putItem(build())
@@ -809,9 +850,11 @@ class AmazonDynamoDBQueryCommand(val tableName: String) : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.QueryResult {
 	  return com.amazonaws.services.dynamodbv2.model.QueryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.QueryResult {
 		return environment.dynamodb.query(build())
@@ -857,9 +900,11 @@ class AmazonDynamoDBRestoreTableFromBackupCommand(val targetTableName: String, v
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.RestoreTableFromBackupResult {
 	  return com.amazonaws.services.dynamodbv2.model.RestoreTableFromBackupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.RestoreTableFromBackupResult {
 		return environment.dynamodb.restoreTableFromBackup(build())
@@ -893,9 +938,11 @@ class AmazonDynamoDBRestoreTableToPointInTimeCommand(val sourceTableName: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.RestoreTableToPointInTimeResult {
 	  return com.amazonaws.services.dynamodbv2.model.RestoreTableToPointInTimeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.RestoreTableToPointInTimeResult {
 		return environment.dynamodb.restoreTableToPointInTime(build())
@@ -956,9 +1003,11 @@ class AmazonDynamoDBScanCommand(val tableName: String) : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.ScanResult {
 	  return com.amazonaws.services.dynamodbv2.model.ScanResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.ScanResult {
 		return environment.dynamodb.scan(build())
@@ -1003,9 +1052,11 @@ class AmazonDynamoDBTagResourceCommand(val resourceArn: String, val tags: List<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.TagResourceResult {
 	  return com.amazonaws.services.dynamodbv2.model.TagResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.TagResourceResult {
 		return environment.dynamodb.tagResource(build())
@@ -1036,9 +1087,11 @@ class AmazonDynamoDBUntagResourceCommand(val resourceArn: String, val tagKeys: L
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.UntagResourceResult {
 	  return com.amazonaws.services.dynamodbv2.model.UntagResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.UntagResourceResult {
 		return environment.dynamodb.untagResource(build())
@@ -1069,9 +1122,11 @@ class AmazonDynamoDBUpdateContinuousBackupsCommand(val tableName: String, val po
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.UpdateContinuousBackupsResult {
 	  return com.amazonaws.services.dynamodbv2.model.UpdateContinuousBackupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.UpdateContinuousBackupsResult {
 		return environment.dynamodb.updateContinuousBackups(build())
@@ -1102,9 +1157,11 @@ class AmazonDynamoDBUpdateGlobalTableCommand(val globalTableName: String, val re
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.UpdateGlobalTableResult {
 	  return com.amazonaws.services.dynamodbv2.model.UpdateGlobalTableResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.UpdateGlobalTableResult {
 		return environment.dynamodb.updateGlobalTable(build())
@@ -1154,9 +1211,11 @@ class AmazonDynamoDBUpdateItemCommand(val tableName: String, val key: Map<String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.UpdateItemResult {
 	  return com.amazonaws.services.dynamodbv2.model.UpdateItemResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.UpdateItemResult {
 		return environment.dynamodb.updateItem(build())
@@ -1203,9 +1262,11 @@ class AmazonDynamoDBUpdateTableCommand(val tableName: String) : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.UpdateTableResult {
 	  return com.amazonaws.services.dynamodbv2.model.UpdateTableResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.UpdateTableResult {
 		return environment.dynamodb.updateTable(build())
@@ -1239,9 +1300,11 @@ class AmazonDynamoDBUpdateTimeToLiveCommand(val tableName: String, val timeToLiv
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.UpdateTimeToLiveResult {
 	  return com.amazonaws.services.dynamodbv2.model.UpdateTimeToLiveResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.UpdateTimeToLiveResult {
 		return environment.dynamodb.updateTimeToLive(build())

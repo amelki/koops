@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -43,9 +44,11 @@ class AmazonKinesisAnalyticsAddApplicationCloudWatchLoggingOptionCommand(val app
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.AddApplicationCloudWatchLoggingOptionResult {
 	  return com.amazonaws.services.kinesisanalytics.model.AddApplicationCloudWatchLoggingOptionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.AddApplicationCloudWatchLoggingOptionResult {
 		return environment.kinesisanalytics.addApplicationCloudWatchLoggingOption(build())
@@ -78,9 +81,11 @@ class AmazonKinesisAnalyticsAddApplicationInputCommand(val applicationName: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.AddApplicationInputResult {
 	  return com.amazonaws.services.kinesisanalytics.model.AddApplicationInputResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.AddApplicationInputResult {
 		return environment.kinesisanalytics.addApplicationInput(build())
@@ -114,9 +119,11 @@ class AmazonKinesisAnalyticsAddApplicationInputProcessingConfigurationCommand(va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.AddApplicationInputProcessingConfigurationResult {
 	  return com.amazonaws.services.kinesisanalytics.model.AddApplicationInputProcessingConfigurationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.AddApplicationInputProcessingConfigurationResult {
 		return environment.kinesisanalytics.addApplicationInputProcessingConfiguration(build())
@@ -150,9 +157,11 @@ class AmazonKinesisAnalyticsAddApplicationOutputCommand(val applicationName: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.AddApplicationOutputResult {
 	  return com.amazonaws.services.kinesisanalytics.model.AddApplicationOutputResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.AddApplicationOutputResult {
 		return environment.kinesisanalytics.addApplicationOutput(build())
@@ -185,9 +194,11 @@ class AmazonKinesisAnalyticsAddApplicationReferenceDataSourceCommand(val applica
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.AddApplicationReferenceDataSourceResult {
 	  return com.amazonaws.services.kinesisanalytics.model.AddApplicationReferenceDataSourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.AddApplicationReferenceDataSourceResult {
 		return environment.kinesisanalytics.addApplicationReferenceDataSource(build())
@@ -227,9 +238,11 @@ class AmazonKinesisAnalyticsCreateApplicationCommand(val applicationName: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.CreateApplicationResult {
 	  return com.amazonaws.services.kinesisanalytics.model.CreateApplicationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.CreateApplicationResult {
 		return environment.kinesisanalytics.createApplication(build())
@@ -264,9 +277,11 @@ class AmazonKinesisAnalyticsDeleteApplicationCommand(val applicationName: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.DeleteApplicationResult {
 	  return com.amazonaws.services.kinesisanalytics.model.DeleteApplicationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.DeleteApplicationResult {
 		return environment.kinesisanalytics.deleteApplication(build())
@@ -298,9 +313,11 @@ class AmazonKinesisAnalyticsDeleteApplicationCloudWatchLoggingOptionCommand(val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.DeleteApplicationCloudWatchLoggingOptionResult {
 	  return com.amazonaws.services.kinesisanalytics.model.DeleteApplicationCloudWatchLoggingOptionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.DeleteApplicationCloudWatchLoggingOptionResult {
 		return environment.kinesisanalytics.deleteApplicationCloudWatchLoggingOption(build())
@@ -333,9 +350,11 @@ class AmazonKinesisAnalyticsDeleteApplicationInputProcessingConfigurationCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.DeleteApplicationInputProcessingConfigurationResult {
 	  return com.amazonaws.services.kinesisanalytics.model.DeleteApplicationInputProcessingConfigurationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.DeleteApplicationInputProcessingConfigurationResult {
 		return environment.kinesisanalytics.deleteApplicationInputProcessingConfiguration(build())
@@ -368,9 +387,11 @@ class AmazonKinesisAnalyticsDeleteApplicationOutputCommand(val applicationName: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.DeleteApplicationOutputResult {
 	  return com.amazonaws.services.kinesisanalytics.model.DeleteApplicationOutputResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.DeleteApplicationOutputResult {
 		return environment.kinesisanalytics.deleteApplicationOutput(build())
@@ -403,9 +424,11 @@ class AmazonKinesisAnalyticsDeleteApplicationReferenceDataSourceCommand(val appl
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.DeleteApplicationReferenceDataSourceResult {
 	  return com.amazonaws.services.kinesisanalytics.model.DeleteApplicationReferenceDataSourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.DeleteApplicationReferenceDataSourceResult {
 		return environment.kinesisanalytics.deleteApplicationReferenceDataSource(build())
@@ -436,9 +459,11 @@ class AmazonKinesisAnalyticsDescribeApplicationCommand(val applicationName: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.DescribeApplicationResult {
 	  return com.amazonaws.services.kinesisanalytics.model.DescribeApplicationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.DescribeApplicationResult {
 		return environment.kinesisanalytics.describeApplication(build())
@@ -475,9 +500,11 @@ class AmazonKinesisAnalyticsDiscoverInputSchemaCommand() : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.DiscoverInputSchemaResult {
 	  return com.amazonaws.services.kinesisanalytics.model.DiscoverInputSchemaResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.DiscoverInputSchemaResult {
 		return environment.kinesisanalytics.discoverInputSchema(build())
@@ -512,9 +539,11 @@ class AmazonKinesisAnalyticsListApplicationsCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.ListApplicationsResult {
 	  return com.amazonaws.services.kinesisanalytics.model.ListApplicationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.ListApplicationsResult {
 		return environment.kinesisanalytics.listApplications(build())
@@ -545,9 +574,11 @@ class AmazonKinesisAnalyticsStartApplicationCommand(val applicationName: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.StartApplicationResult {
 	  return com.amazonaws.services.kinesisanalytics.model.StartApplicationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.StartApplicationResult {
 		return environment.kinesisanalytics.startApplication(build())
@@ -577,9 +608,11 @@ class AmazonKinesisAnalyticsStopApplicationCommand(val applicationName: String) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.StopApplicationResult {
 	  return com.amazonaws.services.kinesisanalytics.model.StopApplicationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.StopApplicationResult {
 		return environment.kinesisanalytics.stopApplication(build())
@@ -610,9 +643,11 @@ class AmazonKinesisAnalyticsUpdateApplicationCommand(val applicationName: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.UpdateApplicationResult {
 	  return com.amazonaws.services.kinesisanalytics.model.UpdateApplicationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.UpdateApplicationResult {
 		return environment.kinesisanalytics.updateApplication(build())

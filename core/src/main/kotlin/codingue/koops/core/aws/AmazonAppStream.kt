@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -42,9 +43,11 @@ class AmazonAppStreamAssociateFleetCommand(val fleetName: String, val stackName:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.AssociateFleetResult {
 	  return com.amazonaws.services.appstream.model.AssociateFleetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.AssociateFleetResult {
 		return environment.appstream.associateFleet(build())
@@ -77,9 +80,11 @@ class AmazonAppStreamCopyImageCommand(val sourceImageName: String, val destinati
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.CopyImageResult {
 	  return com.amazonaws.services.appstream.model.CopyImageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.CopyImageResult {
 		return environment.appstream.copyImage(build())
@@ -113,9 +118,11 @@ class AmazonAppStreamCreateDirectoryConfigCommand(val directoryName: String, val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.CreateDirectoryConfigResult {
 	  return com.amazonaws.services.appstream.model.CreateDirectoryConfigResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.CreateDirectoryConfigResult {
 		return environment.appstream.createDirectoryConfig(build())
@@ -164,9 +171,11 @@ class AmazonAppStreamCreateFleetCommand(val name: String, val imageName: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.CreateFleetResult {
 	  return com.amazonaws.services.appstream.model.CreateFleetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.CreateFleetResult {
 		return environment.appstream.createFleet(build())
@@ -219,9 +228,11 @@ class AmazonAppStreamCreateImageBuilderCommand(val name: String, val imageName: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.CreateImageBuilderResult {
 	  return com.amazonaws.services.appstream.model.CreateImageBuilderResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.CreateImageBuilderResult {
 		return environment.appstream.createImageBuilder(build())
@@ -259,9 +270,11 @@ class AmazonAppStreamCreateImageBuilderStreamingURLCommand(val name: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.CreateImageBuilderStreamingURLResult {
 	  return com.amazonaws.services.appstream.model.CreateImageBuilderStreamingURLResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.CreateImageBuilderStreamingURLResult {
 		return environment.appstream.createImageBuilderStreamingURL(build())
@@ -300,9 +313,11 @@ class AmazonAppStreamCreateStackCommand(val name: String) : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.CreateStackResult {
 	  return com.amazonaws.services.appstream.model.CreateStackResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.CreateStackResult {
 		return environment.appstream.createStack(build())
@@ -343,9 +358,11 @@ class AmazonAppStreamCreateStreamingURLCommand(val stackName: String, val fleetN
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.CreateStreamingURLResult {
 	  return com.amazonaws.services.appstream.model.CreateStreamingURLResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.CreateStreamingURLResult {
 		return environment.appstream.createStreamingURL(build())
@@ -379,9 +396,11 @@ class AmazonAppStreamDeleteDirectoryConfigCommand(val directoryName: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.DeleteDirectoryConfigResult {
 	  return com.amazonaws.services.appstream.model.DeleteDirectoryConfigResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.DeleteDirectoryConfigResult {
 		return environment.appstream.deleteDirectoryConfig(build())
@@ -410,9 +429,11 @@ class AmazonAppStreamDeleteFleetCommand(val name: String) : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.DeleteFleetResult {
 	  return com.amazonaws.services.appstream.model.DeleteFleetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.DeleteFleetResult {
 		return environment.appstream.deleteFleet(build())
@@ -441,9 +462,11 @@ class AmazonAppStreamDeleteImageCommand(val name: String) : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.DeleteImageResult {
 	  return com.amazonaws.services.appstream.model.DeleteImageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.DeleteImageResult {
 		return environment.appstream.deleteImage(build())
@@ -472,9 +495,11 @@ class AmazonAppStreamDeleteImageBuilderCommand(val name: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.DeleteImageBuilderResult {
 	  return com.amazonaws.services.appstream.model.DeleteImageBuilderResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.DeleteImageBuilderResult {
 		return environment.appstream.deleteImageBuilder(build())
@@ -503,9 +528,11 @@ class AmazonAppStreamDeleteStackCommand(val name: String) : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.DeleteStackResult {
 	  return com.amazonaws.services.appstream.model.DeleteStackResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.DeleteStackResult {
 		return environment.appstream.deleteStack(build())
@@ -538,9 +565,11 @@ class AmazonAppStreamDescribeDirectoryConfigsCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.DescribeDirectoryConfigsResult {
 	  return com.amazonaws.services.appstream.model.DescribeDirectoryConfigsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.DescribeDirectoryConfigsResult {
 		return environment.appstream.describeDirectoryConfigs(build())
@@ -573,9 +602,11 @@ class AmazonAppStreamDescribeFleetsCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.DescribeFleetsResult {
 	  return com.amazonaws.services.appstream.model.DescribeFleetsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.DescribeFleetsResult {
 		return environment.appstream.describeFleets(build())
@@ -609,9 +640,11 @@ class AmazonAppStreamDescribeImageBuildersCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.DescribeImageBuildersResult {
 	  return com.amazonaws.services.appstream.model.DescribeImageBuildersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.DescribeImageBuildersResult {
 		return environment.appstream.describeImageBuilders(build())
@@ -642,9 +675,11 @@ class AmazonAppStreamDescribeImagesCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.DescribeImagesResult {
 	  return com.amazonaws.services.appstream.model.DescribeImagesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.DescribeImagesResult {
 		return environment.appstream.describeImages(build())
@@ -681,9 +716,11 @@ class AmazonAppStreamDescribeSessionsCommand(val stackName: String, val fleetNam
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.DescribeSessionsResult {
 	  return com.amazonaws.services.appstream.model.DescribeSessionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.DescribeSessionsResult {
 		return environment.appstream.describeSessions(build())
@@ -719,9 +756,11 @@ class AmazonAppStreamDescribeStacksCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.DescribeStacksResult {
 	  return com.amazonaws.services.appstream.model.DescribeStacksResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.DescribeStacksResult {
 		return environment.appstream.describeStacks(build())
@@ -752,9 +791,11 @@ class AmazonAppStreamDisassociateFleetCommand(val fleetName: String, val stackNa
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.DisassociateFleetResult {
 	  return com.amazonaws.services.appstream.model.DisassociateFleetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.DisassociateFleetResult {
 		return environment.appstream.disassociateFleet(build())
@@ -784,9 +825,11 @@ class AmazonAppStreamExpireSessionCommand(val sessionId: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.ExpireSessionResult {
 	  return com.amazonaws.services.appstream.model.ExpireSessionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.ExpireSessionResult {
 		return environment.appstream.expireSession(build())
@@ -816,9 +859,11 @@ class AmazonAppStreamListAssociatedFleetsCommand(val stackName: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.ListAssociatedFleetsResult {
 	  return com.amazonaws.services.appstream.model.ListAssociatedFleetsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.ListAssociatedFleetsResult {
 		return environment.appstream.listAssociatedFleets(build())
@@ -849,9 +894,11 @@ class AmazonAppStreamListAssociatedStacksCommand(val fleetName: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.ListAssociatedStacksResult {
 	  return com.amazonaws.services.appstream.model.ListAssociatedStacksResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.ListAssociatedStacksResult {
 		return environment.appstream.listAssociatedStacks(build())
@@ -881,9 +928,11 @@ class AmazonAppStreamListTagsForResourceCommand(val resourceArn: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.ListTagsForResourceResult {
 	  return com.amazonaws.services.appstream.model.ListTagsForResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.ListTagsForResourceResult {
 		return environment.appstream.listTagsForResource(build())
@@ -912,9 +961,11 @@ class AmazonAppStreamStartFleetCommand(val name: String) : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.StartFleetResult {
 	  return com.amazonaws.services.appstream.model.StartFleetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.StartFleetResult {
 		return environment.appstream.startFleet(build())
@@ -944,9 +995,11 @@ class AmazonAppStreamStartImageBuilderCommand(val name: String) : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.StartImageBuilderResult {
 	  return com.amazonaws.services.appstream.model.StartImageBuilderResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.StartImageBuilderResult {
 		return environment.appstream.startImageBuilder(build())
@@ -976,9 +1029,11 @@ class AmazonAppStreamStopFleetCommand(val name: String) : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.StopFleetResult {
 	  return com.amazonaws.services.appstream.model.StopFleetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.StopFleetResult {
 		return environment.appstream.stopFleet(build())
@@ -1007,9 +1062,11 @@ class AmazonAppStreamStopImageBuilderCommand(val name: String) : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.StopImageBuilderResult {
 	  return com.amazonaws.services.appstream.model.StopImageBuilderResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.StopImageBuilderResult {
 		return environment.appstream.stopImageBuilder(build())
@@ -1039,9 +1096,11 @@ class AmazonAppStreamTagResourceCommand(val resourceArn: String, val tags: Map<S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.TagResourceResult {
 	  return com.amazonaws.services.appstream.model.TagResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.TagResourceResult {
 		return environment.appstream.tagResource(build())
@@ -1072,9 +1131,11 @@ class AmazonAppStreamUntagResourceCommand(val resourceArn: String, val tagKeys: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.UntagResourceResult {
 	  return com.amazonaws.services.appstream.model.UntagResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.UntagResourceResult {
 		return environment.appstream.untagResource(build())
@@ -1107,9 +1168,11 @@ class AmazonAppStreamUpdateDirectoryConfigCommand(val directoryName: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.UpdateDirectoryConfigResult {
 	  return com.amazonaws.services.appstream.model.UpdateDirectoryConfigResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.UpdateDirectoryConfigResult {
 		return environment.appstream.updateDirectoryConfig(build())
@@ -1163,9 +1226,11 @@ class AmazonAppStreamUpdateFleetCommand(val name: String) : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.UpdateFleetResult {
 	  return com.amazonaws.services.appstream.model.UpdateFleetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.UpdateFleetResult {
 		return environment.appstream.updateFleet(build())
@@ -1219,9 +1284,11 @@ class AmazonAppStreamUpdateStackCommand(val name: String) : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appstream.model.UpdateStackResult {
 	  return com.amazonaws.services.appstream.model.UpdateStackResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appstream.model.UpdateStackResult {
 		return environment.appstream.updateStack(build())

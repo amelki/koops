@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -42,9 +43,11 @@ class AWSXRayBatchGetTracesCommand(val traceIds: List<String>) : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.xray.model.BatchGetTracesResult {
 	  return com.amazonaws.services.xray.model.BatchGetTracesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.xray.model.BatchGetTracesResult {
 		return environment.xray.batchGetTraces(build())
@@ -76,9 +79,11 @@ class AWSXRayGetServiceGraphCommand(val startTime: java.util.Date, val endTime: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.xray.model.GetServiceGraphResult {
 	  return com.amazonaws.services.xray.model.GetServiceGraphResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.xray.model.GetServiceGraphResult {
 		return environment.xray.getServiceGraph(build())
@@ -110,9 +115,11 @@ class AWSXRayGetTraceGraphCommand(val traceIds: List<String>) : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.xray.model.GetTraceGraphResult {
 	  return com.amazonaws.services.xray.model.GetTraceGraphResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.xray.model.GetTraceGraphResult {
 		return environment.xray.getTraceGraph(build())
@@ -148,9 +155,11 @@ class AWSXRayGetTraceSummariesCommand(val startTime: java.util.Date, val endTime
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.xray.model.GetTraceSummariesResult {
 	  return com.amazonaws.services.xray.model.GetTraceSummariesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.xray.model.GetTraceSummariesResult {
 		return environment.xray.getTraceSummaries(build())
@@ -188,9 +197,11 @@ class AWSXRayPutTelemetryRecordsCommand(val telemetryRecords: List<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.xray.model.PutTelemetryRecordsResult {
 	  return com.amazonaws.services.xray.model.PutTelemetryRecordsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.xray.model.PutTelemetryRecordsResult {
 		return environment.xray.putTelemetryRecords(build())
@@ -222,9 +233,11 @@ class AWSXRayPutTraceSegmentsCommand(val traceSegmentDocuments: List<String>) : 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.xray.model.PutTraceSegmentsResult {
 	  return com.amazonaws.services.xray.model.PutTraceSegmentsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.xray.model.PutTraceSegmentsResult {
 		return environment.xray.putTraceSegments(build())

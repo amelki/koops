@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -49,9 +50,11 @@ class AWSStorageGatewayActivateGatewayCommand(val activationKey: String, val gat
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.ActivateGatewayResult {
 	  return com.amazonaws.services.storagegateway.model.ActivateGatewayResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.ActivateGatewayResult {
 		return environment.storagegateway.activateGateway(build())
@@ -87,9 +90,11 @@ class AWSStorageGatewayAddCacheCommand(val gatewayARN: String, val diskIds: List
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.AddCacheResult {
 	  return com.amazonaws.services.storagegateway.model.AddCacheResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.AddCacheResult {
 		return environment.storagegateway.addCache(build())
@@ -120,9 +125,11 @@ class AWSStorageGatewayAddTagsToResourceCommand(val resourceARN: String, val tag
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.AddTagsToResourceResult {
 	  return com.amazonaws.services.storagegateway.model.AddTagsToResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.AddTagsToResourceResult {
 		return environment.storagegateway.addTagsToResource(build())
@@ -153,9 +160,11 @@ class AWSStorageGatewayAddUploadBufferCommand(val gatewayARN: String, val diskId
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.AddUploadBufferResult {
 	  return com.amazonaws.services.storagegateway.model.AddUploadBufferResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.AddUploadBufferResult {
 		return environment.storagegateway.addUploadBuffer(build())
@@ -186,9 +195,11 @@ class AWSStorageGatewayAddWorkingStorageCommand(val gatewayARN: String, val disk
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.AddWorkingStorageResult {
 	  return com.amazonaws.services.storagegateway.model.AddWorkingStorageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.AddWorkingStorageResult {
 		return environment.storagegateway.addWorkingStorage(build())
@@ -219,9 +230,11 @@ class AWSStorageGatewayCancelArchivalCommand(val gatewayARN: String, val tapeARN
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.CancelArchivalResult {
 	  return com.amazonaws.services.storagegateway.model.CancelArchivalResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.CancelArchivalResult {
 		return environment.storagegateway.cancelArchival(build())
@@ -252,9 +265,11 @@ class AWSStorageGatewayCancelRetrievalCommand(val gatewayARN: String, val tapeAR
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.CancelRetrievalResult {
 	  return com.amazonaws.services.storagegateway.model.CancelRetrievalResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.CancelRetrievalResult {
 		return environment.storagegateway.cancelRetrieval(build())
@@ -291,9 +306,11 @@ class AWSStorageGatewayCreateCachediSCSIVolumeCommand(val gatewayARN: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.CreateCachediSCSIVolumeResult {
 	  return com.amazonaws.services.storagegateway.model.CreateCachediSCSIVolumeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.CreateCachediSCSIVolumeResult {
 		return environment.storagegateway.createCachediSCSIVolume(build())
@@ -350,9 +367,11 @@ class AWSStorageGatewayCreateNFSFileShareCommand(val clientToken: String, val ga
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.CreateNFSFileShareResult {
 	  return com.amazonaws.services.storagegateway.model.CreateNFSFileShareResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.CreateNFSFileShareResult {
 		return environment.storagegateway.createNFSFileShare(build())
@@ -395,9 +414,11 @@ class AWSStorageGatewayCreateSnapshotCommand(val volumeARN: String, val snapshot
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.CreateSnapshotResult {
 	  return com.amazonaws.services.storagegateway.model.CreateSnapshotResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.CreateSnapshotResult {
 		return environment.storagegateway.createSnapshot(build())
@@ -428,9 +449,11 @@ class AWSStorageGatewayCreateSnapshotFromVolumeRecoveryPointCommand(val volumeAR
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.CreateSnapshotFromVolumeRecoveryPointResult {
 	  return com.amazonaws.services.storagegateway.model.CreateSnapshotFromVolumeRecoveryPointResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.CreateSnapshotFromVolumeRecoveryPointResult {
 		return environment.storagegateway.createSnapshotFromVolumeRecoveryPoint(build())
@@ -465,9 +488,11 @@ class AWSStorageGatewayCreateStorediSCSIVolumeCommand(val gatewayARN: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.CreateStorediSCSIVolumeResult {
 	  return com.amazonaws.services.storagegateway.model.CreateStorediSCSIVolumeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.CreateStorediSCSIVolumeResult {
 		return environment.storagegateway.createStorediSCSIVolume(build())
@@ -503,9 +528,11 @@ class AWSStorageGatewayCreateTapeWithBarcodeCommand(val gatewayARN: String, val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.CreateTapeWithBarcodeResult {
 	  return com.amazonaws.services.storagegateway.model.CreateTapeWithBarcodeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.CreateTapeWithBarcodeResult {
 		return environment.storagegateway.createTapeWithBarcode(build())
@@ -540,9 +567,11 @@ class AWSStorageGatewayCreateTapesCommand(val gatewayARN: String, val tapeSizeIn
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.CreateTapesResult {
 	  return com.amazonaws.services.storagegateway.model.CreateTapesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.CreateTapesResult {
 		return environment.storagegateway.createTapes(build())
@@ -576,9 +605,11 @@ class AWSStorageGatewayDeleteBandwidthRateLimitCommand(val gatewayARN: String, v
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.DeleteBandwidthRateLimitResult {
 	  return com.amazonaws.services.storagegateway.model.DeleteBandwidthRateLimitResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DeleteBandwidthRateLimitResult {
 		return environment.storagegateway.deleteBandwidthRateLimit(build())
@@ -609,9 +640,11 @@ class AWSStorageGatewayDeleteChapCredentialsCommand(val targetARN: String, val i
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.DeleteChapCredentialsResult {
 	  return com.amazonaws.services.storagegateway.model.DeleteChapCredentialsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DeleteChapCredentialsResult {
 		return environment.storagegateway.deleteChapCredentials(build())
@@ -642,9 +675,11 @@ class AWSStorageGatewayDeleteFileShareCommand(val fileShareARN: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.DeleteFileShareResult {
 	  return com.amazonaws.services.storagegateway.model.DeleteFileShareResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DeleteFileShareResult {
 		return environment.storagegateway.deleteFileShare(build())
@@ -674,9 +709,11 @@ class AWSStorageGatewayDeleteGatewayCommand(val gatewayARN: String) : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.DeleteGatewayResult {
 	  return com.amazonaws.services.storagegateway.model.DeleteGatewayResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DeleteGatewayResult {
 		return environment.storagegateway.deleteGateway(build())
@@ -705,9 +742,11 @@ class AWSStorageGatewayDeleteSnapshotScheduleCommand(val volumeARN: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.DeleteSnapshotScheduleResult {
 	  return com.amazonaws.services.storagegateway.model.DeleteSnapshotScheduleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DeleteSnapshotScheduleResult {
 		return environment.storagegateway.deleteSnapshotSchedule(build())
@@ -737,9 +776,11 @@ class AWSStorageGatewayDeleteTapeCommand(val gatewayARN: String, val tapeARN: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.DeleteTapeResult {
 	  return com.amazonaws.services.storagegateway.model.DeleteTapeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DeleteTapeResult {
 		return environment.storagegateway.deleteTape(build())
@@ -769,9 +810,11 @@ class AWSStorageGatewayDeleteTapeArchiveCommand(val tapeARN: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.DeleteTapeArchiveResult {
 	  return com.amazonaws.services.storagegateway.model.DeleteTapeArchiveResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DeleteTapeArchiveResult {
 		return environment.storagegateway.deleteTapeArchive(build())
@@ -800,9 +843,11 @@ class AWSStorageGatewayDeleteVolumeCommand(val volumeARN: String) : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.DeleteVolumeResult {
 	  return com.amazonaws.services.storagegateway.model.DeleteVolumeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DeleteVolumeResult {
 		return environment.storagegateway.deleteVolume(build())
@@ -831,9 +876,11 @@ class AWSStorageGatewayDescribeBandwidthRateLimitCommand(val gatewayARN: String)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.DescribeBandwidthRateLimitResult {
 	  return com.amazonaws.services.storagegateway.model.DescribeBandwidthRateLimitResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DescribeBandwidthRateLimitResult {
 		return environment.storagegateway.describeBandwidthRateLimit(build())
@@ -862,9 +909,11 @@ class AWSStorageGatewayDescribeCacheCommand(val gatewayARN: String) : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.DescribeCacheResult {
 	  return com.amazonaws.services.storagegateway.model.DescribeCacheResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DescribeCacheResult {
 		return environment.storagegateway.describeCache(build())
@@ -893,9 +942,11 @@ class AWSStorageGatewayDescribeCachediSCSIVolumesCommand(val volumeARNs: List<St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.DescribeCachediSCSIVolumesResult {
 	  return com.amazonaws.services.storagegateway.model.DescribeCachediSCSIVolumesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DescribeCachediSCSIVolumesResult {
 		return environment.storagegateway.describeCachediSCSIVolumes(build())
@@ -924,9 +975,11 @@ class AWSStorageGatewayDescribeChapCredentialsCommand(val targetARN: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.DescribeChapCredentialsResult {
 	  return com.amazonaws.services.storagegateway.model.DescribeChapCredentialsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DescribeChapCredentialsResult {
 		return environment.storagegateway.describeChapCredentials(build())
@@ -955,9 +1008,11 @@ class AWSStorageGatewayDescribeGatewayInformationCommand(val gatewayARN: String)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.DescribeGatewayInformationResult {
 	  return com.amazonaws.services.storagegateway.model.DescribeGatewayInformationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DescribeGatewayInformationResult {
 		return environment.storagegateway.describeGatewayInformation(build())
@@ -986,9 +1041,11 @@ class AWSStorageGatewayDescribeMaintenanceStartTimeCommand(val gatewayARN: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.DescribeMaintenanceStartTimeResult {
 	  return com.amazonaws.services.storagegateway.model.DescribeMaintenanceStartTimeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DescribeMaintenanceStartTimeResult {
 		return environment.storagegateway.describeMaintenanceStartTime(build())
@@ -1017,9 +1074,11 @@ class AWSStorageGatewayDescribeNFSFileSharesCommand(val fileShareARNList: List<S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.DescribeNFSFileSharesResult {
 	  return com.amazonaws.services.storagegateway.model.DescribeNFSFileSharesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DescribeNFSFileSharesResult {
 		return environment.storagegateway.describeNFSFileShares(build())
@@ -1048,9 +1107,11 @@ class AWSStorageGatewayDescribeSnapshotScheduleCommand(val volumeARN: String) : 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.DescribeSnapshotScheduleResult {
 	  return com.amazonaws.services.storagegateway.model.DescribeSnapshotScheduleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DescribeSnapshotScheduleResult {
 		return environment.storagegateway.describeSnapshotSchedule(build())
@@ -1079,9 +1140,11 @@ class AWSStorageGatewayDescribeStorediSCSIVolumesCommand(val volumeARNs: List<St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.DescribeStorediSCSIVolumesResult {
 	  return com.amazonaws.services.storagegateway.model.DescribeStorediSCSIVolumesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DescribeStorediSCSIVolumesResult {
 		return environment.storagegateway.describeStorediSCSIVolumes(build())
@@ -1114,9 +1177,11 @@ class AWSStorageGatewayDescribeTapeArchivesCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.DescribeTapeArchivesResult {
 	  return com.amazonaws.services.storagegateway.model.DescribeTapeArchivesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DescribeTapeArchivesResult {
 		return environment.storagegateway.describeTapeArchives(build())
@@ -1150,9 +1215,11 @@ class AWSStorageGatewayDescribeTapeRecoveryPointsCommand(val gatewayARN: String)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.DescribeTapeRecoveryPointsResult {
 	  return com.amazonaws.services.storagegateway.model.DescribeTapeRecoveryPointsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DescribeTapeRecoveryPointsResult {
 		return environment.storagegateway.describeTapeRecoveryPoints(build())
@@ -1188,9 +1255,11 @@ class AWSStorageGatewayDescribeTapesCommand(val gatewayARN: String) : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.DescribeTapesResult {
 	  return com.amazonaws.services.storagegateway.model.DescribeTapesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DescribeTapesResult {
 		return environment.storagegateway.describeTapes(build())
@@ -1222,9 +1291,11 @@ class AWSStorageGatewayDescribeUploadBufferCommand(val gatewayARN: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.DescribeUploadBufferResult {
 	  return com.amazonaws.services.storagegateway.model.DescribeUploadBufferResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DescribeUploadBufferResult {
 		return environment.storagegateway.describeUploadBuffer(build())
@@ -1258,9 +1329,11 @@ class AWSStorageGatewayDescribeVTLDevicesCommand(val gatewayARN: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.DescribeVTLDevicesResult {
 	  return com.amazonaws.services.storagegateway.model.DescribeVTLDevicesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DescribeVTLDevicesResult {
 		return environment.storagegateway.describeVTLDevices(build())
@@ -1292,9 +1365,11 @@ class AWSStorageGatewayDescribeWorkingStorageCommand(val gatewayARN: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.DescribeWorkingStorageResult {
 	  return com.amazonaws.services.storagegateway.model.DescribeWorkingStorageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DescribeWorkingStorageResult {
 		return environment.storagegateway.describeWorkingStorage(build())
@@ -1323,9 +1398,11 @@ class AWSStorageGatewayDisableGatewayCommand(val gatewayARN: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.DisableGatewayResult {
 	  return com.amazonaws.services.storagegateway.model.DisableGatewayResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DisableGatewayResult {
 		return environment.storagegateway.disableGateway(build())
@@ -1358,9 +1435,11 @@ class AWSStorageGatewayListFileSharesCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.ListFileSharesResult {
 	  return com.amazonaws.services.storagegateway.model.ListFileSharesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.ListFileSharesResult {
 		return environment.storagegateway.listFileShares(build())
@@ -1393,9 +1472,11 @@ class AWSStorageGatewayListGatewaysCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.ListGatewaysResult {
 	  return com.amazonaws.services.storagegateway.model.ListGatewaysResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.ListGatewaysResult {
 		return environment.storagegateway.listGateways(build())
@@ -1425,9 +1506,11 @@ class AWSStorageGatewayListLocalDisksCommand(val gatewayARN: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.ListLocalDisksResult {
 	  return com.amazonaws.services.storagegateway.model.ListLocalDisksResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.ListLocalDisksResult {
 		return environment.storagegateway.listLocalDisks(build())
@@ -1459,9 +1542,11 @@ class AWSStorageGatewayListTagsForResourceCommand(val resourceARN: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.ListTagsForResourceResult {
 	  return com.amazonaws.services.storagegateway.model.ListTagsForResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.ListTagsForResourceResult {
 		return environment.storagegateway.listTagsForResource(build())
@@ -1496,9 +1581,11 @@ class AWSStorageGatewayListTapesCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.ListTapesResult {
 	  return com.amazonaws.services.storagegateway.model.ListTapesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.ListTapesResult {
 		return environment.storagegateway.listTapes(build())
@@ -1529,9 +1616,11 @@ class AWSStorageGatewayListVolumeInitiatorsCommand(val volumeARN: String) : Amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.ListVolumeInitiatorsResult {
 	  return com.amazonaws.services.storagegateway.model.ListVolumeInitiatorsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.ListVolumeInitiatorsResult {
 		return environment.storagegateway.listVolumeInitiators(build())
@@ -1560,9 +1649,11 @@ class AWSStorageGatewayListVolumeRecoveryPointsCommand(val gatewayARN: String) :
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.ListVolumeRecoveryPointsResult {
 	  return com.amazonaws.services.storagegateway.model.ListVolumeRecoveryPointsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.ListVolumeRecoveryPointsResult {
 		return environment.storagegateway.listVolumeRecoveryPoints(build())
@@ -1595,9 +1686,11 @@ class AWSStorageGatewayListVolumesCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.ListVolumesResult {
 	  return com.amazonaws.services.storagegateway.model.ListVolumesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.ListVolumesResult {
 		return environment.storagegateway.listVolumes(build())
@@ -1628,9 +1721,11 @@ class AWSStorageGatewayNotifyWhenUploadedCommand(val fileShareARN: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.NotifyWhenUploadedResult {
 	  return com.amazonaws.services.storagegateway.model.NotifyWhenUploadedResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.NotifyWhenUploadedResult {
 		return environment.storagegateway.notifyWhenUploaded(build())
@@ -1659,9 +1754,11 @@ class AWSStorageGatewayRefreshCacheCommand(val fileShareARN: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.RefreshCacheResult {
 	  return com.amazonaws.services.storagegateway.model.RefreshCacheResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.RefreshCacheResult {
 		return environment.storagegateway.refreshCache(build())
@@ -1691,9 +1788,11 @@ class AWSStorageGatewayRemoveTagsFromResourceCommand(val resourceARN: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.RemoveTagsFromResourceResult {
 	  return com.amazonaws.services.storagegateway.model.RemoveTagsFromResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.RemoveTagsFromResourceResult {
 		return environment.storagegateway.removeTagsFromResource(build())
@@ -1723,9 +1822,11 @@ class AWSStorageGatewayResetCacheCommand(val gatewayARN: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.ResetCacheResult {
 	  return com.amazonaws.services.storagegateway.model.ResetCacheResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.ResetCacheResult {
 		return environment.storagegateway.resetCache(build())
@@ -1755,9 +1856,11 @@ class AWSStorageGatewayRetrieveTapeArchiveCommand(val tapeARN: String, val gatew
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.RetrieveTapeArchiveResult {
 	  return com.amazonaws.services.storagegateway.model.RetrieveTapeArchiveResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.RetrieveTapeArchiveResult {
 		return environment.storagegateway.retrieveTapeArchive(build())
@@ -1788,9 +1891,11 @@ class AWSStorageGatewayRetrieveTapeRecoveryPointCommand(val tapeARN: String, val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.RetrieveTapeRecoveryPointResult {
 	  return com.amazonaws.services.storagegateway.model.RetrieveTapeRecoveryPointResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.RetrieveTapeRecoveryPointResult {
 		return environment.storagegateway.retrieveTapeRecoveryPoint(build())
@@ -1821,9 +1926,11 @@ class AWSStorageGatewaySetLocalConsolePasswordCommand(val gatewayARN: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.SetLocalConsolePasswordResult {
 	  return com.amazonaws.services.storagegateway.model.SetLocalConsolePasswordResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.SetLocalConsolePasswordResult {
 		return environment.storagegateway.setLocalConsolePassword(build())
@@ -1853,9 +1960,11 @@ class AWSStorageGatewayShutdownGatewayCommand(val gatewayARN: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.ShutdownGatewayResult {
 	  return com.amazonaws.services.storagegateway.model.ShutdownGatewayResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.ShutdownGatewayResult {
 		return environment.storagegateway.shutdownGateway(build())
@@ -1884,9 +1993,11 @@ class AWSStorageGatewayStartGatewayCommand(val gatewayARN: String) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.StartGatewayResult {
 	  return com.amazonaws.services.storagegateway.model.StartGatewayResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.StartGatewayResult {
 		return environment.storagegateway.startGateway(build())
@@ -1918,9 +2029,11 @@ class AWSStorageGatewayUpdateBandwidthRateLimitCommand(val gatewayARN: String) :
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.UpdateBandwidthRateLimitResult {
 	  return com.amazonaws.services.storagegateway.model.UpdateBandwidthRateLimitResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.UpdateBandwidthRateLimitResult {
 		return environment.storagegateway.updateBandwidthRateLimit(build())
@@ -1954,9 +2067,11 @@ class AWSStorageGatewayUpdateChapCredentialsCommand(val targetARN: String, val s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.UpdateChapCredentialsResult {
 	  return com.amazonaws.services.storagegateway.model.UpdateChapCredentialsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.UpdateChapCredentialsResult {
 		return environment.storagegateway.updateChapCredentials(build())
@@ -1991,9 +2106,11 @@ class AWSStorageGatewayUpdateGatewayInformationCommand(val gatewayARN: String) :
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.UpdateGatewayInformationResult {
 	  return com.amazonaws.services.storagegateway.model.UpdateGatewayInformationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.UpdateGatewayInformationResult {
 		return environment.storagegateway.updateGatewayInformation(build())
@@ -2024,9 +2141,11 @@ class AWSStorageGatewayUpdateGatewaySoftwareNowCommand(val gatewayARN: String) :
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.UpdateGatewaySoftwareNowResult {
 	  return com.amazonaws.services.storagegateway.model.UpdateGatewaySoftwareNowResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.UpdateGatewaySoftwareNowResult {
 		return environment.storagegateway.updateGatewaySoftwareNow(build())
@@ -2058,9 +2177,11 @@ class AWSStorageGatewayUpdateMaintenanceStartTimeCommand(val gatewayARN: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.UpdateMaintenanceStartTimeResult {
 	  return com.amazonaws.services.storagegateway.model.UpdateMaintenanceStartTimeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.UpdateMaintenanceStartTimeResult {
 		return environment.storagegateway.updateMaintenanceStartTime(build())
@@ -2111,9 +2232,11 @@ class AWSStorageGatewayUpdateNFSFileShareCommand(val fileShareARN: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.UpdateNFSFileShareResult {
 	  return com.amazonaws.services.storagegateway.model.UpdateNFSFileShareResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.UpdateNFSFileShareResult {
 		return environment.storagegateway.updateNFSFileShare(build())
@@ -2155,9 +2278,11 @@ class AWSStorageGatewayUpdateSnapshotScheduleCommand(val volumeARN: String, val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.UpdateSnapshotScheduleResult {
 	  return com.amazonaws.services.storagegateway.model.UpdateSnapshotScheduleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.UpdateSnapshotScheduleResult {
 		return environment.storagegateway.updateSnapshotSchedule(build())
@@ -2190,9 +2315,11 @@ class AWSStorageGatewayUpdateVTLDeviceTypeCommand(val vTLDeviceARN: String, val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.storagegateway.model.UpdateVTLDeviceTypeResult {
 	  return com.amazonaws.services.storagegateway.model.UpdateVTLDeviceTypeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.UpdateVTLDeviceTypeResult {
 		return environment.storagegateway.updateVTLDeviceType(build())

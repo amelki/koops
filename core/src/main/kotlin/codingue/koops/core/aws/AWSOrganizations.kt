@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -41,9 +42,11 @@ class AWSOrganizationsAcceptHandshakeCommand(val handshakeId: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.AcceptHandshakeResult {
 	  return com.amazonaws.services.organizations.model.AcceptHandshakeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.AcceptHandshakeResult {
 		return environment.organizations.acceptHandshake(build())
@@ -73,9 +76,11 @@ class AWSOrganizationsAttachPolicyCommand(val policyId: String, val targetId: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.AttachPolicyResult {
 	  return com.amazonaws.services.organizations.model.AttachPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.AttachPolicyResult {
 		return environment.organizations.attachPolicy(build())
@@ -105,9 +110,11 @@ class AWSOrganizationsCancelHandshakeCommand(val handshakeId: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.CancelHandshakeResult {
 	  return com.amazonaws.services.organizations.model.CancelHandshakeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.CancelHandshakeResult {
 		return environment.organizations.cancelHandshake(build())
@@ -140,9 +147,11 @@ class AWSOrganizationsCreateAccountCommand(val email: String, val accountName: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.CreateAccountResult {
 	  return com.amazonaws.services.organizations.model.CreateAccountResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.CreateAccountResult {
 		return environment.organizations.createAccount(build())
@@ -174,9 +183,11 @@ class AWSOrganizationsCreateOrganizationCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.CreateOrganizationResult {
 	  return com.amazonaws.services.organizations.model.CreateOrganizationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.CreateOrganizationResult {
 		return environment.organizations.createOrganization(build())
@@ -206,9 +217,11 @@ class AWSOrganizationsCreateOrganizationalUnitCommand(val parentId: String, val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.CreateOrganizationalUnitResult {
 	  return com.amazonaws.services.organizations.model.CreateOrganizationalUnitResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.CreateOrganizationalUnitResult {
 		return environment.organizations.createOrganizationalUnit(build())
@@ -241,9 +254,11 @@ class AWSOrganizationsCreatePolicyCommand(val content: String, val description: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.CreatePolicyResult {
 	  return com.amazonaws.services.organizations.model.CreatePolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.CreatePolicyResult {
 		return environment.organizations.createPolicy(build())
@@ -275,9 +290,11 @@ class AWSOrganizationsDeclineHandshakeCommand(val handshakeId: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.DeclineHandshakeResult {
 	  return com.amazonaws.services.organizations.model.DeclineHandshakeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.DeclineHandshakeResult {
 		return environment.organizations.declineHandshake(build())
@@ -306,9 +323,11 @@ class AWSOrganizationsDeleteOrganizationCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.DeleteOrganizationResult {
 	  return com.amazonaws.services.organizations.model.DeleteOrganizationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.DeleteOrganizationResult {
 		return environment.organizations.deleteOrganization(build())
@@ -337,9 +356,11 @@ class AWSOrganizationsDeleteOrganizationalUnitCommand(val organizationalUnitId: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.DeleteOrganizationalUnitResult {
 	  return com.amazonaws.services.organizations.model.DeleteOrganizationalUnitResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.DeleteOrganizationalUnitResult {
 		return environment.organizations.deleteOrganizationalUnit(build())
@@ -368,9 +389,11 @@ class AWSOrganizationsDeletePolicyCommand(val policyId: String) : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.DeletePolicyResult {
 	  return com.amazonaws.services.organizations.model.DeletePolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.DeletePolicyResult {
 		return environment.organizations.deletePolicy(build())
@@ -399,9 +422,11 @@ class AWSOrganizationsDescribeAccountCommand(val accountId: String) : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.DescribeAccountResult {
 	  return com.amazonaws.services.organizations.model.DescribeAccountResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.DescribeAccountResult {
 		return environment.organizations.describeAccount(build())
@@ -430,9 +455,11 @@ class AWSOrganizationsDescribeCreateAccountStatusCommand(val createAccountReques
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.DescribeCreateAccountStatusResult {
 	  return com.amazonaws.services.organizations.model.DescribeCreateAccountStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.DescribeCreateAccountStatusResult {
 		return environment.organizations.describeCreateAccountStatus(build())
@@ -461,9 +488,11 @@ class AWSOrganizationsDescribeHandshakeCommand(val handshakeId: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.DescribeHandshakeResult {
 	  return com.amazonaws.services.organizations.model.DescribeHandshakeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.DescribeHandshakeResult {
 		return environment.organizations.describeHandshake(build())
@@ -492,9 +521,11 @@ class AWSOrganizationsDescribeOrganizationCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.DescribeOrganizationResult {
 	  return com.amazonaws.services.organizations.model.DescribeOrganizationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.DescribeOrganizationResult {
 		return environment.organizations.describeOrganization(build())
@@ -523,9 +554,11 @@ class AWSOrganizationsDescribeOrganizationalUnitCommand(val organizationalUnitId
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.DescribeOrganizationalUnitResult {
 	  return com.amazonaws.services.organizations.model.DescribeOrganizationalUnitResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.DescribeOrganizationalUnitResult {
 		return environment.organizations.describeOrganizationalUnit(build())
@@ -554,9 +587,11 @@ class AWSOrganizationsDescribePolicyCommand(val policyId: String) : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.DescribePolicyResult {
 	  return com.amazonaws.services.organizations.model.DescribePolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.DescribePolicyResult {
 		return environment.organizations.describePolicy(build())
@@ -586,9 +621,11 @@ class AWSOrganizationsDetachPolicyCommand(val policyId: String, val targetId: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.DetachPolicyResult {
 	  return com.amazonaws.services.organizations.model.DetachPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.DetachPolicyResult {
 		return environment.organizations.detachPolicy(build())
@@ -618,9 +655,11 @@ class AWSOrganizationsDisableAWSServiceAccessCommand(val servicePrincipal: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.DisableAWSServiceAccessResult {
 	  return com.amazonaws.services.organizations.model.DisableAWSServiceAccessResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.DisableAWSServiceAccessResult {
 		return environment.organizations.disableAWSServiceAccess(build())
@@ -650,9 +689,11 @@ class AWSOrganizationsDisablePolicyTypeCommand(val rootId: String, val policyTyp
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.DisablePolicyTypeResult {
 	  return com.amazonaws.services.organizations.model.DisablePolicyTypeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.DisablePolicyTypeResult {
 		return environment.organizations.disablePolicyType(build())
@@ -682,9 +723,11 @@ class AWSOrganizationsEnableAWSServiceAccessCommand(val servicePrincipal: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.EnableAWSServiceAccessResult {
 	  return com.amazonaws.services.organizations.model.EnableAWSServiceAccessResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.EnableAWSServiceAccessResult {
 		return environment.organizations.enableAWSServiceAccess(build())
@@ -713,9 +756,11 @@ class AWSOrganizationsEnableAllFeaturesCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.EnableAllFeaturesResult {
 	  return com.amazonaws.services.organizations.model.EnableAllFeaturesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.EnableAllFeaturesResult {
 		return environment.organizations.enableAllFeatures(build())
@@ -745,9 +790,11 @@ class AWSOrganizationsEnablePolicyTypeCommand(val rootId: String, val policyType
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.EnablePolicyTypeResult {
 	  return com.amazonaws.services.organizations.model.EnablePolicyTypeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.EnablePolicyTypeResult {
 		return environment.organizations.enablePolicyType(build())
@@ -778,9 +825,11 @@ class AWSOrganizationsInviteAccountToOrganizationCommand(val target: com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.InviteAccountToOrganizationResult {
 	  return com.amazonaws.services.organizations.model.InviteAccountToOrganizationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.InviteAccountToOrganizationResult {
 		return environment.organizations.inviteAccountToOrganization(build())
@@ -810,9 +859,11 @@ class AWSOrganizationsLeaveOrganizationCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.LeaveOrganizationResult {
 	  return com.amazonaws.services.organizations.model.LeaveOrganizationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.LeaveOrganizationResult {
 		return environment.organizations.leaveOrganization(build())
@@ -843,9 +894,11 @@ class AWSOrganizationsListAWSServiceAccessForOrganizationCommand() : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.ListAWSServiceAccessForOrganizationResult {
 	  return com.amazonaws.services.organizations.model.ListAWSServiceAccessForOrganizationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.ListAWSServiceAccessForOrganizationResult {
 		return environment.organizations.listAWSServiceAccessForOrganization(build())
@@ -877,9 +930,11 @@ class AWSOrganizationsListAccountsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.ListAccountsResult {
 	  return com.amazonaws.services.organizations.model.ListAccountsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.ListAccountsResult {
 		return environment.organizations.listAccounts(build())
@@ -912,9 +967,11 @@ class AWSOrganizationsListAccountsForParentCommand(val parentId: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.ListAccountsForParentResult {
 	  return com.amazonaws.services.organizations.model.ListAccountsForParentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.ListAccountsForParentResult {
 		return environment.organizations.listAccountsForParent(build())
@@ -949,9 +1006,11 @@ class AWSOrganizationsListChildrenCommand(val parentId: String, val childType: C
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.ListChildrenResult {
 	  return com.amazonaws.services.organizations.model.ListChildrenResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.ListChildrenResult {
 		return environment.organizations.listChildren(build())
@@ -987,9 +1046,11 @@ class AWSOrganizationsListCreateAccountStatusCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.ListCreateAccountStatusResult {
 	  return com.amazonaws.services.organizations.model.ListCreateAccountStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.ListCreateAccountStatusResult {
 		return environment.organizations.listCreateAccountStatus(build())
@@ -1024,9 +1085,11 @@ class AWSOrganizationsListHandshakesForAccountCommand() : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.ListHandshakesForAccountResult {
 	  return com.amazonaws.services.organizations.model.ListHandshakesForAccountResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.ListHandshakesForAccountResult {
 		return environment.organizations.listHandshakesForAccount(build())
@@ -1061,9 +1124,11 @@ class AWSOrganizationsListHandshakesForOrganizationCommand() : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.ListHandshakesForOrganizationResult {
 	  return com.amazonaws.services.organizations.model.ListHandshakesForOrganizationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.ListHandshakesForOrganizationResult {
 		return environment.organizations.listHandshakesForOrganization(build())
@@ -1097,9 +1162,11 @@ class AWSOrganizationsListOrganizationalUnitsForParentCommand(val parentId: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.ListOrganizationalUnitsForParentResult {
 	  return com.amazonaws.services.organizations.model.ListOrganizationalUnitsForParentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.ListOrganizationalUnitsForParentResult {
 		return environment.organizations.listOrganizationalUnitsForParent(build())
@@ -1133,9 +1200,11 @@ class AWSOrganizationsListParentsCommand(val childId: String) : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.ListParentsResult {
 	  return com.amazonaws.services.organizations.model.ListParentsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.ListParentsResult {
 		return environment.organizations.listParents(build())
@@ -1169,9 +1238,11 @@ class AWSOrganizationsListPoliciesCommand(val filter: PolicyType) : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.ListPoliciesResult {
 	  return com.amazonaws.services.organizations.model.ListPoliciesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.ListPoliciesResult {
 		return environment.organizations.listPolicies(build())
@@ -1206,9 +1277,11 @@ class AWSOrganizationsListPoliciesForTargetCommand(val targetId: String, val fil
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.ListPoliciesForTargetResult {
 	  return com.amazonaws.services.organizations.model.ListPoliciesForTargetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.ListPoliciesForTargetResult {
 		return environment.organizations.listPoliciesForTarget(build())
@@ -1242,9 +1315,11 @@ class AWSOrganizationsListRootsCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.ListRootsResult {
 	  return com.amazonaws.services.organizations.model.ListRootsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.ListRootsResult {
 		return environment.organizations.listRoots(build())
@@ -1277,9 +1352,11 @@ class AWSOrganizationsListTargetsForPolicyCommand(val policyId: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.ListTargetsForPolicyResult {
 	  return com.amazonaws.services.organizations.model.ListTargetsForPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.ListTargetsForPolicyResult {
 		return environment.organizations.listTargetsForPolicy(build())
@@ -1312,9 +1389,11 @@ class AWSOrganizationsMoveAccountCommand(val accountId: String, val sourceParent
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.MoveAccountResult {
 	  return com.amazonaws.services.organizations.model.MoveAccountResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.MoveAccountResult {
 		return environment.organizations.moveAccount(build())
@@ -1345,9 +1424,11 @@ class AWSOrganizationsRemoveAccountFromOrganizationCommand(val accountId: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.RemoveAccountFromOrganizationResult {
 	  return com.amazonaws.services.organizations.model.RemoveAccountFromOrganizationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.RemoveAccountFromOrganizationResult {
 		return environment.organizations.removeAccountFromOrganization(build())
@@ -1377,9 +1458,11 @@ class AWSOrganizationsUpdateOrganizationalUnitCommand(val organizationalUnitId: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.UpdateOrganizationalUnitResult {
 	  return com.amazonaws.services.organizations.model.UpdateOrganizationalUnitResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.UpdateOrganizationalUnitResult {
 		return environment.organizations.updateOrganizationalUnit(build())
@@ -1414,9 +1497,11 @@ class AWSOrganizationsUpdatePolicyCommand(val policyId: String) : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.organizations.model.UpdatePolicyResult {
 	  return com.amazonaws.services.organizations.model.UpdatePolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.UpdatePolicyResult {
 		return environment.organizations.updatePolicy(build())

@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -43,9 +44,11 @@ class AWSSimpleSystemsManagementAddTagsToResourceCommand(val resourceType: Resou
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.AddTagsToResourceResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.AddTagsToResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.AddTagsToResourceResult {
 		return environment.ssm.addTagsToResource(build())
@@ -77,9 +80,11 @@ class AWSSimpleSystemsManagementCancelCommandCommand(val commandId: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.CancelCommandResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.CancelCommandResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.CancelCommandResult {
 		return environment.ssm.cancelCommand(build())
@@ -116,9 +121,11 @@ class AWSSimpleSystemsManagementCreateActivationCommand(val iamRole: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.CreateActivationResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.CreateActivationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.CreateActivationResult {
 		return environment.ssm.createActivation(build())
@@ -164,9 +171,11 @@ class AWSSimpleSystemsManagementCreateAssociationCommand(val name: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.CreateAssociationResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.CreateAssociationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.CreateAssociationResult {
 		return environment.ssm.createAssociation(build())
@@ -202,9 +211,11 @@ class AWSSimpleSystemsManagementCreateAssociationBatchCommand(val entries: List<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.CreateAssociationBatchResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.CreateAssociationBatchResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.CreateAssociationBatchResult {
 		return environment.ssm.createAssociationBatch(build())
@@ -239,9 +250,11 @@ class AWSSimpleSystemsManagementCreateDocumentCommand(val content: String, val n
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.CreateDocumentResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.CreateDocumentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.CreateDocumentResult {
 		return environment.ssm.createDocument(build())
@@ -281,9 +294,11 @@ class AWSSimpleSystemsManagementCreateMaintenanceWindowCommand(val name: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.CreateMaintenanceWindowResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.CreateMaintenanceWindowResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.CreateMaintenanceWindowResult {
 		return environment.ssm.createMaintenanceWindow(build())
@@ -337,9 +352,11 @@ class AWSSimpleSystemsManagementCreatePatchBaselineCommand(val name: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.CreatePatchBaselineResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.CreatePatchBaselineResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.CreatePatchBaselineResult {
 		return environment.ssm.createPatchBaseline(build())
@@ -379,9 +396,11 @@ class AWSSimpleSystemsManagementCreateResourceDataSyncCommand(val syncName: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.CreateResourceDataSyncResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.CreateResourceDataSyncResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.CreateResourceDataSyncResult {
 		return environment.ssm.createResourceDataSync(build())
@@ -411,9 +430,11 @@ class AWSSimpleSystemsManagementDeleteActivationCommand(val activationId: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DeleteActivationResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DeleteActivationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DeleteActivationResult {
 		return environment.ssm.deleteActivation(build())
@@ -446,9 +467,11 @@ class AWSSimpleSystemsManagementDeleteAssociationCommand() : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DeleteAssociationResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DeleteAssociationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DeleteAssociationResult {
 		return environment.ssm.deleteAssociation(build())
@@ -479,9 +502,11 @@ class AWSSimpleSystemsManagementDeleteDocumentCommand(val name: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DeleteDocumentResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DeleteDocumentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DeleteDocumentResult {
 		return environment.ssm.deleteDocument(build())
@@ -510,9 +535,11 @@ class AWSSimpleSystemsManagementDeleteMaintenanceWindowCommand(val windowId: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DeleteMaintenanceWindowResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DeleteMaintenanceWindowResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DeleteMaintenanceWindowResult {
 		return environment.ssm.deleteMaintenanceWindow(build())
@@ -541,9 +568,11 @@ class AWSSimpleSystemsManagementDeleteParameterCommand(val name: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DeleteParameterResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DeleteParameterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DeleteParameterResult {
 		return environment.ssm.deleteParameter(build())
@@ -572,9 +601,11 @@ class AWSSimpleSystemsManagementDeleteParametersCommand(val names: List<String>)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DeleteParametersResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DeleteParametersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DeleteParametersResult {
 		return environment.ssm.deleteParameters(build())
@@ -603,9 +634,11 @@ class AWSSimpleSystemsManagementDeletePatchBaselineCommand(val baselineId: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DeletePatchBaselineResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DeletePatchBaselineResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DeletePatchBaselineResult {
 		return environment.ssm.deletePatchBaseline(build())
@@ -634,9 +667,11 @@ class AWSSimpleSystemsManagementDeleteResourceDataSyncCommand(val syncName: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DeleteResourceDataSyncResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DeleteResourceDataSyncResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DeleteResourceDataSyncResult {
 		return environment.ssm.deleteResourceDataSync(build())
@@ -665,9 +700,11 @@ class AWSSimpleSystemsManagementDeregisterManagedInstanceCommand(val instanceId:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DeregisterManagedInstanceResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DeregisterManagedInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DeregisterManagedInstanceResult {
 		return environment.ssm.deregisterManagedInstance(build())
@@ -697,9 +734,11 @@ class AWSSimpleSystemsManagementDeregisterPatchBaselineForPatchGroupCommand(val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DeregisterPatchBaselineForPatchGroupResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DeregisterPatchBaselineForPatchGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DeregisterPatchBaselineForPatchGroupResult {
 		return environment.ssm.deregisterPatchBaselineForPatchGroup(build())
@@ -731,9 +770,11 @@ class AWSSimpleSystemsManagementDeregisterTargetFromMaintenanceWindowCommand(val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DeregisterTargetFromMaintenanceWindowResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DeregisterTargetFromMaintenanceWindowResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DeregisterTargetFromMaintenanceWindowResult {
 		return environment.ssm.deregisterTargetFromMaintenanceWindow(build())
@@ -765,9 +806,11 @@ class AWSSimpleSystemsManagementDeregisterTaskFromMaintenanceWindowCommand(val w
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DeregisterTaskFromMaintenanceWindowResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DeregisterTaskFromMaintenanceWindowResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DeregisterTaskFromMaintenanceWindowResult {
 		return environment.ssm.deregisterTaskFromMaintenanceWindow(build())
@@ -801,9 +844,11 @@ class AWSSimpleSystemsManagementDescribeActivationsCommand() : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DescribeActivationsResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DescribeActivationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DescribeActivationsResult {
 		return environment.ssm.describeActivations(build())
@@ -840,9 +885,11 @@ class AWSSimpleSystemsManagementDescribeAssociationCommand() : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DescribeAssociationResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DescribeAssociationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DescribeAssociationResult {
 		return environment.ssm.describeAssociation(build())
@@ -878,9 +925,11 @@ class AWSSimpleSystemsManagementDescribeAutomationExecutionsCommand() : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DescribeAutomationExecutionsResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DescribeAutomationExecutionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DescribeAutomationExecutionsResult {
 		return environment.ssm.describeAutomationExecutions(build())
@@ -918,9 +967,11 @@ class AWSSimpleSystemsManagementDescribeAutomationStepExecutionsCommand(val auto
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DescribeAutomationStepExecutionsResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DescribeAutomationStepExecutionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DescribeAutomationStepExecutionsResult {
 		return environment.ssm.describeAutomationStepExecutions(build())
@@ -957,9 +1008,11 @@ class AWSSimpleSystemsManagementDescribeAvailablePatchesCommand() : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DescribeAvailablePatchesResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DescribeAvailablePatchesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DescribeAvailablePatchesResult {
 		return environment.ssm.describeAvailablePatches(build())
@@ -991,9 +1044,11 @@ class AWSSimpleSystemsManagementDescribeDocumentCommand(val name: String) : Amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DescribeDocumentResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DescribeDocumentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DescribeDocumentResult {
 		return environment.ssm.describeDocument(build())
@@ -1024,9 +1079,11 @@ class AWSSimpleSystemsManagementDescribeDocumentPermissionCommand(val name: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DescribeDocumentPermissionResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DescribeDocumentPermissionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DescribeDocumentPermissionResult {
 		return environment.ssm.describeDocumentPermission(build())
@@ -1059,9 +1116,11 @@ class AWSSimpleSystemsManagementDescribeEffectiveInstanceAssociationsCommand(val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DescribeEffectiveInstanceAssociationsResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DescribeEffectiveInstanceAssociationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DescribeEffectiveInstanceAssociationsResult {
 		return environment.ssm.describeEffectiveInstanceAssociations(build())
@@ -1095,9 +1154,11 @@ class AWSSimpleSystemsManagementDescribeEffectivePatchesForPatchBaselineCommand(
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DescribeEffectivePatchesForPatchBaselineResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DescribeEffectivePatchesForPatchBaselineResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DescribeEffectivePatchesForPatchBaselineResult {
 		return environment.ssm.describeEffectivePatchesForPatchBaseline(build())
@@ -1131,9 +1192,11 @@ class AWSSimpleSystemsManagementDescribeInstanceAssociationsStatusCommand(val in
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DescribeInstanceAssociationsStatusResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DescribeInstanceAssociationsStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DescribeInstanceAssociationsStatusResult {
 		return environment.ssm.describeInstanceAssociationsStatus(build())
@@ -1170,9 +1233,11 @@ class AWSSimpleSystemsManagementDescribeInstanceInformationCommand() : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DescribeInstanceInformationResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DescribeInstanceInformationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DescribeInstanceInformationResult {
 		return environment.ssm.describeInstanceInformation(build())
@@ -1207,9 +1272,11 @@ class AWSSimpleSystemsManagementDescribeInstancePatchStatesCommand(val instanceI
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DescribeInstancePatchStatesResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DescribeInstancePatchStatesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DescribeInstancePatchStatesResult {
 		return environment.ssm.describeInstancePatchStates(build())
@@ -1245,9 +1312,11 @@ class AWSSimpleSystemsManagementDescribeInstancePatchStatesForPatchGroupCommand(
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DescribeInstancePatchStatesForPatchGroupResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DescribeInstancePatchStatesForPatchGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DescribeInstancePatchStatesForPatchGroupResult {
 		return environment.ssm.describeInstancePatchStatesForPatchGroup(build())
@@ -1284,9 +1353,11 @@ class AWSSimpleSystemsManagementDescribeInstancePatchesCommand(val instanceId: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DescribeInstancePatchesResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DescribeInstancePatchesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DescribeInstancePatchesResult {
 		return environment.ssm.describeInstancePatches(build())
@@ -1324,9 +1395,11 @@ class AWSSimpleSystemsManagementDescribeMaintenanceWindowExecutionTaskInvocation
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DescribeMaintenanceWindowExecutionTaskInvocationsResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DescribeMaintenanceWindowExecutionTaskInvocationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DescribeMaintenanceWindowExecutionTaskInvocationsResult {
 		return environment.ssm.describeMaintenanceWindowExecutionTaskInvocations(build())
@@ -1364,9 +1437,11 @@ class AWSSimpleSystemsManagementDescribeMaintenanceWindowExecutionTasksCommand(v
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DescribeMaintenanceWindowExecutionTasksResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DescribeMaintenanceWindowExecutionTasksResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DescribeMaintenanceWindowExecutionTasksResult {
 		return environment.ssm.describeMaintenanceWindowExecutionTasks(build())
@@ -1403,9 +1478,11 @@ class AWSSimpleSystemsManagementDescribeMaintenanceWindowExecutionsCommand(val w
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DescribeMaintenanceWindowExecutionsResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DescribeMaintenanceWindowExecutionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DescribeMaintenanceWindowExecutionsResult {
 		return environment.ssm.describeMaintenanceWindowExecutions(build())
@@ -1442,9 +1519,11 @@ class AWSSimpleSystemsManagementDescribeMaintenanceWindowTargetsCommand(val wind
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DescribeMaintenanceWindowTargetsResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DescribeMaintenanceWindowTargetsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DescribeMaintenanceWindowTargetsResult {
 		return environment.ssm.describeMaintenanceWindowTargets(build())
@@ -1481,9 +1560,11 @@ class AWSSimpleSystemsManagementDescribeMaintenanceWindowTasksCommand(val window
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DescribeMaintenanceWindowTasksResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DescribeMaintenanceWindowTasksResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DescribeMaintenanceWindowTasksResult {
 		return environment.ssm.describeMaintenanceWindowTasks(build())
@@ -1519,9 +1600,11 @@ class AWSSimpleSystemsManagementDescribeMaintenanceWindowsCommand() : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DescribeMaintenanceWindowsResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DescribeMaintenanceWindowsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DescribeMaintenanceWindowsResult {
 		return environment.ssm.describeMaintenanceWindows(build())
@@ -1558,9 +1641,11 @@ class AWSSimpleSystemsManagementDescribeParametersCommand() : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DescribeParametersResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DescribeParametersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DescribeParametersResult {
 		return environment.ssm.describeParameters(build())
@@ -1596,9 +1681,11 @@ class AWSSimpleSystemsManagementDescribePatchBaselinesCommand() : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DescribePatchBaselinesResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DescribePatchBaselinesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DescribePatchBaselinesResult {
 		return environment.ssm.describePatchBaselines(build())
@@ -1629,9 +1716,11 @@ class AWSSimpleSystemsManagementDescribePatchGroupStateCommand(val patchGroup: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DescribePatchGroupStateResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DescribePatchGroupStateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DescribePatchGroupStateResult {
 		return environment.ssm.describePatchGroupState(build())
@@ -1664,9 +1753,11 @@ class AWSSimpleSystemsManagementDescribePatchGroupsCommand() : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.DescribePatchGroupsResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.DescribePatchGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.DescribePatchGroupsResult {
 		return environment.ssm.describePatchGroups(build())
@@ -1697,9 +1788,11 @@ class AWSSimpleSystemsManagementGetAutomationExecutionCommand(val automationExec
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.GetAutomationExecutionResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.GetAutomationExecutionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.GetAutomationExecutionResult {
 		return environment.ssm.getAutomationExecution(build())
@@ -1730,9 +1823,11 @@ class AWSSimpleSystemsManagementGetCommandInvocationCommand(val commandId: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.GetCommandInvocationResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.GetCommandInvocationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.GetCommandInvocationResult {
 		return environment.ssm.getCommandInvocation(build())
@@ -1763,9 +1858,11 @@ class AWSSimpleSystemsManagementGetDefaultPatchBaselineCommand() : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.GetDefaultPatchBaselineResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.GetDefaultPatchBaselineResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.GetDefaultPatchBaselineResult {
 		return environment.ssm.getDefaultPatchBaseline(build())
@@ -1795,9 +1892,11 @@ class AWSSimpleSystemsManagementGetDeployablePatchSnapshotForInstanceCommand(val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.GetDeployablePatchSnapshotForInstanceResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.GetDeployablePatchSnapshotForInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.GetDeployablePatchSnapshotForInstanceResult {
 		return environment.ssm.getDeployablePatchSnapshotForInstance(build())
@@ -1830,9 +1929,11 @@ class AWSSimpleSystemsManagementGetDocumentCommand(val name: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.GetDocumentResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.GetDocumentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.GetDocumentResult {
 		return environment.ssm.getDocument(build())
@@ -1871,9 +1972,11 @@ class AWSSimpleSystemsManagementGetInventoryCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.GetInventoryResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.GetInventoryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.GetInventoryResult {
 		return environment.ssm.getInventory(build())
@@ -1914,9 +2017,11 @@ class AWSSimpleSystemsManagementGetInventorySchemaCommand() : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.GetInventorySchemaResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.GetInventorySchemaResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.GetInventorySchemaResult {
 		return environment.ssm.getInventorySchema(build())
@@ -1949,9 +2054,11 @@ class AWSSimpleSystemsManagementGetMaintenanceWindowCommand(val windowId: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.GetMaintenanceWindowResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.GetMaintenanceWindowResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.GetMaintenanceWindowResult {
 		return environment.ssm.getMaintenanceWindow(build())
@@ -1980,9 +2087,11 @@ class AWSSimpleSystemsManagementGetMaintenanceWindowExecutionCommand(val windowE
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.GetMaintenanceWindowExecutionResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.GetMaintenanceWindowExecutionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.GetMaintenanceWindowExecutionResult {
 		return environment.ssm.getMaintenanceWindowExecution(build())
@@ -2012,9 +2121,11 @@ class AWSSimpleSystemsManagementGetMaintenanceWindowExecutionTaskCommand(val win
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.GetMaintenanceWindowExecutionTaskResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.GetMaintenanceWindowExecutionTaskResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.GetMaintenanceWindowExecutionTaskResult {
 		return environment.ssm.getMaintenanceWindowExecutionTask(build())
@@ -2046,9 +2157,11 @@ class AWSSimpleSystemsManagementGetMaintenanceWindowExecutionTaskInvocationComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.GetMaintenanceWindowExecutionTaskInvocationResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.GetMaintenanceWindowExecutionTaskInvocationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.GetMaintenanceWindowExecutionTaskInvocationResult {
 		return environment.ssm.getMaintenanceWindowExecutionTaskInvocation(build())
@@ -2080,9 +2193,11 @@ class AWSSimpleSystemsManagementGetMaintenanceWindowTaskCommand(val windowId: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.GetMaintenanceWindowTaskResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.GetMaintenanceWindowTaskResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.GetMaintenanceWindowTaskResult {
 		return environment.ssm.getMaintenanceWindowTask(build())
@@ -2113,9 +2228,11 @@ class AWSSimpleSystemsManagementGetParameterCommand(val name: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.GetParameterResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.GetParameterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.GetParameterResult {
 		return environment.ssm.getParameter(build())
@@ -2150,9 +2267,11 @@ class AWSSimpleSystemsManagementGetParameterHistoryCommand(val name: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.GetParameterHistoryResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.GetParameterHistoryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.GetParameterHistoryResult {
 		return environment.ssm.getParameterHistory(build())
@@ -2185,9 +2304,11 @@ class AWSSimpleSystemsManagementGetParametersCommand(val names: List<String>) : 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.GetParametersResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.GetParametersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.GetParametersResult {
 		return environment.ssm.getParameters(build())
@@ -2226,9 +2347,11 @@ class AWSSimpleSystemsManagementGetParametersByPathCommand(val path: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.GetParametersByPathResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.GetParametersByPathResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.GetParametersByPathResult {
 		return environment.ssm.getParametersByPath(build())
@@ -2262,9 +2385,11 @@ class AWSSimpleSystemsManagementGetPatchBaselineCommand(val baselineId: String) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.GetPatchBaselineResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.GetPatchBaselineResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.GetPatchBaselineResult {
 		return environment.ssm.getPatchBaseline(build())
@@ -2294,9 +2419,11 @@ class AWSSimpleSystemsManagementGetPatchBaselineForPatchGroupCommand(val patchGr
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.GetPatchBaselineForPatchGroupResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.GetPatchBaselineForPatchGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.GetPatchBaselineForPatchGroupResult {
 		return environment.ssm.getPatchBaselineForPatchGroup(build())
@@ -2329,9 +2456,11 @@ class AWSSimpleSystemsManagementListAssociationVersionsCommand(val associationId
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.ListAssociationVersionsResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.ListAssociationVersionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.ListAssociationVersionsResult {
 		return environment.ssm.listAssociationVersions(build())
@@ -2366,9 +2495,11 @@ class AWSSimpleSystemsManagementListAssociationsCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.ListAssociationsResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.ListAssociationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.ListAssociationsResult {
 		return environment.ssm.listAssociations(build())
@@ -2409,9 +2540,11 @@ class AWSSimpleSystemsManagementListCommandInvocationsCommand() : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.ListCommandInvocationsResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.ListCommandInvocationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.ListCommandInvocationsResult {
 		return environment.ssm.listCommandInvocations(build())
@@ -2453,9 +2586,11 @@ class AWSSimpleSystemsManagementListCommandsCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.ListCommandsResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.ListCommandsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.ListCommandsResult {
 		return environment.ssm.listCommands(build())
@@ -2496,9 +2631,11 @@ class AWSSimpleSystemsManagementListComplianceItemsCommand() : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.ListComplianceItemsResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.ListComplianceItemsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.ListComplianceItemsResult {
 		return environment.ssm.listComplianceItems(build())
@@ -2535,9 +2672,11 @@ class AWSSimpleSystemsManagementListComplianceSummariesCommand() : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.ListComplianceSummariesResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.ListComplianceSummariesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.ListComplianceSummariesResult {
 		return environment.ssm.listComplianceSummaries(build())
@@ -2571,9 +2710,11 @@ class AWSSimpleSystemsManagementListDocumentVersionsCommand(val name: String) : 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.ListDocumentVersionsResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.ListDocumentVersionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.ListDocumentVersionsResult {
 		return environment.ssm.listDocumentVersions(build())
@@ -2610,9 +2751,11 @@ class AWSSimpleSystemsManagementListDocumentsCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.ListDocumentsResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.ListDocumentsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.ListDocumentsResult {
 		return environment.ssm.listDocuments(build())
@@ -2650,9 +2793,11 @@ class AWSSimpleSystemsManagementListInventoryEntriesCommand(val instanceId: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.ListInventoryEntriesResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.ListInventoryEntriesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.ListInventoryEntriesResult {
 		return environment.ssm.listInventoryEntries(build())
@@ -2689,9 +2834,11 @@ class AWSSimpleSystemsManagementListResourceComplianceSummariesCommand() : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.ListResourceComplianceSummariesResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.ListResourceComplianceSummariesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.ListResourceComplianceSummariesResult {
 		return environment.ssm.listResourceComplianceSummaries(build())
@@ -2724,9 +2871,11 @@ class AWSSimpleSystemsManagementListResourceDataSyncCommand() : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.ListResourceDataSyncResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.ListResourceDataSyncResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.ListResourceDataSyncResult {
 		return environment.ssm.listResourceDataSync(build())
@@ -2757,9 +2906,11 @@ class AWSSimpleSystemsManagementListTagsForResourceCommand(val resourceType: Res
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.ListTagsForResourceResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.ListTagsForResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.ListTagsForResourceResult {
 		return environment.ssm.listTagsForResource(build())
@@ -2793,9 +2944,11 @@ class AWSSimpleSystemsManagementModifyDocumentPermissionCommand(val name: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.ModifyDocumentPermissionResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.ModifyDocumentPermissionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.ModifyDocumentPermissionResult {
 		return environment.ssm.modifyDocumentPermission(build())
@@ -2832,9 +2985,11 @@ class AWSSimpleSystemsManagementPutComplianceItemsCommand(val resourceId: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.PutComplianceItemsResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.PutComplianceItemsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.PutComplianceItemsResult {
 		return environment.ssm.putComplianceItems(build())
@@ -2869,9 +3024,11 @@ class AWSSimpleSystemsManagementPutInventoryCommand(val instanceId: String, val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.PutInventoryResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.PutInventoryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.PutInventoryResult {
 		return environment.ssm.putInventory(build())
@@ -2910,9 +3067,11 @@ class AWSSimpleSystemsManagementPutParameterCommand(val name: String, val value:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.PutParameterResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.PutParameterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.PutParameterResult {
 		return environment.ssm.putParameter(build())
@@ -2947,9 +3106,11 @@ class AWSSimpleSystemsManagementRegisterDefaultPatchBaselineCommand(val baseline
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.RegisterDefaultPatchBaselineResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.RegisterDefaultPatchBaselineResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.RegisterDefaultPatchBaselineResult {
 		return environment.ssm.registerDefaultPatchBaseline(build())
@@ -2979,9 +3140,11 @@ class AWSSimpleSystemsManagementRegisterPatchBaselineForPatchGroupCommand(val ba
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.RegisterPatchBaselineForPatchGroupResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.RegisterPatchBaselineForPatchGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.RegisterPatchBaselineForPatchGroupResult {
 		return environment.ssm.registerPatchBaselineForPatchGroup(build())
@@ -3020,9 +3183,11 @@ class AWSSimpleSystemsManagementRegisterTargetWithMaintenanceWindowCommand(val w
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.RegisterTargetWithMaintenanceWindowResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.RegisterTargetWithMaintenanceWindowResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.RegisterTargetWithMaintenanceWindowResult {
 		return environment.ssm.registerTargetWithMaintenanceWindow(build())
@@ -3076,9 +3241,11 @@ class AWSSimpleSystemsManagementRegisterTaskWithMaintenanceWindowCommand(val win
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.RegisterTaskWithMaintenanceWindowResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.RegisterTaskWithMaintenanceWindowResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.RegisterTaskWithMaintenanceWindowResult {
 		return environment.ssm.registerTaskWithMaintenanceWindow(build())
@@ -3122,9 +3289,11 @@ class AWSSimpleSystemsManagementRemoveTagsFromResourceCommand(val resourceType: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.RemoveTagsFromResourceResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.RemoveTagsFromResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.RemoveTagsFromResourceResult {
 		return environment.ssm.removeTagsFromResource(build())
@@ -3157,9 +3326,11 @@ class AWSSimpleSystemsManagementSendAutomationSignalCommand(val automationExecut
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.SendAutomationSignalResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.SendAutomationSignalResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.SendAutomationSignalResult {
 		return environment.ssm.sendAutomationSignal(build())
@@ -3217,9 +3388,11 @@ class AWSSimpleSystemsManagementSendCommandCommand(val documentName: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.SendCommandResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.SendCommandResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.SendCommandResult {
 		return environment.ssm.sendCommand(build())
@@ -3277,9 +3450,11 @@ class AWSSimpleSystemsManagementStartAutomationExecutionCommand(val documentName
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.StartAutomationExecutionResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.StartAutomationExecutionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.StartAutomationExecutionResult {
 		return environment.ssm.startAutomationExecution(build())
@@ -3317,9 +3492,11 @@ class AWSSimpleSystemsManagementStopAutomationExecutionCommand(val automationExe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.StopAutomationExecutionResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.StopAutomationExecutionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.StopAutomationExecutionResult {
 		return environment.ssm.stopAutomationExecution(build())
@@ -3364,9 +3541,11 @@ class AWSSimpleSystemsManagementUpdateAssociationCommand(val associationId: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.UpdateAssociationResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.UpdateAssociationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.UpdateAssociationResult {
 		return environment.ssm.updateAssociation(build())
@@ -3405,9 +3584,11 @@ class AWSSimpleSystemsManagementUpdateAssociationStatusCommand(val name: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.UpdateAssociationStatusResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.UpdateAssociationStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.UpdateAssociationStatusResult {
 		return environment.ssm.updateAssociationStatus(build())
@@ -3444,9 +3625,11 @@ class AWSSimpleSystemsManagementUpdateDocumentCommand(val content: String, val n
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.UpdateDocumentResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.UpdateDocumentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.UpdateDocumentResult {
 		return environment.ssm.updateDocument(build())
@@ -3480,9 +3663,11 @@ class AWSSimpleSystemsManagementUpdateDocumentDefaultVersionCommand(val name: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.UpdateDocumentDefaultVersionResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.UpdateDocumentDefaultVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.UpdateDocumentDefaultVersionResult {
 		return environment.ssm.updateDocumentDefaultVersion(build())
@@ -3527,9 +3712,11 @@ class AWSSimpleSystemsManagementUpdateMaintenanceWindowCommand(val windowId: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.UpdateMaintenanceWindowResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.UpdateMaintenanceWindowResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.UpdateMaintenanceWindowResult {
 		return environment.ssm.updateMaintenanceWindow(build())
@@ -3576,9 +3763,11 @@ class AWSSimpleSystemsManagementUpdateMaintenanceWindowTargetCommand(val windowI
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.UpdateMaintenanceWindowTargetResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.UpdateMaintenanceWindowTargetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.UpdateMaintenanceWindowTargetResult {
 		return environment.ssm.updateMaintenanceWindowTarget(build())
@@ -3637,9 +3826,11 @@ class AWSSimpleSystemsManagementUpdateMaintenanceWindowTaskCommand(val windowId:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.UpdateMaintenanceWindowTaskResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.UpdateMaintenanceWindowTaskResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.UpdateMaintenanceWindowTaskResult {
 		return environment.ssm.updateMaintenanceWindowTask(build())
@@ -3682,9 +3873,11 @@ class AWSSimpleSystemsManagementUpdateManagedInstanceRoleCommand(val instanceId:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.UpdateManagedInstanceRoleResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.UpdateManagedInstanceRoleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.UpdateManagedInstanceRoleResult {
 		return environment.ssm.updateManagedInstanceRole(build())
@@ -3733,9 +3926,11 @@ class AWSSimpleSystemsManagementUpdatePatchBaselineCommand(val baselineId: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simplesystemsmanagement.model.UpdatePatchBaselineResult {
 	  return com.amazonaws.services.simplesystemsmanagement.model.UpdatePatchBaselineResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simplesystemsmanagement.model.UpdatePatchBaselineResult {
 		return environment.ssm.updatePatchBaseline(build())

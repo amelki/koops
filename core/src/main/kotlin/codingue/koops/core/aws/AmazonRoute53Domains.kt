@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -42,9 +43,11 @@ class AmazonRoute53DomainsCheckDomainAvailabilityCommand(val domainName: String)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.route53domains.model.CheckDomainAvailabilityResult {
 	  return com.amazonaws.services.route53domains.model.CheckDomainAvailabilityResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53domains.model.CheckDomainAvailabilityResult {
 		return environment.route53domains.checkDomainAvailability(build())
@@ -75,9 +78,11 @@ class AmazonRoute53DomainsCheckDomainTransferabilityCommand(val domainName: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.route53domains.model.CheckDomainTransferabilityResult {
 	  return com.amazonaws.services.route53domains.model.CheckDomainTransferabilityResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53domains.model.CheckDomainTransferabilityResult {
 		return environment.route53domains.checkDomainTransferability(build())
@@ -108,9 +113,11 @@ class AmazonRoute53DomainsDeleteTagsForDomainCommand(val domainName: String, val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.route53domains.model.DeleteTagsForDomainResult {
 	  return com.amazonaws.services.route53domains.model.DeleteTagsForDomainResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53domains.model.DeleteTagsForDomainResult {
 		return environment.route53domains.deleteTagsForDomain(build())
@@ -140,9 +147,11 @@ class AmazonRoute53DomainsDisableDomainAutoRenewCommand(val domainName: String) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.route53domains.model.DisableDomainAutoRenewResult {
 	  return com.amazonaws.services.route53domains.model.DisableDomainAutoRenewResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53domains.model.DisableDomainAutoRenewResult {
 		return environment.route53domains.disableDomainAutoRenew(build())
@@ -171,9 +180,11 @@ class AmazonRoute53DomainsDisableDomainTransferLockCommand(val domainName: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.route53domains.model.DisableDomainTransferLockResult {
 	  return com.amazonaws.services.route53domains.model.DisableDomainTransferLockResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53domains.model.DisableDomainTransferLockResult {
 		return environment.route53domains.disableDomainTransferLock(build())
@@ -202,9 +213,11 @@ class AmazonRoute53DomainsEnableDomainAutoRenewCommand(val domainName: String) :
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.route53domains.model.EnableDomainAutoRenewResult {
 	  return com.amazonaws.services.route53domains.model.EnableDomainAutoRenewResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53domains.model.EnableDomainAutoRenewResult {
 		return environment.route53domains.enableDomainAutoRenew(build())
@@ -233,9 +246,11 @@ class AmazonRoute53DomainsEnableDomainTransferLockCommand(val domainName: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.route53domains.model.EnableDomainTransferLockResult {
 	  return com.amazonaws.services.route53domains.model.EnableDomainTransferLockResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53domains.model.EnableDomainTransferLockResult {
 		return environment.route53domains.enableDomainTransferLock(build())
@@ -264,9 +279,11 @@ class AmazonRoute53DomainsGetContactReachabilityStatusCommand() : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.route53domains.model.GetContactReachabilityStatusResult {
 	  return com.amazonaws.services.route53domains.model.GetContactReachabilityStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53domains.model.GetContactReachabilityStatusResult {
 		return environment.route53domains.getContactReachabilityStatus(build())
@@ -295,9 +312,11 @@ class AmazonRoute53DomainsGetDomainDetailCommand(val domainName: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.route53domains.model.GetDomainDetailResult {
 	  return com.amazonaws.services.route53domains.model.GetDomainDetailResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53domains.model.GetDomainDetailResult {
 		return environment.route53domains.getDomainDetail(build())
@@ -328,9 +347,11 @@ class AmazonRoute53DomainsGetDomainSuggestionsCommand(val domainName: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.route53domains.model.GetDomainSuggestionsResult {
 	  return com.amazonaws.services.route53domains.model.GetDomainSuggestionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53domains.model.GetDomainSuggestionsResult {
 		return environment.route53domains.getDomainSuggestions(build())
@@ -361,9 +382,11 @@ class AmazonRoute53DomainsGetOperationDetailCommand(val operationId: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.route53domains.model.GetOperationDetailResult {
 	  return com.amazonaws.services.route53domains.model.GetOperationDetailResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53domains.model.GetOperationDetailResult {
 		return environment.route53domains.getOperationDetail(build())
@@ -394,9 +417,11 @@ class AmazonRoute53DomainsListDomainsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.route53domains.model.ListDomainsResult {
 	  return com.amazonaws.services.route53domains.model.ListDomainsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53domains.model.ListDomainsResult {
 		return environment.route53domains.listDomains(build())
@@ -428,9 +453,11 @@ class AmazonRoute53DomainsListOperationsCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.route53domains.model.ListOperationsResult {
 	  return com.amazonaws.services.route53domains.model.ListOperationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53domains.model.ListOperationsResult {
 		return environment.route53domains.listOperations(build())
@@ -460,9 +487,11 @@ class AmazonRoute53DomainsListTagsForDomainCommand(val domainName: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.route53domains.model.ListTagsForDomainResult {
 	  return com.amazonaws.services.route53domains.model.ListTagsForDomainResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53domains.model.ListTagsForDomainResult {
 		return environment.route53domains.listTagsForDomain(build())
@@ -504,9 +533,11 @@ class AmazonRoute53DomainsRegisterDomainCommand(val domainName: String, val dura
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.route53domains.model.RegisterDomainResult {
 	  return com.amazonaws.services.route53domains.model.RegisterDomainResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53domains.model.RegisterDomainResult {
 		return environment.route53domains.registerDomain(build())
@@ -546,9 +577,11 @@ class AmazonRoute53DomainsRenewDomainCommand(val domainName: String, val current
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.route53domains.model.RenewDomainResult {
 	  return com.amazonaws.services.route53domains.model.RenewDomainResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53domains.model.RenewDomainResult {
 		return environment.route53domains.renewDomain(build())
@@ -579,9 +612,11 @@ class AmazonRoute53DomainsResendContactReachabilityEmailCommand() : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.route53domains.model.ResendContactReachabilityEmailResult {
 	  return com.amazonaws.services.route53domains.model.ResendContactReachabilityEmailResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53domains.model.ResendContactReachabilityEmailResult {
 		return environment.route53domains.resendContactReachabilityEmail(build())
@@ -610,9 +645,11 @@ class AmazonRoute53DomainsRetrieveDomainAuthCodeCommand(val domainName: String) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.route53domains.model.RetrieveDomainAuthCodeResult {
 	  return com.amazonaws.services.route53domains.model.RetrieveDomainAuthCodeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53domains.model.RetrieveDomainAuthCodeResult {
 		return environment.route53domains.retrieveDomainAuthCode(build())
@@ -658,9 +695,11 @@ class AmazonRoute53DomainsTransferDomainCommand(val domainName: String, val dura
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.route53domains.model.TransferDomainResult {
 	  return com.amazonaws.services.route53domains.model.TransferDomainResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53domains.model.TransferDomainResult {
 		return environment.route53domains.transferDomain(build())
@@ -705,9 +744,11 @@ class AmazonRoute53DomainsUpdateDomainContactCommand(val domainName: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.route53domains.model.UpdateDomainContactResult {
 	  return com.amazonaws.services.route53domains.model.UpdateDomainContactResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53domains.model.UpdateDomainContactResult {
 		return environment.route53domains.updateDomainContact(build())
@@ -744,9 +785,11 @@ class AmazonRoute53DomainsUpdateDomainContactPrivacyCommand(val domainName: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.route53domains.model.UpdateDomainContactPrivacyResult {
 	  return com.amazonaws.services.route53domains.model.UpdateDomainContactPrivacyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53domains.model.UpdateDomainContactPrivacyResult {
 		return environment.route53domains.updateDomainContactPrivacy(build())
@@ -780,9 +823,11 @@ class AmazonRoute53DomainsUpdateDomainNameserversCommand(val domainName: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.route53domains.model.UpdateDomainNameserversResult {
 	  return com.amazonaws.services.route53domains.model.UpdateDomainNameserversResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53domains.model.UpdateDomainNameserversResult {
 		return environment.route53domains.updateDomainNameservers(build())
@@ -814,9 +859,11 @@ class AmazonRoute53DomainsUpdateTagsForDomainCommand(val domainName: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.route53domains.model.UpdateTagsForDomainResult {
 	  return com.amazonaws.services.route53domains.model.UpdateTagsForDomainResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53domains.model.UpdateTagsForDomainResult {
 		return environment.route53domains.updateTagsForDomain(build())
@@ -852,9 +899,11 @@ class AmazonRoute53DomainsViewBillingCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.route53domains.model.ViewBillingResult {
 	  return com.amazonaws.services.route53domains.model.ViewBillingResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53domains.model.ViewBillingResult {
 		return environment.route53domains.viewBilling(build())

@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -42,9 +43,11 @@ class AmazonAlexaForBusinessAssociateContactWithAddressBookCommand(val contactAr
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.AssociateContactWithAddressBookResult {
 	  return com.amazonaws.services.alexaforbusiness.model.AssociateContactWithAddressBookResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.AssociateContactWithAddressBookResult {
 		return environment.alexaforbusiness.associateContactWithAddressBook(build())
@@ -76,9 +79,11 @@ class AmazonAlexaForBusinessAssociateDeviceWithRoomCommand() : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.AssociateDeviceWithRoomResult {
 	  return com.amazonaws.services.alexaforbusiness.model.AssociateDeviceWithRoomResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.AssociateDeviceWithRoomResult {
 		return environment.alexaforbusiness.associateDeviceWithRoom(build())
@@ -110,9 +115,11 @@ class AmazonAlexaForBusinessAssociateSkillGroupWithRoomCommand() : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.AssociateSkillGroupWithRoomResult {
 	  return com.amazonaws.services.alexaforbusiness.model.AssociateSkillGroupWithRoomResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.AssociateSkillGroupWithRoomResult {
 		return environment.alexaforbusiness.associateSkillGroupWithRoom(build())
@@ -145,9 +152,11 @@ class AmazonAlexaForBusinessCreateAddressBookCommand(val name: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.CreateAddressBookResult {
 	  return com.amazonaws.services.alexaforbusiness.model.CreateAddressBookResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.CreateAddressBookResult {
 		return environment.alexaforbusiness.createAddressBook(build())
@@ -184,9 +193,11 @@ class AmazonAlexaForBusinessCreateContactCommand(val firstName: String, val phon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.CreateContactResult {
 	  return com.amazonaws.services.alexaforbusiness.model.CreateContactResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.CreateContactResult {
 		return environment.alexaforbusiness.createContact(build())
@@ -231,9 +242,11 @@ class AmazonAlexaForBusinessCreateProfileCommand(val profileName: String, val ti
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.CreateProfileResult {
 	  return com.amazonaws.services.alexaforbusiness.model.CreateProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.CreateProfileResult {
 		return environment.alexaforbusiness.createProfile(build())
@@ -280,9 +293,11 @@ class AmazonAlexaForBusinessCreateRoomCommand(val roomName: String) : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.CreateRoomResult {
 	  return com.amazonaws.services.alexaforbusiness.model.CreateRoomResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.CreateRoomResult {
 		return environment.alexaforbusiness.createRoom(build())
@@ -319,9 +334,11 @@ class AmazonAlexaForBusinessCreateSkillGroupCommand(val skillGroupName: String) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.CreateSkillGroupResult {
 	  return com.amazonaws.services.alexaforbusiness.model.CreateSkillGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.CreateSkillGroupResult {
 		return environment.alexaforbusiness.createSkillGroup(build())
@@ -361,9 +378,11 @@ class AmazonAlexaForBusinessCreateUserCommand(val userId: String) : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.CreateUserResult {
 	  return com.amazonaws.services.alexaforbusiness.model.CreateUserResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.CreateUserResult {
 		return environment.alexaforbusiness.createUser(build())
@@ -397,9 +416,11 @@ class AmazonAlexaForBusinessDeleteAddressBookCommand(val addressBookArn: String)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.DeleteAddressBookResult {
 	  return com.amazonaws.services.alexaforbusiness.model.DeleteAddressBookResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.DeleteAddressBookResult {
 		return environment.alexaforbusiness.deleteAddressBook(build())
@@ -428,9 +449,11 @@ class AmazonAlexaForBusinessDeleteContactCommand(val contactArn: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.DeleteContactResult {
 	  return com.amazonaws.services.alexaforbusiness.model.DeleteContactResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.DeleteContactResult {
 		return environment.alexaforbusiness.deleteContact(build())
@@ -459,9 +482,11 @@ class AmazonAlexaForBusinessDeleteProfileCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.DeleteProfileResult {
 	  return com.amazonaws.services.alexaforbusiness.model.DeleteProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.DeleteProfileResult {
 		return environment.alexaforbusiness.deleteProfile(build())
@@ -490,9 +515,11 @@ class AmazonAlexaForBusinessDeleteRoomCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.DeleteRoomResult {
 	  return com.amazonaws.services.alexaforbusiness.model.DeleteRoomResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.DeleteRoomResult {
 		return environment.alexaforbusiness.deleteRoom(build())
@@ -523,9 +550,11 @@ class AmazonAlexaForBusinessDeleteRoomSkillParameterCommand(val skillId: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.DeleteRoomSkillParameterResult {
 	  return com.amazonaws.services.alexaforbusiness.model.DeleteRoomSkillParameterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.DeleteRoomSkillParameterResult {
 		return environment.alexaforbusiness.deleteRoomSkillParameter(build())
@@ -556,9 +585,11 @@ class AmazonAlexaForBusinessDeleteSkillGroupCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.DeleteSkillGroupResult {
 	  return com.amazonaws.services.alexaforbusiness.model.DeleteSkillGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.DeleteSkillGroupResult {
 		return environment.alexaforbusiness.deleteSkillGroup(build())
@@ -588,9 +619,11 @@ class AmazonAlexaForBusinessDeleteUserCommand(val enrollmentId: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.DeleteUserResult {
 	  return com.amazonaws.services.alexaforbusiness.model.DeleteUserResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.DeleteUserResult {
 		return environment.alexaforbusiness.deleteUser(build())
@@ -621,9 +654,11 @@ class AmazonAlexaForBusinessDisassociateContactFromAddressBookCommand(val contac
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.DisassociateContactFromAddressBookResult {
 	  return com.amazonaws.services.alexaforbusiness.model.DisassociateContactFromAddressBookResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.DisassociateContactFromAddressBookResult {
 		return environment.alexaforbusiness.disassociateContactFromAddressBook(build())
@@ -653,9 +688,11 @@ class AmazonAlexaForBusinessDisassociateDeviceFromRoomCommand() : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.DisassociateDeviceFromRoomResult {
 	  return com.amazonaws.services.alexaforbusiness.model.DisassociateDeviceFromRoomResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.DisassociateDeviceFromRoomResult {
 		return environment.alexaforbusiness.disassociateDeviceFromRoom(build())
@@ -686,9 +723,11 @@ class AmazonAlexaForBusinessDisassociateSkillGroupFromRoomCommand() : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.DisassociateSkillGroupFromRoomResult {
 	  return com.amazonaws.services.alexaforbusiness.model.DisassociateSkillGroupFromRoomResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.DisassociateSkillGroupFromRoomResult {
 		return environment.alexaforbusiness.disassociateSkillGroupFromRoom(build())
@@ -718,9 +757,11 @@ class AmazonAlexaForBusinessGetAddressBookCommand(val addressBookArn: String) : 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.GetAddressBookResult {
 	  return com.amazonaws.services.alexaforbusiness.model.GetAddressBookResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.GetAddressBookResult {
 		return environment.alexaforbusiness.getAddressBook(build())
@@ -749,9 +790,11 @@ class AmazonAlexaForBusinessGetContactCommand(val contactArn: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.GetContactResult {
 	  return com.amazonaws.services.alexaforbusiness.model.GetContactResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.GetContactResult {
 		return environment.alexaforbusiness.getContact(build())
@@ -780,9 +823,11 @@ class AmazonAlexaForBusinessGetDeviceCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.GetDeviceResult {
 	  return com.amazonaws.services.alexaforbusiness.model.GetDeviceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.GetDeviceResult {
 		return environment.alexaforbusiness.getDevice(build())
@@ -811,9 +856,11 @@ class AmazonAlexaForBusinessGetProfileCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.GetProfileResult {
 	  return com.amazonaws.services.alexaforbusiness.model.GetProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.GetProfileResult {
 		return environment.alexaforbusiness.getProfile(build())
@@ -842,9 +889,11 @@ class AmazonAlexaForBusinessGetRoomCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.GetRoomResult {
 	  return com.amazonaws.services.alexaforbusiness.model.GetRoomResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.GetRoomResult {
 		return environment.alexaforbusiness.getRoom(build())
@@ -875,9 +924,11 @@ class AmazonAlexaForBusinessGetRoomSkillParameterCommand(val skillId: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.GetRoomSkillParameterResult {
 	  return com.amazonaws.services.alexaforbusiness.model.GetRoomSkillParameterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.GetRoomSkillParameterResult {
 		return environment.alexaforbusiness.getRoomSkillParameter(build())
@@ -908,9 +959,11 @@ class AmazonAlexaForBusinessGetSkillGroupCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.GetSkillGroupResult {
 	  return com.amazonaws.services.alexaforbusiness.model.GetSkillGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.GetSkillGroupResult {
 		return environment.alexaforbusiness.getSkillGroup(build())
@@ -943,9 +996,11 @@ class AmazonAlexaForBusinessListSkillsCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.ListSkillsResult {
 	  return com.amazonaws.services.alexaforbusiness.model.ListSkillsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.ListSkillsResult {
 		return environment.alexaforbusiness.listSkills(build())
@@ -979,9 +1034,11 @@ class AmazonAlexaForBusinessListTagsCommand(val arn: String) : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.ListTagsResult {
 	  return com.amazonaws.services.alexaforbusiness.model.ListTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.ListTagsResult {
 		return environment.alexaforbusiness.listTags(build())
@@ -1014,9 +1071,11 @@ class AmazonAlexaForBusinessPutRoomSkillParameterCommand(val skillId: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.PutRoomSkillParameterResult {
 	  return com.amazonaws.services.alexaforbusiness.model.PutRoomSkillParameterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.PutRoomSkillParameterResult {
 		return environment.alexaforbusiness.putRoomSkillParameter(build())
@@ -1048,9 +1107,11 @@ class AmazonAlexaForBusinessResolveRoomCommand(val userId: String, val skillId: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.ResolveRoomResult {
 	  return com.amazonaws.services.alexaforbusiness.model.ResolveRoomResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.ResolveRoomResult {
 		return environment.alexaforbusiness.resolveRoom(build())
@@ -1082,9 +1143,11 @@ class AmazonAlexaForBusinessRevokeInvitationCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.RevokeInvitationResult {
 	  return com.amazonaws.services.alexaforbusiness.model.RevokeInvitationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.RevokeInvitationResult {
 		return environment.alexaforbusiness.revokeInvitation(build())
@@ -1120,9 +1183,11 @@ class AmazonAlexaForBusinessSearchAddressBooksCommand() : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.SearchAddressBooksResult {
 	  return com.amazonaws.services.alexaforbusiness.model.SearchAddressBooksResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.SearchAddressBooksResult {
 		return environment.alexaforbusiness.searchAddressBooks(build())
@@ -1160,9 +1225,11 @@ class AmazonAlexaForBusinessSearchContactsCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.SearchContactsResult {
 	  return com.amazonaws.services.alexaforbusiness.model.SearchContactsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.SearchContactsResult {
 		return environment.alexaforbusiness.searchContacts(build())
@@ -1200,9 +1267,11 @@ class AmazonAlexaForBusinessSearchDevicesCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.SearchDevicesResult {
 	  return com.amazonaws.services.alexaforbusiness.model.SearchDevicesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.SearchDevicesResult {
 		return environment.alexaforbusiness.searchDevices(build())
@@ -1240,9 +1309,11 @@ class AmazonAlexaForBusinessSearchProfilesCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.SearchProfilesResult {
 	  return com.amazonaws.services.alexaforbusiness.model.SearchProfilesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.SearchProfilesResult {
 		return environment.alexaforbusiness.searchProfiles(build())
@@ -1280,9 +1351,11 @@ class AmazonAlexaForBusinessSearchRoomsCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.SearchRoomsResult {
 	  return com.amazonaws.services.alexaforbusiness.model.SearchRoomsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.SearchRoomsResult {
 		return environment.alexaforbusiness.searchRooms(build())
@@ -1320,9 +1393,11 @@ class AmazonAlexaForBusinessSearchSkillGroupsCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.SearchSkillGroupsResult {
 	  return com.amazonaws.services.alexaforbusiness.model.SearchSkillGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.SearchSkillGroupsResult {
 		return environment.alexaforbusiness.searchSkillGroups(build())
@@ -1360,9 +1435,11 @@ class AmazonAlexaForBusinessSearchUsersCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.SearchUsersResult {
 	  return com.amazonaws.services.alexaforbusiness.model.SearchUsersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.SearchUsersResult {
 		return environment.alexaforbusiness.searchUsers(build())
@@ -1394,9 +1471,11 @@ class AmazonAlexaForBusinessSendInvitationCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.SendInvitationResult {
 	  return com.amazonaws.services.alexaforbusiness.model.SendInvitationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.SendInvitationResult {
 		return environment.alexaforbusiness.sendInvitation(build())
@@ -1428,9 +1507,11 @@ class AmazonAlexaForBusinessStartDeviceSyncCommand(val features: List<Feature>) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.StartDeviceSyncResult {
 	  return com.amazonaws.services.alexaforbusiness.model.StartDeviceSyncResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.StartDeviceSyncResult {
 		return environment.alexaforbusiness.startDeviceSync(build())
@@ -1462,9 +1543,11 @@ class AmazonAlexaForBusinessTagResourceCommand(val arn: String, val tags: List<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.TagResourceResult {
 	  return com.amazonaws.services.alexaforbusiness.model.TagResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.TagResourceResult {
 		return environment.alexaforbusiness.tagResource(build())
@@ -1495,9 +1578,11 @@ class AmazonAlexaForBusinessUntagResourceCommand(val arn: String, val tagKeys: L
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.UntagResourceResult {
 	  return com.amazonaws.services.alexaforbusiness.model.UntagResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.UntagResourceResult {
 		return environment.alexaforbusiness.untagResource(build())
@@ -1530,9 +1615,11 @@ class AmazonAlexaForBusinessUpdateAddressBookCommand(val addressBookArn: String)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.UpdateAddressBookResult {
 	  return com.amazonaws.services.alexaforbusiness.model.UpdateAddressBookResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.UpdateAddressBookResult {
 		return environment.alexaforbusiness.updateAddressBook(build())
@@ -1570,9 +1657,11 @@ class AmazonAlexaForBusinessUpdateContactCommand(val contactArn: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.UpdateContactResult {
 	  return com.amazonaws.services.alexaforbusiness.model.UpdateContactResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.UpdateContactResult {
 		return environment.alexaforbusiness.updateContact(build())
@@ -1607,9 +1696,11 @@ class AmazonAlexaForBusinessUpdateDeviceCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.UpdateDeviceResult {
 	  return com.amazonaws.services.alexaforbusiness.model.UpdateDeviceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.UpdateDeviceResult {
 		return environment.alexaforbusiness.updateDevice(build())
@@ -1657,9 +1748,11 @@ class AmazonAlexaForBusinessUpdateProfileCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.UpdateProfileResult {
 	  return com.amazonaws.services.alexaforbusiness.model.UpdateProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.UpdateProfileResult {
 		return environment.alexaforbusiness.updateProfile(build())
@@ -1705,9 +1798,11 @@ class AmazonAlexaForBusinessUpdateRoomCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.UpdateRoomResult {
 	  return com.amazonaws.services.alexaforbusiness.model.UpdateRoomResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.UpdateRoomResult {
 		return environment.alexaforbusiness.updateRoom(build())
@@ -1744,9 +1839,11 @@ class AmazonAlexaForBusinessUpdateSkillGroupCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.UpdateSkillGroupResult {
 	  return com.amazonaws.services.alexaforbusiness.model.UpdateSkillGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.UpdateSkillGroupResult {
 		return environment.alexaforbusiness.updateSkillGroup(build())

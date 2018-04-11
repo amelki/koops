@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -53,9 +54,11 @@ class AWSMarketplaceCommerceAnalyticsGenerateDataSetCommand() : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.marketplacecommerceanalytics.model.GenerateDataSetResult {
 	  return com.amazonaws.services.marketplacecommerceanalytics.model.GenerateDataSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.marketplacecommerceanalytics.model.GenerateDataSetResult {
 		return environment.marketplacecommerceanalytics.generateDataSet(build())
@@ -102,9 +105,11 @@ class AWSMarketplaceCommerceAnalyticsStartSupportDataExportCommand() : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.marketplacecommerceanalytics.model.StartSupportDataExportResult {
 	  return com.amazonaws.services.marketplacecommerceanalytics.model.StartSupportDataExportResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.marketplacecommerceanalytics.model.StartSupportDataExportResult {
 		return environment.marketplacecommerceanalytics.startSupportDataExport(build())

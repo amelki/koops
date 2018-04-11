@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -43,9 +44,11 @@ class AmazonWorkDocsAbortDocumentVersionUploadCommand(val documentId: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.AbortDocumentVersionUploadResult {
 	  return com.amazonaws.services.workdocs.model.AbortDocumentVersionUploadResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.AbortDocumentVersionUploadResult {
 		return environment.workdocs.abortDocumentVersionUpload(build())
@@ -77,9 +80,11 @@ class AmazonWorkDocsActivateUserCommand(val userId: String) : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.ActivateUserResult {
 	  return com.amazonaws.services.workdocs.model.ActivateUserResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.ActivateUserResult {
 		return environment.workdocs.activateUser(build())
@@ -113,9 +118,11 @@ class AmazonWorkDocsAddResourcePermissionsCommand(val resourceId: String, val pr
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.AddResourcePermissionsResult {
 	  return com.amazonaws.services.workdocs.model.AddResourcePermissionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.AddResourcePermissionsResult {
 		return environment.workdocs.addResourcePermissions(build())
@@ -158,9 +165,11 @@ class AmazonWorkDocsCreateCommentCommand(val documentId: String, val versionId: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.CreateCommentResult {
 	  return com.amazonaws.services.workdocs.model.CreateCommentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.CreateCommentResult {
 		return environment.workdocs.createComment(build())
@@ -200,9 +209,11 @@ class AmazonWorkDocsCreateCustomMetadataCommand(val resourceId: String, val cust
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.CreateCustomMetadataResult {
 	  return com.amazonaws.services.workdocs.model.CreateCustomMetadataResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.CreateCustomMetadataResult {
 		return environment.workdocs.createCustomMetadata(build())
@@ -237,9 +248,11 @@ class AmazonWorkDocsCreateFolderCommand(val parentFolderId: String) : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.CreateFolderResult {
 	  return com.amazonaws.services.workdocs.model.CreateFolderResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.CreateFolderResult {
 		return environment.workdocs.createFolder(build())
@@ -272,9 +285,11 @@ class AmazonWorkDocsCreateLabelsCommand(val resourceId: String, val labels: List
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.CreateLabelsResult {
 	  return com.amazonaws.services.workdocs.model.CreateLabelsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.CreateLabelsResult {
 		return environment.workdocs.createLabels(build())
@@ -308,9 +323,11 @@ class AmazonWorkDocsCreateNotificationSubscriptionCommand(val organizationId: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.CreateNotificationSubscriptionResult {
 	  return com.amazonaws.services.workdocs.model.CreateNotificationSubscriptionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.CreateNotificationSubscriptionResult {
 		return environment.workdocs.createNotificationSubscription(build())
@@ -354,9 +371,11 @@ class AmazonWorkDocsCreateUserCommand(val username: String, val givenName: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.CreateUserResult {
 	  return com.amazonaws.services.workdocs.model.CreateUserResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.CreateUserResult {
 		return environment.workdocs.createUser(build())
@@ -394,9 +413,11 @@ class AmazonWorkDocsDeactivateUserCommand(val userId: String) : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.DeactivateUserResult {
 	  return com.amazonaws.services.workdocs.model.DeactivateUserResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.DeactivateUserResult {
 		return environment.workdocs.deactivateUser(build())
@@ -429,9 +450,11 @@ class AmazonWorkDocsDeleteCommentCommand(val documentId: String, val versionId: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.DeleteCommentResult {
 	  return com.amazonaws.services.workdocs.model.DeleteCommentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.DeleteCommentResult {
 		return environment.workdocs.deleteComment(build())
@@ -470,9 +493,11 @@ class AmazonWorkDocsDeleteCustomMetadataCommand(val resourceId: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.DeleteCustomMetadataResult {
 	  return com.amazonaws.services.workdocs.model.DeleteCustomMetadataResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.DeleteCustomMetadataResult {
 		return environment.workdocs.deleteCustomMetadata(build())
@@ -506,9 +531,11 @@ class AmazonWorkDocsDeleteDocumentCommand(val documentId: String) : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.DeleteDocumentResult {
 	  return com.amazonaws.services.workdocs.model.DeleteDocumentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.DeleteDocumentResult {
 		return environment.workdocs.deleteDocument(build())
@@ -539,9 +566,11 @@ class AmazonWorkDocsDeleteFolderCommand(val folderId: String) : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.DeleteFolderResult {
 	  return com.amazonaws.services.workdocs.model.DeleteFolderResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.DeleteFolderResult {
 		return environment.workdocs.deleteFolder(build())
@@ -572,9 +601,11 @@ class AmazonWorkDocsDeleteFolderContentsCommand(val folderId: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.DeleteFolderContentsResult {
 	  return com.amazonaws.services.workdocs.model.DeleteFolderContentsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.DeleteFolderContentsResult {
 		return environment.workdocs.deleteFolderContents(build())
@@ -609,9 +640,11 @@ class AmazonWorkDocsDeleteLabelsCommand(val resourceId: String) : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.DeleteLabelsResult {
 	  return com.amazonaws.services.workdocs.model.DeleteLabelsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.DeleteLabelsResult {
 		return environment.workdocs.deleteLabels(build())
@@ -644,9 +677,11 @@ class AmazonWorkDocsDeleteNotificationSubscriptionCommand(val subscriptionId: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.DeleteNotificationSubscriptionResult {
 	  return com.amazonaws.services.workdocs.model.DeleteNotificationSubscriptionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.DeleteNotificationSubscriptionResult {
 		return environment.workdocs.deleteNotificationSubscription(build())
@@ -677,9 +712,11 @@ class AmazonWorkDocsDeleteUserCommand(val userId: String) : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.DeleteUserResult {
 	  return com.amazonaws.services.workdocs.model.DeleteUserResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.DeleteUserResult {
 		return environment.workdocs.deleteUser(build())
@@ -721,9 +758,11 @@ class AmazonWorkDocsDescribeActivitiesCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.DescribeActivitiesResult {
 	  return com.amazonaws.services.workdocs.model.DescribeActivitiesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.DescribeActivitiesResult {
 		return environment.workdocs.describeActivities(build())
@@ -764,9 +803,11 @@ class AmazonWorkDocsDescribeCommentsCommand(val documentId: String, val versionI
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.DescribeCommentsResult {
 	  return com.amazonaws.services.workdocs.model.DescribeCommentsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.DescribeCommentsResult {
 		return environment.workdocs.describeComments(build())
@@ -808,9 +849,11 @@ class AmazonWorkDocsDescribeDocumentVersionsCommand(val documentId: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.DescribeDocumentVersionsResult {
 	  return com.amazonaws.services.workdocs.model.DescribeDocumentVersionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.DescribeDocumentVersionsResult {
 		return environment.workdocs.describeDocumentVersions(build())
@@ -857,9 +900,11 @@ class AmazonWorkDocsDescribeFolderContentsCommand(val folderId: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.DescribeFolderContentsResult {
 	  return com.amazonaws.services.workdocs.model.DescribeFolderContentsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.DescribeFolderContentsResult {
 		return environment.workdocs.describeFolderContents(build())
@@ -902,9 +947,11 @@ class AmazonWorkDocsDescribeGroupsCommand(val searchQuery: String) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.DescribeGroupsResult {
 	  return com.amazonaws.services.workdocs.model.DescribeGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.DescribeGroupsResult {
 		return environment.workdocs.describeGroups(build())
@@ -940,9 +987,11 @@ class AmazonWorkDocsDescribeNotificationSubscriptionsCommand(val organizationId:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.DescribeNotificationSubscriptionsResult {
 	  return com.amazonaws.services.workdocs.model.DescribeNotificationSubscriptionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.DescribeNotificationSubscriptionsResult {
 		return environment.workdocs.describeNotificationSubscriptions(build())
@@ -980,9 +1029,11 @@ class AmazonWorkDocsDescribeResourcePermissionsCommand(val resourceId: String) :
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.DescribeResourcePermissionsResult {
 	  return com.amazonaws.services.workdocs.model.DescribeResourcePermissionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.DescribeResourcePermissionsResult {
 		return environment.workdocs.describeResourcePermissions(build())
@@ -1018,9 +1069,11 @@ class AmazonWorkDocsDescribeRootFoldersCommand(val authenticationToken: String) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.DescribeRootFoldersResult {
 	  return com.amazonaws.services.workdocs.model.DescribeRootFoldersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.DescribeRootFoldersResult {
 		return environment.workdocs.describeRootFolders(build())
@@ -1069,9 +1122,11 @@ class AmazonWorkDocsDescribeUsersCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.DescribeUsersResult {
 	  return com.amazonaws.services.workdocs.model.DescribeUsersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.DescribeUsersResult {
 		return environment.workdocs.describeUsers(build())
@@ -1109,9 +1164,11 @@ class AmazonWorkDocsGetCurrentUserCommand(val authenticationToken: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.GetCurrentUserResult {
 	  return com.amazonaws.services.workdocs.model.GetCurrentUserResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.GetCurrentUserResult {
 		return environment.workdocs.getCurrentUser(build())
@@ -1143,9 +1200,11 @@ class AmazonWorkDocsGetDocumentCommand(val documentId: String) : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.GetDocumentResult {
 	  return com.amazonaws.services.workdocs.model.GetDocumentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.GetDocumentResult {
 		return environment.workdocs.getDocument(build())
@@ -1183,9 +1242,11 @@ class AmazonWorkDocsGetDocumentPathCommand(val documentId: String) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.GetDocumentPathResult {
 	  return com.amazonaws.services.workdocs.model.GetDocumentPathResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.GetDocumentPathResult {
 		return environment.workdocs.getDocumentPath(build())
@@ -1224,9 +1285,11 @@ class AmazonWorkDocsGetDocumentVersionCommand(val documentId: String, val versio
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.GetDocumentVersionResult {
 	  return com.amazonaws.services.workdocs.model.GetDocumentVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.GetDocumentVersionResult {
 		return environment.workdocs.getDocumentVersion(build())
@@ -1262,9 +1325,11 @@ class AmazonWorkDocsGetFolderCommand(val folderId: String) : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.GetFolderResult {
 	  return com.amazonaws.services.workdocs.model.GetFolderResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.GetFolderResult {
 		return environment.workdocs.getFolder(build())
@@ -1302,9 +1367,11 @@ class AmazonWorkDocsGetFolderPathCommand(val folderId: String) : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.GetFolderPathResult {
 	  return com.amazonaws.services.workdocs.model.GetFolderPathResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.GetFolderPathResult {
 		return environment.workdocs.getFolderPath(build())
@@ -1350,9 +1417,11 @@ class AmazonWorkDocsInitiateDocumentVersionUploadCommand(val parentFolderId: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.InitiateDocumentVersionUploadResult {
 	  return com.amazonaws.services.workdocs.model.InitiateDocumentVersionUploadResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.InitiateDocumentVersionUploadResult {
 		return environment.workdocs.initiateDocumentVersionUpload(build())
@@ -1389,9 +1458,11 @@ class AmazonWorkDocsRemoveAllResourcePermissionsCommand(val resourceId: String) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.RemoveAllResourcePermissionsResult {
 	  return com.amazonaws.services.workdocs.model.RemoveAllResourcePermissionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.RemoveAllResourcePermissionsResult {
 		return environment.workdocs.removeAllResourcePermissions(build())
@@ -1425,9 +1496,11 @@ class AmazonWorkDocsRemoveResourcePermissionCommand(val resourceId: String, val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.RemoveResourcePermissionResult {
 	  return com.amazonaws.services.workdocs.model.RemoveResourcePermissionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.RemoveResourcePermissionResult {
 		return environment.workdocs.removeResourcePermission(build())
@@ -1466,9 +1539,11 @@ class AmazonWorkDocsUpdateDocumentCommand(val documentId: String) : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.UpdateDocumentResult {
 	  return com.amazonaws.services.workdocs.model.UpdateDocumentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.UpdateDocumentResult {
 		return environment.workdocs.updateDocument(build())
@@ -1505,9 +1580,11 @@ class AmazonWorkDocsUpdateDocumentVersionCommand(val documentId: String, val ver
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.UpdateDocumentVersionResult {
 	  return com.amazonaws.services.workdocs.model.UpdateDocumentVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.UpdateDocumentVersionResult {
 		return environment.workdocs.updateDocumentVersion(build())
@@ -1546,9 +1623,11 @@ class AmazonWorkDocsUpdateFolderCommand(val folderId: String) : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.UpdateFolderResult {
 	  return com.amazonaws.services.workdocs.model.UpdateFolderResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.UpdateFolderResult {
 		return environment.workdocs.updateFolder(build())
@@ -1596,9 +1675,11 @@ class AmazonWorkDocsUpdateUserCommand(val userId: String) : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workdocs.model.UpdateUserResult {
 	  return com.amazonaws.services.workdocs.model.UpdateUserResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workdocs.model.UpdateUserResult {
 		return environment.workdocs.updateUser(build())

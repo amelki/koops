@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -45,9 +46,11 @@ class AmazonSNSAddPermissionCommand(val topicArn: String, val label: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sns.model.AddPermissionResult {
 	  return com.amazonaws.services.sns.model.AddPermissionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sns.model.AddPermissionResult {
 		return environment.sns.addPermission(build())
@@ -79,9 +82,11 @@ class AmazonSNSCheckIfPhoneNumberIsOptedOutCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sns.model.CheckIfPhoneNumberIsOptedOutResult {
 	  return com.amazonaws.services.sns.model.CheckIfPhoneNumberIsOptedOutResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sns.model.CheckIfPhoneNumberIsOptedOutResult {
 		return environment.sns.checkIfPhoneNumberIsOptedOut(build())
@@ -112,9 +117,11 @@ class AmazonSNSConfirmSubscriptionCommand(val topicArn: String, val token: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sns.model.ConfirmSubscriptionResult {
 	  return com.amazonaws.services.sns.model.ConfirmSubscriptionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sns.model.ConfirmSubscriptionResult {
 		return environment.sns.confirmSubscription(build())
@@ -147,9 +154,11 @@ class AmazonSNSCreatePlatformApplicationCommand(val name: String, val platform: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sns.model.CreatePlatformApplicationResult {
 	  return com.amazonaws.services.sns.model.CreatePlatformApplicationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sns.model.CreatePlatformApplicationResult {
 		return environment.sns.createPlatformApplication(build())
@@ -184,9 +193,11 @@ class AmazonSNSCreatePlatformEndpointCommand(val platformApplicationArn: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sns.model.CreatePlatformEndpointResult {
 	  return com.amazonaws.services.sns.model.CreatePlatformEndpointResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sns.model.CreatePlatformEndpointResult {
 		return environment.sns.createPlatformEndpoint(build())
@@ -218,9 +229,11 @@ class AmazonSNSCreateTopicCommand(val name: String) : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sns.model.CreateTopicResult {
 	  return com.amazonaws.services.sns.model.CreateTopicResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sns.model.CreateTopicResult {
 		return environment.sns.createTopic(build())
@@ -249,9 +262,11 @@ class AmazonSNSDeleteEndpointCommand(val endpointArn: String) : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sns.model.DeleteEndpointResult {
 	  return com.amazonaws.services.sns.model.DeleteEndpointResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sns.model.DeleteEndpointResult {
 		return environment.sns.deleteEndpoint(build())
@@ -280,9 +295,11 @@ class AmazonSNSDeletePlatformApplicationCommand(val platformApplicationArn: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sns.model.DeletePlatformApplicationResult {
 	  return com.amazonaws.services.sns.model.DeletePlatformApplicationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sns.model.DeletePlatformApplicationResult {
 		return environment.sns.deletePlatformApplication(build())
@@ -311,9 +328,11 @@ class AmazonSNSDeleteTopicCommand(val topicArn: String) : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sns.model.DeleteTopicResult {
 	  return com.amazonaws.services.sns.model.DeleteTopicResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sns.model.DeleteTopicResult {
 		return environment.sns.deleteTopic(build())
@@ -342,9 +361,11 @@ class AmazonSNSGetEndpointAttributesCommand(val endpointArn: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sns.model.GetEndpointAttributesResult {
 	  return com.amazonaws.services.sns.model.GetEndpointAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sns.model.GetEndpointAttributesResult {
 		return environment.sns.getEndpointAttributes(build())
@@ -373,9 +394,11 @@ class AmazonSNSGetPlatformApplicationAttributesCommand(val platformApplicationAr
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sns.model.GetPlatformApplicationAttributesResult {
 	  return com.amazonaws.services.sns.model.GetPlatformApplicationAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sns.model.GetPlatformApplicationAttributesResult {
 		return environment.sns.getPlatformApplicationAttributes(build())
@@ -404,9 +427,11 @@ class AmazonSNSGetSMSAttributesCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sns.model.GetSMSAttributesResult {
 	  return com.amazonaws.services.sns.model.GetSMSAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sns.model.GetSMSAttributesResult {
 		return environment.sns.getSMSAttributes(build())
@@ -435,9 +460,11 @@ class AmazonSNSGetSubscriptionAttributesCommand(val subscriptionArn: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sns.model.GetSubscriptionAttributesResult {
 	  return com.amazonaws.services.sns.model.GetSubscriptionAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sns.model.GetSubscriptionAttributesResult {
 		return environment.sns.getSubscriptionAttributes(build())
@@ -466,9 +493,11 @@ class AmazonSNSGetTopicAttributesCommand(val topicArn: String) : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sns.model.GetTopicAttributesResult {
 	  return com.amazonaws.services.sns.model.GetTopicAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sns.model.GetTopicAttributesResult {
 		return environment.sns.getTopicAttributes(build())
@@ -498,9 +527,11 @@ class AmazonSNSListEndpointsByPlatformApplicationCommand(val platformApplication
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sns.model.ListEndpointsByPlatformApplicationResult {
 	  return com.amazonaws.services.sns.model.ListEndpointsByPlatformApplicationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sns.model.ListEndpointsByPlatformApplicationResult {
 		return environment.sns.listEndpointsByPlatformApplication(build())
@@ -530,9 +561,11 @@ class AmazonSNSListPhoneNumbersOptedOutCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sns.model.ListPhoneNumbersOptedOutResult {
 	  return com.amazonaws.services.sns.model.ListPhoneNumbersOptedOutResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sns.model.ListPhoneNumbersOptedOutResult {
 		return environment.sns.listPhoneNumbersOptedOut(build())
@@ -561,9 +594,11 @@ class AmazonSNSListPlatformApplicationsCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sns.model.ListPlatformApplicationsResult {
 	  return com.amazonaws.services.sns.model.ListPlatformApplicationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sns.model.ListPlatformApplicationsResult {
 		return environment.sns.listPlatformApplications(build())
@@ -592,9 +627,11 @@ class AmazonSNSListSubscriptionsCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sns.model.ListSubscriptionsResult {
 	  return com.amazonaws.services.sns.model.ListSubscriptionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sns.model.ListSubscriptionsResult {
 		return environment.sns.listSubscriptions(build())
@@ -624,9 +661,11 @@ class AmazonSNSListSubscriptionsByTopicCommand(val topicArn: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sns.model.ListSubscriptionsByTopicResult {
 	  return com.amazonaws.services.sns.model.ListSubscriptionsByTopicResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sns.model.ListSubscriptionsByTopicResult {
 		return environment.sns.listSubscriptionsByTopic(build())
@@ -656,9 +695,11 @@ class AmazonSNSListTopicsCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sns.model.ListTopicsResult {
 	  return com.amazonaws.services.sns.model.ListTopicsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sns.model.ListTopicsResult {
 		return environment.sns.listTopics(build())
@@ -687,9 +728,11 @@ class AmazonSNSOptInPhoneNumberCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sns.model.OptInPhoneNumberResult {
 	  return com.amazonaws.services.sns.model.OptInPhoneNumberResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sns.model.OptInPhoneNumberResult {
 		return environment.sns.optInPhoneNumber(build())
@@ -729,9 +772,11 @@ class AmazonSNSPublishCommand(val message: String) : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sns.model.PublishResult {
 	  return com.amazonaws.services.sns.model.PublishResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sns.model.PublishResult {
 		return environment.sns.publish(build())
@@ -767,9 +812,11 @@ class AmazonSNSRemovePermissionCommand(val topicArn: String, val label: String) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sns.model.RemovePermissionResult {
 	  return com.amazonaws.services.sns.model.RemovePermissionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sns.model.RemovePermissionResult {
 		return environment.sns.removePermission(build())
@@ -800,9 +847,11 @@ class AmazonSNSSetEndpointAttributesCommand(val endpointArn: String, val attribu
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sns.model.SetEndpointAttributesResult {
 	  return com.amazonaws.services.sns.model.SetEndpointAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sns.model.SetEndpointAttributesResult {
 		return environment.sns.setEndpointAttributes(build())
@@ -833,9 +882,11 @@ class AmazonSNSSetPlatformApplicationAttributesCommand(val platformApplicationAr
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sns.model.SetPlatformApplicationAttributesResult {
 	  return com.amazonaws.services.sns.model.SetPlatformApplicationAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sns.model.SetPlatformApplicationAttributesResult {
 		return environment.sns.setPlatformApplicationAttributes(build())
@@ -865,9 +916,11 @@ class AmazonSNSSetSMSAttributesCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sns.model.SetSMSAttributesResult {
 	  return com.amazonaws.services.sns.model.SetSMSAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sns.model.SetSMSAttributesResult {
 		return environment.sns.setSMSAttributes(build())
@@ -898,9 +951,11 @@ class AmazonSNSSetSubscriptionAttributesCommand(val subscriptionArn: String, val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sns.model.SetSubscriptionAttributesResult {
 	  return com.amazonaws.services.sns.model.SetSubscriptionAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sns.model.SetSubscriptionAttributesResult {
 		return environment.sns.setSubscriptionAttributes(build())
@@ -933,9 +988,11 @@ class AmazonSNSSetTopicAttributesCommand(val topicArn: String, val attributeName
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sns.model.SetTopicAttributesResult {
 	  return com.amazonaws.services.sns.model.SetTopicAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sns.model.SetTopicAttributesResult {
 		return environment.sns.setTopicAttributes(build())
@@ -968,9 +1025,11 @@ class AmazonSNSSubscribeCommand(val topicArn: String, val protocol: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sns.model.SubscribeResult {
 	  return com.amazonaws.services.sns.model.SubscribeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sns.model.SubscribeResult {
 		return environment.sns.subscribe(build())
@@ -1001,9 +1060,11 @@ class AmazonSNSUnsubscribeCommand(val subscriptionArn: String) : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sns.model.UnsubscribeResult {
 	  return com.amazonaws.services.sns.model.UnsubscribeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sns.model.UnsubscribeResult {
 		return environment.sns.unsubscribe(build())

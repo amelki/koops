@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -51,9 +52,11 @@ class AWSCostExplorerGetCostAndUsageCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.costexplorer.model.GetCostAndUsageResult {
 	  return com.amazonaws.services.costexplorer.model.GetCostAndUsageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.costexplorer.model.GetCostAndUsageResult {
 		return environment.ce.getCostAndUsage(build())
@@ -93,9 +96,11 @@ class AWSCostExplorerGetDimensionValuesCommand(val timePeriod: com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.costexplorer.model.GetDimensionValuesResult {
 	  return com.amazonaws.services.costexplorer.model.GetDimensionValuesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.costexplorer.model.GetDimensionValuesResult {
 		return environment.ce.getDimensionValues(build())
@@ -135,9 +140,11 @@ class AWSCostExplorerGetReservationCoverageCommand(val timePeriod: com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.costexplorer.model.GetReservationCoverageResult {
 	  return com.amazonaws.services.costexplorer.model.GetReservationCoverageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.costexplorer.model.GetReservationCoverageResult {
 		return environment.ce.getReservationCoverage(build())
@@ -185,9 +192,11 @@ class AWSCostExplorerGetReservationPurchaseRecommendationCommand(val service: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.costexplorer.model.GetReservationPurchaseRecommendationResult {
 	  return com.amazonaws.services.costexplorer.model.GetReservationPurchaseRecommendationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.costexplorer.model.GetReservationPurchaseRecommendationResult {
 		return environment.ce.getReservationPurchaseRecommendation(build())
@@ -231,9 +240,11 @@ class AWSCostExplorerGetReservationUtilizationCommand(val timePeriod: com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.costexplorer.model.GetReservationUtilizationResult {
 	  return com.amazonaws.services.costexplorer.model.GetReservationUtilizationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.costexplorer.model.GetReservationUtilizationResult {
 		return environment.ce.getReservationUtilization(build())
@@ -271,9 +282,11 @@ class AWSCostExplorerGetTagsCommand(val timePeriod: com.amazonaws.services.coste
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.costexplorer.model.GetTagsResult {
 	  return com.amazonaws.services.costexplorer.model.GetTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.costexplorer.model.GetTagsResult {
 		return environment.ce.getTags(build())

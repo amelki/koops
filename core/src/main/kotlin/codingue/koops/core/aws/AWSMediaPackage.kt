@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -42,9 +43,11 @@ class AWSMediaPackageCreateChannelCommand(val id: String) : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediapackage.model.CreateChannelResult {
 	  return com.amazonaws.services.mediapackage.model.CreateChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediapackage.model.CreateChannelResult {
 		return environment.mediapackage.createChannel(build())
@@ -90,9 +93,11 @@ class AWSMediaPackageCreateOriginEndpointCommand(val channelId: String, val id: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediapackage.model.CreateOriginEndpointResult {
 	  return com.amazonaws.services.mediapackage.model.CreateOriginEndpointResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediapackage.model.CreateOriginEndpointResult {
 		return environment.mediapackage.createOriginEndpoint(build())
@@ -130,9 +135,11 @@ class AWSMediaPackageDeleteChannelCommand(val id: String) : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediapackage.model.DeleteChannelResult {
 	  return com.amazonaws.services.mediapackage.model.DeleteChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediapackage.model.DeleteChannelResult {
 		return environment.mediapackage.deleteChannel(build())
@@ -161,9 +168,11 @@ class AWSMediaPackageDeleteOriginEndpointCommand(val id: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediapackage.model.DeleteOriginEndpointResult {
 	  return com.amazonaws.services.mediapackage.model.DeleteOriginEndpointResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediapackage.model.DeleteOriginEndpointResult {
 		return environment.mediapackage.deleteOriginEndpoint(build())
@@ -192,9 +201,11 @@ class AWSMediaPackageDescribeChannelCommand(val id: String) : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediapackage.model.DescribeChannelResult {
 	  return com.amazonaws.services.mediapackage.model.DescribeChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediapackage.model.DescribeChannelResult {
 		return environment.mediapackage.describeChannel(build())
@@ -223,9 +234,11 @@ class AWSMediaPackageDescribeOriginEndpointCommand(val id: String) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediapackage.model.DescribeOriginEndpointResult {
 	  return com.amazonaws.services.mediapackage.model.DescribeOriginEndpointResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediapackage.model.DescribeOriginEndpointResult {
 		return environment.mediapackage.describeOriginEndpoint(build())
@@ -256,9 +269,11 @@ class AWSMediaPackageListChannelsCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediapackage.model.ListChannelsResult {
 	  return com.amazonaws.services.mediapackage.model.ListChannelsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediapackage.model.ListChannelsResult {
 		return environment.mediapackage.listChannels(build())
@@ -292,9 +307,11 @@ class AWSMediaPackageListOriginEndpointsCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediapackage.model.ListOriginEndpointsResult {
 	  return com.amazonaws.services.mediapackage.model.ListOriginEndpointsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediapackage.model.ListOriginEndpointsResult {
 		return environment.mediapackage.listOriginEndpoints(build())
@@ -325,9 +342,11 @@ class AWSMediaPackageRotateChannelCredentialsCommand(val id: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediapackage.model.RotateChannelCredentialsResult {
 	  return com.amazonaws.services.mediapackage.model.RotateChannelCredentialsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediapackage.model.RotateChannelCredentialsResult {
 		return environment.mediapackage.rotateChannelCredentials(build())
@@ -357,9 +376,11 @@ class AWSMediaPackageUpdateChannelCommand(val id: String) : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediapackage.model.UpdateChannelResult {
 	  return com.amazonaws.services.mediapackage.model.UpdateChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediapackage.model.UpdateChannelResult {
 		return environment.mediapackage.updateChannel(build())
@@ -404,9 +425,11 @@ class AWSMediaPackageUpdateOriginEndpointCommand(val id: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediapackage.model.UpdateOriginEndpointResult {
 	  return com.amazonaws.services.mediapackage.model.UpdateOriginEndpointResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediapackage.model.UpdateOriginEndpointResult {
 		return environment.mediapackage.updateOriginEndpoint(build())

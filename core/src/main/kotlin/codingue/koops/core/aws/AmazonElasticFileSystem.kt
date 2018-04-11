@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -46,9 +47,11 @@ class AmazonElasticFileSystemCreateFileSystemCommand(val creationToken: String) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticfilesystem.model.CreateFileSystemResult {
 	  return com.amazonaws.services.elasticfilesystem.model.CreateFileSystemResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticfilesystem.model.CreateFileSystemResult {
 		return environment.elasticfilesystem.createFileSystem(build())
@@ -84,9 +87,11 @@ class AmazonElasticFileSystemCreateMountTargetCommand(val fileSystemId: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticfilesystem.model.CreateMountTargetResult {
 	  return com.amazonaws.services.elasticfilesystem.model.CreateMountTargetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticfilesystem.model.CreateMountTargetResult {
 		return environment.elasticfilesystem.createMountTarget(build())
@@ -119,9 +124,11 @@ class AmazonElasticFileSystemCreateTagsCommand(val fileSystemId: String, val tag
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticfilesystem.model.CreateTagsResult {
 	  return com.amazonaws.services.elasticfilesystem.model.CreateTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticfilesystem.model.CreateTagsResult {
 		return environment.elasticfilesystem.createTags(build())
@@ -151,9 +158,11 @@ class AmazonElasticFileSystemDeleteFileSystemCommand(val fileSystemId: String) :
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticfilesystem.model.DeleteFileSystemResult {
 	  return com.amazonaws.services.elasticfilesystem.model.DeleteFileSystemResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticfilesystem.model.DeleteFileSystemResult {
 		return environment.elasticfilesystem.deleteFileSystem(build())
@@ -182,9 +191,11 @@ class AmazonElasticFileSystemDeleteMountTargetCommand(val mountTargetId: String)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticfilesystem.model.DeleteMountTargetResult {
 	  return com.amazonaws.services.elasticfilesystem.model.DeleteMountTargetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticfilesystem.model.DeleteMountTargetResult {
 		return environment.elasticfilesystem.deleteMountTarget(build())
@@ -214,9 +225,11 @@ class AmazonElasticFileSystemDeleteTagsCommand(val fileSystemId: String, val tag
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticfilesystem.model.DeleteTagsResult {
 	  return com.amazonaws.services.elasticfilesystem.model.DeleteTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticfilesystem.model.DeleteTagsResult {
 		return environment.elasticfilesystem.deleteTags(build())
@@ -252,9 +265,11 @@ class AmazonElasticFileSystemDescribeFileSystemsCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticfilesystem.model.DescribeFileSystemsResult {
 	  return com.amazonaws.services.elasticfilesystem.model.DescribeFileSystemsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticfilesystem.model.DescribeFileSystemsResult {
 		return environment.elasticfilesystem.describeFileSystems(build())
@@ -286,9 +301,11 @@ class AmazonElasticFileSystemDescribeMountTargetSecurityGroupsCommand(val mountT
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticfilesystem.model.DescribeMountTargetSecurityGroupsResult {
 	  return com.amazonaws.services.elasticfilesystem.model.DescribeMountTargetSecurityGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticfilesystem.model.DescribeMountTargetSecurityGroupsResult {
 		return environment.elasticfilesystem.describeMountTargetSecurityGroups(build())
@@ -323,9 +340,11 @@ class AmazonElasticFileSystemDescribeMountTargetsCommand() : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticfilesystem.model.DescribeMountTargetsResult {
 	  return com.amazonaws.services.elasticfilesystem.model.DescribeMountTargetsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticfilesystem.model.DescribeMountTargetsResult {
 		return environment.elasticfilesystem.describeMountTargets(build())
@@ -360,9 +379,11 @@ class AmazonElasticFileSystemDescribeTagsCommand(val fileSystemId: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticfilesystem.model.DescribeTagsResult {
 	  return com.amazonaws.services.elasticfilesystem.model.DescribeTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticfilesystem.model.DescribeTagsResult {
 		return environment.elasticfilesystem.describeTags(build())
@@ -394,9 +415,11 @@ class AmazonElasticFileSystemModifyMountTargetSecurityGroupsCommand(val mountTar
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticfilesystem.model.ModifyMountTargetSecurityGroupsResult {
 	  return com.amazonaws.services.elasticfilesystem.model.ModifyMountTargetSecurityGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticfilesystem.model.ModifyMountTargetSecurityGroupsResult {
 		return environment.elasticfilesystem.modifyMountTargetSecurityGroups(build())

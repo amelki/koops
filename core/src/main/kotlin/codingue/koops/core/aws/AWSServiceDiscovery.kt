@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -45,9 +46,11 @@ class AWSServiceDiscoveryCreatePrivateDnsNamespaceCommand(val name: String, val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicediscovery.model.CreatePrivateDnsNamespaceResult {
 	  return com.amazonaws.services.servicediscovery.model.CreatePrivateDnsNamespaceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicediscovery.model.CreatePrivateDnsNamespaceResult {
 		return environment.servicediscovery.createPrivateDnsNamespace(build())
@@ -82,9 +85,11 @@ class AWSServiceDiscoveryCreatePublicDnsNamespaceCommand(val name: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicediscovery.model.CreatePublicDnsNamespaceResult {
 	  return com.amazonaws.services.servicediscovery.model.CreatePublicDnsNamespaceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicediscovery.model.CreatePublicDnsNamespaceResult {
 		return environment.servicediscovery.createPublicDnsNamespace(build())
@@ -123,9 +128,11 @@ class AWSServiceDiscoveryCreateServiceCommand(val name: String, val dnsConfig: c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicediscovery.model.CreateServiceResult {
 	  return com.amazonaws.services.servicediscovery.model.CreateServiceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicediscovery.model.CreateServiceResult {
 		return environment.servicediscovery.createService(build())
@@ -159,9 +166,11 @@ class AWSServiceDiscoveryDeleteNamespaceCommand(val id: String) : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicediscovery.model.DeleteNamespaceResult {
 	  return com.amazonaws.services.servicediscovery.model.DeleteNamespaceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicediscovery.model.DeleteNamespaceResult {
 		return environment.servicediscovery.deleteNamespace(build())
@@ -190,9 +199,11 @@ class AWSServiceDiscoveryDeleteServiceCommand(val id: String) : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicediscovery.model.DeleteServiceResult {
 	  return com.amazonaws.services.servicediscovery.model.DeleteServiceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicediscovery.model.DeleteServiceResult {
 		return environment.servicediscovery.deleteService(build())
@@ -222,9 +233,11 @@ class AWSServiceDiscoveryDeregisterInstanceCommand(val serviceId: String, val in
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicediscovery.model.DeregisterInstanceResult {
 	  return com.amazonaws.services.servicediscovery.model.DeregisterInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicediscovery.model.DeregisterInstanceResult {
 		return environment.servicediscovery.deregisterInstance(build())
@@ -255,9 +268,11 @@ class AWSServiceDiscoveryGetInstanceCommand(val serviceId: String, val instanceI
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicediscovery.model.GetInstanceResult {
 	  return com.amazonaws.services.servicediscovery.model.GetInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicediscovery.model.GetInstanceResult {
 		return environment.servicediscovery.getInstance(build())
@@ -292,9 +307,11 @@ class AWSServiceDiscoveryGetInstancesHealthStatusCommand(val serviceId: String) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicediscovery.model.GetInstancesHealthStatusResult {
 	  return com.amazonaws.services.servicediscovery.model.GetInstancesHealthStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicediscovery.model.GetInstancesHealthStatusResult {
 		return environment.servicediscovery.getInstancesHealthStatus(build())
@@ -326,9 +343,11 @@ class AWSServiceDiscoveryGetNamespaceCommand(val id: String) : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicediscovery.model.GetNamespaceResult {
 	  return com.amazonaws.services.servicediscovery.model.GetNamespaceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicediscovery.model.GetNamespaceResult {
 		return environment.servicediscovery.getNamespace(build())
@@ -357,9 +376,11 @@ class AWSServiceDiscoveryGetOperationCommand(val operationId: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicediscovery.model.GetOperationResult {
 	  return com.amazonaws.services.servicediscovery.model.GetOperationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicediscovery.model.GetOperationResult {
 		return environment.servicediscovery.getOperation(build())
@@ -388,9 +409,11 @@ class AWSServiceDiscoveryGetServiceCommand(val id: String) : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicediscovery.model.GetServiceResult {
 	  return com.amazonaws.services.servicediscovery.model.GetServiceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicediscovery.model.GetServiceResult {
 		return environment.servicediscovery.getService(build())
@@ -422,9 +445,11 @@ class AWSServiceDiscoveryListInstancesCommand(val serviceId: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicediscovery.model.ListInstancesResult {
 	  return com.amazonaws.services.servicediscovery.model.ListInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicediscovery.model.ListInstancesResult {
 		return environment.servicediscovery.listInstances(build())
@@ -459,9 +484,11 @@ class AWSServiceDiscoveryListNamespacesCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicediscovery.model.ListNamespacesResult {
 	  return com.amazonaws.services.servicediscovery.model.ListNamespacesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicediscovery.model.ListNamespacesResult {
 		return environment.servicediscovery.listNamespaces(build())
@@ -496,9 +523,11 @@ class AWSServiceDiscoveryListOperationsCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicediscovery.model.ListOperationsResult {
 	  return com.amazonaws.services.servicediscovery.model.ListOperationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicediscovery.model.ListOperationsResult {
 		return environment.servicediscovery.listOperations(build())
@@ -533,9 +562,11 @@ class AWSServiceDiscoveryListServicesCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicediscovery.model.ListServicesResult {
 	  return com.amazonaws.services.servicediscovery.model.ListServicesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicediscovery.model.ListServicesResult {
 		return environment.servicediscovery.listServices(build())
@@ -569,9 +600,11 @@ class AWSServiceDiscoveryRegisterInstanceCommand(val serviceId: String, val inst
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicediscovery.model.RegisterInstanceResult {
 	  return com.amazonaws.services.servicediscovery.model.RegisterInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicediscovery.model.RegisterInstanceResult {
 		return environment.servicediscovery.registerInstance(build())
@@ -605,9 +638,11 @@ class AWSServiceDiscoveryUpdateInstanceCustomHealthStatusCommand(val serviceId: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicediscovery.model.UpdateInstanceCustomHealthStatusResult {
 	  return com.amazonaws.services.servicediscovery.model.UpdateInstanceCustomHealthStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicediscovery.model.UpdateInstanceCustomHealthStatusResult {
 		return environment.servicediscovery.updateInstanceCustomHealthStatus(build())
@@ -639,9 +674,11 @@ class AWSServiceDiscoveryUpdateServiceCommand(val id: String, val service: com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.servicediscovery.model.UpdateServiceResult {
 	  return com.amazonaws.services.servicediscovery.model.UpdateServiceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicediscovery.model.UpdateServiceResult {
 		return environment.servicediscovery.updateService(build())

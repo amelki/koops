@@ -84,8 +84,8 @@ fun generate(schema: Schema, intermediate: IntermediateModel, targetDir: String)
 					emptyList()
 				}
 		KOperation(it.operationName,
-							 if (inputName == null) null else toKotlin(schema, intermediate, inputName).toKotlinString(),
-							 toKotlin(schema, intermediate, outputName).toKotlinString(),
+							 if (inputName == null) null else toKotlin(schema, intermediate, inputName),
+							 toKotlin(schema, intermediate, outputName),
 							 inputFields)
 	}
 	val targetPackageName = "codingue.koops.core"
@@ -99,6 +99,7 @@ package $targetPackageName.aws
 
 import javax.annotation.Generated
 import $targetPackageName.AmazonWebServiceCommand
+import $targetPackageName.AmazonWebServiceVoidCommand
 import $targetPackageName.AmazonWebServiceDescriptor
 import $targetPackageName.AwsContinuation
 import $targetPackageName.Block
@@ -142,12 +143,6 @@ fun generate(metadata: KMetadata, op: KOperation): String {
 	}
 	val setFields = op.fields.joinToString("\n") {
 		"\t\tinput.set${it.name}(this.${it.variableName}${it.convertEnums()})"
-//		when {
-//			it.type.list -> "\t\tinput.set${it.variableType}(this.${it.variableName}?.map { it.toString() })"
-//			it.type.map -> "\t\tinput.${it.variableName} = this.${it.variableName}?.mapKeys { it.key.toString() }"
-//			it.type.enumerated -> "\t\tinput.${it.variableName} = this.${it.variableName}?.toString()"
-//			else -> "\t\tinput.${it.variableName} = this.${it.variableName}"
-//		}
 	}
 	val printFields = op.fields.joinToString("\n") {
 		"\t\t\t\t.${it.type.optionOrArgument()}(\"${it.toCliName()}\", ${it.variableName}${it.toStringSuffix()})"
@@ -155,20 +150,39 @@ fun generate(metadata: KMetadata, op: KOperation): String {
 	val commandName = "${metadata.syncInterface}${op.name}Command"
 	if (op.inputName == null) {
 		return """
-fun ${metadata.syncInterface}Functions.${op.name.decapitalize()}(): ${op.outputName} {
-	return this.block.declare($commandName()) as ${op.outputName}
+fun ${metadata.syncInterface}Functions.${op.name.decapitalize()}()${op.returnTypeDeclaration} {
+	${op.returnOrNothing}this.block.declare($commandName()) as ${op.outputName}
 }
+"""
+	}
+	val baseClass =
+			when {
+				op.output.void -> "AmazonWebServiceVoidCommand<${op.inputName}>"
+				else -> "AmazonWebServiceCommand<${op.inputName}, ${op.outputName}>"
+			}
+	val operationBody =
+			when {
+				op.output.void -> "this.block.declare($commandName($callRequiredParams).apply(init))"
+				else -> "return this.block.declare($commandName($callRequiredParams).apply(init)) as ${op.outputName}"
+			}
+
+	val overrideDryResult = when {
+		op.output.void -> ""
+		else -> """
+	override fun dryResult(): ${op.outputName} {
+	  return ${op.outputName}()
+	}
 """
 	}
 
 	return """
 
-fun ${metadata.syncInterface}Functions.${op.name.decapitalize()}(${declareRequiredParams}init: $commandName.() -> Unit)${op.returnTypeDecl} {
-	return this.block.declare($commandName($callRequiredParams).apply(init)) as ${op.outputName}
+fun ${metadata.syncInterface}Functions.${op.name.decapitalize()}(${declareRequiredParams}init: $commandName.() -> Unit)${op.returnTypeDeclaration} {
+	$operationBody
 }
 
 @Generated
-class $commandName($declareRequiredFields) : AmazonWebServiceCommand<${op.inputName}, ${op.outputName}> {
+class $commandName($declareRequiredFields) : $baseClass {
 
 $declareOtherFields
 
@@ -178,12 +192,10 @@ $setFields
 		return input
 	}
 
-	override fun dryResult()${op.returnTypeDecl} {
-	  ${op.returnNewOutput}
-	}
+	$overrideDryResult
 
-	override fun eval(environment: codingue.koops.core.Environment)${op.returnTypeDecl} {
-		return environment.${metadata.serviceName}.${op.name.decapitalize()}(build())
+	override fun eval(environment: codingue.koops.core.Environment)${op.returnTypeDeclaration} {
+		${op.returnOrNothing}environment.${metadata.serviceName}.${op.name.decapitalize()}(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -206,7 +218,8 @@ abstract class KotlinType(protected val name: String,
 													private val defaultValue: Any? = null,
 													val list: Boolean = false,
 													val map: Boolean = false,
-													val enumerated: Boolean = false) {
+													val enumerated: Boolean = false,
+													val void: Boolean = false) {
 
 	fun defaultValueString() = "$defaultValue"
 
@@ -218,6 +231,8 @@ abstract class KotlinType(protected val name: String,
 
 	open fun toKotlinString(): String = name
 	open fun convertEnums(): String = ""
+	open fun returnTypeDeclaration()  = ": ${toKotlinString()}"
+	open fun returnOrNothing() = "return "
 
 }
 
@@ -227,6 +242,11 @@ class PrimitiveKotlinType(name: String, defaultValue: String? = null)
 class EnumeratedKotlinType(name: String, defaultValue: Any? = null)
 	: KotlinType(name, true, defaultValue, false, false, true) {
 	override fun convertEnums(): String = ".toString()"
+}
+
+object VoidKotlinType : KotlinType("Unit", false, null, false, false, false, true) {
+	override fun returnTypeDeclaration()  = ""
+	override fun returnOrNothing() = ""
 }
 
 class ObjectKotlinType(name: String, defaultValue: Any? = null)
@@ -279,7 +299,7 @@ object KotlinTypes {
 	val Blob = ObjectKotlinType(ByteBuffer::class.java.name!!)
 	val BlobStream = ObjectKotlinType(InputStream::class.java.name!!)
 	val Timestamp = ObjectKotlinType(Date::class.java.name!!)
-	val Void = ObjectKotlinType("codingue.koops.core.VoidResult")
+	val Void = VoidKotlinType
 }
 
 fun toKotlin(schema: Schema, intermediate: IntermediateModel, shapeName: String, memberMarshallingTargetClass: String? = null): KotlinType {
@@ -343,11 +363,15 @@ private fun toCliName(camelCaseName: String): String {
 }
 
 data class KOperation(val name: String,
-											val inputName: String?,
-											val outputName: String,
+											val input: KotlinType?,
+											val output: KotlinType,
 											val fields: List<KField>) {
-	val returnTypeDecl: String = ": $outputName"
-	val returnNewOutput: String = "return $outputName()"
+
+	val returnTypeDeclaration: String = output.returnTypeDeclaration()
+	val returnOrNothing: String = output.returnOrNothing()
+	val inputName: String? = input?.toKotlinString()
+	val outputName: String = output.toKotlinString()
+
 }
 
 data class KField(val name: String,

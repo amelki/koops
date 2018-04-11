@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -41,9 +42,11 @@ class AmazonPinpointCreateAppCommand(val createApplicationRequest: com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.CreateAppResult {
 	  return com.amazonaws.services.pinpoint.model.CreateAppResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.CreateAppResult {
 		return environment.mobiletargeting.createApp(build())
@@ -73,9 +76,11 @@ class AmazonPinpointCreateCampaignCommand(val applicationId: String, val writeCa
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.CreateCampaignResult {
 	  return com.amazonaws.services.pinpoint.model.CreateCampaignResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.CreateCampaignResult {
 		return environment.mobiletargeting.createCampaign(build())
@@ -106,9 +111,11 @@ class AmazonPinpointCreateExportJobCommand(val applicationId: String, val export
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.CreateExportJobResult {
 	  return com.amazonaws.services.pinpoint.model.CreateExportJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.CreateExportJobResult {
 		return environment.mobiletargeting.createExportJob(build())
@@ -139,9 +146,11 @@ class AmazonPinpointCreateImportJobCommand(val applicationId: String, val import
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.CreateImportJobResult {
 	  return com.amazonaws.services.pinpoint.model.CreateImportJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.CreateImportJobResult {
 		return environment.mobiletargeting.createImportJob(build())
@@ -172,9 +181,11 @@ class AmazonPinpointCreateSegmentCommand(val applicationId: String, val writeSeg
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.CreateSegmentResult {
 	  return com.amazonaws.services.pinpoint.model.CreateSegmentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.CreateSegmentResult {
 		return environment.mobiletargeting.createSegment(build())
@@ -204,9 +215,11 @@ class AmazonPinpointDeleteAdmChannelCommand(val applicationId: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.DeleteAdmChannelResult {
 	  return com.amazonaws.services.pinpoint.model.DeleteAdmChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.DeleteAdmChannelResult {
 		return environment.mobiletargeting.deleteAdmChannel(build())
@@ -235,9 +248,11 @@ class AmazonPinpointDeleteApnsChannelCommand(val applicationId: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.DeleteApnsChannelResult {
 	  return com.amazonaws.services.pinpoint.model.DeleteApnsChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.DeleteApnsChannelResult {
 		return environment.mobiletargeting.deleteApnsChannel(build())
@@ -266,9 +281,11 @@ class AmazonPinpointDeleteApnsSandboxChannelCommand(val applicationId: String) :
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.DeleteApnsSandboxChannelResult {
 	  return com.amazonaws.services.pinpoint.model.DeleteApnsSandboxChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.DeleteApnsSandboxChannelResult {
 		return environment.mobiletargeting.deleteApnsSandboxChannel(build())
@@ -297,9 +314,11 @@ class AmazonPinpointDeleteApnsVoipChannelCommand(val applicationId: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.DeleteApnsVoipChannelResult {
 	  return com.amazonaws.services.pinpoint.model.DeleteApnsVoipChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.DeleteApnsVoipChannelResult {
 		return environment.mobiletargeting.deleteApnsVoipChannel(build())
@@ -328,9 +347,11 @@ class AmazonPinpointDeleteApnsVoipSandboxChannelCommand(val applicationId: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.DeleteApnsVoipSandboxChannelResult {
 	  return com.amazonaws.services.pinpoint.model.DeleteApnsVoipSandboxChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.DeleteApnsVoipSandboxChannelResult {
 		return environment.mobiletargeting.deleteApnsVoipSandboxChannel(build())
@@ -359,9 +380,11 @@ class AmazonPinpointDeleteAppCommand(val applicationId: String) : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.DeleteAppResult {
 	  return com.amazonaws.services.pinpoint.model.DeleteAppResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.DeleteAppResult {
 		return environment.mobiletargeting.deleteApp(build())
@@ -390,9 +413,11 @@ class AmazonPinpointDeleteBaiduChannelCommand(val applicationId: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.DeleteBaiduChannelResult {
 	  return com.amazonaws.services.pinpoint.model.DeleteBaiduChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.DeleteBaiduChannelResult {
 		return environment.mobiletargeting.deleteBaiduChannel(build())
@@ -422,9 +447,11 @@ class AmazonPinpointDeleteCampaignCommand(val applicationId: String, val campaig
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.DeleteCampaignResult {
 	  return com.amazonaws.services.pinpoint.model.DeleteCampaignResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.DeleteCampaignResult {
 		return environment.mobiletargeting.deleteCampaign(build())
@@ -454,9 +481,11 @@ class AmazonPinpointDeleteEmailChannelCommand(val applicationId: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.DeleteEmailChannelResult {
 	  return com.amazonaws.services.pinpoint.model.DeleteEmailChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.DeleteEmailChannelResult {
 		return environment.mobiletargeting.deleteEmailChannel(build())
@@ -486,9 +515,11 @@ class AmazonPinpointDeleteEndpointCommand(val applicationId: String, val endpoin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.DeleteEndpointResult {
 	  return com.amazonaws.services.pinpoint.model.DeleteEndpointResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.DeleteEndpointResult {
 		return environment.mobiletargeting.deleteEndpoint(build())
@@ -518,9 +549,11 @@ class AmazonPinpointDeleteEventStreamCommand(val applicationId: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.DeleteEventStreamResult {
 	  return com.amazonaws.services.pinpoint.model.DeleteEventStreamResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.DeleteEventStreamResult {
 		return environment.mobiletargeting.deleteEventStream(build())
@@ -549,9 +582,11 @@ class AmazonPinpointDeleteGcmChannelCommand(val applicationId: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.DeleteGcmChannelResult {
 	  return com.amazonaws.services.pinpoint.model.DeleteGcmChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.DeleteGcmChannelResult {
 		return environment.mobiletargeting.deleteGcmChannel(build())
@@ -581,9 +616,11 @@ class AmazonPinpointDeleteSegmentCommand(val applicationId: String, val segmentI
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.DeleteSegmentResult {
 	  return com.amazonaws.services.pinpoint.model.DeleteSegmentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.DeleteSegmentResult {
 		return environment.mobiletargeting.deleteSegment(build())
@@ -613,9 +650,11 @@ class AmazonPinpointDeleteSmsChannelCommand(val applicationId: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.DeleteSmsChannelResult {
 	  return com.amazonaws.services.pinpoint.model.DeleteSmsChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.DeleteSmsChannelResult {
 		return environment.mobiletargeting.deleteSmsChannel(build())
@@ -644,9 +683,11 @@ class AmazonPinpointGetAdmChannelCommand(val applicationId: String) : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.GetAdmChannelResult {
 	  return com.amazonaws.services.pinpoint.model.GetAdmChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.GetAdmChannelResult {
 		return environment.mobiletargeting.getAdmChannel(build())
@@ -675,9 +716,11 @@ class AmazonPinpointGetApnsChannelCommand(val applicationId: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.GetApnsChannelResult {
 	  return com.amazonaws.services.pinpoint.model.GetApnsChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.GetApnsChannelResult {
 		return environment.mobiletargeting.getApnsChannel(build())
@@ -706,9 +749,11 @@ class AmazonPinpointGetApnsSandboxChannelCommand(val applicationId: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.GetApnsSandboxChannelResult {
 	  return com.amazonaws.services.pinpoint.model.GetApnsSandboxChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.GetApnsSandboxChannelResult {
 		return environment.mobiletargeting.getApnsSandboxChannel(build())
@@ -737,9 +782,11 @@ class AmazonPinpointGetApnsVoipChannelCommand(val applicationId: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.GetApnsVoipChannelResult {
 	  return com.amazonaws.services.pinpoint.model.GetApnsVoipChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.GetApnsVoipChannelResult {
 		return environment.mobiletargeting.getApnsVoipChannel(build())
@@ -768,9 +815,11 @@ class AmazonPinpointGetApnsVoipSandboxChannelCommand(val applicationId: String) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.GetApnsVoipSandboxChannelResult {
 	  return com.amazonaws.services.pinpoint.model.GetApnsVoipSandboxChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.GetApnsVoipSandboxChannelResult {
 		return environment.mobiletargeting.getApnsVoipSandboxChannel(build())
@@ -799,9 +848,11 @@ class AmazonPinpointGetAppCommand(val applicationId: String) : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.GetAppResult {
 	  return com.amazonaws.services.pinpoint.model.GetAppResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.GetAppResult {
 		return environment.mobiletargeting.getApp(build())
@@ -830,9 +881,11 @@ class AmazonPinpointGetApplicationSettingsCommand(val applicationId: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.GetApplicationSettingsResult {
 	  return com.amazonaws.services.pinpoint.model.GetApplicationSettingsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.GetApplicationSettingsResult {
 		return environment.mobiletargeting.getApplicationSettings(build())
@@ -863,9 +916,11 @@ class AmazonPinpointGetAppsCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.GetAppsResult {
 	  return com.amazonaws.services.pinpoint.model.GetAppsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.GetAppsResult {
 		return environment.mobiletargeting.getApps(build())
@@ -895,9 +950,11 @@ class AmazonPinpointGetBaiduChannelCommand(val applicationId: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.GetBaiduChannelResult {
 	  return com.amazonaws.services.pinpoint.model.GetBaiduChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.GetBaiduChannelResult {
 		return environment.mobiletargeting.getBaiduChannel(build())
@@ -927,9 +984,11 @@ class AmazonPinpointGetCampaignCommand(val applicationId: String, val campaignId
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.GetCampaignResult {
 	  return com.amazonaws.services.pinpoint.model.GetCampaignResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.GetCampaignResult {
 		return environment.mobiletargeting.getCampaign(build())
@@ -963,9 +1022,11 @@ class AmazonPinpointGetCampaignActivitiesCommand(val applicationId: String, val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.GetCampaignActivitiesResult {
 	  return com.amazonaws.services.pinpoint.model.GetCampaignActivitiesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.GetCampaignActivitiesResult {
 		return environment.mobiletargeting.getCampaignActivities(build())
@@ -999,9 +1060,11 @@ class AmazonPinpointGetCampaignVersionCommand(val applicationId: String, val cam
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.GetCampaignVersionResult {
 	  return com.amazonaws.services.pinpoint.model.GetCampaignVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.GetCampaignVersionResult {
 		return environment.mobiletargeting.getCampaignVersion(build())
@@ -1036,9 +1099,11 @@ class AmazonPinpointGetCampaignVersionsCommand(val applicationId: String, val ca
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.GetCampaignVersionsResult {
 	  return com.amazonaws.services.pinpoint.model.GetCampaignVersionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.GetCampaignVersionsResult {
 		return environment.mobiletargeting.getCampaignVersions(build())
@@ -1073,9 +1138,11 @@ class AmazonPinpointGetCampaignsCommand(val applicationId: String) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.GetCampaignsResult {
 	  return com.amazonaws.services.pinpoint.model.GetCampaignsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.GetCampaignsResult {
 		return environment.mobiletargeting.getCampaigns(build())
@@ -1106,9 +1173,11 @@ class AmazonPinpointGetEmailChannelCommand(val applicationId: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.GetEmailChannelResult {
 	  return com.amazonaws.services.pinpoint.model.GetEmailChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.GetEmailChannelResult {
 		return environment.mobiletargeting.getEmailChannel(build())
@@ -1138,9 +1207,11 @@ class AmazonPinpointGetEndpointCommand(val applicationId: String, val endpointId
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.GetEndpointResult {
 	  return com.amazonaws.services.pinpoint.model.GetEndpointResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.GetEndpointResult {
 		return environment.mobiletargeting.getEndpoint(build())
@@ -1170,9 +1241,11 @@ class AmazonPinpointGetEventStreamCommand(val applicationId: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.GetEventStreamResult {
 	  return com.amazonaws.services.pinpoint.model.GetEventStreamResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.GetEventStreamResult {
 		return environment.mobiletargeting.getEventStream(build())
@@ -1202,9 +1275,11 @@ class AmazonPinpointGetExportJobCommand(val applicationId: String, val jobId: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.GetExportJobResult {
 	  return com.amazonaws.services.pinpoint.model.GetExportJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.GetExportJobResult {
 		return environment.mobiletargeting.getExportJob(build())
@@ -1237,9 +1312,11 @@ class AmazonPinpointGetExportJobsCommand(val applicationId: String) : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.GetExportJobsResult {
 	  return com.amazonaws.services.pinpoint.model.GetExportJobsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.GetExportJobsResult {
 		return environment.mobiletargeting.getExportJobs(build())
@@ -1270,9 +1347,11 @@ class AmazonPinpointGetGcmChannelCommand(val applicationId: String) : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.GetGcmChannelResult {
 	  return com.amazonaws.services.pinpoint.model.GetGcmChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.GetGcmChannelResult {
 		return environment.mobiletargeting.getGcmChannel(build())
@@ -1302,9 +1381,11 @@ class AmazonPinpointGetImportJobCommand(val applicationId: String, val jobId: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.GetImportJobResult {
 	  return com.amazonaws.services.pinpoint.model.GetImportJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.GetImportJobResult {
 		return environment.mobiletargeting.getImportJob(build())
@@ -1337,9 +1418,11 @@ class AmazonPinpointGetImportJobsCommand(val applicationId: String) : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.GetImportJobsResult {
 	  return com.amazonaws.services.pinpoint.model.GetImportJobsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.GetImportJobsResult {
 		return environment.mobiletargeting.getImportJobs(build())
@@ -1371,9 +1454,11 @@ class AmazonPinpointGetSegmentCommand(val applicationId: String, val segmentId: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.GetSegmentResult {
 	  return com.amazonaws.services.pinpoint.model.GetSegmentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.GetSegmentResult {
 		return environment.mobiletargeting.getSegment(build())
@@ -1407,9 +1492,11 @@ class AmazonPinpointGetSegmentExportJobsCommand(val applicationId: String, val s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.GetSegmentExportJobsResult {
 	  return com.amazonaws.services.pinpoint.model.GetSegmentExportJobsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.GetSegmentExportJobsResult {
 		return environment.mobiletargeting.getSegmentExportJobs(build())
@@ -1445,9 +1532,11 @@ class AmazonPinpointGetSegmentImportJobsCommand(val applicationId: String, val s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.GetSegmentImportJobsResult {
 	  return com.amazonaws.services.pinpoint.model.GetSegmentImportJobsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.GetSegmentImportJobsResult {
 		return environment.mobiletargeting.getSegmentImportJobs(build())
@@ -1481,9 +1570,11 @@ class AmazonPinpointGetSegmentVersionCommand(val applicationId: String, val segm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.GetSegmentVersionResult {
 	  return com.amazonaws.services.pinpoint.model.GetSegmentVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.GetSegmentVersionResult {
 		return environment.mobiletargeting.getSegmentVersion(build())
@@ -1518,9 +1609,11 @@ class AmazonPinpointGetSegmentVersionsCommand(val applicationId: String, val seg
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.GetSegmentVersionsResult {
 	  return com.amazonaws.services.pinpoint.model.GetSegmentVersionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.GetSegmentVersionsResult {
 		return environment.mobiletargeting.getSegmentVersions(build())
@@ -1555,9 +1648,11 @@ class AmazonPinpointGetSegmentsCommand(val applicationId: String) : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.GetSegmentsResult {
 	  return com.amazonaws.services.pinpoint.model.GetSegmentsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.GetSegmentsResult {
 		return environment.mobiletargeting.getSegments(build())
@@ -1588,9 +1683,11 @@ class AmazonPinpointGetSmsChannelCommand(val applicationId: String) : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.GetSmsChannelResult {
 	  return com.amazonaws.services.pinpoint.model.GetSmsChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.GetSmsChannelResult {
 		return environment.mobiletargeting.getSmsChannel(build())
@@ -1620,9 +1717,11 @@ class AmazonPinpointPutEventStreamCommand(val applicationId: String, val writeEv
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.PutEventStreamResult {
 	  return com.amazonaws.services.pinpoint.model.PutEventStreamResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.PutEventStreamResult {
 		return environment.mobiletargeting.putEventStream(build())
@@ -1653,9 +1752,11 @@ class AmazonPinpointSendMessagesCommand(val applicationId: String, val messageRe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.SendMessagesResult {
 	  return com.amazonaws.services.pinpoint.model.SendMessagesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.SendMessagesResult {
 		return environment.mobiletargeting.sendMessages(build())
@@ -1686,9 +1787,11 @@ class AmazonPinpointSendUsersMessagesCommand(val applicationId: String, val send
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.SendUsersMessagesResult {
 	  return com.amazonaws.services.pinpoint.model.SendUsersMessagesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.SendUsersMessagesResult {
 		return environment.mobiletargeting.sendUsersMessages(build())
@@ -1719,9 +1822,11 @@ class AmazonPinpointUpdateAdmChannelCommand(val aDMChannelRequest: com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.UpdateAdmChannelResult {
 	  return com.amazonaws.services.pinpoint.model.UpdateAdmChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.UpdateAdmChannelResult {
 		return environment.mobiletargeting.updateAdmChannel(build())
@@ -1752,9 +1857,11 @@ class AmazonPinpointUpdateApnsChannelCommand(val aPNSChannelRequest: com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.UpdateApnsChannelResult {
 	  return com.amazonaws.services.pinpoint.model.UpdateApnsChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.UpdateApnsChannelResult {
 		return environment.mobiletargeting.updateApnsChannel(build())
@@ -1785,9 +1892,11 @@ class AmazonPinpointUpdateApnsSandboxChannelCommand(val aPNSSandboxChannelReques
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.UpdateApnsSandboxChannelResult {
 	  return com.amazonaws.services.pinpoint.model.UpdateApnsSandboxChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.UpdateApnsSandboxChannelResult {
 		return environment.mobiletargeting.updateApnsSandboxChannel(build())
@@ -1818,9 +1927,11 @@ class AmazonPinpointUpdateApnsVoipChannelCommand(val aPNSVoipChannelRequest: com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.UpdateApnsVoipChannelResult {
 	  return com.amazonaws.services.pinpoint.model.UpdateApnsVoipChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.UpdateApnsVoipChannelResult {
 		return environment.mobiletargeting.updateApnsVoipChannel(build())
@@ -1851,9 +1962,11 @@ class AmazonPinpointUpdateApnsVoipSandboxChannelCommand(val aPNSVoipSandboxChann
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.UpdateApnsVoipSandboxChannelResult {
 	  return com.amazonaws.services.pinpoint.model.UpdateApnsVoipSandboxChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.UpdateApnsVoipSandboxChannelResult {
 		return environment.mobiletargeting.updateApnsVoipSandboxChannel(build())
@@ -1884,9 +1997,11 @@ class AmazonPinpointUpdateApplicationSettingsCommand(val applicationId: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.UpdateApplicationSettingsResult {
 	  return com.amazonaws.services.pinpoint.model.UpdateApplicationSettingsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.UpdateApplicationSettingsResult {
 		return environment.mobiletargeting.updateApplicationSettings(build())
@@ -1917,9 +2032,11 @@ class AmazonPinpointUpdateBaiduChannelCommand(val applicationId: String, val bai
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.UpdateBaiduChannelResult {
 	  return com.amazonaws.services.pinpoint.model.UpdateBaiduChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.UpdateBaiduChannelResult {
 		return environment.mobiletargeting.updateBaiduChannel(build())
@@ -1951,9 +2068,11 @@ class AmazonPinpointUpdateCampaignCommand(val applicationId: String, val campaig
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.UpdateCampaignResult {
 	  return com.amazonaws.services.pinpoint.model.UpdateCampaignResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.UpdateCampaignResult {
 		return environment.mobiletargeting.updateCampaign(build())
@@ -1985,9 +2104,11 @@ class AmazonPinpointUpdateEmailChannelCommand(val applicationId: String, val ema
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.UpdateEmailChannelResult {
 	  return com.amazonaws.services.pinpoint.model.UpdateEmailChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.UpdateEmailChannelResult {
 		return environment.mobiletargeting.updateEmailChannel(build())
@@ -2019,9 +2140,11 @@ class AmazonPinpointUpdateEndpointCommand(val applicationId: String, val endpoin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.UpdateEndpointResult {
 	  return com.amazonaws.services.pinpoint.model.UpdateEndpointResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.UpdateEndpointResult {
 		return environment.mobiletargeting.updateEndpoint(build())
@@ -2053,9 +2176,11 @@ class AmazonPinpointUpdateEndpointsBatchCommand(val applicationId: String, val e
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.UpdateEndpointsBatchResult {
 	  return com.amazonaws.services.pinpoint.model.UpdateEndpointsBatchResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.UpdateEndpointsBatchResult {
 		return environment.mobiletargeting.updateEndpointsBatch(build())
@@ -2086,9 +2211,11 @@ class AmazonPinpointUpdateGcmChannelCommand(val applicationId: String, val gCMCh
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.UpdateGcmChannelResult {
 	  return com.amazonaws.services.pinpoint.model.UpdateGcmChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.UpdateGcmChannelResult {
 		return environment.mobiletargeting.updateGcmChannel(build())
@@ -2120,9 +2247,11 @@ class AmazonPinpointUpdateSegmentCommand(val applicationId: String, val segmentI
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.UpdateSegmentResult {
 	  return com.amazonaws.services.pinpoint.model.UpdateSegmentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.UpdateSegmentResult {
 		return environment.mobiletargeting.updateSegment(build())
@@ -2154,9 +2283,11 @@ class AmazonPinpointUpdateSmsChannelCommand(val applicationId: String, val sMSCh
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.pinpoint.model.UpdateSmsChannelResult {
 	  return com.amazonaws.services.pinpoint.model.UpdateSmsChannelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pinpoint.model.UpdateSmsChannelResult {
 		return environment.mobiletargeting.updateSmsChannel(build())

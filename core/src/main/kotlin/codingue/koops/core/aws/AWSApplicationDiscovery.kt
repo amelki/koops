@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -43,9 +44,11 @@ class AWSApplicationDiscoveryAssociateConfigurationItemsToApplicationCommand() :
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.applicationdiscovery.model.AssociateConfigurationItemsToApplicationResult {
 	  return com.amazonaws.services.applicationdiscovery.model.AssociateConfigurationItemsToApplicationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationdiscovery.model.AssociateConfigurationItemsToApplicationResult {
 		return environment.discovery.associateConfigurationItemsToApplication(build())
@@ -77,9 +80,11 @@ class AWSApplicationDiscoveryCreateApplicationCommand() : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.applicationdiscovery.model.CreateApplicationResult {
 	  return com.amazonaws.services.applicationdiscovery.model.CreateApplicationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationdiscovery.model.CreateApplicationResult {
 		return environment.discovery.createApplication(build())
@@ -111,9 +116,11 @@ class AWSApplicationDiscoveryCreateTagsCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.applicationdiscovery.model.CreateTagsResult {
 	  return com.amazonaws.services.applicationdiscovery.model.CreateTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationdiscovery.model.CreateTagsResult {
 		return environment.discovery.createTags(build())
@@ -143,9 +150,11 @@ class AWSApplicationDiscoveryDeleteApplicationsCommand() : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.applicationdiscovery.model.DeleteApplicationsResult {
 	  return com.amazonaws.services.applicationdiscovery.model.DeleteApplicationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationdiscovery.model.DeleteApplicationsResult {
 		return environment.discovery.deleteApplications(build())
@@ -176,9 +185,11 @@ class AWSApplicationDiscoveryDeleteTagsCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.applicationdiscovery.model.DeleteTagsResult {
 	  return com.amazonaws.services.applicationdiscovery.model.DeleteTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationdiscovery.model.DeleteTagsResult {
 		return environment.discovery.deleteTags(build())
@@ -214,9 +225,11 @@ class AWSApplicationDiscoveryDescribeAgentsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.applicationdiscovery.model.DescribeAgentsResult {
 	  return com.amazonaws.services.applicationdiscovery.model.DescribeAgentsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationdiscovery.model.DescribeAgentsResult {
 		return environment.discovery.describeAgents(build())
@@ -248,9 +261,11 @@ class AWSApplicationDiscoveryDescribeConfigurationsCommand() : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.applicationdiscovery.model.DescribeConfigurationsResult {
 	  return com.amazonaws.services.applicationdiscovery.model.DescribeConfigurationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationdiscovery.model.DescribeConfigurationsResult {
 		return environment.discovery.describeConfigurations(build())
@@ -283,9 +298,11 @@ class AWSApplicationDiscoveryDescribeExportConfigurationsCommand() : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.applicationdiscovery.model.DescribeExportConfigurationsResult {
 	  return com.amazonaws.services.applicationdiscovery.model.DescribeExportConfigurationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationdiscovery.model.DescribeExportConfigurationsResult {
 		return environment.discovery.describeExportConfigurations(build())
@@ -322,9 +339,11 @@ class AWSApplicationDiscoveryDescribeExportTasksCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.applicationdiscovery.model.DescribeExportTasksResult {
 	  return com.amazonaws.services.applicationdiscovery.model.DescribeExportTasksResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationdiscovery.model.DescribeExportTasksResult {
 		return environment.discovery.describeExportTasks(build())
@@ -360,9 +379,11 @@ class AWSApplicationDiscoveryDescribeTagsCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.applicationdiscovery.model.DescribeTagsResult {
 	  return com.amazonaws.services.applicationdiscovery.model.DescribeTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationdiscovery.model.DescribeTagsResult {
 		return environment.discovery.describeTags(build())
@@ -395,9 +416,11 @@ class AWSApplicationDiscoveryDisassociateConfigurationItemsFromApplicationComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.applicationdiscovery.model.DisassociateConfigurationItemsFromApplicationResult {
 	  return com.amazonaws.services.applicationdiscovery.model.DisassociateConfigurationItemsFromApplicationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationdiscovery.model.DisassociateConfigurationItemsFromApplicationResult {
 		return environment.discovery.disassociateConfigurationItemsFromApplication(build())
@@ -427,9 +450,11 @@ class AWSApplicationDiscoveryExportConfigurationsCommand() : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.applicationdiscovery.model.ExportConfigurationsResult {
 	  return com.amazonaws.services.applicationdiscovery.model.ExportConfigurationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationdiscovery.model.ExportConfigurationsResult {
 		return environment.discovery.exportConfigurations(build())
@@ -458,9 +483,11 @@ class AWSApplicationDiscoveryGetDiscoverySummaryCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.applicationdiscovery.model.GetDiscoverySummaryResult {
 	  return com.amazonaws.services.applicationdiscovery.model.GetDiscoverySummaryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationdiscovery.model.GetDiscoverySummaryResult {
 		return environment.discovery.getDiscoverySummary(build())
@@ -497,9 +524,11 @@ class AWSApplicationDiscoveryListConfigurationsCommand() : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.applicationdiscovery.model.ListConfigurationsResult {
 	  return com.amazonaws.services.applicationdiscovery.model.ListConfigurationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationdiscovery.model.ListConfigurationsResult {
 		return environment.discovery.listConfigurations(build())
@@ -540,9 +569,11 @@ class AWSApplicationDiscoveryListServerNeighborsCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.applicationdiscovery.model.ListServerNeighborsResult {
 	  return com.amazonaws.services.applicationdiscovery.model.ListServerNeighborsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationdiscovery.model.ListServerNeighborsResult {
 		return environment.discovery.listServerNeighbors(build())
@@ -575,9 +606,11 @@ class AWSApplicationDiscoveryStartDataCollectionByAgentIdsCommand() : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.applicationdiscovery.model.StartDataCollectionByAgentIdsResult {
 	  return com.amazonaws.services.applicationdiscovery.model.StartDataCollectionByAgentIdsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationdiscovery.model.StartDataCollectionByAgentIdsResult {
 		return environment.discovery.startDataCollectionByAgentIds(build())
@@ -612,9 +645,11 @@ class AWSApplicationDiscoveryStartExportTaskCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.applicationdiscovery.model.StartExportTaskResult {
 	  return com.amazonaws.services.applicationdiscovery.model.StartExportTaskResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationdiscovery.model.StartExportTaskResult {
 		return environment.discovery.startExportTask(build())
@@ -646,9 +681,11 @@ class AWSApplicationDiscoveryStopDataCollectionByAgentIdsCommand() : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.applicationdiscovery.model.StopDataCollectionByAgentIdsResult {
 	  return com.amazonaws.services.applicationdiscovery.model.StopDataCollectionByAgentIdsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationdiscovery.model.StopDataCollectionByAgentIdsResult {
 		return environment.discovery.stopDataCollectionByAgentIds(build())
@@ -681,9 +718,11 @@ class AWSApplicationDiscoveryUpdateApplicationCommand() : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.applicationdiscovery.model.UpdateApplicationResult {
 	  return com.amazonaws.services.applicationdiscovery.model.UpdateApplicationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationdiscovery.model.UpdateApplicationResult {
 		return environment.discovery.updateApplication(build())

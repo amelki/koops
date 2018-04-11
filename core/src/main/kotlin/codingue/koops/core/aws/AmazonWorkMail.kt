@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -43,9 +44,11 @@ class AmazonWorkMailAssociateDelegateToResourceCommand(val organizationId: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workmail.model.AssociateDelegateToResourceResult {
 	  return com.amazonaws.services.workmail.model.AssociateDelegateToResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workmail.model.AssociateDelegateToResourceResult {
 		return environment.workmail.associateDelegateToResource(build())
@@ -78,9 +81,11 @@ class AmazonWorkMailAssociateMemberToGroupCommand(val organizationId: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workmail.model.AssociateMemberToGroupResult {
 	  return com.amazonaws.services.workmail.model.AssociateMemberToGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workmail.model.AssociateMemberToGroupResult {
 		return environment.workmail.associateMemberToGroup(build())
@@ -113,9 +118,11 @@ class AmazonWorkMailCreateAliasCommand(val organizationId: String, val entityId:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workmail.model.CreateAliasResult {
 	  return com.amazonaws.services.workmail.model.CreateAliasResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workmail.model.CreateAliasResult {
 		return environment.workmail.createAlias(build())
@@ -147,9 +154,11 @@ class AmazonWorkMailCreateGroupCommand(val organizationId: String, val name: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workmail.model.CreateGroupResult {
 	  return com.amazonaws.services.workmail.model.CreateGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workmail.model.CreateGroupResult {
 		return environment.workmail.createGroup(build())
@@ -181,9 +190,11 @@ class AmazonWorkMailCreateResourceCommand(val organizationId: String, val name: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workmail.model.CreateResourceResult {
 	  return com.amazonaws.services.workmail.model.CreateResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workmail.model.CreateResourceResult {
 		return environment.workmail.createResource(build())
@@ -217,9 +228,11 @@ class AmazonWorkMailCreateUserCommand(val organizationId: String, val name: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workmail.model.CreateUserResult {
 	  return com.amazonaws.services.workmail.model.CreateUserResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workmail.model.CreateUserResult {
 		return environment.workmail.createUser(build())
@@ -253,9 +266,11 @@ class AmazonWorkMailDeleteAliasCommand(val organizationId: String, val entityId:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workmail.model.DeleteAliasResult {
 	  return com.amazonaws.services.workmail.model.DeleteAliasResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workmail.model.DeleteAliasResult {
 		return environment.workmail.deleteAlias(build())
@@ -287,9 +302,11 @@ class AmazonWorkMailDeleteGroupCommand(val organizationId: String, val groupId: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workmail.model.DeleteGroupResult {
 	  return com.amazonaws.services.workmail.model.DeleteGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workmail.model.DeleteGroupResult {
 		return environment.workmail.deleteGroup(build())
@@ -320,9 +337,11 @@ class AmazonWorkMailDeleteResourceCommand(val organizationId: String, val resour
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workmail.model.DeleteResourceResult {
 	  return com.amazonaws.services.workmail.model.DeleteResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workmail.model.DeleteResourceResult {
 		return environment.workmail.deleteResource(build())
@@ -353,9 +372,11 @@ class AmazonWorkMailDeleteUserCommand(val organizationId: String, val userId: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workmail.model.DeleteUserResult {
 	  return com.amazonaws.services.workmail.model.DeleteUserResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workmail.model.DeleteUserResult {
 		return environment.workmail.deleteUser(build())
@@ -386,9 +407,11 @@ class AmazonWorkMailDeregisterFromWorkMailCommand(val organizationId: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workmail.model.DeregisterFromWorkMailResult {
 	  return com.amazonaws.services.workmail.model.DeregisterFromWorkMailResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workmail.model.DeregisterFromWorkMailResult {
 		return environment.workmail.deregisterFromWorkMail(build())
@@ -419,9 +442,11 @@ class AmazonWorkMailDescribeGroupCommand(val organizationId: String, val groupId
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workmail.model.DescribeGroupResult {
 	  return com.amazonaws.services.workmail.model.DescribeGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workmail.model.DescribeGroupResult {
 		return environment.workmail.describeGroup(build())
@@ -451,9 +476,11 @@ class AmazonWorkMailDescribeOrganizationCommand(val organizationId: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workmail.model.DescribeOrganizationResult {
 	  return com.amazonaws.services.workmail.model.DescribeOrganizationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workmail.model.DescribeOrganizationResult {
 		return environment.workmail.describeOrganization(build())
@@ -483,9 +510,11 @@ class AmazonWorkMailDescribeResourceCommand(val organizationId: String, val reso
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workmail.model.DescribeResourceResult {
 	  return com.amazonaws.services.workmail.model.DescribeResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workmail.model.DescribeResourceResult {
 		return environment.workmail.describeResource(build())
@@ -516,9 +545,11 @@ class AmazonWorkMailDescribeUserCommand(val organizationId: String, val userId: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workmail.model.DescribeUserResult {
 	  return com.amazonaws.services.workmail.model.DescribeUserResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workmail.model.DescribeUserResult {
 		return environment.workmail.describeUser(build())
@@ -550,9 +581,11 @@ class AmazonWorkMailDisassociateDelegateFromResourceCommand(val organizationId: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workmail.model.DisassociateDelegateFromResourceResult {
 	  return com.amazonaws.services.workmail.model.DisassociateDelegateFromResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workmail.model.DisassociateDelegateFromResourceResult {
 		return environment.workmail.disassociateDelegateFromResource(build())
@@ -585,9 +618,11 @@ class AmazonWorkMailDisassociateMemberFromGroupCommand(val organizationId: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workmail.model.DisassociateMemberFromGroupResult {
 	  return com.amazonaws.services.workmail.model.DisassociateMemberFromGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workmail.model.DisassociateMemberFromGroupResult {
 		return environment.workmail.disassociateMemberFromGroup(build())
@@ -622,9 +657,11 @@ class AmazonWorkMailListAliasesCommand(val organizationId: String, val entityId:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workmail.model.ListAliasesResult {
 	  return com.amazonaws.services.workmail.model.ListAliasesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workmail.model.ListAliasesResult {
 		return environment.workmail.listAliases(build())
@@ -660,9 +697,11 @@ class AmazonWorkMailListGroupMembersCommand(val organizationId: String, val grou
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workmail.model.ListGroupMembersResult {
 	  return com.amazonaws.services.workmail.model.ListGroupMembersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workmail.model.ListGroupMembersResult {
 		return environment.workmail.listGroupMembers(build())
@@ -697,9 +736,11 @@ class AmazonWorkMailListGroupsCommand(val organizationId: String) : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workmail.model.ListGroupsResult {
 	  return com.amazonaws.services.workmail.model.ListGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workmail.model.ListGroupsResult {
 		return environment.workmail.listGroups(build())
@@ -732,9 +773,11 @@ class AmazonWorkMailListOrganizationsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workmail.model.ListOrganizationsResult {
 	  return com.amazonaws.services.workmail.model.ListOrganizationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workmail.model.ListOrganizationsResult {
 		return environment.workmail.listOrganizations(build())
@@ -768,9 +811,11 @@ class AmazonWorkMailListResourceDelegatesCommand(val organizationId: String, val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workmail.model.ListResourceDelegatesResult {
 	  return com.amazonaws.services.workmail.model.ListResourceDelegatesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workmail.model.ListResourceDelegatesResult {
 		return environment.workmail.listResourceDelegates(build())
@@ -805,9 +850,11 @@ class AmazonWorkMailListResourcesCommand(val organizationId: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workmail.model.ListResourcesResult {
 	  return com.amazonaws.services.workmail.model.ListResourcesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workmail.model.ListResourcesResult {
 		return environment.workmail.listResources(build())
@@ -841,9 +888,11 @@ class AmazonWorkMailListUsersCommand(val organizationId: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workmail.model.ListUsersResult {
 	  return com.amazonaws.services.workmail.model.ListUsersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workmail.model.ListUsersResult {
 		return environment.workmail.listUsers(build())
@@ -876,9 +925,11 @@ class AmazonWorkMailRegisterToWorkMailCommand(val organizationId: String, val en
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workmail.model.RegisterToWorkMailResult {
 	  return com.amazonaws.services.workmail.model.RegisterToWorkMailResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workmail.model.RegisterToWorkMailResult {
 		return environment.workmail.registerToWorkMail(build())
@@ -911,9 +962,11 @@ class AmazonWorkMailResetPasswordCommand(val organizationId: String, val userId:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workmail.model.ResetPasswordResult {
 	  return com.amazonaws.services.workmail.model.ResetPasswordResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workmail.model.ResetPasswordResult {
 		return environment.workmail.resetPassword(build())
@@ -946,9 +999,11 @@ class AmazonWorkMailUpdatePrimaryEmailAddressCommand(val organizationId: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workmail.model.UpdatePrimaryEmailAddressResult {
 	  return com.amazonaws.services.workmail.model.UpdatePrimaryEmailAddressResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workmail.model.UpdatePrimaryEmailAddressResult {
 		return environment.workmail.updatePrimaryEmailAddress(build())
@@ -983,9 +1038,11 @@ class AmazonWorkMailUpdateResourceCommand(val organizationId: String, val resour
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workmail.model.UpdateResourceResult {
 	  return com.amazonaws.services.workmail.model.UpdateResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workmail.model.UpdateResourceResult {
 		return environment.workmail.updateResource(build())

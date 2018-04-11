@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -43,9 +44,11 @@ class AWSAutoScalingPlansCreateScalingPlanCommand(val scalingPlanName: String, v
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscalingplans.model.CreateScalingPlanResult {
 	  return com.amazonaws.services.autoscalingplans.model.CreateScalingPlanResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscalingplans.model.CreateScalingPlanResult {
 		return environment.autoscaling_plans.createScalingPlan(build())
@@ -77,9 +80,11 @@ class AWSAutoScalingPlansDeleteScalingPlanCommand(val scalingPlanName: String, v
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscalingplans.model.DeleteScalingPlanResult {
 	  return com.amazonaws.services.autoscalingplans.model.DeleteScalingPlanResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscalingplans.model.DeleteScalingPlanResult {
 		return environment.autoscaling_plans.deleteScalingPlan(build())
@@ -113,9 +118,11 @@ class AWSAutoScalingPlansDescribeScalingPlanResourcesCommand(val scalingPlanName
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscalingplans.model.DescribeScalingPlanResourcesResult {
 	  return com.amazonaws.services.autoscalingplans.model.DescribeScalingPlanResourcesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscalingplans.model.DescribeScalingPlanResourcesResult {
 		return environment.autoscaling_plans.describeScalingPlanResources(build())
@@ -155,9 +162,11 @@ class AWSAutoScalingPlansDescribeScalingPlansCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.autoscalingplans.model.DescribeScalingPlansResult {
 	  return com.amazonaws.services.autoscalingplans.model.DescribeScalingPlansResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.autoscalingplans.model.DescribeScalingPlansResult {
 		return environment.autoscaling_plans.describeScalingPlans(build())

@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -41,9 +42,11 @@ class AmazonCloudSearchBuildSuggestersCommand(val domainName: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudsearchv2.model.BuildSuggestersResult {
 	  return com.amazonaws.services.cloudsearchv2.model.BuildSuggestersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudsearchv2.model.BuildSuggestersResult {
 		return environment.cloudsearch.buildSuggesters(build())
@@ -72,9 +75,11 @@ class AmazonCloudSearchCreateDomainCommand(val domainName: String) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudsearchv2.model.CreateDomainResult {
 	  return com.amazonaws.services.cloudsearchv2.model.CreateDomainResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudsearchv2.model.CreateDomainResult {
 		return environment.cloudsearch.createDomain(build())
@@ -104,9 +109,11 @@ class AmazonCloudSearchDefineAnalysisSchemeCommand(val domainName: String, val a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudsearchv2.model.DefineAnalysisSchemeResult {
 	  return com.amazonaws.services.cloudsearchv2.model.DefineAnalysisSchemeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudsearchv2.model.DefineAnalysisSchemeResult {
 		return environment.cloudsearch.defineAnalysisScheme(build())
@@ -137,9 +144,11 @@ class AmazonCloudSearchDefineExpressionCommand(val domainName: String, val expre
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudsearchv2.model.DefineExpressionResult {
 	  return com.amazonaws.services.cloudsearchv2.model.DefineExpressionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudsearchv2.model.DefineExpressionResult {
 		return environment.cloudsearch.defineExpression(build())
@@ -170,9 +179,11 @@ class AmazonCloudSearchDefineIndexFieldCommand(val domainName: String, val index
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudsearchv2.model.DefineIndexFieldResult {
 	  return com.amazonaws.services.cloudsearchv2.model.DefineIndexFieldResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudsearchv2.model.DefineIndexFieldResult {
 		return environment.cloudsearch.defineIndexField(build())
@@ -203,9 +214,11 @@ class AmazonCloudSearchDefineSuggesterCommand(val domainName: String, val sugges
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudsearchv2.model.DefineSuggesterResult {
 	  return com.amazonaws.services.cloudsearchv2.model.DefineSuggesterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudsearchv2.model.DefineSuggesterResult {
 		return environment.cloudsearch.defineSuggester(build())
@@ -236,9 +249,11 @@ class AmazonCloudSearchDeleteAnalysisSchemeCommand(val domainName: String, val a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudsearchv2.model.DeleteAnalysisSchemeResult {
 	  return com.amazonaws.services.cloudsearchv2.model.DeleteAnalysisSchemeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudsearchv2.model.DeleteAnalysisSchemeResult {
 		return environment.cloudsearch.deleteAnalysisScheme(build())
@@ -268,9 +283,11 @@ class AmazonCloudSearchDeleteDomainCommand(val domainName: String) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudsearchv2.model.DeleteDomainResult {
 	  return com.amazonaws.services.cloudsearchv2.model.DeleteDomainResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudsearchv2.model.DeleteDomainResult {
 		return environment.cloudsearch.deleteDomain(build())
@@ -300,9 +317,11 @@ class AmazonCloudSearchDeleteExpressionCommand(val domainName: String, val expre
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudsearchv2.model.DeleteExpressionResult {
 	  return com.amazonaws.services.cloudsearchv2.model.DeleteExpressionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudsearchv2.model.DeleteExpressionResult {
 		return environment.cloudsearch.deleteExpression(build())
@@ -333,9 +352,11 @@ class AmazonCloudSearchDeleteIndexFieldCommand(val domainName: String, val index
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudsearchv2.model.DeleteIndexFieldResult {
 	  return com.amazonaws.services.cloudsearchv2.model.DeleteIndexFieldResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudsearchv2.model.DeleteIndexFieldResult {
 		return environment.cloudsearch.deleteIndexField(build())
@@ -366,9 +387,11 @@ class AmazonCloudSearchDeleteSuggesterCommand(val domainName: String, val sugges
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudsearchv2.model.DeleteSuggesterResult {
 	  return com.amazonaws.services.cloudsearchv2.model.DeleteSuggesterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudsearchv2.model.DeleteSuggesterResult {
 		return environment.cloudsearch.deleteSuggester(build())
@@ -401,9 +424,11 @@ class AmazonCloudSearchDescribeAnalysisSchemesCommand(val domainName: String) : 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudsearchv2.model.DescribeAnalysisSchemesResult {
 	  return com.amazonaws.services.cloudsearchv2.model.DescribeAnalysisSchemesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudsearchv2.model.DescribeAnalysisSchemesResult {
 		return environment.cloudsearch.describeAnalysisSchemes(build())
@@ -435,9 +460,11 @@ class AmazonCloudSearchDescribeAvailabilityOptionsCommand(val domainName: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudsearchv2.model.DescribeAvailabilityOptionsResult {
 	  return com.amazonaws.services.cloudsearchv2.model.DescribeAvailabilityOptionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudsearchv2.model.DescribeAvailabilityOptionsResult {
 		return environment.cloudsearch.describeAvailabilityOptions(build())
@@ -467,9 +494,11 @@ class AmazonCloudSearchDescribeDomainsCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudsearchv2.model.DescribeDomainsResult {
 	  return com.amazonaws.services.cloudsearchv2.model.DescribeDomainsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudsearchv2.model.DescribeDomainsResult {
 		return environment.cloudsearch.describeDomains(build())
@@ -501,9 +530,11 @@ class AmazonCloudSearchDescribeExpressionsCommand(val domainName: String) : Amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudsearchv2.model.DescribeExpressionsResult {
 	  return com.amazonaws.services.cloudsearchv2.model.DescribeExpressionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudsearchv2.model.DescribeExpressionsResult {
 		return environment.cloudsearch.describeExpressions(build())
@@ -537,9 +568,11 @@ class AmazonCloudSearchDescribeIndexFieldsCommand(val domainName: String) : Amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudsearchv2.model.DescribeIndexFieldsResult {
 	  return com.amazonaws.services.cloudsearchv2.model.DescribeIndexFieldsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudsearchv2.model.DescribeIndexFieldsResult {
 		return environment.cloudsearch.describeIndexFields(build())
@@ -570,9 +603,11 @@ class AmazonCloudSearchDescribeScalingParametersCommand(val domainName: String) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudsearchv2.model.DescribeScalingParametersResult {
 	  return com.amazonaws.services.cloudsearchv2.model.DescribeScalingParametersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudsearchv2.model.DescribeScalingParametersResult {
 		return environment.cloudsearch.describeScalingParameters(build())
@@ -602,9 +637,11 @@ class AmazonCloudSearchDescribeServiceAccessPoliciesCommand(val domainName: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudsearchv2.model.DescribeServiceAccessPoliciesResult {
 	  return com.amazonaws.services.cloudsearchv2.model.DescribeServiceAccessPoliciesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudsearchv2.model.DescribeServiceAccessPoliciesResult {
 		return environment.cloudsearch.describeServiceAccessPolicies(build())
@@ -637,9 +674,11 @@ class AmazonCloudSearchDescribeSuggestersCommand(val domainName: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudsearchv2.model.DescribeSuggestersResult {
 	  return com.amazonaws.services.cloudsearchv2.model.DescribeSuggestersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudsearchv2.model.DescribeSuggestersResult {
 		return environment.cloudsearch.describeSuggesters(build())
@@ -670,9 +709,11 @@ class AmazonCloudSearchIndexDocumentsCommand(val domainName: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudsearchv2.model.IndexDocumentsResult {
 	  return com.amazonaws.services.cloudsearchv2.model.IndexDocumentsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudsearchv2.model.IndexDocumentsResult {
 		return environment.cloudsearch.indexDocuments(build())
@@ -701,9 +742,11 @@ class AmazonCloudSearchListDomainNamesCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudsearchv2.model.ListDomainNamesResult {
 	  return com.amazonaws.services.cloudsearchv2.model.ListDomainNamesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudsearchv2.model.ListDomainNamesResult {
 		return environment.cloudsearch.listDomainNames(build())
@@ -733,9 +776,11 @@ class AmazonCloudSearchUpdateAvailabilityOptionsCommand(val domainName: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudsearchv2.model.UpdateAvailabilityOptionsResult {
 	  return com.amazonaws.services.cloudsearchv2.model.UpdateAvailabilityOptionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudsearchv2.model.UpdateAvailabilityOptionsResult {
 		return environment.cloudsearch.updateAvailabilityOptions(build())
@@ -766,9 +811,11 @@ class AmazonCloudSearchUpdateScalingParametersCommand(val domainName: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudsearchv2.model.UpdateScalingParametersResult {
 	  return com.amazonaws.services.cloudsearchv2.model.UpdateScalingParametersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudsearchv2.model.UpdateScalingParametersResult {
 		return environment.cloudsearch.updateScalingParameters(build())
@@ -799,9 +846,11 @@ class AmazonCloudSearchUpdateServiceAccessPoliciesCommand(val domainName: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudsearchv2.model.UpdateServiceAccessPoliciesResult {
 	  return com.amazonaws.services.cloudsearchv2.model.UpdateServiceAccessPoliciesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudsearchv2.model.UpdateServiceAccessPoliciesResult {
 		return environment.cloudsearch.updateServiceAccessPolicies(build())

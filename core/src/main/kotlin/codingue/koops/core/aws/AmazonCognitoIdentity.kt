@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -51,9 +52,11 @@ class AmazonCognitoIdentityCreateIdentityPoolCommand(val identityPoolName: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.CreateIdentityPoolResult {
 	  return com.amazonaws.services.cognitoidentity.model.CreateIdentityPoolResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.CreateIdentityPoolResult {
 		return environment.cognito_identity.createIdentityPool(build())
@@ -88,9 +91,11 @@ class AmazonCognitoIdentityDeleteIdentitiesCommand(val identityIdsToDelete: List
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.DeleteIdentitiesResult {
 	  return com.amazonaws.services.cognitoidentity.model.DeleteIdentitiesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.DeleteIdentitiesResult {
 		return environment.cognito_identity.deleteIdentities(build())
@@ -119,9 +124,11 @@ class AmazonCognitoIdentityDeleteIdentityPoolCommand(val identityPoolId: String)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.DeleteIdentityPoolResult {
 	  return com.amazonaws.services.cognitoidentity.model.DeleteIdentityPoolResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.DeleteIdentityPoolResult {
 		return environment.cognito_identity.deleteIdentityPool(build())
@@ -150,9 +157,11 @@ class AmazonCognitoIdentityDescribeIdentityCommand(val identityId: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.DescribeIdentityResult {
 	  return com.amazonaws.services.cognitoidentity.model.DescribeIdentityResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.DescribeIdentityResult {
 		return environment.cognito_identity.describeIdentity(build())
@@ -181,9 +190,11 @@ class AmazonCognitoIdentityDescribeIdentityPoolCommand(val identityPoolId: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.DescribeIdentityPoolResult {
 	  return com.amazonaws.services.cognitoidentity.model.DescribeIdentityPoolResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.DescribeIdentityPoolResult {
 		return environment.cognito_identity.describeIdentityPool(build())
@@ -215,9 +226,11 @@ class AmazonCognitoIdentityGetCredentialsForIdentityCommand(val identityId: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.GetCredentialsForIdentityResult {
 	  return com.amazonaws.services.cognitoidentity.model.GetCredentialsForIdentityResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.GetCredentialsForIdentityResult {
 		return environment.cognito_identity.getCredentialsForIdentity(build())
@@ -251,9 +264,11 @@ class AmazonCognitoIdentityGetIdCommand(val identityPoolId: String) : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.GetIdResult {
 	  return com.amazonaws.services.cognitoidentity.model.GetIdResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.GetIdResult {
 		return environment.cognito_identity.getId(build())
@@ -284,9 +299,11 @@ class AmazonCognitoIdentityGetIdentityPoolRolesCommand(val identityPoolId: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.GetIdentityPoolRolesResult {
 	  return com.amazonaws.services.cognitoidentity.model.GetIdentityPoolRolesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.GetIdentityPoolRolesResult {
 		return environment.cognito_identity.getIdentityPoolRoles(build())
@@ -316,9 +333,11 @@ class AmazonCognitoIdentityGetOpenIdTokenCommand(val identityId: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.GetOpenIdTokenResult {
 	  return com.amazonaws.services.cognitoidentity.model.GetOpenIdTokenResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.GetOpenIdTokenResult {
 		return environment.cognito_identity.getOpenIdToken(build())
@@ -352,9 +371,11 @@ class AmazonCognitoIdentityGetOpenIdTokenForDeveloperIdentityCommand(val identit
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.GetOpenIdTokenForDeveloperIdentityResult {
 	  return com.amazonaws.services.cognitoidentity.model.GetOpenIdTokenForDeveloperIdentityResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.GetOpenIdTokenForDeveloperIdentityResult {
 		return environment.cognito_identity.getOpenIdTokenForDeveloperIdentity(build())
@@ -390,9 +411,11 @@ class AmazonCognitoIdentityListIdentitiesCommand(val identityPoolId: String, val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.ListIdentitiesResult {
 	  return com.amazonaws.services.cognitoidentity.model.ListIdentitiesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.ListIdentitiesResult {
 		return environment.cognito_identity.listIdentities(build())
@@ -425,9 +448,11 @@ class AmazonCognitoIdentityListIdentityPoolsCommand(val maxResults: Int) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.ListIdentityPoolsResult {
 	  return com.amazonaws.services.cognitoidentity.model.ListIdentityPoolsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.ListIdentityPoolsResult {
 		return environment.cognito_identity.listIdentityPools(build())
@@ -464,9 +489,11 @@ class AmazonCognitoIdentityLookupDeveloperIdentityCommand(val identityPoolId: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.LookupDeveloperIdentityResult {
 	  return com.amazonaws.services.cognitoidentity.model.LookupDeveloperIdentityResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.LookupDeveloperIdentityResult {
 		return environment.cognito_identity.lookupDeveloperIdentity(build())
@@ -502,9 +529,11 @@ class AmazonCognitoIdentityMergeDeveloperIdentitiesCommand(val sourceUserIdentif
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.MergeDeveloperIdentitiesResult {
 	  return com.amazonaws.services.cognitoidentity.model.MergeDeveloperIdentitiesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.MergeDeveloperIdentitiesResult {
 		return environment.cognito_identity.mergeDeveloperIdentities(build())
@@ -538,9 +567,11 @@ class AmazonCognitoIdentitySetIdentityPoolRolesCommand(val identityPoolId: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.SetIdentityPoolRolesResult {
 	  return com.amazonaws.services.cognitoidentity.model.SetIdentityPoolRolesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.SetIdentityPoolRolesResult {
 		return environment.cognito_identity.setIdentityPoolRoles(build())
@@ -574,9 +605,11 @@ class AmazonCognitoIdentityUnlinkDeveloperIdentityCommand(val identityId: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.UnlinkDeveloperIdentityResult {
 	  return com.amazonaws.services.cognitoidentity.model.UnlinkDeveloperIdentityResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.UnlinkDeveloperIdentityResult {
 		return environment.cognito_identity.unlinkDeveloperIdentity(build())
@@ -610,9 +643,11 @@ class AmazonCognitoIdentityUnlinkIdentityCommand(val identityId: String, val log
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.UnlinkIdentityResult {
 	  return com.amazonaws.services.cognitoidentity.model.UnlinkIdentityResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.UnlinkIdentityResult {
 		return environment.cognito_identity.unlinkIdentity(build())
@@ -654,9 +689,11 @@ class AmazonCognitoIdentityUpdateIdentityPoolCommand(val identityPoolId: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.UpdateIdentityPoolResult {
 	  return com.amazonaws.services.cognitoidentity.model.UpdateIdentityPoolResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.UpdateIdentityPoolResult {
 		return environment.cognito_identity.updateIdentityPool(build())

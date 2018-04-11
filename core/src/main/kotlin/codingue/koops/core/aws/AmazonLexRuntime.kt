@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -55,9 +56,11 @@ class AmazonLexRuntimePostContentCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lexruntime.model.PostContentResult {
 	  return com.amazonaws.services.lexruntime.model.PostContentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexruntime.model.PostContentResult {
 		return environment.lexruntime.postContent(build())
@@ -103,9 +106,11 @@ class AmazonLexRuntimePostTextCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lexruntime.model.PostTextResult {
 	  return com.amazonaws.services.lexruntime.model.PostTextResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexruntime.model.PostTextResult {
 		return environment.lexruntime.postText(build())

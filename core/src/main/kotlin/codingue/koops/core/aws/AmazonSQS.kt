@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -44,9 +45,11 @@ class AmazonSQSAddPermissionCommand(val queueUrl: String, val label: String, val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sqs.model.AddPermissionResult {
 	  return com.amazonaws.services.sqs.model.AddPermissionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.AddPermissionResult {
 		return environment.sqs.addPermission(build())
@@ -80,9 +83,11 @@ class AmazonSQSChangeMessageVisibilityCommand(val queueUrl: String, val receiptH
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sqs.model.ChangeMessageVisibilityResult {
 	  return com.amazonaws.services.sqs.model.ChangeMessageVisibilityResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.ChangeMessageVisibilityResult {
 		return environment.sqs.changeMessageVisibility(build())
@@ -114,9 +119,11 @@ class AmazonSQSChangeMessageVisibilityBatchCommand(val queueUrl: String, val ent
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sqs.model.ChangeMessageVisibilityBatchResult {
 	  return com.amazonaws.services.sqs.model.ChangeMessageVisibilityBatchResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.ChangeMessageVisibilityBatchResult {
 		return environment.sqs.changeMessageVisibilityBatch(build())
@@ -147,9 +154,11 @@ class AmazonSQSCreateQueueCommand(val queueName: String) : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sqs.model.CreateQueueResult {
 	  return com.amazonaws.services.sqs.model.CreateQueueResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.CreateQueueResult {
 		return environment.sqs.createQueue(build())
@@ -180,9 +189,11 @@ class AmazonSQSDeleteMessageCommand(val queueUrl: String, val receiptHandle: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sqs.model.DeleteMessageResult {
 	  return com.amazonaws.services.sqs.model.DeleteMessageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.DeleteMessageResult {
 		return environment.sqs.deleteMessage(build())
@@ -213,9 +224,11 @@ class AmazonSQSDeleteMessageBatchCommand(val queueUrl: String, val entries: List
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sqs.model.DeleteMessageBatchResult {
 	  return com.amazonaws.services.sqs.model.DeleteMessageBatchResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.DeleteMessageBatchResult {
 		return environment.sqs.deleteMessageBatch(build())
@@ -245,9 +258,11 @@ class AmazonSQSDeleteQueueCommand(val queueUrl: String) : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sqs.model.DeleteQueueResult {
 	  return com.amazonaws.services.sqs.model.DeleteQueueResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.DeleteQueueResult {
 		return environment.sqs.deleteQueue(build())
@@ -277,9 +292,11 @@ class AmazonSQSGetQueueAttributesCommand(val queueUrl: String) : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sqs.model.GetQueueAttributesResult {
 	  return com.amazonaws.services.sqs.model.GetQueueAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.GetQueueAttributesResult {
 		return environment.sqs.getQueueAttributes(build())
@@ -310,9 +327,11 @@ class AmazonSQSGetQueueUrlCommand(val queueName: String) : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sqs.model.GetQueueUrlResult {
 	  return com.amazonaws.services.sqs.model.GetQueueUrlResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.GetQueueUrlResult {
 		return environment.sqs.getQueueUrl(build())
@@ -342,9 +361,11 @@ class AmazonSQSListDeadLetterSourceQueuesCommand(val queueUrl: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sqs.model.ListDeadLetterSourceQueuesResult {
 	  return com.amazonaws.services.sqs.model.ListDeadLetterSourceQueuesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.ListDeadLetterSourceQueuesResult {
 		return environment.sqs.listDeadLetterSourceQueues(build())
@@ -373,9 +394,11 @@ class AmazonSQSListQueueTagsCommand(val queueUrl: String) : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sqs.model.ListQueueTagsResult {
 	  return com.amazonaws.services.sqs.model.ListQueueTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.ListQueueTagsResult {
 		return environment.sqs.listQueueTags(build())
@@ -404,9 +427,11 @@ class AmazonSQSListQueuesCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sqs.model.ListQueuesResult {
 	  return com.amazonaws.services.sqs.model.ListQueuesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.ListQueuesResult {
 		return environment.sqs.listQueues(build())
@@ -435,9 +460,11 @@ class AmazonSQSPurgeQueueCommand(val queueUrl: String) : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sqs.model.PurgeQueueResult {
 	  return com.amazonaws.services.sqs.model.PurgeQueueResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.PurgeQueueResult {
 		return environment.sqs.purgeQueue(build())
@@ -477,9 +504,11 @@ class AmazonSQSReceiveMessageCommand(val queueUrl: String) : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sqs.model.ReceiveMessageResult {
 	  return com.amazonaws.services.sqs.model.ReceiveMessageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.ReceiveMessageResult {
 		return environment.sqs.receiveMessage(build())
@@ -515,9 +544,11 @@ class AmazonSQSRemovePermissionCommand(val queueUrl: String, val label: String) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sqs.model.RemovePermissionResult {
 	  return com.amazonaws.services.sqs.model.RemovePermissionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.RemovePermissionResult {
 		return environment.sqs.removePermission(build())
@@ -555,9 +586,11 @@ class AmazonSQSSendMessageCommand(val queueUrl: String, val messageBody: String)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sqs.model.SendMessageResult {
 	  return com.amazonaws.services.sqs.model.SendMessageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.SendMessageResult {
 		return environment.sqs.sendMessage(build())
@@ -592,9 +625,11 @@ class AmazonSQSSendMessageBatchCommand(val queueUrl: String, val entries: List<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sqs.model.SendMessageBatchResult {
 	  return com.amazonaws.services.sqs.model.SendMessageBatchResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.SendMessageBatchResult {
 		return environment.sqs.sendMessageBatch(build())
@@ -625,9 +660,11 @@ class AmazonSQSSetQueueAttributesCommand(val queueUrl: String, val attributes: M
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sqs.model.SetQueueAttributesResult {
 	  return com.amazonaws.services.sqs.model.SetQueueAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.SetQueueAttributesResult {
 		return environment.sqs.setQueueAttributes(build())
@@ -658,9 +695,11 @@ class AmazonSQSTagQueueCommand(val queueUrl: String, val tags: Map<String, Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sqs.model.TagQueueResult {
 	  return com.amazonaws.services.sqs.model.TagQueueResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.TagQueueResult {
 		return environment.sqs.tagQueue(build())
@@ -691,9 +730,11 @@ class AmazonSQSUntagQueueCommand(val queueUrl: String, val tagKeys: List<String>
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.sqs.model.UntagQueueResult {
 	  return com.amazonaws.services.sqs.model.UntagQueueResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.UntagQueueResult {
 		return environment.sqs.untagQueue(build())

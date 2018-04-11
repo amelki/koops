@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -41,9 +42,11 @@ class AWSMediaStoreDataDeleteObjectCommand(val path: String) : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediastoredata.model.DeleteObjectResult {
 	  return com.amazonaws.services.mediastoredata.model.DeleteObjectResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediastoredata.model.DeleteObjectResult {
 		return environment.mediastoredata.deleteObject(build())
@@ -72,9 +75,11 @@ class AWSMediaStoreDataDescribeObjectCommand(val path: String) : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediastoredata.model.DescribeObjectResult {
 	  return com.amazonaws.services.mediastoredata.model.DescribeObjectResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediastoredata.model.DescribeObjectResult {
 		return environment.mediastoredata.describeObject(build())
@@ -104,9 +109,11 @@ class AWSMediaStoreDataGetObjectCommand(val path: String) : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediastoredata.model.GetObjectResult {
 	  return com.amazonaws.services.mediastoredata.model.GetObjectResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediastoredata.model.GetObjectResult {
 		return environment.mediastoredata.getObject(build())
@@ -140,9 +147,11 @@ class AWSMediaStoreDataListItemsCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediastoredata.model.ListItemsResult {
 	  return com.amazonaws.services.mediastoredata.model.ListItemsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediastoredata.model.ListItemsResult {
 		return environment.mediastoredata.listItems(build())
@@ -179,9 +188,11 @@ class AWSMediaStoreDataPutObjectCommand(val body: java.io.InputStream, val path:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediastoredata.model.PutObjectResult {
 	  return com.amazonaws.services.mediastoredata.model.PutObjectResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediastoredata.model.PutObjectResult {
 		return environment.mediastoredata.putObject(build())

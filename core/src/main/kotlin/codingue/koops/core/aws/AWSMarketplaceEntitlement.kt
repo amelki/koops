@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -46,9 +47,11 @@ class AWSMarketplaceEntitlementGetEntitlementsCommand(val productCode: String) :
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.marketplaceentitlement.model.GetEntitlementsResult {
 	  return com.amazonaws.services.marketplaceentitlement.model.GetEntitlementsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.marketplaceentitlement.model.GetEntitlementsResult {
 		return environment.aws_marketplace.getEntitlements(build())

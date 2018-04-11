@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -47,9 +48,11 @@ class AWSIoTJobsDataPlaneDescribeJobExecutionCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iotjobsdataplane.model.DescribeJobExecutionResult {
 	  return com.amazonaws.services.iotjobsdataplane.model.DescribeJobExecutionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iotjobsdataplane.model.DescribeJobExecutionResult {
 		return environment.iot_jobs_data.describeJobExecution(build())
@@ -81,9 +84,11 @@ class AWSIoTJobsDataPlaneGetPendingJobExecutionsCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iotjobsdataplane.model.GetPendingJobExecutionsResult {
 	  return com.amazonaws.services.iotjobsdataplane.model.GetPendingJobExecutionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iotjobsdataplane.model.GetPendingJobExecutionsResult {
 		return environment.iot_jobs_data.getPendingJobExecutions(build())
@@ -114,9 +119,11 @@ class AWSIoTJobsDataPlaneStartNextPendingJobExecutionCommand() : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iotjobsdataplane.model.StartNextPendingJobExecutionResult {
 	  return com.amazonaws.services.iotjobsdataplane.model.StartNextPendingJobExecutionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iotjobsdataplane.model.StartNextPendingJobExecutionResult {
 		return environment.iot_jobs_data.startNextPendingJobExecution(build())
@@ -160,9 +167,11 @@ class AWSIoTJobsDataPlaneUpdateJobExecutionCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iotjobsdataplane.model.UpdateJobExecutionResult {
 	  return com.amazonaws.services.iotjobsdataplane.model.UpdateJobExecutionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iotjobsdataplane.model.UpdateJobExecutionResult {
 		return environment.iot_jobs_data.updateJobExecution(build())

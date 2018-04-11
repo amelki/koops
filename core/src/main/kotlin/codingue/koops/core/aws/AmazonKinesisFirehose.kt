@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -54,9 +55,11 @@ class AmazonKinesisFirehoseCreateDeliveryStreamCommand(val deliveryStreamName: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kinesisfirehose.model.CreateDeliveryStreamResult {
 	  return com.amazonaws.services.kinesisfirehose.model.CreateDeliveryStreamResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisfirehose.model.CreateDeliveryStreamResult {
 		return environment.firehose.createDeliveryStream(build())
@@ -92,9 +95,11 @@ class AmazonKinesisFirehoseDeleteDeliveryStreamCommand(val deliveryStreamName: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kinesisfirehose.model.DeleteDeliveryStreamResult {
 	  return com.amazonaws.services.kinesisfirehose.model.DeleteDeliveryStreamResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisfirehose.model.DeleteDeliveryStreamResult {
 		return environment.firehose.deleteDeliveryStream(build())
@@ -126,9 +131,11 @@ class AmazonKinesisFirehoseDescribeDeliveryStreamCommand(val deliveryStreamName:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kinesisfirehose.model.DescribeDeliveryStreamResult {
 	  return com.amazonaws.services.kinesisfirehose.model.DescribeDeliveryStreamResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisfirehose.model.DescribeDeliveryStreamResult {
 		return environment.firehose.describeDeliveryStream(build())
@@ -163,9 +170,11 @@ class AmazonKinesisFirehoseListDeliveryStreamsCommand() : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kinesisfirehose.model.ListDeliveryStreamsResult {
 	  return com.amazonaws.services.kinesisfirehose.model.ListDeliveryStreamsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisfirehose.model.ListDeliveryStreamsResult {
 		return environment.firehose.listDeliveryStreams(build())
@@ -197,9 +206,11 @@ class AmazonKinesisFirehosePutRecordCommand(val deliveryStreamName: String, val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kinesisfirehose.model.PutRecordResult {
 	  return com.amazonaws.services.kinesisfirehose.model.PutRecordResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisfirehose.model.PutRecordResult {
 		return environment.firehose.putRecord(build())
@@ -230,9 +241,11 @@ class AmazonKinesisFirehosePutRecordBatchCommand(val deliveryStreamName: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kinesisfirehose.model.PutRecordBatchResult {
 	  return com.amazonaws.services.kinesisfirehose.model.PutRecordBatchResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisfirehose.model.PutRecordBatchResult {
 		return environment.firehose.putRecordBatch(build())
@@ -273,9 +286,11 @@ class AmazonKinesisFirehoseUpdateDestinationCommand(val deliveryStreamName: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.kinesisfirehose.model.UpdateDestinationResult {
 	  return com.amazonaws.services.kinesisfirehose.model.UpdateDestinationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisfirehose.model.UpdateDestinationResult {
 		return environment.firehose.updateDestination(build())

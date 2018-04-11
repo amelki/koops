@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -42,9 +43,11 @@ class AmazonCloudFormationCancelUpdateStackCommand(val stackName: String) : Amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.CancelUpdateStackResult {
 	  return com.amazonaws.services.cloudformation.model.CancelUpdateStackResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.CancelUpdateStackResult {
 		return environment.cloudformation.cancelUpdateStack(build())
@@ -79,9 +82,11 @@ class AmazonCloudFormationContinueUpdateRollbackCommand(val stackName: String) :
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.ContinueUpdateRollbackResult {
 	  return com.amazonaws.services.cloudformation.model.ContinueUpdateRollbackResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.ContinueUpdateRollbackResult {
 		return environment.cloudformation.continueUpdateRollback(build())
@@ -139,9 +144,11 @@ class AmazonCloudFormationCreateChangeSetCommand(val stackName: String, val chan
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.CreateChangeSetResult {
 	  return com.amazonaws.services.cloudformation.model.CreateChangeSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.CreateChangeSetResult {
 		return environment.cloudformation.createChangeSet(build())
@@ -215,9 +222,11 @@ class AmazonCloudFormationCreateStackCommand(val stackName: String) : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.CreateStackResult {
 	  return com.amazonaws.services.cloudformation.model.CreateStackResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.CreateStackResult {
 		return environment.cloudformation.createStack(build())
@@ -269,9 +278,11 @@ class AmazonCloudFormationCreateStackInstancesCommand(val stackSetName: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.CreateStackInstancesResult {
 	  return com.amazonaws.services.cloudformation.model.CreateStackInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.CreateStackInstancesResult {
 		return environment.cloudformation.createStackInstances(build())
@@ -320,9 +331,11 @@ class AmazonCloudFormationCreateStackSetCommand(val stackSetName: String) : Amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.CreateStackSetResult {
 	  return com.amazonaws.services.cloudformation.model.CreateStackSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.CreateStackSetResult {
 		return environment.cloudformation.createStackSet(build())
@@ -360,9 +373,11 @@ class AmazonCloudFormationDeleteChangeSetCommand(val changeSetName: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.DeleteChangeSetResult {
 	  return com.amazonaws.services.cloudformation.model.DeleteChangeSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.DeleteChangeSetResult {
 		return environment.cloudformation.deleteChangeSet(build())
@@ -397,9 +412,11 @@ class AmazonCloudFormationDeleteStackCommand(val stackName: String) : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.DeleteStackResult {
 	  return com.amazonaws.services.cloudformation.model.DeleteStackResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.DeleteStackResult {
 		return environment.cloudformation.deleteStack(build())
@@ -437,9 +454,11 @@ class AmazonCloudFormationDeleteStackInstancesCommand(val stackSetName: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.DeleteStackInstancesResult {
 	  return com.amazonaws.services.cloudformation.model.DeleteStackInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.DeleteStackInstancesResult {
 		return environment.cloudformation.deleteStackInstances(build())
@@ -473,9 +492,11 @@ class AmazonCloudFormationDeleteStackSetCommand(val stackSetName: String) : Amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.DeleteStackSetResult {
 	  return com.amazonaws.services.cloudformation.model.DeleteStackSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.DeleteStackSetResult {
 		return environment.cloudformation.deleteStackSet(build())
@@ -504,9 +525,11 @@ class AmazonCloudFormationDescribeAccountLimitsCommand() : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.DescribeAccountLimitsResult {
 	  return com.amazonaws.services.cloudformation.model.DescribeAccountLimitsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.DescribeAccountLimitsResult {
 		return environment.cloudformation.describeAccountLimits(build())
@@ -538,9 +561,11 @@ class AmazonCloudFormationDescribeChangeSetCommand(val changeSetName: String) : 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.DescribeChangeSetResult {
 	  return com.amazonaws.services.cloudformation.model.DescribeChangeSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.DescribeChangeSetResult {
 		return environment.cloudformation.describeChangeSet(build())
@@ -573,9 +598,11 @@ class AmazonCloudFormationDescribeStackEventsCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.DescribeStackEventsResult {
 	  return com.amazonaws.services.cloudformation.model.DescribeStackEventsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.DescribeStackEventsResult {
 		return environment.cloudformation.describeStackEvents(build())
@@ -607,9 +634,11 @@ class AmazonCloudFormationDescribeStackInstanceCommand(val stackSetName: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.DescribeStackInstanceResult {
 	  return com.amazonaws.services.cloudformation.model.DescribeStackInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.DescribeStackInstanceResult {
 		return environment.cloudformation.describeStackInstance(build())
@@ -641,9 +670,11 @@ class AmazonCloudFormationDescribeStackResourceCommand(val stackName: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.DescribeStackResourceResult {
 	  return com.amazonaws.services.cloudformation.model.DescribeStackResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.DescribeStackResourceResult {
 		return environment.cloudformation.describeStackResource(build())
@@ -677,9 +708,11 @@ class AmazonCloudFormationDescribeStackResourcesCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.DescribeStackResourcesResult {
 	  return com.amazonaws.services.cloudformation.model.DescribeStackResourcesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.DescribeStackResourcesResult {
 		return environment.cloudformation.describeStackResources(build())
@@ -710,9 +743,11 @@ class AmazonCloudFormationDescribeStackSetCommand(val stackSetName: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.DescribeStackSetResult {
 	  return com.amazonaws.services.cloudformation.model.DescribeStackSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.DescribeStackSetResult {
 		return environment.cloudformation.describeStackSet(build())
@@ -742,9 +777,11 @@ class AmazonCloudFormationDescribeStackSetOperationCommand(val stackSetName: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.DescribeStackSetOperationResult {
 	  return com.amazonaws.services.cloudformation.model.DescribeStackSetOperationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.DescribeStackSetOperationResult {
 		return environment.cloudformation.describeStackSetOperation(build())
@@ -776,9 +813,11 @@ class AmazonCloudFormationDescribeStacksCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.DescribeStacksResult {
 	  return com.amazonaws.services.cloudformation.model.DescribeStacksResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.DescribeStacksResult {
 		return environment.cloudformation.describeStacks(build())
@@ -812,9 +851,11 @@ class AmazonCloudFormationEstimateTemplateCostCommand() : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.EstimateTemplateCostResult {
 	  return com.amazonaws.services.cloudformation.model.EstimateTemplateCostResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.EstimateTemplateCostResult {
 		return environment.cloudformation.estimateTemplateCost(build())
@@ -848,9 +889,11 @@ class AmazonCloudFormationExecuteChangeSetCommand(val changeSetName: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.ExecuteChangeSetResult {
 	  return com.amazonaws.services.cloudformation.model.ExecuteChangeSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.ExecuteChangeSetResult {
 		return environment.cloudformation.executeChangeSet(build())
@@ -881,9 +924,11 @@ class AmazonCloudFormationGetStackPolicyCommand(val stackName: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.GetStackPolicyResult {
 	  return com.amazonaws.services.cloudformation.model.GetStackPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.GetStackPolicyResult {
 		return environment.cloudformation.getStackPolicy(build())
@@ -916,9 +961,11 @@ class AmazonCloudFormationGetTemplateCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.GetTemplateResult {
 	  return com.amazonaws.services.cloudformation.model.GetTemplateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.GetTemplateResult {
 		return environment.cloudformation.getTemplate(build())
@@ -955,9 +1002,11 @@ class AmazonCloudFormationGetTemplateSummaryCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.GetTemplateSummaryResult {
 	  return com.amazonaws.services.cloudformation.model.GetTemplateSummaryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.GetTemplateSummaryResult {
 		return environment.cloudformation.getTemplateSummary(build())
@@ -990,9 +1039,11 @@ class AmazonCloudFormationListChangeSetsCommand(val stackName: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.ListChangeSetsResult {
 	  return com.amazonaws.services.cloudformation.model.ListChangeSetsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.ListChangeSetsResult {
 		return environment.cloudformation.listChangeSets(build())
@@ -1022,9 +1073,11 @@ class AmazonCloudFormationListExportsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.ListExportsResult {
 	  return com.amazonaws.services.cloudformation.model.ListExportsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.ListExportsResult {
 		return environment.cloudformation.listExports(build())
@@ -1054,9 +1107,11 @@ class AmazonCloudFormationListImportsCommand(val exportName: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.ListImportsResult {
 	  return com.amazonaws.services.cloudformation.model.ListImportsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.ListImportsResult {
 		return environment.cloudformation.listImports(build())
@@ -1093,9 +1148,11 @@ class AmazonCloudFormationListStackInstancesCommand(val stackSetName: String) : 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.ListStackInstancesResult {
 	  return com.amazonaws.services.cloudformation.model.ListStackInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.ListStackInstancesResult {
 		return environment.cloudformation.listStackInstances(build())
@@ -1129,9 +1186,11 @@ class AmazonCloudFormationListStackResourcesCommand(val stackName: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.ListStackResourcesResult {
 	  return com.amazonaws.services.cloudformation.model.ListStackResourcesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.ListStackResourcesResult {
 		return environment.cloudformation.listStackResources(build())
@@ -1165,9 +1224,11 @@ class AmazonCloudFormationListStackSetOperationResultsCommand(val stackSetName: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.ListStackSetOperationResultsResult {
 	  return com.amazonaws.services.cloudformation.model.ListStackSetOperationResultsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.ListStackSetOperationResultsResult {
 		return environment.cloudformation.listStackSetOperationResults(build())
@@ -1202,9 +1263,11 @@ class AmazonCloudFormationListStackSetOperationsCommand(val stackSetName: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.ListStackSetOperationsResult {
 	  return com.amazonaws.services.cloudformation.model.ListStackSetOperationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.ListStackSetOperationsResult {
 		return environment.cloudformation.listStackSetOperations(build())
@@ -1239,9 +1302,11 @@ class AmazonCloudFormationListStackSetsCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.ListStackSetsResult {
 	  return com.amazonaws.services.cloudformation.model.ListStackSetsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.ListStackSetsResult {
 		return environment.cloudformation.listStackSets(build())
@@ -1274,9 +1339,11 @@ class AmazonCloudFormationListStacksCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.ListStacksResult {
 	  return com.amazonaws.services.cloudformation.model.ListStacksResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.ListStacksResult {
 		return environment.cloudformation.listStacks(build())
@@ -1309,9 +1376,11 @@ class AmazonCloudFormationSetStackPolicyCommand(val stackName: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.SetStackPolicyResult {
 	  return com.amazonaws.services.cloudformation.model.SetStackPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.SetStackPolicyResult {
 		return environment.cloudformation.setStackPolicy(build())
@@ -1345,9 +1414,11 @@ class AmazonCloudFormationSignalResourceCommand(val stackName: String, val logic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.SignalResourceResult {
 	  return com.amazonaws.services.cloudformation.model.SignalResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.SignalResourceResult {
 		return environment.cloudformation.signalResource(build())
@@ -1380,9 +1451,11 @@ class AmazonCloudFormationStopStackSetOperationCommand(val stackSetName: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.StopStackSetOperationResult {
 	  return com.amazonaws.services.cloudformation.model.StopStackSetOperationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.StopStackSetOperationResult {
 		return environment.cloudformation.stopStackSetOperation(build())
@@ -1441,9 +1514,11 @@ class AmazonCloudFormationUpdateStackCommand(val stackName: String) : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.UpdateStackResult {
 	  return com.amazonaws.services.cloudformation.model.UpdateStackResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.UpdateStackResult {
 		return environment.cloudformation.updateStack(build())
@@ -1494,9 +1569,11 @@ class AmazonCloudFormationUpdateStackInstancesCommand(val stackSetName: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.UpdateStackInstancesResult {
 	  return com.amazonaws.services.cloudformation.model.UpdateStackInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.UpdateStackInstancesResult {
 		return environment.cloudformation.updateStackInstances(build())
@@ -1549,9 +1626,11 @@ class AmazonCloudFormationUpdateStackSetCommand(val stackSetName: String) : Amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.UpdateStackSetResult {
 	  return com.amazonaws.services.cloudformation.model.UpdateStackSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.UpdateStackSetResult {
 		return environment.cloudformation.updateStackSet(build())
@@ -1591,9 +1670,11 @@ class AmazonCloudFormationUpdateTerminationProtectionCommand(val enableTerminati
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.UpdateTerminationProtectionResult {
 	  return com.amazonaws.services.cloudformation.model.UpdateTerminationProtectionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.UpdateTerminationProtectionResult {
 		return environment.cloudformation.updateTerminationProtection(build())
@@ -1625,9 +1706,11 @@ class AmazonCloudFormationValidateTemplateCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudformation.model.ValidateTemplateResult {
 	  return com.amazonaws.services.cloudformation.model.ValidateTemplateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudformation.model.ValidateTemplateResult {
 		return environment.cloudformation.validateTemplate(build())

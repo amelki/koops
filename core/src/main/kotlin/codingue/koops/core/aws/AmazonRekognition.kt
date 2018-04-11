@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -43,9 +44,11 @@ class AmazonRekognitionCompareFacesCommand(val sourceImage: com.amazonaws.servic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.CompareFacesResult {
 	  return com.amazonaws.services.rekognition.model.CompareFacesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.CompareFacesResult {
 		return environment.rekognition.compareFaces(build())
@@ -76,9 +79,11 @@ class AmazonRekognitionCreateCollectionCommand(val collectionId: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.CreateCollectionResult {
 	  return com.amazonaws.services.rekognition.model.CreateCollectionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.CreateCollectionResult {
 		return environment.rekognition.createCollection(build())
@@ -111,9 +116,11 @@ class AmazonRekognitionCreateStreamProcessorCommand(val input: com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.CreateStreamProcessorResult {
 	  return com.amazonaws.services.rekognition.model.CreateStreamProcessorResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.CreateStreamProcessorResult {
 		return environment.rekognition.createStreamProcessor(build())
@@ -146,9 +153,11 @@ class AmazonRekognitionDeleteCollectionCommand(val collectionId: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.DeleteCollectionResult {
 	  return com.amazonaws.services.rekognition.model.DeleteCollectionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.DeleteCollectionResult {
 		return environment.rekognition.deleteCollection(build())
@@ -178,9 +187,11 @@ class AmazonRekognitionDeleteFacesCommand(val collectionId: String, val faceIds:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.DeleteFacesResult {
 	  return com.amazonaws.services.rekognition.model.DeleteFacesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.DeleteFacesResult {
 		return environment.rekognition.deleteFaces(build())
@@ -210,9 +221,11 @@ class AmazonRekognitionDeleteStreamProcessorCommand(val name: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.DeleteStreamProcessorResult {
 	  return com.amazonaws.services.rekognition.model.DeleteStreamProcessorResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.DeleteStreamProcessorResult {
 		return environment.rekognition.deleteStreamProcessor(build())
@@ -241,9 +254,11 @@ class AmazonRekognitionDescribeStreamProcessorCommand(val name: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.DescribeStreamProcessorResult {
 	  return com.amazonaws.services.rekognition.model.DescribeStreamProcessorResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.DescribeStreamProcessorResult {
 		return environment.rekognition.describeStreamProcessor(build())
@@ -273,9 +288,11 @@ class AmazonRekognitionDetectFacesCommand(val image: com.amazonaws.services.reko
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.DetectFacesResult {
 	  return com.amazonaws.services.rekognition.model.DetectFacesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.DetectFacesResult {
 		return environment.rekognition.detectFaces(build())
@@ -308,9 +325,11 @@ class AmazonRekognitionDetectLabelsCommand(val image: com.amazonaws.services.rek
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.DetectLabelsResult {
 	  return com.amazonaws.services.rekognition.model.DetectLabelsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.DetectLabelsResult {
 		return environment.rekognition.detectLabels(build())
@@ -342,9 +361,11 @@ class AmazonRekognitionDetectModerationLabelsCommand(val image: com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.DetectModerationLabelsResult {
 	  return com.amazonaws.services.rekognition.model.DetectModerationLabelsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.DetectModerationLabelsResult {
 		return environment.rekognition.detectModerationLabels(build())
@@ -374,9 +395,11 @@ class AmazonRekognitionDetectTextCommand(val image: com.amazonaws.services.rekog
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.DetectTextResult {
 	  return com.amazonaws.services.rekognition.model.DetectTextResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.DetectTextResult {
 		return environment.rekognition.detectText(build())
@@ -405,9 +428,11 @@ class AmazonRekognitionGetCelebrityInfoCommand(val id: String) : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.GetCelebrityInfoResult {
 	  return com.amazonaws.services.rekognition.model.GetCelebrityInfoResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.GetCelebrityInfoResult {
 		return environment.rekognition.getCelebrityInfo(build())
@@ -441,9 +466,11 @@ class AmazonRekognitionGetCelebrityRecognitionCommand(val jobId: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.GetCelebrityRecognitionResult {
 	  return com.amazonaws.services.rekognition.model.GetCelebrityRecognitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.GetCelebrityRecognitionResult {
 		return environment.rekognition.getCelebrityRecognition(build())
@@ -480,9 +507,11 @@ class AmazonRekognitionGetContentModerationCommand(val jobId: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.GetContentModerationResult {
 	  return com.amazonaws.services.rekognition.model.GetContentModerationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.GetContentModerationResult {
 		return environment.rekognition.getContentModeration(build())
@@ -517,9 +546,11 @@ class AmazonRekognitionGetFaceDetectionCommand(val jobId: String) : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.GetFaceDetectionResult {
 	  return com.amazonaws.services.rekognition.model.GetFaceDetectionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.GetFaceDetectionResult {
 		return environment.rekognition.getFaceDetection(build())
@@ -555,9 +586,11 @@ class AmazonRekognitionGetFaceSearchCommand(val jobId: String) : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.GetFaceSearchResult {
 	  return com.amazonaws.services.rekognition.model.GetFaceSearchResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.GetFaceSearchResult {
 		return environment.rekognition.getFaceSearch(build())
@@ -594,9 +627,11 @@ class AmazonRekognitionGetLabelDetectionCommand(val jobId: String) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.GetLabelDetectionResult {
 	  return com.amazonaws.services.rekognition.model.GetLabelDetectionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.GetLabelDetectionResult {
 		return environment.rekognition.getLabelDetection(build())
@@ -633,9 +668,11 @@ class AmazonRekognitionGetPersonTrackingCommand(val jobId: String) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.GetPersonTrackingResult {
 	  return com.amazonaws.services.rekognition.model.GetPersonTrackingResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.GetPersonTrackingResult {
 		return environment.rekognition.getPersonTracking(build())
@@ -671,9 +708,11 @@ class AmazonRekognitionIndexFacesCommand(val collectionId: String, val image: co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.IndexFacesResult {
 	  return com.amazonaws.services.rekognition.model.IndexFacesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.IndexFacesResult {
 		return environment.rekognition.indexFaces(build())
@@ -707,9 +746,11 @@ class AmazonRekognitionListCollectionsCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.ListCollectionsResult {
 	  return com.amazonaws.services.rekognition.model.ListCollectionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.ListCollectionsResult {
 		return environment.rekognition.listCollections(build())
@@ -742,9 +783,11 @@ class AmazonRekognitionListFacesCommand(val collectionId: String) : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.ListFacesResult {
 	  return com.amazonaws.services.rekognition.model.ListFacesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.ListFacesResult {
 		return environment.rekognition.listFaces(build())
@@ -777,9 +820,11 @@ class AmazonRekognitionListStreamProcessorsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.ListStreamProcessorsResult {
 	  return com.amazonaws.services.rekognition.model.ListStreamProcessorsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.ListStreamProcessorsResult {
 		return environment.rekognition.listStreamProcessors(build())
@@ -809,9 +854,11 @@ class AmazonRekognitionRecognizeCelebritiesCommand(val image: com.amazonaws.serv
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.RecognizeCelebritiesResult {
 	  return com.amazonaws.services.rekognition.model.RecognizeCelebritiesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.RecognizeCelebritiesResult {
 		return environment.rekognition.recognizeCelebrities(build())
@@ -844,9 +891,11 @@ class AmazonRekognitionSearchFacesCommand(val collectionId: String, val faceId: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.SearchFacesResult {
 	  return com.amazonaws.services.rekognition.model.SearchFacesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.SearchFacesResult {
 		return environment.rekognition.searchFaces(build())
@@ -882,9 +931,11 @@ class AmazonRekognitionSearchFacesByImageCommand(val collectionId: String, val i
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.SearchFacesByImageResult {
 	  return com.amazonaws.services.rekognition.model.SearchFacesByImageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.SearchFacesByImageResult {
 		return environment.rekognition.searchFacesByImage(build())
@@ -921,9 +972,11 @@ class AmazonRekognitionStartCelebrityRecognitionCommand(val video: com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.StartCelebrityRecognitionResult {
 	  return com.amazonaws.services.rekognition.model.StartCelebrityRecognitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.StartCelebrityRecognitionResult {
 		return environment.rekognition.startCelebrityRecognition(build())
@@ -962,9 +1015,11 @@ class AmazonRekognitionStartContentModerationCommand(val video: com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.StartContentModerationResult {
 	  return com.amazonaws.services.rekognition.model.StartContentModerationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.StartContentModerationResult {
 		return environment.rekognition.startContentModeration(build())
@@ -1004,9 +1059,11 @@ class AmazonRekognitionStartFaceDetectionCommand(val video: com.amazonaws.servic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.StartFaceDetectionResult {
 	  return com.amazonaws.services.rekognition.model.StartFaceDetectionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.StartFaceDetectionResult {
 		return environment.rekognition.startFaceDetection(build())
@@ -1047,9 +1104,11 @@ class AmazonRekognitionStartFaceSearchCommand(val video: com.amazonaws.services.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.StartFaceSearchResult {
 	  return com.amazonaws.services.rekognition.model.StartFaceSearchResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.StartFaceSearchResult {
 		return environment.rekognition.startFaceSearch(build())
@@ -1090,9 +1149,11 @@ class AmazonRekognitionStartLabelDetectionCommand(val video: com.amazonaws.servi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.StartLabelDetectionResult {
 	  return com.amazonaws.services.rekognition.model.StartLabelDetectionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.StartLabelDetectionResult {
 		return environment.rekognition.startLabelDetection(build())
@@ -1130,9 +1191,11 @@ class AmazonRekognitionStartPersonTrackingCommand(val video: com.amazonaws.servi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.StartPersonTrackingResult {
 	  return com.amazonaws.services.rekognition.model.StartPersonTrackingResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.StartPersonTrackingResult {
 		return environment.rekognition.startPersonTracking(build())
@@ -1164,9 +1227,11 @@ class AmazonRekognitionStartStreamProcessorCommand(val name: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.StartStreamProcessorResult {
 	  return com.amazonaws.services.rekognition.model.StartStreamProcessorResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.StartStreamProcessorResult {
 		return environment.rekognition.startStreamProcessor(build())
@@ -1195,9 +1260,11 @@ class AmazonRekognitionStopStreamProcessorCommand(val name: String) : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rekognition.model.StopStreamProcessorResult {
 	  return com.amazonaws.services.rekognition.model.StopStreamProcessorResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rekognition.model.StopStreamProcessorResult {
 		return environment.rekognition.stopStreamProcessor(build())

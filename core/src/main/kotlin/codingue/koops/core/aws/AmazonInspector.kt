@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -43,9 +44,11 @@ class AmazonInspectorAddAttributesToFindingsCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.AddAttributesToFindingsResult {
 	  return com.amazonaws.services.inspector.model.AddAttributesToFindingsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.AddAttributesToFindingsResult {
 		return environment.inspector.addAttributesToFindings(build())
@@ -77,9 +80,11 @@ class AmazonInspectorCreateAssessmentTargetCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.CreateAssessmentTargetResult {
 	  return com.amazonaws.services.inspector.model.CreateAssessmentTargetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.CreateAssessmentTargetResult {
 		return environment.inspector.createAssessmentTarget(build())
@@ -117,9 +122,11 @@ class AmazonInspectorCreateAssessmentTemplateCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.CreateAssessmentTemplateResult {
 	  return com.amazonaws.services.inspector.model.CreateAssessmentTemplateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.CreateAssessmentTemplateResult {
 		return environment.inspector.createAssessmentTemplate(build())
@@ -152,9 +159,11 @@ class AmazonInspectorCreateResourceGroupCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.CreateResourceGroupResult {
 	  return com.amazonaws.services.inspector.model.CreateResourceGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.CreateResourceGroupResult {
 		return environment.inspector.createResourceGroup(build())
@@ -183,9 +192,11 @@ class AmazonInspectorDeleteAssessmentRunCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.DeleteAssessmentRunResult {
 	  return com.amazonaws.services.inspector.model.DeleteAssessmentRunResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.DeleteAssessmentRunResult {
 		return environment.inspector.deleteAssessmentRun(build())
@@ -214,9 +225,11 @@ class AmazonInspectorDeleteAssessmentTargetCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.DeleteAssessmentTargetResult {
 	  return com.amazonaws.services.inspector.model.DeleteAssessmentTargetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.DeleteAssessmentTargetResult {
 		return environment.inspector.deleteAssessmentTarget(build())
@@ -245,9 +258,11 @@ class AmazonInspectorDeleteAssessmentTemplateCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.DeleteAssessmentTemplateResult {
 	  return com.amazonaws.services.inspector.model.DeleteAssessmentTemplateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.DeleteAssessmentTemplateResult {
 		return environment.inspector.deleteAssessmentTemplate(build())
@@ -276,9 +291,11 @@ class AmazonInspectorDescribeAssessmentRunsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.DescribeAssessmentRunsResult {
 	  return com.amazonaws.services.inspector.model.DescribeAssessmentRunsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.DescribeAssessmentRunsResult {
 		return environment.inspector.describeAssessmentRuns(build())
@@ -307,9 +324,11 @@ class AmazonInspectorDescribeAssessmentTargetsCommand() : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.DescribeAssessmentTargetsResult {
 	  return com.amazonaws.services.inspector.model.DescribeAssessmentTargetsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.DescribeAssessmentTargetsResult {
 		return environment.inspector.describeAssessmentTargets(build())
@@ -338,9 +357,11 @@ class AmazonInspectorDescribeAssessmentTemplatesCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.DescribeAssessmentTemplatesResult {
 	  return com.amazonaws.services.inspector.model.DescribeAssessmentTemplatesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.DescribeAssessmentTemplatesResult {
 		return environment.inspector.describeAssessmentTemplates(build())
@@ -369,9 +390,11 @@ class AmazonInspectorDescribeCrossAccountAccessRoleCommand() : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.DescribeCrossAccountAccessRoleResult {
 	  return com.amazonaws.services.inspector.model.DescribeCrossAccountAccessRoleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.DescribeCrossAccountAccessRoleResult {
 		return environment.inspector.describeCrossAccountAccessRole(build())
@@ -402,9 +425,11 @@ class AmazonInspectorDescribeFindingsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.DescribeFindingsResult {
 	  return com.amazonaws.services.inspector.model.DescribeFindingsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.DescribeFindingsResult {
 		return environment.inspector.describeFindings(build())
@@ -434,9 +459,11 @@ class AmazonInspectorDescribeResourceGroupsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.DescribeResourceGroupsResult {
 	  return com.amazonaws.services.inspector.model.DescribeResourceGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.DescribeResourceGroupsResult {
 		return environment.inspector.describeResourceGroups(build())
@@ -467,9 +494,11 @@ class AmazonInspectorDescribeRulesPackagesCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.DescribeRulesPackagesResult {
 	  return com.amazonaws.services.inspector.model.DescribeRulesPackagesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.DescribeRulesPackagesResult {
 		return environment.inspector.describeRulesPackages(build())
@@ -503,9 +532,11 @@ class AmazonInspectorGetAssessmentReportCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.GetAssessmentReportResult {
 	  return com.amazonaws.services.inspector.model.GetAssessmentReportResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.GetAssessmentReportResult {
 		return environment.inspector.getAssessmentReport(build())
@@ -536,9 +567,11 @@ class AmazonInspectorGetTelemetryMetadataCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.GetTelemetryMetadataResult {
 	  return com.amazonaws.services.inspector.model.GetTelemetryMetadataResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.GetTelemetryMetadataResult {
 		return environment.inspector.getTelemetryMetadata(build())
@@ -573,9 +606,11 @@ class AmazonInspectorListAssessmentRunAgentsCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.ListAssessmentRunAgentsResult {
 	  return com.amazonaws.services.inspector.model.ListAssessmentRunAgentsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.ListAssessmentRunAgentsResult {
 		return environment.inspector.listAssessmentRunAgents(build())
@@ -613,9 +648,11 @@ class AmazonInspectorListAssessmentRunsCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.ListAssessmentRunsResult {
 	  return com.amazonaws.services.inspector.model.ListAssessmentRunsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.ListAssessmentRunsResult {
 		return environment.inspector.listAssessmentRuns(build())
@@ -651,9 +688,11 @@ class AmazonInspectorListAssessmentTargetsCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.ListAssessmentTargetsResult {
 	  return com.amazonaws.services.inspector.model.ListAssessmentTargetsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.ListAssessmentTargetsResult {
 		return environment.inspector.listAssessmentTargets(build())
@@ -690,9 +729,11 @@ class AmazonInspectorListAssessmentTemplatesCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.ListAssessmentTemplatesResult {
 	  return com.amazonaws.services.inspector.model.ListAssessmentTemplatesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.ListAssessmentTemplatesResult {
 		return environment.inspector.listAssessmentTemplates(build())
@@ -728,9 +769,11 @@ class AmazonInspectorListEventSubscriptionsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.ListEventSubscriptionsResult {
 	  return com.amazonaws.services.inspector.model.ListEventSubscriptionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.ListEventSubscriptionsResult {
 		return environment.inspector.listEventSubscriptions(build())
@@ -767,9 +810,11 @@ class AmazonInspectorListFindingsCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.ListFindingsResult {
 	  return com.amazonaws.services.inspector.model.ListFindingsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.ListFindingsResult {
 		return environment.inspector.listFindings(build())
@@ -803,9 +848,11 @@ class AmazonInspectorListRulesPackagesCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.ListRulesPackagesResult {
 	  return com.amazonaws.services.inspector.model.ListRulesPackagesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.ListRulesPackagesResult {
 		return environment.inspector.listRulesPackages(build())
@@ -835,9 +882,11 @@ class AmazonInspectorListTagsForResourceCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.ListTagsForResourceResult {
 	  return com.amazonaws.services.inspector.model.ListTagsForResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.ListTagsForResourceResult {
 		return environment.inspector.listTagsForResource(build())
@@ -870,9 +919,11 @@ class AmazonInspectorPreviewAgentsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.PreviewAgentsResult {
 	  return com.amazonaws.services.inspector.model.PreviewAgentsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.PreviewAgentsResult {
 		return environment.inspector.previewAgents(build())
@@ -903,9 +954,11 @@ class AmazonInspectorRegisterCrossAccountAccessRoleCommand() : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.RegisterCrossAccountAccessRoleResult {
 	  return com.amazonaws.services.inspector.model.RegisterCrossAccountAccessRoleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.RegisterCrossAccountAccessRoleResult {
 		return environment.inspector.registerCrossAccountAccessRole(build())
@@ -936,9 +989,11 @@ class AmazonInspectorRemoveAttributesFromFindingsCommand() : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.RemoveAttributesFromFindingsResult {
 	  return com.amazonaws.services.inspector.model.RemoveAttributesFromFindingsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.RemoveAttributesFromFindingsResult {
 		return environment.inspector.removeAttributesFromFindings(build())
@@ -970,9 +1025,11 @@ class AmazonInspectorSetTagsForResourceCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.SetTagsForResourceResult {
 	  return com.amazonaws.services.inspector.model.SetTagsForResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.SetTagsForResourceResult {
 		return environment.inspector.setTagsForResource(build())
@@ -1004,9 +1061,11 @@ class AmazonInspectorStartAssessmentRunCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.StartAssessmentRunResult {
 	  return com.amazonaws.services.inspector.model.StartAssessmentRunResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.StartAssessmentRunResult {
 		return environment.inspector.startAssessmentRun(build())
@@ -1038,9 +1097,11 @@ class AmazonInspectorStopAssessmentRunCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.StopAssessmentRunResult {
 	  return com.amazonaws.services.inspector.model.StopAssessmentRunResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.StopAssessmentRunResult {
 		return environment.inspector.stopAssessmentRun(build())
@@ -1074,9 +1135,11 @@ class AmazonInspectorSubscribeToEventCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.SubscribeToEventResult {
 	  return com.amazonaws.services.inspector.model.SubscribeToEventResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.SubscribeToEventResult {
 		return environment.inspector.subscribeToEvent(build())
@@ -1111,9 +1174,11 @@ class AmazonInspectorUnsubscribeFromEventCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.UnsubscribeFromEventResult {
 	  return com.amazonaws.services.inspector.model.UnsubscribeFromEventResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.UnsubscribeFromEventResult {
 		return environment.inspector.unsubscribeFromEvent(build())
@@ -1148,9 +1213,11 @@ class AmazonInspectorUpdateAssessmentTargetCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.inspector.model.UpdateAssessmentTargetResult {
 	  return com.amazonaws.services.inspector.model.UpdateAssessmentTargetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.UpdateAssessmentTargetResult {
 		return environment.inspector.updateAssessmentTarget(build())

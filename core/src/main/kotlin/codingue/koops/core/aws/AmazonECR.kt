@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -45,9 +46,11 @@ class AmazonECRBatchCheckLayerAvailabilityCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecr.model.BatchCheckLayerAvailabilityResult {
 	  return com.amazonaws.services.ecr.model.BatchCheckLayerAvailabilityResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.BatchCheckLayerAvailabilityResult {
 		return environment.ecr.batchCheckLayerAvailability(build())
@@ -82,9 +85,11 @@ class AmazonECRBatchDeleteImageCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecr.model.BatchDeleteImageResult {
 	  return com.amazonaws.services.ecr.model.BatchDeleteImageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.BatchDeleteImageResult {
 		return environment.ecr.batchDeleteImage(build())
@@ -121,9 +126,11 @@ class AmazonECRBatchGetImageCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecr.model.BatchGetImageResult {
 	  return com.amazonaws.services.ecr.model.BatchGetImageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.BatchGetImageResult {
 		return environment.ecr.batchGetImage(build())
@@ -161,9 +168,11 @@ class AmazonECRCompleteLayerUploadCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecr.model.CompleteLayerUploadResult {
 	  return com.amazonaws.services.ecr.model.CompleteLayerUploadResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.CompleteLayerUploadResult {
 		return environment.ecr.completeLayerUpload(build())
@@ -195,9 +204,11 @@ class AmazonECRCreateRepositoryCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecr.model.CreateRepositoryResult {
 	  return com.amazonaws.services.ecr.model.CreateRepositoryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.CreateRepositoryResult {
 		return environment.ecr.createRepository(build())
@@ -228,9 +239,11 @@ class AmazonECRDeleteLifecyclePolicyCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecr.model.DeleteLifecyclePolicyResult {
 	  return com.amazonaws.services.ecr.model.DeleteLifecyclePolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.DeleteLifecyclePolicyResult {
 		return environment.ecr.deleteLifecyclePolicy(build())
@@ -264,9 +277,11 @@ class AmazonECRDeleteRepositoryCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecr.model.DeleteRepositoryResult {
 	  return com.amazonaws.services.ecr.model.DeleteRepositoryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.DeleteRepositoryResult {
 		return environment.ecr.deleteRepository(build())
@@ -299,9 +314,11 @@ class AmazonECRDeleteRepositoryPolicyCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecr.model.DeleteRepositoryPolicyResult {
 	  return com.amazonaws.services.ecr.model.DeleteRepositoryPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.DeleteRepositoryPolicyResult {
 		return environment.ecr.deleteRepositoryPolicy(build())
@@ -341,9 +358,11 @@ class AmazonECRDescribeImagesCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecr.model.DescribeImagesResult {
 	  return com.amazonaws.services.ecr.model.DescribeImagesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.DescribeImagesResult {
 		return environment.ecr.describeImages(build())
@@ -383,9 +402,11 @@ class AmazonECRDescribeRepositoriesCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecr.model.DescribeRepositoriesResult {
 	  return com.amazonaws.services.ecr.model.DescribeRepositoriesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.DescribeRepositoriesResult {
 		return environment.ecr.describeRepositories(build())
@@ -417,9 +438,11 @@ class AmazonECRGetAuthorizationTokenCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecr.model.GetAuthorizationTokenResult {
 	  return com.amazonaws.services.ecr.model.GetAuthorizationTokenResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.GetAuthorizationTokenResult {
 		return environment.ecr.getAuthorizationToken(build())
@@ -452,9 +475,11 @@ class AmazonECRGetDownloadUrlForLayerCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecr.model.GetDownloadUrlForLayerResult {
 	  return com.amazonaws.services.ecr.model.GetDownloadUrlForLayerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.GetDownloadUrlForLayerResult {
 		return environment.ecr.getDownloadUrlForLayer(build())
@@ -487,9 +512,11 @@ class AmazonECRGetLifecyclePolicyCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecr.model.GetLifecyclePolicyResult {
 	  return com.amazonaws.services.ecr.model.GetLifecyclePolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.GetLifecyclePolicyResult {
 		return environment.ecr.getLifecyclePolicy(build())
@@ -529,9 +556,11 @@ class AmazonECRGetLifecyclePolicyPreviewCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecr.model.GetLifecyclePolicyPreviewResult {
 	  return com.amazonaws.services.ecr.model.GetLifecyclePolicyPreviewResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.GetLifecyclePolicyPreviewResult {
 		return environment.ecr.getLifecyclePolicyPreview(build())
@@ -567,9 +596,11 @@ class AmazonECRGetRepositoryPolicyCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecr.model.GetRepositoryPolicyResult {
 	  return com.amazonaws.services.ecr.model.GetRepositoryPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.GetRepositoryPolicyResult {
 		return environment.ecr.getRepositoryPolicy(build())
@@ -601,9 +632,11 @@ class AmazonECRInitiateLayerUploadCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecr.model.InitiateLayerUploadResult {
 	  return com.amazonaws.services.ecr.model.InitiateLayerUploadResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.InitiateLayerUploadResult {
 		return environment.ecr.initiateLayerUpload(build())
@@ -641,9 +674,11 @@ class AmazonECRListImagesCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecr.model.ListImagesResult {
 	  return com.amazonaws.services.ecr.model.ListImagesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.ListImagesResult {
 		return environment.ecr.listImages(build())
@@ -682,9 +717,11 @@ class AmazonECRPutImageCommand() : AmazonWebServiceCommand<com.amazonaws.service
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecr.model.PutImageResult {
 	  return com.amazonaws.services.ecr.model.PutImageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.PutImageResult {
 		return environment.ecr.putImage(build())
@@ -720,9 +757,11 @@ class AmazonECRPutLifecyclePolicyCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecr.model.PutLifecyclePolicyResult {
 	  return com.amazonaws.services.ecr.model.PutLifecyclePolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.PutLifecyclePolicyResult {
 		return environment.ecr.putLifecyclePolicy(build())
@@ -759,9 +798,11 @@ class AmazonECRSetRepositoryPolicyCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecr.model.SetRepositoryPolicyResult {
 	  return com.amazonaws.services.ecr.model.SetRepositoryPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.SetRepositoryPolicyResult {
 		return environment.ecr.setRepositoryPolicy(build())
@@ -797,9 +838,11 @@ class AmazonECRStartLifecyclePolicyPreviewCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecr.model.StartLifecyclePolicyPreviewResult {
 	  return com.amazonaws.services.ecr.model.StartLifecyclePolicyPreviewResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.StartLifecyclePolicyPreviewResult {
 		return environment.ecr.startLifecyclePolicyPreview(build())
@@ -840,9 +883,11 @@ class AmazonECRUploadLayerPartCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.ecr.model.UploadLayerPartResult {
 	  return com.amazonaws.services.ecr.model.UploadLayerPartResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.UploadLayerPartResult {
 		return environment.ecr.uploadLayerPart(build())

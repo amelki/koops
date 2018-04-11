@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -42,9 +43,11 @@ class AmazonRDSAddRoleToDBClusterCommand(val dBClusterIdentifier: String, val ro
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.AddRoleToDBClusterResult {
 	  return com.amazonaws.services.rds.model.AddRoleToDBClusterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.AddRoleToDBClusterResult {
 		return environment.rds.addRoleToDBCluster(build())
@@ -75,9 +78,11 @@ class AmazonRDSAddSourceIdentifierToSubscriptionCommand(val subscriptionName: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.EventSubscription {
 	  return com.amazonaws.services.rds.model.EventSubscription()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.EventSubscription {
 		return environment.rds.addSourceIdentifierToSubscription(build())
@@ -108,9 +113,11 @@ class AmazonRDSAddTagsToResourceCommand(val resourceName: String, val tags: List
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.AddTagsToResourceResult {
 	  return com.amazonaws.services.rds.model.AddTagsToResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.AddTagsToResourceResult {
 		return environment.rds.addTagsToResource(build())
@@ -142,9 +149,11 @@ class AmazonRDSApplyPendingMaintenanceActionCommand(val resourceIdentifier: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.ResourcePendingMaintenanceActions {
 	  return com.amazonaws.services.rds.model.ResourcePendingMaintenanceActions()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.ResourcePendingMaintenanceActions {
 		return environment.rds.applyPendingMaintenanceAction(build())
@@ -182,9 +191,11 @@ class AmazonRDSAuthorizeDBSecurityGroupIngressCommand(val dBSecurityGroupName: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBSecurityGroup {
 	  return com.amazonaws.services.rds.model.DBSecurityGroup()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBSecurityGroup {
 		return environment.rds.authorizeDBSecurityGroupIngress(build())
@@ -220,9 +231,11 @@ class AmazonRDSCopyDBClusterParameterGroupCommand(val sourceDBClusterParameterGr
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBClusterParameterGroup {
 	  return com.amazonaws.services.rds.model.DBClusterParameterGroup()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBClusterParameterGroup {
 		return environment.rds.copyDBClusterParameterGroup(build())
@@ -264,9 +277,11 @@ class AmazonRDSCopyDBClusterSnapshotCommand(val sourceDBClusterSnapshotIdentifie
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBClusterSnapshot {
 	  return com.amazonaws.services.rds.model.DBClusterSnapshot()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBClusterSnapshot {
 		return environment.rds.copyDBClusterSnapshot(build())
@@ -304,9 +319,11 @@ class AmazonRDSCopyDBParameterGroupCommand(val sourceDBParameterGroupIdentifier:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBParameterGroup {
 	  return com.amazonaws.services.rds.model.DBParameterGroup()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBParameterGroup {
 		return environment.rds.copyDBParameterGroup(build())
@@ -350,9 +367,11 @@ class AmazonRDSCopyDBSnapshotCommand(val sourceDBSnapshotIdentifier: String, val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBSnapshot {
 	  return com.amazonaws.services.rds.model.DBSnapshot()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBSnapshot {
 		return environment.rds.copyDBSnapshot(build())
@@ -391,9 +410,11 @@ class AmazonRDSCopyOptionGroupCommand(val sourceOptionGroupIdentifier: String, v
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.OptionGroup {
 	  return com.amazonaws.services.rds.model.OptionGroup()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.OptionGroup {
 		return environment.rds.copyOptionGroup(build())
@@ -467,9 +488,11 @@ class AmazonRDSCreateDBClusterCommand(val dBClusterIdentifier: String, val engin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBCluster {
 	  return com.amazonaws.services.rds.model.DBCluster()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBCluster {
 		return environment.rds.createDBCluster(build())
@@ -523,9 +546,11 @@ class AmazonRDSCreateDBClusterParameterGroupCommand(val dBClusterParameterGroupN
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBClusterParameterGroup {
 	  return com.amazonaws.services.rds.model.DBClusterParameterGroup()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBClusterParameterGroup {
 		return environment.rds.createDBClusterParameterGroup(build())
@@ -559,9 +584,11 @@ class AmazonRDSCreateDBClusterSnapshotCommand(val dBClusterSnapshotIdentifier: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBClusterSnapshot {
 	  return com.amazonaws.services.rds.model.DBClusterSnapshot()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBClusterSnapshot {
 		return environment.rds.createDBClusterSnapshot(build())
@@ -671,9 +698,11 @@ class AmazonRDSCreateDBInstanceCommand(val dBInstanceIdentifier: String, val dBI
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBInstance {
 	  return com.amazonaws.services.rds.model.DBInstance()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBInstance {
 		return environment.rds.createDBInstance(build())
@@ -785,9 +814,11 @@ class AmazonRDSCreateDBInstanceReadReplicaCommand(val dBInstanceIdentifier: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBInstance {
 	  return com.amazonaws.services.rds.model.DBInstance()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBInstance {
 		return environment.rds.createDBInstanceReadReplica(build())
@@ -841,9 +872,11 @@ class AmazonRDSCreateDBParameterGroupCommand(val dBParameterGroupName: String, v
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBParameterGroup {
 	  return com.amazonaws.services.rds.model.DBParameterGroup()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBParameterGroup {
 		return environment.rds.createDBParameterGroup(build())
@@ -877,9 +910,11 @@ class AmazonRDSCreateDBSecurityGroupCommand(val dBSecurityGroupName: String, val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBSecurityGroup {
 	  return com.amazonaws.services.rds.model.DBSecurityGroup()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBSecurityGroup {
 		return environment.rds.createDBSecurityGroup(build())
@@ -912,9 +947,11 @@ class AmazonRDSCreateDBSnapshotCommand(val dBSnapshotIdentifier: String, val dBI
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBSnapshot {
 	  return com.amazonaws.services.rds.model.DBSnapshot()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBSnapshot {
 		return environment.rds.createDBSnapshot(build())
@@ -948,9 +985,11 @@ class AmazonRDSCreateDBSubnetGroupCommand(val dBSubnetGroupName: String, val dBS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBSubnetGroup {
 	  return com.amazonaws.services.rds.model.DBSubnetGroup()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBSubnetGroup {
 		return environment.rds.createDBSubnetGroup(build())
@@ -992,9 +1031,11 @@ class AmazonRDSCreateEventSubscriptionCommand(val subscriptionName: String, val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.EventSubscription {
 	  return com.amazonaws.services.rds.model.EventSubscription()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.EventSubscription {
 		return environment.rds.createEventSubscription(build())
@@ -1033,9 +1074,11 @@ class AmazonRDSCreateOptionGroupCommand(val optionGroupName: String, val engineN
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.OptionGroup {
 	  return com.amazonaws.services.rds.model.OptionGroup()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.OptionGroup {
 		return environment.rds.createOptionGroup(build())
@@ -1071,9 +1114,11 @@ class AmazonRDSDeleteDBClusterCommand(val dBClusterIdentifier: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBCluster {
 	  return com.amazonaws.services.rds.model.DBCluster()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBCluster {
 		return environment.rds.deleteDBCluster(build())
@@ -1104,9 +1149,11 @@ class AmazonRDSDeleteDBClusterParameterGroupCommand(val dBClusterParameterGroupN
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DeleteDBClusterParameterGroupResult {
 	  return com.amazonaws.services.rds.model.DeleteDBClusterParameterGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DeleteDBClusterParameterGroupResult {
 		return environment.rds.deleteDBClusterParameterGroup(build())
@@ -1135,9 +1182,11 @@ class AmazonRDSDeleteDBClusterSnapshotCommand(val dBClusterSnapshotIdentifier: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBClusterSnapshot {
 	  return com.amazonaws.services.rds.model.DBClusterSnapshot()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBClusterSnapshot {
 		return environment.rds.deleteDBClusterSnapshot(build())
@@ -1169,9 +1218,11 @@ class AmazonRDSDeleteDBInstanceCommand(val dBInstanceIdentifier: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBInstance {
 	  return com.amazonaws.services.rds.model.DBInstance()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBInstance {
 		return environment.rds.deleteDBInstance(build())
@@ -1202,9 +1253,11 @@ class AmazonRDSDeleteDBParameterGroupCommand(val dBParameterGroupName: String) :
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DeleteDBParameterGroupResult {
 	  return com.amazonaws.services.rds.model.DeleteDBParameterGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DeleteDBParameterGroupResult {
 		return environment.rds.deleteDBParameterGroup(build())
@@ -1233,9 +1286,11 @@ class AmazonRDSDeleteDBSecurityGroupCommand(val dBSecurityGroupName: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DeleteDBSecurityGroupResult {
 	  return com.amazonaws.services.rds.model.DeleteDBSecurityGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DeleteDBSecurityGroupResult {
 		return environment.rds.deleteDBSecurityGroup(build())
@@ -1264,9 +1319,11 @@ class AmazonRDSDeleteDBSnapshotCommand(val dBSnapshotIdentifier: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBSnapshot {
 	  return com.amazonaws.services.rds.model.DBSnapshot()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBSnapshot {
 		return environment.rds.deleteDBSnapshot(build())
@@ -1295,9 +1352,11 @@ class AmazonRDSDeleteDBSubnetGroupCommand(val dBSubnetGroupName: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DeleteDBSubnetGroupResult {
 	  return com.amazonaws.services.rds.model.DeleteDBSubnetGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DeleteDBSubnetGroupResult {
 		return environment.rds.deleteDBSubnetGroup(build())
@@ -1326,9 +1385,11 @@ class AmazonRDSDeleteEventSubscriptionCommand(val subscriptionName: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.EventSubscription {
 	  return com.amazonaws.services.rds.model.EventSubscription()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.EventSubscription {
 		return environment.rds.deleteEventSubscription(build())
@@ -1357,9 +1418,11 @@ class AmazonRDSDeleteOptionGroupCommand(val optionGroupName: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DeleteOptionGroupResult {
 	  return com.amazonaws.services.rds.model.DeleteOptionGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DeleteOptionGroupResult {
 		return environment.rds.deleteOptionGroup(build())
@@ -1388,9 +1451,11 @@ class AmazonRDSDescribeAccountAttributesCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DescribeAccountAttributesResult {
 	  return com.amazonaws.services.rds.model.DescribeAccountAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DescribeAccountAttributesResult {
 		return environment.rds.describeAccountAttributes(build())
@@ -1425,9 +1490,11 @@ class AmazonRDSDescribeCertificatesCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DescribeCertificatesResult {
 	  return com.amazonaws.services.rds.model.DescribeCertificatesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DescribeCertificatesResult {
 		return environment.rds.describeCertificates(build())
@@ -1465,9 +1532,11 @@ class AmazonRDSDescribeDBClusterParameterGroupsCommand() : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DescribeDBClusterParameterGroupsResult {
 	  return com.amazonaws.services.rds.model.DescribeDBClusterParameterGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DescribeDBClusterParameterGroupsResult {
 		return environment.rds.describeDBClusterParameterGroups(build())
@@ -1506,9 +1575,11 @@ class AmazonRDSDescribeDBClusterParametersCommand(val dBClusterParameterGroupNam
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DescribeDBClusterParametersResult {
 	  return com.amazonaws.services.rds.model.DescribeDBClusterParametersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DescribeDBClusterParametersResult {
 		return environment.rds.describeDBClusterParameters(build())
@@ -1541,9 +1612,11 @@ class AmazonRDSDescribeDBClusterSnapshotAttributesCommand(val dBClusterSnapshotI
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBClusterSnapshotAttributesResult {
 	  return com.amazonaws.services.rds.model.DBClusterSnapshotAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBClusterSnapshotAttributesResult {
 		return environment.rds.describeDBClusterSnapshotAttributes(build())
@@ -1586,9 +1659,11 @@ class AmazonRDSDescribeDBClusterSnapshotsCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DescribeDBClusterSnapshotsResult {
 	  return com.amazonaws.services.rds.model.DescribeDBClusterSnapshotsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DescribeDBClusterSnapshotsResult {
 		return environment.rds.describeDBClusterSnapshots(build())
@@ -1630,9 +1705,11 @@ class AmazonRDSDescribeDBClustersCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DescribeDBClustersResult {
 	  return com.amazonaws.services.rds.model.DescribeDBClustersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DescribeDBClustersResult {
 		return environment.rds.describeDBClusters(build())
@@ -1680,9 +1757,11 @@ class AmazonRDSDescribeDBEngineVersionsCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DescribeDBEngineVersionsResult {
 	  return com.amazonaws.services.rds.model.DescribeDBEngineVersionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DescribeDBEngineVersionsResult {
 		return environment.rds.describeDBEngineVersions(build())
@@ -1725,9 +1804,11 @@ class AmazonRDSDescribeDBInstancesCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DescribeDBInstancesResult {
 	  return com.amazonaws.services.rds.model.DescribeDBInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DescribeDBInstancesResult {
 		return environment.rds.describeDBInstances(build())
@@ -1770,9 +1851,11 @@ class AmazonRDSDescribeDBLogFilesCommand(val dBInstanceIdentifier: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DescribeDBLogFilesResult {
 	  return com.amazonaws.services.rds.model.DescribeDBLogFilesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DescribeDBLogFilesResult {
 		return environment.rds.describeDBLogFiles(build())
@@ -1813,9 +1896,11 @@ class AmazonRDSDescribeDBParameterGroupsCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DescribeDBParameterGroupsResult {
 	  return com.amazonaws.services.rds.model.DescribeDBParameterGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DescribeDBParameterGroupsResult {
 		return environment.rds.describeDBParameterGroups(build())
@@ -1854,9 +1939,11 @@ class AmazonRDSDescribeDBParametersCommand(val dBParameterGroupName: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DescribeDBParametersResult {
 	  return com.amazonaws.services.rds.model.DescribeDBParametersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DescribeDBParametersResult {
 		return environment.rds.describeDBParameters(build())
@@ -1895,9 +1982,11 @@ class AmazonRDSDescribeDBSecurityGroupsCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DescribeDBSecurityGroupsResult {
 	  return com.amazonaws.services.rds.model.DescribeDBSecurityGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DescribeDBSecurityGroupsResult {
 		return environment.rds.describeDBSecurityGroups(build())
@@ -1929,9 +2018,11 @@ class AmazonRDSDescribeDBSnapshotAttributesCommand(val dBSnapshotIdentifier: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBSnapshotAttributesResult {
 	  return com.amazonaws.services.rds.model.DBSnapshotAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBSnapshotAttributesResult {
 		return environment.rds.describeDBSnapshotAttributes(build())
@@ -1974,9 +2065,11 @@ class AmazonRDSDescribeDBSnapshotsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DescribeDBSnapshotsResult {
 	  return com.amazonaws.services.rds.model.DescribeDBSnapshotsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DescribeDBSnapshotsResult {
 		return environment.rds.describeDBSnapshots(build())
@@ -2018,9 +2111,11 @@ class AmazonRDSDescribeDBSubnetGroupsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DescribeDBSubnetGroupsResult {
 	  return com.amazonaws.services.rds.model.DescribeDBSubnetGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DescribeDBSubnetGroupsResult {
 		return environment.rds.describeDBSubnetGroups(build())
@@ -2057,9 +2152,11 @@ class AmazonRDSDescribeEngineDefaultClusterParametersCommand(val dBParameterGrou
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.EngineDefaults {
 	  return com.amazonaws.services.rds.model.EngineDefaults()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.EngineDefaults {
 		return environment.rds.describeEngineDefaultClusterParameters(build())
@@ -2096,9 +2193,11 @@ class AmazonRDSDescribeEngineDefaultParametersCommand(val dBParameterGroupFamily
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.EngineDefaults {
 	  return com.amazonaws.services.rds.model.EngineDefaults()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.EngineDefaults {
 		return environment.rds.describeEngineDefaultParameters(build())
@@ -2132,9 +2231,11 @@ class AmazonRDSDescribeEventCategoriesCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DescribeEventCategoriesResult {
 	  return com.amazonaws.services.rds.model.DescribeEventCategoriesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DescribeEventCategoriesResult {
 		return environment.rds.describeEventCategories(build())
@@ -2170,9 +2271,11 @@ class AmazonRDSDescribeEventSubscriptionsCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DescribeEventSubscriptionsResult {
 	  return com.amazonaws.services.rds.model.DescribeEventSubscriptionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DescribeEventSubscriptionsResult {
 		return environment.rds.describeEventSubscriptions(build())
@@ -2220,9 +2323,11 @@ class AmazonRDSDescribeEventsCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DescribeEventsResult {
 	  return com.amazonaws.services.rds.model.DescribeEventsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DescribeEventsResult {
 		return environment.rds.describeEvents(build())
@@ -2266,9 +2371,11 @@ class AmazonRDSDescribeOptionGroupOptionsCommand(val engineName: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DescribeOptionGroupOptionsResult {
 	  return com.amazonaws.services.rds.model.DescribeOptionGroupOptionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DescribeOptionGroupOptionsResult {
 		return environment.rds.describeOptionGroupOptions(build())
@@ -2311,9 +2418,11 @@ class AmazonRDSDescribeOptionGroupsCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DescribeOptionGroupsResult {
 	  return com.amazonaws.services.rds.model.DescribeOptionGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DescribeOptionGroupsResult {
 		return environment.rds.describeOptionGroups(build())
@@ -2360,9 +2469,11 @@ class AmazonRDSDescribeOrderableDBInstanceOptionsCommand(val engine: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DescribeOrderableDBInstanceOptionsResult {
 	  return com.amazonaws.services.rds.model.DescribeOrderableDBInstanceOptionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DescribeOrderableDBInstanceOptionsResult {
 		return environment.rds.describeOrderableDBInstanceOptions(build())
@@ -2404,9 +2515,11 @@ class AmazonRDSDescribePendingMaintenanceActionsCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DescribePendingMaintenanceActionsResult {
 	  return com.amazonaws.services.rds.model.DescribePendingMaintenanceActionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DescribePendingMaintenanceActionsResult {
 		return environment.rds.describePendingMaintenanceActions(build())
@@ -2456,9 +2569,11 @@ class AmazonRDSDescribeReservedDBInstancesCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DescribeReservedDBInstancesResult {
 	  return com.amazonaws.services.rds.model.DescribeReservedDBInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DescribeReservedDBInstancesResult {
 		return environment.rds.describeReservedDBInstances(build())
@@ -2512,9 +2627,11 @@ class AmazonRDSDescribeReservedDBInstancesOfferingsCommand() : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DescribeReservedDBInstancesOfferingsResult {
 	  return com.amazonaws.services.rds.model.DescribeReservedDBInstancesOfferingsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DescribeReservedDBInstancesOfferingsResult {
 		return environment.rds.describeReservedDBInstancesOfferings(build())
@@ -2557,9 +2674,11 @@ class AmazonRDSDescribeSourceRegionsCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DescribeSourceRegionsResult {
 	  return com.amazonaws.services.rds.model.DescribeSourceRegionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DescribeSourceRegionsResult {
 		return environment.rds.describeSourceRegions(build())
@@ -2591,9 +2710,11 @@ class AmazonRDSDescribeValidDBInstanceModificationsCommand(val dBInstanceIdentif
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.ValidDBInstanceModificationsMessage {
 	  return com.amazonaws.services.rds.model.ValidDBInstanceModificationsMessage()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.ValidDBInstanceModificationsMessage {
 		return environment.rds.describeValidDBInstanceModifications(build())
@@ -2626,9 +2747,11 @@ class AmazonRDSDownloadDBLogFilePortionCommand(val dBInstanceIdentifier: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DownloadDBLogFilePortionResult {
 	  return com.amazonaws.services.rds.model.DownloadDBLogFilePortionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DownloadDBLogFilePortionResult {
 		return environment.rds.downloadDBLogFilePortion(build())
@@ -2662,9 +2785,11 @@ class AmazonRDSFailoverDBClusterCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBCluster {
 	  return com.amazonaws.services.rds.model.DBCluster()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBCluster {
 		return environment.rds.failoverDBCluster(build())
@@ -2695,9 +2820,11 @@ class AmazonRDSListTagsForResourceCommand(val resourceName: String) : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.ListTagsForResourceResult {
 	  return com.amazonaws.services.rds.model.ListTagsForResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.ListTagsForResourceResult {
 		return environment.rds.listTagsForResource(build())
@@ -2748,9 +2875,11 @@ class AmazonRDSModifyDBClusterCommand(val dBClusterIdentifier: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBCluster {
 	  return com.amazonaws.services.rds.model.DBCluster()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBCluster {
 		return environment.rds.modifyDBCluster(build())
@@ -2791,9 +2920,11 @@ class AmazonRDSModifyDBClusterParameterGroupCommand(val dBClusterParameterGroupN
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.ModifyDBClusterParameterGroupResult {
 	  return com.amazonaws.services.rds.model.ModifyDBClusterParameterGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.ModifyDBClusterParameterGroupResult {
 		return environment.rds.modifyDBClusterParameterGroup(build())
@@ -2827,9 +2958,11 @@ class AmazonRDSModifyDBClusterSnapshotAttributeCommand(val dBClusterSnapshotIden
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBClusterSnapshotAttributesResult {
 	  return com.amazonaws.services.rds.model.DBClusterSnapshotAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBClusterSnapshotAttributesResult {
 		return environment.rds.modifyDBClusterSnapshotAttribute(build())
@@ -2930,9 +3063,11 @@ class AmazonRDSModifyDBInstanceCommand(val dBInstanceIdentifier: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBInstance {
 	  return com.amazonaws.services.rds.model.DBInstance()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBInstance {
 		return environment.rds.modifyDBInstance(build())
@@ -2997,9 +3132,11 @@ class AmazonRDSModifyDBParameterGroupCommand(val dBParameterGroupName: String, v
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.ModifyDBParameterGroupResult {
 	  return com.amazonaws.services.rds.model.ModifyDBParameterGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.ModifyDBParameterGroupResult {
 		return environment.rds.modifyDBParameterGroup(build())
@@ -3032,9 +3169,11 @@ class AmazonRDSModifyDBSnapshotCommand(val dBSnapshotIdentifier: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBSnapshot {
 	  return com.amazonaws.services.rds.model.DBSnapshot()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBSnapshot {
 		return environment.rds.modifyDBSnapshot(build())
@@ -3069,9 +3208,11 @@ class AmazonRDSModifyDBSnapshotAttributeCommand(val dBSnapshotIdentifier: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBSnapshotAttributesResult {
 	  return com.amazonaws.services.rds.model.DBSnapshotAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBSnapshotAttributesResult {
 		return environment.rds.modifyDBSnapshotAttribute(build())
@@ -3105,9 +3246,11 @@ class AmazonRDSModifyDBSubnetGroupCommand(val dBSubnetGroupName: String, val sub
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBSubnetGroup {
 	  return com.amazonaws.services.rds.model.DBSubnetGroup()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBSubnetGroup {
 		return environment.rds.modifyDBSubnetGroup(build())
@@ -3145,9 +3288,11 @@ class AmazonRDSModifyEventSubscriptionCommand(val subscriptionName: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.EventSubscription {
 	  return com.amazonaws.services.rds.model.EventSubscription()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.EventSubscription {
 		return environment.rds.modifyEventSubscription(build())
@@ -3185,9 +3330,11 @@ class AmazonRDSModifyOptionGroupCommand(val optionGroupName: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.OptionGroup {
 	  return com.amazonaws.services.rds.model.OptionGroup()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.OptionGroup {
 		return environment.rds.modifyOptionGroup(build())
@@ -3222,9 +3369,11 @@ class AmazonRDSPromoteReadReplicaCommand(val dBInstanceIdentifier: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBInstance {
 	  return com.amazonaws.services.rds.model.DBInstance()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBInstance {
 		return environment.rds.promoteReadReplica(build())
@@ -3255,9 +3404,11 @@ class AmazonRDSPromoteReadReplicaDBClusterCommand(val dBClusterIdentifier: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBCluster {
 	  return com.amazonaws.services.rds.model.DBCluster()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBCluster {
 		return environment.rds.promoteReadReplicaDBCluster(build())
@@ -3291,9 +3442,11 @@ class AmazonRDSPurchaseReservedDBInstancesOfferingCommand(val reservedDBInstance
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.ReservedDBInstance {
 	  return com.amazonaws.services.rds.model.ReservedDBInstance()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.ReservedDBInstance {
 		return environment.rds.purchaseReservedDBInstancesOffering(build())
@@ -3326,9 +3479,11 @@ class AmazonRDSRebootDBInstanceCommand(val dBInstanceIdentifier: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBInstance {
 	  return com.amazonaws.services.rds.model.DBInstance()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBInstance {
 		return environment.rds.rebootDBInstance(build())
@@ -3359,9 +3514,11 @@ class AmazonRDSRemoveRoleFromDBClusterCommand(val dBClusterIdentifier: String, v
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.RemoveRoleFromDBClusterResult {
 	  return com.amazonaws.services.rds.model.RemoveRoleFromDBClusterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.RemoveRoleFromDBClusterResult {
 		return environment.rds.removeRoleFromDBCluster(build())
@@ -3392,9 +3549,11 @@ class AmazonRDSRemoveSourceIdentifierFromSubscriptionCommand(val subscriptionNam
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.EventSubscription {
 	  return com.amazonaws.services.rds.model.EventSubscription()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.EventSubscription {
 		return environment.rds.removeSourceIdentifierFromSubscription(build())
@@ -3425,9 +3584,11 @@ class AmazonRDSRemoveTagsFromResourceCommand(val resourceName: String, val tagKe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.RemoveTagsFromResourceResult {
 	  return com.amazonaws.services.rds.model.RemoveTagsFromResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.RemoveTagsFromResourceResult {
 		return environment.rds.removeTagsFromResource(build())
@@ -3460,9 +3621,11 @@ class AmazonRDSResetDBClusterParameterGroupCommand(val dBClusterParameterGroupNa
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.ResetDBClusterParameterGroupResult {
 	  return com.amazonaws.services.rds.model.ResetDBClusterParameterGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.ResetDBClusterParameterGroupResult {
 		return environment.rds.resetDBClusterParameterGroup(build())
@@ -3496,9 +3659,11 @@ class AmazonRDSResetDBParameterGroupCommand(val dBParameterGroupName: String) : 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.ResetDBParameterGroupResult {
 	  return com.amazonaws.services.rds.model.ResetDBParameterGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.ResetDBParameterGroupResult {
 		return environment.rds.resetDBParameterGroup(build())
@@ -3569,9 +3734,11 @@ class AmazonRDSRestoreDBClusterFromS3Command(val dBClusterIdentifier: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBCluster {
 	  return com.amazonaws.services.rds.model.DBCluster()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBCluster {
 		return environment.rds.restoreDBClusterFromS3(build())
@@ -3645,9 +3812,11 @@ class AmazonRDSRestoreDBClusterFromSnapshotCommand(val dBClusterIdentifier: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBCluster {
 	  return com.amazonaws.services.rds.model.DBCluster()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBCluster {
 		return environment.rds.restoreDBClusterFromSnapshot(build())
@@ -3708,9 +3877,11 @@ class AmazonRDSRestoreDBClusterToPointInTimeCommand(val dBClusterIdentifier: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBCluster {
 	  return com.amazonaws.services.rds.model.DBCluster()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBCluster {
 		return environment.rds.restoreDBClusterToPointInTime(build())
@@ -3792,9 +3963,11 @@ class AmazonRDSRestoreDBInstanceFromDBSnapshotCommand(val dBInstanceIdentifier: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBInstance {
 	  return com.amazonaws.services.rds.model.DBInstance()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBInstance {
 		return environment.rds.restoreDBInstanceFromDBSnapshot(build())
@@ -3914,9 +4087,11 @@ class AmazonRDSRestoreDBInstanceFromS3Command(val dBInstanceIdentifier: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBInstance {
 	  return com.amazonaws.services.rds.model.DBInstance()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBInstance {
 		return environment.rds.restoreDBInstanceFromS3(build())
@@ -4029,9 +4204,11 @@ class AmazonRDSRestoreDBInstanceToPointInTimeCommand(val sourceDBInstanceIdentif
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBInstance {
 	  return com.amazonaws.services.rds.model.DBInstance()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBInstance {
 		return environment.rds.restoreDBInstanceToPointInTime(build())
@@ -4091,9 +4268,11 @@ class AmazonRDSRevokeDBSecurityGroupIngressCommand(val dBSecurityGroupName: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBSecurityGroup {
 	  return com.amazonaws.services.rds.model.DBSecurityGroup()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBSecurityGroup {
 		return environment.rds.revokeDBSecurityGroupIngress(build())
@@ -4126,9 +4305,11 @@ class AmazonRDSStartDBInstanceCommand(val dBInstanceIdentifier: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBInstance {
 	  return com.amazonaws.services.rds.model.DBInstance()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBInstance {
 		return environment.rds.startDBInstance(build())
@@ -4158,9 +4339,11 @@ class AmazonRDSStopDBInstanceCommand(val dBInstanceIdentifier: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.rds.model.DBInstance {
 	  return com.amazonaws.services.rds.model.DBInstance()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.rds.model.DBInstance {
 		return environment.rds.stopDBInstance(build())

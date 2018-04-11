@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -44,9 +45,11 @@ class AWSApplicationAutoScalingDeleteScalingPolicyCommand(val policyName: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.applicationautoscaling.model.DeleteScalingPolicyResult {
 	  return com.amazonaws.services.applicationautoscaling.model.DeleteScalingPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationautoscaling.model.DeleteScalingPolicyResult {
 		return environment.application_autoscaling.deleteScalingPolicy(build())
@@ -81,9 +84,11 @@ class AWSApplicationAutoScalingDeleteScheduledActionCommand(val serviceNamespace
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.applicationautoscaling.model.DeleteScheduledActionResult {
 	  return com.amazonaws.services.applicationautoscaling.model.DeleteScheduledActionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationautoscaling.model.DeleteScheduledActionResult {
 		return environment.application_autoscaling.deleteScheduledAction(build())
@@ -117,9 +122,11 @@ class AWSApplicationAutoScalingDeregisterScalableTargetCommand(val serviceNamesp
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.applicationautoscaling.model.DeregisterScalableTargetResult {
 	  return com.amazonaws.services.applicationautoscaling.model.DeregisterScalableTargetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationautoscaling.model.DeregisterScalableTargetResult {
 		return environment.application_autoscaling.deregisterScalableTarget(build())
@@ -157,9 +164,11 @@ class AWSApplicationAutoScalingDescribeScalableTargetsCommand(val serviceNamespa
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.applicationautoscaling.model.DescribeScalableTargetsResult {
 	  return com.amazonaws.services.applicationautoscaling.model.DescribeScalableTargetsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationautoscaling.model.DescribeScalableTargetsResult {
 		return environment.application_autoscaling.describeScalableTargets(build())
@@ -199,9 +208,11 @@ class AWSApplicationAutoScalingDescribeScalingActivitiesCommand(val serviceNames
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.applicationautoscaling.model.DescribeScalingActivitiesResult {
 	  return com.amazonaws.services.applicationautoscaling.model.DescribeScalingActivitiesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationautoscaling.model.DescribeScalingActivitiesResult {
 		return environment.application_autoscaling.describeScalingActivities(build())
@@ -243,9 +254,11 @@ class AWSApplicationAutoScalingDescribeScalingPoliciesCommand(val serviceNamespa
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.applicationautoscaling.model.DescribeScalingPoliciesResult {
 	  return com.amazonaws.services.applicationautoscaling.model.DescribeScalingPoliciesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationautoscaling.model.DescribeScalingPoliciesResult {
 		return environment.application_autoscaling.describeScalingPolicies(build())
@@ -288,9 +301,11 @@ class AWSApplicationAutoScalingDescribeScheduledActionsCommand(val serviceNamesp
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.applicationautoscaling.model.DescribeScheduledActionsResult {
 	  return com.amazonaws.services.applicationautoscaling.model.DescribeScheduledActionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationautoscaling.model.DescribeScheduledActionsResult {
 		return environment.application_autoscaling.describeScheduledActions(build())
@@ -332,9 +347,11 @@ class AWSApplicationAutoScalingPutScalingPolicyCommand(val policyName: String, v
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.applicationautoscaling.model.PutScalingPolicyResult {
 	  return com.amazonaws.services.applicationautoscaling.model.PutScalingPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationautoscaling.model.PutScalingPolicyResult {
 		return environment.application_autoscaling.putScalingPolicy(build())
@@ -380,9 +397,11 @@ class AWSApplicationAutoScalingPutScheduledActionCommand(val serviceNamespace: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.applicationautoscaling.model.PutScheduledActionResult {
 	  return com.amazonaws.services.applicationautoscaling.model.PutScheduledActionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationautoscaling.model.PutScheduledActionResult {
 		return environment.application_autoscaling.putScheduledAction(build())
@@ -425,9 +444,11 @@ class AWSApplicationAutoScalingRegisterScalableTargetCommand(val serviceNamespac
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.applicationautoscaling.model.RegisterScalableTargetResult {
 	  return com.amazonaws.services.applicationautoscaling.model.RegisterScalableTargetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationautoscaling.model.RegisterScalableTargetResult {
 		return environment.application_autoscaling.registerScalableTarget(build())

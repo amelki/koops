@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -41,9 +42,11 @@ class AWSIotDataDeleteThingShadowCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iotdata.model.DeleteThingShadowResult {
 	  return com.amazonaws.services.iotdata.model.DeleteThingShadowResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iotdata.model.DeleteThingShadowResult {
 		return environment.iotdata.deleteThingShadow(build())
@@ -72,9 +75,11 @@ class AWSIotDataGetThingShadowCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iotdata.model.GetThingShadowResult {
 	  return com.amazonaws.services.iotdata.model.GetThingShadowResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iotdata.model.GetThingShadowResult {
 		return environment.iotdata.getThingShadow(build())
@@ -107,9 +112,11 @@ class AWSIotDataPublishCommand() : AmazonWebServiceCommand<com.amazonaws.service
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iotdata.model.PublishResult {
 	  return com.amazonaws.services.iotdata.model.PublishResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iotdata.model.PublishResult {
 		return environment.iotdata.publish(build())
@@ -142,9 +149,11 @@ class AWSIotDataUpdateThingShadowCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.iotdata.model.UpdateThingShadowResult {
 	  return com.amazonaws.services.iotdata.model.UpdateThingShadowResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iotdata.model.UpdateThingShadowResult {
 		return environment.iotdata.updateThingShadow(build())

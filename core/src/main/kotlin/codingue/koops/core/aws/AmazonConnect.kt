@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -50,9 +51,11 @@ class AmazonConnectStartOutboundVoiceContactCommand(val destinationPhoneNumber: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.connect.model.StartOutboundVoiceContactResult {
 	  return com.amazonaws.services.connect.model.StartOutboundVoiceContactResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.connect.model.StartOutboundVoiceContactResult {
 		return environment.connect.startOutboundVoiceContact(build())
@@ -88,9 +91,11 @@ class AmazonConnectStopContactCommand(val contactId: String, val instanceId: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.connect.model.StopContactResult {
 	  return com.amazonaws.services.connect.model.StopContactResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.connect.model.StopContactResult {
 		return environment.connect.stopContact(build())

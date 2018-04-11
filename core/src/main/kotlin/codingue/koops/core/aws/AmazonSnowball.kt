@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -41,9 +42,11 @@ class AmazonSnowballCancelClusterCommand(val clusterId: String) : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.snowball.model.CancelClusterResult {
 	  return com.amazonaws.services.snowball.model.CancelClusterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.snowball.model.CancelClusterResult {
 		return environment.snowball.cancelCluster(build())
@@ -72,9 +75,11 @@ class AmazonSnowballCancelJobCommand(val jobId: String) : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.snowball.model.CancelJobResult {
 	  return com.amazonaws.services.snowball.model.CancelJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.snowball.model.CancelJobResult {
 		return environment.snowball.cancelJob(build())
@@ -103,9 +108,11 @@ class AmazonSnowballCreateAddressCommand(val address: com.amazonaws.services.sno
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.snowball.model.CreateAddressResult {
 	  return com.amazonaws.services.snowball.model.CreateAddressResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.snowball.model.CreateAddressResult {
 		return environment.snowball.createAddress(build())
@@ -147,9 +154,11 @@ class AmazonSnowballCreateClusterCommand(val jobType: JobType, val resources: co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.snowball.model.CreateClusterResult {
 	  return com.amazonaws.services.snowball.model.CreateClusterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.snowball.model.CreateClusterResult {
 		return environment.snowball.createCluster(build())
@@ -209,9 +218,11 @@ class AmazonSnowballCreateJobCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.snowball.model.CreateJobResult {
 	  return com.amazonaws.services.snowball.model.CreateJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.snowball.model.CreateJobResult {
 		return environment.snowball.createJob(build())
@@ -251,9 +262,11 @@ class AmazonSnowballDescribeAddressCommand(val addressId: String) : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.snowball.model.DescribeAddressResult {
 	  return com.amazonaws.services.snowball.model.DescribeAddressResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.snowball.model.DescribeAddressResult {
 		return environment.snowball.describeAddress(build())
@@ -284,9 +297,11 @@ class AmazonSnowballDescribeAddressesCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.snowball.model.DescribeAddressesResult {
 	  return com.amazonaws.services.snowball.model.DescribeAddressesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.snowball.model.DescribeAddressesResult {
 		return environment.snowball.describeAddresses(build())
@@ -316,9 +331,11 @@ class AmazonSnowballDescribeClusterCommand(val clusterId: String) : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.snowball.model.DescribeClusterResult {
 	  return com.amazonaws.services.snowball.model.DescribeClusterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.snowball.model.DescribeClusterResult {
 		return environment.snowball.describeCluster(build())
@@ -347,9 +364,11 @@ class AmazonSnowballDescribeJobCommand(val jobId: String) : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.snowball.model.DescribeJobResult {
 	  return com.amazonaws.services.snowball.model.DescribeJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.snowball.model.DescribeJobResult {
 		return environment.snowball.describeJob(build())
@@ -378,9 +397,11 @@ class AmazonSnowballGetJobManifestCommand(val jobId: String) : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.snowball.model.GetJobManifestResult {
 	  return com.amazonaws.services.snowball.model.GetJobManifestResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.snowball.model.GetJobManifestResult {
 		return environment.snowball.getJobManifest(build())
@@ -409,9 +430,11 @@ class AmazonSnowballGetJobUnlockCodeCommand(val jobId: String) : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.snowball.model.GetJobUnlockCodeResult {
 	  return com.amazonaws.services.snowball.model.GetJobUnlockCodeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.snowball.model.GetJobUnlockCodeResult {
 		return environment.snowball.getJobUnlockCode(build())
@@ -440,9 +463,11 @@ class AmazonSnowballGetSnowballUsageCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.snowball.model.GetSnowballUsageResult {
 	  return com.amazonaws.services.snowball.model.GetSnowballUsageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.snowball.model.GetSnowballUsageResult {
 		return environment.snowball.getSnowballUsage(build())
@@ -474,9 +499,11 @@ class AmazonSnowballListClusterJobsCommand(val clusterId: String) : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.snowball.model.ListClusterJobsResult {
 	  return com.amazonaws.services.snowball.model.ListClusterJobsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.snowball.model.ListClusterJobsResult {
 		return environment.snowball.listClusterJobs(build())
@@ -509,9 +536,11 @@ class AmazonSnowballListClustersCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.snowball.model.ListClustersResult {
 	  return com.amazonaws.services.snowball.model.ListClustersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.snowball.model.ListClustersResult {
 		return environment.snowball.listClusters(build())
@@ -543,9 +572,11 @@ class AmazonSnowballListJobsCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.snowball.model.ListJobsResult {
 	  return com.amazonaws.services.snowball.model.ListJobsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.snowball.model.ListJobsResult {
 		return environment.snowball.listJobs(build())
@@ -588,9 +619,11 @@ class AmazonSnowballUpdateClusterCommand(val clusterId: String) : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.snowball.model.UpdateClusterResult {
 	  return com.amazonaws.services.snowball.model.UpdateClusterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.snowball.model.UpdateClusterResult {
 		return environment.snowball.updateCluster(build())
@@ -641,9 +674,11 @@ class AmazonSnowballUpdateJobCommand(val jobId: String) : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.snowball.model.UpdateJobResult {
 	  return com.amazonaws.services.snowball.model.UpdateJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.snowball.model.UpdateJobResult {
 		return environment.snowball.updateJob(build())

@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -44,9 +45,11 @@ class AmazonGuardDutyAcceptInvitationCommand(val detectorId: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.AcceptInvitationResult {
 	  return com.amazonaws.services.guardduty.model.AcceptInvitationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.AcceptInvitationResult {
 		return environment.guardduty.acceptInvitation(build())
@@ -78,9 +81,11 @@ class AmazonGuardDutyArchiveFindingsCommand(val detectorId: String) : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.ArchiveFindingsResult {
 	  return com.amazonaws.services.guardduty.model.ArchiveFindingsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.ArchiveFindingsResult {
 		return environment.guardduty.archiveFindings(build())
@@ -110,9 +115,11 @@ class AmazonGuardDutyCreateDetectorCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.CreateDetectorResult {
 	  return com.amazonaws.services.guardduty.model.CreateDetectorResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.CreateDetectorResult {
 		return environment.guardduty.createDetector(build())
@@ -148,9 +155,11 @@ class AmazonGuardDutyCreateIPSetCommand(val detectorId: String) : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.CreateIPSetResult {
 	  return com.amazonaws.services.guardduty.model.CreateIPSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.CreateIPSetResult {
 		return environment.guardduty.createIPSet(build())
@@ -184,9 +193,11 @@ class AmazonGuardDutyCreateMembersCommand(val detectorId: String) : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.CreateMembersResult {
 	  return com.amazonaws.services.guardduty.model.CreateMembersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.CreateMembersResult {
 		return environment.guardduty.createMembers(build())
@@ -217,9 +228,11 @@ class AmazonGuardDutyCreateSampleFindingsCommand(val detectorId: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.CreateSampleFindingsResult {
 	  return com.amazonaws.services.guardduty.model.CreateSampleFindingsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.CreateSampleFindingsResult {
 		return environment.guardduty.createSampleFindings(build())
@@ -256,9 +269,11 @@ class AmazonGuardDutyCreateThreatIntelSetCommand(val detectorId: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.CreateThreatIntelSetResult {
 	  return com.amazonaws.services.guardduty.model.CreateThreatIntelSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.CreateThreatIntelSetResult {
 		return environment.guardduty.createThreatIntelSet(build())
@@ -291,9 +306,11 @@ class AmazonGuardDutyDeclineInvitationsCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.DeclineInvitationsResult {
 	  return com.amazonaws.services.guardduty.model.DeclineInvitationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.DeclineInvitationsResult {
 		return environment.guardduty.declineInvitations(build())
@@ -322,9 +339,11 @@ class AmazonGuardDutyDeleteDetectorCommand(val detectorId: String) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.DeleteDetectorResult {
 	  return com.amazonaws.services.guardduty.model.DeleteDetectorResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.DeleteDetectorResult {
 		return environment.guardduty.deleteDetector(build())
@@ -354,9 +373,11 @@ class AmazonGuardDutyDeleteIPSetCommand(val detectorId: String, val ipSetId: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.DeleteIPSetResult {
 	  return com.amazonaws.services.guardduty.model.DeleteIPSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.DeleteIPSetResult {
 		return environment.guardduty.deleteIPSet(build())
@@ -386,9 +407,11 @@ class AmazonGuardDutyDeleteInvitationsCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.DeleteInvitationsResult {
 	  return com.amazonaws.services.guardduty.model.DeleteInvitationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.DeleteInvitationsResult {
 		return environment.guardduty.deleteInvitations(build())
@@ -418,9 +441,11 @@ class AmazonGuardDutyDeleteMembersCommand(val detectorId: String) : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.DeleteMembersResult {
 	  return com.amazonaws.services.guardduty.model.DeleteMembersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.DeleteMembersResult {
 		return environment.guardduty.deleteMembers(build())
@@ -451,9 +476,11 @@ class AmazonGuardDutyDeleteThreatIntelSetCommand(val detectorId: String, val thr
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.DeleteThreatIntelSetResult {
 	  return com.amazonaws.services.guardduty.model.DeleteThreatIntelSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.DeleteThreatIntelSetResult {
 		return environment.guardduty.deleteThreatIntelSet(build())
@@ -483,9 +510,11 @@ class AmazonGuardDutyDisassociateFromMasterAccountCommand(val detectorId: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.DisassociateFromMasterAccountResult {
 	  return com.amazonaws.services.guardduty.model.DisassociateFromMasterAccountResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.DisassociateFromMasterAccountResult {
 		return environment.guardduty.disassociateFromMasterAccount(build())
@@ -515,9 +544,11 @@ class AmazonGuardDutyDisassociateMembersCommand(val detectorId: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.DisassociateMembersResult {
 	  return com.amazonaws.services.guardduty.model.DisassociateMembersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.DisassociateMembersResult {
 		return environment.guardduty.disassociateMembers(build())
@@ -547,9 +578,11 @@ class AmazonGuardDutyGetDetectorCommand(val detectorId: String) : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.GetDetectorResult {
 	  return com.amazonaws.services.guardduty.model.GetDetectorResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.GetDetectorResult {
 		return environment.guardduty.getDetector(build())
@@ -581,9 +614,11 @@ class AmazonGuardDutyGetFindingsCommand(val detectorId: String) : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.GetFindingsResult {
 	  return com.amazonaws.services.guardduty.model.GetFindingsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.GetFindingsResult {
 		return environment.guardduty.getFindings(build())
@@ -617,9 +652,11 @@ class AmazonGuardDutyGetFindingsStatisticsCommand(val detectorId: String) : Amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.GetFindingsStatisticsResult {
 	  return com.amazonaws.services.guardduty.model.GetFindingsStatisticsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.GetFindingsStatisticsResult {
 		return environment.guardduty.getFindingsStatistics(build())
@@ -651,9 +688,11 @@ class AmazonGuardDutyGetIPSetCommand(val detectorId: String, val ipSetId: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.GetIPSetResult {
 	  return com.amazonaws.services.guardduty.model.GetIPSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.GetIPSetResult {
 		return environment.guardduty.getIPSet(build())
@@ -683,9 +722,11 @@ class AmazonGuardDutyGetInvitationsCountCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.GetInvitationsCountResult {
 	  return com.amazonaws.services.guardduty.model.GetInvitationsCountResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.GetInvitationsCountResult {
 		return environment.guardduty.getInvitationsCount(build())
@@ -714,9 +755,11 @@ class AmazonGuardDutyGetMasterAccountCommand(val detectorId: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.GetMasterAccountResult {
 	  return com.amazonaws.services.guardduty.model.GetMasterAccountResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.GetMasterAccountResult {
 		return environment.guardduty.getMasterAccount(build())
@@ -746,9 +789,11 @@ class AmazonGuardDutyGetMembersCommand(val detectorId: String) : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.GetMembersResult {
 	  return com.amazonaws.services.guardduty.model.GetMembersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.GetMembersResult {
 		return environment.guardduty.getMembers(build())
@@ -779,9 +824,11 @@ class AmazonGuardDutyGetThreatIntelSetCommand(val detectorId: String, val threat
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.GetThreatIntelSetResult {
 	  return com.amazonaws.services.guardduty.model.GetThreatIntelSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.GetThreatIntelSetResult {
 		return environment.guardduty.getThreatIntelSet(build())
@@ -814,9 +861,11 @@ class AmazonGuardDutyInviteMembersCommand(val detectorId: String) : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.InviteMembersResult {
 	  return com.amazonaws.services.guardduty.model.InviteMembersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.InviteMembersResult {
 		return environment.guardduty.inviteMembers(build())
@@ -849,9 +898,11 @@ class AmazonGuardDutyListDetectorsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.ListDetectorsResult {
 	  return com.amazonaws.services.guardduty.model.ListDetectorsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.ListDetectorsResult {
 		return environment.guardduty.listDetectors(build())
@@ -888,9 +939,11 @@ class AmazonGuardDutyListFindingsCommand(val detectorId: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.ListFindingsResult {
 	  return com.amazonaws.services.guardduty.model.ListFindingsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.ListFindingsResult {
 		return environment.guardduty.listFindings(build())
@@ -926,9 +979,11 @@ class AmazonGuardDutyListIPSetsCommand(val detectorId: String) : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.ListIPSetsResult {
 	  return com.amazonaws.services.guardduty.model.ListIPSetsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.ListIPSetsResult {
 		return environment.guardduty.listIPSets(build())
@@ -961,9 +1016,11 @@ class AmazonGuardDutyListInvitationsCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.ListInvitationsResult {
 	  return com.amazonaws.services.guardduty.model.ListInvitationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.ListInvitationsResult {
 		return environment.guardduty.listInvitations(build())
@@ -998,9 +1055,11 @@ class AmazonGuardDutyListMembersCommand(val detectorId: String) : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.ListMembersResult {
 	  return com.amazonaws.services.guardduty.model.ListMembersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.ListMembersResult {
 		return environment.guardduty.listMembers(build())
@@ -1035,9 +1094,11 @@ class AmazonGuardDutyListThreatIntelSetsCommand(val detectorId: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.ListThreatIntelSetsResult {
 	  return com.amazonaws.services.guardduty.model.ListThreatIntelSetsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.ListThreatIntelSetsResult {
 		return environment.guardduty.listThreatIntelSets(build())
@@ -1069,9 +1130,11 @@ class AmazonGuardDutyStartMonitoringMembersCommand(val detectorId: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.StartMonitoringMembersResult {
 	  return com.amazonaws.services.guardduty.model.StartMonitoringMembersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.StartMonitoringMembersResult {
 		return environment.guardduty.startMonitoringMembers(build())
@@ -1102,9 +1165,11 @@ class AmazonGuardDutyStopMonitoringMembersCommand(val detectorId: String) : Amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.StopMonitoringMembersResult {
 	  return com.amazonaws.services.guardduty.model.StopMonitoringMembersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.StopMonitoringMembersResult {
 		return environment.guardduty.stopMonitoringMembers(build())
@@ -1135,9 +1200,11 @@ class AmazonGuardDutyUnarchiveFindingsCommand(val detectorId: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.UnarchiveFindingsResult {
 	  return com.amazonaws.services.guardduty.model.UnarchiveFindingsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.UnarchiveFindingsResult {
 		return environment.guardduty.unarchiveFindings(build())
@@ -1168,9 +1235,11 @@ class AmazonGuardDutyUpdateDetectorCommand(val detectorId: String) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.UpdateDetectorResult {
 	  return com.amazonaws.services.guardduty.model.UpdateDetectorResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.UpdateDetectorResult {
 		return environment.guardduty.updateDetector(build())
@@ -1205,9 +1274,11 @@ class AmazonGuardDutyUpdateFindingsFeedbackCommand(val detectorId: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.UpdateFindingsFeedbackResult {
 	  return com.amazonaws.services.guardduty.model.UpdateFindingsFeedbackResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.UpdateFindingsFeedbackResult {
 		return environment.guardduty.updateFindingsFeedback(build())
@@ -1245,9 +1316,11 @@ class AmazonGuardDutyUpdateIPSetCommand(val detectorId: String, val ipSetId: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.UpdateIPSetResult {
 	  return com.amazonaws.services.guardduty.model.UpdateIPSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.UpdateIPSetResult {
 		return environment.guardduty.updateIPSet(build())
@@ -1286,9 +1359,11 @@ class AmazonGuardDutyUpdateThreatIntelSetCommand(val detectorId: String, val thr
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.guardduty.model.UpdateThreatIntelSetResult {
 	  return com.amazonaws.services.guardduty.model.UpdateThreatIntelSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.UpdateThreatIntelSetResult {
 		return environment.guardduty.updateThreatIntelSet(build())

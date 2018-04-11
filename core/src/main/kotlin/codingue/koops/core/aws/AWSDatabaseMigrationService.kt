@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -42,9 +43,11 @@ class AWSDatabaseMigrationServiceAddTagsToResourceCommand(val resourceArn: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.AddTagsToResourceResult {
 	  return com.amazonaws.services.databasemigrationservice.model.AddTagsToResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.AddTagsToResourceResult {
 		return environment.dms.addTagsToResource(build())
@@ -101,9 +104,11 @@ class AWSDatabaseMigrationServiceCreateEndpointCommand(val endpointIdentifier: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.CreateEndpointResult {
 	  return com.amazonaws.services.databasemigrationservice.model.CreateEndpointResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.CreateEndpointResult {
 		return environment.dms.createEndpoint(build())
@@ -157,9 +162,11 @@ class AWSDatabaseMigrationServiceCreateEventSubscriptionCommand(val subscription
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.CreateEventSubscriptionResult {
 	  return com.amazonaws.services.databasemigrationservice.model.CreateEventSubscriptionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.CreateEventSubscriptionResult {
 		return environment.dms.createEventSubscription(build())
@@ -216,9 +223,11 @@ class AWSDatabaseMigrationServiceCreateReplicationInstanceCommand(val replicatio
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.CreateReplicationInstanceResult {
 	  return com.amazonaws.services.databasemigrationservice.model.CreateReplicationInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.CreateReplicationInstanceResult {
 		return environment.dms.createReplicationInstance(build())
@@ -262,9 +271,11 @@ class AWSDatabaseMigrationServiceCreateReplicationSubnetGroupCommand(val replica
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.CreateReplicationSubnetGroupResult {
 	  return com.amazonaws.services.databasemigrationservice.model.CreateReplicationSubnetGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.CreateReplicationSubnetGroupResult {
 		return environment.dms.createReplicationSubnetGroup(build())
@@ -306,9 +317,11 @@ class AWSDatabaseMigrationServiceCreateReplicationTaskCommand(val replicationTas
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.CreateReplicationTaskResult {
 	  return com.amazonaws.services.databasemigrationservice.model.CreateReplicationTaskResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.CreateReplicationTaskResult {
 		return environment.dms.createReplicationTask(build())
@@ -345,9 +358,11 @@ class AWSDatabaseMigrationServiceDeleteCertificateCommand(val certificateArn: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DeleteCertificateResult {
 	  return com.amazonaws.services.databasemigrationservice.model.DeleteCertificateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DeleteCertificateResult {
 		return environment.dms.deleteCertificate(build())
@@ -376,9 +391,11 @@ class AWSDatabaseMigrationServiceDeleteEndpointCommand(val endpointArn: String) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DeleteEndpointResult {
 	  return com.amazonaws.services.databasemigrationservice.model.DeleteEndpointResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DeleteEndpointResult {
 		return environment.dms.deleteEndpoint(build())
@@ -407,9 +424,11 @@ class AWSDatabaseMigrationServiceDeleteEventSubscriptionCommand(val subscription
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DeleteEventSubscriptionResult {
 	  return com.amazonaws.services.databasemigrationservice.model.DeleteEventSubscriptionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DeleteEventSubscriptionResult {
 		return environment.dms.deleteEventSubscription(build())
@@ -438,9 +457,11 @@ class AWSDatabaseMigrationServiceDeleteReplicationInstanceCommand(val replicatio
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DeleteReplicationInstanceResult {
 	  return com.amazonaws.services.databasemigrationservice.model.DeleteReplicationInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DeleteReplicationInstanceResult {
 		return environment.dms.deleteReplicationInstance(build())
@@ -469,9 +490,11 @@ class AWSDatabaseMigrationServiceDeleteReplicationSubnetGroupCommand(val replica
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DeleteReplicationSubnetGroupResult {
 	  return com.amazonaws.services.databasemigrationservice.model.DeleteReplicationSubnetGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DeleteReplicationSubnetGroupResult {
 		return environment.dms.deleteReplicationSubnetGroup(build())
@@ -500,9 +523,11 @@ class AWSDatabaseMigrationServiceDeleteReplicationTaskCommand(val replicationTas
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DeleteReplicationTaskResult {
 	  return com.amazonaws.services.databasemigrationservice.model.DeleteReplicationTaskResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DeleteReplicationTaskResult {
 		return environment.dms.deleteReplicationTask(build())
@@ -531,9 +556,11 @@ class AWSDatabaseMigrationServiceDescribeAccountAttributesCommand() : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeAccountAttributesResult {
 	  return com.amazonaws.services.databasemigrationservice.model.DescribeAccountAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeAccountAttributesResult {
 		return environment.dms.describeAccountAttributes(build())
@@ -566,9 +593,11 @@ class AWSDatabaseMigrationServiceDescribeCertificatesCommand() : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeCertificatesResult {
 	  return com.amazonaws.services.databasemigrationservice.model.DescribeCertificatesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeCertificatesResult {
 		return environment.dms.describeCertificates(build())
@@ -603,9 +632,11 @@ class AWSDatabaseMigrationServiceDescribeConnectionsCommand() : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeConnectionsResult {
 	  return com.amazonaws.services.databasemigrationservice.model.DescribeConnectionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeConnectionsResult {
 		return environment.dms.describeConnections(build())
@@ -640,9 +671,11 @@ class AWSDatabaseMigrationServiceDescribeEndpointTypesCommand() : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeEndpointTypesResult {
 	  return com.amazonaws.services.databasemigrationservice.model.DescribeEndpointTypesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeEndpointTypesResult {
 		return environment.dms.describeEndpointTypes(build())
@@ -677,9 +710,11 @@ class AWSDatabaseMigrationServiceDescribeEndpointsCommand() : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeEndpointsResult {
 	  return com.amazonaws.services.databasemigrationservice.model.DescribeEndpointsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeEndpointsResult {
 		return environment.dms.describeEndpoints(build())
@@ -712,9 +747,11 @@ class AWSDatabaseMigrationServiceDescribeEventCategoriesCommand() : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeEventCategoriesResult {
 	  return com.amazonaws.services.databasemigrationservice.model.DescribeEventCategoriesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeEventCategoriesResult {
 		return environment.dms.describeEventCategories(build())
@@ -750,9 +787,11 @@ class AWSDatabaseMigrationServiceDescribeEventSubscriptionsCommand() : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeEventSubscriptionsResult {
 	  return com.amazonaws.services.databasemigrationservice.model.DescribeEventSubscriptionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeEventSubscriptionsResult {
 		return environment.dms.describeEventSubscriptions(build())
@@ -800,9 +839,11 @@ class AWSDatabaseMigrationServiceDescribeEventsCommand() : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeEventsResult {
 	  return com.amazonaws.services.databasemigrationservice.model.DescribeEventsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeEventsResult {
 		return environment.dms.describeEvents(build())
@@ -841,9 +882,11 @@ class AWSDatabaseMigrationServiceDescribeOrderableReplicationInstancesCommand() 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeOrderableReplicationInstancesResult {
 	  return com.amazonaws.services.databasemigrationservice.model.DescribeOrderableReplicationInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeOrderableReplicationInstancesResult {
 		return environment.dms.describeOrderableReplicationInstances(build())
@@ -873,9 +916,11 @@ class AWSDatabaseMigrationServiceDescribeRefreshSchemasStatusCommand(val endpoin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeRefreshSchemasStatusResult {
 	  return com.amazonaws.services.databasemigrationservice.model.DescribeRefreshSchemasStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeRefreshSchemasStatusResult {
 		return environment.dms.describeRefreshSchemasStatus(build())
@@ -907,9 +952,11 @@ class AWSDatabaseMigrationServiceDescribeReplicationInstanceTaskLogsCommand(val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeReplicationInstanceTaskLogsResult {
 	  return com.amazonaws.services.databasemigrationservice.model.DescribeReplicationInstanceTaskLogsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeReplicationInstanceTaskLogsResult {
 		return environment.dms.describeReplicationInstanceTaskLogs(build())
@@ -944,9 +991,11 @@ class AWSDatabaseMigrationServiceDescribeReplicationInstancesCommand() : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeReplicationInstancesResult {
 	  return com.amazonaws.services.databasemigrationservice.model.DescribeReplicationInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeReplicationInstancesResult {
 		return environment.dms.describeReplicationInstances(build())
@@ -981,9 +1030,11 @@ class AWSDatabaseMigrationServiceDescribeReplicationSubnetGroupsCommand() : Amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeReplicationSubnetGroupsResult {
 	  return com.amazonaws.services.databasemigrationservice.model.DescribeReplicationSubnetGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeReplicationSubnetGroupsResult {
 		return environment.dms.describeReplicationSubnetGroups(build())
@@ -1018,9 +1069,11 @@ class AWSDatabaseMigrationServiceDescribeReplicationTaskAssessmentResultsCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeReplicationTaskAssessmentResultsResult {
 	  return com.amazonaws.services.databasemigrationservice.model.DescribeReplicationTaskAssessmentResultsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeReplicationTaskAssessmentResultsResult {
 		return environment.dms.describeReplicationTaskAssessmentResults(build())
@@ -1055,9 +1108,11 @@ class AWSDatabaseMigrationServiceDescribeReplicationTasksCommand() : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeReplicationTasksResult {
 	  return com.amazonaws.services.databasemigrationservice.model.DescribeReplicationTasksResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeReplicationTasksResult {
 		return environment.dms.describeReplicationTasks(build())
@@ -1091,9 +1146,11 @@ class AWSDatabaseMigrationServiceDescribeSchemasCommand(val endpointArn: String)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeSchemasResult {
 	  return com.amazonaws.services.databasemigrationservice.model.DescribeSchemasResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeSchemasResult {
 		return environment.dms.describeSchemas(build())
@@ -1129,9 +1186,11 @@ class AWSDatabaseMigrationServiceDescribeTableStatisticsCommand(val replicationT
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeTableStatisticsResult {
 	  return com.amazonaws.services.databasemigrationservice.model.DescribeTableStatisticsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeTableStatisticsResult {
 		return environment.dms.describeTableStatistics(build())
@@ -1168,9 +1227,11 @@ class AWSDatabaseMigrationServiceImportCertificateCommand(val certificateIdentif
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.ImportCertificateResult {
 	  return com.amazonaws.services.databasemigrationservice.model.ImportCertificateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.ImportCertificateResult {
 		return environment.dms.importCertificate(build())
@@ -1202,9 +1263,11 @@ class AWSDatabaseMigrationServiceListTagsForResourceCommand(val resourceArn: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.ListTagsForResourceResult {
 	  return com.amazonaws.services.databasemigrationservice.model.ListTagsForResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.ListTagsForResourceResult {
 		return environment.dms.listTagsForResource(build())
@@ -1260,9 +1323,11 @@ class AWSDatabaseMigrationServiceModifyEndpointCommand(val endpointArn: String) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.ModifyEndpointResult {
 	  return com.amazonaws.services.databasemigrationservice.model.ModifyEndpointResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.ModifyEndpointResult {
 		return environment.dms.modifyEndpoint(build())
@@ -1312,9 +1377,11 @@ class AWSDatabaseMigrationServiceModifyEventSubscriptionCommand(val subscription
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.ModifyEventSubscriptionResult {
 	  return com.amazonaws.services.databasemigrationservice.model.ModifyEventSubscriptionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.ModifyEventSubscriptionResult {
 		return environment.dms.modifyEventSubscription(build())
@@ -1366,9 +1433,11 @@ class AWSDatabaseMigrationServiceModifyReplicationInstanceCommand(val replicatio
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.ModifyReplicationInstanceResult {
 	  return com.amazonaws.services.databasemigrationservice.model.ModifyReplicationInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.ModifyReplicationInstanceResult {
 		return environment.dms.modifyReplicationInstance(build())
@@ -1409,9 +1478,11 @@ class AWSDatabaseMigrationServiceModifyReplicationSubnetGroupCommand(val replica
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.ModifyReplicationSubnetGroupResult {
 	  return com.amazonaws.services.databasemigrationservice.model.ModifyReplicationSubnetGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.ModifyReplicationSubnetGroupResult {
 		return environment.dms.modifyReplicationSubnetGroup(build())
@@ -1451,9 +1522,11 @@ class AWSDatabaseMigrationServiceModifyReplicationTaskCommand(val replicationTas
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.ModifyReplicationTaskResult {
 	  return com.amazonaws.services.databasemigrationservice.model.ModifyReplicationTaskResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.ModifyReplicationTaskResult {
 		return environment.dms.modifyReplicationTask(build())
@@ -1488,9 +1561,11 @@ class AWSDatabaseMigrationServiceRebootReplicationInstanceCommand(val replicatio
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.RebootReplicationInstanceResult {
 	  return com.amazonaws.services.databasemigrationservice.model.RebootReplicationInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.RebootReplicationInstanceResult {
 		return environment.dms.rebootReplicationInstance(build())
@@ -1521,9 +1596,11 @@ class AWSDatabaseMigrationServiceRefreshSchemasCommand(val endpointArn: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.RefreshSchemasResult {
 	  return com.amazonaws.services.databasemigrationservice.model.RefreshSchemasResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.RefreshSchemasResult {
 		return environment.dms.refreshSchemas(build())
@@ -1554,9 +1631,11 @@ class AWSDatabaseMigrationServiceReloadTablesCommand(val replicationTaskArn: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.ReloadTablesResult {
 	  return com.amazonaws.services.databasemigrationservice.model.ReloadTablesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.ReloadTablesResult {
 		return environment.dms.reloadTables(build())
@@ -1587,9 +1666,11 @@ class AWSDatabaseMigrationServiceRemoveTagsFromResourceCommand(val resourceArn: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.RemoveTagsFromResourceResult {
 	  return com.amazonaws.services.databasemigrationservice.model.RemoveTagsFromResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.RemoveTagsFromResourceResult {
 		return environment.dms.removeTagsFromResource(build())
@@ -1621,9 +1702,11 @@ class AWSDatabaseMigrationServiceStartReplicationTaskCommand(val replicationTask
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.StartReplicationTaskResult {
 	  return com.amazonaws.services.databasemigrationservice.model.StartReplicationTaskResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.StartReplicationTaskResult {
 		return environment.dms.startReplicationTask(build())
@@ -1654,9 +1737,11 @@ class AWSDatabaseMigrationServiceStartReplicationTaskAssessmentCommand(val repli
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.StartReplicationTaskAssessmentResult {
 	  return com.amazonaws.services.databasemigrationservice.model.StartReplicationTaskAssessmentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.StartReplicationTaskAssessmentResult {
 		return environment.dms.startReplicationTaskAssessment(build())
@@ -1685,9 +1770,11 @@ class AWSDatabaseMigrationServiceStopReplicationTaskCommand(val replicationTaskA
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.StopReplicationTaskResult {
 	  return com.amazonaws.services.databasemigrationservice.model.StopReplicationTaskResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.StopReplicationTaskResult {
 		return environment.dms.stopReplicationTask(build())
@@ -1717,9 +1804,11 @@ class AWSDatabaseMigrationServiceTestConnectionCommand(val replicationInstanceAr
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.TestConnectionResult {
 	  return com.amazonaws.services.databasemigrationservice.model.TestConnectionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.TestConnectionResult {
 		return environment.dms.testConnection(build())

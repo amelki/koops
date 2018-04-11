@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -42,9 +43,11 @@ class AmazonElasticLoadBalancingAddTagsCommand(val loadBalancerNames: List<Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.AddTagsResult {
 	  return com.amazonaws.services.elasticloadbalancing.model.AddTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.AddTagsResult {
 		return environment.elasticloadbalancing.addTags(build())
@@ -75,9 +78,11 @@ class AmazonElasticLoadBalancingApplySecurityGroupsToLoadBalancerCommand(val loa
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.ApplySecurityGroupsToLoadBalancerResult {
 	  return com.amazonaws.services.elasticloadbalancing.model.ApplySecurityGroupsToLoadBalancerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.ApplySecurityGroupsToLoadBalancerResult {
 		return environment.elasticloadbalancing.applySecurityGroupsToLoadBalancer(build())
@@ -108,9 +113,11 @@ class AmazonElasticLoadBalancingAttachLoadBalancerToSubnetsCommand(val loadBalan
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.AttachLoadBalancerToSubnetsResult {
 	  return com.amazonaws.services.elasticloadbalancing.model.AttachLoadBalancerToSubnetsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.AttachLoadBalancerToSubnetsResult {
 		return environment.elasticloadbalancing.attachLoadBalancerToSubnets(build())
@@ -141,9 +148,11 @@ class AmazonElasticLoadBalancingConfigureHealthCheckCommand(val loadBalancerName
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.ConfigureHealthCheckResult {
 	  return com.amazonaws.services.elasticloadbalancing.model.ConfigureHealthCheckResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.ConfigureHealthCheckResult {
 		return environment.elasticloadbalancing.configureHealthCheck(build())
@@ -175,9 +184,11 @@ class AmazonElasticLoadBalancingCreateAppCookieStickinessPolicyCommand(val loadB
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.CreateAppCookieStickinessPolicyResult {
 	  return com.amazonaws.services.elasticloadbalancing.model.CreateAppCookieStickinessPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.CreateAppCookieStickinessPolicyResult {
 		return environment.elasticloadbalancing.createAppCookieStickinessPolicy(build())
@@ -210,9 +221,11 @@ class AmazonElasticLoadBalancingCreateLBCookieStickinessPolicyCommand(val loadBa
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.CreateLBCookieStickinessPolicyResult {
 	  return com.amazonaws.services.elasticloadbalancing.model.CreateLBCookieStickinessPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.CreateLBCookieStickinessPolicyResult {
 		return environment.elasticloadbalancing.createLBCookieStickinessPolicy(build())
@@ -253,9 +266,11 @@ class AmazonElasticLoadBalancingCreateLoadBalancerCommand(val loadBalancerName: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerResult {
 	  return com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerResult {
 		return environment.elasticloadbalancing.createLoadBalancer(build())
@@ -291,9 +306,11 @@ class AmazonElasticLoadBalancingCreateLoadBalancerListenersCommand(val loadBalan
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerListenersResult {
 	  return com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerListenersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerListenersResult {
 		return environment.elasticloadbalancing.createLoadBalancerListeners(build())
@@ -326,9 +343,11 @@ class AmazonElasticLoadBalancingCreateLoadBalancerPolicyCommand(val loadBalancer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerPolicyResult {
 	  return com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerPolicyResult {
 		return environment.elasticloadbalancing.createLoadBalancerPolicy(build())
@@ -360,9 +379,11 @@ class AmazonElasticLoadBalancingDeleteLoadBalancerCommand(val loadBalancerName: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerResult {
 	  return com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerResult {
 		return environment.elasticloadbalancing.deleteLoadBalancer(build())
@@ -392,9 +413,11 @@ class AmazonElasticLoadBalancingDeleteLoadBalancerListenersCommand(val loadBalan
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerListenersResult {
 	  return com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerListenersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerListenersResult {
 		return environment.elasticloadbalancing.deleteLoadBalancerListeners(build())
@@ -425,9 +448,11 @@ class AmazonElasticLoadBalancingDeleteLoadBalancerPolicyCommand(val loadBalancer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerPolicyResult {
 	  return com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerPolicyResult {
 		return environment.elasticloadbalancing.deleteLoadBalancerPolicy(build())
@@ -458,9 +483,11 @@ class AmazonElasticLoadBalancingDeregisterInstancesFromLoadBalancerCommand(val l
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.DeregisterInstancesFromLoadBalancerResult {
 	  return com.amazonaws.services.elasticloadbalancing.model.DeregisterInstancesFromLoadBalancerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.DeregisterInstancesFromLoadBalancerResult {
 		return environment.elasticloadbalancing.deregisterInstancesFromLoadBalancer(build())
@@ -492,9 +519,11 @@ class AmazonElasticLoadBalancingDescribeAccountLimitsCommand() : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.DescribeAccountLimitsResult {
 	  return com.amazonaws.services.elasticloadbalancing.model.DescribeAccountLimitsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.DescribeAccountLimitsResult {
 		return environment.elasticloadbalancing.describeAccountLimits(build())
@@ -525,9 +554,11 @@ class AmazonElasticLoadBalancingDescribeInstanceHealthCommand(val loadBalancerNa
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.DescribeInstanceHealthResult {
 	  return com.amazonaws.services.elasticloadbalancing.model.DescribeInstanceHealthResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.DescribeInstanceHealthResult {
 		return environment.elasticloadbalancing.describeInstanceHealth(build())
@@ -557,9 +588,11 @@ class AmazonElasticLoadBalancingDescribeLoadBalancerAttributesCommand(val loadBa
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerAttributesResult {
 	  return com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerAttributesResult {
 		return environment.elasticloadbalancing.describeLoadBalancerAttributes(build())
@@ -590,9 +623,11 @@ class AmazonElasticLoadBalancingDescribeLoadBalancerPoliciesCommand() : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerPoliciesResult {
 	  return com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerPoliciesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerPoliciesResult {
 		return environment.elasticloadbalancing.describeLoadBalancerPolicies(build())
@@ -622,9 +657,11 @@ class AmazonElasticLoadBalancingDescribeLoadBalancerPolicyTypesCommand() : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerPolicyTypesResult {
 	  return com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerPolicyTypesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerPolicyTypesResult {
 		return environment.elasticloadbalancing.describeLoadBalancerPolicyTypes(build())
@@ -657,9 +694,11 @@ class AmazonElasticLoadBalancingDescribeLoadBalancersCommand() : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancersResult {
 	  return com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancersResult {
 		return environment.elasticloadbalancing.describeLoadBalancers(build())
@@ -690,9 +729,11 @@ class AmazonElasticLoadBalancingDescribeTagsCommand(val loadBalancerNames: List<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.DescribeTagsResult {
 	  return com.amazonaws.services.elasticloadbalancing.model.DescribeTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.DescribeTagsResult {
 		return environment.elasticloadbalancing.describeTags(build())
@@ -722,9 +763,11 @@ class AmazonElasticLoadBalancingDetachLoadBalancerFromSubnetsCommand(val loadBal
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.DetachLoadBalancerFromSubnetsResult {
 	  return com.amazonaws.services.elasticloadbalancing.model.DetachLoadBalancerFromSubnetsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.DetachLoadBalancerFromSubnetsResult {
 		return environment.elasticloadbalancing.detachLoadBalancerFromSubnets(build())
@@ -755,9 +798,11 @@ class AmazonElasticLoadBalancingDisableAvailabilityZonesForLoadBalancerCommand(v
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.DisableAvailabilityZonesForLoadBalancerResult {
 	  return com.amazonaws.services.elasticloadbalancing.model.DisableAvailabilityZonesForLoadBalancerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.DisableAvailabilityZonesForLoadBalancerResult {
 		return environment.elasticloadbalancing.disableAvailabilityZonesForLoadBalancer(build())
@@ -788,9 +833,11 @@ class AmazonElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerCommand(va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.EnableAvailabilityZonesForLoadBalancerResult {
 	  return com.amazonaws.services.elasticloadbalancing.model.EnableAvailabilityZonesForLoadBalancerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.EnableAvailabilityZonesForLoadBalancerResult {
 		return environment.elasticloadbalancing.enableAvailabilityZonesForLoadBalancer(build())
@@ -821,9 +868,11 @@ class AmazonElasticLoadBalancingModifyLoadBalancerAttributesCommand(val loadBala
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.ModifyLoadBalancerAttributesResult {
 	  return com.amazonaws.services.elasticloadbalancing.model.ModifyLoadBalancerAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.ModifyLoadBalancerAttributesResult {
 		return environment.elasticloadbalancing.modifyLoadBalancerAttributes(build())
@@ -854,9 +903,11 @@ class AmazonElasticLoadBalancingRegisterInstancesWithLoadBalancerCommand(val loa
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.RegisterInstancesWithLoadBalancerResult {
 	  return com.amazonaws.services.elasticloadbalancing.model.RegisterInstancesWithLoadBalancerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.RegisterInstancesWithLoadBalancerResult {
 		return environment.elasticloadbalancing.registerInstancesWithLoadBalancer(build())
@@ -887,9 +938,11 @@ class AmazonElasticLoadBalancingRemoveTagsCommand(val loadBalancerNames: List<St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.RemoveTagsResult {
 	  return com.amazonaws.services.elasticloadbalancing.model.RemoveTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.RemoveTagsResult {
 		return environment.elasticloadbalancing.removeTags(build())
@@ -921,9 +974,11 @@ class AmazonElasticLoadBalancingSetLoadBalancerListenerSSLCertificateCommand(val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerListenerSSLCertificateResult {
 	  return com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerListenerSSLCertificateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerListenerSSLCertificateResult {
 		return environment.elasticloadbalancing.setLoadBalancerListenerSSLCertificate(build())
@@ -956,9 +1011,11 @@ class AmazonElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerCommand(v
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerPoliciesForBackendServerResult {
 	  return com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerPoliciesForBackendServerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerPoliciesForBackendServerResult {
 		return environment.elasticloadbalancing.setLoadBalancerPoliciesForBackendServer(build())
@@ -991,9 +1048,11 @@ class AmazonElasticLoadBalancingSetLoadBalancerPoliciesOfListenerCommand(val loa
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerPoliciesOfListenerResult {
 	  return com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerPoliciesOfListenerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerPoliciesOfListenerResult {
 		return environment.elasticloadbalancing.setLoadBalancerPoliciesOfListener(build())

@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -45,9 +46,11 @@ class AWSAppSyncCreateApiKeyCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appsync.model.CreateApiKeyResult {
 	  return com.amazonaws.services.appsync.model.CreateApiKeyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.CreateApiKeyResult {
 		return environment.appsync.createApiKey(build())
@@ -92,9 +95,11 @@ class AWSAppSyncCreateDataSourceCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appsync.model.CreateDataSourceResult {
 	  return com.amazonaws.services.appsync.model.CreateDataSourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.CreateDataSourceResult {
 		return environment.appsync.createDataSource(build())
@@ -134,9 +139,11 @@ class AWSAppSyncCreateGraphqlApiCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appsync.model.CreateGraphqlApiResult {
 	  return com.amazonaws.services.appsync.model.CreateGraphqlApiResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.CreateGraphqlApiResult {
 		return environment.appsync.createGraphqlApi(build())
@@ -177,9 +184,11 @@ class AWSAppSyncCreateResolverCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appsync.model.CreateResolverResult {
 	  return com.amazonaws.services.appsync.model.CreateResolverResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.CreateResolverResult {
 		return environment.appsync.createResolver(build())
@@ -217,9 +226,11 @@ class AWSAppSyncCreateTypeCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appsync.model.CreateTypeResult {
 	  return com.amazonaws.services.appsync.model.CreateTypeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.CreateTypeResult {
 		return environment.appsync.createType(build())
@@ -252,9 +263,11 @@ class AWSAppSyncDeleteApiKeyCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appsync.model.DeleteApiKeyResult {
 	  return com.amazonaws.services.appsync.model.DeleteApiKeyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.DeleteApiKeyResult {
 		return environment.appsync.deleteApiKey(build())
@@ -286,9 +299,11 @@ class AWSAppSyncDeleteDataSourceCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appsync.model.DeleteDataSourceResult {
 	  return com.amazonaws.services.appsync.model.DeleteDataSourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.DeleteDataSourceResult {
 		return environment.appsync.deleteDataSource(build())
@@ -318,9 +333,11 @@ class AWSAppSyncDeleteGraphqlApiCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appsync.model.DeleteGraphqlApiResult {
 	  return com.amazonaws.services.appsync.model.DeleteGraphqlApiResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.DeleteGraphqlApiResult {
 		return environment.appsync.deleteGraphqlApi(build())
@@ -353,9 +370,11 @@ class AWSAppSyncDeleteResolverCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appsync.model.DeleteResolverResult {
 	  return com.amazonaws.services.appsync.model.DeleteResolverResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.DeleteResolverResult {
 		return environment.appsync.deleteResolver(build())
@@ -388,9 +407,11 @@ class AWSAppSyncDeleteTypeCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appsync.model.DeleteTypeResult {
 	  return com.amazonaws.services.appsync.model.DeleteTypeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.DeleteTypeResult {
 		return environment.appsync.deleteType(build())
@@ -422,9 +443,11 @@ class AWSAppSyncGetDataSourceCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appsync.model.GetDataSourceResult {
 	  return com.amazonaws.services.appsync.model.GetDataSourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.GetDataSourceResult {
 		return environment.appsync.getDataSource(build())
@@ -454,9 +477,11 @@ class AWSAppSyncGetGraphqlApiCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appsync.model.GetGraphqlApiResult {
 	  return com.amazonaws.services.appsync.model.GetGraphqlApiResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.GetGraphqlApiResult {
 		return environment.appsync.getGraphqlApi(build())
@@ -487,9 +512,11 @@ class AWSAppSyncGetIntrospectionSchemaCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appsync.model.GetIntrospectionSchemaResult {
 	  return com.amazonaws.services.appsync.model.GetIntrospectionSchemaResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.GetIntrospectionSchemaResult {
 		return environment.appsync.getIntrospectionSchema(build())
@@ -523,9 +550,11 @@ class AWSAppSyncGetResolverCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appsync.model.GetResolverResult {
 	  return com.amazonaws.services.appsync.model.GetResolverResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.GetResolverResult {
 		return environment.appsync.getResolver(build())
@@ -556,9 +585,11 @@ class AWSAppSyncGetSchemaCreationStatusCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appsync.model.GetSchemaCreationStatusResult {
 	  return com.amazonaws.services.appsync.model.GetSchemaCreationStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.GetSchemaCreationStatusResult {
 		return environment.appsync.getSchemaCreationStatus(build())
@@ -591,9 +622,11 @@ class AWSAppSyncGetTypeCommand() : AmazonWebServiceCommand<com.amazonaws.service
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appsync.model.GetTypeResult {
 	  return com.amazonaws.services.appsync.model.GetTypeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.GetTypeResult {
 		return environment.appsync.getType(build())
@@ -628,9 +661,11 @@ class AWSAppSyncListApiKeysCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appsync.model.ListApiKeysResult {
 	  return com.amazonaws.services.appsync.model.ListApiKeysResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.ListApiKeysResult {
 		return environment.appsync.listApiKeys(build())
@@ -665,9 +700,11 @@ class AWSAppSyncListDataSourcesCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appsync.model.ListDataSourcesResult {
 	  return com.amazonaws.services.appsync.model.ListDataSourcesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.ListDataSourcesResult {
 		return environment.appsync.listDataSources(build())
@@ -700,9 +737,11 @@ class AWSAppSyncListGraphqlApisCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appsync.model.ListGraphqlApisResult {
 	  return com.amazonaws.services.appsync.model.ListGraphqlApisResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.ListGraphqlApisResult {
 		return environment.appsync.listGraphqlApis(build())
@@ -738,9 +777,11 @@ class AWSAppSyncListResolversCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appsync.model.ListResolversResult {
 	  return com.amazonaws.services.appsync.model.ListResolversResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.ListResolversResult {
 		return environment.appsync.listResolvers(build())
@@ -778,9 +819,11 @@ class AWSAppSyncListTypesCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appsync.model.ListTypesResult {
 	  return com.amazonaws.services.appsync.model.ListTypesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.ListTypesResult {
 		return environment.appsync.listTypes(build())
@@ -814,9 +857,11 @@ class AWSAppSyncStartSchemaCreationCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appsync.model.StartSchemaCreationResult {
 	  return com.amazonaws.services.appsync.model.StartSchemaCreationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.StartSchemaCreationResult {
 		return environment.appsync.startSchemaCreation(build())
@@ -852,9 +897,11 @@ class AWSAppSyncUpdateApiKeyCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appsync.model.UpdateApiKeyResult {
 	  return com.amazonaws.services.appsync.model.UpdateApiKeyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.UpdateApiKeyResult {
 		return environment.appsync.updateApiKey(build())
@@ -900,9 +947,11 @@ class AWSAppSyncUpdateDataSourceCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appsync.model.UpdateDataSourceResult {
 	  return com.amazonaws.services.appsync.model.UpdateDataSourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.UpdateDataSourceResult {
 		return environment.appsync.updateDataSource(build())
@@ -944,9 +993,11 @@ class AWSAppSyncUpdateGraphqlApiCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appsync.model.UpdateGraphqlApiResult {
 	  return com.amazonaws.services.appsync.model.UpdateGraphqlApiResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.UpdateGraphqlApiResult {
 		return environment.appsync.updateGraphqlApi(build())
@@ -988,9 +1039,11 @@ class AWSAppSyncUpdateResolverCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appsync.model.UpdateResolverResult {
 	  return com.amazonaws.services.appsync.model.UpdateResolverResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.UpdateResolverResult {
 		return environment.appsync.updateResolver(build())
@@ -1030,9 +1083,11 @@ class AWSAppSyncUpdateTypeCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.appsync.model.UpdateTypeResult {
 	  return com.amazonaws.services.appsync.model.UpdateTypeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.UpdateTypeResult {
 		return environment.appsync.updateType(build())

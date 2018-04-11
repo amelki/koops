@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -42,9 +43,11 @@ class AmazonSimpleEmailServiceCloneReceiptRuleSetCommand(val ruleSetName: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.CloneReceiptRuleSetResult {
 	  return com.amazonaws.services.simpleemail.model.CloneReceiptRuleSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.CloneReceiptRuleSetResult {
 		return environment.ses.cloneReceiptRuleSet(build())
@@ -74,9 +77,11 @@ class AmazonSimpleEmailServiceCreateConfigurationSetCommand(val configurationSet
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.CreateConfigurationSetResult {
 	  return com.amazonaws.services.simpleemail.model.CreateConfigurationSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.CreateConfigurationSetResult {
 		return environment.ses.createConfigurationSet(build())
@@ -106,9 +111,11 @@ class AmazonSimpleEmailServiceCreateConfigurationSetEventDestinationCommand(val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.CreateConfigurationSetEventDestinationResult {
 	  return com.amazonaws.services.simpleemail.model.CreateConfigurationSetEventDestinationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.CreateConfigurationSetEventDestinationResult {
 		return environment.ses.createConfigurationSetEventDestination(build())
@@ -139,9 +146,11 @@ class AmazonSimpleEmailServiceCreateConfigurationSetTrackingOptionsCommand(val c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.CreateConfigurationSetTrackingOptionsResult {
 	  return com.amazonaws.services.simpleemail.model.CreateConfigurationSetTrackingOptionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.CreateConfigurationSetTrackingOptionsResult {
 		return environment.ses.createConfigurationSetTrackingOptions(build())
@@ -176,9 +185,11 @@ class AmazonSimpleEmailServiceCreateCustomVerificationEmailTemplateCommand(val t
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.CreateCustomVerificationEmailTemplateResult {
 	  return com.amazonaws.services.simpleemail.model.CreateCustomVerificationEmailTemplateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.CreateCustomVerificationEmailTemplateResult {
 		return environment.ses.createCustomVerificationEmailTemplate(build())
@@ -212,9 +223,11 @@ class AmazonSimpleEmailServiceCreateReceiptFilterCommand(val filter: com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.CreateReceiptFilterResult {
 	  return com.amazonaws.services.simpleemail.model.CreateReceiptFilterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.CreateReceiptFilterResult {
 		return environment.ses.createReceiptFilter(build())
@@ -245,9 +258,11 @@ class AmazonSimpleEmailServiceCreateReceiptRuleCommand(val ruleSetName: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.CreateReceiptRuleResult {
 	  return com.amazonaws.services.simpleemail.model.CreateReceiptRuleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.CreateReceiptRuleResult {
 		return environment.ses.createReceiptRule(build())
@@ -278,9 +293,11 @@ class AmazonSimpleEmailServiceCreateReceiptRuleSetCommand(val ruleSetName: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.CreateReceiptRuleSetResult {
 	  return com.amazonaws.services.simpleemail.model.CreateReceiptRuleSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.CreateReceiptRuleSetResult {
 		return environment.ses.createReceiptRuleSet(build())
@@ -309,9 +326,11 @@ class AmazonSimpleEmailServiceCreateTemplateCommand(val template: com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.CreateTemplateResult {
 	  return com.amazonaws.services.simpleemail.model.CreateTemplateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.CreateTemplateResult {
 		return environment.ses.createTemplate(build())
@@ -340,9 +359,11 @@ class AmazonSimpleEmailServiceDeleteConfigurationSetCommand(val configurationSet
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.DeleteConfigurationSetResult {
 	  return com.amazonaws.services.simpleemail.model.DeleteConfigurationSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.DeleteConfigurationSetResult {
 		return environment.ses.deleteConfigurationSet(build())
@@ -372,9 +393,11 @@ class AmazonSimpleEmailServiceDeleteConfigurationSetEventDestinationCommand(val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.DeleteConfigurationSetEventDestinationResult {
 	  return com.amazonaws.services.simpleemail.model.DeleteConfigurationSetEventDestinationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.DeleteConfigurationSetEventDestinationResult {
 		return environment.ses.deleteConfigurationSetEventDestination(build())
@@ -404,9 +427,11 @@ class AmazonSimpleEmailServiceDeleteConfigurationSetTrackingOptionsCommand(val c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.DeleteConfigurationSetTrackingOptionsResult {
 	  return com.amazonaws.services.simpleemail.model.DeleteConfigurationSetTrackingOptionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.DeleteConfigurationSetTrackingOptionsResult {
 		return environment.ses.deleteConfigurationSetTrackingOptions(build())
@@ -435,9 +460,11 @@ class AmazonSimpleEmailServiceDeleteCustomVerificationEmailTemplateCommand(val t
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.DeleteCustomVerificationEmailTemplateResult {
 	  return com.amazonaws.services.simpleemail.model.DeleteCustomVerificationEmailTemplateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.DeleteCustomVerificationEmailTemplateResult {
 		return environment.ses.deleteCustomVerificationEmailTemplate(build())
@@ -466,9 +493,11 @@ class AmazonSimpleEmailServiceDeleteIdentityCommand(val identity: String) : Amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.DeleteIdentityResult {
 	  return com.amazonaws.services.simpleemail.model.DeleteIdentityResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.DeleteIdentityResult {
 		return environment.ses.deleteIdentity(build())
@@ -498,9 +527,11 @@ class AmazonSimpleEmailServiceDeleteIdentityPolicyCommand(val identity: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.DeleteIdentityPolicyResult {
 	  return com.amazonaws.services.simpleemail.model.DeleteIdentityPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.DeleteIdentityPolicyResult {
 		return environment.ses.deleteIdentityPolicy(build())
@@ -530,9 +561,11 @@ class AmazonSimpleEmailServiceDeleteReceiptFilterCommand(val filterName: String)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.DeleteReceiptFilterResult {
 	  return com.amazonaws.services.simpleemail.model.DeleteReceiptFilterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.DeleteReceiptFilterResult {
 		return environment.ses.deleteReceiptFilter(build())
@@ -562,9 +595,11 @@ class AmazonSimpleEmailServiceDeleteReceiptRuleCommand(val ruleSetName: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.DeleteReceiptRuleResult {
 	  return com.amazonaws.services.simpleemail.model.DeleteReceiptRuleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.DeleteReceiptRuleResult {
 		return environment.ses.deleteReceiptRule(build())
@@ -594,9 +629,11 @@ class AmazonSimpleEmailServiceDeleteReceiptRuleSetCommand(val ruleSetName: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.DeleteReceiptRuleSetResult {
 	  return com.amazonaws.services.simpleemail.model.DeleteReceiptRuleSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.DeleteReceiptRuleSetResult {
 		return environment.ses.deleteReceiptRuleSet(build())
@@ -625,9 +662,11 @@ class AmazonSimpleEmailServiceDeleteTemplateCommand(val templateName: String) : 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.DeleteTemplateResult {
 	  return com.amazonaws.services.simpleemail.model.DeleteTemplateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.DeleteTemplateResult {
 		return environment.ses.deleteTemplate(build())
@@ -656,9 +695,11 @@ class AmazonSimpleEmailServiceDeleteVerifiedEmailAddressCommand(val emailAddress
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.DeleteVerifiedEmailAddressResult {
 	  return com.amazonaws.services.simpleemail.model.DeleteVerifiedEmailAddressResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.DeleteVerifiedEmailAddressResult {
 		return environment.ses.deleteVerifiedEmailAddress(build())
@@ -687,9 +728,11 @@ class AmazonSimpleEmailServiceDescribeActiveReceiptRuleSetCommand() : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.DescribeActiveReceiptRuleSetResult {
 	  return com.amazonaws.services.simpleemail.model.DescribeActiveReceiptRuleSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.DescribeActiveReceiptRuleSetResult {
 		return environment.ses.describeActiveReceiptRuleSet(build())
@@ -719,9 +762,11 @@ class AmazonSimpleEmailServiceDescribeConfigurationSetCommand(val configurationS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.DescribeConfigurationSetResult {
 	  return com.amazonaws.services.simpleemail.model.DescribeConfigurationSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.DescribeConfigurationSetResult {
 		return environment.ses.describeConfigurationSet(build())
@@ -752,9 +797,11 @@ class AmazonSimpleEmailServiceDescribeReceiptRuleCommand(val ruleSetName: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.DescribeReceiptRuleResult {
 	  return com.amazonaws.services.simpleemail.model.DescribeReceiptRuleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.DescribeReceiptRuleResult {
 		return environment.ses.describeReceiptRule(build())
@@ -784,9 +831,11 @@ class AmazonSimpleEmailServiceDescribeReceiptRuleSetCommand(val ruleSetName: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.DescribeReceiptRuleSetResult {
 	  return com.amazonaws.services.simpleemail.model.DescribeReceiptRuleSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.DescribeReceiptRuleSetResult {
 		return environment.ses.describeReceiptRuleSet(build())
@@ -815,9 +864,11 @@ class AmazonSimpleEmailServiceGetAccountSendingEnabledCommand() : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.GetAccountSendingEnabledResult {
 	  return com.amazonaws.services.simpleemail.model.GetAccountSendingEnabledResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.GetAccountSendingEnabledResult {
 		return environment.ses.getAccountSendingEnabled(build())
@@ -846,9 +897,11 @@ class AmazonSimpleEmailServiceGetCustomVerificationEmailTemplateCommand(val temp
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.GetCustomVerificationEmailTemplateResult {
 	  return com.amazonaws.services.simpleemail.model.GetCustomVerificationEmailTemplateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.GetCustomVerificationEmailTemplateResult {
 		return environment.ses.getCustomVerificationEmailTemplate(build())
@@ -877,9 +930,11 @@ class AmazonSimpleEmailServiceGetIdentityDkimAttributesCommand(val identities: L
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.GetIdentityDkimAttributesResult {
 	  return com.amazonaws.services.simpleemail.model.GetIdentityDkimAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.GetIdentityDkimAttributesResult {
 		return environment.ses.getIdentityDkimAttributes(build())
@@ -908,9 +963,11 @@ class AmazonSimpleEmailServiceGetIdentityMailFromDomainAttributesCommand(val ide
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.GetIdentityMailFromDomainAttributesResult {
 	  return com.amazonaws.services.simpleemail.model.GetIdentityMailFromDomainAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.GetIdentityMailFromDomainAttributesResult {
 		return environment.ses.getIdentityMailFromDomainAttributes(build())
@@ -939,9 +996,11 @@ class AmazonSimpleEmailServiceGetIdentityNotificationAttributesCommand(val ident
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.GetIdentityNotificationAttributesResult {
 	  return com.amazonaws.services.simpleemail.model.GetIdentityNotificationAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.GetIdentityNotificationAttributesResult {
 		return environment.ses.getIdentityNotificationAttributes(build())
@@ -971,9 +1030,11 @@ class AmazonSimpleEmailServiceGetIdentityPoliciesCommand(val identity: String, v
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.GetIdentityPoliciesResult {
 	  return com.amazonaws.services.simpleemail.model.GetIdentityPoliciesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.GetIdentityPoliciesResult {
 		return environment.ses.getIdentityPolicies(build())
@@ -1003,9 +1064,11 @@ class AmazonSimpleEmailServiceGetIdentityVerificationAttributesCommand(val ident
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.GetIdentityVerificationAttributesResult {
 	  return com.amazonaws.services.simpleemail.model.GetIdentityVerificationAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.GetIdentityVerificationAttributesResult {
 		return environment.ses.getIdentityVerificationAttributes(build())
@@ -1034,9 +1097,11 @@ class AmazonSimpleEmailServiceGetSendQuotaCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.GetSendQuotaResult {
 	  return com.amazonaws.services.simpleemail.model.GetSendQuotaResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.GetSendQuotaResult {
 		return environment.ses.getSendQuota(build())
@@ -1065,9 +1130,11 @@ class AmazonSimpleEmailServiceGetSendStatisticsCommand() : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.GetSendStatisticsResult {
 	  return com.amazonaws.services.simpleemail.model.GetSendStatisticsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.GetSendStatisticsResult {
 		return environment.ses.getSendStatistics(build())
@@ -1096,9 +1163,11 @@ class AmazonSimpleEmailServiceGetTemplateCommand(val templateName: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.GetTemplateResult {
 	  return com.amazonaws.services.simpleemail.model.GetTemplateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.GetTemplateResult {
 		return environment.ses.getTemplate(build())
@@ -1129,9 +1198,11 @@ class AmazonSimpleEmailServiceListConfigurationSetsCommand() : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.ListConfigurationSetsResult {
 	  return com.amazonaws.services.simpleemail.model.ListConfigurationSetsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.ListConfigurationSetsResult {
 		return environment.ses.listConfigurationSets(build())
@@ -1163,9 +1234,11 @@ class AmazonSimpleEmailServiceListCustomVerificationEmailTemplatesCommand() : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.ListCustomVerificationEmailTemplatesResult {
 	  return com.amazonaws.services.simpleemail.model.ListCustomVerificationEmailTemplatesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.ListCustomVerificationEmailTemplatesResult {
 		return environment.ses.listCustomVerificationEmailTemplates(build())
@@ -1199,9 +1272,11 @@ class AmazonSimpleEmailServiceListIdentitiesCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.ListIdentitiesResult {
 	  return com.amazonaws.services.simpleemail.model.ListIdentitiesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.ListIdentitiesResult {
 		return environment.ses.listIdentities(build())
@@ -1232,9 +1307,11 @@ class AmazonSimpleEmailServiceListIdentityPoliciesCommand(val identity: String) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.ListIdentityPoliciesResult {
 	  return com.amazonaws.services.simpleemail.model.ListIdentityPoliciesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.ListIdentityPoliciesResult {
 		return environment.ses.listIdentityPolicies(build())
@@ -1263,9 +1340,11 @@ class AmazonSimpleEmailServiceListReceiptFiltersCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.ListReceiptFiltersResult {
 	  return com.amazonaws.services.simpleemail.model.ListReceiptFiltersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.ListReceiptFiltersResult {
 		return environment.ses.listReceiptFilters(build())
@@ -1294,9 +1373,11 @@ class AmazonSimpleEmailServiceListReceiptRuleSetsCommand() : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.ListReceiptRuleSetsResult {
 	  return com.amazonaws.services.simpleemail.model.ListReceiptRuleSetsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.ListReceiptRuleSetsResult {
 		return environment.ses.listReceiptRuleSets(build())
@@ -1327,9 +1408,11 @@ class AmazonSimpleEmailServiceListTemplatesCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.ListTemplatesResult {
 	  return com.amazonaws.services.simpleemail.model.ListTemplatesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.ListTemplatesResult {
 		return environment.ses.listTemplates(build())
@@ -1359,9 +1442,11 @@ class AmazonSimpleEmailServiceListVerifiedEmailAddressesCommand() : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.ListVerifiedEmailAddressesResult {
 	  return com.amazonaws.services.simpleemail.model.ListVerifiedEmailAddressesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.ListVerifiedEmailAddressesResult {
 		return environment.ses.listVerifiedEmailAddresses(build())
@@ -1392,9 +1477,11 @@ class AmazonSimpleEmailServicePutIdentityPolicyCommand(val identity: String, val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.PutIdentityPolicyResult {
 	  return com.amazonaws.services.simpleemail.model.PutIdentityPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.PutIdentityPolicyResult {
 		return environment.ses.putIdentityPolicy(build())
@@ -1426,9 +1513,11 @@ class AmazonSimpleEmailServiceReorderReceiptRuleSetCommand(val ruleSetName: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.ReorderReceiptRuleSetResult {
 	  return com.amazonaws.services.simpleemail.model.ReorderReceiptRuleSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.ReorderReceiptRuleSetResult {
 		return environment.ses.reorderReceiptRuleSet(build())
@@ -1465,9 +1554,11 @@ class AmazonSimpleEmailServiceSendBounceCommand(val originalMessageId: String, v
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.SendBounceResult {
 	  return com.amazonaws.services.simpleemail.model.SendBounceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.SendBounceResult {
 		return environment.ses.sendBounce(build())
@@ -1518,9 +1609,11 @@ class AmazonSimpleEmailServiceSendBulkTemplatedEmailCommand(val source: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.SendBulkTemplatedEmailResult {
 	  return com.amazonaws.services.simpleemail.model.SendBulkTemplatedEmailResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.SendBulkTemplatedEmailResult {
 		return environment.ses.sendBulkTemplatedEmail(build())
@@ -1561,9 +1654,11 @@ class AmazonSimpleEmailServiceSendCustomVerificationEmailCommand(val emailAddres
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.SendCustomVerificationEmailResult {
 	  return com.amazonaws.services.simpleemail.model.SendCustomVerificationEmailResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.SendCustomVerificationEmailResult {
 		return environment.ses.sendCustomVerificationEmail(build())
@@ -1607,9 +1702,11 @@ class AmazonSimpleEmailServiceSendEmailCommand(val source: String, val destinati
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.SendEmailResult {
 	  return com.amazonaws.services.simpleemail.model.SendEmailResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.SendEmailResult {
 		return environment.ses.sendEmail(build())
@@ -1659,9 +1756,11 @@ class AmazonSimpleEmailServiceSendRawEmailCommand(val rawMessage: com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.SendRawEmailResult {
 	  return com.amazonaws.services.simpleemail.model.SendRawEmailResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.SendRawEmailResult {
 		return environment.ses.sendRawEmail(build())
@@ -1713,9 +1812,11 @@ class AmazonSimpleEmailServiceSendTemplatedEmailCommand(val source: String, val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.SendTemplatedEmailResult {
 	  return com.amazonaws.services.simpleemail.model.SendTemplatedEmailResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.SendTemplatedEmailResult {
 		return environment.ses.sendTemplatedEmail(build())
@@ -1754,9 +1855,11 @@ class AmazonSimpleEmailServiceSetActiveReceiptRuleSetCommand() : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.SetActiveReceiptRuleSetResult {
 	  return com.amazonaws.services.simpleemail.model.SetActiveReceiptRuleSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.SetActiveReceiptRuleSetResult {
 		return environment.ses.setActiveReceiptRuleSet(build())
@@ -1786,9 +1889,11 @@ class AmazonSimpleEmailServiceSetIdentityDkimEnabledCommand(val identity: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.SetIdentityDkimEnabledResult {
 	  return com.amazonaws.services.simpleemail.model.SetIdentityDkimEnabledResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.SetIdentityDkimEnabledResult {
 		return environment.ses.setIdentityDkimEnabled(build())
@@ -1819,9 +1924,11 @@ class AmazonSimpleEmailServiceSetIdentityFeedbackForwardingEnabledCommand(val id
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.SetIdentityFeedbackForwardingEnabledResult {
 	  return com.amazonaws.services.simpleemail.model.SetIdentityFeedbackForwardingEnabledResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.SetIdentityFeedbackForwardingEnabledResult {
 		return environment.ses.setIdentityFeedbackForwardingEnabled(build())
@@ -1853,9 +1960,11 @@ class AmazonSimpleEmailServiceSetIdentityHeadersInNotificationsEnabledCommand(va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.SetIdentityHeadersInNotificationsEnabledResult {
 	  return com.amazonaws.services.simpleemail.model.SetIdentityHeadersInNotificationsEnabledResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.SetIdentityHeadersInNotificationsEnabledResult {
 		return environment.ses.setIdentityHeadersInNotificationsEnabled(build())
@@ -1889,9 +1998,11 @@ class AmazonSimpleEmailServiceSetIdentityMailFromDomainCommand(val identity: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.SetIdentityMailFromDomainResult {
 	  return com.amazonaws.services.simpleemail.model.SetIdentityMailFromDomainResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.SetIdentityMailFromDomainResult {
 		return environment.ses.setIdentityMailFromDomain(build())
@@ -1924,9 +2035,11 @@ class AmazonSimpleEmailServiceSetIdentityNotificationTopicCommand(val identity: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.SetIdentityNotificationTopicResult {
 	  return com.amazonaws.services.simpleemail.model.SetIdentityNotificationTopicResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.SetIdentityNotificationTopicResult {
 		return environment.ses.setIdentityNotificationTopic(build())
@@ -1959,9 +2072,11 @@ class AmazonSimpleEmailServiceSetReceiptRulePositionCommand(val ruleSetName: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.SetReceiptRulePositionResult {
 	  return com.amazonaws.services.simpleemail.model.SetReceiptRulePositionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.SetReceiptRulePositionResult {
 		return environment.ses.setReceiptRulePosition(build())
@@ -1993,9 +2108,11 @@ class AmazonSimpleEmailServiceTestRenderTemplateCommand(val templateName: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.TestRenderTemplateResult {
 	  return com.amazonaws.services.simpleemail.model.TestRenderTemplateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.TestRenderTemplateResult {
 		return environment.ses.testRenderTemplate(build())
@@ -2025,9 +2142,11 @@ class AmazonSimpleEmailServiceUpdateAccountSendingEnabledCommand() : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.UpdateAccountSendingEnabledResult {
 	  return com.amazonaws.services.simpleemail.model.UpdateAccountSendingEnabledResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.UpdateAccountSendingEnabledResult {
 		return environment.ses.updateAccountSendingEnabled(build())
@@ -2057,9 +2176,11 @@ class AmazonSimpleEmailServiceUpdateConfigurationSetEventDestinationCommand(val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.UpdateConfigurationSetEventDestinationResult {
 	  return com.amazonaws.services.simpleemail.model.UpdateConfigurationSetEventDestinationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.UpdateConfigurationSetEventDestinationResult {
 		return environment.ses.updateConfigurationSetEventDestination(build())
@@ -2090,9 +2211,11 @@ class AmazonSimpleEmailServiceUpdateConfigurationSetReputationMetricsEnabledComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.UpdateConfigurationSetReputationMetricsEnabledResult {
 	  return com.amazonaws.services.simpleemail.model.UpdateConfigurationSetReputationMetricsEnabledResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.UpdateConfigurationSetReputationMetricsEnabledResult {
 		return environment.ses.updateConfigurationSetReputationMetricsEnabled(build())
@@ -2123,9 +2246,11 @@ class AmazonSimpleEmailServiceUpdateConfigurationSetSendingEnabledCommand(val co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.UpdateConfigurationSetSendingEnabledResult {
 	  return com.amazonaws.services.simpleemail.model.UpdateConfigurationSetSendingEnabledResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.UpdateConfigurationSetSendingEnabledResult {
 		return environment.ses.updateConfigurationSetSendingEnabled(build())
@@ -2156,9 +2281,11 @@ class AmazonSimpleEmailServiceUpdateConfigurationSetTrackingOptionsCommand(val c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.UpdateConfigurationSetTrackingOptionsResult {
 	  return com.amazonaws.services.simpleemail.model.UpdateConfigurationSetTrackingOptionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.UpdateConfigurationSetTrackingOptionsResult {
 		return environment.ses.updateConfigurationSetTrackingOptions(build())
@@ -2197,9 +2324,11 @@ class AmazonSimpleEmailServiceUpdateCustomVerificationEmailTemplateCommand(val t
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.UpdateCustomVerificationEmailTemplateResult {
 	  return com.amazonaws.services.simpleemail.model.UpdateCustomVerificationEmailTemplateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.UpdateCustomVerificationEmailTemplateResult {
 		return environment.ses.updateCustomVerificationEmailTemplate(build())
@@ -2234,9 +2363,11 @@ class AmazonSimpleEmailServiceUpdateReceiptRuleCommand(val ruleSetName: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.UpdateReceiptRuleResult {
 	  return com.amazonaws.services.simpleemail.model.UpdateReceiptRuleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.UpdateReceiptRuleResult {
 		return environment.ses.updateReceiptRule(build())
@@ -2266,9 +2397,11 @@ class AmazonSimpleEmailServiceUpdateTemplateCommand(val template: com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.UpdateTemplateResult {
 	  return com.amazonaws.services.simpleemail.model.UpdateTemplateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.UpdateTemplateResult {
 		return environment.ses.updateTemplate(build())
@@ -2297,9 +2430,11 @@ class AmazonSimpleEmailServiceVerifyDomainDkimCommand(val domain: String) : Amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.VerifyDomainDkimResult {
 	  return com.amazonaws.services.simpleemail.model.VerifyDomainDkimResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.VerifyDomainDkimResult {
 		return environment.ses.verifyDomainDkim(build())
@@ -2328,9 +2463,11 @@ class AmazonSimpleEmailServiceVerifyDomainIdentityCommand(val domain: String) : 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.VerifyDomainIdentityResult {
 	  return com.amazonaws.services.simpleemail.model.VerifyDomainIdentityResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.VerifyDomainIdentityResult {
 		return environment.ses.verifyDomainIdentity(build())
@@ -2359,9 +2496,11 @@ class AmazonSimpleEmailServiceVerifyEmailAddressCommand(val emailAddress: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.VerifyEmailAddressResult {
 	  return com.amazonaws.services.simpleemail.model.VerifyEmailAddressResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.VerifyEmailAddressResult {
 		return environment.ses.verifyEmailAddress(build())
@@ -2390,9 +2529,11 @@ class AmazonSimpleEmailServiceVerifyEmailIdentityCommand(val emailAddress: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.simpleemail.model.VerifyEmailIdentityResult {
 	  return com.amazonaws.services.simpleemail.model.VerifyEmailIdentityResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleemail.model.VerifyEmailIdentityResult {
 		return environment.ses.verifyEmailIdentity(build())

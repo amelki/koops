@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -42,9 +43,11 @@ class AmazonIdentityManagementAddClientIDToOpenIDConnectProviderCommand(val open
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.AddClientIDToOpenIDConnectProviderResult {
 	  return com.amazonaws.services.identitymanagement.model.AddClientIDToOpenIDConnectProviderResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.AddClientIDToOpenIDConnectProviderResult {
 		return environment.iam.addClientIDToOpenIDConnectProvider(build())
@@ -75,9 +78,11 @@ class AmazonIdentityManagementAddRoleToInstanceProfileCommand(val instanceProfil
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.AddRoleToInstanceProfileResult {
 	  return com.amazonaws.services.identitymanagement.model.AddRoleToInstanceProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.AddRoleToInstanceProfileResult {
 		return environment.iam.addRoleToInstanceProfile(build())
@@ -108,9 +113,11 @@ class AmazonIdentityManagementAddUserToGroupCommand(val groupName: String, val u
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.AddUserToGroupResult {
 	  return com.amazonaws.services.identitymanagement.model.AddUserToGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.AddUserToGroupResult {
 		return environment.iam.addUserToGroup(build())
@@ -141,9 +148,11 @@ class AmazonIdentityManagementAttachGroupPolicyCommand(val groupName: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.AttachGroupPolicyResult {
 	  return com.amazonaws.services.identitymanagement.model.AttachGroupPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.AttachGroupPolicyResult {
 		return environment.iam.attachGroupPolicy(build())
@@ -174,9 +183,11 @@ class AmazonIdentityManagementAttachRolePolicyCommand(val roleName: String, val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.AttachRolePolicyResult {
 	  return com.amazonaws.services.identitymanagement.model.AttachRolePolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.AttachRolePolicyResult {
 		return environment.iam.attachRolePolicy(build())
@@ -207,9 +218,11 @@ class AmazonIdentityManagementAttachUserPolicyCommand(val userName: String, val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.AttachUserPolicyResult {
 	  return com.amazonaws.services.identitymanagement.model.AttachUserPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.AttachUserPolicyResult {
 		return environment.iam.attachUserPolicy(build())
@@ -240,9 +253,11 @@ class AmazonIdentityManagementChangePasswordCommand(val oldPassword: String, val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ChangePasswordResult {
 	  return com.amazonaws.services.identitymanagement.model.ChangePasswordResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ChangePasswordResult {
 		return environment.iam.changePassword(build())
@@ -272,9 +287,11 @@ class AmazonIdentityManagementCreateAccessKeyCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.CreateAccessKeyResult {
 	  return com.amazonaws.services.identitymanagement.model.CreateAccessKeyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.CreateAccessKeyResult {
 		return environment.iam.createAccessKey(build())
@@ -303,9 +320,11 @@ class AmazonIdentityManagementCreateAccountAliasCommand(val accountAlias: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.CreateAccountAliasResult {
 	  return com.amazonaws.services.identitymanagement.model.CreateAccountAliasResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.CreateAccountAliasResult {
 		return environment.iam.createAccountAlias(build())
@@ -335,9 +354,11 @@ class AmazonIdentityManagementCreateGroupCommand(val groupName: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.CreateGroupResult {
 	  return com.amazonaws.services.identitymanagement.model.CreateGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.CreateGroupResult {
 		return environment.iam.createGroup(build())
@@ -368,9 +389,11 @@ class AmazonIdentityManagementCreateInstanceProfileCommand(val instanceProfileNa
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.CreateInstanceProfileResult {
 	  return com.amazonaws.services.identitymanagement.model.CreateInstanceProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.CreateInstanceProfileResult {
 		return environment.iam.createInstanceProfile(build())
@@ -402,9 +425,11 @@ class AmazonIdentityManagementCreateLoginProfileCommand(val userName: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.CreateLoginProfileResult {
 	  return com.amazonaws.services.identitymanagement.model.CreateLoginProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.CreateLoginProfileResult {
 		return environment.iam.createLoginProfile(build())
@@ -437,9 +462,11 @@ class AmazonIdentityManagementCreateOpenIDConnectProviderCommand(val url: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.CreateOpenIDConnectProviderResult {
 	  return com.amazonaws.services.identitymanagement.model.CreateOpenIDConnectProviderResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.CreateOpenIDConnectProviderResult {
 		return environment.iam.createOpenIDConnectProvider(build())
@@ -474,9 +501,11 @@ class AmazonIdentityManagementCreatePolicyCommand(val policyName: String, val po
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.CreatePolicyResult {
 	  return com.amazonaws.services.identitymanagement.model.CreatePolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.CreatePolicyResult {
 		return environment.iam.createPolicy(build())
@@ -510,9 +539,11 @@ class AmazonIdentityManagementCreatePolicyVersionCommand(val policyArn: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.CreatePolicyVersionResult {
 	  return com.amazonaws.services.identitymanagement.model.CreatePolicyVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.CreatePolicyVersionResult {
 		return environment.iam.createPolicyVersion(build())
@@ -549,9 +580,11 @@ class AmazonIdentityManagementCreateRoleCommand(val roleName: String, val assume
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.CreateRoleResult {
 	  return com.amazonaws.services.identitymanagement.model.CreateRoleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.CreateRoleResult {
 		return environment.iam.createRole(build())
@@ -585,9 +618,11 @@ class AmazonIdentityManagementCreateSAMLProviderCommand(val sAMLMetadataDocument
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.CreateSAMLProviderResult {
 	  return com.amazonaws.services.identitymanagement.model.CreateSAMLProviderResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.CreateSAMLProviderResult {
 		return environment.iam.createSAMLProvider(build())
@@ -620,9 +655,11 @@ class AmazonIdentityManagementCreateServiceLinkedRoleCommand(val aWSServiceName:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.CreateServiceLinkedRoleResult {
 	  return com.amazonaws.services.identitymanagement.model.CreateServiceLinkedRoleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.CreateServiceLinkedRoleResult {
 		return environment.iam.createServiceLinkedRole(build())
@@ -654,9 +691,11 @@ class AmazonIdentityManagementCreateServiceSpecificCredentialCommand(val userNam
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.CreateServiceSpecificCredentialResult {
 	  return com.amazonaws.services.identitymanagement.model.CreateServiceSpecificCredentialResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.CreateServiceSpecificCredentialResult {
 		return environment.iam.createServiceSpecificCredential(build())
@@ -687,9 +726,11 @@ class AmazonIdentityManagementCreateUserCommand(val userName: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.CreateUserResult {
 	  return com.amazonaws.services.identitymanagement.model.CreateUserResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.CreateUserResult {
 		return environment.iam.createUser(build())
@@ -720,9 +761,11 @@ class AmazonIdentityManagementCreateVirtualMFADeviceCommand(val virtualMFADevice
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.CreateVirtualMFADeviceResult {
 	  return com.amazonaws.services.identitymanagement.model.CreateVirtualMFADeviceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.CreateVirtualMFADeviceResult {
 		return environment.iam.createVirtualMFADevice(build())
@@ -753,9 +796,11 @@ class AmazonIdentityManagementDeactivateMFADeviceCommand(val userName: String, v
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeactivateMFADeviceResult {
 	  return com.amazonaws.services.identitymanagement.model.DeactivateMFADeviceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeactivateMFADeviceResult {
 		return environment.iam.deactivateMFADevice(build())
@@ -786,9 +831,11 @@ class AmazonIdentityManagementDeleteAccessKeyCommand(val accessKeyId: String) : 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteAccessKeyResult {
 	  return com.amazonaws.services.identitymanagement.model.DeleteAccessKeyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteAccessKeyResult {
 		return environment.iam.deleteAccessKey(build())
@@ -818,9 +865,11 @@ class AmazonIdentityManagementDeleteAccountAliasCommand(val accountAlias: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteAccountAliasResult {
 	  return com.amazonaws.services.identitymanagement.model.DeleteAccountAliasResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteAccountAliasResult {
 		return environment.iam.deleteAccountAlias(build())
@@ -849,9 +898,11 @@ class AmazonIdentityManagementDeleteAccountPasswordPolicyCommand() : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteAccountPasswordPolicyResult {
 	  return com.amazonaws.services.identitymanagement.model.DeleteAccountPasswordPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteAccountPasswordPolicyResult {
 		return environment.iam.deleteAccountPasswordPolicy(build())
@@ -880,9 +931,11 @@ class AmazonIdentityManagementDeleteGroupCommand(val groupName: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteGroupResult {
 	  return com.amazonaws.services.identitymanagement.model.DeleteGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteGroupResult {
 		return environment.iam.deleteGroup(build())
@@ -912,9 +965,11 @@ class AmazonIdentityManagementDeleteGroupPolicyCommand(val groupName: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteGroupPolicyResult {
 	  return com.amazonaws.services.identitymanagement.model.DeleteGroupPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteGroupPolicyResult {
 		return environment.iam.deleteGroupPolicy(build())
@@ -944,9 +999,11 @@ class AmazonIdentityManagementDeleteInstanceProfileCommand(val instanceProfileNa
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteInstanceProfileResult {
 	  return com.amazonaws.services.identitymanagement.model.DeleteInstanceProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteInstanceProfileResult {
 		return environment.iam.deleteInstanceProfile(build())
@@ -975,9 +1032,11 @@ class AmazonIdentityManagementDeleteLoginProfileCommand(val userName: String) : 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteLoginProfileResult {
 	  return com.amazonaws.services.identitymanagement.model.DeleteLoginProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteLoginProfileResult {
 		return environment.iam.deleteLoginProfile(build())
@@ -1006,9 +1065,11 @@ class AmazonIdentityManagementDeleteOpenIDConnectProviderCommand(val openIDConne
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteOpenIDConnectProviderResult {
 	  return com.amazonaws.services.identitymanagement.model.DeleteOpenIDConnectProviderResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteOpenIDConnectProviderResult {
 		return environment.iam.deleteOpenIDConnectProvider(build())
@@ -1037,9 +1098,11 @@ class AmazonIdentityManagementDeletePolicyCommand(val policyArn: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeletePolicyResult {
 	  return com.amazonaws.services.identitymanagement.model.DeletePolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeletePolicyResult {
 		return environment.iam.deletePolicy(build())
@@ -1069,9 +1132,11 @@ class AmazonIdentityManagementDeletePolicyVersionCommand(val policyArn: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeletePolicyVersionResult {
 	  return com.amazonaws.services.identitymanagement.model.DeletePolicyVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeletePolicyVersionResult {
 		return environment.iam.deletePolicyVersion(build())
@@ -1101,9 +1166,11 @@ class AmazonIdentityManagementDeleteRoleCommand(val roleName: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteRoleResult {
 	  return com.amazonaws.services.identitymanagement.model.DeleteRoleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteRoleResult {
 		return environment.iam.deleteRole(build())
@@ -1133,9 +1200,11 @@ class AmazonIdentityManagementDeleteRolePolicyCommand(val roleName: String, val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteRolePolicyResult {
 	  return com.amazonaws.services.identitymanagement.model.DeleteRolePolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteRolePolicyResult {
 		return environment.iam.deleteRolePolicy(build())
@@ -1165,9 +1234,11 @@ class AmazonIdentityManagementDeleteSAMLProviderCommand(val sAMLProviderArn: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteSAMLProviderResult {
 	  return com.amazonaws.services.identitymanagement.model.DeleteSAMLProviderResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteSAMLProviderResult {
 		return environment.iam.deleteSAMLProvider(build())
@@ -1197,9 +1268,11 @@ class AmazonIdentityManagementDeleteSSHPublicKeyCommand(val userName: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteSSHPublicKeyResult {
 	  return com.amazonaws.services.identitymanagement.model.DeleteSSHPublicKeyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteSSHPublicKeyResult {
 		return environment.iam.deleteSSHPublicKey(build())
@@ -1229,9 +1302,11 @@ class AmazonIdentityManagementDeleteServerCertificateCommand(val serverCertifica
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteServerCertificateResult {
 	  return com.amazonaws.services.identitymanagement.model.DeleteServerCertificateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteServerCertificateResult {
 		return environment.iam.deleteServerCertificate(build())
@@ -1260,9 +1335,11 @@ class AmazonIdentityManagementDeleteServiceLinkedRoleCommand(val roleName: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteServiceLinkedRoleResult {
 	  return com.amazonaws.services.identitymanagement.model.DeleteServiceLinkedRoleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteServiceLinkedRoleResult {
 		return environment.iam.deleteServiceLinkedRole(build())
@@ -1292,9 +1369,11 @@ class AmazonIdentityManagementDeleteServiceSpecificCredentialCommand(val service
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteServiceSpecificCredentialResult {
 	  return com.amazonaws.services.identitymanagement.model.DeleteServiceSpecificCredentialResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteServiceSpecificCredentialResult {
 		return environment.iam.deleteServiceSpecificCredential(build())
@@ -1325,9 +1404,11 @@ class AmazonIdentityManagementDeleteSigningCertificateCommand(val certificateId:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteSigningCertificateResult {
 	  return com.amazonaws.services.identitymanagement.model.DeleteSigningCertificateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteSigningCertificateResult {
 		return environment.iam.deleteSigningCertificate(build())
@@ -1357,9 +1438,11 @@ class AmazonIdentityManagementDeleteUserCommand(val userName: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteUserResult {
 	  return com.amazonaws.services.identitymanagement.model.DeleteUserResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteUserResult {
 		return environment.iam.deleteUser(build())
@@ -1389,9 +1472,11 @@ class AmazonIdentityManagementDeleteUserPolicyCommand(val userName: String, val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteUserPolicyResult {
 	  return com.amazonaws.services.identitymanagement.model.DeleteUserPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteUserPolicyResult {
 		return environment.iam.deleteUserPolicy(build())
@@ -1421,9 +1506,11 @@ class AmazonIdentityManagementDeleteVirtualMFADeviceCommand(val serialNumber: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteVirtualMFADeviceResult {
 	  return com.amazonaws.services.identitymanagement.model.DeleteVirtualMFADeviceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteVirtualMFADeviceResult {
 		return environment.iam.deleteVirtualMFADevice(build())
@@ -1453,9 +1540,11 @@ class AmazonIdentityManagementDetachGroupPolicyCommand(val groupName: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DetachGroupPolicyResult {
 	  return com.amazonaws.services.identitymanagement.model.DetachGroupPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DetachGroupPolicyResult {
 		return environment.iam.detachGroupPolicy(build())
@@ -1486,9 +1575,11 @@ class AmazonIdentityManagementDetachRolePolicyCommand(val roleName: String, val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DetachRolePolicyResult {
 	  return com.amazonaws.services.identitymanagement.model.DetachRolePolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DetachRolePolicyResult {
 		return environment.iam.detachRolePolicy(build())
@@ -1519,9 +1610,11 @@ class AmazonIdentityManagementDetachUserPolicyCommand(val userName: String, val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DetachUserPolicyResult {
 	  return com.amazonaws.services.identitymanagement.model.DetachUserPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DetachUserPolicyResult {
 		return environment.iam.detachUserPolicy(build())
@@ -1554,9 +1647,11 @@ class AmazonIdentityManagementEnableMFADeviceCommand(val userName: String, val s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.EnableMFADeviceResult {
 	  return com.amazonaws.services.identitymanagement.model.EnableMFADeviceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.EnableMFADeviceResult {
 		return environment.iam.enableMFADevice(build())
@@ -1588,9 +1683,11 @@ class AmazonIdentityManagementGenerateCredentialReportCommand() : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GenerateCredentialReportResult {
 	  return com.amazonaws.services.identitymanagement.model.GenerateCredentialReportResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GenerateCredentialReportResult {
 		return environment.iam.generateCredentialReport(build())
@@ -1619,9 +1716,11 @@ class AmazonIdentityManagementGetAccessKeyLastUsedCommand(val accessKeyId: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetAccessKeyLastUsedResult {
 	  return com.amazonaws.services.identitymanagement.model.GetAccessKeyLastUsedResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetAccessKeyLastUsedResult {
 		return environment.iam.getAccessKeyLastUsed(build())
@@ -1654,9 +1753,11 @@ class AmazonIdentityManagementGetAccountAuthorizationDetailsCommand() : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetAccountAuthorizationDetailsResult {
 	  return com.amazonaws.services.identitymanagement.model.GetAccountAuthorizationDetailsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetAccountAuthorizationDetailsResult {
 		return environment.iam.getAccountAuthorizationDetails(build())
@@ -1687,9 +1788,11 @@ class AmazonIdentityManagementGetAccountPasswordPolicyCommand() : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetAccountPasswordPolicyResult {
 	  return com.amazonaws.services.identitymanagement.model.GetAccountPasswordPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetAccountPasswordPolicyResult {
 		return environment.iam.getAccountPasswordPolicy(build())
@@ -1718,9 +1821,11 @@ class AmazonIdentityManagementGetAccountSummaryCommand() : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetAccountSummaryResult {
 	  return com.amazonaws.services.identitymanagement.model.GetAccountSummaryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetAccountSummaryResult {
 		return environment.iam.getAccountSummary(build())
@@ -1749,9 +1854,11 @@ class AmazonIdentityManagementGetContextKeysForCustomPolicyCommand(val policyInp
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetContextKeysForCustomPolicyResult {
 	  return com.amazonaws.services.identitymanagement.model.GetContextKeysForCustomPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetContextKeysForCustomPolicyResult {
 		return environment.iam.getContextKeysForCustomPolicy(build())
@@ -1781,9 +1888,11 @@ class AmazonIdentityManagementGetContextKeysForPrincipalPolicyCommand(val policy
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetContextKeysForPrincipalPolicyResult {
 	  return com.amazonaws.services.identitymanagement.model.GetContextKeysForPrincipalPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetContextKeysForPrincipalPolicyResult {
 		return environment.iam.getContextKeysForPrincipalPolicy(build())
@@ -1813,9 +1922,11 @@ class AmazonIdentityManagementGetCredentialReportCommand() : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetCredentialReportResult {
 	  return com.amazonaws.services.identitymanagement.model.GetCredentialReportResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetCredentialReportResult {
 		return environment.iam.getCredentialReport(build())
@@ -1847,9 +1958,11 @@ class AmazonIdentityManagementGetGroupCommand(val groupName: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetGroupResult {
 	  return com.amazonaws.services.identitymanagement.model.GetGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetGroupResult {
 		return environment.iam.getGroup(build())
@@ -1881,9 +1994,11 @@ class AmazonIdentityManagementGetGroupPolicyCommand(val groupName: String, val p
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetGroupPolicyResult {
 	  return com.amazonaws.services.identitymanagement.model.GetGroupPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetGroupPolicyResult {
 		return environment.iam.getGroupPolicy(build())
@@ -1913,9 +2028,11 @@ class AmazonIdentityManagementGetInstanceProfileCommand(val instanceProfileName:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetInstanceProfileResult {
 	  return com.amazonaws.services.identitymanagement.model.GetInstanceProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetInstanceProfileResult {
 		return environment.iam.getInstanceProfile(build())
@@ -1944,9 +2061,11 @@ class AmazonIdentityManagementGetLoginProfileCommand(val userName: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetLoginProfileResult {
 	  return com.amazonaws.services.identitymanagement.model.GetLoginProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetLoginProfileResult {
 		return environment.iam.getLoginProfile(build())
@@ -1975,9 +2094,11 @@ class AmazonIdentityManagementGetOpenIDConnectProviderCommand(val openIDConnectP
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetOpenIDConnectProviderResult {
 	  return com.amazonaws.services.identitymanagement.model.GetOpenIDConnectProviderResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetOpenIDConnectProviderResult {
 		return environment.iam.getOpenIDConnectProvider(build())
@@ -2006,9 +2127,11 @@ class AmazonIdentityManagementGetPolicyCommand(val policyArn: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetPolicyResult {
 	  return com.amazonaws.services.identitymanagement.model.GetPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetPolicyResult {
 		return environment.iam.getPolicy(build())
@@ -2038,9 +2161,11 @@ class AmazonIdentityManagementGetPolicyVersionCommand(val policyArn: String, val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetPolicyVersionResult {
 	  return com.amazonaws.services.identitymanagement.model.GetPolicyVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetPolicyVersionResult {
 		return environment.iam.getPolicyVersion(build())
@@ -2070,9 +2195,11 @@ class AmazonIdentityManagementGetRoleCommand(val roleName: String) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetRoleResult {
 	  return com.amazonaws.services.identitymanagement.model.GetRoleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetRoleResult {
 		return environment.iam.getRole(build())
@@ -2102,9 +2229,11 @@ class AmazonIdentityManagementGetRolePolicyCommand(val roleName: String, val pol
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetRolePolicyResult {
 	  return com.amazonaws.services.identitymanagement.model.GetRolePolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetRolePolicyResult {
 		return environment.iam.getRolePolicy(build())
@@ -2134,9 +2263,11 @@ class AmazonIdentityManagementGetSAMLProviderCommand(val sAMLProviderArn: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetSAMLProviderResult {
 	  return com.amazonaws.services.identitymanagement.model.GetSAMLProviderResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetSAMLProviderResult {
 		return environment.iam.getSAMLProvider(build())
@@ -2167,9 +2298,11 @@ class AmazonIdentityManagementGetSSHPublicKeyCommand(val userName: String, val s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetSSHPublicKeyResult {
 	  return com.amazonaws.services.identitymanagement.model.GetSSHPublicKeyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetSSHPublicKeyResult {
 		return environment.iam.getSSHPublicKey(build())
@@ -2200,9 +2333,11 @@ class AmazonIdentityManagementGetServerCertificateCommand(val serverCertificateN
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetServerCertificateResult {
 	  return com.amazonaws.services.identitymanagement.model.GetServerCertificateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetServerCertificateResult {
 		return environment.iam.getServerCertificate(build())
@@ -2231,9 +2366,11 @@ class AmazonIdentityManagementGetServiceLinkedRoleDeletionStatusCommand(val dele
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetServiceLinkedRoleDeletionStatusResult {
 	  return com.amazonaws.services.identitymanagement.model.GetServiceLinkedRoleDeletionStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetServiceLinkedRoleDeletionStatusResult {
 		return environment.iam.getServiceLinkedRoleDeletionStatus(build())
@@ -2262,9 +2399,11 @@ class AmazonIdentityManagementGetUserCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetUserResult {
 	  return com.amazonaws.services.identitymanagement.model.GetUserResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetUserResult {
 		return environment.iam.getUser(build())
@@ -2294,9 +2433,11 @@ class AmazonIdentityManagementGetUserPolicyCommand(val userName: String, val pol
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetUserPolicyResult {
 	  return com.amazonaws.services.identitymanagement.model.GetUserPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetUserPolicyResult {
 		return environment.iam.getUserPolicy(build())
@@ -2330,9 +2471,11 @@ class AmazonIdentityManagementListAccessKeysCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListAccessKeysResult {
 	  return com.amazonaws.services.identitymanagement.model.ListAccessKeysResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListAccessKeysResult {
 		return environment.iam.listAccessKeys(build())
@@ -2365,9 +2508,11 @@ class AmazonIdentityManagementListAccountAliasesCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListAccountAliasesResult {
 	  return com.amazonaws.services.identitymanagement.model.ListAccountAliasesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListAccountAliasesResult {
 		return environment.iam.listAccountAliases(build())
@@ -2402,9 +2547,11 @@ class AmazonIdentityManagementListAttachedGroupPoliciesCommand(val groupName: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListAttachedGroupPoliciesResult {
 	  return com.amazonaws.services.identitymanagement.model.ListAttachedGroupPoliciesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListAttachedGroupPoliciesResult {
 		return environment.iam.listAttachedGroupPolicies(build())
@@ -2441,9 +2588,11 @@ class AmazonIdentityManagementListAttachedRolePoliciesCommand(val roleName: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListAttachedRolePoliciesResult {
 	  return com.amazonaws.services.identitymanagement.model.ListAttachedRolePoliciesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListAttachedRolePoliciesResult {
 		return environment.iam.listAttachedRolePolicies(build())
@@ -2480,9 +2629,11 @@ class AmazonIdentityManagementListAttachedUserPoliciesCommand(val userName: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListAttachedUserPoliciesResult {
 	  return com.amazonaws.services.identitymanagement.model.ListAttachedUserPoliciesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListAttachedUserPoliciesResult {
 		return environment.iam.listAttachedUserPolicies(build())
@@ -2521,9 +2672,11 @@ class AmazonIdentityManagementListEntitiesForPolicyCommand(val policyArn: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListEntitiesForPolicyResult {
 	  return com.amazonaws.services.identitymanagement.model.ListEntitiesForPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListEntitiesForPolicyResult {
 		return environment.iam.listEntitiesForPolicy(build())
@@ -2559,9 +2712,11 @@ class AmazonIdentityManagementListGroupPoliciesCommand(val groupName: String) : 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListGroupPoliciesResult {
 	  return com.amazonaws.services.identitymanagement.model.ListGroupPoliciesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListGroupPoliciesResult {
 		return environment.iam.listGroupPolicies(build())
@@ -2596,9 +2751,11 @@ class AmazonIdentityManagementListGroupsCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListGroupsResult {
 	  return com.amazonaws.services.identitymanagement.model.ListGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListGroupsResult {
 		return environment.iam.listGroups(build())
@@ -2632,9 +2789,11 @@ class AmazonIdentityManagementListGroupsForUserCommand(val userName: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListGroupsForUserResult {
 	  return com.amazonaws.services.identitymanagement.model.ListGroupsForUserResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListGroupsForUserResult {
 		return environment.iam.listGroupsForUser(build())
@@ -2669,9 +2828,11 @@ class AmazonIdentityManagementListInstanceProfilesCommand() : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListInstanceProfilesResult {
 	  return com.amazonaws.services.identitymanagement.model.ListInstanceProfilesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListInstanceProfilesResult {
 		return environment.iam.listInstanceProfiles(build())
@@ -2705,9 +2866,11 @@ class AmazonIdentityManagementListInstanceProfilesForRoleCommand(val roleName: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListInstanceProfilesForRoleResult {
 	  return com.amazonaws.services.identitymanagement.model.ListInstanceProfilesForRoleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListInstanceProfilesForRoleResult {
 		return environment.iam.listInstanceProfilesForRole(build())
@@ -2742,9 +2905,11 @@ class AmazonIdentityManagementListMFADevicesCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListMFADevicesResult {
 	  return com.amazonaws.services.identitymanagement.model.ListMFADevicesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListMFADevicesResult {
 		return environment.iam.listMFADevices(build())
@@ -2775,9 +2940,11 @@ class AmazonIdentityManagementListOpenIDConnectProvidersCommand() : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListOpenIDConnectProvidersResult {
 	  return com.amazonaws.services.identitymanagement.model.ListOpenIDConnectProvidersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListOpenIDConnectProvidersResult {
 		return environment.iam.listOpenIDConnectProviders(build())
@@ -2814,9 +2981,11 @@ class AmazonIdentityManagementListPoliciesCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListPoliciesResult {
 	  return com.amazonaws.services.identitymanagement.model.ListPoliciesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListPoliciesResult {
 		return environment.iam.listPolicies(build())
@@ -2852,9 +3021,11 @@ class AmazonIdentityManagementListPolicyVersionsCommand(val policyArn: String) :
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListPolicyVersionsResult {
 	  return com.amazonaws.services.identitymanagement.model.ListPolicyVersionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListPolicyVersionsResult {
 		return environment.iam.listPolicyVersions(build())
@@ -2888,9 +3059,11 @@ class AmazonIdentityManagementListRolePoliciesCommand(val roleName: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListRolePoliciesResult {
 	  return com.amazonaws.services.identitymanagement.model.ListRolePoliciesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListRolePoliciesResult {
 		return environment.iam.listRolePolicies(build())
@@ -2925,9 +3098,11 @@ class AmazonIdentityManagementListRolesCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListRolesResult {
 	  return com.amazonaws.services.identitymanagement.model.ListRolesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListRolesResult {
 		return environment.iam.listRoles(build())
@@ -2958,9 +3133,11 @@ class AmazonIdentityManagementListSAMLProvidersCommand() : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListSAMLProvidersResult {
 	  return com.amazonaws.services.identitymanagement.model.ListSAMLProvidersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListSAMLProvidersResult {
 		return environment.iam.listSAMLProviders(build())
@@ -2993,9 +3170,11 @@ class AmazonIdentityManagementListSSHPublicKeysCommand() : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListSSHPublicKeysResult {
 	  return com.amazonaws.services.identitymanagement.model.ListSSHPublicKeysResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListSSHPublicKeysResult {
 		return environment.iam.listSSHPublicKeys(build())
@@ -3030,9 +3209,11 @@ class AmazonIdentityManagementListServerCertificatesCommand() : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListServerCertificatesResult {
 	  return com.amazonaws.services.identitymanagement.model.ListServerCertificatesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListServerCertificatesResult {
 		return environment.iam.listServerCertificates(build())
@@ -3065,9 +3246,11 @@ class AmazonIdentityManagementListServiceSpecificCredentialsCommand() : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListServiceSpecificCredentialsResult {
 	  return com.amazonaws.services.identitymanagement.model.ListServiceSpecificCredentialsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListServiceSpecificCredentialsResult {
 		return environment.iam.listServiceSpecificCredentials(build())
@@ -3101,9 +3284,11 @@ class AmazonIdentityManagementListSigningCertificatesCommand() : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListSigningCertificatesResult {
 	  return com.amazonaws.services.identitymanagement.model.ListSigningCertificatesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListSigningCertificatesResult {
 		return environment.iam.listSigningCertificates(build())
@@ -3137,9 +3322,11 @@ class AmazonIdentityManagementListUserPoliciesCommand(val userName: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListUserPoliciesResult {
 	  return com.amazonaws.services.identitymanagement.model.ListUserPoliciesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListUserPoliciesResult {
 		return environment.iam.listUserPolicies(build())
@@ -3174,9 +3361,11 @@ class AmazonIdentityManagementListUsersCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListUsersResult {
 	  return com.amazonaws.services.identitymanagement.model.ListUsersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListUsersResult {
 		return environment.iam.listUsers(build())
@@ -3211,9 +3400,11 @@ class AmazonIdentityManagementListVirtualMFADevicesCommand() : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListVirtualMFADevicesResult {
 	  return com.amazonaws.services.identitymanagement.model.ListVirtualMFADevicesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListVirtualMFADevicesResult {
 		return environment.iam.listVirtualMFADevices(build())
@@ -3246,9 +3437,11 @@ class AmazonIdentityManagementPutGroupPolicyCommand(val groupName: String, val p
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.PutGroupPolicyResult {
 	  return com.amazonaws.services.identitymanagement.model.PutGroupPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.PutGroupPolicyResult {
 		return environment.iam.putGroupPolicy(build())
@@ -3281,9 +3474,11 @@ class AmazonIdentityManagementPutRolePolicyCommand(val roleName: String, val pol
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.PutRolePolicyResult {
 	  return com.amazonaws.services.identitymanagement.model.PutRolePolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.PutRolePolicyResult {
 		return environment.iam.putRolePolicy(build())
@@ -3316,9 +3511,11 @@ class AmazonIdentityManagementPutUserPolicyCommand(val userName: String, val pol
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.PutUserPolicyResult {
 	  return com.amazonaws.services.identitymanagement.model.PutUserPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.PutUserPolicyResult {
 		return environment.iam.putUserPolicy(build())
@@ -3350,9 +3547,11 @@ class AmazonIdentityManagementRemoveClientIDFromOpenIDConnectProviderCommand(val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.RemoveClientIDFromOpenIDConnectProviderResult {
 	  return com.amazonaws.services.identitymanagement.model.RemoveClientIDFromOpenIDConnectProviderResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.RemoveClientIDFromOpenIDConnectProviderResult {
 		return environment.iam.removeClientIDFromOpenIDConnectProvider(build())
@@ -3383,9 +3582,11 @@ class AmazonIdentityManagementRemoveRoleFromInstanceProfileCommand(val instanceP
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.RemoveRoleFromInstanceProfileResult {
 	  return com.amazonaws.services.identitymanagement.model.RemoveRoleFromInstanceProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.RemoveRoleFromInstanceProfileResult {
 		return environment.iam.removeRoleFromInstanceProfile(build())
@@ -3416,9 +3617,11 @@ class AmazonIdentityManagementRemoveUserFromGroupCommand(val groupName: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.RemoveUserFromGroupResult {
 	  return com.amazonaws.services.identitymanagement.model.RemoveUserFromGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.RemoveUserFromGroupResult {
 		return environment.iam.removeUserFromGroup(build())
@@ -3449,9 +3652,11 @@ class AmazonIdentityManagementResetServiceSpecificCredentialCommand(val serviceS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ResetServiceSpecificCredentialResult {
 	  return com.amazonaws.services.identitymanagement.model.ResetServiceSpecificCredentialResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ResetServiceSpecificCredentialResult {
 		return environment.iam.resetServiceSpecificCredential(build())
@@ -3484,9 +3689,11 @@ class AmazonIdentityManagementResyncMFADeviceCommand(val userName: String, val s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ResyncMFADeviceResult {
 	  return com.amazonaws.services.identitymanagement.model.ResyncMFADeviceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ResyncMFADeviceResult {
 		return environment.iam.resyncMFADevice(build())
@@ -3519,9 +3726,11 @@ class AmazonIdentityManagementSetDefaultPolicyVersionCommand(val policyArn: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.SetDefaultPolicyVersionResult {
 	  return com.amazonaws.services.identitymanagement.model.SetDefaultPolicyVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.SetDefaultPolicyVersionResult {
 		return environment.iam.setDefaultPolicyVersion(build())
@@ -3567,9 +3776,11 @@ class AmazonIdentityManagementSimulateCustomPolicyCommand(val policyInputList: L
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.SimulateCustomPolicyResult {
 	  return com.amazonaws.services.identitymanagement.model.SimulateCustomPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.SimulateCustomPolicyResult {
 		return environment.iam.simulateCustomPolicy(build())
@@ -3625,9 +3836,11 @@ class AmazonIdentityManagementSimulatePrincipalPolicyCommand(val policySourceArn
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.SimulatePrincipalPolicyResult {
 	  return com.amazonaws.services.identitymanagement.model.SimulatePrincipalPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.SimulatePrincipalPolicyResult {
 		return environment.iam.simulatePrincipalPolicy(build())
@@ -3668,9 +3881,11 @@ class AmazonIdentityManagementUpdateAccessKeyCommand(val accessKeyId: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UpdateAccessKeyResult {
 	  return com.amazonaws.services.identitymanagement.model.UpdateAccessKeyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UpdateAccessKeyResult {
 		return environment.iam.updateAccessKey(build())
@@ -3717,9 +3932,11 @@ class AmazonIdentityManagementUpdateAccountPasswordPolicyCommand() : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UpdateAccountPasswordPolicyResult {
 	  return com.amazonaws.services.identitymanagement.model.UpdateAccountPasswordPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UpdateAccountPasswordPolicyResult {
 		return environment.iam.updateAccountPasswordPolicy(build())
@@ -3757,9 +3974,11 @@ class AmazonIdentityManagementUpdateAssumeRolePolicyCommand(val roleName: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UpdateAssumeRolePolicyResult {
 	  return com.amazonaws.services.identitymanagement.model.UpdateAssumeRolePolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UpdateAssumeRolePolicyResult {
 		return environment.iam.updateAssumeRolePolicy(build())
@@ -3792,9 +4011,11 @@ class AmazonIdentityManagementUpdateGroupCommand(val groupName: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UpdateGroupResult {
 	  return com.amazonaws.services.identitymanagement.model.UpdateGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UpdateGroupResult {
 		return environment.iam.updateGroup(build())
@@ -3828,9 +4049,11 @@ class AmazonIdentityManagementUpdateLoginProfileCommand(val userName: String) : 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UpdateLoginProfileResult {
 	  return com.amazonaws.services.identitymanagement.model.UpdateLoginProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UpdateLoginProfileResult {
 		return environment.iam.updateLoginProfile(build())
@@ -3862,9 +4085,11 @@ class AmazonIdentityManagementUpdateOpenIDConnectProviderThumbprintCommand(val o
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UpdateOpenIDConnectProviderThumbprintResult {
 	  return com.amazonaws.services.identitymanagement.model.UpdateOpenIDConnectProviderThumbprintResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UpdateOpenIDConnectProviderThumbprintResult {
 		return environment.iam.updateOpenIDConnectProviderThumbprint(build())
@@ -3897,9 +4122,11 @@ class AmazonIdentityManagementUpdateRoleCommand(val roleName: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UpdateRoleResult {
 	  return com.amazonaws.services.identitymanagement.model.UpdateRoleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UpdateRoleResult {
 		return environment.iam.updateRole(build())
@@ -3931,9 +4158,11 @@ class AmazonIdentityManagementUpdateRoleDescriptionCommand(val roleName: String,
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UpdateRoleDescriptionResult {
 	  return com.amazonaws.services.identitymanagement.model.UpdateRoleDescriptionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UpdateRoleDescriptionResult {
 		return environment.iam.updateRoleDescription(build())
@@ -3964,9 +4193,11 @@ class AmazonIdentityManagementUpdateSAMLProviderCommand(val sAMLMetadataDocument
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UpdateSAMLProviderResult {
 	  return com.amazonaws.services.identitymanagement.model.UpdateSAMLProviderResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UpdateSAMLProviderResult {
 		return environment.iam.updateSAMLProvider(build())
@@ -3998,9 +4229,11 @@ class AmazonIdentityManagementUpdateSSHPublicKeyCommand(val userName: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UpdateSSHPublicKeyResult {
 	  return com.amazonaws.services.identitymanagement.model.UpdateSSHPublicKeyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UpdateSSHPublicKeyResult {
 		return environment.iam.updateSSHPublicKey(build())
@@ -4034,9 +4267,11 @@ class AmazonIdentityManagementUpdateServerCertificateCommand(val serverCertifica
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UpdateServerCertificateResult {
 	  return com.amazonaws.services.identitymanagement.model.UpdateServerCertificateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UpdateServerCertificateResult {
 		return environment.iam.updateServerCertificate(build())
@@ -4069,9 +4304,11 @@ class AmazonIdentityManagementUpdateServiceSpecificCredentialCommand(val service
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UpdateServiceSpecificCredentialResult {
 	  return com.amazonaws.services.identitymanagement.model.UpdateServiceSpecificCredentialResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UpdateServiceSpecificCredentialResult {
 		return environment.iam.updateServiceSpecificCredential(build())
@@ -4104,9 +4341,11 @@ class AmazonIdentityManagementUpdateSigningCertificateCommand(val certificateId:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UpdateSigningCertificateResult {
 	  return com.amazonaws.services.identitymanagement.model.UpdateSigningCertificateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UpdateSigningCertificateResult {
 		return environment.iam.updateSigningCertificate(build())
@@ -4140,9 +4379,11 @@ class AmazonIdentityManagementUpdateUserCommand(val userName: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UpdateUserResult {
 	  return com.amazonaws.services.identitymanagement.model.UpdateUserResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UpdateUserResult {
 		return environment.iam.updateUser(build())
@@ -4174,9 +4415,11 @@ class AmazonIdentityManagementUploadSSHPublicKeyCommand(val userName: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UploadSSHPublicKeyResult {
 	  return com.amazonaws.services.identitymanagement.model.UploadSSHPublicKeyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UploadSSHPublicKeyResult {
 		return environment.iam.uploadSSHPublicKey(build())
@@ -4211,9 +4454,11 @@ class AmazonIdentityManagementUploadServerCertificateCommand(val serverCertifica
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UploadServerCertificateResult {
 	  return com.amazonaws.services.identitymanagement.model.UploadServerCertificateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UploadServerCertificateResult {
 		return environment.iam.uploadServerCertificate(build())
@@ -4247,9 +4492,11 @@ class AmazonIdentityManagementUploadSigningCertificateCommand(val certificateBod
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UploadSigningCertificateResult {
 	  return com.amazonaws.services.identitymanagement.model.UploadSigningCertificateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UploadSigningCertificateResult {
 		return environment.iam.uploadSigningCertificate(build())

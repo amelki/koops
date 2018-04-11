@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -41,9 +42,11 @@ class AWSMediaConvertCancelJobCommand(val id: String) : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediaconvert.model.CancelJobResult {
 	  return com.amazonaws.services.mediaconvert.model.CancelJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediaconvert.model.CancelJobResult {
 		return environment.mediaconvert.cancelJob(build())
@@ -82,9 +85,11 @@ class AWSMediaConvertCreateJobCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediaconvert.model.CreateJobResult {
 	  return com.amazonaws.services.mediaconvert.model.CreateJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediaconvert.model.CreateJobResult {
 		return environment.mediaconvert.createJob(build())
@@ -126,9 +131,11 @@ class AWSMediaConvertCreateJobTemplateCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediaconvert.model.CreateJobTemplateResult {
 	  return com.amazonaws.services.mediaconvert.model.CreateJobTemplateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediaconvert.model.CreateJobTemplateResult {
 		return environment.mediaconvert.createJobTemplate(build())
@@ -167,9 +174,11 @@ class AWSMediaConvertCreatePresetCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediaconvert.model.CreatePresetResult {
 	  return com.amazonaws.services.mediaconvert.model.CreatePresetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediaconvert.model.CreatePresetResult {
 		return environment.mediaconvert.createPreset(build())
@@ -203,9 +212,11 @@ class AWSMediaConvertCreateQueueCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediaconvert.model.CreateQueueResult {
 	  return com.amazonaws.services.mediaconvert.model.CreateQueueResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediaconvert.model.CreateQueueResult {
 		return environment.mediaconvert.createQueue(build())
@@ -235,9 +246,11 @@ class AWSMediaConvertDeleteJobTemplateCommand(val name: String) : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediaconvert.model.DeleteJobTemplateResult {
 	  return com.amazonaws.services.mediaconvert.model.DeleteJobTemplateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediaconvert.model.DeleteJobTemplateResult {
 		return environment.mediaconvert.deleteJobTemplate(build())
@@ -266,9 +279,11 @@ class AWSMediaConvertDeletePresetCommand(val name: String) : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediaconvert.model.DeletePresetResult {
 	  return com.amazonaws.services.mediaconvert.model.DeletePresetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediaconvert.model.DeletePresetResult {
 		return environment.mediaconvert.deletePreset(build())
@@ -297,9 +312,11 @@ class AWSMediaConvertDeleteQueueCommand(val name: String) : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediaconvert.model.DeleteQueueResult {
 	  return com.amazonaws.services.mediaconvert.model.DeleteQueueResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediaconvert.model.DeleteQueueResult {
 		return environment.mediaconvert.deleteQueue(build())
@@ -330,9 +347,11 @@ class AWSMediaConvertDescribeEndpointsCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediaconvert.model.DescribeEndpointsResult {
 	  return com.amazonaws.services.mediaconvert.model.DescribeEndpointsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediaconvert.model.DescribeEndpointsResult {
 		return environment.mediaconvert.describeEndpoints(build())
@@ -362,9 +381,11 @@ class AWSMediaConvertGetJobCommand(val id: String) : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediaconvert.model.GetJobResult {
 	  return com.amazonaws.services.mediaconvert.model.GetJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediaconvert.model.GetJobResult {
 		return environment.mediaconvert.getJob(build())
@@ -393,9 +414,11 @@ class AWSMediaConvertGetJobTemplateCommand(val name: String) : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediaconvert.model.GetJobTemplateResult {
 	  return com.amazonaws.services.mediaconvert.model.GetJobTemplateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediaconvert.model.GetJobTemplateResult {
 		return environment.mediaconvert.getJobTemplate(build())
@@ -424,9 +447,11 @@ class AWSMediaConvertGetPresetCommand(val name: String) : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediaconvert.model.GetPresetResult {
 	  return com.amazonaws.services.mediaconvert.model.GetPresetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediaconvert.model.GetPresetResult {
 		return environment.mediaconvert.getPreset(build())
@@ -455,9 +480,11 @@ class AWSMediaConvertGetQueueCommand(val name: String) : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediaconvert.model.GetQueueResult {
 	  return com.amazonaws.services.mediaconvert.model.GetQueueResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediaconvert.model.GetQueueResult {
 		return environment.mediaconvert.getQueue(build())
@@ -494,9 +521,11 @@ class AWSMediaConvertListJobTemplatesCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediaconvert.model.ListJobTemplatesResult {
 	  return com.amazonaws.services.mediaconvert.model.ListJobTemplatesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediaconvert.model.ListJobTemplatesResult {
 		return environment.mediaconvert.listJobTemplates(build())
@@ -537,9 +566,11 @@ class AWSMediaConvertListJobsCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediaconvert.model.ListJobsResult {
 	  return com.amazonaws.services.mediaconvert.model.ListJobsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediaconvert.model.ListJobsResult {
 		return environment.mediaconvert.listJobs(build())
@@ -580,9 +611,11 @@ class AWSMediaConvertListPresetsCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediaconvert.model.ListPresetsResult {
 	  return com.amazonaws.services.mediaconvert.model.ListPresetsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediaconvert.model.ListPresetsResult {
 		return environment.mediaconvert.listPresets(build())
@@ -621,9 +654,11 @@ class AWSMediaConvertListQueuesCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediaconvert.model.ListQueuesResult {
 	  return com.amazonaws.services.mediaconvert.model.ListQueuesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediaconvert.model.ListQueuesResult {
 		return environment.mediaconvert.listQueues(build())
@@ -662,9 +697,11 @@ class AWSMediaConvertUpdateJobTemplateCommand(val name: String) : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediaconvert.model.UpdateJobTemplateResult {
 	  return com.amazonaws.services.mediaconvert.model.UpdateJobTemplateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediaconvert.model.UpdateJobTemplateResult {
 		return environment.mediaconvert.updateJobTemplate(build())
@@ -702,9 +739,11 @@ class AWSMediaConvertUpdatePresetCommand(val name: String) : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediaconvert.model.UpdatePresetResult {
 	  return com.amazonaws.services.mediaconvert.model.UpdatePresetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediaconvert.model.UpdatePresetResult {
 		return environment.mediaconvert.updatePreset(build())
@@ -739,9 +778,11 @@ class AWSMediaConvertUpdateQueueCommand(val name: String) : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.mediaconvert.model.UpdateQueueResult {
 	  return com.amazonaws.services.mediaconvert.model.UpdateQueueResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediaconvert.model.UpdateQueueResult {
 		return environment.mediaconvert.updateQueue(build())

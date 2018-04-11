@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -41,9 +42,11 @@ class AWSCostAndUsageReportDeleteReportDefinitionCommand() : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.costandusagereport.model.DeleteReportDefinitionResult {
 	  return com.amazonaws.services.costandusagereport.model.DeleteReportDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.costandusagereport.model.DeleteReportDefinitionResult {
 		return environment.cur.deleteReportDefinition(build())
@@ -74,9 +77,11 @@ class AWSCostAndUsageReportDescribeReportDefinitionsCommand() : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.costandusagereport.model.DescribeReportDefinitionsResult {
 	  return com.amazonaws.services.costandusagereport.model.DescribeReportDefinitionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.costandusagereport.model.DescribeReportDefinitionsResult {
 		return environment.cur.describeReportDefinitions(build())
@@ -106,9 +111,11 @@ class AWSCostAndUsageReportPutReportDefinitionCommand(val reportDefinition: com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.costandusagereport.model.PutReportDefinitionResult {
 	  return com.amazonaws.services.costandusagereport.model.PutReportDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.costandusagereport.model.PutReportDefinitionResult {
 		return environment.cur.putReportDefinition(build())

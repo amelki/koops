@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -42,9 +43,11 @@ class AmazonImportExportCancelJobCommand(val jobId: String) : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.importexport.model.CancelJobResult {
 	  return com.amazonaws.services.importexport.model.CancelJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.importexport.model.CancelJobResult {
 		return environment.importexport.cancelJob(build())
@@ -79,9 +82,11 @@ class AmazonImportExportCreateJobCommand(val jobType: JobType, val manifest: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.importexport.model.CreateJobResult {
 	  return com.amazonaws.services.importexport.model.CreateJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.importexport.model.CreateJobResult {
 		return environment.importexport.createJob(build())
@@ -136,9 +141,11 @@ class AmazonImportExportGetShippingLabelCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.importexport.model.GetShippingLabelResult {
 	  return com.amazonaws.services.importexport.model.GetShippingLabelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.importexport.model.GetShippingLabelResult {
 		return environment.importexport.getShippingLabel(build())
@@ -179,9 +186,11 @@ class AmazonImportExportGetStatusCommand(val jobId: String) : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.importexport.model.GetStatusResult {
 	  return com.amazonaws.services.importexport.model.GetStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.importexport.model.GetStatusResult {
 		return environment.importexport.getStatus(build())
@@ -215,9 +224,11 @@ class AmazonImportExportListJobsCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.importexport.model.ListJobsResult {
 	  return com.amazonaws.services.importexport.model.ListJobsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.importexport.model.ListJobsResult {
 		return environment.importexport.listJobs(build())
@@ -252,9 +263,11 @@ class AmazonImportExportUpdateJobCommand(val jobId: String, val manifest: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.importexport.model.UpdateJobResult {
 	  return com.amazonaws.services.importexport.model.UpdateJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.importexport.model.UpdateJobResult {
 		return environment.importexport.updateJob(build())

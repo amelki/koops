@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -42,9 +43,11 @@ class AmazonWorkspacesCreateTagsCommand(val resourceId: String, val tags: List<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workspaces.model.CreateTagsResult {
 	  return com.amazonaws.services.workspaces.model.CreateTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workspaces.model.CreateTagsResult {
 		return environment.workspaces.createTags(build())
@@ -74,9 +77,11 @@ class AmazonWorkspacesCreateWorkspacesCommand(val workspaces: List<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workspaces.model.CreateWorkspacesResult {
 	  return com.amazonaws.services.workspaces.model.CreateWorkspacesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workspaces.model.CreateWorkspacesResult {
 		return environment.workspaces.createWorkspaces(build())
@@ -106,9 +111,11 @@ class AmazonWorkspacesDeleteTagsCommand(val resourceId: String, val tagKeys: Lis
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workspaces.model.DeleteTagsResult {
 	  return com.amazonaws.services.workspaces.model.DeleteTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workspaces.model.DeleteTagsResult {
 		return environment.workspaces.deleteTags(build())
@@ -138,9 +145,11 @@ class AmazonWorkspacesDescribeTagsCommand(val resourceId: String) : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workspaces.model.DescribeTagsResult {
 	  return com.amazonaws.services.workspaces.model.DescribeTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workspaces.model.DescribeTagsResult {
 		return environment.workspaces.describeTags(build())
@@ -173,9 +182,11 @@ class AmazonWorkspacesDescribeWorkspaceBundlesCommand() : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workspaces.model.DescribeWorkspaceBundlesResult {
 	  return com.amazonaws.services.workspaces.model.DescribeWorkspaceBundlesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workspaces.model.DescribeWorkspaceBundlesResult {
 		return environment.workspaces.describeWorkspaceBundles(build())
@@ -208,9 +219,11 @@ class AmazonWorkspacesDescribeWorkspaceDirectoriesCommand() : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workspaces.model.DescribeWorkspaceDirectoriesResult {
 	  return com.amazonaws.services.workspaces.model.DescribeWorkspaceDirectoriesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workspaces.model.DescribeWorkspaceDirectoriesResult {
 		return environment.workspaces.describeWorkspaceDirectories(build())
@@ -250,9 +263,11 @@ class AmazonWorkspacesDescribeWorkspacesCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workspaces.model.DescribeWorkspacesResult {
 	  return com.amazonaws.services.workspaces.model.DescribeWorkspacesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workspaces.model.DescribeWorkspacesResult {
 		return environment.workspaces.describeWorkspaces(build())
@@ -288,9 +303,11 @@ class AmazonWorkspacesDescribeWorkspacesConnectionStatusCommand() : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workspaces.model.DescribeWorkspacesConnectionStatusResult {
 	  return com.amazonaws.services.workspaces.model.DescribeWorkspacesConnectionStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workspaces.model.DescribeWorkspacesConnectionStatusResult {
 		return environment.workspaces.describeWorkspacesConnectionStatus(build())
@@ -321,9 +338,11 @@ class AmazonWorkspacesModifyWorkspacePropertiesCommand(val workspaceId: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workspaces.model.ModifyWorkspacePropertiesResult {
 	  return com.amazonaws.services.workspaces.model.ModifyWorkspacePropertiesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workspaces.model.ModifyWorkspacePropertiesResult {
 		return environment.workspaces.modifyWorkspaceProperties(build())
@@ -353,9 +372,11 @@ class AmazonWorkspacesRebootWorkspacesCommand(val rebootWorkspaceRequests: List<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workspaces.model.RebootWorkspacesResult {
 	  return com.amazonaws.services.workspaces.model.RebootWorkspacesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workspaces.model.RebootWorkspacesResult {
 		return environment.workspaces.rebootWorkspaces(build())
@@ -384,9 +405,11 @@ class AmazonWorkspacesRebuildWorkspacesCommand(val rebuildWorkspaceRequests: Lis
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workspaces.model.RebuildWorkspacesResult {
 	  return com.amazonaws.services.workspaces.model.RebuildWorkspacesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workspaces.model.RebuildWorkspacesResult {
 		return environment.workspaces.rebuildWorkspaces(build())
@@ -415,9 +438,11 @@ class AmazonWorkspacesStartWorkspacesCommand(val startWorkspaceRequests: List<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workspaces.model.StartWorkspacesResult {
 	  return com.amazonaws.services.workspaces.model.StartWorkspacesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workspaces.model.StartWorkspacesResult {
 		return environment.workspaces.startWorkspaces(build())
@@ -446,9 +471,11 @@ class AmazonWorkspacesStopWorkspacesCommand(val stopWorkspaceRequests: List<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workspaces.model.StopWorkspacesResult {
 	  return com.amazonaws.services.workspaces.model.StopWorkspacesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workspaces.model.StopWorkspacesResult {
 		return environment.workspaces.stopWorkspaces(build())
@@ -477,9 +504,11 @@ class AmazonWorkspacesTerminateWorkspacesCommand(val terminateWorkspaceRequests:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.workspaces.model.TerminateWorkspacesResult {
 	  return com.amazonaws.services.workspaces.model.TerminateWorkspacesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workspaces.model.TerminateWorkspacesResult {
 		return environment.workspaces.terminateWorkspaces(build())

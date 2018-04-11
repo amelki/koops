@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -59,9 +60,11 @@ class AmazonDaxCreateClusterCommand(val clusterName: String, val nodeType: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dax.model.CreateClusterResult {
 	  return com.amazonaws.services.dax.model.CreateClusterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dax.model.CreateClusterResult {
 		return environment.dax.createCluster(build())
@@ -102,9 +105,11 @@ class AmazonDaxCreateParameterGroupCommand(val parameterGroupName: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dax.model.CreateParameterGroupResult {
 	  return com.amazonaws.services.dax.model.CreateParameterGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dax.model.CreateParameterGroupResult {
 		return environment.dax.createParameterGroup(build())
@@ -136,9 +141,11 @@ class AmazonDaxCreateSubnetGroupCommand(val subnetGroupName: String, val subnetI
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dax.model.CreateSubnetGroupResult {
 	  return com.amazonaws.services.dax.model.CreateSubnetGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dax.model.CreateSubnetGroupResult {
 		return environment.dax.createSubnetGroup(build())
@@ -173,9 +180,11 @@ class AmazonDaxDecreaseReplicationFactorCommand(val clusterName: String, val new
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dax.model.DecreaseReplicationFactorResult {
 	  return com.amazonaws.services.dax.model.DecreaseReplicationFactorResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dax.model.DecreaseReplicationFactorResult {
 		return environment.dax.decreaseReplicationFactor(build())
@@ -207,9 +216,11 @@ class AmazonDaxDeleteClusterCommand(val clusterName: String) : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dax.model.DeleteClusterResult {
 	  return com.amazonaws.services.dax.model.DeleteClusterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dax.model.DeleteClusterResult {
 		return environment.dax.deleteCluster(build())
@@ -238,9 +249,11 @@ class AmazonDaxDeleteParameterGroupCommand(val parameterGroupName: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dax.model.DeleteParameterGroupResult {
 	  return com.amazonaws.services.dax.model.DeleteParameterGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dax.model.DeleteParameterGroupResult {
 		return environment.dax.deleteParameterGroup(build())
@@ -269,9 +282,11 @@ class AmazonDaxDeleteSubnetGroupCommand(val subnetGroupName: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dax.model.DeleteSubnetGroupResult {
 	  return com.amazonaws.services.dax.model.DeleteSubnetGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dax.model.DeleteSubnetGroupResult {
 		return environment.dax.deleteSubnetGroup(build())
@@ -304,9 +319,11 @@ class AmazonDaxDescribeClustersCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dax.model.DescribeClustersResult {
 	  return com.amazonaws.services.dax.model.DescribeClustersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dax.model.DescribeClustersResult {
 		return environment.dax.describeClusters(build())
@@ -339,9 +356,11 @@ class AmazonDaxDescribeDefaultParametersCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dax.model.DescribeDefaultParametersResult {
 	  return com.amazonaws.services.dax.model.DescribeDefaultParametersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dax.model.DescribeDefaultParametersResult {
 		return environment.dax.describeDefaultParameters(build())
@@ -383,9 +402,11 @@ class AmazonDaxDescribeEventsCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dax.model.DescribeEventsResult {
 	  return com.amazonaws.services.dax.model.DescribeEventsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dax.model.DescribeEventsResult {
 		return environment.dax.describeEvents(build())
@@ -424,9 +445,11 @@ class AmazonDaxDescribeParameterGroupsCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dax.model.DescribeParameterGroupsResult {
 	  return com.amazonaws.services.dax.model.DescribeParameterGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dax.model.DescribeParameterGroupsResult {
 		return environment.dax.describeParameterGroups(build())
@@ -462,9 +485,11 @@ class AmazonDaxDescribeParametersCommand(val parameterGroupName: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dax.model.DescribeParametersResult {
 	  return com.amazonaws.services.dax.model.DescribeParametersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dax.model.DescribeParametersResult {
 		return environment.dax.describeParameters(build())
@@ -500,9 +525,11 @@ class AmazonDaxDescribeSubnetGroupsCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dax.model.DescribeSubnetGroupsResult {
 	  return com.amazonaws.services.dax.model.DescribeSubnetGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dax.model.DescribeSubnetGroupsResult {
 		return environment.dax.describeSubnetGroups(build())
@@ -535,9 +562,11 @@ class AmazonDaxIncreaseReplicationFactorCommand(val clusterName: String, val new
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dax.model.IncreaseReplicationFactorResult {
 	  return com.amazonaws.services.dax.model.IncreaseReplicationFactorResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dax.model.IncreaseReplicationFactorResult {
 		return environment.dax.increaseReplicationFactor(build())
@@ -569,9 +598,11 @@ class AmazonDaxListTagsCommand(val resourceName: String) : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dax.model.ListTagsResult {
 	  return com.amazonaws.services.dax.model.ListTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dax.model.ListTagsResult {
 		return environment.dax.listTags(build())
@@ -602,9 +633,11 @@ class AmazonDaxRebootNodeCommand(val clusterName: String, val nodeId: String) : 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dax.model.RebootNodeResult {
 	  return com.amazonaws.services.dax.model.RebootNodeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dax.model.RebootNodeResult {
 		return environment.dax.rebootNode(build())
@@ -635,9 +668,11 @@ class AmazonDaxTagResourceCommand(val resourceName: String, val tags: List<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dax.model.TagResourceResult {
 	  return com.amazonaws.services.dax.model.TagResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dax.model.TagResourceResult {
 		return environment.dax.tagResource(build())
@@ -668,9 +703,11 @@ class AmazonDaxUntagResourceCommand(val resourceName: String, val tagKeys: List<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dax.model.UntagResourceResult {
 	  return com.amazonaws.services.dax.model.UntagResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dax.model.UntagResourceResult {
 		return environment.dax.untagResource(build())
@@ -711,9 +748,11 @@ class AmazonDaxUpdateClusterCommand(val clusterName: String) : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dax.model.UpdateClusterResult {
 	  return com.amazonaws.services.dax.model.UpdateClusterResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dax.model.UpdateClusterResult {
 		return environment.dax.updateCluster(build())
@@ -749,9 +788,11 @@ class AmazonDaxUpdateParameterGroupCommand(val parameterGroupName: String, val p
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dax.model.UpdateParameterGroupResult {
 	  return com.amazonaws.services.dax.model.UpdateParameterGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dax.model.UpdateParameterGroupResult {
 		return environment.dax.updateParameterGroup(build())
@@ -784,9 +825,11 @@ class AmazonDaxUpdateSubnetGroupCommand(val subnetGroupName: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.dax.model.UpdateSubnetGroupResult {
 	  return com.amazonaws.services.dax.model.UpdateSubnetGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dax.model.UpdateSubnetGroupResult {
 		return environment.dax.updateSubnetGroup(build())

@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -47,9 +48,11 @@ class AWSHealthDescribeAffectedEntitiesCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.health.model.DescribeAffectedEntitiesResult {
 	  return com.amazonaws.services.health.model.DescribeAffectedEntitiesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.health.model.DescribeAffectedEntitiesResult {
 		return environment.health.describeAffectedEntities(build())
@@ -81,9 +84,11 @@ class AWSHealthDescribeEntityAggregatesCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.health.model.DescribeEntityAggregatesResult {
 	  return com.amazonaws.services.health.model.DescribeEntityAggregatesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.health.model.DescribeEntityAggregatesResult {
 		return environment.health.describeEntityAggregates(build())
@@ -118,9 +123,11 @@ class AWSHealthDescribeEventAggregatesCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.health.model.DescribeEventAggregatesResult {
 	  return com.amazonaws.services.health.model.DescribeEventAggregatesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.health.model.DescribeEventAggregatesResult {
 		return environment.health.describeEventAggregates(build())
@@ -154,9 +161,11 @@ class AWSHealthDescribeEventDetailsCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.health.model.DescribeEventDetailsResult {
 	  return com.amazonaws.services.health.model.DescribeEventDetailsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.health.model.DescribeEventDetailsResult {
 		return environment.health.describeEventDetails(build())
@@ -192,9 +201,11 @@ class AWSHealthDescribeEventTypesCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.health.model.DescribeEventTypesResult {
 	  return com.amazonaws.services.health.model.DescribeEventTypesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.health.model.DescribeEventTypesResult {
 		return environment.health.describeEventTypes(build())
@@ -232,9 +243,11 @@ class AWSHealthDescribeEventsCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.health.model.DescribeEventsResult {
 	  return com.amazonaws.services.health.model.DescribeEventsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.health.model.DescribeEventsResult {
 		return environment.health.describeEvents(build())

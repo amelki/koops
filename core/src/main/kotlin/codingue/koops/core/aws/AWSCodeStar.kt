@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -49,9 +50,11 @@ class AWSCodeStarAssociateTeamMemberCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codestar.model.AssociateTeamMemberResult {
 	  return com.amazonaws.services.codestar.model.AssociateTeamMemberResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.AssociateTeamMemberResult {
 		return environment.codestar.associateTeamMember(build())
@@ -90,9 +93,11 @@ class AWSCodeStarCreateProjectCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codestar.model.CreateProjectResult {
 	  return com.amazonaws.services.codestar.model.CreateProjectResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.CreateProjectResult {
 		return environment.codestar.createProject(build())
@@ -130,9 +135,11 @@ class AWSCodeStarCreateUserProfileCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codestar.model.CreateUserProfileResult {
 	  return com.amazonaws.services.codestar.model.CreateUserProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.CreateUserProfileResult {
 		return environment.codestar.createUserProfile(build())
@@ -168,9 +175,11 @@ class AWSCodeStarDeleteProjectCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codestar.model.DeleteProjectResult {
 	  return com.amazonaws.services.codestar.model.DeleteProjectResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.DeleteProjectResult {
 		return environment.codestar.deleteProject(build())
@@ -201,9 +210,11 @@ class AWSCodeStarDeleteUserProfileCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codestar.model.DeleteUserProfileResult {
 	  return com.amazonaws.services.codestar.model.DeleteUserProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.DeleteUserProfileResult {
 		return environment.codestar.deleteUserProfile(build())
@@ -232,9 +243,11 @@ class AWSCodeStarDescribeProjectCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codestar.model.DescribeProjectResult {
 	  return com.amazonaws.services.codestar.model.DescribeProjectResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.DescribeProjectResult {
 		return environment.codestar.describeProject(build())
@@ -263,9 +276,11 @@ class AWSCodeStarDescribeUserProfileCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codestar.model.DescribeUserProfileResult {
 	  return com.amazonaws.services.codestar.model.DescribeUserProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.DescribeUserProfileResult {
 		return environment.codestar.describeUserProfile(build())
@@ -296,9 +311,11 @@ class AWSCodeStarDisassociateTeamMemberCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codestar.model.DisassociateTeamMemberResult {
 	  return com.amazonaws.services.codestar.model.DisassociateTeamMemberResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.DisassociateTeamMemberResult {
 		return environment.codestar.disassociateTeamMember(build())
@@ -330,9 +347,11 @@ class AWSCodeStarListProjectsCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codestar.model.ListProjectsResult {
 	  return com.amazonaws.services.codestar.model.ListProjectsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.ListProjectsResult {
 		return environment.codestar.listProjects(build())
@@ -366,9 +385,11 @@ class AWSCodeStarListResourcesCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codestar.model.ListResourcesResult {
 	  return com.amazonaws.services.codestar.model.ListResourcesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.ListResourcesResult {
 		return environment.codestar.listResources(build())
@@ -403,9 +424,11 @@ class AWSCodeStarListTagsForProjectCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codestar.model.ListTagsForProjectResult {
 	  return com.amazonaws.services.codestar.model.ListTagsForProjectResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.ListTagsForProjectResult {
 		return environment.codestar.listTagsForProject(build())
@@ -440,9 +463,11 @@ class AWSCodeStarListTeamMembersCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codestar.model.ListTeamMembersResult {
 	  return com.amazonaws.services.codestar.model.ListTeamMembersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.ListTeamMembersResult {
 		return environment.codestar.listTeamMembers(build())
@@ -475,9 +500,11 @@ class AWSCodeStarListUserProfilesCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codestar.model.ListUserProfilesResult {
 	  return com.amazonaws.services.codestar.model.ListUserProfilesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.ListUserProfilesResult {
 		return environment.codestar.listUserProfiles(build())
@@ -509,9 +536,11 @@ class AWSCodeStarTagProjectCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codestar.model.TagProjectResult {
 	  return com.amazonaws.services.codestar.model.TagProjectResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.TagProjectResult {
 		return environment.codestar.tagProject(build())
@@ -543,9 +572,11 @@ class AWSCodeStarUntagProjectCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codestar.model.UntagProjectResult {
 	  return com.amazonaws.services.codestar.model.UntagProjectResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.UntagProjectResult {
 		return environment.codestar.untagProject(build())
@@ -579,9 +610,11 @@ class AWSCodeStarUpdateProjectCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codestar.model.UpdateProjectResult {
 	  return com.amazonaws.services.codestar.model.UpdateProjectResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.UpdateProjectResult {
 		return environment.codestar.updateProject(build())
@@ -618,9 +651,11 @@ class AWSCodeStarUpdateTeamMemberCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codestar.model.UpdateTeamMemberResult {
 	  return com.amazonaws.services.codestar.model.UpdateTeamMemberResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.UpdateTeamMemberResult {
 		return environment.codestar.updateTeamMember(build())
@@ -658,9 +693,11 @@ class AWSCodeStarUpdateUserProfileCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codestar.model.UpdateUserProfileResult {
 	  return com.amazonaws.services.codestar.model.UpdateUserProfileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.UpdateUserProfileResult {
 		return environment.codestar.updateUserProfile(build())

@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -44,9 +45,11 @@ class AWSMigrationHubAssociateCreatedArtifactCommand(val progressUpdateStream: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.migrationhub.model.AssociateCreatedArtifactResult {
 	  return com.amazonaws.services.migrationhub.model.AssociateCreatedArtifactResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.AssociateCreatedArtifactResult {
 		return environment.mgh.associateCreatedArtifact(build())
@@ -81,9 +84,11 @@ class AWSMigrationHubAssociateDiscoveredResourceCommand(val progressUpdateStream
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.migrationhub.model.AssociateDiscoveredResourceResult {
 	  return com.amazonaws.services.migrationhub.model.AssociateDiscoveredResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.AssociateDiscoveredResourceResult {
 		return environment.mgh.associateDiscoveredResource(build())
@@ -116,9 +121,11 @@ class AWSMigrationHubCreateProgressUpdateStreamCommand(val progressUpdateStreamN
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.migrationhub.model.CreateProgressUpdateStreamResult {
 	  return com.amazonaws.services.migrationhub.model.CreateProgressUpdateStreamResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.CreateProgressUpdateStreamResult {
 		return environment.mgh.createProgressUpdateStream(build())
@@ -149,9 +156,11 @@ class AWSMigrationHubDeleteProgressUpdateStreamCommand(val progressUpdateStreamN
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.migrationhub.model.DeleteProgressUpdateStreamResult {
 	  return com.amazonaws.services.migrationhub.model.DeleteProgressUpdateStreamResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.DeleteProgressUpdateStreamResult {
 		return environment.mgh.deleteProgressUpdateStream(build())
@@ -181,9 +190,11 @@ class AWSMigrationHubDescribeApplicationStateCommand(val applicationId: String) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.migrationhub.model.DescribeApplicationStateResult {
 	  return com.amazonaws.services.migrationhub.model.DescribeApplicationStateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.DescribeApplicationStateResult {
 		return environment.mgh.describeApplicationState(build())
@@ -213,9 +224,11 @@ class AWSMigrationHubDescribeMigrationTaskCommand(val progressUpdateStream: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.migrationhub.model.DescribeMigrationTaskResult {
 	  return com.amazonaws.services.migrationhub.model.DescribeMigrationTaskResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.DescribeMigrationTaskResult {
 		return environment.mgh.describeMigrationTask(build())
@@ -248,9 +261,11 @@ class AWSMigrationHubDisassociateCreatedArtifactCommand(val progressUpdateStream
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.migrationhub.model.DisassociateCreatedArtifactResult {
 	  return com.amazonaws.services.migrationhub.model.DisassociateCreatedArtifactResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.DisassociateCreatedArtifactResult {
 		return environment.mgh.disassociateCreatedArtifact(build())
@@ -285,9 +300,11 @@ class AWSMigrationHubDisassociateDiscoveredResourceCommand(val progressUpdateStr
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.migrationhub.model.DisassociateDiscoveredResourceResult {
 	  return com.amazonaws.services.migrationhub.model.DisassociateDiscoveredResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.DisassociateDiscoveredResourceResult {
 		return environment.mgh.disassociateDiscoveredResource(build())
@@ -321,9 +338,11 @@ class AWSMigrationHubImportMigrationTaskCommand(val progressUpdateStream: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.migrationhub.model.ImportMigrationTaskResult {
 	  return com.amazonaws.services.migrationhub.model.ImportMigrationTaskResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.ImportMigrationTaskResult {
 		return environment.mgh.importMigrationTask(build())
@@ -358,9 +377,11 @@ class AWSMigrationHubListCreatedArtifactsCommand(val progressUpdateStream: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.migrationhub.model.ListCreatedArtifactsResult {
 	  return com.amazonaws.services.migrationhub.model.ListCreatedArtifactsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.ListCreatedArtifactsResult {
 		return environment.mgh.listCreatedArtifacts(build())
@@ -396,9 +417,11 @@ class AWSMigrationHubListDiscoveredResourcesCommand(val progressUpdateStream: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.migrationhub.model.ListDiscoveredResourcesResult {
 	  return com.amazonaws.services.migrationhub.model.ListDiscoveredResourcesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.ListDiscoveredResourcesResult {
 		return environment.mgh.listDiscoveredResources(build())
@@ -434,9 +457,11 @@ class AWSMigrationHubListMigrationTasksCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.migrationhub.model.ListMigrationTasksResult {
 	  return com.amazonaws.services.migrationhub.model.ListMigrationTasksResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.ListMigrationTasksResult {
 		return environment.mgh.listMigrationTasks(build())
@@ -469,9 +494,11 @@ class AWSMigrationHubListProgressUpdateStreamsCommand() : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.migrationhub.model.ListProgressUpdateStreamsResult {
 	  return com.amazonaws.services.migrationhub.model.ListProgressUpdateStreamsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.ListProgressUpdateStreamsResult {
 		return environment.mgh.listProgressUpdateStreams(build())
@@ -503,9 +530,11 @@ class AWSMigrationHubNotifyApplicationStateCommand(val applicationId: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.migrationhub.model.NotifyApplicationStateResult {
 	  return com.amazonaws.services.migrationhub.model.NotifyApplicationStateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.NotifyApplicationStateResult {
 		return environment.mgh.notifyApplicationState(build())
@@ -541,9 +570,11 @@ class AWSMigrationHubNotifyMigrationTaskStateCommand(val progressUpdateStream: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.migrationhub.model.NotifyMigrationTaskStateResult {
 	  return com.amazonaws.services.migrationhub.model.NotifyMigrationTaskStateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.NotifyMigrationTaskStateResult {
 		return environment.mgh.notifyMigrationTaskState(build())
@@ -580,9 +611,11 @@ class AWSMigrationHubPutResourceAttributesCommand(val progressUpdateStream: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.migrationhub.model.PutResourceAttributesResult {
 	  return com.amazonaws.services.migrationhub.model.PutResourceAttributesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.PutResourceAttributesResult {
 		return environment.mgh.putResourceAttributes(build())

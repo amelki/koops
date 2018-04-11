@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -43,9 +44,11 @@ class AmazonCodeDeployAddTagsToOnPremisesInstancesCommand() : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.AddTagsToOnPremisesInstancesResult {
 	  return com.amazonaws.services.codedeploy.model.AddTagsToOnPremisesInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.AddTagsToOnPremisesInstancesResult {
 		return environment.codedeploy.addTagsToOnPremisesInstances(build())
@@ -77,9 +80,11 @@ class AmazonCodeDeployBatchGetApplicationRevisionsCommand() : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.BatchGetApplicationRevisionsResult {
 	  return com.amazonaws.services.codedeploy.model.BatchGetApplicationRevisionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.BatchGetApplicationRevisionsResult {
 		return environment.codedeploy.batchGetApplicationRevisions(build())
@@ -109,9 +114,11 @@ class AmazonCodeDeployBatchGetApplicationsCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.BatchGetApplicationsResult {
 	  return com.amazonaws.services.codedeploy.model.BatchGetApplicationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.BatchGetApplicationsResult {
 		return environment.codedeploy.batchGetApplications(build())
@@ -142,9 +149,11 @@ class AmazonCodeDeployBatchGetDeploymentGroupsCommand() : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.BatchGetDeploymentGroupsResult {
 	  return com.amazonaws.services.codedeploy.model.BatchGetDeploymentGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.BatchGetDeploymentGroupsResult {
 		return environment.codedeploy.batchGetDeploymentGroups(build())
@@ -176,9 +185,11 @@ class AmazonCodeDeployBatchGetDeploymentInstancesCommand() : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.BatchGetDeploymentInstancesResult {
 	  return com.amazonaws.services.codedeploy.model.BatchGetDeploymentInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.BatchGetDeploymentInstancesResult {
 		return environment.codedeploy.batchGetDeploymentInstances(build())
@@ -208,9 +219,11 @@ class AmazonCodeDeployBatchGetDeploymentsCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.BatchGetDeploymentsResult {
 	  return com.amazonaws.services.codedeploy.model.BatchGetDeploymentsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.BatchGetDeploymentsResult {
 		return environment.codedeploy.batchGetDeployments(build())
@@ -239,9 +252,11 @@ class AmazonCodeDeployBatchGetOnPremisesInstancesCommand() : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.BatchGetOnPremisesInstancesResult {
 	  return com.amazonaws.services.codedeploy.model.BatchGetOnPremisesInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.BatchGetOnPremisesInstancesResult {
 		return environment.codedeploy.batchGetOnPremisesInstances(build())
@@ -270,9 +285,11 @@ class AmazonCodeDeployContinueDeploymentCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.ContinueDeploymentResult {
 	  return com.amazonaws.services.codedeploy.model.ContinueDeploymentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.ContinueDeploymentResult {
 		return environment.codedeploy.continueDeployment(build())
@@ -303,9 +320,11 @@ class AmazonCodeDeployCreateApplicationCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.CreateApplicationResult {
 	  return com.amazonaws.services.codedeploy.model.CreateApplicationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.CreateApplicationResult {
 		return environment.codedeploy.createApplication(build())
@@ -353,9 +372,11 @@ class AmazonCodeDeployCreateDeploymentCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.CreateDeploymentResult {
 	  return com.amazonaws.services.codedeploy.model.CreateDeploymentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.CreateDeploymentResult {
 		return environment.codedeploy.createDeployment(build())
@@ -399,9 +420,11 @@ class AmazonCodeDeployCreateDeploymentConfigCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.CreateDeploymentConfigResult {
 	  return com.amazonaws.services.codedeploy.model.CreateDeploymentConfigResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.CreateDeploymentConfigResult {
 		return environment.codedeploy.createDeploymentConfig(build())
@@ -461,9 +484,11 @@ class AmazonCodeDeployCreateDeploymentGroupCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.CreateDeploymentGroupResult {
 	  return com.amazonaws.services.codedeploy.model.CreateDeploymentGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.CreateDeploymentGroupResult {
 		return environment.codedeploy.createDeploymentGroup(build())
@@ -506,9 +531,11 @@ class AmazonCodeDeployDeleteApplicationCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.DeleteApplicationResult {
 	  return com.amazonaws.services.codedeploy.model.DeleteApplicationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.DeleteApplicationResult {
 		return environment.codedeploy.deleteApplication(build())
@@ -537,9 +564,11 @@ class AmazonCodeDeployDeleteDeploymentConfigCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.DeleteDeploymentConfigResult {
 	  return com.amazonaws.services.codedeploy.model.DeleteDeploymentConfigResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.DeleteDeploymentConfigResult {
 		return environment.codedeploy.deleteDeploymentConfig(build())
@@ -570,9 +599,11 @@ class AmazonCodeDeployDeleteDeploymentGroupCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.DeleteDeploymentGroupResult {
 	  return com.amazonaws.services.codedeploy.model.DeleteDeploymentGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.DeleteDeploymentGroupResult {
 		return environment.codedeploy.deleteDeploymentGroup(build())
@@ -602,9 +633,11 @@ class AmazonCodeDeployDeleteGitHubAccountTokenCommand() : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.DeleteGitHubAccountTokenResult {
 	  return com.amazonaws.services.codedeploy.model.DeleteGitHubAccountTokenResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.DeleteGitHubAccountTokenResult {
 		return environment.codedeploy.deleteGitHubAccountToken(build())
@@ -633,9 +666,11 @@ class AmazonCodeDeployDeregisterOnPremisesInstanceCommand() : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.DeregisterOnPremisesInstanceResult {
 	  return com.amazonaws.services.codedeploy.model.DeregisterOnPremisesInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.DeregisterOnPremisesInstanceResult {
 		return environment.codedeploy.deregisterOnPremisesInstance(build())
@@ -664,9 +699,11 @@ class AmazonCodeDeployGetApplicationCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.GetApplicationResult {
 	  return com.amazonaws.services.codedeploy.model.GetApplicationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.GetApplicationResult {
 		return environment.codedeploy.getApplication(build())
@@ -697,9 +734,11 @@ class AmazonCodeDeployGetApplicationRevisionCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.GetApplicationRevisionResult {
 	  return com.amazonaws.services.codedeploy.model.GetApplicationRevisionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.GetApplicationRevisionResult {
 		return environment.codedeploy.getApplicationRevision(build())
@@ -729,9 +768,11 @@ class AmazonCodeDeployGetDeploymentCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.GetDeploymentResult {
 	  return com.amazonaws.services.codedeploy.model.GetDeploymentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.GetDeploymentResult {
 		return environment.codedeploy.getDeployment(build())
@@ -760,9 +801,11 @@ class AmazonCodeDeployGetDeploymentConfigCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.GetDeploymentConfigResult {
 	  return com.amazonaws.services.codedeploy.model.GetDeploymentConfigResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.GetDeploymentConfigResult {
 		return environment.codedeploy.getDeploymentConfig(build())
@@ -793,9 +836,11 @@ class AmazonCodeDeployGetDeploymentGroupCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.GetDeploymentGroupResult {
 	  return com.amazonaws.services.codedeploy.model.GetDeploymentGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.GetDeploymentGroupResult {
 		return environment.codedeploy.getDeploymentGroup(build())
@@ -827,9 +872,11 @@ class AmazonCodeDeployGetDeploymentInstanceCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.GetDeploymentInstanceResult {
 	  return com.amazonaws.services.codedeploy.model.GetDeploymentInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.GetDeploymentInstanceResult {
 		return environment.codedeploy.getDeploymentInstance(build())
@@ -859,9 +906,11 @@ class AmazonCodeDeployGetOnPremisesInstanceCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.GetOnPremisesInstanceResult {
 	  return com.amazonaws.services.codedeploy.model.GetOnPremisesInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.GetOnPremisesInstanceResult {
 		return environment.codedeploy.getOnPremisesInstance(build())
@@ -902,9 +951,11 @@ class AmazonCodeDeployListApplicationRevisionsCommand() : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.ListApplicationRevisionsResult {
 	  return com.amazonaws.services.codedeploy.model.ListApplicationRevisionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.ListApplicationRevisionsResult {
 		return environment.codedeploy.listApplicationRevisions(build())
@@ -939,9 +990,11 @@ class AmazonCodeDeployListApplicationsCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.ListApplicationsResult {
 	  return com.amazonaws.services.codedeploy.model.ListApplicationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.ListApplicationsResult {
 		return environment.codedeploy.listApplications(build())
@@ -970,9 +1023,11 @@ class AmazonCodeDeployListDeploymentConfigsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.ListDeploymentConfigsResult {
 	  return com.amazonaws.services.codedeploy.model.ListDeploymentConfigsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.ListDeploymentConfigsResult {
 		return environment.codedeploy.listDeploymentConfigs(build())
@@ -1003,9 +1058,11 @@ class AmazonCodeDeployListDeploymentGroupsCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.ListDeploymentGroupsResult {
 	  return com.amazonaws.services.codedeploy.model.ListDeploymentGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.ListDeploymentGroupsResult {
 		return environment.codedeploy.listDeploymentGroups(build())
@@ -1041,9 +1098,11 @@ class AmazonCodeDeployListDeploymentInstancesCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.ListDeploymentInstancesResult {
 	  return com.amazonaws.services.codedeploy.model.ListDeploymentInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.ListDeploymentInstancesResult {
 		return environment.codedeploy.listDeploymentInstances(build())
@@ -1083,9 +1142,11 @@ class AmazonCodeDeployListDeploymentsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.ListDeploymentsResult {
 	  return com.amazonaws.services.codedeploy.model.ListDeploymentsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.ListDeploymentsResult {
 		return environment.codedeploy.listDeployments(build())
@@ -1118,9 +1179,11 @@ class AmazonCodeDeployListGitHubAccountTokenNamesCommand() : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.ListGitHubAccountTokenNamesResult {
 	  return com.amazonaws.services.codedeploy.model.ListGitHubAccountTokenNamesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.ListGitHubAccountTokenNamesResult {
 		return environment.codedeploy.listGitHubAccountTokenNames(build())
@@ -1153,9 +1216,11 @@ class AmazonCodeDeployListOnPremisesInstancesCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.ListOnPremisesInstancesResult {
 	  return com.amazonaws.services.codedeploy.model.ListOnPremisesInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.ListOnPremisesInstancesResult {
 		return environment.codedeploy.listOnPremisesInstances(build())
@@ -1190,9 +1255,11 @@ class AmazonCodeDeployPutLifecycleEventHookExecutionStatusCommand() : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.PutLifecycleEventHookExecutionStatusResult {
 	  return com.amazonaws.services.codedeploy.model.PutLifecycleEventHookExecutionStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.PutLifecycleEventHookExecutionStatusResult {
 		return environment.codedeploy.putLifecycleEventHookExecutionStatus(build())
@@ -1227,9 +1294,11 @@ class AmazonCodeDeployRegisterApplicationRevisionCommand() : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.RegisterApplicationRevisionResult {
 	  return com.amazonaws.services.codedeploy.model.RegisterApplicationRevisionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.RegisterApplicationRevisionResult {
 		return environment.codedeploy.registerApplicationRevision(build())
@@ -1264,9 +1333,11 @@ class AmazonCodeDeployRegisterOnPremisesInstanceCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.RegisterOnPremisesInstanceResult {
 	  return com.amazonaws.services.codedeploy.model.RegisterOnPremisesInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.RegisterOnPremisesInstanceResult {
 		return environment.codedeploy.registerOnPremisesInstance(build())
@@ -1299,9 +1370,11 @@ class AmazonCodeDeployRemoveTagsFromOnPremisesInstancesCommand() : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.RemoveTagsFromOnPremisesInstancesResult {
 	  return com.amazonaws.services.codedeploy.model.RemoveTagsFromOnPremisesInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.RemoveTagsFromOnPremisesInstancesResult {
 		return environment.codedeploy.removeTagsFromOnPremisesInstances(build())
@@ -1331,9 +1404,11 @@ class AmazonCodeDeploySkipWaitTimeForInstanceTerminationCommand() : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.SkipWaitTimeForInstanceTerminationResult {
 	  return com.amazonaws.services.codedeploy.model.SkipWaitTimeForInstanceTerminationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.SkipWaitTimeForInstanceTerminationResult {
 		return environment.codedeploy.skipWaitTimeForInstanceTermination(build())
@@ -1364,9 +1439,11 @@ class AmazonCodeDeployStopDeploymentCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.StopDeploymentResult {
 	  return com.amazonaws.services.codedeploy.model.StopDeploymentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.StopDeploymentResult {
 		return environment.codedeploy.stopDeployment(build())
@@ -1398,9 +1475,11 @@ class AmazonCodeDeployUpdateApplicationCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.UpdateApplicationResult {
 	  return com.amazonaws.services.codedeploy.model.UpdateApplicationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.UpdateApplicationResult {
 		return environment.codedeploy.updateApplication(build())
@@ -1460,9 +1539,11 @@ class AmazonCodeDeployUpdateDeploymentGroupCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codedeploy.model.UpdateDeploymentGroupResult {
 	  return com.amazonaws.services.codedeploy.model.UpdateDeploymentGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codedeploy.model.UpdateDeploymentGroupResult {
 		return environment.codedeploy.updateDeploymentGroup(build())

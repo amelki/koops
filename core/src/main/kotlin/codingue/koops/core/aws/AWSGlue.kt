@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -44,9 +45,11 @@ class AWSGlueBatchCreatePartitionCommand(val databaseName: String, val tableName
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.BatchCreatePartitionResult {
 	  return com.amazonaws.services.glue.model.BatchCreatePartitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.BatchCreatePartitionResult {
 		return environment.glue.batchCreatePartition(build())
@@ -79,9 +82,11 @@ class AWSGlueBatchDeleteConnectionCommand(val connectionNameList: List<String>) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.BatchDeleteConnectionResult {
 	  return com.amazonaws.services.glue.model.BatchDeleteConnectionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.BatchDeleteConnectionResult {
 		return environment.glue.batchDeleteConnection(build())
@@ -114,9 +119,11 @@ class AWSGlueBatchDeletePartitionCommand(val databaseName: String, val tableName
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.BatchDeletePartitionResult {
 	  return com.amazonaws.services.glue.model.BatchDeletePartitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.BatchDeletePartitionResult {
 		return environment.glue.batchDeletePartition(build())
@@ -150,9 +157,11 @@ class AWSGlueBatchDeleteTableCommand(val databaseName: String, val tablesToDelet
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.BatchDeleteTableResult {
 	  return com.amazonaws.services.glue.model.BatchDeleteTableResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.BatchDeleteTableResult {
 		return environment.glue.batchDeleteTable(build())
@@ -186,9 +195,11 @@ class AWSGlueBatchDeleteTableVersionCommand(val databaseName: String, val tableN
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.BatchDeleteTableVersionResult {
 	  return com.amazonaws.services.glue.model.BatchDeleteTableVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.BatchDeleteTableVersionResult {
 		return environment.glue.batchDeleteTableVersion(build())
@@ -223,9 +234,11 @@ class AWSGlueBatchGetPartitionCommand(val databaseName: String, val tableName: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.BatchGetPartitionResult {
 	  return com.amazonaws.services.glue.model.BatchGetPartitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.BatchGetPartitionResult {
 		return environment.glue.batchGetPartition(build())
@@ -258,9 +271,11 @@ class AWSGlueBatchStopJobRunCommand(val jobName: String, val jobRunIds: List<Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.BatchStopJobRunResult {
 	  return com.amazonaws.services.glue.model.BatchStopJobRunResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.BatchStopJobRunResult {
 		return environment.glue.batchStopJobRun(build())
@@ -294,9 +309,11 @@ class AWSGlueCreateClassifierCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.CreateClassifierResult {
 	  return com.amazonaws.services.glue.model.CreateClassifierResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.CreateClassifierResult {
 		return environment.glue.createClassifier(build())
@@ -328,9 +345,11 @@ class AWSGlueCreateConnectionCommand(val connectionInput: com.amazonaws.services
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.CreateConnectionResult {
 	  return com.amazonaws.services.glue.model.CreateConnectionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.CreateConnectionResult {
 		return environment.glue.createConnection(build())
@@ -374,9 +393,11 @@ class AWSGlueCreateCrawlerCommand(val name: String, val role: String, val databa
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.CreateCrawlerResult {
 	  return com.amazonaws.services.glue.model.CreateCrawlerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.CreateCrawlerResult {
 		return environment.glue.createCrawler(build())
@@ -415,9 +436,11 @@ class AWSGlueCreateDatabaseCommand(val databaseInput: com.amazonaws.services.glu
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.CreateDatabaseResult {
 	  return com.amazonaws.services.glue.model.CreateDatabaseResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.CreateDatabaseResult {
 		return environment.glue.createDatabase(build())
@@ -459,9 +482,11 @@ class AWSGlueCreateDevEndpointCommand(val endpointName: String, val roleArn: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.CreateDevEndpointResult {
 	  return com.amazonaws.services.glue.model.CreateDevEndpointResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.CreateDevEndpointResult {
 		return environment.glue.createDevEndpoint(build())
@@ -512,9 +537,11 @@ class AWSGlueCreateJobCommand(val name: String, val role: String, val command: c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.CreateJobResult {
 	  return com.amazonaws.services.glue.model.CreateJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.CreateJobResult {
 		return environment.glue.createJob(build())
@@ -555,9 +582,11 @@ class AWSGlueCreatePartitionCommand(val databaseName: String, val tableName: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.CreatePartitionResult {
 	  return com.amazonaws.services.glue.model.CreatePartitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.CreatePartitionResult {
 		return environment.glue.createPartition(build())
@@ -593,9 +622,11 @@ class AWSGlueCreateScriptCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.CreateScriptResult {
 	  return com.amazonaws.services.glue.model.CreateScriptResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.CreateScriptResult {
 		return environment.glue.createScript(build())
@@ -628,9 +659,11 @@ class AWSGlueCreateTableCommand(val databaseName: String, val tableInput: com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.CreateTableResult {
 	  return com.amazonaws.services.glue.model.CreateTableResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.CreateTableResult {
 		return environment.glue.createTable(build())
@@ -668,9 +701,11 @@ class AWSGlueCreateTriggerCommand(val name: String, val type: TriggerType, val a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.CreateTriggerResult {
 	  return com.amazonaws.services.glue.model.CreateTriggerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.CreateTriggerResult {
 		return environment.glue.createTrigger(build())
@@ -706,9 +741,11 @@ class AWSGlueCreateUserDefinedFunctionCommand(val databaseName: String, val func
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.CreateUserDefinedFunctionResult {
 	  return com.amazonaws.services.glue.model.CreateUserDefinedFunctionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.CreateUserDefinedFunctionResult {
 		return environment.glue.createUserDefinedFunction(build())
@@ -739,9 +776,11 @@ class AWSGlueDeleteClassifierCommand(val name: String) : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.DeleteClassifierResult {
 	  return com.amazonaws.services.glue.model.DeleteClassifierResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.DeleteClassifierResult {
 		return environment.glue.deleteClassifier(build())
@@ -771,9 +810,11 @@ class AWSGlueDeleteConnectionCommand(val connectionName: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.DeleteConnectionResult {
 	  return com.amazonaws.services.glue.model.DeleteConnectionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.DeleteConnectionResult {
 		return environment.glue.deleteConnection(build())
@@ -803,9 +844,11 @@ class AWSGlueDeleteCrawlerCommand(val name: String) : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.DeleteCrawlerResult {
 	  return com.amazonaws.services.glue.model.DeleteCrawlerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.DeleteCrawlerResult {
 		return environment.glue.deleteCrawler(build())
@@ -835,9 +878,11 @@ class AWSGlueDeleteDatabaseCommand(val name: String) : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.DeleteDatabaseResult {
 	  return com.amazonaws.services.glue.model.DeleteDatabaseResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.DeleteDatabaseResult {
 		return environment.glue.deleteDatabase(build())
@@ -867,9 +912,11 @@ class AWSGlueDeleteDevEndpointCommand(val endpointName: String) : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.DeleteDevEndpointResult {
 	  return com.amazonaws.services.glue.model.DeleteDevEndpointResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.DeleteDevEndpointResult {
 		return environment.glue.deleteDevEndpoint(build())
@@ -898,9 +945,11 @@ class AWSGlueDeleteJobCommand(val jobName: String) : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.DeleteJobResult {
 	  return com.amazonaws.services.glue.model.DeleteJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.DeleteJobResult {
 		return environment.glue.deleteJob(build())
@@ -932,9 +981,11 @@ class AWSGlueDeletePartitionCommand(val databaseName: String, val tableName: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.DeletePartitionResult {
 	  return com.amazonaws.services.glue.model.DeletePartitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.DeletePartitionResult {
 		return environment.glue.deletePartition(build())
@@ -968,9 +1019,11 @@ class AWSGlueDeleteTableCommand(val databaseName: String, val name: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.DeleteTableResult {
 	  return com.amazonaws.services.glue.model.DeleteTableResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.DeleteTableResult {
 		return environment.glue.deleteTable(build())
@@ -1004,9 +1057,11 @@ class AWSGlueDeleteTableVersionCommand(val databaseName: String, val tableName: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.DeleteTableVersionResult {
 	  return com.amazonaws.services.glue.model.DeleteTableVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.DeleteTableVersionResult {
 		return environment.glue.deleteTableVersion(build())
@@ -1038,9 +1093,11 @@ class AWSGlueDeleteTriggerCommand(val name: String) : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.DeleteTriggerResult {
 	  return com.amazonaws.services.glue.model.DeleteTriggerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.DeleteTriggerResult {
 		return environment.glue.deleteTrigger(build())
@@ -1071,9 +1128,11 @@ class AWSGlueDeleteUserDefinedFunctionCommand(val databaseName: String, val func
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.DeleteUserDefinedFunctionResult {
 	  return com.amazonaws.services.glue.model.DeleteUserDefinedFunctionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.DeleteUserDefinedFunctionResult {
 		return environment.glue.deleteUserDefinedFunction(build())
@@ -1104,9 +1163,11 @@ class AWSGlueGetCatalogImportStatusCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.GetCatalogImportStatusResult {
 	  return com.amazonaws.services.glue.model.GetCatalogImportStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetCatalogImportStatusResult {
 		return environment.glue.getCatalogImportStatus(build())
@@ -1135,9 +1196,11 @@ class AWSGlueGetClassifierCommand(val name: String) : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.GetClassifierResult {
 	  return com.amazonaws.services.glue.model.GetClassifierResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetClassifierResult {
 		return environment.glue.getClassifier(build())
@@ -1168,9 +1231,11 @@ class AWSGlueGetClassifiersCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.GetClassifiersResult {
 	  return com.amazonaws.services.glue.model.GetClassifiersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetClassifiersResult {
 		return environment.glue.getClassifiers(build())
@@ -1201,9 +1266,11 @@ class AWSGlueGetConnectionCommand(val name: String) : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.GetConnectionResult {
 	  return com.amazonaws.services.glue.model.GetConnectionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetConnectionResult {
 		return environment.glue.getConnection(build())
@@ -1239,9 +1306,11 @@ class AWSGlueGetConnectionsCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.GetConnectionsResult {
 	  return com.amazonaws.services.glue.model.GetConnectionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetConnectionsResult {
 		return environment.glue.getConnections(build())
@@ -1273,9 +1342,11 @@ class AWSGlueGetCrawlerCommand(val name: String) : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.GetCrawlerResult {
 	  return com.amazonaws.services.glue.model.GetCrawlerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetCrawlerResult {
 		return environment.glue.getCrawler(build())
@@ -1308,9 +1379,11 @@ class AWSGlueGetCrawlerMetricsCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.GetCrawlerMetricsResult {
 	  return com.amazonaws.services.glue.model.GetCrawlerMetricsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetCrawlerMetricsResult {
 		return environment.glue.getCrawlerMetrics(build())
@@ -1343,9 +1416,11 @@ class AWSGlueGetCrawlersCommand() : AmazonWebServiceCommand<com.amazonaws.servic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.GetCrawlersResult {
 	  return com.amazonaws.services.glue.model.GetCrawlersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetCrawlersResult {
 		return environment.glue.getCrawlers(build())
@@ -1376,9 +1451,11 @@ class AWSGlueGetDatabaseCommand(val name: String) : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.GetDatabaseResult {
 	  return com.amazonaws.services.glue.model.GetDatabaseResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetDatabaseResult {
 		return environment.glue.getDatabase(build())
@@ -1412,9 +1489,11 @@ class AWSGlueGetDatabasesCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.GetDatabasesResult {
 	  return com.amazonaws.services.glue.model.GetDatabasesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetDatabasesResult {
 		return environment.glue.getDatabases(build())
@@ -1445,9 +1524,11 @@ class AWSGlueGetDataflowGraphCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.GetDataflowGraphResult {
 	  return com.amazonaws.services.glue.model.GetDataflowGraphResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetDataflowGraphResult {
 		return environment.glue.getDataflowGraph(build())
@@ -1476,9 +1557,11 @@ class AWSGlueGetDevEndpointCommand(val endpointName: String) : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.GetDevEndpointResult {
 	  return com.amazonaws.services.glue.model.GetDevEndpointResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetDevEndpointResult {
 		return environment.glue.getDevEndpoint(build())
@@ -1509,9 +1592,11 @@ class AWSGlueGetDevEndpointsCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.GetDevEndpointsResult {
 	  return com.amazonaws.services.glue.model.GetDevEndpointsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetDevEndpointsResult {
 		return environment.glue.getDevEndpoints(build())
@@ -1541,9 +1626,11 @@ class AWSGlueGetJobCommand(val jobName: String) : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.GetJobResult {
 	  return com.amazonaws.services.glue.model.GetJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetJobResult {
 		return environment.glue.getJob(build())
@@ -1574,9 +1661,11 @@ class AWSGlueGetJobRunCommand(val jobName: String, val runId: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.GetJobRunResult {
 	  return com.amazonaws.services.glue.model.GetJobRunResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetJobRunResult {
 		return environment.glue.getJobRun(build())
@@ -1610,9 +1699,11 @@ class AWSGlueGetJobRunsCommand(val jobName: String) : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.GetJobRunsResult {
 	  return com.amazonaws.services.glue.model.GetJobRunsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetJobRunsResult {
 		return environment.glue.getJobRuns(build())
@@ -1645,9 +1736,11 @@ class AWSGlueGetJobsCommand() : AmazonWebServiceCommand<com.amazonaws.services.g
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.GetJobsResult {
 	  return com.amazonaws.services.glue.model.GetJobsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetJobsResult {
 		return environment.glue.getJobs(build())
@@ -1680,9 +1773,11 @@ class AWSGlueGetMappingCommand(val source: com.amazonaws.services.glue.model.Cat
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.GetMappingResult {
 	  return com.amazonaws.services.glue.model.GetMappingResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetMappingResult {
 		return environment.glue.getMapping(build())
@@ -1716,9 +1811,11 @@ class AWSGlueGetPartitionCommand(val databaseName: String, val tableName: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.GetPartitionResult {
 	  return com.amazonaws.services.glue.model.GetPartitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetPartitionResult {
 		return environment.glue.getPartition(build())
@@ -1760,9 +1857,11 @@ class AWSGlueGetPartitionsCommand(val databaseName: String, val tableName: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.GetPartitionsResult {
 	  return com.amazonaws.services.glue.model.GetPartitionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetPartitionsResult {
 		return environment.glue.getPartitions(build())
@@ -1803,9 +1902,11 @@ class AWSGlueGetPlanCommand(val mapping: List<com.amazonaws.services.glue.model.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.GetPlanResult {
 	  return com.amazonaws.services.glue.model.GetPlanResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetPlanResult {
 		return environment.glue.getPlan(build())
@@ -1840,9 +1941,11 @@ class AWSGlueGetTableCommand(val databaseName: String, val name: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.GetTableResult {
 	  return com.amazonaws.services.glue.model.GetTableResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetTableResult {
 		return environment.glue.getTable(build())
@@ -1877,9 +1980,11 @@ class AWSGlueGetTableVersionCommand(val databaseName: String, val tableName: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.GetTableVersionResult {
 	  return com.amazonaws.services.glue.model.GetTableVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetTableVersionResult {
 		return environment.glue.getTableVersion(build())
@@ -1917,9 +2022,11 @@ class AWSGlueGetTableVersionsCommand(val databaseName: String, val tableName: St
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.GetTableVersionsResult {
 	  return com.amazonaws.services.glue.model.GetTableVersionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetTableVersionsResult {
 		return environment.glue.getTableVersions(build())
@@ -1959,9 +2066,11 @@ class AWSGlueGetTablesCommand(val databaseName: String) : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.GetTablesResult {
 	  return com.amazonaws.services.glue.model.GetTablesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetTablesResult {
 		return environment.glue.getTables(build())
@@ -1994,9 +2103,11 @@ class AWSGlueGetTriggerCommand(val name: String) : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.GetTriggerResult {
 	  return com.amazonaws.services.glue.model.GetTriggerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetTriggerResult {
 		return environment.glue.getTrigger(build())
@@ -2029,9 +2140,11 @@ class AWSGlueGetTriggersCommand() : AmazonWebServiceCommand<com.amazonaws.servic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.GetTriggersResult {
 	  return com.amazonaws.services.glue.model.GetTriggersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetTriggersResult {
 		return environment.glue.getTriggers(build())
@@ -2064,9 +2177,11 @@ class AWSGlueGetUserDefinedFunctionCommand(val databaseName: String, val functio
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.GetUserDefinedFunctionResult {
 	  return com.amazonaws.services.glue.model.GetUserDefinedFunctionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetUserDefinedFunctionResult {
 		return environment.glue.getUserDefinedFunction(build())
@@ -2103,9 +2218,11 @@ class AWSGlueGetUserDefinedFunctionsCommand(val databaseName: String, val patter
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.GetUserDefinedFunctionsResult {
 	  return com.amazonaws.services.glue.model.GetUserDefinedFunctionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetUserDefinedFunctionsResult {
 		return environment.glue.getUserDefinedFunctions(build())
@@ -2138,9 +2255,11 @@ class AWSGlueImportCatalogToGlueCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.ImportCatalogToGlueResult {
 	  return com.amazonaws.services.glue.model.ImportCatalogToGlueResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.ImportCatalogToGlueResult {
 		return environment.glue.importCatalogToGlue(build())
@@ -2169,9 +2288,11 @@ class AWSGlueResetJobBookmarkCommand(val jobName: String) : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.ResetJobBookmarkResult {
 	  return com.amazonaws.services.glue.model.ResetJobBookmarkResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.ResetJobBookmarkResult {
 		return environment.glue.resetJobBookmark(build())
@@ -2200,9 +2321,11 @@ class AWSGlueStartCrawlerCommand(val name: String) : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.StartCrawlerResult {
 	  return com.amazonaws.services.glue.model.StartCrawlerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.StartCrawlerResult {
 		return environment.glue.startCrawler(build())
@@ -2231,9 +2354,11 @@ class AWSGlueStartCrawlerScheduleCommand(val crawlerName: String) : AmazonWebSer
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.StartCrawlerScheduleResult {
 	  return com.amazonaws.services.glue.model.StartCrawlerScheduleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.StartCrawlerScheduleResult {
 		return environment.glue.startCrawlerSchedule(build())
@@ -2267,9 +2392,11 @@ class AWSGlueStartJobRunCommand(val jobName: String) : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.StartJobRunResult {
 	  return com.amazonaws.services.glue.model.StartJobRunResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.StartJobRunResult {
 		return environment.glue.startJobRun(build())
@@ -2301,9 +2428,11 @@ class AWSGlueStartTriggerCommand(val name: String) : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.StartTriggerResult {
 	  return com.amazonaws.services.glue.model.StartTriggerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.StartTriggerResult {
 		return environment.glue.startTrigger(build())
@@ -2332,9 +2461,11 @@ class AWSGlueStopCrawlerCommand(val name: String) : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.StopCrawlerResult {
 	  return com.amazonaws.services.glue.model.StopCrawlerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.StopCrawlerResult {
 		return environment.glue.stopCrawler(build())
@@ -2363,9 +2494,11 @@ class AWSGlueStopCrawlerScheduleCommand(val crawlerName: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.StopCrawlerScheduleResult {
 	  return com.amazonaws.services.glue.model.StopCrawlerScheduleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.StopCrawlerScheduleResult {
 		return environment.glue.stopCrawlerSchedule(build())
@@ -2394,9 +2527,11 @@ class AWSGlueStopTriggerCommand(val name: String) : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.StopTriggerResult {
 	  return com.amazonaws.services.glue.model.StopTriggerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.StopTriggerResult {
 		return environment.glue.stopTrigger(build())
@@ -2429,9 +2564,11 @@ class AWSGlueUpdateClassifierCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.UpdateClassifierResult {
 	  return com.amazonaws.services.glue.model.UpdateClassifierResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.UpdateClassifierResult {
 		return environment.glue.updateClassifier(build())
@@ -2464,9 +2601,11 @@ class AWSGlueUpdateConnectionCommand(val name: String, val connectionInput: com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.UpdateConnectionResult {
 	  return com.amazonaws.services.glue.model.UpdateConnectionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.UpdateConnectionResult {
 		return environment.glue.updateConnection(build())
@@ -2514,9 +2653,11 @@ class AWSGlueUpdateCrawlerCommand(val name: String) : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.UpdateCrawlerResult {
 	  return com.amazonaws.services.glue.model.UpdateCrawlerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.UpdateCrawlerResult {
 		return environment.glue.updateCrawler(build())
@@ -2555,9 +2696,11 @@ class AWSGlueUpdateCrawlerScheduleCommand(val crawlerName: String) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.UpdateCrawlerScheduleResult {
 	  return com.amazonaws.services.glue.model.UpdateCrawlerScheduleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.UpdateCrawlerScheduleResult {
 		return environment.glue.updateCrawlerSchedule(build())
@@ -2589,9 +2732,11 @@ class AWSGlueUpdateDatabaseCommand(val name: String, val databaseInput: com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.UpdateDatabaseResult {
 	  return com.amazonaws.services.glue.model.UpdateDatabaseResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.UpdateDatabaseResult {
 		return environment.glue.updateDatabase(build())
@@ -2627,9 +2772,11 @@ class AWSGlueUpdateDevEndpointCommand(val endpointName: String) : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.UpdateDevEndpointResult {
 	  return com.amazonaws.services.glue.model.UpdateDevEndpointResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.UpdateDevEndpointResult {
 		return environment.glue.updateDevEndpoint(build())
@@ -2662,9 +2809,11 @@ class AWSGlueUpdateJobCommand(val jobName: String, val jobUpdate: com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.UpdateJobResult {
 	  return com.amazonaws.services.glue.model.UpdateJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.UpdateJobResult {
 		return environment.glue.updateJob(build())
@@ -2698,9 +2847,11 @@ class AWSGlueUpdatePartitionCommand(val databaseName: String, val tableName: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.UpdatePartitionResult {
 	  return com.amazonaws.services.glue.model.UpdatePartitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.UpdatePartitionResult {
 		return environment.glue.updatePartition(build())
@@ -2737,9 +2888,11 @@ class AWSGlueUpdateTableCommand(val databaseName: String, val tableInput: com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.UpdateTableResult {
 	  return com.amazonaws.services.glue.model.UpdateTableResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.UpdateTableResult {
 		return environment.glue.updateTable(build())
@@ -2772,9 +2925,11 @@ class AWSGlueUpdateTriggerCommand(val name: String, val triggerUpdate: com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.UpdateTriggerResult {
 	  return com.amazonaws.services.glue.model.UpdateTriggerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.UpdateTriggerResult {
 		return environment.glue.updateTrigger(build())
@@ -2807,9 +2962,11 @@ class AWSGlueUpdateUserDefinedFunctionCommand(val databaseName: String, val func
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.glue.model.UpdateUserDefinedFunctionResult {
 	  return com.amazonaws.services.glue.model.UpdateUserDefinedFunctionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.UpdateUserDefinedFunctionResult {
 		return environment.glue.updateUserDefinedFunction(build())

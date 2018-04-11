@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -53,9 +54,11 @@ class AWSCloud9CreateEnvironmentEC2Command() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloud9.model.CreateEnvironmentEC2Result {
 	  return com.amazonaws.services.cloud9.model.CreateEnvironmentEC2Result()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloud9.model.CreateEnvironmentEC2Result {
 		return environment.cloud9.createEnvironmentEC2(build())
@@ -94,9 +97,11 @@ class AWSCloud9CreateEnvironmentMembershipCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloud9.model.CreateEnvironmentMembershipResult {
 	  return com.amazonaws.services.cloud9.model.CreateEnvironmentMembershipResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloud9.model.CreateEnvironmentMembershipResult {
 		return environment.cloud9.createEnvironmentMembership(build())
@@ -127,9 +132,11 @@ class AWSCloud9DeleteEnvironmentCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloud9.model.DeleteEnvironmentResult {
 	  return com.amazonaws.services.cloud9.model.DeleteEnvironmentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloud9.model.DeleteEnvironmentResult {
 		return environment.cloud9.deleteEnvironment(build())
@@ -160,9 +167,11 @@ class AWSCloud9DeleteEnvironmentMembershipCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloud9.model.DeleteEnvironmentMembershipResult {
 	  return com.amazonaws.services.cloud9.model.DeleteEnvironmentMembershipResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloud9.model.DeleteEnvironmentMembershipResult {
 		return environment.cloud9.deleteEnvironmentMembership(build())
@@ -200,9 +209,11 @@ class AWSCloud9DescribeEnvironmentMembershipsCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloud9.model.DescribeEnvironmentMembershipsResult {
 	  return com.amazonaws.services.cloud9.model.DescribeEnvironmentMembershipsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloud9.model.DescribeEnvironmentMembershipsResult {
 		return environment.cloud9.describeEnvironmentMemberships(build())
@@ -235,9 +246,11 @@ class AWSCloud9DescribeEnvironmentStatusCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloud9.model.DescribeEnvironmentStatusResult {
 	  return com.amazonaws.services.cloud9.model.DescribeEnvironmentStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloud9.model.DescribeEnvironmentStatusResult {
 		return environment.cloud9.describeEnvironmentStatus(build())
@@ -266,9 +279,11 @@ class AWSCloud9DescribeEnvironmentsCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloud9.model.DescribeEnvironmentsResult {
 	  return com.amazonaws.services.cloud9.model.DescribeEnvironmentsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloud9.model.DescribeEnvironmentsResult {
 		return environment.cloud9.describeEnvironments(build())
@@ -299,9 +314,11 @@ class AWSCloud9ListEnvironmentsCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloud9.model.ListEnvironmentsResult {
 	  return com.amazonaws.services.cloud9.model.ListEnvironmentsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloud9.model.ListEnvironmentsResult {
 		return environment.cloud9.listEnvironments(build())
@@ -335,9 +352,11 @@ class AWSCloud9UpdateEnvironmentCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloud9.model.UpdateEnvironmentResult {
 	  return com.amazonaws.services.cloud9.model.UpdateEnvironmentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloud9.model.UpdateEnvironmentResult {
 		return environment.cloud9.updateEnvironment(build())
@@ -372,9 +391,11 @@ class AWSCloud9UpdateEnvironmentMembershipCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloud9.model.UpdateEnvironmentMembershipResult {
 	  return com.amazonaws.services.cloud9.model.UpdateEnvironmentMembershipResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloud9.model.UpdateEnvironmentMembershipResult {
 		return environment.cloud9.updateEnvironmentMembership(build())

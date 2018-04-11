@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -43,9 +44,11 @@ class AWSBatchCancelJobCommand() : AmazonWebServiceCommand<com.amazonaws.service
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.batch.model.CancelJobResult {
 	  return com.amazonaws.services.batch.model.CancelJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.batch.model.CancelJobResult {
 		return environment.batch.cancelJob(build())
@@ -83,9 +86,11 @@ class AWSBatchCreateComputeEnvironmentCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.batch.model.CreateComputeEnvironmentResult {
 	  return com.amazonaws.services.batch.model.CreateComputeEnvironmentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.batch.model.CreateComputeEnvironmentResult {
 		return environment.batch.createComputeEnvironment(build())
@@ -124,9 +129,11 @@ class AWSBatchCreateJobQueueCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.batch.model.CreateJobQueueResult {
 	  return com.amazonaws.services.batch.model.CreateJobQueueResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.batch.model.CreateJobQueueResult {
 		return environment.batch.createJobQueue(build())
@@ -158,9 +165,11 @@ class AWSBatchDeleteComputeEnvironmentCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.batch.model.DeleteComputeEnvironmentResult {
 	  return com.amazonaws.services.batch.model.DeleteComputeEnvironmentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.batch.model.DeleteComputeEnvironmentResult {
 		return environment.batch.deleteComputeEnvironment(build())
@@ -189,9 +198,11 @@ class AWSBatchDeleteJobQueueCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.batch.model.DeleteJobQueueResult {
 	  return com.amazonaws.services.batch.model.DeleteJobQueueResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.batch.model.DeleteJobQueueResult {
 		return environment.batch.deleteJobQueue(build())
@@ -220,9 +231,11 @@ class AWSBatchDeregisterJobDefinitionCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.batch.model.DeregisterJobDefinitionResult {
 	  return com.amazonaws.services.batch.model.DeregisterJobDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.batch.model.DeregisterJobDefinitionResult {
 		return environment.batch.deregisterJobDefinition(build())
@@ -255,9 +268,11 @@ class AWSBatchDescribeComputeEnvironmentsCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.batch.model.DescribeComputeEnvironmentsResult {
 	  return com.amazonaws.services.batch.model.DescribeComputeEnvironmentsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.batch.model.DescribeComputeEnvironmentsResult {
 		return environment.batch.describeComputeEnvironments(build())
@@ -296,9 +311,11 @@ class AWSBatchDescribeJobDefinitionsCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.batch.model.DescribeJobDefinitionsResult {
 	  return com.amazonaws.services.batch.model.DescribeJobDefinitionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.batch.model.DescribeJobDefinitionsResult {
 		return environment.batch.describeJobDefinitions(build())
@@ -335,9 +352,11 @@ class AWSBatchDescribeJobQueuesCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.batch.model.DescribeJobQueuesResult {
 	  return com.amazonaws.services.batch.model.DescribeJobQueuesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.batch.model.DescribeJobQueuesResult {
 		return environment.batch.describeJobQueues(build())
@@ -368,9 +387,11 @@ class AWSBatchDescribeJobsCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.batch.model.DescribeJobsResult {
 	  return com.amazonaws.services.batch.model.DescribeJobsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.batch.model.DescribeJobsResult {
 		return environment.batch.describeJobs(build())
@@ -407,9 +428,11 @@ class AWSBatchListJobsCommand() : AmazonWebServiceCommand<com.amazonaws.services
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.batch.model.ListJobsResult {
 	  return com.amazonaws.services.batch.model.ListJobsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.batch.model.ListJobsResult {
 		return environment.batch.listJobs(build())
@@ -452,9 +475,11 @@ class AWSBatchRegisterJobDefinitionCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.batch.model.RegisterJobDefinitionResult {
 	  return com.amazonaws.services.batch.model.RegisterJobDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.batch.model.RegisterJobDefinitionResult {
 		return environment.batch.registerJobDefinition(build())
@@ -504,9 +529,11 @@ class AWSBatchSubmitJobCommand() : AmazonWebServiceCommand<com.amazonaws.service
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.batch.model.SubmitJobResult {
 	  return com.amazonaws.services.batch.model.SubmitJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.batch.model.SubmitJobResult {
 		return environment.batch.submitJob(build())
@@ -545,9 +572,11 @@ class AWSBatchTerminateJobCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.batch.model.TerminateJobResult {
 	  return com.amazonaws.services.batch.model.TerminateJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.batch.model.TerminateJobResult {
 		return environment.batch.terminateJob(build())
@@ -583,9 +612,11 @@ class AWSBatchUpdateComputeEnvironmentCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.batch.model.UpdateComputeEnvironmentResult {
 	  return com.amazonaws.services.batch.model.UpdateComputeEnvironmentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.batch.model.UpdateComputeEnvironmentResult {
 		return environment.batch.updateComputeEnvironment(build())
@@ -623,9 +654,11 @@ class AWSBatchUpdateJobQueueCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.batch.model.UpdateJobQueueResult {
 	  return com.amazonaws.services.batch.model.UpdateJobQueueResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.batch.model.UpdateJobQueueResult {
 		return environment.batch.updateJobQueue(build())

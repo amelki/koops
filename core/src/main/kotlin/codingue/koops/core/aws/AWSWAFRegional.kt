@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -42,9 +43,11 @@ class AWSWAFRegionalAssociateWebACLCommand(val webACLId: String, val resourceArn
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.AssociateWebACLResult {
 	  return com.amazonaws.services.waf.model.AssociateWebACLResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.AssociateWebACLResult {
 		return environment.waf_regional.associateWebACL(build())
@@ -75,9 +78,11 @@ class AWSWAFRegionalCreateByteMatchSetCommand(val name: String, val changeToken:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.CreateByteMatchSetResult {
 	  return com.amazonaws.services.waf.model.CreateByteMatchSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.CreateByteMatchSetResult {
 		return environment.waf_regional.createByteMatchSet(build())
@@ -108,9 +113,11 @@ class AWSWAFRegionalCreateGeoMatchSetCommand(val name: String, val changeToken: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.CreateGeoMatchSetResult {
 	  return com.amazonaws.services.waf.model.CreateGeoMatchSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.CreateGeoMatchSetResult {
 		return environment.waf_regional.createGeoMatchSet(build())
@@ -141,9 +148,11 @@ class AWSWAFRegionalCreateIPSetCommand(val name: String, val changeToken: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.CreateIPSetResult {
 	  return com.amazonaws.services.waf.model.CreateIPSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.CreateIPSetResult {
 		return environment.waf_regional.createIPSet(build())
@@ -177,9 +186,11 @@ class AWSWAFRegionalCreateRateBasedRuleCommand(val name: String, val metricName:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.CreateRateBasedRuleResult {
 	  return com.amazonaws.services.waf.model.CreateRateBasedRuleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.CreateRateBasedRuleResult {
 		return environment.waf_regional.createRateBasedRule(build())
@@ -213,9 +224,11 @@ class AWSWAFRegionalCreateRegexMatchSetCommand(val name: String, val changeToken
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.CreateRegexMatchSetResult {
 	  return com.amazonaws.services.waf.model.CreateRegexMatchSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.CreateRegexMatchSetResult {
 		return environment.waf_regional.createRegexMatchSet(build())
@@ -246,9 +259,11 @@ class AWSWAFRegionalCreateRegexPatternSetCommand(val name: String, val changeTok
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.CreateRegexPatternSetResult {
 	  return com.amazonaws.services.waf.model.CreateRegexPatternSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.CreateRegexPatternSetResult {
 		return environment.waf_regional.createRegexPatternSet(build())
@@ -280,9 +295,11 @@ class AWSWAFRegionalCreateRuleCommand(val name: String, val metricName: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.CreateRuleResult {
 	  return com.amazonaws.services.waf.model.CreateRuleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.CreateRuleResult {
 		return environment.waf_regional.createRule(build())
@@ -315,9 +332,11 @@ class AWSWAFRegionalCreateRuleGroupCommand(val name: String, val metricName: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.CreateRuleGroupResult {
 	  return com.amazonaws.services.waf.model.CreateRuleGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.CreateRuleGroupResult {
 		return environment.waf_regional.createRuleGroup(build())
@@ -349,9 +368,11 @@ class AWSWAFRegionalCreateSizeConstraintSetCommand(val name: String, val changeT
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.CreateSizeConstraintSetResult {
 	  return com.amazonaws.services.waf.model.CreateSizeConstraintSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.CreateSizeConstraintSetResult {
 		return environment.waf_regional.createSizeConstraintSet(build())
@@ -382,9 +403,11 @@ class AWSWAFRegionalCreateSqlInjectionMatchSetCommand(val name: String, val chan
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.CreateSqlInjectionMatchSetResult {
 	  return com.amazonaws.services.waf.model.CreateSqlInjectionMatchSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.CreateSqlInjectionMatchSetResult {
 		return environment.waf_regional.createSqlInjectionMatchSet(build())
@@ -417,9 +440,11 @@ class AWSWAFRegionalCreateWebACLCommand(val name: String, val metricName: String
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.CreateWebACLResult {
 	  return com.amazonaws.services.waf.model.CreateWebACLResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.CreateWebACLResult {
 		return environment.waf_regional.createWebACL(build())
@@ -452,9 +477,11 @@ class AWSWAFRegionalCreateXssMatchSetCommand(val name: String, val changeToken: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.CreateXssMatchSetResult {
 	  return com.amazonaws.services.waf.model.CreateXssMatchSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.CreateXssMatchSetResult {
 		return environment.waf_regional.createXssMatchSet(build())
@@ -485,9 +512,11 @@ class AWSWAFRegionalDeleteByteMatchSetCommand(val byteMatchSetId: String, val ch
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.DeleteByteMatchSetResult {
 	  return com.amazonaws.services.waf.model.DeleteByteMatchSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.DeleteByteMatchSetResult {
 		return environment.waf_regional.deleteByteMatchSet(build())
@@ -518,9 +547,11 @@ class AWSWAFRegionalDeleteGeoMatchSetCommand(val geoMatchSetId: String, val chan
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.DeleteGeoMatchSetResult {
 	  return com.amazonaws.services.waf.model.DeleteGeoMatchSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.DeleteGeoMatchSetResult {
 		return environment.waf_regional.deleteGeoMatchSet(build())
@@ -551,9 +582,11 @@ class AWSWAFRegionalDeleteIPSetCommand(val iPSetId: String, val changeToken: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.DeleteIPSetResult {
 	  return com.amazonaws.services.waf.model.DeleteIPSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.DeleteIPSetResult {
 		return environment.waf_regional.deleteIPSet(build())
@@ -583,9 +616,11 @@ class AWSWAFRegionalDeletePermissionPolicyCommand(val resourceArn: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.DeletePermissionPolicyResult {
 	  return com.amazonaws.services.waf.model.DeletePermissionPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.DeletePermissionPolicyResult {
 		return environment.waf_regional.deletePermissionPolicy(build())
@@ -615,9 +650,11 @@ class AWSWAFRegionalDeleteRateBasedRuleCommand(val ruleId: String, val changeTok
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.DeleteRateBasedRuleResult {
 	  return com.amazonaws.services.waf.model.DeleteRateBasedRuleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.DeleteRateBasedRuleResult {
 		return environment.waf_regional.deleteRateBasedRule(build())
@@ -648,9 +685,11 @@ class AWSWAFRegionalDeleteRegexMatchSetCommand(val regexMatchSetId: String, val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.DeleteRegexMatchSetResult {
 	  return com.amazonaws.services.waf.model.DeleteRegexMatchSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.DeleteRegexMatchSetResult {
 		return environment.waf_regional.deleteRegexMatchSet(build())
@@ -681,9 +720,11 @@ class AWSWAFRegionalDeleteRegexPatternSetCommand(val regexPatternSetId: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.DeleteRegexPatternSetResult {
 	  return com.amazonaws.services.waf.model.DeleteRegexPatternSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.DeleteRegexPatternSetResult {
 		return environment.waf_regional.deleteRegexPatternSet(build())
@@ -714,9 +755,11 @@ class AWSWAFRegionalDeleteRuleCommand(val ruleId: String, val changeToken: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.DeleteRuleResult {
 	  return com.amazonaws.services.waf.model.DeleteRuleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.DeleteRuleResult {
 		return environment.waf_regional.deleteRule(build())
@@ -747,9 +790,11 @@ class AWSWAFRegionalDeleteRuleGroupCommand(val ruleGroupId: String, val changeTo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.DeleteRuleGroupResult {
 	  return com.amazonaws.services.waf.model.DeleteRuleGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.DeleteRuleGroupResult {
 		return environment.waf_regional.deleteRuleGroup(build())
@@ -780,9 +825,11 @@ class AWSWAFRegionalDeleteSizeConstraintSetCommand(val sizeConstraintSetId: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.DeleteSizeConstraintSetResult {
 	  return com.amazonaws.services.waf.model.DeleteSizeConstraintSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.DeleteSizeConstraintSetResult {
 		return environment.waf_regional.deleteSizeConstraintSet(build())
@@ -813,9 +860,11 @@ class AWSWAFRegionalDeleteSqlInjectionMatchSetCommand(val sqlInjectionMatchSetId
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.DeleteSqlInjectionMatchSetResult {
 	  return com.amazonaws.services.waf.model.DeleteSqlInjectionMatchSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.DeleteSqlInjectionMatchSetResult {
 		return environment.waf_regional.deleteSqlInjectionMatchSet(build())
@@ -846,9 +895,11 @@ class AWSWAFRegionalDeleteWebACLCommand(val webACLId: String, val changeToken: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.DeleteWebACLResult {
 	  return com.amazonaws.services.waf.model.DeleteWebACLResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.DeleteWebACLResult {
 		return environment.waf_regional.deleteWebACL(build())
@@ -879,9 +930,11 @@ class AWSWAFRegionalDeleteXssMatchSetCommand(val xssMatchSetId: String, val chan
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.DeleteXssMatchSetResult {
 	  return com.amazonaws.services.waf.model.DeleteXssMatchSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.DeleteXssMatchSetResult {
 		return environment.waf_regional.deleteXssMatchSet(build())
@@ -911,9 +964,11 @@ class AWSWAFRegionalDisassociateWebACLCommand(val resourceArn: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.DisassociateWebACLResult {
 	  return com.amazonaws.services.waf.model.DisassociateWebACLResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.DisassociateWebACLResult {
 		return environment.waf_regional.disassociateWebACL(build())
@@ -942,9 +997,11 @@ class AWSWAFRegionalGetByteMatchSetCommand(val byteMatchSetId: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.GetByteMatchSetResult {
 	  return com.amazonaws.services.waf.model.GetByteMatchSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetByteMatchSetResult {
 		return environment.waf_regional.getByteMatchSet(build())
@@ -973,9 +1030,11 @@ class AWSWAFRegionalGetChangeTokenCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.GetChangeTokenResult {
 	  return com.amazonaws.services.waf.model.GetChangeTokenResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetChangeTokenResult {
 		return environment.waf_regional.getChangeToken(build())
@@ -1004,9 +1063,11 @@ class AWSWAFRegionalGetChangeTokenStatusCommand(val changeToken: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.GetChangeTokenStatusResult {
 	  return com.amazonaws.services.waf.model.GetChangeTokenStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetChangeTokenStatusResult {
 		return environment.waf_regional.getChangeTokenStatus(build())
@@ -1035,9 +1096,11 @@ class AWSWAFRegionalGetGeoMatchSetCommand(val geoMatchSetId: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.GetGeoMatchSetResult {
 	  return com.amazonaws.services.waf.model.GetGeoMatchSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetGeoMatchSetResult {
 		return environment.waf_regional.getGeoMatchSet(build())
@@ -1066,9 +1129,11 @@ class AWSWAFRegionalGetIPSetCommand(val iPSetId: String) : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.GetIPSetResult {
 	  return com.amazonaws.services.waf.model.GetIPSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetIPSetResult {
 		return environment.waf_regional.getIPSet(build())
@@ -1097,9 +1162,11 @@ class AWSWAFRegionalGetPermissionPolicyCommand(val resourceArn: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.GetPermissionPolicyResult {
 	  return com.amazonaws.services.waf.model.GetPermissionPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetPermissionPolicyResult {
 		return environment.waf_regional.getPermissionPolicy(build())
@@ -1128,9 +1195,11 @@ class AWSWAFRegionalGetRateBasedRuleCommand(val ruleId: String) : AmazonWebServi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.GetRateBasedRuleResult {
 	  return com.amazonaws.services.waf.model.GetRateBasedRuleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetRateBasedRuleResult {
 		return environment.waf_regional.getRateBasedRule(build())
@@ -1160,9 +1229,11 @@ class AWSWAFRegionalGetRateBasedRuleManagedKeysCommand(val ruleId: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.GetRateBasedRuleManagedKeysResult {
 	  return com.amazonaws.services.waf.model.GetRateBasedRuleManagedKeysResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetRateBasedRuleManagedKeysResult {
 		return environment.waf_regional.getRateBasedRuleManagedKeys(build())
@@ -1192,9 +1263,11 @@ class AWSWAFRegionalGetRegexMatchSetCommand(val regexMatchSetId: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.GetRegexMatchSetResult {
 	  return com.amazonaws.services.waf.model.GetRegexMatchSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetRegexMatchSetResult {
 		return environment.waf_regional.getRegexMatchSet(build())
@@ -1223,9 +1296,11 @@ class AWSWAFRegionalGetRegexPatternSetCommand(val regexPatternSetId: String) : A
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.GetRegexPatternSetResult {
 	  return com.amazonaws.services.waf.model.GetRegexPatternSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetRegexPatternSetResult {
 		return environment.waf_regional.getRegexPatternSet(build())
@@ -1254,9 +1329,11 @@ class AWSWAFRegionalGetRuleCommand(val ruleId: String) : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.GetRuleResult {
 	  return com.amazonaws.services.waf.model.GetRuleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetRuleResult {
 		return environment.waf_regional.getRule(build())
@@ -1285,9 +1362,11 @@ class AWSWAFRegionalGetRuleGroupCommand(val ruleGroupId: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.GetRuleGroupResult {
 	  return com.amazonaws.services.waf.model.GetRuleGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetRuleGroupResult {
 		return environment.waf_regional.getRuleGroup(build())
@@ -1319,9 +1398,11 @@ class AWSWAFRegionalGetSampledRequestsCommand(val webAclId: String, val ruleId: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.GetSampledRequestsResult {
 	  return com.amazonaws.services.waf.model.GetSampledRequestsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetSampledRequestsResult {
 		return environment.waf_regional.getSampledRequests(build())
@@ -1353,9 +1434,11 @@ class AWSWAFRegionalGetSizeConstraintSetCommand(val sizeConstraintSetId: String)
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.GetSizeConstraintSetResult {
 	  return com.amazonaws.services.waf.model.GetSizeConstraintSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetSizeConstraintSetResult {
 		return environment.waf_regional.getSizeConstraintSet(build())
@@ -1384,9 +1467,11 @@ class AWSWAFRegionalGetSqlInjectionMatchSetCommand(val sqlInjectionMatchSetId: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.GetSqlInjectionMatchSetResult {
 	  return com.amazonaws.services.waf.model.GetSqlInjectionMatchSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetSqlInjectionMatchSetResult {
 		return environment.waf_regional.getSqlInjectionMatchSet(build())
@@ -1415,9 +1500,11 @@ class AWSWAFRegionalGetWebACLCommand(val webACLId: String) : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.GetWebACLResult {
 	  return com.amazonaws.services.waf.model.GetWebACLResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetWebACLResult {
 		return environment.waf_regional.getWebACL(build())
@@ -1446,9 +1533,11 @@ class AWSWAFRegionalGetWebACLForResourceCommand(val resourceArn: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.GetWebACLForResourceResult {
 	  return com.amazonaws.services.waf.model.GetWebACLForResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetWebACLForResourceResult {
 		return environment.waf_regional.getWebACLForResource(build())
@@ -1477,9 +1566,11 @@ class AWSWAFRegionalGetXssMatchSetCommand(val xssMatchSetId: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.GetXssMatchSetResult {
 	  return com.amazonaws.services.waf.model.GetXssMatchSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetXssMatchSetResult {
 		return environment.waf_regional.getXssMatchSet(build())
@@ -1512,9 +1603,11 @@ class AWSWAFRegionalListActivatedRulesInRuleGroupCommand() : AmazonWebServiceCom
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.ListActivatedRulesInRuleGroupResult {
 	  return com.amazonaws.services.waf.model.ListActivatedRulesInRuleGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.ListActivatedRulesInRuleGroupResult {
 		return environment.waf_regional.listActivatedRulesInRuleGroup(build())
@@ -1547,9 +1640,11 @@ class AWSWAFRegionalListByteMatchSetsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.ListByteMatchSetsResult {
 	  return com.amazonaws.services.waf.model.ListByteMatchSetsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.ListByteMatchSetsResult {
 		return environment.waf_regional.listByteMatchSets(build())
@@ -1581,9 +1676,11 @@ class AWSWAFRegionalListGeoMatchSetsCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.ListGeoMatchSetsResult {
 	  return com.amazonaws.services.waf.model.ListGeoMatchSetsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.ListGeoMatchSetsResult {
 		return environment.waf_regional.listGeoMatchSets(build())
@@ -1615,9 +1712,11 @@ class AWSWAFRegionalListIPSetsCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.ListIPSetsResult {
 	  return com.amazonaws.services.waf.model.ListIPSetsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.ListIPSetsResult {
 		return environment.waf_regional.listIPSets(build())
@@ -1649,9 +1748,11 @@ class AWSWAFRegionalListRateBasedRulesCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.ListRateBasedRulesResult {
 	  return com.amazonaws.services.waf.model.ListRateBasedRulesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.ListRateBasedRulesResult {
 		return environment.waf_regional.listRateBasedRules(build())
@@ -1683,9 +1784,11 @@ class AWSWAFRegionalListRegexMatchSetsCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.ListRegexMatchSetsResult {
 	  return com.amazonaws.services.waf.model.ListRegexMatchSetsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.ListRegexMatchSetsResult {
 		return environment.waf_regional.listRegexMatchSets(build())
@@ -1717,9 +1820,11 @@ class AWSWAFRegionalListRegexPatternSetsCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.ListRegexPatternSetsResult {
 	  return com.amazonaws.services.waf.model.ListRegexPatternSetsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.ListRegexPatternSetsResult {
 		return environment.waf_regional.listRegexPatternSets(build())
@@ -1749,9 +1854,11 @@ class AWSWAFRegionalListResourcesForWebACLCommand(val webACLId: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.ListResourcesForWebACLResult {
 	  return com.amazonaws.services.waf.model.ListResourcesForWebACLResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.ListResourcesForWebACLResult {
 		return environment.waf_regional.listResourcesForWebACL(build())
@@ -1782,9 +1889,11 @@ class AWSWAFRegionalListRuleGroupsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.ListRuleGroupsResult {
 	  return com.amazonaws.services.waf.model.ListRuleGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.ListRuleGroupsResult {
 		return environment.waf_regional.listRuleGroups(build())
@@ -1816,9 +1925,11 @@ class AWSWAFRegionalListRulesCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.ListRulesResult {
 	  return com.amazonaws.services.waf.model.ListRulesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.ListRulesResult {
 		return environment.waf_regional.listRules(build())
@@ -1850,9 +1961,11 @@ class AWSWAFRegionalListSizeConstraintSetsCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.ListSizeConstraintSetsResult {
 	  return com.amazonaws.services.waf.model.ListSizeConstraintSetsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.ListSizeConstraintSetsResult {
 		return environment.waf_regional.listSizeConstraintSets(build())
@@ -1884,9 +1997,11 @@ class AWSWAFRegionalListSqlInjectionMatchSetsCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.ListSqlInjectionMatchSetsResult {
 	  return com.amazonaws.services.waf.model.ListSqlInjectionMatchSetsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.ListSqlInjectionMatchSetsResult {
 		return environment.waf_regional.listSqlInjectionMatchSets(build())
@@ -1918,9 +2033,11 @@ class AWSWAFRegionalListSubscribedRuleGroupsCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.ListSubscribedRuleGroupsResult {
 	  return com.amazonaws.services.waf.model.ListSubscribedRuleGroupsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.ListSubscribedRuleGroupsResult {
 		return environment.waf_regional.listSubscribedRuleGroups(build())
@@ -1952,9 +2069,11 @@ class AWSWAFRegionalListWebACLsCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.ListWebACLsResult {
 	  return com.amazonaws.services.waf.model.ListWebACLsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.ListWebACLsResult {
 		return environment.waf_regional.listWebACLs(build())
@@ -1986,9 +2105,11 @@ class AWSWAFRegionalListXssMatchSetsCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.ListXssMatchSetsResult {
 	  return com.amazonaws.services.waf.model.ListXssMatchSetsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.ListXssMatchSetsResult {
 		return environment.waf_regional.listXssMatchSets(build())
@@ -2019,9 +2140,11 @@ class AWSWAFRegionalPutPermissionPolicyCommand(val resourceArn: String, val poli
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.PutPermissionPolicyResult {
 	  return com.amazonaws.services.waf.model.PutPermissionPolicyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.PutPermissionPolicyResult {
 		return environment.waf_regional.putPermissionPolicy(build())
@@ -2053,9 +2176,11 @@ class AWSWAFRegionalUpdateByteMatchSetCommand(val byteMatchSetId: String, val ch
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.UpdateByteMatchSetResult {
 	  return com.amazonaws.services.waf.model.UpdateByteMatchSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.UpdateByteMatchSetResult {
 		return environment.waf_regional.updateByteMatchSet(build())
@@ -2088,9 +2213,11 @@ class AWSWAFRegionalUpdateGeoMatchSetCommand(val geoMatchSetId: String, val chan
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.UpdateGeoMatchSetResult {
 	  return com.amazonaws.services.waf.model.UpdateGeoMatchSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.UpdateGeoMatchSetResult {
 		return environment.waf_regional.updateGeoMatchSet(build())
@@ -2123,9 +2250,11 @@ class AWSWAFRegionalUpdateIPSetCommand(val iPSetId: String, val changeToken: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.UpdateIPSetResult {
 	  return com.amazonaws.services.waf.model.UpdateIPSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.UpdateIPSetResult {
 		return environment.waf_regional.updateIPSet(build())
@@ -2159,9 +2288,11 @@ class AWSWAFRegionalUpdateRateBasedRuleCommand(val ruleId: String, val changeTok
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.UpdateRateBasedRuleResult {
 	  return com.amazonaws.services.waf.model.UpdateRateBasedRuleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.UpdateRateBasedRuleResult {
 		return environment.waf_regional.updateRateBasedRule(build())
@@ -2195,9 +2326,11 @@ class AWSWAFRegionalUpdateRegexMatchSetCommand(val regexMatchSetId: String, val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.UpdateRegexMatchSetResult {
 	  return com.amazonaws.services.waf.model.UpdateRegexMatchSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.UpdateRegexMatchSetResult {
 		return environment.waf_regional.updateRegexMatchSet(build())
@@ -2230,9 +2363,11 @@ class AWSWAFRegionalUpdateRegexPatternSetCommand(val regexPatternSetId: String, 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.UpdateRegexPatternSetResult {
 	  return com.amazonaws.services.waf.model.UpdateRegexPatternSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.UpdateRegexPatternSetResult {
 		return environment.waf_regional.updateRegexPatternSet(build())
@@ -2265,9 +2400,11 @@ class AWSWAFRegionalUpdateRuleCommand(val ruleId: String, val changeToken: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.UpdateRuleResult {
 	  return com.amazonaws.services.waf.model.UpdateRuleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.UpdateRuleResult {
 		return environment.waf_regional.updateRule(build())
@@ -2300,9 +2437,11 @@ class AWSWAFRegionalUpdateRuleGroupCommand(val ruleGroupId: String, val updates:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.UpdateRuleGroupResult {
 	  return com.amazonaws.services.waf.model.UpdateRuleGroupResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.UpdateRuleGroupResult {
 		return environment.waf_regional.updateRuleGroup(build())
@@ -2335,9 +2474,11 @@ class AWSWAFRegionalUpdateSizeConstraintSetCommand(val sizeConstraintSetId: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.UpdateSizeConstraintSetResult {
 	  return com.amazonaws.services.waf.model.UpdateSizeConstraintSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.UpdateSizeConstraintSetResult {
 		return environment.waf_regional.updateSizeConstraintSet(build())
@@ -2370,9 +2511,11 @@ class AWSWAFRegionalUpdateSqlInjectionMatchSetCommand(val sqlInjectionMatchSetId
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.UpdateSqlInjectionMatchSetResult {
 	  return com.amazonaws.services.waf.model.UpdateSqlInjectionMatchSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.UpdateSqlInjectionMatchSetResult {
 		return environment.waf_regional.updateSqlInjectionMatchSet(build())
@@ -2407,9 +2550,11 @@ class AWSWAFRegionalUpdateWebACLCommand(val webACLId: String, val changeToken: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.UpdateWebACLResult {
 	  return com.amazonaws.services.waf.model.UpdateWebACLResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.UpdateWebACLResult {
 		return environment.waf_regional.updateWebACL(build())
@@ -2443,9 +2588,11 @@ class AWSWAFRegionalUpdateXssMatchSetCommand(val xssMatchSetId: String, val chan
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.waf.model.UpdateXssMatchSetResult {
 	  return com.amazonaws.services.waf.model.UpdateXssMatchSetResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.UpdateXssMatchSetResult {
 		return environment.waf_regional.updateXssMatchSet(build())

@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -51,9 +52,11 @@ class AWSSecurityTokenServiceAssumeRoleCommand(val roleArn: String, val roleSess
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.securitytoken.model.AssumeRoleResult {
 	  return com.amazonaws.services.securitytoken.model.AssumeRoleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.securitytoken.model.AssumeRoleResult {
 		return environment.sts.assumeRole(build())
@@ -93,9 +96,11 @@ class AWSSecurityTokenServiceAssumeRoleWithSAMLCommand(val roleArn: String, val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.securitytoken.model.AssumeRoleWithSAMLResult {
 	  return com.amazonaws.services.securitytoken.model.AssumeRoleWithSAMLResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.securitytoken.model.AssumeRoleWithSAMLResult {
 		return environment.sts.assumeRoleWithSAML(build())
@@ -135,9 +140,11 @@ class AWSSecurityTokenServiceAssumeRoleWithWebIdentityCommand(val roleArn: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.securitytoken.model.AssumeRoleWithWebIdentityResult {
 	  return com.amazonaws.services.securitytoken.model.AssumeRoleWithWebIdentityResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.securitytoken.model.AssumeRoleWithWebIdentityResult {
 		return environment.sts.assumeRoleWithWebIdentity(build())
@@ -171,9 +178,11 @@ class AWSSecurityTokenServiceDecodeAuthorizationMessageCommand(val encodedMessag
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.securitytoken.model.DecodeAuthorizationMessageResult {
 	  return com.amazonaws.services.securitytoken.model.DecodeAuthorizationMessageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.securitytoken.model.DecodeAuthorizationMessageResult {
 		return environment.sts.decodeAuthorizationMessage(build())
@@ -202,9 +211,11 @@ class AWSSecurityTokenServiceGetCallerIdentityCommand() : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.securitytoken.model.GetCallerIdentityResult {
 	  return com.amazonaws.services.securitytoken.model.GetCallerIdentityResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.securitytoken.model.GetCallerIdentityResult {
 		return environment.sts.getCallerIdentity(build())
@@ -236,9 +247,11 @@ class AWSSecurityTokenServiceGetFederationTokenCommand(val name: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.securitytoken.model.GetFederationTokenResult {
 	  return com.amazonaws.services.securitytoken.model.GetFederationTokenResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.securitytoken.model.GetFederationTokenResult {
 		return environment.sts.getFederationToken(build())
@@ -273,9 +286,11 @@ class AWSSecurityTokenServiceGetSessionTokenCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.securitytoken.model.GetSessionTokenResult {
 	  return com.amazonaws.services.securitytoken.model.GetSessionTokenResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.securitytoken.model.GetSessionTokenResult {
 		return environment.sts.getSessionToken(build())

@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -41,9 +42,11 @@ class AmazonLightsailAllocateStaticIpCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.AllocateStaticIpResult {
 	  return com.amazonaws.services.lightsail.model.AllocateStaticIpResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.AllocateStaticIpResult {
 		return environment.lightsail.allocateStaticIp(build())
@@ -76,9 +79,11 @@ class AmazonLightsailAttachDiskCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.AttachDiskResult {
 	  return com.amazonaws.services.lightsail.model.AttachDiskResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.AttachDiskResult {
 		return environment.lightsail.attachDisk(build())
@@ -111,9 +116,11 @@ class AmazonLightsailAttachInstancesToLoadBalancerCommand() : AmazonWebServiceCo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.AttachInstancesToLoadBalancerResult {
 	  return com.amazonaws.services.lightsail.model.AttachInstancesToLoadBalancerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.AttachInstancesToLoadBalancerResult {
 		return environment.lightsail.attachInstancesToLoadBalancer(build())
@@ -145,9 +152,11 @@ class AmazonLightsailAttachLoadBalancerTlsCertificateCommand() : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.AttachLoadBalancerTlsCertificateResult {
 	  return com.amazonaws.services.lightsail.model.AttachLoadBalancerTlsCertificateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.AttachLoadBalancerTlsCertificateResult {
 		return environment.lightsail.attachLoadBalancerTlsCertificate(build())
@@ -179,9 +188,11 @@ class AmazonLightsailAttachStaticIpCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.AttachStaticIpResult {
 	  return com.amazonaws.services.lightsail.model.AttachStaticIpResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.AttachStaticIpResult {
 		return environment.lightsail.attachStaticIp(build())
@@ -213,9 +224,11 @@ class AmazonLightsailCloseInstancePublicPortsCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.CloseInstancePublicPortsResult {
 	  return com.amazonaws.services.lightsail.model.CloseInstancePublicPortsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.CloseInstancePublicPortsResult {
 		return environment.lightsail.closeInstancePublicPorts(build())
@@ -249,9 +262,11 @@ class AmazonLightsailCreateDiskCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.CreateDiskResult {
 	  return com.amazonaws.services.lightsail.model.CreateDiskResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.CreateDiskResult {
 		return environment.lightsail.createDisk(build())
@@ -288,9 +303,11 @@ class AmazonLightsailCreateDiskFromSnapshotCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.CreateDiskFromSnapshotResult {
 	  return com.amazonaws.services.lightsail.model.CreateDiskFromSnapshotResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.CreateDiskFromSnapshotResult {
 		return environment.lightsail.createDiskFromSnapshot(build())
@@ -324,9 +341,11 @@ class AmazonLightsailCreateDiskSnapshotCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.CreateDiskSnapshotResult {
 	  return com.amazonaws.services.lightsail.model.CreateDiskSnapshotResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.CreateDiskSnapshotResult {
 		return environment.lightsail.createDiskSnapshot(build())
@@ -356,9 +375,11 @@ class AmazonLightsailCreateDomainCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.CreateDomainResult {
 	  return com.amazonaws.services.lightsail.model.CreateDomainResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.CreateDomainResult {
 		return environment.lightsail.createDomain(build())
@@ -389,9 +410,11 @@ class AmazonLightsailCreateDomainEntryCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.CreateDomainEntryResult {
 	  return com.amazonaws.services.lightsail.model.CreateDomainEntryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.CreateDomainEntryResult {
 		return environment.lightsail.createDomainEntry(build())
@@ -423,9 +446,11 @@ class AmazonLightsailCreateInstanceSnapshotCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.CreateInstanceSnapshotResult {
 	  return com.amazonaws.services.lightsail.model.CreateInstanceSnapshotResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.CreateInstanceSnapshotResult {
 		return environment.lightsail.createInstanceSnapshot(build())
@@ -467,9 +492,11 @@ class AmazonLightsailCreateInstancesCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.CreateInstancesResult {
 	  return com.amazonaws.services.lightsail.model.CreateInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.CreateInstancesResult {
 		return environment.lightsail.createInstances(build())
@@ -516,9 +543,11 @@ class AmazonLightsailCreateInstancesFromSnapshotCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.CreateInstancesFromSnapshotResult {
 	  return com.amazonaws.services.lightsail.model.CreateInstancesFromSnapshotResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.CreateInstancesFromSnapshotResult {
 		return environment.lightsail.createInstancesFromSnapshot(build())
@@ -553,9 +582,11 @@ class AmazonLightsailCreateKeyPairCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.CreateKeyPairResult {
 	  return com.amazonaws.services.lightsail.model.CreateKeyPairResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.CreateKeyPairResult {
 		return environment.lightsail.createKeyPair(build())
@@ -594,9 +625,11 @@ class AmazonLightsailCreateLoadBalancerCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.CreateLoadBalancerResult {
 	  return com.amazonaws.services.lightsail.model.CreateLoadBalancerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.CreateLoadBalancerResult {
 		return environment.lightsail.createLoadBalancer(build())
@@ -636,9 +669,11 @@ class AmazonLightsailCreateLoadBalancerTlsCertificateCommand() : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.CreateLoadBalancerTlsCertificateResult {
 	  return com.amazonaws.services.lightsail.model.CreateLoadBalancerTlsCertificateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.CreateLoadBalancerTlsCertificateResult {
 		return environment.lightsail.createLoadBalancerTlsCertificate(build())
@@ -670,9 +705,11 @@ class AmazonLightsailDeleteDiskCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.DeleteDiskResult {
 	  return com.amazonaws.services.lightsail.model.DeleteDiskResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.DeleteDiskResult {
 		return environment.lightsail.deleteDisk(build())
@@ -701,9 +738,11 @@ class AmazonLightsailDeleteDiskSnapshotCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.DeleteDiskSnapshotResult {
 	  return com.amazonaws.services.lightsail.model.DeleteDiskSnapshotResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.DeleteDiskSnapshotResult {
 		return environment.lightsail.deleteDiskSnapshot(build())
@@ -732,9 +771,11 @@ class AmazonLightsailDeleteDomainCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.DeleteDomainResult {
 	  return com.amazonaws.services.lightsail.model.DeleteDomainResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.DeleteDomainResult {
 		return environment.lightsail.deleteDomain(build())
@@ -765,9 +806,11 @@ class AmazonLightsailDeleteDomainEntryCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.DeleteDomainEntryResult {
 	  return com.amazonaws.services.lightsail.model.DeleteDomainEntryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.DeleteDomainEntryResult {
 		return environment.lightsail.deleteDomainEntry(build())
@@ -797,9 +840,11 @@ class AmazonLightsailDeleteInstanceCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.DeleteInstanceResult {
 	  return com.amazonaws.services.lightsail.model.DeleteInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.DeleteInstanceResult {
 		return environment.lightsail.deleteInstance(build())
@@ -828,9 +873,11 @@ class AmazonLightsailDeleteInstanceSnapshotCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.DeleteInstanceSnapshotResult {
 	  return com.amazonaws.services.lightsail.model.DeleteInstanceSnapshotResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.DeleteInstanceSnapshotResult {
 		return environment.lightsail.deleteInstanceSnapshot(build())
@@ -859,9 +906,11 @@ class AmazonLightsailDeleteKeyPairCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.DeleteKeyPairResult {
 	  return com.amazonaws.services.lightsail.model.DeleteKeyPairResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.DeleteKeyPairResult {
 		return environment.lightsail.deleteKeyPair(build())
@@ -890,9 +939,11 @@ class AmazonLightsailDeleteLoadBalancerCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.DeleteLoadBalancerResult {
 	  return com.amazonaws.services.lightsail.model.DeleteLoadBalancerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.DeleteLoadBalancerResult {
 		return environment.lightsail.deleteLoadBalancer(build())
@@ -925,9 +976,11 @@ class AmazonLightsailDeleteLoadBalancerTlsCertificateCommand() : AmazonWebServic
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.DeleteLoadBalancerTlsCertificateResult {
 	  return com.amazonaws.services.lightsail.model.DeleteLoadBalancerTlsCertificateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.DeleteLoadBalancerTlsCertificateResult {
 		return environment.lightsail.deleteLoadBalancerTlsCertificate(build())
@@ -958,9 +1011,11 @@ class AmazonLightsailDetachDiskCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.DetachDiskResult {
 	  return com.amazonaws.services.lightsail.model.DetachDiskResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.DetachDiskResult {
 		return environment.lightsail.detachDisk(build())
@@ -991,9 +1046,11 @@ class AmazonLightsailDetachInstancesFromLoadBalancerCommand() : AmazonWebService
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.DetachInstancesFromLoadBalancerResult {
 	  return com.amazonaws.services.lightsail.model.DetachInstancesFromLoadBalancerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.DetachInstancesFromLoadBalancerResult {
 		return environment.lightsail.detachInstancesFromLoadBalancer(build())
@@ -1023,9 +1080,11 @@ class AmazonLightsailDetachStaticIpCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.DetachStaticIpResult {
 	  return com.amazonaws.services.lightsail.model.DetachStaticIpResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.DetachStaticIpResult {
 		return environment.lightsail.detachStaticIp(build())
@@ -1054,9 +1113,11 @@ class AmazonLightsailDownloadDefaultKeyPairCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.DownloadDefaultKeyPairResult {
 	  return com.amazonaws.services.lightsail.model.DownloadDefaultKeyPairResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.DownloadDefaultKeyPairResult {
 		return environment.lightsail.downloadDefaultKeyPair(build())
@@ -1085,9 +1146,11 @@ class AmazonLightsailGetActiveNamesCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.GetActiveNamesResult {
 	  return com.amazonaws.services.lightsail.model.GetActiveNamesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetActiveNamesResult {
 		return environment.lightsail.getActiveNames(build())
@@ -1118,9 +1181,11 @@ class AmazonLightsailGetBlueprintsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.GetBlueprintsResult {
 	  return com.amazonaws.services.lightsail.model.GetBlueprintsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetBlueprintsResult {
 		return environment.lightsail.getBlueprints(build())
@@ -1152,9 +1217,11 @@ class AmazonLightsailGetBundlesCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.GetBundlesResult {
 	  return com.amazonaws.services.lightsail.model.GetBundlesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetBundlesResult {
 		return environment.lightsail.getBundles(build())
@@ -1184,9 +1251,11 @@ class AmazonLightsailGetDiskCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.GetDiskResult {
 	  return com.amazonaws.services.lightsail.model.GetDiskResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetDiskResult {
 		return environment.lightsail.getDisk(build())
@@ -1215,9 +1284,11 @@ class AmazonLightsailGetDiskSnapshotCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.GetDiskSnapshotResult {
 	  return com.amazonaws.services.lightsail.model.GetDiskSnapshotResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetDiskSnapshotResult {
 		return environment.lightsail.getDiskSnapshot(build())
@@ -1246,9 +1317,11 @@ class AmazonLightsailGetDiskSnapshotsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.GetDiskSnapshotsResult {
 	  return com.amazonaws.services.lightsail.model.GetDiskSnapshotsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetDiskSnapshotsResult {
 		return environment.lightsail.getDiskSnapshots(build())
@@ -1277,9 +1350,11 @@ class AmazonLightsailGetDisksCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.GetDisksResult {
 	  return com.amazonaws.services.lightsail.model.GetDisksResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetDisksResult {
 		return environment.lightsail.getDisks(build())
@@ -1308,9 +1383,11 @@ class AmazonLightsailGetDomainCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.GetDomainResult {
 	  return com.amazonaws.services.lightsail.model.GetDomainResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetDomainResult {
 		return environment.lightsail.getDomain(build())
@@ -1339,9 +1416,11 @@ class AmazonLightsailGetDomainsCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.GetDomainsResult {
 	  return com.amazonaws.services.lightsail.model.GetDomainsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetDomainsResult {
 		return environment.lightsail.getDomains(build())
@@ -1370,9 +1449,11 @@ class AmazonLightsailGetInstanceCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.GetInstanceResult {
 	  return com.amazonaws.services.lightsail.model.GetInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetInstanceResult {
 		return environment.lightsail.getInstance(build())
@@ -1403,9 +1484,11 @@ class AmazonLightsailGetInstanceAccessDetailsCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.GetInstanceAccessDetailsResult {
 	  return com.amazonaws.services.lightsail.model.GetInstanceAccessDetailsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetInstanceAccessDetailsResult {
 		return environment.lightsail.getInstanceAccessDetails(build())
@@ -1447,9 +1530,11 @@ class AmazonLightsailGetInstanceMetricDataCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.GetInstanceMetricDataResult {
 	  return com.amazonaws.services.lightsail.model.GetInstanceMetricDataResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetInstanceMetricDataResult {
 		return environment.lightsail.getInstanceMetricData(build())
@@ -1484,9 +1569,11 @@ class AmazonLightsailGetInstancePortStatesCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.GetInstancePortStatesResult {
 	  return com.amazonaws.services.lightsail.model.GetInstancePortStatesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetInstancePortStatesResult {
 		return environment.lightsail.getInstancePortStates(build())
@@ -1515,9 +1602,11 @@ class AmazonLightsailGetInstanceSnapshotCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.GetInstanceSnapshotResult {
 	  return com.amazonaws.services.lightsail.model.GetInstanceSnapshotResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetInstanceSnapshotResult {
 		return environment.lightsail.getInstanceSnapshot(build())
@@ -1546,9 +1635,11 @@ class AmazonLightsailGetInstanceSnapshotsCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.GetInstanceSnapshotsResult {
 	  return com.amazonaws.services.lightsail.model.GetInstanceSnapshotsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetInstanceSnapshotsResult {
 		return environment.lightsail.getInstanceSnapshots(build())
@@ -1577,9 +1668,11 @@ class AmazonLightsailGetInstanceStateCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.GetInstanceStateResult {
 	  return com.amazonaws.services.lightsail.model.GetInstanceStateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetInstanceStateResult {
 		return environment.lightsail.getInstanceState(build())
@@ -1608,9 +1701,11 @@ class AmazonLightsailGetInstancesCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.GetInstancesResult {
 	  return com.amazonaws.services.lightsail.model.GetInstancesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetInstancesResult {
 		return environment.lightsail.getInstances(build())
@@ -1639,9 +1734,11 @@ class AmazonLightsailGetKeyPairCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.GetKeyPairResult {
 	  return com.amazonaws.services.lightsail.model.GetKeyPairResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetKeyPairResult {
 		return environment.lightsail.getKeyPair(build())
@@ -1670,9 +1767,11 @@ class AmazonLightsailGetKeyPairsCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.GetKeyPairsResult {
 	  return com.amazonaws.services.lightsail.model.GetKeyPairsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetKeyPairsResult {
 		return environment.lightsail.getKeyPairs(build())
@@ -1701,9 +1800,11 @@ class AmazonLightsailGetLoadBalancerCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.GetLoadBalancerResult {
 	  return com.amazonaws.services.lightsail.model.GetLoadBalancerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetLoadBalancerResult {
 		return environment.lightsail.getLoadBalancer(build())
@@ -1744,9 +1845,11 @@ class AmazonLightsailGetLoadBalancerMetricDataCommand() : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.GetLoadBalancerMetricDataResult {
 	  return com.amazonaws.services.lightsail.model.GetLoadBalancerMetricDataResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetLoadBalancerMetricDataResult {
 		return environment.lightsail.getLoadBalancerMetricData(build())
@@ -1781,9 +1884,11 @@ class AmazonLightsailGetLoadBalancerTlsCertificatesCommand() : AmazonWebServiceC
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.GetLoadBalancerTlsCertificatesResult {
 	  return com.amazonaws.services.lightsail.model.GetLoadBalancerTlsCertificatesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetLoadBalancerTlsCertificatesResult {
 		return environment.lightsail.getLoadBalancerTlsCertificates(build())
@@ -1812,9 +1917,11 @@ class AmazonLightsailGetLoadBalancersCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.GetLoadBalancersResult {
 	  return com.amazonaws.services.lightsail.model.GetLoadBalancersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetLoadBalancersResult {
 		return environment.lightsail.getLoadBalancers(build())
@@ -1843,9 +1950,11 @@ class AmazonLightsailGetOperationCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.GetOperationResult {
 	  return com.amazonaws.services.lightsail.model.GetOperationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetOperationResult {
 		return environment.lightsail.getOperation(build())
@@ -1874,9 +1983,11 @@ class AmazonLightsailGetOperationsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.GetOperationsResult {
 	  return com.amazonaws.services.lightsail.model.GetOperationsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetOperationsResult {
 		return environment.lightsail.getOperations(build())
@@ -1907,9 +2018,11 @@ class AmazonLightsailGetOperationsForResourceCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.GetOperationsForResourceResult {
 	  return com.amazonaws.services.lightsail.model.GetOperationsForResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetOperationsForResourceResult {
 		return environment.lightsail.getOperationsForResource(build())
@@ -1939,9 +2052,11 @@ class AmazonLightsailGetRegionsCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.GetRegionsResult {
 	  return com.amazonaws.services.lightsail.model.GetRegionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetRegionsResult {
 		return environment.lightsail.getRegions(build())
@@ -1970,9 +2085,11 @@ class AmazonLightsailGetStaticIpCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.GetStaticIpResult {
 	  return com.amazonaws.services.lightsail.model.GetStaticIpResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetStaticIpResult {
 		return environment.lightsail.getStaticIp(build())
@@ -2001,9 +2118,11 @@ class AmazonLightsailGetStaticIpsCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.GetStaticIpsResult {
 	  return com.amazonaws.services.lightsail.model.GetStaticIpsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetStaticIpsResult {
 		return environment.lightsail.getStaticIps(build())
@@ -2034,9 +2153,11 @@ class AmazonLightsailImportKeyPairCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.ImportKeyPairResult {
 	  return com.amazonaws.services.lightsail.model.ImportKeyPairResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.ImportKeyPairResult {
 		return environment.lightsail.importKeyPair(build())
@@ -2066,9 +2187,11 @@ class AmazonLightsailIsVpcPeeredCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.IsVpcPeeredResult {
 	  return com.amazonaws.services.lightsail.model.IsVpcPeeredResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.IsVpcPeeredResult {
 		return environment.lightsail.isVpcPeered(build())
@@ -2099,9 +2222,11 @@ class AmazonLightsailOpenInstancePublicPortsCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.OpenInstancePublicPortsResult {
 	  return com.amazonaws.services.lightsail.model.OpenInstancePublicPortsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.OpenInstancePublicPortsResult {
 		return environment.lightsail.openInstancePublicPorts(build())
@@ -2131,9 +2256,11 @@ class AmazonLightsailPeerVpcCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.PeerVpcResult {
 	  return com.amazonaws.services.lightsail.model.PeerVpcResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.PeerVpcResult {
 		return environment.lightsail.peerVpc(build())
@@ -2164,9 +2291,11 @@ class AmazonLightsailPutInstancePublicPortsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.PutInstancePublicPortsResult {
 	  return com.amazonaws.services.lightsail.model.PutInstancePublicPortsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.PutInstancePublicPortsResult {
 		return environment.lightsail.putInstancePublicPorts(build())
@@ -2196,9 +2325,11 @@ class AmazonLightsailRebootInstanceCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.RebootInstanceResult {
 	  return com.amazonaws.services.lightsail.model.RebootInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.RebootInstanceResult {
 		return environment.lightsail.rebootInstance(build())
@@ -2227,9 +2358,11 @@ class AmazonLightsailReleaseStaticIpCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.ReleaseStaticIpResult {
 	  return com.amazonaws.services.lightsail.model.ReleaseStaticIpResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.ReleaseStaticIpResult {
 		return environment.lightsail.releaseStaticIp(build())
@@ -2258,9 +2391,11 @@ class AmazonLightsailStartInstanceCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.StartInstanceResult {
 	  return com.amazonaws.services.lightsail.model.StartInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.StartInstanceResult {
 		return environment.lightsail.startInstance(build())
@@ -2291,9 +2426,11 @@ class AmazonLightsailStopInstanceCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.StopInstanceResult {
 	  return com.amazonaws.services.lightsail.model.StopInstanceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.StopInstanceResult {
 		return environment.lightsail.stopInstance(build())
@@ -2323,9 +2460,11 @@ class AmazonLightsailUnpeerVpcCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.UnpeerVpcResult {
 	  return com.amazonaws.services.lightsail.model.UnpeerVpcResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.UnpeerVpcResult {
 		return environment.lightsail.unpeerVpc(build())
@@ -2356,9 +2495,11 @@ class AmazonLightsailUpdateDomainEntryCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.UpdateDomainEntryResult {
 	  return com.amazonaws.services.lightsail.model.UpdateDomainEntryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.UpdateDomainEntryResult {
 		return environment.lightsail.updateDomainEntry(build())
@@ -2392,9 +2533,11 @@ class AmazonLightsailUpdateLoadBalancerAttributeCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.lightsail.model.UpdateLoadBalancerAttributeResult {
 	  return com.amazonaws.services.lightsail.model.UpdateLoadBalancerAttributeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.UpdateLoadBalancerAttributeResult {
 		return environment.lightsail.updateLoadBalancerAttribute(build())

@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -43,9 +44,11 @@ class AmazonTranscribeCreateVocabularyCommand(val vocabularyName: String, val la
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.transcribe.model.CreateVocabularyResult {
 	  return com.amazonaws.services.transcribe.model.CreateVocabularyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.transcribe.model.CreateVocabularyResult {
 		return environment.transcribe.createVocabulary(build())
@@ -76,9 +79,11 @@ class AmazonTranscribeDeleteVocabularyCommand(val vocabularyName: String) : Amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.transcribe.model.DeleteVocabularyResult {
 	  return com.amazonaws.services.transcribe.model.DeleteVocabularyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.transcribe.model.DeleteVocabularyResult {
 		return environment.transcribe.deleteVocabulary(build())
@@ -107,9 +112,11 @@ class AmazonTranscribeGetTranscriptionJobCommand(val transcriptionJobName: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.transcribe.model.GetTranscriptionJobResult {
 	  return com.amazonaws.services.transcribe.model.GetTranscriptionJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.transcribe.model.GetTranscriptionJobResult {
 		return environment.transcribe.getTranscriptionJob(build())
@@ -138,9 +145,11 @@ class AmazonTranscribeGetVocabularyCommand(val vocabularyName: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.transcribe.model.GetVocabularyResult {
 	  return com.amazonaws.services.transcribe.model.GetVocabularyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.transcribe.model.GetVocabularyResult {
 		return environment.transcribe.getVocabulary(build())
@@ -175,9 +184,11 @@ class AmazonTranscribeListTranscriptionJobsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.transcribe.model.ListTranscriptionJobsResult {
 	  return com.amazonaws.services.transcribe.model.ListTranscriptionJobsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.transcribe.model.ListTranscriptionJobsResult {
 		return environment.transcribe.listTranscriptionJobs(build())
@@ -215,9 +226,11 @@ class AmazonTranscribeListVocabulariesCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.transcribe.model.ListVocabulariesResult {
 	  return com.amazonaws.services.transcribe.model.ListVocabulariesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.transcribe.model.ListVocabulariesResult {
 		return environment.transcribe.listVocabularies(build())
@@ -255,9 +268,11 @@ class AmazonTranscribeStartTranscriptionJobCommand(val transcriptionJobName: Str
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.transcribe.model.StartTranscriptionJobResult {
 	  return com.amazonaws.services.transcribe.model.StartTranscriptionJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.transcribe.model.StartTranscriptionJobResult {
 		return environment.transcribe.startTranscriptionJob(build())
@@ -293,9 +308,11 @@ class AmazonTranscribeUpdateVocabularyCommand(val vocabularyName: String, val la
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.transcribe.model.UpdateVocabularyResult {
 	  return com.amazonaws.services.transcribe.model.UpdateVocabularyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.transcribe.model.UpdateVocabularyResult {
 		return environment.transcribe.updateVocabulary(build())

@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -41,9 +42,11 @@ class AmazonCloudWatchDeleteAlarmsCommand(val alarmNames: List<String>) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudwatch.model.DeleteAlarmsResult {
 	  return com.amazonaws.services.cloudwatch.model.DeleteAlarmsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.DeleteAlarmsResult {
 		return environment.monitoring.deleteAlarms(build())
@@ -72,9 +75,11 @@ class AmazonCloudWatchDeleteDashboardsCommand(val dashboardNames: List<String>) 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudwatch.model.DeleteDashboardsResult {
 	  return com.amazonaws.services.cloudwatch.model.DeleteDashboardsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.DeleteDashboardsResult {
 		return environment.monitoring.deleteDashboards(build())
@@ -113,9 +118,11 @@ class AmazonCloudWatchDescribeAlarmHistoryCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudwatch.model.DescribeAlarmHistoryResult {
 	  return com.amazonaws.services.cloudwatch.model.DescribeAlarmHistoryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.DescribeAlarmHistoryResult {
 		return environment.monitoring.describeAlarmHistory(build())
@@ -159,9 +166,11 @@ class AmazonCloudWatchDescribeAlarmsCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudwatch.model.DescribeAlarmsResult {
 	  return com.amazonaws.services.cloudwatch.model.DescribeAlarmsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.DescribeAlarmsResult {
 		return environment.monitoring.describeAlarms(build())
@@ -205,9 +214,11 @@ class AmazonCloudWatchDescribeAlarmsForMetricCommand(val metricName: String, val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudwatch.model.DescribeAlarmsForMetricResult {
 	  return com.amazonaws.services.cloudwatch.model.DescribeAlarmsForMetricResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.DescribeAlarmsForMetricResult {
 		return environment.monitoring.describeAlarmsForMetric(build())
@@ -242,9 +253,11 @@ class AmazonCloudWatchDisableAlarmActionsCommand(val alarmNames: List<String>) :
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudwatch.model.DisableAlarmActionsResult {
 	  return com.amazonaws.services.cloudwatch.model.DisableAlarmActionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.DisableAlarmActionsResult {
 		return environment.monitoring.disableAlarmActions(build())
@@ -273,9 +286,11 @@ class AmazonCloudWatchEnableAlarmActionsCommand(val alarmNames: List<String>) : 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudwatch.model.EnableAlarmActionsResult {
 	  return com.amazonaws.services.cloudwatch.model.EnableAlarmActionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.EnableAlarmActionsResult {
 		return environment.monitoring.enableAlarmActions(build())
@@ -304,9 +319,11 @@ class AmazonCloudWatchGetDashboardCommand(val dashboardName: String) : AmazonWeb
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudwatch.model.GetDashboardResult {
 	  return com.amazonaws.services.cloudwatch.model.GetDashboardResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.GetDashboardResult {
 		return environment.monitoring.getDashboard(build())
@@ -342,9 +359,11 @@ class AmazonCloudWatchGetMetricDataCommand(val metricDataQueries: List<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudwatch.model.GetMetricDataResult {
 	  return com.amazonaws.services.cloudwatch.model.GetMetricDataResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.GetMetricDataResult {
 		return environment.monitoring.getMetricData(build())
@@ -389,9 +408,11 @@ class AmazonCloudWatchGetMetricStatisticsCommand(val namespace: String, val metr
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudwatch.model.GetMetricStatisticsResult {
 	  return com.amazonaws.services.cloudwatch.model.GetMetricStatisticsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.GetMetricStatisticsResult {
 		return environment.monitoring.getMetricStatistics(build())
@@ -430,9 +451,11 @@ class AmazonCloudWatchListDashboardsCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudwatch.model.ListDashboardsResult {
 	  return com.amazonaws.services.cloudwatch.model.ListDashboardsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.ListDashboardsResult {
 		return environment.monitoring.listDashboards(build())
@@ -468,9 +491,11 @@ class AmazonCloudWatchListMetricsCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudwatch.model.ListMetricsResult {
 	  return com.amazonaws.services.cloudwatch.model.ListMetricsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.ListMetricsResult {
 		return environment.monitoring.listMetrics(build())
@@ -503,9 +528,11 @@ class AmazonCloudWatchPutDashboardCommand(val dashboardName: String, val dashboa
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudwatch.model.PutDashboardResult {
 	  return com.amazonaws.services.cloudwatch.model.PutDashboardResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.PutDashboardResult {
 		return environment.monitoring.putDashboard(build())
@@ -564,9 +591,11 @@ class AmazonCloudWatchPutMetricAlarmCommand(val alarmName: String, val metricNam
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudwatch.model.PutMetricAlarmResult {
 	  return com.amazonaws.services.cloudwatch.model.PutMetricAlarmResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.PutMetricAlarmResult {
 		return environment.monitoring.putMetricAlarm(build())
@@ -614,9 +643,11 @@ class AmazonCloudWatchPutMetricDataCommand(val namespace: String, val metricData
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudwatch.model.PutMetricDataResult {
 	  return com.amazonaws.services.cloudwatch.model.PutMetricDataResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.PutMetricDataResult {
 		return environment.monitoring.putMetricData(build())
@@ -649,9 +680,11 @@ class AmazonCloudWatchSetAlarmStateCommand(val alarmName: String, val stateValue
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudwatch.model.SetAlarmStateResult {
 	  return com.amazonaws.services.cloudwatch.model.SetAlarmStateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.SetAlarmStateResult {
 		return environment.monitoring.setAlarmState(build())

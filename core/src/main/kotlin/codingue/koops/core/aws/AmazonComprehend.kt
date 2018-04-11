@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -41,9 +42,11 @@ class AmazonComprehendBatchDetectDominantLanguageCommand(val textList: List<Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.comprehend.model.BatchDetectDominantLanguageResult {
 	  return com.amazonaws.services.comprehend.model.BatchDetectDominantLanguageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.comprehend.model.BatchDetectDominantLanguageResult {
 		return environment.comprehend.batchDetectDominantLanguage(build())
@@ -73,9 +76,11 @@ class AmazonComprehendBatchDetectEntitiesCommand(val textList: List<String>, val
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.comprehend.model.BatchDetectEntitiesResult {
 	  return com.amazonaws.services.comprehend.model.BatchDetectEntitiesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.comprehend.model.BatchDetectEntitiesResult {
 		return environment.comprehend.batchDetectEntities(build())
@@ -106,9 +111,11 @@ class AmazonComprehendBatchDetectKeyPhrasesCommand(val textList: List<String>, v
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.comprehend.model.BatchDetectKeyPhrasesResult {
 	  return com.amazonaws.services.comprehend.model.BatchDetectKeyPhrasesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.comprehend.model.BatchDetectKeyPhrasesResult {
 		return environment.comprehend.batchDetectKeyPhrases(build())
@@ -139,9 +146,11 @@ class AmazonComprehendBatchDetectSentimentCommand(val textList: List<String>, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.comprehend.model.BatchDetectSentimentResult {
 	  return com.amazonaws.services.comprehend.model.BatchDetectSentimentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.comprehend.model.BatchDetectSentimentResult {
 		return environment.comprehend.batchDetectSentiment(build())
@@ -171,9 +180,11 @@ class AmazonComprehendDescribeTopicsDetectionJobCommand(val jobId: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.comprehend.model.DescribeTopicsDetectionJobResult {
 	  return com.amazonaws.services.comprehend.model.DescribeTopicsDetectionJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.comprehend.model.DescribeTopicsDetectionJobResult {
 		return environment.comprehend.describeTopicsDetectionJob(build())
@@ -202,9 +213,11 @@ class AmazonComprehendDetectDominantLanguageCommand(val text: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.comprehend.model.DetectDominantLanguageResult {
 	  return com.amazonaws.services.comprehend.model.DetectDominantLanguageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.comprehend.model.DetectDominantLanguageResult {
 		return environment.comprehend.detectDominantLanguage(build())
@@ -234,9 +247,11 @@ class AmazonComprehendDetectEntitiesCommand(val text: String, val languageCode: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.comprehend.model.DetectEntitiesResult {
 	  return com.amazonaws.services.comprehend.model.DetectEntitiesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.comprehend.model.DetectEntitiesResult {
 		return environment.comprehend.detectEntities(build())
@@ -267,9 +282,11 @@ class AmazonComprehendDetectKeyPhrasesCommand(val text: String, val languageCode
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.comprehend.model.DetectKeyPhrasesResult {
 	  return com.amazonaws.services.comprehend.model.DetectKeyPhrasesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.comprehend.model.DetectKeyPhrasesResult {
 		return environment.comprehend.detectKeyPhrases(build())
@@ -300,9 +317,11 @@ class AmazonComprehendDetectSentimentCommand(val text: String, val languageCode:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.comprehend.model.DetectSentimentResult {
 	  return com.amazonaws.services.comprehend.model.DetectSentimentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.comprehend.model.DetectSentimentResult {
 		return environment.comprehend.detectSentiment(build())
@@ -336,9 +355,11 @@ class AmazonComprehendListTopicsDetectionJobsCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.comprehend.model.ListTopicsDetectionJobsResult {
 	  return com.amazonaws.services.comprehend.model.ListTopicsDetectionJobsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.comprehend.model.ListTopicsDetectionJobsResult {
 		return environment.comprehend.listTopicsDetectionJobs(build())
@@ -376,9 +397,11 @@ class AmazonComprehendStartTopicsDetectionJobCommand(val inputDataConfig: com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.comprehend.model.StartTopicsDetectionJobResult {
 	  return com.amazonaws.services.comprehend.model.StartTopicsDetectionJobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.comprehend.model.StartTopicsDetectionJobResult {
 		return environment.comprehend.startTopicsDetectionJob(build())

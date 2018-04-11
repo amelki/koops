@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -45,9 +46,11 @@ class DataPipelineActivatePipelineCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.datapipeline.model.ActivatePipelineResult {
 	  return com.amazonaws.services.datapipeline.model.ActivatePipelineResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.ActivatePipelineResult {
 		return environment.datapipeline.activatePipeline(build())
@@ -80,9 +83,11 @@ class DataPipelineAddTagsCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.datapipeline.model.AddTagsResult {
 	  return com.amazonaws.services.datapipeline.model.AddTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.AddTagsResult {
 		return environment.datapipeline.addTags(build())
@@ -118,9 +123,11 @@ class DataPipelineCreatePipelineCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.datapipeline.model.CreatePipelineResult {
 	  return com.amazonaws.services.datapipeline.model.CreatePipelineResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.CreatePipelineResult {
 		return environment.datapipeline.createPipeline(build())
@@ -154,9 +161,11 @@ class DataPipelineDeactivatePipelineCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.datapipeline.model.DeactivatePipelineResult {
 	  return com.amazonaws.services.datapipeline.model.DeactivatePipelineResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.DeactivatePipelineResult {
 		return environment.datapipeline.deactivatePipeline(build())
@@ -186,9 +195,11 @@ class DataPipelineDeletePipelineCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.datapipeline.model.DeletePipelineResult {
 	  return com.amazonaws.services.datapipeline.model.DeletePipelineResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.DeletePipelineResult {
 		return environment.datapipeline.deletePipeline(build())
@@ -223,9 +234,11 @@ class DataPipelineDescribeObjectsCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.datapipeline.model.DescribeObjectsResult {
 	  return com.amazonaws.services.datapipeline.model.DescribeObjectsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.DescribeObjectsResult {
 		return environment.datapipeline.describeObjects(build())
@@ -257,9 +270,11 @@ class DataPipelineDescribePipelinesCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.datapipeline.model.DescribePipelinesResult {
 	  return com.amazonaws.services.datapipeline.model.DescribePipelinesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.DescribePipelinesResult {
 		return environment.datapipeline.describePipelines(build())
@@ -292,9 +307,11 @@ class DataPipelineEvaluateExpressionCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.datapipeline.model.EvaluateExpressionResult {
 	  return com.amazonaws.services.datapipeline.model.EvaluateExpressionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.EvaluateExpressionResult {
 		return environment.datapipeline.evaluateExpression(build())
@@ -327,9 +344,11 @@ class DataPipelineGetPipelineDefinitionCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.datapipeline.model.GetPipelineDefinitionResult {
 	  return com.amazonaws.services.datapipeline.model.GetPipelineDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.GetPipelineDefinitionResult {
 		return environment.datapipeline.getPipelineDefinition(build())
@@ -359,9 +378,11 @@ class DataPipelineListPipelinesCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.datapipeline.model.ListPipelinesResult {
 	  return com.amazonaws.services.datapipeline.model.ListPipelinesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.ListPipelinesResult {
 		return environment.datapipeline.listPipelines(build())
@@ -394,9 +415,11 @@ class DataPipelinePollForTaskCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.datapipeline.model.PollForTaskResult {
 	  return com.amazonaws.services.datapipeline.model.PollForTaskResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.PollForTaskResult {
 		return environment.datapipeline.pollForTask(build())
@@ -433,9 +456,11 @@ class DataPipelinePutPipelineDefinitionCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.datapipeline.model.PutPipelineDefinitionResult {
 	  return com.amazonaws.services.datapipeline.model.PutPipelineDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.PutPipelineDefinitionResult {
 		return environment.datapipeline.putPipelineDefinition(build())
@@ -475,9 +500,11 @@ class DataPipelineQueryObjectsCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.datapipeline.model.QueryObjectsResult {
 	  return com.amazonaws.services.datapipeline.model.QueryObjectsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.QueryObjectsResult {
 		return environment.datapipeline.queryObjects(build())
@@ -512,9 +539,11 @@ class DataPipelineRemoveTagsCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.datapipeline.model.RemoveTagsResult {
 	  return com.amazonaws.services.datapipeline.model.RemoveTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.RemoveTagsResult {
 		return environment.datapipeline.removeTags(build())
@@ -546,9 +575,11 @@ class DataPipelineReportTaskProgressCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.datapipeline.model.ReportTaskProgressResult {
 	  return com.amazonaws.services.datapipeline.model.ReportTaskProgressResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.ReportTaskProgressResult {
 		return environment.datapipeline.reportTaskProgress(build())
@@ -582,9 +613,11 @@ class DataPipelineReportTaskRunnerHeartbeatCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.datapipeline.model.ReportTaskRunnerHeartbeatResult {
 	  return com.amazonaws.services.datapipeline.model.ReportTaskRunnerHeartbeatResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.ReportTaskRunnerHeartbeatResult {
 		return environment.datapipeline.reportTaskRunnerHeartbeat(build())
@@ -619,9 +652,11 @@ class DataPipelineSetStatusCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.datapipeline.model.SetStatusResult {
 	  return com.amazonaws.services.datapipeline.model.SetStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.SetStatusResult {
 		return environment.datapipeline.setStatus(build())
@@ -660,9 +695,11 @@ class DataPipelineSetTaskStatusCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.datapipeline.model.SetTaskStatusResult {
 	  return com.amazonaws.services.datapipeline.model.SetTaskStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.SetTaskStatusResult {
 		return environment.datapipeline.setTaskStatus(build())
@@ -701,9 +738,11 @@ class DataPipelineValidatePipelineDefinitionCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.datapipeline.model.ValidatePipelineDefinitionResult {
 	  return com.amazonaws.services.datapipeline.model.ValidatePipelineDefinitionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.ValidatePipelineDefinitionResult {
 		return environment.datapipeline.validatePipelineDefinition(build())

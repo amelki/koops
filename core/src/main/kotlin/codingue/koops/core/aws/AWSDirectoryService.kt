@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -43,9 +44,11 @@ class AWSDirectoryServiceAddIpRoutesCommand(val directoryId: String, val ipRoute
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.AddIpRoutesResult {
 	  return com.amazonaws.services.directory.model.AddIpRoutesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.AddIpRoutesResult {
 		return environment.ds.addIpRoutes(build())
@@ -77,9 +80,11 @@ class AWSDirectoryServiceAddTagsToResourceCommand(val resourceId: String, val ta
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.AddTagsToResourceResult {
 	  return com.amazonaws.services.directory.model.AddTagsToResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.AddTagsToResourceResult {
 		return environment.ds.addTagsToResource(build())
@@ -110,9 +115,11 @@ class AWSDirectoryServiceCancelSchemaExtensionCommand(val directoryId: String, v
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.CancelSchemaExtensionResult {
 	  return com.amazonaws.services.directory.model.CancelSchemaExtensionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.CancelSchemaExtensionResult {
 		return environment.ds.cancelSchemaExtension(build())
@@ -148,9 +155,11 @@ class AWSDirectoryServiceConnectDirectoryCommand(val name: String, val password:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.ConnectDirectoryResult {
 	  return com.amazonaws.services.directory.model.ConnectDirectoryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.ConnectDirectoryResult {
 		return environment.ds.connectDirectory(build())
@@ -185,9 +194,11 @@ class AWSDirectoryServiceCreateAliasCommand(val directoryId: String, val alias: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.CreateAliasResult {
 	  return com.amazonaws.services.directory.model.CreateAliasResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.CreateAliasResult {
 		return environment.ds.createAlias(build())
@@ -222,9 +233,11 @@ class AWSDirectoryServiceCreateComputerCommand(val directoryId: String, val comp
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.CreateComputerResult {
 	  return com.amazonaws.services.directory.model.CreateComputerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.CreateComputerResult {
 		return environment.ds.createComputer(build())
@@ -259,9 +272,11 @@ class AWSDirectoryServiceCreateConditionalForwarderCommand(val directoryId: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.CreateConditionalForwarderResult {
 	  return com.amazonaws.services.directory.model.CreateConditionalForwarderResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.CreateConditionalForwarderResult {
 		return environment.ds.createConditionalForwarder(build())
@@ -299,9 +314,11 @@ class AWSDirectoryServiceCreateDirectoryCommand(val name: String, val password: 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.CreateDirectoryResult {
 	  return com.amazonaws.services.directory.model.CreateDirectoryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.CreateDirectoryResult {
 		return environment.ds.createDirectory(build())
@@ -342,9 +359,11 @@ class AWSDirectoryServiceCreateMicrosoftADCommand(val name: String, val password
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.CreateMicrosoftADResult {
 	  return com.amazonaws.services.directory.model.CreateMicrosoftADResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.CreateMicrosoftADResult {
 		return environment.ds.createMicrosoftAD(build())
@@ -379,9 +398,11 @@ class AWSDirectoryServiceCreateSnapshotCommand(val directoryId: String) : Amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.CreateSnapshotResult {
 	  return com.amazonaws.services.directory.model.CreateSnapshotResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.CreateSnapshotResult {
 		return environment.ds.createSnapshot(build())
@@ -417,9 +438,11 @@ class AWSDirectoryServiceCreateTrustCommand(val directoryId: String, val remoteD
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.CreateTrustResult {
 	  return com.amazonaws.services.directory.model.CreateTrustResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.CreateTrustResult {
 		return environment.ds.createTrust(build())
@@ -454,9 +477,11 @@ class AWSDirectoryServiceDeleteConditionalForwarderCommand(val directoryId: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.DeleteConditionalForwarderResult {
 	  return com.amazonaws.services.directory.model.DeleteConditionalForwarderResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.DeleteConditionalForwarderResult {
 		return environment.ds.deleteConditionalForwarder(build())
@@ -486,9 +511,11 @@ class AWSDirectoryServiceDeleteDirectoryCommand(val directoryId: String) : Amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.DeleteDirectoryResult {
 	  return com.amazonaws.services.directory.model.DeleteDirectoryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.DeleteDirectoryResult {
 		return environment.ds.deleteDirectory(build())
@@ -517,9 +544,11 @@ class AWSDirectoryServiceDeleteSnapshotCommand(val snapshotId: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.DeleteSnapshotResult {
 	  return com.amazonaws.services.directory.model.DeleteSnapshotResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.DeleteSnapshotResult {
 		return environment.ds.deleteSnapshot(build())
@@ -549,9 +578,11 @@ class AWSDirectoryServiceDeleteTrustCommand(val trustId: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.DeleteTrustResult {
 	  return com.amazonaws.services.directory.model.DeleteTrustResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.DeleteTrustResult {
 		return environment.ds.deleteTrust(build())
@@ -582,9 +613,11 @@ class AWSDirectoryServiceDeregisterEventTopicCommand(val directoryId: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.DeregisterEventTopicResult {
 	  return com.amazonaws.services.directory.model.DeregisterEventTopicResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.DeregisterEventTopicResult {
 		return environment.ds.deregisterEventTopic(build())
@@ -615,9 +648,11 @@ class AWSDirectoryServiceDescribeConditionalForwardersCommand(val directoryId: S
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.DescribeConditionalForwardersResult {
 	  return com.amazonaws.services.directory.model.DescribeConditionalForwardersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.DescribeConditionalForwardersResult {
 		return environment.ds.describeConditionalForwarders(build())
@@ -651,9 +686,11 @@ class AWSDirectoryServiceDescribeDirectoriesCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.DescribeDirectoriesResult {
 	  return com.amazonaws.services.directory.model.DescribeDirectoriesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.DescribeDirectoriesResult {
 		return environment.ds.describeDirectories(build())
@@ -689,9 +726,11 @@ class AWSDirectoryServiceDescribeDomainControllersCommand(val directoryId: Strin
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.DescribeDomainControllersResult {
 	  return com.amazonaws.services.directory.model.DescribeDomainControllersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.DescribeDomainControllersResult {
 		return environment.ds.describeDomainControllers(build())
@@ -725,9 +764,11 @@ class AWSDirectoryServiceDescribeEventTopicsCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.DescribeEventTopicsResult {
 	  return com.amazonaws.services.directory.model.DescribeEventTopicsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.DescribeEventTopicsResult {
 		return environment.ds.describeEventTopics(build())
@@ -763,9 +804,11 @@ class AWSDirectoryServiceDescribeSnapshotsCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.DescribeSnapshotsResult {
 	  return com.amazonaws.services.directory.model.DescribeSnapshotsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.DescribeSnapshotsResult {
 		return environment.ds.describeSnapshots(build())
@@ -803,9 +846,11 @@ class AWSDirectoryServiceDescribeTrustsCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.DescribeTrustsResult {
 	  return com.amazonaws.services.directory.model.DescribeTrustsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.DescribeTrustsResult {
 		return environment.ds.describeTrusts(build())
@@ -837,9 +882,11 @@ class AWSDirectoryServiceDisableRadiusCommand(val directoryId: String) : AmazonW
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.DisableRadiusResult {
 	  return com.amazonaws.services.directory.model.DisableRadiusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.DisableRadiusResult {
 		return environment.ds.disableRadius(build())
@@ -871,9 +918,11 @@ class AWSDirectoryServiceDisableSsoCommand(val directoryId: String) : AmazonWebS
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.DisableSsoResult {
 	  return com.amazonaws.services.directory.model.DisableSsoResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.DisableSsoResult {
 		return environment.ds.disableSso(build())
@@ -905,9 +954,11 @@ class AWSDirectoryServiceEnableRadiusCommand(val directoryId: String, val radius
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.EnableRadiusResult {
 	  return com.amazonaws.services.directory.model.EnableRadiusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.EnableRadiusResult {
 		return environment.ds.enableRadius(build())
@@ -940,9 +991,11 @@ class AWSDirectoryServiceEnableSsoCommand(val directoryId: String) : AmazonWebSe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.EnableSsoResult {
 	  return com.amazonaws.services.directory.model.EnableSsoResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.EnableSsoResult {
 		return environment.ds.enableSso(build())
@@ -973,9 +1026,11 @@ class AWSDirectoryServiceGetDirectoryLimitsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.GetDirectoryLimitsResult {
 	  return com.amazonaws.services.directory.model.GetDirectoryLimitsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.GetDirectoryLimitsResult {
 		return environment.ds.getDirectoryLimits(build())
@@ -1004,9 +1059,11 @@ class AWSDirectoryServiceGetSnapshotLimitsCommand(val directoryId: String) : Ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.GetSnapshotLimitsResult {
 	  return com.amazonaws.services.directory.model.GetSnapshotLimitsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.GetSnapshotLimitsResult {
 		return environment.ds.getSnapshotLimits(build())
@@ -1038,9 +1095,11 @@ class AWSDirectoryServiceListIpRoutesCommand(val directoryId: String) : AmazonWe
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.ListIpRoutesResult {
 	  return com.amazonaws.services.directory.model.ListIpRoutesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.ListIpRoutesResult {
 		return environment.ds.listIpRoutes(build())
@@ -1074,9 +1133,11 @@ class AWSDirectoryServiceListSchemaExtensionsCommand(val directoryId: String) : 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.ListSchemaExtensionsResult {
 	  return com.amazonaws.services.directory.model.ListSchemaExtensionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.ListSchemaExtensionsResult {
 		return environment.ds.listSchemaExtensions(build())
@@ -1110,9 +1171,11 @@ class AWSDirectoryServiceListTagsForResourceCommand(val resourceId: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.ListTagsForResourceResult {
 	  return com.amazonaws.services.directory.model.ListTagsForResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.ListTagsForResourceResult {
 		return environment.ds.listTagsForResource(build())
@@ -1144,9 +1207,11 @@ class AWSDirectoryServiceRegisterEventTopicCommand(val directoryId: String, val 
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.RegisterEventTopicResult {
 	  return com.amazonaws.services.directory.model.RegisterEventTopicResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.RegisterEventTopicResult {
 		return environment.ds.registerEventTopic(build())
@@ -1177,9 +1242,11 @@ class AWSDirectoryServiceRemoveIpRoutesCommand(val directoryId: String, val cidr
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.RemoveIpRoutesResult {
 	  return com.amazonaws.services.directory.model.RemoveIpRoutesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.RemoveIpRoutesResult {
 		return environment.ds.removeIpRoutes(build())
@@ -1210,9 +1277,11 @@ class AWSDirectoryServiceRemoveTagsFromResourceCommand(val resourceId: String, v
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.RemoveTagsFromResourceResult {
 	  return com.amazonaws.services.directory.model.RemoveTagsFromResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.RemoveTagsFromResourceResult {
 		return environment.ds.removeTagsFromResource(build())
@@ -1242,9 +1311,11 @@ class AWSDirectoryServiceRestoreFromSnapshotCommand(val snapshotId: String) : Am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.RestoreFromSnapshotResult {
 	  return com.amazonaws.services.directory.model.RestoreFromSnapshotResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.RestoreFromSnapshotResult {
 		return environment.ds.restoreFromSnapshot(build())
@@ -1276,9 +1347,11 @@ class AWSDirectoryServiceStartSchemaExtensionCommand(val directoryId: String, va
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.StartSchemaExtensionResult {
 	  return com.amazonaws.services.directory.model.StartSchemaExtensionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.StartSchemaExtensionResult {
 		return environment.ds.startSchemaExtension(build())
@@ -1312,9 +1385,11 @@ class AWSDirectoryServiceUpdateConditionalForwarderCommand(val directoryId: Stri
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.UpdateConditionalForwarderResult {
 	  return com.amazonaws.services.directory.model.UpdateConditionalForwarderResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.UpdateConditionalForwarderResult {
 		return environment.ds.updateConditionalForwarder(build())
@@ -1346,9 +1421,11 @@ class AWSDirectoryServiceUpdateNumberOfDomainControllersCommand(val directoryId:
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.UpdateNumberOfDomainControllersResult {
 	  return com.amazonaws.services.directory.model.UpdateNumberOfDomainControllersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.UpdateNumberOfDomainControllersResult {
 		return environment.ds.updateNumberOfDomainControllers(build())
@@ -1379,9 +1456,11 @@ class AWSDirectoryServiceUpdateRadiusCommand(val directoryId: String, val radius
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.UpdateRadiusResult {
 	  return com.amazonaws.services.directory.model.UpdateRadiusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.UpdateRadiusResult {
 		return environment.ds.updateRadius(build())
@@ -1411,9 +1490,11 @@ class AWSDirectoryServiceVerifyTrustCommand(val trustId: String) : AmazonWebServ
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.directory.model.VerifyTrustResult {
 	  return com.amazonaws.services.directory.model.VerifyTrustResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.directory.model.VerifyTrustResult {
 		return environment.ds.verifyTrust(build())

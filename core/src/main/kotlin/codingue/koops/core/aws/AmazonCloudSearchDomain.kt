@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -67,9 +68,11 @@ class AmazonCloudSearchDomainSearchCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudsearchdomain.model.SearchResult {
 	  return com.amazonaws.services.cloudsearchdomain.model.SearchResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudsearchdomain.model.SearchResult {
 		return environment.cloudsearchdomain.search(build())
@@ -115,9 +118,11 @@ class AmazonCloudSearchDomainSuggestCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudsearchdomain.model.SuggestResult {
 	  return com.amazonaws.services.cloudsearchdomain.model.SuggestResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudsearchdomain.model.SuggestResult {
 		return environment.cloudsearchdomain.suggest(build())
@@ -152,9 +157,11 @@ class AmazonCloudSearchDomainUploadDocumentsCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.cloudsearchdomain.model.UploadDocumentsResult {
 	  return com.amazonaws.services.cloudsearchdomain.model.UploadDocumentsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudsearchdomain.model.UploadDocumentsResult {
 		return environment.cloudsearchdomain.uploadDocuments(build())

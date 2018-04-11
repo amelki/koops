@@ -7,7 +7,7 @@ import com.amazonaws.ResponseMetadata
 //class AwsEnvironment(val s3: AmazonS3, val lambda: AWSLambda): Environment()
 
 @CliMarker
-interface AmazonWebServiceCommand<out T : AmazonWebServiceRequest, out R: AmazonWebServiceResult<*>>: Command<R> {
+interface AmazonWebServiceCommand<out T : AmazonWebServiceRequest, out R: Any>: Command<R> {
 	fun build(): T
 	fun dryResult(): R
 	override fun dryRun(): R {
@@ -18,7 +18,15 @@ interface AmazonWebServiceCommand<out T : AmazonWebServiceRequest, out R: Amazon
 	fun descriptor(): AmazonWebServiceDescriptor
 }
 
-class VoidResult: AmazonWebServiceResult<ResponseMetadata>()
+@CliMarker
+interface AmazonWebServiceVoidCommand<out T : AmazonWebServiceRequest>: Command<Unit> {
+	fun build(): T
+	override fun dryRun() {
+		println(descriptor())
+	}
+
+	fun descriptor(): AmazonWebServiceDescriptor
+}
 
 interface Argument
 class KeyValue(val name: String, val value: String): Argument {

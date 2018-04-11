@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -41,9 +42,11 @@ class AWSCodeCommitBatchGetRepositoriesCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.BatchGetRepositoriesResult {
 	  return com.amazonaws.services.codecommit.model.BatchGetRepositoriesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.BatchGetRepositoriesResult {
 		return environment.codecommit.batchGetRepositories(build())
@@ -76,9 +79,11 @@ class AWSCodeCommitCreateBranchCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.CreateBranchResult {
 	  return com.amazonaws.services.codecommit.model.CreateBranchResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.CreateBranchResult {
 		return environment.codecommit.createBranch(build())
@@ -115,9 +120,11 @@ class AWSCodeCommitCreatePullRequestCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.CreatePullRequestResult {
 	  return com.amazonaws.services.codecommit.model.CreatePullRequestResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.CreatePullRequestResult {
 		return environment.codecommit.createPullRequest(build())
@@ -151,9 +158,11 @@ class AWSCodeCommitCreateRepositoryCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.CreateRepositoryResult {
 	  return com.amazonaws.services.codecommit.model.CreateRepositoryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.CreateRepositoryResult {
 		return environment.codecommit.createRepository(build())
@@ -185,9 +194,11 @@ class AWSCodeCommitDeleteBranchCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.DeleteBranchResult {
 	  return com.amazonaws.services.codecommit.model.DeleteBranchResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.DeleteBranchResult {
 		return environment.codecommit.deleteBranch(build())
@@ -217,9 +228,11 @@ class AWSCodeCommitDeleteCommentContentCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.DeleteCommentContentResult {
 	  return com.amazonaws.services.codecommit.model.DeleteCommentContentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.DeleteCommentContentResult {
 		return environment.codecommit.deleteCommentContent(build())
@@ -248,9 +261,11 @@ class AWSCodeCommitDeleteRepositoryCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.DeleteRepositoryResult {
 	  return com.amazonaws.services.codecommit.model.DeleteRepositoryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.DeleteRepositoryResult {
 		return environment.codecommit.deleteRepository(build())
@@ -287,9 +302,11 @@ class AWSCodeCommitDescribePullRequestEventsCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.DescribePullRequestEventsResult {
 	  return com.amazonaws.services.codecommit.model.DescribePullRequestEventsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.DescribePullRequestEventsResult {
 		return environment.codecommit.describePullRequestEvents(build())
@@ -324,9 +341,11 @@ class AWSCodeCommitGetBlobCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.GetBlobResult {
 	  return com.amazonaws.services.codecommit.model.GetBlobResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.GetBlobResult {
 		return environment.codecommit.getBlob(build())
@@ -358,9 +377,11 @@ class AWSCodeCommitGetBranchCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.GetBranchResult {
 	  return com.amazonaws.services.codecommit.model.GetBranchResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.GetBranchResult {
 		return environment.codecommit.getBranch(build())
@@ -390,9 +411,11 @@ class AWSCodeCommitGetCommentCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.GetCommentResult {
 	  return com.amazonaws.services.codecommit.model.GetCommentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.GetCommentResult {
 		return environment.codecommit.getComment(build())
@@ -429,9 +452,11 @@ class AWSCodeCommitGetCommentsForComparedCommitCommand() : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.GetCommentsForComparedCommitResult {
 	  return com.amazonaws.services.codecommit.model.GetCommentsForComparedCommitResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.GetCommentsForComparedCommitResult {
 		return environment.codecommit.getCommentsForComparedCommit(build())
@@ -474,9 +499,11 @@ class AWSCodeCommitGetCommentsForPullRequestCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.GetCommentsForPullRequestResult {
 	  return com.amazonaws.services.codecommit.model.GetCommentsForPullRequestResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.GetCommentsForPullRequestResult {
 		return environment.codecommit.getCommentsForPullRequest(build())
@@ -512,9 +539,11 @@ class AWSCodeCommitGetCommitCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.GetCommitResult {
 	  return com.amazonaws.services.codecommit.model.GetCommitResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.GetCommitResult {
 		return environment.codecommit.getCommit(build())
@@ -556,9 +585,11 @@ class AWSCodeCommitGetDifferencesCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.GetDifferencesResult {
 	  return com.amazonaws.services.codecommit.model.GetDifferencesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.GetDifferencesResult {
 		return environment.codecommit.getDifferences(build())
@@ -599,9 +630,11 @@ class AWSCodeCommitGetMergeConflictsCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.GetMergeConflictsResult {
 	  return com.amazonaws.services.codecommit.model.GetMergeConflictsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.GetMergeConflictsResult {
 		return environment.codecommit.getMergeConflicts(build())
@@ -633,9 +666,11 @@ class AWSCodeCommitGetPullRequestCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.GetPullRequestResult {
 	  return com.amazonaws.services.codecommit.model.GetPullRequestResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.GetPullRequestResult {
 		return environment.codecommit.getPullRequest(build())
@@ -664,9 +699,11 @@ class AWSCodeCommitGetRepositoryCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.GetRepositoryResult {
 	  return com.amazonaws.services.codecommit.model.GetRepositoryResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.GetRepositoryResult {
 		return environment.codecommit.getRepository(build())
@@ -695,9 +732,11 @@ class AWSCodeCommitGetRepositoryTriggersCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.GetRepositoryTriggersResult {
 	  return com.amazonaws.services.codecommit.model.GetRepositoryTriggersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.GetRepositoryTriggersResult {
 		return environment.codecommit.getRepositoryTriggers(build())
@@ -728,9 +767,11 @@ class AWSCodeCommitListBranchesCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.ListBranchesResult {
 	  return com.amazonaws.services.codecommit.model.ListBranchesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.ListBranchesResult {
 		return environment.codecommit.listBranches(build())
@@ -768,9 +809,11 @@ class AWSCodeCommitListPullRequestsCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.ListPullRequestsResult {
 	  return com.amazonaws.services.codecommit.model.ListPullRequestsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.ListPullRequestsResult {
 		return environment.codecommit.listPullRequests(build())
@@ -807,9 +850,11 @@ class AWSCodeCommitListRepositoriesCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.ListRepositoriesResult {
 	  return com.amazonaws.services.codecommit.model.ListRepositoriesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.ListRepositoriesResult {
 		return environment.codecommit.listRepositories(build())
@@ -844,9 +889,11 @@ class AWSCodeCommitMergePullRequestByFastForwardCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.MergePullRequestByFastForwardResult {
 	  return com.amazonaws.services.codecommit.model.MergePullRequestByFastForwardResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.MergePullRequestByFastForwardResult {
 		return environment.codecommit.mergePullRequestByFastForward(build())
@@ -887,9 +934,11 @@ class AWSCodeCommitPostCommentForComparedCommitCommand() : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.PostCommentForComparedCommitResult {
 	  return com.amazonaws.services.codecommit.model.PostCommentForComparedCommitResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.PostCommentForComparedCommitResult {
 		return environment.codecommit.postCommentForComparedCommit(build())
@@ -935,9 +984,11 @@ class AWSCodeCommitPostCommentForPullRequestCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.PostCommentForPullRequestResult {
 	  return com.amazonaws.services.codecommit.model.PostCommentForPullRequestResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.PostCommentForPullRequestResult {
 		return environment.codecommit.postCommentForPullRequest(build())
@@ -976,9 +1027,11 @@ class AWSCodeCommitPostCommentReplyCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.PostCommentReplyResult {
 	  return com.amazonaws.services.codecommit.model.PostCommentReplyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.PostCommentReplyResult {
 		return environment.codecommit.postCommentReply(build())
@@ -1025,9 +1078,11 @@ class AWSCodeCommitPutFileCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.PutFileResult {
 	  return com.amazonaws.services.codecommit.model.PutFileResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.PutFileResult {
 		return environment.codecommit.putFile(build())
@@ -1066,9 +1121,11 @@ class AWSCodeCommitPutRepositoryTriggersCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.PutRepositoryTriggersResult {
 	  return com.amazonaws.services.codecommit.model.PutRepositoryTriggersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.PutRepositoryTriggersResult {
 		return environment.codecommit.putRepositoryTriggers(build())
@@ -1100,9 +1157,11 @@ class AWSCodeCommitTestRepositoryTriggersCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.TestRepositoryTriggersResult {
 	  return com.amazonaws.services.codecommit.model.TestRepositoryTriggersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.TestRepositoryTriggersResult {
 		return environment.codecommit.testRepositoryTriggers(build())
@@ -1134,9 +1193,11 @@ class AWSCodeCommitUpdateCommentCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.UpdateCommentResult {
 	  return com.amazonaws.services.codecommit.model.UpdateCommentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.UpdateCommentResult {
 		return environment.codecommit.updateComment(build())
@@ -1168,9 +1229,11 @@ class AWSCodeCommitUpdateDefaultBranchCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.UpdateDefaultBranchResult {
 	  return com.amazonaws.services.codecommit.model.UpdateDefaultBranchResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.UpdateDefaultBranchResult {
 		return environment.codecommit.updateDefaultBranch(build())
@@ -1202,9 +1265,11 @@ class AWSCodeCommitUpdatePullRequestDescriptionCommand() : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.UpdatePullRequestDescriptionResult {
 	  return com.amazonaws.services.codecommit.model.UpdatePullRequestDescriptionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.UpdatePullRequestDescriptionResult {
 		return environment.codecommit.updatePullRequestDescription(build())
@@ -1236,9 +1301,11 @@ class AWSCodeCommitUpdatePullRequestStatusCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.UpdatePullRequestStatusResult {
 	  return com.amazonaws.services.codecommit.model.UpdatePullRequestStatusResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.UpdatePullRequestStatusResult {
 		return environment.codecommit.updatePullRequestStatus(build())
@@ -1270,9 +1337,11 @@ class AWSCodeCommitUpdatePullRequestTitleCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.UpdatePullRequestTitleResult {
 	  return com.amazonaws.services.codecommit.model.UpdatePullRequestTitleResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.UpdatePullRequestTitleResult {
 		return environment.codecommit.updatePullRequestTitle(build())
@@ -1304,9 +1373,11 @@ class AWSCodeCommitUpdateRepositoryDescriptionCommand() : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.UpdateRepositoryDescriptionResult {
 	  return com.amazonaws.services.codecommit.model.UpdateRepositoryDescriptionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.UpdateRepositoryDescriptionResult {
 		return environment.codecommit.updateRepositoryDescription(build())
@@ -1338,9 +1409,11 @@ class AWSCodeCommitUpdateRepositoryNameCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.codecommit.model.UpdateRepositoryNameResult {
 	  return com.amazonaws.services.codecommit.model.UpdateRepositoryNameResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.UpdateRepositoryNameResult {
 		return environment.codecommit.updateRepositoryName(build())

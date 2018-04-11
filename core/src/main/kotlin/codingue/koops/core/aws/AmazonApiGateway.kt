@@ -5,6 +5,7 @@ package codingue.koops.core.aws
 
 import javax.annotation.Generated
 import codingue.koops.core.AmazonWebServiceCommand
+import codingue.koops.core.AmazonWebServiceVoidCommand
 import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
@@ -53,9 +54,11 @@ class AmazonApiGatewayCreateApiKeyCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.CreateApiKeyResult {
 	  return com.amazonaws.services.apigateway.model.CreateApiKeyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.CreateApiKeyResult {
 		return environment.apigateway.createApiKey(build())
@@ -108,9 +111,11 @@ class AmazonApiGatewayCreateAuthorizerCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.CreateAuthorizerResult {
 	  return com.amazonaws.services.apigateway.model.CreateAuthorizerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.CreateAuthorizerResult {
 		return environment.apigateway.createAuthorizer(build())
@@ -154,9 +159,11 @@ class AmazonApiGatewayCreateBasePathMappingCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.CreateBasePathMappingResult {
 	  return com.amazonaws.services.apigateway.model.CreateBasePathMappingResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.CreateBasePathMappingResult {
 		return environment.apigateway.createBasePathMapping(build())
@@ -202,9 +209,11 @@ class AmazonApiGatewayCreateDeploymentCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.CreateDeploymentResult {
 	  return com.amazonaws.services.apigateway.model.CreateDeploymentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.CreateDeploymentResult {
 		return environment.apigateway.createDeployment(build())
@@ -244,9 +253,11 @@ class AmazonApiGatewayCreateDocumentationPartCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.CreateDocumentationPartResult {
 	  return com.amazonaws.services.apigateway.model.CreateDocumentationPartResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.CreateDocumentationPartResult {
 		return environment.apigateway.createDocumentationPart(build())
@@ -283,9 +294,11 @@ class AmazonApiGatewayCreateDocumentationVersionCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.CreateDocumentationVersionResult {
 	  return com.amazonaws.services.apigateway.model.CreateDocumentationVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.CreateDocumentationVersionResult {
 		return environment.apigateway.createDocumentationVersion(build())
@@ -333,9 +346,11 @@ class AmazonApiGatewayCreateDomainNameCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.CreateDomainNameResult {
 	  return com.amazonaws.services.apigateway.model.CreateDomainNameResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.CreateDomainNameResult {
 		return environment.apigateway.createDomainName(build())
@@ -380,9 +395,11 @@ class AmazonApiGatewayCreateModelCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.CreateModelResult {
 	  return com.amazonaws.services.apigateway.model.CreateModelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.CreateModelResult {
 		return environment.apigateway.createModel(build())
@@ -421,9 +438,11 @@ class AmazonApiGatewayCreateRequestValidatorCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.CreateRequestValidatorResult {
 	  return com.amazonaws.services.apigateway.model.CreateRequestValidatorResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.CreateRequestValidatorResult {
 		return environment.apigateway.createRequestValidator(build())
@@ -459,9 +478,11 @@ class AmazonApiGatewayCreateResourceCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.CreateResourceResult {
 	  return com.amazonaws.services.apigateway.model.CreateResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.CreateResourceResult {
 		return environment.apigateway.createResource(build())
@@ -508,9 +529,11 @@ class AmazonApiGatewayCreateRestApiCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.CreateRestApiResult {
 	  return com.amazonaws.services.apigateway.model.CreateRestApiResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.CreateRestApiResult {
 		return environment.apigateway.createRestApi(build())
@@ -565,9 +588,11 @@ class AmazonApiGatewayCreateStageCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.CreateStageResult {
 	  return com.amazonaws.services.apigateway.model.CreateStageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.CreateStageResult {
 		return environment.apigateway.createStage(build())
@@ -613,9 +638,11 @@ class AmazonApiGatewayCreateUsagePlanCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.CreateUsagePlanResult {
 	  return com.amazonaws.services.apigateway.model.CreateUsagePlanResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.CreateUsagePlanResult {
 		return environment.apigateway.createUsagePlan(build())
@@ -652,9 +679,11 @@ class AmazonApiGatewayCreateUsagePlanKeyCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.CreateUsagePlanKeyResult {
 	  return com.amazonaws.services.apigateway.model.CreateUsagePlanKeyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.CreateUsagePlanKeyResult {
 		return environment.apigateway.createUsagePlanKey(build())
@@ -689,9 +718,11 @@ class AmazonApiGatewayCreateVpcLinkCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.CreateVpcLinkResult {
 	  return com.amazonaws.services.apigateway.model.CreateVpcLinkResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.CreateVpcLinkResult {
 		return environment.apigateway.createVpcLink(build())
@@ -722,9 +753,11 @@ class AmazonApiGatewayDeleteApiKeyCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteApiKeyResult {
 	  return com.amazonaws.services.apigateway.model.DeleteApiKeyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteApiKeyResult {
 		return environment.apigateway.deleteApiKey(build())
@@ -755,9 +788,11 @@ class AmazonApiGatewayDeleteAuthorizerCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteAuthorizerResult {
 	  return com.amazonaws.services.apigateway.model.DeleteAuthorizerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteAuthorizerResult {
 		return environment.apigateway.deleteAuthorizer(build())
@@ -789,9 +824,11 @@ class AmazonApiGatewayDeleteBasePathMappingCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteBasePathMappingResult {
 	  return com.amazonaws.services.apigateway.model.DeleteBasePathMappingResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteBasePathMappingResult {
 		return environment.apigateway.deleteBasePathMapping(build())
@@ -821,9 +858,11 @@ class AmazonApiGatewayDeleteClientCertificateCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteClientCertificateResult {
 	  return com.amazonaws.services.apigateway.model.DeleteClientCertificateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteClientCertificateResult {
 		return environment.apigateway.deleteClientCertificate(build())
@@ -854,9 +893,11 @@ class AmazonApiGatewayDeleteDeploymentCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteDeploymentResult {
 	  return com.amazonaws.services.apigateway.model.DeleteDeploymentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteDeploymentResult {
 		return environment.apigateway.deleteDeployment(build())
@@ -888,9 +929,11 @@ class AmazonApiGatewayDeleteDocumentationPartCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteDocumentationPartResult {
 	  return com.amazonaws.services.apigateway.model.DeleteDocumentationPartResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteDocumentationPartResult {
 		return environment.apigateway.deleteDocumentationPart(build())
@@ -922,9 +965,11 @@ class AmazonApiGatewayDeleteDocumentationVersionCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteDocumentationVersionResult {
 	  return com.amazonaws.services.apigateway.model.DeleteDocumentationVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteDocumentationVersionResult {
 		return environment.apigateway.deleteDocumentationVersion(build())
@@ -954,9 +999,11 @@ class AmazonApiGatewayDeleteDomainNameCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteDomainNameResult {
 	  return com.amazonaws.services.apigateway.model.DeleteDomainNameResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteDomainNameResult {
 		return environment.apigateway.deleteDomainName(build())
@@ -987,9 +1034,11 @@ class AmazonApiGatewayDeleteGatewayResponseCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteGatewayResponseResult {
 	  return com.amazonaws.services.apigateway.model.DeleteGatewayResponseResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteGatewayResponseResult {
 		return environment.apigateway.deleteGatewayResponse(build())
@@ -1023,9 +1072,11 @@ class AmazonApiGatewayDeleteIntegrationCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteIntegrationResult {
 	  return com.amazonaws.services.apigateway.model.DeleteIntegrationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteIntegrationResult {
 		return environment.apigateway.deleteIntegration(build())
@@ -1062,9 +1113,11 @@ class AmazonApiGatewayDeleteIntegrationResponseCommand() : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteIntegrationResponseResult {
 	  return com.amazonaws.services.apigateway.model.DeleteIntegrationResponseResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteIntegrationResponseResult {
 		return environment.apigateway.deleteIntegrationResponse(build())
@@ -1100,9 +1153,11 @@ class AmazonApiGatewayDeleteMethodCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteMethodResult {
 	  return com.amazonaws.services.apigateway.model.DeleteMethodResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteMethodResult {
 		return environment.apigateway.deleteMethod(build())
@@ -1139,9 +1194,11 @@ class AmazonApiGatewayDeleteMethodResponseCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteMethodResponseResult {
 	  return com.amazonaws.services.apigateway.model.DeleteMethodResponseResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteMethodResponseResult {
 		return environment.apigateway.deleteMethodResponse(build())
@@ -1175,9 +1232,11 @@ class AmazonApiGatewayDeleteModelCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteModelResult {
 	  return com.amazonaws.services.apigateway.model.DeleteModelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteModelResult {
 		return environment.apigateway.deleteModel(build())
@@ -1209,9 +1268,11 @@ class AmazonApiGatewayDeleteRequestValidatorCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteRequestValidatorResult {
 	  return com.amazonaws.services.apigateway.model.DeleteRequestValidatorResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteRequestValidatorResult {
 		return environment.apigateway.deleteRequestValidator(build())
@@ -1243,9 +1304,11 @@ class AmazonApiGatewayDeleteResourceCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteResourceResult {
 	  return com.amazonaws.services.apigateway.model.DeleteResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteResourceResult {
 		return environment.apigateway.deleteResource(build())
@@ -1275,9 +1338,11 @@ class AmazonApiGatewayDeleteRestApiCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteRestApiResult {
 	  return com.amazonaws.services.apigateway.model.DeleteRestApiResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteRestApiResult {
 		return environment.apigateway.deleteRestApi(build())
@@ -1308,9 +1373,11 @@ class AmazonApiGatewayDeleteStageCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteStageResult {
 	  return com.amazonaws.services.apigateway.model.DeleteStageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteStageResult {
 		return environment.apigateway.deleteStage(build())
@@ -1340,9 +1407,11 @@ class AmazonApiGatewayDeleteUsagePlanCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteUsagePlanResult {
 	  return com.amazonaws.services.apigateway.model.DeleteUsagePlanResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteUsagePlanResult {
 		return environment.apigateway.deleteUsagePlan(build())
@@ -1373,9 +1442,11 @@ class AmazonApiGatewayDeleteUsagePlanKeyCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteUsagePlanKeyResult {
 	  return com.amazonaws.services.apigateway.model.DeleteUsagePlanKeyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteUsagePlanKeyResult {
 		return environment.apigateway.deleteUsagePlanKey(build())
@@ -1405,9 +1476,11 @@ class AmazonApiGatewayDeleteVpcLinkCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteVpcLinkResult {
 	  return com.amazonaws.services.apigateway.model.DeleteVpcLinkResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteVpcLinkResult {
 		return environment.apigateway.deleteVpcLink(build())
@@ -1438,9 +1511,11 @@ class AmazonApiGatewayFlushStageAuthorizersCacheCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.FlushStageAuthorizersCacheResult {
 	  return com.amazonaws.services.apigateway.model.FlushStageAuthorizersCacheResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.FlushStageAuthorizersCacheResult {
 		return environment.apigateway.flushStageAuthorizersCache(build())
@@ -1472,9 +1547,11 @@ class AmazonApiGatewayFlushStageCacheCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.FlushStageCacheResult {
 	  return com.amazonaws.services.apigateway.model.FlushStageCacheResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.FlushStageCacheResult {
 		return environment.apigateway.flushStageCache(build())
@@ -1504,9 +1581,11 @@ class AmazonApiGatewayGenerateClientCertificateCommand() : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GenerateClientCertificateResult {
 	  return com.amazonaws.services.apigateway.model.GenerateClientCertificateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GenerateClientCertificateResult {
 		return environment.apigateway.generateClientCertificate(build())
@@ -1535,9 +1614,11 @@ class AmazonApiGatewayGetAccountCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetAccountResult {
 	  return com.amazonaws.services.apigateway.model.GetAccountResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetAccountResult {
 		return environment.apigateway.getAccount(build())
@@ -1568,9 +1649,11 @@ class AmazonApiGatewayGetApiKeyCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetApiKeyResult {
 	  return com.amazonaws.services.apigateway.model.GetApiKeyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetApiKeyResult {
 		return environment.apigateway.getApiKey(build())
@@ -1608,9 +1691,11 @@ class AmazonApiGatewayGetApiKeysCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetApiKeysResult {
 	  return com.amazonaws.services.apigateway.model.GetApiKeysResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetApiKeysResult {
 		return environment.apigateway.getApiKeys(build())
@@ -1645,9 +1730,11 @@ class AmazonApiGatewayGetAuthorizerCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetAuthorizerResult {
 	  return com.amazonaws.services.apigateway.model.GetAuthorizerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetAuthorizerResult {
 		return environment.apigateway.getAuthorizer(build())
@@ -1681,9 +1768,11 @@ class AmazonApiGatewayGetAuthorizersCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetAuthorizersResult {
 	  return com.amazonaws.services.apigateway.model.GetAuthorizersResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetAuthorizersResult {
 		return environment.apigateway.getAuthorizers(build())
@@ -1716,9 +1805,11 @@ class AmazonApiGatewayGetBasePathMappingCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetBasePathMappingResult {
 	  return com.amazonaws.services.apigateway.model.GetBasePathMappingResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetBasePathMappingResult {
 		return environment.apigateway.getBasePathMapping(build())
@@ -1752,9 +1843,11 @@ class AmazonApiGatewayGetBasePathMappingsCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetBasePathMappingsResult {
 	  return com.amazonaws.services.apigateway.model.GetBasePathMappingsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetBasePathMappingsResult {
 		return environment.apigateway.getBasePathMappings(build())
@@ -1785,9 +1878,11 @@ class AmazonApiGatewayGetClientCertificateCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetClientCertificateResult {
 	  return com.amazonaws.services.apigateway.model.GetClientCertificateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetClientCertificateResult {
 		return environment.apigateway.getClientCertificate(build())
@@ -1818,9 +1913,11 @@ class AmazonApiGatewayGetClientCertificatesCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetClientCertificatesResult {
 	  return com.amazonaws.services.apigateway.model.GetClientCertificatesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetClientCertificatesResult {
 		return environment.apigateway.getClientCertificates(build())
@@ -1854,9 +1951,11 @@ class AmazonApiGatewayGetDeploymentCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetDeploymentResult {
 	  return com.amazonaws.services.apigateway.model.GetDeploymentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetDeploymentResult {
 		return environment.apigateway.getDeployment(build())
@@ -1891,9 +1990,11 @@ class AmazonApiGatewayGetDeploymentsCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetDeploymentsResult {
 	  return com.amazonaws.services.apigateway.model.GetDeploymentsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetDeploymentsResult {
 		return environment.apigateway.getDeployments(build())
@@ -1926,9 +2027,11 @@ class AmazonApiGatewayGetDocumentationPartCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetDocumentationPartResult {
 	  return com.amazonaws.services.apigateway.model.GetDocumentationPartResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetDocumentationPartResult {
 		return environment.apigateway.getDocumentationPart(build())
@@ -1970,9 +2073,11 @@ class AmazonApiGatewayGetDocumentationPartsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetDocumentationPartsResult {
 	  return com.amazonaws.services.apigateway.model.GetDocumentationPartsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetDocumentationPartsResult {
 		return environment.apigateway.getDocumentationParts(build())
@@ -2009,9 +2114,11 @@ class AmazonApiGatewayGetDocumentationVersionCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetDocumentationVersionResult {
 	  return com.amazonaws.services.apigateway.model.GetDocumentationVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetDocumentationVersionResult {
 		return environment.apigateway.getDocumentationVersion(build())
@@ -2045,9 +2152,11 @@ class AmazonApiGatewayGetDocumentationVersionsCommand() : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetDocumentationVersionsResult {
 	  return com.amazonaws.services.apigateway.model.GetDocumentationVersionsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetDocumentationVersionsResult {
 		return environment.apigateway.getDocumentationVersions(build())
@@ -2078,9 +2187,11 @@ class AmazonApiGatewayGetDomainNameCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetDomainNameResult {
 	  return com.amazonaws.services.apigateway.model.GetDomainNameResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetDomainNameResult {
 		return environment.apigateway.getDomainName(build())
@@ -2111,9 +2222,11 @@ class AmazonApiGatewayGetDomainNamesCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetDomainNamesResult {
 	  return com.amazonaws.services.apigateway.model.GetDomainNamesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetDomainNamesResult {
 		return environment.apigateway.getDomainNames(build())
@@ -2151,9 +2264,11 @@ class AmazonApiGatewayGetExportCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetExportResult {
 	  return com.amazonaws.services.apigateway.model.GetExportResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetExportResult {
 		return environment.apigateway.getExport(build())
@@ -2188,9 +2303,11 @@ class AmazonApiGatewayGetGatewayResponseCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetGatewayResponseResult {
 	  return com.amazonaws.services.apigateway.model.GetGatewayResponseResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetGatewayResponseResult {
 		return environment.apigateway.getGatewayResponse(build())
@@ -2224,9 +2341,11 @@ class AmazonApiGatewayGetGatewayResponsesCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetGatewayResponsesResult {
 	  return com.amazonaws.services.apigateway.model.GetGatewayResponsesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetGatewayResponsesResult {
 		return environment.apigateway.getGatewayResponses(build())
@@ -2261,9 +2380,11 @@ class AmazonApiGatewayGetIntegrationCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetIntegrationResult {
 	  return com.amazonaws.services.apigateway.model.GetIntegrationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetIntegrationResult {
 		return environment.apigateway.getIntegration(build())
@@ -2300,9 +2421,11 @@ class AmazonApiGatewayGetIntegrationResponseCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetIntegrationResponseResult {
 	  return com.amazonaws.services.apigateway.model.GetIntegrationResponseResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetIntegrationResponseResult {
 		return environment.apigateway.getIntegrationResponse(build())
@@ -2338,9 +2461,11 @@ class AmazonApiGatewayGetMethodCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetMethodResult {
 	  return com.amazonaws.services.apigateway.model.GetMethodResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetMethodResult {
 		return environment.apigateway.getMethod(build())
@@ -2377,9 +2502,11 @@ class AmazonApiGatewayGetMethodResponseCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetMethodResponseResult {
 	  return com.amazonaws.services.apigateway.model.GetMethodResponseResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetMethodResponseResult {
 		return environment.apigateway.getMethodResponse(build())
@@ -2415,9 +2542,11 @@ class AmazonApiGatewayGetModelCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetModelResult {
 	  return com.amazonaws.services.apigateway.model.GetModelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetModelResult {
 		return environment.apigateway.getModel(build())
@@ -2450,9 +2579,11 @@ class AmazonApiGatewayGetModelTemplateCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetModelTemplateResult {
 	  return com.amazonaws.services.apigateway.model.GetModelTemplateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetModelTemplateResult {
 		return environment.apigateway.getModelTemplate(build())
@@ -2486,9 +2617,11 @@ class AmazonApiGatewayGetModelsCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetModelsResult {
 	  return com.amazonaws.services.apigateway.model.GetModelsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetModelsResult {
 		return environment.apigateway.getModels(build())
@@ -2521,9 +2654,11 @@ class AmazonApiGatewayGetRequestValidatorCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetRequestValidatorResult {
 	  return com.amazonaws.services.apigateway.model.GetRequestValidatorResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetRequestValidatorResult {
 		return environment.apigateway.getRequestValidator(build())
@@ -2557,9 +2692,11 @@ class AmazonApiGatewayGetRequestValidatorsCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetRequestValidatorsResult {
 	  return com.amazonaws.services.apigateway.model.GetRequestValidatorsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetRequestValidatorsResult {
 		return environment.apigateway.getRequestValidators(build())
@@ -2594,9 +2731,11 @@ class AmazonApiGatewayGetResourceCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetResourceResult {
 	  return com.amazonaws.services.apigateway.model.GetResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetResourceResult {
 		return environment.apigateway.getResource(build())
@@ -2633,9 +2772,11 @@ class AmazonApiGatewayGetResourcesCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetResourcesResult {
 	  return com.amazonaws.services.apigateway.model.GetResourcesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetResourcesResult {
 		return environment.apigateway.getResources(build())
@@ -2667,9 +2808,11 @@ class AmazonApiGatewayGetRestApiCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetRestApiResult {
 	  return com.amazonaws.services.apigateway.model.GetRestApiResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetRestApiResult {
 		return environment.apigateway.getRestApi(build())
@@ -2700,9 +2843,11 @@ class AmazonApiGatewayGetRestApisCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetRestApisResult {
 	  return com.amazonaws.services.apigateway.model.GetRestApisResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetRestApisResult {
 		return environment.apigateway.getRestApis(build())
@@ -2738,9 +2883,11 @@ class AmazonApiGatewayGetSdkCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetSdkResult {
 	  return com.amazonaws.services.apigateway.model.GetSdkResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetSdkResult {
 		return environment.apigateway.getSdk(build())
@@ -2772,9 +2919,11 @@ class AmazonApiGatewayGetSdkTypeCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetSdkTypeResult {
 	  return com.amazonaws.services.apigateway.model.GetSdkTypeResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetSdkTypeResult {
 		return environment.apigateway.getSdkType(build())
@@ -2805,9 +2954,11 @@ class AmazonApiGatewayGetSdkTypesCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetSdkTypesResult {
 	  return com.amazonaws.services.apigateway.model.GetSdkTypesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetSdkTypesResult {
 		return environment.apigateway.getSdkTypes(build())
@@ -2839,9 +2990,11 @@ class AmazonApiGatewayGetStageCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetStageResult {
 	  return com.amazonaws.services.apigateway.model.GetStageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetStageResult {
 		return environment.apigateway.getStage(build())
@@ -2873,9 +3026,11 @@ class AmazonApiGatewayGetStagesCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetStagesResult {
 	  return com.amazonaws.services.apigateway.model.GetStagesResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetStagesResult {
 		return environment.apigateway.getStages(build())
@@ -2909,9 +3064,11 @@ class AmazonApiGatewayGetTagsCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetTagsResult {
 	  return com.amazonaws.services.apigateway.model.GetTagsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetTagsResult {
 		return environment.apigateway.getTags(build())
@@ -2952,9 +3109,11 @@ class AmazonApiGatewayGetUsageCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetUsageResult {
 	  return com.amazonaws.services.apigateway.model.GetUsageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetUsageResult {
 		return environment.apigateway.getUsage(build())
@@ -2988,9 +3147,11 @@ class AmazonApiGatewayGetUsagePlanCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetUsagePlanResult {
 	  return com.amazonaws.services.apigateway.model.GetUsagePlanResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetUsagePlanResult {
 		return environment.apigateway.getUsagePlan(build())
@@ -3021,9 +3182,11 @@ class AmazonApiGatewayGetUsagePlanKeyCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetUsagePlanKeyResult {
 	  return com.amazonaws.services.apigateway.model.GetUsagePlanKeyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetUsagePlanKeyResult {
 		return environment.apigateway.getUsagePlanKey(build())
@@ -3059,9 +3222,11 @@ class AmazonApiGatewayGetUsagePlanKeysCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetUsagePlanKeysResult {
 	  return com.amazonaws.services.apigateway.model.GetUsagePlanKeysResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetUsagePlanKeysResult {
 		return environment.apigateway.getUsagePlanKeys(build())
@@ -3097,9 +3262,11 @@ class AmazonApiGatewayGetUsagePlansCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetUsagePlansResult {
 	  return com.amazonaws.services.apigateway.model.GetUsagePlansResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetUsagePlansResult {
 		return environment.apigateway.getUsagePlans(build())
@@ -3130,9 +3297,11 @@ class AmazonApiGatewayGetVpcLinkCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetVpcLinkResult {
 	  return com.amazonaws.services.apigateway.model.GetVpcLinkResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetVpcLinkResult {
 		return environment.apigateway.getVpcLink(build())
@@ -3163,9 +3332,11 @@ class AmazonApiGatewayGetVpcLinksCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.GetVpcLinksResult {
 	  return com.amazonaws.services.apigateway.model.GetVpcLinksResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetVpcLinksResult {
 		return environment.apigateway.getVpcLinks(build())
@@ -3199,9 +3370,11 @@ class AmazonApiGatewayImportApiKeysCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.ImportApiKeysResult {
 	  return com.amazonaws.services.apigateway.model.ImportApiKeysResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.ImportApiKeysResult {
 		return environment.apigateway.importApiKeys(build())
@@ -3238,9 +3411,11 @@ class AmazonApiGatewayImportDocumentationPartsCommand() : AmazonWebServiceComman
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.ImportDocumentationPartsResult {
 	  return com.amazonaws.services.apigateway.model.ImportDocumentationPartsResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.ImportDocumentationPartsResult {
 		return environment.apigateway.importDocumentationParts(build())
@@ -3276,9 +3451,11 @@ class AmazonApiGatewayImportRestApiCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.ImportRestApiResult {
 	  return com.amazonaws.services.apigateway.model.ImportRestApiResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.ImportRestApiResult {
 		return environment.apigateway.importRestApi(build())
@@ -3317,9 +3494,11 @@ class AmazonApiGatewayPutGatewayResponseCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.PutGatewayResponseResult {
 	  return com.amazonaws.services.apigateway.model.PutGatewayResponseResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.PutGatewayResponseResult {
 		return environment.apigateway.putGatewayResponse(build())
@@ -3382,9 +3561,11 @@ class AmazonApiGatewayPutIntegrationCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.PutIntegrationResult {
 	  return com.amazonaws.services.apigateway.model.PutIntegrationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.PutIntegrationResult {
 		return environment.apigateway.putIntegration(build())
@@ -3442,9 +3623,11 @@ class AmazonApiGatewayPutIntegrationResponseCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.PutIntegrationResponseResult {
 	  return com.amazonaws.services.apigateway.model.PutIntegrationResponseResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.PutIntegrationResponseResult {
 		return environment.apigateway.putIntegrationResponse(build())
@@ -3500,9 +3683,11 @@ class AmazonApiGatewayPutMethodCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.PutMethodResult {
 	  return com.amazonaws.services.apigateway.model.PutMethodResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.PutMethodResult {
 		return environment.apigateway.putMethod(build())
@@ -3551,9 +3736,11 @@ class AmazonApiGatewayPutMethodResponseCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.PutMethodResponseResult {
 	  return com.amazonaws.services.apigateway.model.PutMethodResponseResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.PutMethodResponseResult {
 		return environment.apigateway.putMethodResponse(build())
@@ -3595,9 +3782,11 @@ class AmazonApiGatewayPutRestApiCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.PutRestApiResult {
 	  return com.amazonaws.services.apigateway.model.PutRestApiResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.PutRestApiResult {
 		return environment.apigateway.putRestApi(build())
@@ -3632,9 +3821,11 @@ class AmazonApiGatewayTagResourceCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.TagResourceResult {
 	  return com.amazonaws.services.apigateway.model.TagResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.TagResourceResult {
 		return environment.apigateway.tagResource(build())
@@ -3676,9 +3867,11 @@ class AmazonApiGatewayTestInvokeAuthorizerCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.TestInvokeAuthorizerResult {
 	  return com.amazonaws.services.apigateway.model.TestInvokeAuthorizerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.TestInvokeAuthorizerResult {
 		return environment.apigateway.testInvokeAuthorizer(build())
@@ -3727,9 +3920,11 @@ class AmazonApiGatewayTestInvokeMethodCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.TestInvokeMethodResult {
 	  return com.amazonaws.services.apigateway.model.TestInvokeMethodResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.TestInvokeMethodResult {
 		return environment.apigateway.testInvokeMethod(build())
@@ -3767,9 +3962,11 @@ class AmazonApiGatewayUntagResourceCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.UntagResourceResult {
 	  return com.amazonaws.services.apigateway.model.UntagResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UntagResourceResult {
 		return environment.apigateway.untagResource(build())
@@ -3799,9 +3996,11 @@ class AmazonApiGatewayUpdateAccountCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateAccountResult {
 	  return com.amazonaws.services.apigateway.model.UpdateAccountResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateAccountResult {
 		return environment.apigateway.updateAccount(build())
@@ -3832,9 +4031,11 @@ class AmazonApiGatewayUpdateApiKeyCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateApiKeyResult {
 	  return com.amazonaws.services.apigateway.model.UpdateApiKeyResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateApiKeyResult {
 		return environment.apigateway.updateApiKey(build())
@@ -3868,9 +4069,11 @@ class AmazonApiGatewayUpdateAuthorizerCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateAuthorizerResult {
 	  return com.amazonaws.services.apigateway.model.UpdateAuthorizerResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateAuthorizerResult {
 		return environment.apigateway.updateAuthorizer(build())
@@ -3905,9 +4108,11 @@ class AmazonApiGatewayUpdateBasePathMappingCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateBasePathMappingResult {
 	  return com.amazonaws.services.apigateway.model.UpdateBasePathMappingResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateBasePathMappingResult {
 		return environment.apigateway.updateBasePathMapping(build())
@@ -3940,9 +4145,11 @@ class AmazonApiGatewayUpdateClientCertificateCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateClientCertificateResult {
 	  return com.amazonaws.services.apigateway.model.UpdateClientCertificateResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateClientCertificateResult {
 		return environment.apigateway.updateClientCertificate(build())
@@ -3976,9 +4183,11 @@ class AmazonApiGatewayUpdateDeploymentCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateDeploymentResult {
 	  return com.amazonaws.services.apigateway.model.UpdateDeploymentResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateDeploymentResult {
 		return environment.apigateway.updateDeployment(build())
@@ -4013,9 +4222,11 @@ class AmazonApiGatewayUpdateDocumentationPartCommand() : AmazonWebServiceCommand
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateDocumentationPartResult {
 	  return com.amazonaws.services.apigateway.model.UpdateDocumentationPartResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateDocumentationPartResult {
 		return environment.apigateway.updateDocumentationPart(build())
@@ -4050,9 +4261,11 @@ class AmazonApiGatewayUpdateDocumentationVersionCommand() : AmazonWebServiceComm
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateDocumentationVersionResult {
 	  return com.amazonaws.services.apigateway.model.UpdateDocumentationVersionResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateDocumentationVersionResult {
 		return environment.apigateway.updateDocumentationVersion(build())
@@ -4085,9 +4298,11 @@ class AmazonApiGatewayUpdateDomainNameCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateDomainNameResult {
 	  return com.amazonaws.services.apigateway.model.UpdateDomainNameResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateDomainNameResult {
 		return environment.apigateway.updateDomainName(build())
@@ -4121,9 +4336,11 @@ class AmazonApiGatewayUpdateGatewayResponseCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateGatewayResponseResult {
 	  return com.amazonaws.services.apigateway.model.UpdateGatewayResponseResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateGatewayResponseResult {
 		return environment.apigateway.updateGatewayResponse(build())
@@ -4160,9 +4377,11 @@ class AmazonApiGatewayUpdateIntegrationCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateIntegrationResult {
 	  return com.amazonaws.services.apigateway.model.UpdateIntegrationResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateIntegrationResult {
 		return environment.apigateway.updateIntegration(build())
@@ -4202,9 +4421,11 @@ class AmazonApiGatewayUpdateIntegrationResponseCommand() : AmazonWebServiceComma
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateIntegrationResponseResult {
 	  return com.amazonaws.services.apigateway.model.UpdateIntegrationResponseResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateIntegrationResponseResult {
 		return environment.apigateway.updateIntegrationResponse(build())
@@ -4243,9 +4464,11 @@ class AmazonApiGatewayUpdateMethodCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateMethodResult {
 	  return com.amazonaws.services.apigateway.model.UpdateMethodResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateMethodResult {
 		return environment.apigateway.updateMethod(build())
@@ -4285,9 +4508,11 @@ class AmazonApiGatewayUpdateMethodResponseCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateMethodResponseResult {
 	  return com.amazonaws.services.apigateway.model.UpdateMethodResponseResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateMethodResponseResult {
 		return environment.apigateway.updateMethodResponse(build())
@@ -4324,9 +4549,11 @@ class AmazonApiGatewayUpdateModelCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateModelResult {
 	  return com.amazonaws.services.apigateway.model.UpdateModelResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateModelResult {
 		return environment.apigateway.updateModel(build())
@@ -4361,9 +4588,11 @@ class AmazonApiGatewayUpdateRequestValidatorCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateRequestValidatorResult {
 	  return com.amazonaws.services.apigateway.model.UpdateRequestValidatorResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateRequestValidatorResult {
 		return environment.apigateway.updateRequestValidator(build())
@@ -4398,9 +4627,11 @@ class AmazonApiGatewayUpdateResourceCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateResourceResult {
 	  return com.amazonaws.services.apigateway.model.UpdateResourceResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateResourceResult {
 		return environment.apigateway.updateResource(build())
@@ -4433,9 +4664,11 @@ class AmazonApiGatewayUpdateRestApiCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateRestApiResult {
 	  return com.amazonaws.services.apigateway.model.UpdateRestApiResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateRestApiResult {
 		return environment.apigateway.updateRestApi(build())
@@ -4469,9 +4702,11 @@ class AmazonApiGatewayUpdateStageCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateStageResult {
 	  return com.amazonaws.services.apigateway.model.UpdateStageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateStageResult {
 		return environment.apigateway.updateStage(build())
@@ -4506,9 +4741,11 @@ class AmazonApiGatewayUpdateUsageCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateUsageResult {
 	  return com.amazonaws.services.apigateway.model.UpdateUsageResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateUsageResult {
 		return environment.apigateway.updateUsage(build())
@@ -4541,9 +4778,11 @@ class AmazonApiGatewayUpdateUsagePlanCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateUsagePlanResult {
 	  return com.amazonaws.services.apigateway.model.UpdateUsagePlanResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateUsagePlanResult {
 		return environment.apigateway.updateUsagePlan(build())
@@ -4575,9 +4814,11 @@ class AmazonApiGatewayUpdateVpcLinkCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
+	
 	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateVpcLinkResult {
 	  return com.amazonaws.services.apigateway.model.UpdateVpcLinkResult()
 	}
+
 
 	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateVpcLinkResult {
 		return environment.apigateway.updateVpcLink(build())
