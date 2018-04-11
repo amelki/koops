@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.budgets: AWSBudgets
 @Generated
 class AWSBudgetsFunctions(val block: Block)
 
-infix fun AwsContinuation.budgets(init: AWSBudgetsFunctions.() -> Unit) {
-	AWSBudgetsFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.budgets(init: AWSBudgetsFunctions.() -> T): T {
+	return AWSBudgetsFunctions(shell).run(init)
 }
 
 			
 
-fun AWSBudgetsFunctions.createBudget(accountId: String, budget: com.amazonaws.services.budgets.model.Budget, init: AWSBudgetsCreateBudgetCommand.() -> Unit) {
-	this.block.declare(AWSBudgetsCreateBudgetCommand(accountId, budget).apply(init))
+fun AWSBudgetsFunctions.createBudget(accountId: String, budget: com.amazonaws.services.budgets.model.Budget, init: AWSBudgetsCreateBudgetCommand.() -> Unit): com.amazonaws.services.budgets.model.CreateBudgetResult {
+	return this.block.declare(AWSBudgetsCreateBudgetCommand(accountId, budget).apply(init)) as com.amazonaws.services.budgets.model.CreateBudgetResult
 }
 
 @Generated
-class AWSBudgetsCreateBudgetCommand(val accountId: String, val budget: com.amazonaws.services.budgets.model.Budget) : AmazonWebServiceCommand<com.amazonaws.services.budgets.model.CreateBudgetRequest> {
+class AWSBudgetsCreateBudgetCommand(val accountId: String, val budget: com.amazonaws.services.budgets.model.Budget) : AmazonWebServiceCommand<com.amazonaws.services.budgets.model.CreateBudgetRequest, com.amazonaws.services.budgets.model.CreateBudgetResult> {
 
 	var notificationsWithSubscribers: List<com.amazonaws.services.budgets.model.NotificationWithSubscribers>? = null
 
@@ -43,8 +43,12 @@ class AWSBudgetsCreateBudgetCommand(val accountId: String, val budget: com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.budgets.createBudget(build())
+	override fun dryResult(): com.amazonaws.services.budgets.model.CreateBudgetResult {
+	  return com.amazonaws.services.budgets.model.CreateBudgetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.budgets.model.CreateBudgetResult {
+		return environment.budgets.createBudget(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -57,12 +61,12 @@ class AWSBudgetsCreateBudgetCommand(val accountId: String, val budget: com.amazo
 }
 
 
-fun AWSBudgetsFunctions.createNotification(accountId: String, budgetName: String, notification: com.amazonaws.services.budgets.model.Notification, subscribers: List<com.amazonaws.services.budgets.model.Subscriber>, init: AWSBudgetsCreateNotificationCommand.() -> Unit) {
-	this.block.declare(AWSBudgetsCreateNotificationCommand(accountId, budgetName, notification, subscribers).apply(init))
+fun AWSBudgetsFunctions.createNotification(accountId: String, budgetName: String, notification: com.amazonaws.services.budgets.model.Notification, subscribers: List<com.amazonaws.services.budgets.model.Subscriber>, init: AWSBudgetsCreateNotificationCommand.() -> Unit): com.amazonaws.services.budgets.model.CreateNotificationResult {
+	return this.block.declare(AWSBudgetsCreateNotificationCommand(accountId, budgetName, notification, subscribers).apply(init)) as com.amazonaws.services.budgets.model.CreateNotificationResult
 }
 
 @Generated
-class AWSBudgetsCreateNotificationCommand(val accountId: String, val budgetName: String, val notification: com.amazonaws.services.budgets.model.Notification, val subscribers: List<com.amazonaws.services.budgets.model.Subscriber>) : AmazonWebServiceCommand<com.amazonaws.services.budgets.model.CreateNotificationRequest> {
+class AWSBudgetsCreateNotificationCommand(val accountId: String, val budgetName: String, val notification: com.amazonaws.services.budgets.model.Notification, val subscribers: List<com.amazonaws.services.budgets.model.Subscriber>) : AmazonWebServiceCommand<com.amazonaws.services.budgets.model.CreateNotificationRequest, com.amazonaws.services.budgets.model.CreateNotificationResult> {
 
 
 
@@ -75,8 +79,12 @@ class AWSBudgetsCreateNotificationCommand(val accountId: String, val budgetName:
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.budgets.createNotification(build())
+	override fun dryResult(): com.amazonaws.services.budgets.model.CreateNotificationResult {
+	  return com.amazonaws.services.budgets.model.CreateNotificationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.budgets.model.CreateNotificationResult {
+		return environment.budgets.createNotification(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -90,12 +98,12 @@ class AWSBudgetsCreateNotificationCommand(val accountId: String, val budgetName:
 }
 
 
-fun AWSBudgetsFunctions.createSubscriber(accountId: String, budgetName: String, notification: com.amazonaws.services.budgets.model.Notification, subscriber: com.amazonaws.services.budgets.model.Subscriber, init: AWSBudgetsCreateSubscriberCommand.() -> Unit) {
-	this.block.declare(AWSBudgetsCreateSubscriberCommand(accountId, budgetName, notification, subscriber).apply(init))
+fun AWSBudgetsFunctions.createSubscriber(accountId: String, budgetName: String, notification: com.amazonaws.services.budgets.model.Notification, subscriber: com.amazonaws.services.budgets.model.Subscriber, init: AWSBudgetsCreateSubscriberCommand.() -> Unit): com.amazonaws.services.budgets.model.CreateSubscriberResult {
+	return this.block.declare(AWSBudgetsCreateSubscriberCommand(accountId, budgetName, notification, subscriber).apply(init)) as com.amazonaws.services.budgets.model.CreateSubscriberResult
 }
 
 @Generated
-class AWSBudgetsCreateSubscriberCommand(val accountId: String, val budgetName: String, val notification: com.amazonaws.services.budgets.model.Notification, val subscriber: com.amazonaws.services.budgets.model.Subscriber) : AmazonWebServiceCommand<com.amazonaws.services.budgets.model.CreateSubscriberRequest> {
+class AWSBudgetsCreateSubscriberCommand(val accountId: String, val budgetName: String, val notification: com.amazonaws.services.budgets.model.Notification, val subscriber: com.amazonaws.services.budgets.model.Subscriber) : AmazonWebServiceCommand<com.amazonaws.services.budgets.model.CreateSubscriberRequest, com.amazonaws.services.budgets.model.CreateSubscriberResult> {
 
 
 
@@ -108,8 +116,12 @@ class AWSBudgetsCreateSubscriberCommand(val accountId: String, val budgetName: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.budgets.createSubscriber(build())
+	override fun dryResult(): com.amazonaws.services.budgets.model.CreateSubscriberResult {
+	  return com.amazonaws.services.budgets.model.CreateSubscriberResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.budgets.model.CreateSubscriberResult {
+		return environment.budgets.createSubscriber(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -123,12 +135,12 @@ class AWSBudgetsCreateSubscriberCommand(val accountId: String, val budgetName: S
 }
 
 
-fun AWSBudgetsFunctions.deleteBudget(accountId: String, budgetName: String, init: AWSBudgetsDeleteBudgetCommand.() -> Unit) {
-	this.block.declare(AWSBudgetsDeleteBudgetCommand(accountId, budgetName).apply(init))
+fun AWSBudgetsFunctions.deleteBudget(accountId: String, budgetName: String, init: AWSBudgetsDeleteBudgetCommand.() -> Unit): com.amazonaws.services.budgets.model.DeleteBudgetResult {
+	return this.block.declare(AWSBudgetsDeleteBudgetCommand(accountId, budgetName).apply(init)) as com.amazonaws.services.budgets.model.DeleteBudgetResult
 }
 
 @Generated
-class AWSBudgetsDeleteBudgetCommand(val accountId: String, val budgetName: String) : AmazonWebServiceCommand<com.amazonaws.services.budgets.model.DeleteBudgetRequest> {
+class AWSBudgetsDeleteBudgetCommand(val accountId: String, val budgetName: String) : AmazonWebServiceCommand<com.amazonaws.services.budgets.model.DeleteBudgetRequest, com.amazonaws.services.budgets.model.DeleteBudgetResult> {
 
 
 
@@ -139,8 +151,12 @@ class AWSBudgetsDeleteBudgetCommand(val accountId: String, val budgetName: Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.budgets.deleteBudget(build())
+	override fun dryResult(): com.amazonaws.services.budgets.model.DeleteBudgetResult {
+	  return com.amazonaws.services.budgets.model.DeleteBudgetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.budgets.model.DeleteBudgetResult {
+		return environment.budgets.deleteBudget(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -152,12 +168,12 @@ class AWSBudgetsDeleteBudgetCommand(val accountId: String, val budgetName: Strin
 }
 
 
-fun AWSBudgetsFunctions.deleteNotification(accountId: String, budgetName: String, notification: com.amazonaws.services.budgets.model.Notification, init: AWSBudgetsDeleteNotificationCommand.() -> Unit) {
-	this.block.declare(AWSBudgetsDeleteNotificationCommand(accountId, budgetName, notification).apply(init))
+fun AWSBudgetsFunctions.deleteNotification(accountId: String, budgetName: String, notification: com.amazonaws.services.budgets.model.Notification, init: AWSBudgetsDeleteNotificationCommand.() -> Unit): com.amazonaws.services.budgets.model.DeleteNotificationResult {
+	return this.block.declare(AWSBudgetsDeleteNotificationCommand(accountId, budgetName, notification).apply(init)) as com.amazonaws.services.budgets.model.DeleteNotificationResult
 }
 
 @Generated
-class AWSBudgetsDeleteNotificationCommand(val accountId: String, val budgetName: String, val notification: com.amazonaws.services.budgets.model.Notification) : AmazonWebServiceCommand<com.amazonaws.services.budgets.model.DeleteNotificationRequest> {
+class AWSBudgetsDeleteNotificationCommand(val accountId: String, val budgetName: String, val notification: com.amazonaws.services.budgets.model.Notification) : AmazonWebServiceCommand<com.amazonaws.services.budgets.model.DeleteNotificationRequest, com.amazonaws.services.budgets.model.DeleteNotificationResult> {
 
 
 
@@ -169,8 +185,12 @@ class AWSBudgetsDeleteNotificationCommand(val accountId: String, val budgetName:
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.budgets.deleteNotification(build())
+	override fun dryResult(): com.amazonaws.services.budgets.model.DeleteNotificationResult {
+	  return com.amazonaws.services.budgets.model.DeleteNotificationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.budgets.model.DeleteNotificationResult {
+		return environment.budgets.deleteNotification(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -183,12 +203,12 @@ class AWSBudgetsDeleteNotificationCommand(val accountId: String, val budgetName:
 }
 
 
-fun AWSBudgetsFunctions.deleteSubscriber(accountId: String, budgetName: String, notification: com.amazonaws.services.budgets.model.Notification, subscriber: com.amazonaws.services.budgets.model.Subscriber, init: AWSBudgetsDeleteSubscriberCommand.() -> Unit) {
-	this.block.declare(AWSBudgetsDeleteSubscriberCommand(accountId, budgetName, notification, subscriber).apply(init))
+fun AWSBudgetsFunctions.deleteSubscriber(accountId: String, budgetName: String, notification: com.amazonaws.services.budgets.model.Notification, subscriber: com.amazonaws.services.budgets.model.Subscriber, init: AWSBudgetsDeleteSubscriberCommand.() -> Unit): com.amazonaws.services.budgets.model.DeleteSubscriberResult {
+	return this.block.declare(AWSBudgetsDeleteSubscriberCommand(accountId, budgetName, notification, subscriber).apply(init)) as com.amazonaws.services.budgets.model.DeleteSubscriberResult
 }
 
 @Generated
-class AWSBudgetsDeleteSubscriberCommand(val accountId: String, val budgetName: String, val notification: com.amazonaws.services.budgets.model.Notification, val subscriber: com.amazonaws.services.budgets.model.Subscriber) : AmazonWebServiceCommand<com.amazonaws.services.budgets.model.DeleteSubscriberRequest> {
+class AWSBudgetsDeleteSubscriberCommand(val accountId: String, val budgetName: String, val notification: com.amazonaws.services.budgets.model.Notification, val subscriber: com.amazonaws.services.budgets.model.Subscriber) : AmazonWebServiceCommand<com.amazonaws.services.budgets.model.DeleteSubscriberRequest, com.amazonaws.services.budgets.model.DeleteSubscriberResult> {
 
 
 
@@ -201,8 +221,12 @@ class AWSBudgetsDeleteSubscriberCommand(val accountId: String, val budgetName: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.budgets.deleteSubscriber(build())
+	override fun dryResult(): com.amazonaws.services.budgets.model.DeleteSubscriberResult {
+	  return com.amazonaws.services.budgets.model.DeleteSubscriberResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.budgets.model.DeleteSubscriberResult {
+		return environment.budgets.deleteSubscriber(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -216,12 +240,12 @@ class AWSBudgetsDeleteSubscriberCommand(val accountId: String, val budgetName: S
 }
 
 
-fun AWSBudgetsFunctions.describeBudget(accountId: String, budgetName: String, init: AWSBudgetsDescribeBudgetCommand.() -> Unit) {
-	this.block.declare(AWSBudgetsDescribeBudgetCommand(accountId, budgetName).apply(init))
+fun AWSBudgetsFunctions.describeBudget(accountId: String, budgetName: String, init: AWSBudgetsDescribeBudgetCommand.() -> Unit): com.amazonaws.services.budgets.model.DescribeBudgetResult {
+	return this.block.declare(AWSBudgetsDescribeBudgetCommand(accountId, budgetName).apply(init)) as com.amazonaws.services.budgets.model.DescribeBudgetResult
 }
 
 @Generated
-class AWSBudgetsDescribeBudgetCommand(val accountId: String, val budgetName: String) : AmazonWebServiceCommand<com.amazonaws.services.budgets.model.DescribeBudgetRequest> {
+class AWSBudgetsDescribeBudgetCommand(val accountId: String, val budgetName: String) : AmazonWebServiceCommand<com.amazonaws.services.budgets.model.DescribeBudgetRequest, com.amazonaws.services.budgets.model.DescribeBudgetResult> {
 
 
 
@@ -232,8 +256,12 @@ class AWSBudgetsDescribeBudgetCommand(val accountId: String, val budgetName: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.budgets.describeBudget(build())
+	override fun dryResult(): com.amazonaws.services.budgets.model.DescribeBudgetResult {
+	  return com.amazonaws.services.budgets.model.DescribeBudgetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.budgets.model.DescribeBudgetResult {
+		return environment.budgets.describeBudget(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -245,12 +273,12 @@ class AWSBudgetsDescribeBudgetCommand(val accountId: String, val budgetName: Str
 }
 
 
-fun AWSBudgetsFunctions.describeBudgets(accountId: String, init: AWSBudgetsDescribeBudgetsCommand.() -> Unit) {
-	this.block.declare(AWSBudgetsDescribeBudgetsCommand(accountId).apply(init))
+fun AWSBudgetsFunctions.describeBudgets(accountId: String, init: AWSBudgetsDescribeBudgetsCommand.() -> Unit): com.amazonaws.services.budgets.model.DescribeBudgetsResult {
+	return this.block.declare(AWSBudgetsDescribeBudgetsCommand(accountId).apply(init)) as com.amazonaws.services.budgets.model.DescribeBudgetsResult
 }
 
 @Generated
-class AWSBudgetsDescribeBudgetsCommand(val accountId: String) : AmazonWebServiceCommand<com.amazonaws.services.budgets.model.DescribeBudgetsRequest> {
+class AWSBudgetsDescribeBudgetsCommand(val accountId: String) : AmazonWebServiceCommand<com.amazonaws.services.budgets.model.DescribeBudgetsRequest, com.amazonaws.services.budgets.model.DescribeBudgetsResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -263,8 +291,12 @@ class AWSBudgetsDescribeBudgetsCommand(val accountId: String) : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.budgets.describeBudgets(build())
+	override fun dryResult(): com.amazonaws.services.budgets.model.DescribeBudgetsResult {
+	  return com.amazonaws.services.budgets.model.DescribeBudgetsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.budgets.model.DescribeBudgetsResult {
+		return environment.budgets.describeBudgets(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -277,12 +309,12 @@ class AWSBudgetsDescribeBudgetsCommand(val accountId: String) : AmazonWebService
 }
 
 
-fun AWSBudgetsFunctions.describeNotificationsForBudget(accountId: String, budgetName: String, init: AWSBudgetsDescribeNotificationsForBudgetCommand.() -> Unit) {
-	this.block.declare(AWSBudgetsDescribeNotificationsForBudgetCommand(accountId, budgetName).apply(init))
+fun AWSBudgetsFunctions.describeNotificationsForBudget(accountId: String, budgetName: String, init: AWSBudgetsDescribeNotificationsForBudgetCommand.() -> Unit): com.amazonaws.services.budgets.model.DescribeNotificationsForBudgetResult {
+	return this.block.declare(AWSBudgetsDescribeNotificationsForBudgetCommand(accountId, budgetName).apply(init)) as com.amazonaws.services.budgets.model.DescribeNotificationsForBudgetResult
 }
 
 @Generated
-class AWSBudgetsDescribeNotificationsForBudgetCommand(val accountId: String, val budgetName: String) : AmazonWebServiceCommand<com.amazonaws.services.budgets.model.DescribeNotificationsForBudgetRequest> {
+class AWSBudgetsDescribeNotificationsForBudgetCommand(val accountId: String, val budgetName: String) : AmazonWebServiceCommand<com.amazonaws.services.budgets.model.DescribeNotificationsForBudgetRequest, com.amazonaws.services.budgets.model.DescribeNotificationsForBudgetResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -296,8 +328,12 @@ class AWSBudgetsDescribeNotificationsForBudgetCommand(val accountId: String, val
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.budgets.describeNotificationsForBudget(build())
+	override fun dryResult(): com.amazonaws.services.budgets.model.DescribeNotificationsForBudgetResult {
+	  return com.amazonaws.services.budgets.model.DescribeNotificationsForBudgetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.budgets.model.DescribeNotificationsForBudgetResult {
+		return environment.budgets.describeNotificationsForBudget(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -311,12 +347,12 @@ class AWSBudgetsDescribeNotificationsForBudgetCommand(val accountId: String, val
 }
 
 
-fun AWSBudgetsFunctions.describeSubscribersForNotification(accountId: String, budgetName: String, notification: com.amazonaws.services.budgets.model.Notification, init: AWSBudgetsDescribeSubscribersForNotificationCommand.() -> Unit) {
-	this.block.declare(AWSBudgetsDescribeSubscribersForNotificationCommand(accountId, budgetName, notification).apply(init))
+fun AWSBudgetsFunctions.describeSubscribersForNotification(accountId: String, budgetName: String, notification: com.amazonaws.services.budgets.model.Notification, init: AWSBudgetsDescribeSubscribersForNotificationCommand.() -> Unit): com.amazonaws.services.budgets.model.DescribeSubscribersForNotificationResult {
+	return this.block.declare(AWSBudgetsDescribeSubscribersForNotificationCommand(accountId, budgetName, notification).apply(init)) as com.amazonaws.services.budgets.model.DescribeSubscribersForNotificationResult
 }
 
 @Generated
-class AWSBudgetsDescribeSubscribersForNotificationCommand(val accountId: String, val budgetName: String, val notification: com.amazonaws.services.budgets.model.Notification) : AmazonWebServiceCommand<com.amazonaws.services.budgets.model.DescribeSubscribersForNotificationRequest> {
+class AWSBudgetsDescribeSubscribersForNotificationCommand(val accountId: String, val budgetName: String, val notification: com.amazonaws.services.budgets.model.Notification) : AmazonWebServiceCommand<com.amazonaws.services.budgets.model.DescribeSubscribersForNotificationRequest, com.amazonaws.services.budgets.model.DescribeSubscribersForNotificationResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -331,8 +367,12 @@ class AWSBudgetsDescribeSubscribersForNotificationCommand(val accountId: String,
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.budgets.describeSubscribersForNotification(build())
+	override fun dryResult(): com.amazonaws.services.budgets.model.DescribeSubscribersForNotificationResult {
+	  return com.amazonaws.services.budgets.model.DescribeSubscribersForNotificationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.budgets.model.DescribeSubscribersForNotificationResult {
+		return environment.budgets.describeSubscribersForNotification(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -347,12 +387,12 @@ class AWSBudgetsDescribeSubscribersForNotificationCommand(val accountId: String,
 }
 
 
-fun AWSBudgetsFunctions.updateBudget(accountId: String, newBudget: com.amazonaws.services.budgets.model.Budget, init: AWSBudgetsUpdateBudgetCommand.() -> Unit) {
-	this.block.declare(AWSBudgetsUpdateBudgetCommand(accountId, newBudget).apply(init))
+fun AWSBudgetsFunctions.updateBudget(accountId: String, newBudget: com.amazonaws.services.budgets.model.Budget, init: AWSBudgetsUpdateBudgetCommand.() -> Unit): com.amazonaws.services.budgets.model.UpdateBudgetResult {
+	return this.block.declare(AWSBudgetsUpdateBudgetCommand(accountId, newBudget).apply(init)) as com.amazonaws.services.budgets.model.UpdateBudgetResult
 }
 
 @Generated
-class AWSBudgetsUpdateBudgetCommand(val accountId: String, val newBudget: com.amazonaws.services.budgets.model.Budget) : AmazonWebServiceCommand<com.amazonaws.services.budgets.model.UpdateBudgetRequest> {
+class AWSBudgetsUpdateBudgetCommand(val accountId: String, val newBudget: com.amazonaws.services.budgets.model.Budget) : AmazonWebServiceCommand<com.amazonaws.services.budgets.model.UpdateBudgetRequest, com.amazonaws.services.budgets.model.UpdateBudgetResult> {
 
 
 
@@ -363,8 +403,12 @@ class AWSBudgetsUpdateBudgetCommand(val accountId: String, val newBudget: com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.budgets.updateBudget(build())
+	override fun dryResult(): com.amazonaws.services.budgets.model.UpdateBudgetResult {
+	  return com.amazonaws.services.budgets.model.UpdateBudgetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.budgets.model.UpdateBudgetResult {
+		return environment.budgets.updateBudget(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -376,12 +420,12 @@ class AWSBudgetsUpdateBudgetCommand(val accountId: String, val newBudget: com.am
 }
 
 
-fun AWSBudgetsFunctions.updateNotification(accountId: String, budgetName: String, oldNotification: com.amazonaws.services.budgets.model.Notification, newNotification: com.amazonaws.services.budgets.model.Notification, init: AWSBudgetsUpdateNotificationCommand.() -> Unit) {
-	this.block.declare(AWSBudgetsUpdateNotificationCommand(accountId, budgetName, oldNotification, newNotification).apply(init))
+fun AWSBudgetsFunctions.updateNotification(accountId: String, budgetName: String, oldNotification: com.amazonaws.services.budgets.model.Notification, newNotification: com.amazonaws.services.budgets.model.Notification, init: AWSBudgetsUpdateNotificationCommand.() -> Unit): com.amazonaws.services.budgets.model.UpdateNotificationResult {
+	return this.block.declare(AWSBudgetsUpdateNotificationCommand(accountId, budgetName, oldNotification, newNotification).apply(init)) as com.amazonaws.services.budgets.model.UpdateNotificationResult
 }
 
 @Generated
-class AWSBudgetsUpdateNotificationCommand(val accountId: String, val budgetName: String, val oldNotification: com.amazonaws.services.budgets.model.Notification, val newNotification: com.amazonaws.services.budgets.model.Notification) : AmazonWebServiceCommand<com.amazonaws.services.budgets.model.UpdateNotificationRequest> {
+class AWSBudgetsUpdateNotificationCommand(val accountId: String, val budgetName: String, val oldNotification: com.amazonaws.services.budgets.model.Notification, val newNotification: com.amazonaws.services.budgets.model.Notification) : AmazonWebServiceCommand<com.amazonaws.services.budgets.model.UpdateNotificationRequest, com.amazonaws.services.budgets.model.UpdateNotificationResult> {
 
 
 
@@ -394,8 +438,12 @@ class AWSBudgetsUpdateNotificationCommand(val accountId: String, val budgetName:
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.budgets.updateNotification(build())
+	override fun dryResult(): com.amazonaws.services.budgets.model.UpdateNotificationResult {
+	  return com.amazonaws.services.budgets.model.UpdateNotificationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.budgets.model.UpdateNotificationResult {
+		return environment.budgets.updateNotification(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -409,12 +457,12 @@ class AWSBudgetsUpdateNotificationCommand(val accountId: String, val budgetName:
 }
 
 
-fun AWSBudgetsFunctions.updateSubscriber(accountId: String, budgetName: String, notification: com.amazonaws.services.budgets.model.Notification, oldSubscriber: com.amazonaws.services.budgets.model.Subscriber, newSubscriber: com.amazonaws.services.budgets.model.Subscriber, init: AWSBudgetsUpdateSubscriberCommand.() -> Unit) {
-	this.block.declare(AWSBudgetsUpdateSubscriberCommand(accountId, budgetName, notification, oldSubscriber, newSubscriber).apply(init))
+fun AWSBudgetsFunctions.updateSubscriber(accountId: String, budgetName: String, notification: com.amazonaws.services.budgets.model.Notification, oldSubscriber: com.amazonaws.services.budgets.model.Subscriber, newSubscriber: com.amazonaws.services.budgets.model.Subscriber, init: AWSBudgetsUpdateSubscriberCommand.() -> Unit): com.amazonaws.services.budgets.model.UpdateSubscriberResult {
+	return this.block.declare(AWSBudgetsUpdateSubscriberCommand(accountId, budgetName, notification, oldSubscriber, newSubscriber).apply(init)) as com.amazonaws.services.budgets.model.UpdateSubscriberResult
 }
 
 @Generated
-class AWSBudgetsUpdateSubscriberCommand(val accountId: String, val budgetName: String, val notification: com.amazonaws.services.budgets.model.Notification, val oldSubscriber: com.amazonaws.services.budgets.model.Subscriber, val newSubscriber: com.amazonaws.services.budgets.model.Subscriber) : AmazonWebServiceCommand<com.amazonaws.services.budgets.model.UpdateSubscriberRequest> {
+class AWSBudgetsUpdateSubscriberCommand(val accountId: String, val budgetName: String, val notification: com.amazonaws.services.budgets.model.Notification, val oldSubscriber: com.amazonaws.services.budgets.model.Subscriber, val newSubscriber: com.amazonaws.services.budgets.model.Subscriber) : AmazonWebServiceCommand<com.amazonaws.services.budgets.model.UpdateSubscriberRequest, com.amazonaws.services.budgets.model.UpdateSubscriberResult> {
 
 
 
@@ -428,8 +476,12 @@ class AWSBudgetsUpdateSubscriberCommand(val accountId: String, val budgetName: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.budgets.updateSubscriber(build())
+	override fun dryResult(): com.amazonaws.services.budgets.model.UpdateSubscriberResult {
+	  return com.amazonaws.services.budgets.model.UpdateSubscriberResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.budgets.model.UpdateSubscriberResult {
+		return environment.budgets.updateSubscriber(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

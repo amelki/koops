@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.iot_jobs_data: AWSIoTJobsDataPlane
 @Generated
 class AWSIoTJobsDataPlaneFunctions(val block: Block)
 
-infix fun AwsContinuation.iot_jobs_data(init: AWSIoTJobsDataPlaneFunctions.() -> Unit) {
-	AWSIoTJobsDataPlaneFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.iot_jobs_data(init: AWSIoTJobsDataPlaneFunctions.() -> T): T {
+	return AWSIoTJobsDataPlaneFunctions(shell).run(init)
 }
 
 			
 
-fun AWSIoTJobsDataPlaneFunctions.describeJobExecution(init: AWSIoTJobsDataPlaneDescribeJobExecutionCommand.() -> Unit) {
-	this.block.declare(AWSIoTJobsDataPlaneDescribeJobExecutionCommand().apply(init))
+fun AWSIoTJobsDataPlaneFunctions.describeJobExecution(init: AWSIoTJobsDataPlaneDescribeJobExecutionCommand.() -> Unit): com.amazonaws.services.iotjobsdataplane.model.DescribeJobExecutionResult {
+	return this.block.declare(AWSIoTJobsDataPlaneDescribeJobExecutionCommand().apply(init)) as com.amazonaws.services.iotjobsdataplane.model.DescribeJobExecutionResult
 }
 
 @Generated
-class AWSIoTJobsDataPlaneDescribeJobExecutionCommand() : AmazonWebServiceCommand<com.amazonaws.services.iotjobsdataplane.model.DescribeJobExecutionRequest> {
+class AWSIoTJobsDataPlaneDescribeJobExecutionCommand() : AmazonWebServiceCommand<com.amazonaws.services.iotjobsdataplane.model.DescribeJobExecutionRequest, com.amazonaws.services.iotjobsdataplane.model.DescribeJobExecutionResult> {
 
 	var jobId: String? = null
 	var thingName: String? = null
@@ -47,8 +47,12 @@ class AWSIoTJobsDataPlaneDescribeJobExecutionCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iot_jobs_data.describeJobExecution(build())
+	override fun dryResult(): com.amazonaws.services.iotjobsdataplane.model.DescribeJobExecutionResult {
+	  return com.amazonaws.services.iotjobsdataplane.model.DescribeJobExecutionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iotjobsdataplane.model.DescribeJobExecutionResult {
+		return environment.iot_jobs_data.describeJobExecution(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -62,12 +66,12 @@ class AWSIoTJobsDataPlaneDescribeJobExecutionCommand() : AmazonWebServiceCommand
 }
 
 
-fun AWSIoTJobsDataPlaneFunctions.getPendingJobExecutions(init: AWSIoTJobsDataPlaneGetPendingJobExecutionsCommand.() -> Unit) {
-	this.block.declare(AWSIoTJobsDataPlaneGetPendingJobExecutionsCommand().apply(init))
+fun AWSIoTJobsDataPlaneFunctions.getPendingJobExecutions(init: AWSIoTJobsDataPlaneGetPendingJobExecutionsCommand.() -> Unit): com.amazonaws.services.iotjobsdataplane.model.GetPendingJobExecutionsResult {
+	return this.block.declare(AWSIoTJobsDataPlaneGetPendingJobExecutionsCommand().apply(init)) as com.amazonaws.services.iotjobsdataplane.model.GetPendingJobExecutionsResult
 }
 
 @Generated
-class AWSIoTJobsDataPlaneGetPendingJobExecutionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.iotjobsdataplane.model.GetPendingJobExecutionsRequest> {
+class AWSIoTJobsDataPlaneGetPendingJobExecutionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.iotjobsdataplane.model.GetPendingJobExecutionsRequest, com.amazonaws.services.iotjobsdataplane.model.GetPendingJobExecutionsResult> {
 
 	var thingName: String? = null
 
@@ -77,8 +81,12 @@ class AWSIoTJobsDataPlaneGetPendingJobExecutionsCommand() : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iot_jobs_data.getPendingJobExecutions(build())
+	override fun dryResult(): com.amazonaws.services.iotjobsdataplane.model.GetPendingJobExecutionsResult {
+	  return com.amazonaws.services.iotjobsdataplane.model.GetPendingJobExecutionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iotjobsdataplane.model.GetPendingJobExecutionsResult {
+		return environment.iot_jobs_data.getPendingJobExecutions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -89,12 +97,12 @@ class AWSIoTJobsDataPlaneGetPendingJobExecutionsCommand() : AmazonWebServiceComm
 }
 
 
-fun AWSIoTJobsDataPlaneFunctions.startNextPendingJobExecution(init: AWSIoTJobsDataPlaneStartNextPendingJobExecutionCommand.() -> Unit) {
-	this.block.declare(AWSIoTJobsDataPlaneStartNextPendingJobExecutionCommand().apply(init))
+fun AWSIoTJobsDataPlaneFunctions.startNextPendingJobExecution(init: AWSIoTJobsDataPlaneStartNextPendingJobExecutionCommand.() -> Unit): com.amazonaws.services.iotjobsdataplane.model.StartNextPendingJobExecutionResult {
+	return this.block.declare(AWSIoTJobsDataPlaneStartNextPendingJobExecutionCommand().apply(init)) as com.amazonaws.services.iotjobsdataplane.model.StartNextPendingJobExecutionResult
 }
 
 @Generated
-class AWSIoTJobsDataPlaneStartNextPendingJobExecutionCommand() : AmazonWebServiceCommand<com.amazonaws.services.iotjobsdataplane.model.StartNextPendingJobExecutionRequest> {
+class AWSIoTJobsDataPlaneStartNextPendingJobExecutionCommand() : AmazonWebServiceCommand<com.amazonaws.services.iotjobsdataplane.model.StartNextPendingJobExecutionRequest, com.amazonaws.services.iotjobsdataplane.model.StartNextPendingJobExecutionResult> {
 
 	var thingName: String? = null
 	var statusDetails: Map<String, String>? = null
@@ -106,8 +114,12 @@ class AWSIoTJobsDataPlaneStartNextPendingJobExecutionCommand() : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iot_jobs_data.startNextPendingJobExecution(build())
+	override fun dryResult(): com.amazonaws.services.iotjobsdataplane.model.StartNextPendingJobExecutionResult {
+	  return com.amazonaws.services.iotjobsdataplane.model.StartNextPendingJobExecutionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iotjobsdataplane.model.StartNextPendingJobExecutionResult {
+		return environment.iot_jobs_data.startNextPendingJobExecution(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -119,12 +131,12 @@ class AWSIoTJobsDataPlaneStartNextPendingJobExecutionCommand() : AmazonWebServic
 }
 
 
-fun AWSIoTJobsDataPlaneFunctions.updateJobExecution(init: AWSIoTJobsDataPlaneUpdateJobExecutionCommand.() -> Unit) {
-	this.block.declare(AWSIoTJobsDataPlaneUpdateJobExecutionCommand().apply(init))
+fun AWSIoTJobsDataPlaneFunctions.updateJobExecution(init: AWSIoTJobsDataPlaneUpdateJobExecutionCommand.() -> Unit): com.amazonaws.services.iotjobsdataplane.model.UpdateJobExecutionResult {
+	return this.block.declare(AWSIoTJobsDataPlaneUpdateJobExecutionCommand().apply(init)) as com.amazonaws.services.iotjobsdataplane.model.UpdateJobExecutionResult
 }
 
 @Generated
-class AWSIoTJobsDataPlaneUpdateJobExecutionCommand() : AmazonWebServiceCommand<com.amazonaws.services.iotjobsdataplane.model.UpdateJobExecutionRequest> {
+class AWSIoTJobsDataPlaneUpdateJobExecutionCommand() : AmazonWebServiceCommand<com.amazonaws.services.iotjobsdataplane.model.UpdateJobExecutionRequest, com.amazonaws.services.iotjobsdataplane.model.UpdateJobExecutionResult> {
 
 	var jobId: String? = null
 	var thingName: String? = null
@@ -148,8 +160,12 @@ class AWSIoTJobsDataPlaneUpdateJobExecutionCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iot_jobs_data.updateJobExecution(build())
+	override fun dryResult(): com.amazonaws.services.iotjobsdataplane.model.UpdateJobExecutionResult {
+	  return com.amazonaws.services.iotjobsdataplane.model.UpdateJobExecutionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iotjobsdataplane.model.UpdateJobExecutionResult {
+		return environment.iot_jobs_data.updateJobExecution(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.sms: AWSServerMigration
 @Generated
 class AWSServerMigrationFunctions(val block: Block)
 
-infix fun AwsContinuation.sms(init: AWSServerMigrationFunctions.() -> Unit) {
-	AWSServerMigrationFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.sms(init: AWSServerMigrationFunctions.() -> T): T {
+	return AWSServerMigrationFunctions(shell).run(init)
 }
 
 			
 
-fun AWSServerMigrationFunctions.createReplicationJob(init: AWSServerMigrationCreateReplicationJobCommand.() -> Unit) {
-	this.block.declare(AWSServerMigrationCreateReplicationJobCommand().apply(init))
+fun AWSServerMigrationFunctions.createReplicationJob(init: AWSServerMigrationCreateReplicationJobCommand.() -> Unit): com.amazonaws.services.servermigration.model.CreateReplicationJobResult {
+	return this.block.declare(AWSServerMigrationCreateReplicationJobCommand().apply(init)) as com.amazonaws.services.servermigration.model.CreateReplicationJobResult
 }
 
 @Generated
-class AWSServerMigrationCreateReplicationJobCommand() : AmazonWebServiceCommand<com.amazonaws.services.servermigration.model.CreateReplicationJobRequest> {
+class AWSServerMigrationCreateReplicationJobCommand() : AmazonWebServiceCommand<com.amazonaws.services.servermigration.model.CreateReplicationJobRequest, com.amazonaws.services.servermigration.model.CreateReplicationJobResult> {
 
 	var serverId: String? = null
 	var seedReplicationTime: java.util.Date? = null
@@ -51,8 +51,12 @@ class AWSServerMigrationCreateReplicationJobCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sms.createReplicationJob(build())
+	override fun dryResult(): com.amazonaws.services.servermigration.model.CreateReplicationJobResult {
+	  return com.amazonaws.services.servermigration.model.CreateReplicationJobResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servermigration.model.CreateReplicationJobResult {
+		return environment.sms.createReplicationJob(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -68,12 +72,12 @@ class AWSServerMigrationCreateReplicationJobCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AWSServerMigrationFunctions.deleteReplicationJob(init: AWSServerMigrationDeleteReplicationJobCommand.() -> Unit) {
-	this.block.declare(AWSServerMigrationDeleteReplicationJobCommand().apply(init))
+fun AWSServerMigrationFunctions.deleteReplicationJob(init: AWSServerMigrationDeleteReplicationJobCommand.() -> Unit): com.amazonaws.services.servermigration.model.DeleteReplicationJobResult {
+	return this.block.declare(AWSServerMigrationDeleteReplicationJobCommand().apply(init)) as com.amazonaws.services.servermigration.model.DeleteReplicationJobResult
 }
 
 @Generated
-class AWSServerMigrationDeleteReplicationJobCommand() : AmazonWebServiceCommand<com.amazonaws.services.servermigration.model.DeleteReplicationJobRequest> {
+class AWSServerMigrationDeleteReplicationJobCommand() : AmazonWebServiceCommand<com.amazonaws.services.servermigration.model.DeleteReplicationJobRequest, com.amazonaws.services.servermigration.model.DeleteReplicationJobResult> {
 
 	var replicationJobId: String? = null
 
@@ -83,8 +87,12 @@ class AWSServerMigrationDeleteReplicationJobCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sms.deleteReplicationJob(build())
+	override fun dryResult(): com.amazonaws.services.servermigration.model.DeleteReplicationJobResult {
+	  return com.amazonaws.services.servermigration.model.DeleteReplicationJobResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servermigration.model.DeleteReplicationJobResult {
+		return environment.sms.deleteReplicationJob(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -95,12 +103,12 @@ class AWSServerMigrationDeleteReplicationJobCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AWSServerMigrationFunctions.deleteServerCatalog(init: AWSServerMigrationDeleteServerCatalogCommand.() -> Unit) {
-	this.block.declare(AWSServerMigrationDeleteServerCatalogCommand().apply(init))
+fun AWSServerMigrationFunctions.deleteServerCatalog(init: AWSServerMigrationDeleteServerCatalogCommand.() -> Unit): com.amazonaws.services.servermigration.model.DeleteServerCatalogResult {
+	return this.block.declare(AWSServerMigrationDeleteServerCatalogCommand().apply(init)) as com.amazonaws.services.servermigration.model.DeleteServerCatalogResult
 }
 
 @Generated
-class AWSServerMigrationDeleteServerCatalogCommand() : AmazonWebServiceCommand<com.amazonaws.services.servermigration.model.DeleteServerCatalogRequest> {
+class AWSServerMigrationDeleteServerCatalogCommand() : AmazonWebServiceCommand<com.amazonaws.services.servermigration.model.DeleteServerCatalogRequest, com.amazonaws.services.servermigration.model.DeleteServerCatalogResult> {
 
 
 
@@ -110,8 +118,12 @@ class AWSServerMigrationDeleteServerCatalogCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sms.deleteServerCatalog(build())
+	override fun dryResult(): com.amazonaws.services.servermigration.model.DeleteServerCatalogResult {
+	  return com.amazonaws.services.servermigration.model.DeleteServerCatalogResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servermigration.model.DeleteServerCatalogResult {
+		return environment.sms.deleteServerCatalog(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -122,12 +134,12 @@ class AWSServerMigrationDeleteServerCatalogCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AWSServerMigrationFunctions.disassociateConnector(init: AWSServerMigrationDisassociateConnectorCommand.() -> Unit) {
-	this.block.declare(AWSServerMigrationDisassociateConnectorCommand().apply(init))
+fun AWSServerMigrationFunctions.disassociateConnector(init: AWSServerMigrationDisassociateConnectorCommand.() -> Unit): com.amazonaws.services.servermigration.model.DisassociateConnectorResult {
+	return this.block.declare(AWSServerMigrationDisassociateConnectorCommand().apply(init)) as com.amazonaws.services.servermigration.model.DisassociateConnectorResult
 }
 
 @Generated
-class AWSServerMigrationDisassociateConnectorCommand() : AmazonWebServiceCommand<com.amazonaws.services.servermigration.model.DisassociateConnectorRequest> {
+class AWSServerMigrationDisassociateConnectorCommand() : AmazonWebServiceCommand<com.amazonaws.services.servermigration.model.DisassociateConnectorRequest, com.amazonaws.services.servermigration.model.DisassociateConnectorResult> {
 
 	var connectorId: String? = null
 
@@ -137,8 +149,12 @@ class AWSServerMigrationDisassociateConnectorCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sms.disassociateConnector(build())
+	override fun dryResult(): com.amazonaws.services.servermigration.model.DisassociateConnectorResult {
+	  return com.amazonaws.services.servermigration.model.DisassociateConnectorResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servermigration.model.DisassociateConnectorResult {
+		return environment.sms.disassociateConnector(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -149,12 +165,12 @@ class AWSServerMigrationDisassociateConnectorCommand() : AmazonWebServiceCommand
 }
 
 
-fun AWSServerMigrationFunctions.getConnectors(init: AWSServerMigrationGetConnectorsCommand.() -> Unit) {
-	this.block.declare(AWSServerMigrationGetConnectorsCommand().apply(init))
+fun AWSServerMigrationFunctions.getConnectors(init: AWSServerMigrationGetConnectorsCommand.() -> Unit): com.amazonaws.services.servermigration.model.GetConnectorsResult {
+	return this.block.declare(AWSServerMigrationGetConnectorsCommand().apply(init)) as com.amazonaws.services.servermigration.model.GetConnectorsResult
 }
 
 @Generated
-class AWSServerMigrationGetConnectorsCommand() : AmazonWebServiceCommand<com.amazonaws.services.servermigration.model.GetConnectorsRequest> {
+class AWSServerMigrationGetConnectorsCommand() : AmazonWebServiceCommand<com.amazonaws.services.servermigration.model.GetConnectorsRequest, com.amazonaws.services.servermigration.model.GetConnectorsResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -166,8 +182,12 @@ class AWSServerMigrationGetConnectorsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sms.getConnectors(build())
+	override fun dryResult(): com.amazonaws.services.servermigration.model.GetConnectorsResult {
+	  return com.amazonaws.services.servermigration.model.GetConnectorsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servermigration.model.GetConnectorsResult {
+		return environment.sms.getConnectors(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -179,12 +199,12 @@ class AWSServerMigrationGetConnectorsCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AWSServerMigrationFunctions.getReplicationJobs(init: AWSServerMigrationGetReplicationJobsCommand.() -> Unit) {
-	this.block.declare(AWSServerMigrationGetReplicationJobsCommand().apply(init))
+fun AWSServerMigrationFunctions.getReplicationJobs(init: AWSServerMigrationGetReplicationJobsCommand.() -> Unit): com.amazonaws.services.servermigration.model.GetReplicationJobsResult {
+	return this.block.declare(AWSServerMigrationGetReplicationJobsCommand().apply(init)) as com.amazonaws.services.servermigration.model.GetReplicationJobsResult
 }
 
 @Generated
-class AWSServerMigrationGetReplicationJobsCommand() : AmazonWebServiceCommand<com.amazonaws.services.servermigration.model.GetReplicationJobsRequest> {
+class AWSServerMigrationGetReplicationJobsCommand() : AmazonWebServiceCommand<com.amazonaws.services.servermigration.model.GetReplicationJobsRequest, com.amazonaws.services.servermigration.model.GetReplicationJobsResult> {
 
 	var replicationJobId: String? = null
 	var nextToken: String? = null
@@ -198,8 +218,12 @@ class AWSServerMigrationGetReplicationJobsCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sms.getReplicationJobs(build())
+	override fun dryResult(): com.amazonaws.services.servermigration.model.GetReplicationJobsResult {
+	  return com.amazonaws.services.servermigration.model.GetReplicationJobsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servermigration.model.GetReplicationJobsResult {
+		return environment.sms.getReplicationJobs(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -212,12 +236,12 @@ class AWSServerMigrationGetReplicationJobsCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AWSServerMigrationFunctions.getReplicationRuns(init: AWSServerMigrationGetReplicationRunsCommand.() -> Unit) {
-	this.block.declare(AWSServerMigrationGetReplicationRunsCommand().apply(init))
+fun AWSServerMigrationFunctions.getReplicationRuns(init: AWSServerMigrationGetReplicationRunsCommand.() -> Unit): com.amazonaws.services.servermigration.model.GetReplicationRunsResult {
+	return this.block.declare(AWSServerMigrationGetReplicationRunsCommand().apply(init)) as com.amazonaws.services.servermigration.model.GetReplicationRunsResult
 }
 
 @Generated
-class AWSServerMigrationGetReplicationRunsCommand() : AmazonWebServiceCommand<com.amazonaws.services.servermigration.model.GetReplicationRunsRequest> {
+class AWSServerMigrationGetReplicationRunsCommand() : AmazonWebServiceCommand<com.amazonaws.services.servermigration.model.GetReplicationRunsRequest, com.amazonaws.services.servermigration.model.GetReplicationRunsResult> {
 
 	var replicationJobId: String? = null
 	var nextToken: String? = null
@@ -231,8 +255,12 @@ class AWSServerMigrationGetReplicationRunsCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sms.getReplicationRuns(build())
+	override fun dryResult(): com.amazonaws.services.servermigration.model.GetReplicationRunsResult {
+	  return com.amazonaws.services.servermigration.model.GetReplicationRunsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servermigration.model.GetReplicationRunsResult {
+		return environment.sms.getReplicationRuns(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -245,12 +273,12 @@ class AWSServerMigrationGetReplicationRunsCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AWSServerMigrationFunctions.getServers(init: AWSServerMigrationGetServersCommand.() -> Unit) {
-	this.block.declare(AWSServerMigrationGetServersCommand().apply(init))
+fun AWSServerMigrationFunctions.getServers(init: AWSServerMigrationGetServersCommand.() -> Unit): com.amazonaws.services.servermigration.model.GetServersResult {
+	return this.block.declare(AWSServerMigrationGetServersCommand().apply(init)) as com.amazonaws.services.servermigration.model.GetServersResult
 }
 
 @Generated
-class AWSServerMigrationGetServersCommand() : AmazonWebServiceCommand<com.amazonaws.services.servermigration.model.GetServersRequest> {
+class AWSServerMigrationGetServersCommand() : AmazonWebServiceCommand<com.amazonaws.services.servermigration.model.GetServersRequest, com.amazonaws.services.servermigration.model.GetServersResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -262,8 +290,12 @@ class AWSServerMigrationGetServersCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sms.getServers(build())
+	override fun dryResult(): com.amazonaws.services.servermigration.model.GetServersResult {
+	  return com.amazonaws.services.servermigration.model.GetServersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servermigration.model.GetServersResult {
+		return environment.sms.getServers(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -275,12 +307,12 @@ class AWSServerMigrationGetServersCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AWSServerMigrationFunctions.importServerCatalog(init: AWSServerMigrationImportServerCatalogCommand.() -> Unit) {
-	this.block.declare(AWSServerMigrationImportServerCatalogCommand().apply(init))
+fun AWSServerMigrationFunctions.importServerCatalog(init: AWSServerMigrationImportServerCatalogCommand.() -> Unit): com.amazonaws.services.servermigration.model.ImportServerCatalogResult {
+	return this.block.declare(AWSServerMigrationImportServerCatalogCommand().apply(init)) as com.amazonaws.services.servermigration.model.ImportServerCatalogResult
 }
 
 @Generated
-class AWSServerMigrationImportServerCatalogCommand() : AmazonWebServiceCommand<com.amazonaws.services.servermigration.model.ImportServerCatalogRequest> {
+class AWSServerMigrationImportServerCatalogCommand() : AmazonWebServiceCommand<com.amazonaws.services.servermigration.model.ImportServerCatalogRequest, com.amazonaws.services.servermigration.model.ImportServerCatalogResult> {
 
 
 
@@ -290,8 +322,12 @@ class AWSServerMigrationImportServerCatalogCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sms.importServerCatalog(build())
+	override fun dryResult(): com.amazonaws.services.servermigration.model.ImportServerCatalogResult {
+	  return com.amazonaws.services.servermigration.model.ImportServerCatalogResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servermigration.model.ImportServerCatalogResult {
+		return environment.sms.importServerCatalog(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -302,12 +338,12 @@ class AWSServerMigrationImportServerCatalogCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AWSServerMigrationFunctions.startOnDemandReplicationRun(init: AWSServerMigrationStartOnDemandReplicationRunCommand.() -> Unit) {
-	this.block.declare(AWSServerMigrationStartOnDemandReplicationRunCommand().apply(init))
+fun AWSServerMigrationFunctions.startOnDemandReplicationRun(init: AWSServerMigrationStartOnDemandReplicationRunCommand.() -> Unit): com.amazonaws.services.servermigration.model.StartOnDemandReplicationRunResult {
+	return this.block.declare(AWSServerMigrationStartOnDemandReplicationRunCommand().apply(init)) as com.amazonaws.services.servermigration.model.StartOnDemandReplicationRunResult
 }
 
 @Generated
-class AWSServerMigrationStartOnDemandReplicationRunCommand() : AmazonWebServiceCommand<com.amazonaws.services.servermigration.model.StartOnDemandReplicationRunRequest> {
+class AWSServerMigrationStartOnDemandReplicationRunCommand() : AmazonWebServiceCommand<com.amazonaws.services.servermigration.model.StartOnDemandReplicationRunRequest, com.amazonaws.services.servermigration.model.StartOnDemandReplicationRunResult> {
 
 	var replicationJobId: String? = null
 	var description: String? = null
@@ -319,8 +355,12 @@ class AWSServerMigrationStartOnDemandReplicationRunCommand() : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sms.startOnDemandReplicationRun(build())
+	override fun dryResult(): com.amazonaws.services.servermigration.model.StartOnDemandReplicationRunResult {
+	  return com.amazonaws.services.servermigration.model.StartOnDemandReplicationRunResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servermigration.model.StartOnDemandReplicationRunResult {
+		return environment.sms.startOnDemandReplicationRun(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -332,12 +372,12 @@ class AWSServerMigrationStartOnDemandReplicationRunCommand() : AmazonWebServiceC
 }
 
 
-fun AWSServerMigrationFunctions.updateReplicationJob(init: AWSServerMigrationUpdateReplicationJobCommand.() -> Unit) {
-	this.block.declare(AWSServerMigrationUpdateReplicationJobCommand().apply(init))
+fun AWSServerMigrationFunctions.updateReplicationJob(init: AWSServerMigrationUpdateReplicationJobCommand.() -> Unit): com.amazonaws.services.servermigration.model.UpdateReplicationJobResult {
+	return this.block.declare(AWSServerMigrationUpdateReplicationJobCommand().apply(init)) as com.amazonaws.services.servermigration.model.UpdateReplicationJobResult
 }
 
 @Generated
-class AWSServerMigrationUpdateReplicationJobCommand() : AmazonWebServiceCommand<com.amazonaws.services.servermigration.model.UpdateReplicationJobRequest> {
+class AWSServerMigrationUpdateReplicationJobCommand() : AmazonWebServiceCommand<com.amazonaws.services.servermigration.model.UpdateReplicationJobRequest, com.amazonaws.services.servermigration.model.UpdateReplicationJobResult> {
 
 	var replicationJobId: String? = null
 	var frequency: Int? = 0
@@ -357,8 +397,12 @@ class AWSServerMigrationUpdateReplicationJobCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sms.updateReplicationJob(build())
+	override fun dryResult(): com.amazonaws.services.servermigration.model.UpdateReplicationJobResult {
+	  return com.amazonaws.services.servermigration.model.UpdateReplicationJobResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servermigration.model.UpdateReplicationJobResult {
+		return environment.sms.updateReplicationJob(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.appsync: AWSAppSync
 @Generated
 class AWSAppSyncFunctions(val block: Block)
 
-infix fun AwsContinuation.appsync(init: AWSAppSyncFunctions.() -> Unit) {
-	AWSAppSyncFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.appsync(init: AWSAppSyncFunctions.() -> T): T {
+	return AWSAppSyncFunctions(shell).run(init)
 }
 
 			
 
-fun AWSAppSyncFunctions.createApiKey(init: AWSAppSyncCreateApiKeyCommand.() -> Unit) {
-	this.block.declare(AWSAppSyncCreateApiKeyCommand().apply(init))
+fun AWSAppSyncFunctions.createApiKey(init: AWSAppSyncCreateApiKeyCommand.() -> Unit): com.amazonaws.services.appsync.model.CreateApiKeyResult {
+	return this.block.declare(AWSAppSyncCreateApiKeyCommand().apply(init)) as com.amazonaws.services.appsync.model.CreateApiKeyResult
 }
 
 @Generated
-class AWSAppSyncCreateApiKeyCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.CreateApiKeyRequest> {
+class AWSAppSyncCreateApiKeyCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.CreateApiKeyRequest, com.amazonaws.services.appsync.model.CreateApiKeyResult> {
 
 	var apiId: String? = null
 	var description: String? = null
@@ -45,8 +45,12 @@ class AWSAppSyncCreateApiKeyCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.appsync.createApiKey(build())
+	override fun dryResult(): com.amazonaws.services.appsync.model.CreateApiKeyResult {
+	  return com.amazonaws.services.appsync.model.CreateApiKeyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.CreateApiKeyResult {
+		return environment.appsync.createApiKey(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -59,12 +63,12 @@ class AWSAppSyncCreateApiKeyCommand() : AmazonWebServiceCommand<com.amazonaws.se
 }
 
 
-fun AWSAppSyncFunctions.createDataSource(init: AWSAppSyncCreateDataSourceCommand.() -> Unit) {
-	this.block.declare(AWSAppSyncCreateDataSourceCommand().apply(init))
+fun AWSAppSyncFunctions.createDataSource(init: AWSAppSyncCreateDataSourceCommand.() -> Unit): com.amazonaws.services.appsync.model.CreateDataSourceResult {
+	return this.block.declare(AWSAppSyncCreateDataSourceCommand().apply(init)) as com.amazonaws.services.appsync.model.CreateDataSourceResult
 }
 
 @Generated
-class AWSAppSyncCreateDataSourceCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.CreateDataSourceRequest> {
+class AWSAppSyncCreateDataSourceCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.CreateDataSourceRequest, com.amazonaws.services.appsync.model.CreateDataSourceResult> {
 
 	var apiId: String? = null
 	var name: String? = null
@@ -88,8 +92,12 @@ class AWSAppSyncCreateDataSourceCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.appsync.createDataSource(build())
+	override fun dryResult(): com.amazonaws.services.appsync.model.CreateDataSourceResult {
+	  return com.amazonaws.services.appsync.model.CreateDataSourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.CreateDataSourceResult {
+		return environment.appsync.createDataSource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -107,12 +115,12 @@ class AWSAppSyncCreateDataSourceCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AWSAppSyncFunctions.createGraphqlApi(init: AWSAppSyncCreateGraphqlApiCommand.() -> Unit) {
-	this.block.declare(AWSAppSyncCreateGraphqlApiCommand().apply(init))
+fun AWSAppSyncFunctions.createGraphqlApi(init: AWSAppSyncCreateGraphqlApiCommand.() -> Unit): com.amazonaws.services.appsync.model.CreateGraphqlApiResult {
+	return this.block.declare(AWSAppSyncCreateGraphqlApiCommand().apply(init)) as com.amazonaws.services.appsync.model.CreateGraphqlApiResult
 }
 
 @Generated
-class AWSAppSyncCreateGraphqlApiCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.CreateGraphqlApiRequest> {
+class AWSAppSyncCreateGraphqlApiCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.CreateGraphqlApiRequest, com.amazonaws.services.appsync.model.CreateGraphqlApiResult> {
 
 	var name: String? = null
 	var authenticationType: AuthenticationType? = null
@@ -126,8 +134,12 @@ class AWSAppSyncCreateGraphqlApiCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.appsync.createGraphqlApi(build())
+	override fun dryResult(): com.amazonaws.services.appsync.model.CreateGraphqlApiResult {
+	  return com.amazonaws.services.appsync.model.CreateGraphqlApiResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.CreateGraphqlApiResult {
+		return environment.appsync.createGraphqlApi(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -140,12 +152,12 @@ class AWSAppSyncCreateGraphqlApiCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AWSAppSyncFunctions.createResolver(init: AWSAppSyncCreateResolverCommand.() -> Unit) {
-	this.block.declare(AWSAppSyncCreateResolverCommand().apply(init))
+fun AWSAppSyncFunctions.createResolver(init: AWSAppSyncCreateResolverCommand.() -> Unit): com.amazonaws.services.appsync.model.CreateResolverResult {
+	return this.block.declare(AWSAppSyncCreateResolverCommand().apply(init)) as com.amazonaws.services.appsync.model.CreateResolverResult
 }
 
 @Generated
-class AWSAppSyncCreateResolverCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.CreateResolverRequest> {
+class AWSAppSyncCreateResolverCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.CreateResolverRequest, com.amazonaws.services.appsync.model.CreateResolverResult> {
 
 	var apiId: String? = null
 	var typeName: String? = null
@@ -165,8 +177,12 @@ class AWSAppSyncCreateResolverCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.appsync.createResolver(build())
+	override fun dryResult(): com.amazonaws.services.appsync.model.CreateResolverResult {
+	  return com.amazonaws.services.appsync.model.CreateResolverResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.CreateResolverResult {
+		return environment.appsync.createResolver(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -182,12 +198,12 @@ class AWSAppSyncCreateResolverCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AWSAppSyncFunctions.createType(init: AWSAppSyncCreateTypeCommand.() -> Unit) {
-	this.block.declare(AWSAppSyncCreateTypeCommand().apply(init))
+fun AWSAppSyncFunctions.createType(init: AWSAppSyncCreateTypeCommand.() -> Unit): com.amazonaws.services.appsync.model.CreateTypeResult {
+	return this.block.declare(AWSAppSyncCreateTypeCommand().apply(init)) as com.amazonaws.services.appsync.model.CreateTypeResult
 }
 
 @Generated
-class AWSAppSyncCreateTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.CreateTypeRequest> {
+class AWSAppSyncCreateTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.CreateTypeRequest, com.amazonaws.services.appsync.model.CreateTypeResult> {
 
 	var apiId: String? = null
 	var definition: String? = null
@@ -201,8 +217,12 @@ class AWSAppSyncCreateTypeCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.appsync.createType(build())
+	override fun dryResult(): com.amazonaws.services.appsync.model.CreateTypeResult {
+	  return com.amazonaws.services.appsync.model.CreateTypeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.CreateTypeResult {
+		return environment.appsync.createType(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -215,12 +235,12 @@ class AWSAppSyncCreateTypeCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 }
 
 
-fun AWSAppSyncFunctions.deleteApiKey(init: AWSAppSyncDeleteApiKeyCommand.() -> Unit) {
-	this.block.declare(AWSAppSyncDeleteApiKeyCommand().apply(init))
+fun AWSAppSyncFunctions.deleteApiKey(init: AWSAppSyncDeleteApiKeyCommand.() -> Unit): com.amazonaws.services.appsync.model.DeleteApiKeyResult {
+	return this.block.declare(AWSAppSyncDeleteApiKeyCommand().apply(init)) as com.amazonaws.services.appsync.model.DeleteApiKeyResult
 }
 
 @Generated
-class AWSAppSyncDeleteApiKeyCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.DeleteApiKeyRequest> {
+class AWSAppSyncDeleteApiKeyCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.DeleteApiKeyRequest, com.amazonaws.services.appsync.model.DeleteApiKeyResult> {
 
 	var apiId: String? = null
 	var id: String? = null
@@ -232,8 +252,12 @@ class AWSAppSyncDeleteApiKeyCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.appsync.deleteApiKey(build())
+	override fun dryResult(): com.amazonaws.services.appsync.model.DeleteApiKeyResult {
+	  return com.amazonaws.services.appsync.model.DeleteApiKeyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.DeleteApiKeyResult {
+		return environment.appsync.deleteApiKey(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -245,12 +269,12 @@ class AWSAppSyncDeleteApiKeyCommand() : AmazonWebServiceCommand<com.amazonaws.se
 }
 
 
-fun AWSAppSyncFunctions.deleteDataSource(init: AWSAppSyncDeleteDataSourceCommand.() -> Unit) {
-	this.block.declare(AWSAppSyncDeleteDataSourceCommand().apply(init))
+fun AWSAppSyncFunctions.deleteDataSource(init: AWSAppSyncDeleteDataSourceCommand.() -> Unit): com.amazonaws.services.appsync.model.DeleteDataSourceResult {
+	return this.block.declare(AWSAppSyncDeleteDataSourceCommand().apply(init)) as com.amazonaws.services.appsync.model.DeleteDataSourceResult
 }
 
 @Generated
-class AWSAppSyncDeleteDataSourceCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.DeleteDataSourceRequest> {
+class AWSAppSyncDeleteDataSourceCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.DeleteDataSourceRequest, com.amazonaws.services.appsync.model.DeleteDataSourceResult> {
 
 	var apiId: String? = null
 	var name: String? = null
@@ -262,8 +286,12 @@ class AWSAppSyncDeleteDataSourceCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.appsync.deleteDataSource(build())
+	override fun dryResult(): com.amazonaws.services.appsync.model.DeleteDataSourceResult {
+	  return com.amazonaws.services.appsync.model.DeleteDataSourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.DeleteDataSourceResult {
+		return environment.appsync.deleteDataSource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -275,12 +303,12 @@ class AWSAppSyncDeleteDataSourceCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AWSAppSyncFunctions.deleteGraphqlApi(init: AWSAppSyncDeleteGraphqlApiCommand.() -> Unit) {
-	this.block.declare(AWSAppSyncDeleteGraphqlApiCommand().apply(init))
+fun AWSAppSyncFunctions.deleteGraphqlApi(init: AWSAppSyncDeleteGraphqlApiCommand.() -> Unit): com.amazonaws.services.appsync.model.DeleteGraphqlApiResult {
+	return this.block.declare(AWSAppSyncDeleteGraphqlApiCommand().apply(init)) as com.amazonaws.services.appsync.model.DeleteGraphqlApiResult
 }
 
 @Generated
-class AWSAppSyncDeleteGraphqlApiCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.DeleteGraphqlApiRequest> {
+class AWSAppSyncDeleteGraphqlApiCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.DeleteGraphqlApiRequest, com.amazonaws.services.appsync.model.DeleteGraphqlApiResult> {
 
 	var apiId: String? = null
 
@@ -290,8 +318,12 @@ class AWSAppSyncDeleteGraphqlApiCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.appsync.deleteGraphqlApi(build())
+	override fun dryResult(): com.amazonaws.services.appsync.model.DeleteGraphqlApiResult {
+	  return com.amazonaws.services.appsync.model.DeleteGraphqlApiResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.DeleteGraphqlApiResult {
+		return environment.appsync.deleteGraphqlApi(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -302,12 +334,12 @@ class AWSAppSyncDeleteGraphqlApiCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AWSAppSyncFunctions.deleteResolver(init: AWSAppSyncDeleteResolverCommand.() -> Unit) {
-	this.block.declare(AWSAppSyncDeleteResolverCommand().apply(init))
+fun AWSAppSyncFunctions.deleteResolver(init: AWSAppSyncDeleteResolverCommand.() -> Unit): com.amazonaws.services.appsync.model.DeleteResolverResult {
+	return this.block.declare(AWSAppSyncDeleteResolverCommand().apply(init)) as com.amazonaws.services.appsync.model.DeleteResolverResult
 }
 
 @Generated
-class AWSAppSyncDeleteResolverCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.DeleteResolverRequest> {
+class AWSAppSyncDeleteResolverCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.DeleteResolverRequest, com.amazonaws.services.appsync.model.DeleteResolverResult> {
 
 	var apiId: String? = null
 	var typeName: String? = null
@@ -321,8 +353,12 @@ class AWSAppSyncDeleteResolverCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.appsync.deleteResolver(build())
+	override fun dryResult(): com.amazonaws.services.appsync.model.DeleteResolverResult {
+	  return com.amazonaws.services.appsync.model.DeleteResolverResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.DeleteResolverResult {
+		return environment.appsync.deleteResolver(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -335,12 +371,12 @@ class AWSAppSyncDeleteResolverCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AWSAppSyncFunctions.deleteType(init: AWSAppSyncDeleteTypeCommand.() -> Unit) {
-	this.block.declare(AWSAppSyncDeleteTypeCommand().apply(init))
+fun AWSAppSyncFunctions.deleteType(init: AWSAppSyncDeleteTypeCommand.() -> Unit): com.amazonaws.services.appsync.model.DeleteTypeResult {
+	return this.block.declare(AWSAppSyncDeleteTypeCommand().apply(init)) as com.amazonaws.services.appsync.model.DeleteTypeResult
 }
 
 @Generated
-class AWSAppSyncDeleteTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.DeleteTypeRequest> {
+class AWSAppSyncDeleteTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.DeleteTypeRequest, com.amazonaws.services.appsync.model.DeleteTypeResult> {
 
 	var apiId: String? = null
 	var typeName: String? = null
@@ -352,8 +388,12 @@ class AWSAppSyncDeleteTypeCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.appsync.deleteType(build())
+	override fun dryResult(): com.amazonaws.services.appsync.model.DeleteTypeResult {
+	  return com.amazonaws.services.appsync.model.DeleteTypeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.DeleteTypeResult {
+		return environment.appsync.deleteType(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -365,12 +405,12 @@ class AWSAppSyncDeleteTypeCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 }
 
 
-fun AWSAppSyncFunctions.getDataSource(init: AWSAppSyncGetDataSourceCommand.() -> Unit) {
-	this.block.declare(AWSAppSyncGetDataSourceCommand().apply(init))
+fun AWSAppSyncFunctions.getDataSource(init: AWSAppSyncGetDataSourceCommand.() -> Unit): com.amazonaws.services.appsync.model.GetDataSourceResult {
+	return this.block.declare(AWSAppSyncGetDataSourceCommand().apply(init)) as com.amazonaws.services.appsync.model.GetDataSourceResult
 }
 
 @Generated
-class AWSAppSyncGetDataSourceCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.GetDataSourceRequest> {
+class AWSAppSyncGetDataSourceCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.GetDataSourceRequest, com.amazonaws.services.appsync.model.GetDataSourceResult> {
 
 	var apiId: String? = null
 	var name: String? = null
@@ -382,8 +422,12 @@ class AWSAppSyncGetDataSourceCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.appsync.getDataSource(build())
+	override fun dryResult(): com.amazonaws.services.appsync.model.GetDataSourceResult {
+	  return com.amazonaws.services.appsync.model.GetDataSourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.GetDataSourceResult {
+		return environment.appsync.getDataSource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -395,12 +439,12 @@ class AWSAppSyncGetDataSourceCommand() : AmazonWebServiceCommand<com.amazonaws.s
 }
 
 
-fun AWSAppSyncFunctions.getGraphqlApi(init: AWSAppSyncGetGraphqlApiCommand.() -> Unit) {
-	this.block.declare(AWSAppSyncGetGraphqlApiCommand().apply(init))
+fun AWSAppSyncFunctions.getGraphqlApi(init: AWSAppSyncGetGraphqlApiCommand.() -> Unit): com.amazonaws.services.appsync.model.GetGraphqlApiResult {
+	return this.block.declare(AWSAppSyncGetGraphqlApiCommand().apply(init)) as com.amazonaws.services.appsync.model.GetGraphqlApiResult
 }
 
 @Generated
-class AWSAppSyncGetGraphqlApiCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.GetGraphqlApiRequest> {
+class AWSAppSyncGetGraphqlApiCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.GetGraphqlApiRequest, com.amazonaws.services.appsync.model.GetGraphqlApiResult> {
 
 	var apiId: String? = null
 
@@ -410,8 +454,12 @@ class AWSAppSyncGetGraphqlApiCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.appsync.getGraphqlApi(build())
+	override fun dryResult(): com.amazonaws.services.appsync.model.GetGraphqlApiResult {
+	  return com.amazonaws.services.appsync.model.GetGraphqlApiResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.GetGraphqlApiResult {
+		return environment.appsync.getGraphqlApi(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -422,12 +470,12 @@ class AWSAppSyncGetGraphqlApiCommand() : AmazonWebServiceCommand<com.amazonaws.s
 }
 
 
-fun AWSAppSyncFunctions.getIntrospectionSchema(init: AWSAppSyncGetIntrospectionSchemaCommand.() -> Unit) {
-	this.block.declare(AWSAppSyncGetIntrospectionSchemaCommand().apply(init))
+fun AWSAppSyncFunctions.getIntrospectionSchema(init: AWSAppSyncGetIntrospectionSchemaCommand.() -> Unit): com.amazonaws.services.appsync.model.GetIntrospectionSchemaResult {
+	return this.block.declare(AWSAppSyncGetIntrospectionSchemaCommand().apply(init)) as com.amazonaws.services.appsync.model.GetIntrospectionSchemaResult
 }
 
 @Generated
-class AWSAppSyncGetIntrospectionSchemaCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.GetIntrospectionSchemaRequest> {
+class AWSAppSyncGetIntrospectionSchemaCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.GetIntrospectionSchemaRequest, com.amazonaws.services.appsync.model.GetIntrospectionSchemaResult> {
 
 	var apiId: String? = null
 	var format: OutputType? = null
@@ -439,8 +487,12 @@ class AWSAppSyncGetIntrospectionSchemaCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.appsync.getIntrospectionSchema(build())
+	override fun dryResult(): com.amazonaws.services.appsync.model.GetIntrospectionSchemaResult {
+	  return com.amazonaws.services.appsync.model.GetIntrospectionSchemaResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.GetIntrospectionSchemaResult {
+		return environment.appsync.getIntrospectionSchema(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -452,12 +504,12 @@ class AWSAppSyncGetIntrospectionSchemaCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AWSAppSyncFunctions.getResolver(init: AWSAppSyncGetResolverCommand.() -> Unit) {
-	this.block.declare(AWSAppSyncGetResolverCommand().apply(init))
+fun AWSAppSyncFunctions.getResolver(init: AWSAppSyncGetResolverCommand.() -> Unit): com.amazonaws.services.appsync.model.GetResolverResult {
+	return this.block.declare(AWSAppSyncGetResolverCommand().apply(init)) as com.amazonaws.services.appsync.model.GetResolverResult
 }
 
 @Generated
-class AWSAppSyncGetResolverCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.GetResolverRequest> {
+class AWSAppSyncGetResolverCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.GetResolverRequest, com.amazonaws.services.appsync.model.GetResolverResult> {
 
 	var apiId: String? = null
 	var typeName: String? = null
@@ -471,8 +523,12 @@ class AWSAppSyncGetResolverCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.appsync.getResolver(build())
+	override fun dryResult(): com.amazonaws.services.appsync.model.GetResolverResult {
+	  return com.amazonaws.services.appsync.model.GetResolverResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.GetResolverResult {
+		return environment.appsync.getResolver(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -485,12 +541,12 @@ class AWSAppSyncGetResolverCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 }
 
 
-fun AWSAppSyncFunctions.getSchemaCreationStatus(init: AWSAppSyncGetSchemaCreationStatusCommand.() -> Unit) {
-	this.block.declare(AWSAppSyncGetSchemaCreationStatusCommand().apply(init))
+fun AWSAppSyncFunctions.getSchemaCreationStatus(init: AWSAppSyncGetSchemaCreationStatusCommand.() -> Unit): com.amazonaws.services.appsync.model.GetSchemaCreationStatusResult {
+	return this.block.declare(AWSAppSyncGetSchemaCreationStatusCommand().apply(init)) as com.amazonaws.services.appsync.model.GetSchemaCreationStatusResult
 }
 
 @Generated
-class AWSAppSyncGetSchemaCreationStatusCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.GetSchemaCreationStatusRequest> {
+class AWSAppSyncGetSchemaCreationStatusCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.GetSchemaCreationStatusRequest, com.amazonaws.services.appsync.model.GetSchemaCreationStatusResult> {
 
 	var apiId: String? = null
 
@@ -500,8 +556,12 @@ class AWSAppSyncGetSchemaCreationStatusCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.appsync.getSchemaCreationStatus(build())
+	override fun dryResult(): com.amazonaws.services.appsync.model.GetSchemaCreationStatusResult {
+	  return com.amazonaws.services.appsync.model.GetSchemaCreationStatusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.GetSchemaCreationStatusResult {
+		return environment.appsync.getSchemaCreationStatus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -512,12 +572,12 @@ class AWSAppSyncGetSchemaCreationStatusCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AWSAppSyncFunctions.getType(init: AWSAppSyncGetTypeCommand.() -> Unit) {
-	this.block.declare(AWSAppSyncGetTypeCommand().apply(init))
+fun AWSAppSyncFunctions.getType(init: AWSAppSyncGetTypeCommand.() -> Unit): com.amazonaws.services.appsync.model.GetTypeResult {
+	return this.block.declare(AWSAppSyncGetTypeCommand().apply(init)) as com.amazonaws.services.appsync.model.GetTypeResult
 }
 
 @Generated
-class AWSAppSyncGetTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.GetTypeRequest> {
+class AWSAppSyncGetTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.GetTypeRequest, com.amazonaws.services.appsync.model.GetTypeResult> {
 
 	var apiId: String? = null
 	var typeName: String? = null
@@ -531,8 +591,12 @@ class AWSAppSyncGetTypeCommand() : AmazonWebServiceCommand<com.amazonaws.service
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.appsync.getType(build())
+	override fun dryResult(): com.amazonaws.services.appsync.model.GetTypeResult {
+	  return com.amazonaws.services.appsync.model.GetTypeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.GetTypeResult {
+		return environment.appsync.getType(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -545,12 +609,12 @@ class AWSAppSyncGetTypeCommand() : AmazonWebServiceCommand<com.amazonaws.service
 }
 
 
-fun AWSAppSyncFunctions.listApiKeys(init: AWSAppSyncListApiKeysCommand.() -> Unit) {
-	this.block.declare(AWSAppSyncListApiKeysCommand().apply(init))
+fun AWSAppSyncFunctions.listApiKeys(init: AWSAppSyncListApiKeysCommand.() -> Unit): com.amazonaws.services.appsync.model.ListApiKeysResult {
+	return this.block.declare(AWSAppSyncListApiKeysCommand().apply(init)) as com.amazonaws.services.appsync.model.ListApiKeysResult
 }
 
 @Generated
-class AWSAppSyncListApiKeysCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.ListApiKeysRequest> {
+class AWSAppSyncListApiKeysCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.ListApiKeysRequest, com.amazonaws.services.appsync.model.ListApiKeysResult> {
 
 	var apiId: String? = null
 	var nextToken: String? = null
@@ -564,8 +628,12 @@ class AWSAppSyncListApiKeysCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.appsync.listApiKeys(build())
+	override fun dryResult(): com.amazonaws.services.appsync.model.ListApiKeysResult {
+	  return com.amazonaws.services.appsync.model.ListApiKeysResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.ListApiKeysResult {
+		return environment.appsync.listApiKeys(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -578,12 +646,12 @@ class AWSAppSyncListApiKeysCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 }
 
 
-fun AWSAppSyncFunctions.listDataSources(init: AWSAppSyncListDataSourcesCommand.() -> Unit) {
-	this.block.declare(AWSAppSyncListDataSourcesCommand().apply(init))
+fun AWSAppSyncFunctions.listDataSources(init: AWSAppSyncListDataSourcesCommand.() -> Unit): com.amazonaws.services.appsync.model.ListDataSourcesResult {
+	return this.block.declare(AWSAppSyncListDataSourcesCommand().apply(init)) as com.amazonaws.services.appsync.model.ListDataSourcesResult
 }
 
 @Generated
-class AWSAppSyncListDataSourcesCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.ListDataSourcesRequest> {
+class AWSAppSyncListDataSourcesCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.ListDataSourcesRequest, com.amazonaws.services.appsync.model.ListDataSourcesResult> {
 
 	var apiId: String? = null
 	var nextToken: String? = null
@@ -597,8 +665,12 @@ class AWSAppSyncListDataSourcesCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.appsync.listDataSources(build())
+	override fun dryResult(): com.amazonaws.services.appsync.model.ListDataSourcesResult {
+	  return com.amazonaws.services.appsync.model.ListDataSourcesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.ListDataSourcesResult {
+		return environment.appsync.listDataSources(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -611,12 +683,12 @@ class AWSAppSyncListDataSourcesCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AWSAppSyncFunctions.listGraphqlApis(init: AWSAppSyncListGraphqlApisCommand.() -> Unit) {
-	this.block.declare(AWSAppSyncListGraphqlApisCommand().apply(init))
+fun AWSAppSyncFunctions.listGraphqlApis(init: AWSAppSyncListGraphqlApisCommand.() -> Unit): com.amazonaws.services.appsync.model.ListGraphqlApisResult {
+	return this.block.declare(AWSAppSyncListGraphqlApisCommand().apply(init)) as com.amazonaws.services.appsync.model.ListGraphqlApisResult
 }
 
 @Generated
-class AWSAppSyncListGraphqlApisCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.ListGraphqlApisRequest> {
+class AWSAppSyncListGraphqlApisCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.ListGraphqlApisRequest, com.amazonaws.services.appsync.model.ListGraphqlApisResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -628,8 +700,12 @@ class AWSAppSyncListGraphqlApisCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.appsync.listGraphqlApis(build())
+	override fun dryResult(): com.amazonaws.services.appsync.model.ListGraphqlApisResult {
+	  return com.amazonaws.services.appsync.model.ListGraphqlApisResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.ListGraphqlApisResult {
+		return environment.appsync.listGraphqlApis(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -641,12 +717,12 @@ class AWSAppSyncListGraphqlApisCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AWSAppSyncFunctions.listResolvers(init: AWSAppSyncListResolversCommand.() -> Unit) {
-	this.block.declare(AWSAppSyncListResolversCommand().apply(init))
+fun AWSAppSyncFunctions.listResolvers(init: AWSAppSyncListResolversCommand.() -> Unit): com.amazonaws.services.appsync.model.ListResolversResult {
+	return this.block.declare(AWSAppSyncListResolversCommand().apply(init)) as com.amazonaws.services.appsync.model.ListResolversResult
 }
 
 @Generated
-class AWSAppSyncListResolversCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.ListResolversRequest> {
+class AWSAppSyncListResolversCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.ListResolversRequest, com.amazonaws.services.appsync.model.ListResolversResult> {
 
 	var apiId: String? = null
 	var typeName: String? = null
@@ -662,8 +738,12 @@ class AWSAppSyncListResolversCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.appsync.listResolvers(build())
+	override fun dryResult(): com.amazonaws.services.appsync.model.ListResolversResult {
+	  return com.amazonaws.services.appsync.model.ListResolversResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.ListResolversResult {
+		return environment.appsync.listResolvers(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -677,12 +757,12 @@ class AWSAppSyncListResolversCommand() : AmazonWebServiceCommand<com.amazonaws.s
 }
 
 
-fun AWSAppSyncFunctions.listTypes(init: AWSAppSyncListTypesCommand.() -> Unit) {
-	this.block.declare(AWSAppSyncListTypesCommand().apply(init))
+fun AWSAppSyncFunctions.listTypes(init: AWSAppSyncListTypesCommand.() -> Unit): com.amazonaws.services.appsync.model.ListTypesResult {
+	return this.block.declare(AWSAppSyncListTypesCommand().apply(init)) as com.amazonaws.services.appsync.model.ListTypesResult
 }
 
 @Generated
-class AWSAppSyncListTypesCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.ListTypesRequest> {
+class AWSAppSyncListTypesCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.ListTypesRequest, com.amazonaws.services.appsync.model.ListTypesResult> {
 
 	var apiId: String? = null
 	var format: TypeDefinitionFormat? = null
@@ -698,8 +778,12 @@ class AWSAppSyncListTypesCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.appsync.listTypes(build())
+	override fun dryResult(): com.amazonaws.services.appsync.model.ListTypesResult {
+	  return com.amazonaws.services.appsync.model.ListTypesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.ListTypesResult {
+		return environment.appsync.listTypes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -713,12 +797,12 @@ class AWSAppSyncListTypesCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 }
 
 
-fun AWSAppSyncFunctions.startSchemaCreation(init: AWSAppSyncStartSchemaCreationCommand.() -> Unit) {
-	this.block.declare(AWSAppSyncStartSchemaCreationCommand().apply(init))
+fun AWSAppSyncFunctions.startSchemaCreation(init: AWSAppSyncStartSchemaCreationCommand.() -> Unit): com.amazonaws.services.appsync.model.StartSchemaCreationResult {
+	return this.block.declare(AWSAppSyncStartSchemaCreationCommand().apply(init)) as com.amazonaws.services.appsync.model.StartSchemaCreationResult
 }
 
 @Generated
-class AWSAppSyncStartSchemaCreationCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.StartSchemaCreationRequest> {
+class AWSAppSyncStartSchemaCreationCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.StartSchemaCreationRequest, com.amazonaws.services.appsync.model.StartSchemaCreationResult> {
 
 	var apiId: String? = null
 	var definition: java.nio.ByteBuffer? = null
@@ -730,8 +814,12 @@ class AWSAppSyncStartSchemaCreationCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.appsync.startSchemaCreation(build())
+	override fun dryResult(): com.amazonaws.services.appsync.model.StartSchemaCreationResult {
+	  return com.amazonaws.services.appsync.model.StartSchemaCreationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.StartSchemaCreationResult {
+		return environment.appsync.startSchemaCreation(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -743,12 +831,12 @@ class AWSAppSyncStartSchemaCreationCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AWSAppSyncFunctions.updateApiKey(init: AWSAppSyncUpdateApiKeyCommand.() -> Unit) {
-	this.block.declare(AWSAppSyncUpdateApiKeyCommand().apply(init))
+fun AWSAppSyncFunctions.updateApiKey(init: AWSAppSyncUpdateApiKeyCommand.() -> Unit): com.amazonaws.services.appsync.model.UpdateApiKeyResult {
+	return this.block.declare(AWSAppSyncUpdateApiKeyCommand().apply(init)) as com.amazonaws.services.appsync.model.UpdateApiKeyResult
 }
 
 @Generated
-class AWSAppSyncUpdateApiKeyCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.UpdateApiKeyRequest> {
+class AWSAppSyncUpdateApiKeyCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.UpdateApiKeyRequest, com.amazonaws.services.appsync.model.UpdateApiKeyResult> {
 
 	var apiId: String? = null
 	var id: String? = null
@@ -764,8 +852,12 @@ class AWSAppSyncUpdateApiKeyCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.appsync.updateApiKey(build())
+	override fun dryResult(): com.amazonaws.services.appsync.model.UpdateApiKeyResult {
+	  return com.amazonaws.services.appsync.model.UpdateApiKeyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.UpdateApiKeyResult {
+		return environment.appsync.updateApiKey(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -779,12 +871,12 @@ class AWSAppSyncUpdateApiKeyCommand() : AmazonWebServiceCommand<com.amazonaws.se
 }
 
 
-fun AWSAppSyncFunctions.updateDataSource(init: AWSAppSyncUpdateDataSourceCommand.() -> Unit) {
-	this.block.declare(AWSAppSyncUpdateDataSourceCommand().apply(init))
+fun AWSAppSyncFunctions.updateDataSource(init: AWSAppSyncUpdateDataSourceCommand.() -> Unit): com.amazonaws.services.appsync.model.UpdateDataSourceResult {
+	return this.block.declare(AWSAppSyncUpdateDataSourceCommand().apply(init)) as com.amazonaws.services.appsync.model.UpdateDataSourceResult
 }
 
 @Generated
-class AWSAppSyncUpdateDataSourceCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.UpdateDataSourceRequest> {
+class AWSAppSyncUpdateDataSourceCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.UpdateDataSourceRequest, com.amazonaws.services.appsync.model.UpdateDataSourceResult> {
 
 	var apiId: String? = null
 	var name: String? = null
@@ -808,8 +900,12 @@ class AWSAppSyncUpdateDataSourceCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.appsync.updateDataSource(build())
+	override fun dryResult(): com.amazonaws.services.appsync.model.UpdateDataSourceResult {
+	  return com.amazonaws.services.appsync.model.UpdateDataSourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.UpdateDataSourceResult {
+		return environment.appsync.updateDataSource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -827,12 +923,12 @@ class AWSAppSyncUpdateDataSourceCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AWSAppSyncFunctions.updateGraphqlApi(init: AWSAppSyncUpdateGraphqlApiCommand.() -> Unit) {
-	this.block.declare(AWSAppSyncUpdateGraphqlApiCommand().apply(init))
+fun AWSAppSyncFunctions.updateGraphqlApi(init: AWSAppSyncUpdateGraphqlApiCommand.() -> Unit): com.amazonaws.services.appsync.model.UpdateGraphqlApiResult {
+	return this.block.declare(AWSAppSyncUpdateGraphqlApiCommand().apply(init)) as com.amazonaws.services.appsync.model.UpdateGraphqlApiResult
 }
 
 @Generated
-class AWSAppSyncUpdateGraphqlApiCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.UpdateGraphqlApiRequest> {
+class AWSAppSyncUpdateGraphqlApiCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.UpdateGraphqlApiRequest, com.amazonaws.services.appsync.model.UpdateGraphqlApiResult> {
 
 	var apiId: String? = null
 	var name: String? = null
@@ -848,8 +944,12 @@ class AWSAppSyncUpdateGraphqlApiCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.appsync.updateGraphqlApi(build())
+	override fun dryResult(): com.amazonaws.services.appsync.model.UpdateGraphqlApiResult {
+	  return com.amazonaws.services.appsync.model.UpdateGraphqlApiResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.UpdateGraphqlApiResult {
+		return environment.appsync.updateGraphqlApi(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -863,12 +963,12 @@ class AWSAppSyncUpdateGraphqlApiCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AWSAppSyncFunctions.updateResolver(init: AWSAppSyncUpdateResolverCommand.() -> Unit) {
-	this.block.declare(AWSAppSyncUpdateResolverCommand().apply(init))
+fun AWSAppSyncFunctions.updateResolver(init: AWSAppSyncUpdateResolverCommand.() -> Unit): com.amazonaws.services.appsync.model.UpdateResolverResult {
+	return this.block.declare(AWSAppSyncUpdateResolverCommand().apply(init)) as com.amazonaws.services.appsync.model.UpdateResolverResult
 }
 
 @Generated
-class AWSAppSyncUpdateResolverCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.UpdateResolverRequest> {
+class AWSAppSyncUpdateResolverCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.UpdateResolverRequest, com.amazonaws.services.appsync.model.UpdateResolverResult> {
 
 	var apiId: String? = null
 	var typeName: String? = null
@@ -888,8 +988,12 @@ class AWSAppSyncUpdateResolverCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.appsync.updateResolver(build())
+	override fun dryResult(): com.amazonaws.services.appsync.model.UpdateResolverResult {
+	  return com.amazonaws.services.appsync.model.UpdateResolverResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.UpdateResolverResult {
+		return environment.appsync.updateResolver(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -905,12 +1009,12 @@ class AWSAppSyncUpdateResolverCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AWSAppSyncFunctions.updateType(init: AWSAppSyncUpdateTypeCommand.() -> Unit) {
-	this.block.declare(AWSAppSyncUpdateTypeCommand().apply(init))
+fun AWSAppSyncFunctions.updateType(init: AWSAppSyncUpdateTypeCommand.() -> Unit): com.amazonaws.services.appsync.model.UpdateTypeResult {
+	return this.block.declare(AWSAppSyncUpdateTypeCommand().apply(init)) as com.amazonaws.services.appsync.model.UpdateTypeResult
 }
 
 @Generated
-class AWSAppSyncUpdateTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.UpdateTypeRequest> {
+class AWSAppSyncUpdateTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.appsync.model.UpdateTypeRequest, com.amazonaws.services.appsync.model.UpdateTypeResult> {
 
 	var apiId: String? = null
 	var typeName: String? = null
@@ -926,8 +1030,12 @@ class AWSAppSyncUpdateTypeCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.appsync.updateType(build())
+	override fun dryResult(): com.amazonaws.services.appsync.model.UpdateTypeResult {
+	  return com.amazonaws.services.appsync.model.UpdateTypeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.appsync.model.UpdateTypeResult {
+		return environment.appsync.updateType(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

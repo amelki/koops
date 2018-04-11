@@ -3,3 +3,8 @@
 *.iml
 credentials
 gen/models
+*.jar
+*.war
+*.ear
+hs_err_pid*
+target/

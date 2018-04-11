@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.iotdata: AWSIotData
 @Generated
 class AWSIotDataFunctions(val block: Block)
 
-infix fun AwsContinuation.iotdata(init: AWSIotDataFunctions.() -> Unit) {
-	AWSIotDataFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.iotdata(init: AWSIotDataFunctions.() -> T): T {
+	return AWSIotDataFunctions(shell).run(init)
 }
 
 			
 
-fun AWSIotDataFunctions.deleteThingShadow(init: AWSIotDataDeleteThingShadowCommand.() -> Unit) {
-	this.block.declare(AWSIotDataDeleteThingShadowCommand().apply(init))
+fun AWSIotDataFunctions.deleteThingShadow(init: AWSIotDataDeleteThingShadowCommand.() -> Unit): com.amazonaws.services.iotdata.model.DeleteThingShadowResult {
+	return this.block.declare(AWSIotDataDeleteThingShadowCommand().apply(init)) as com.amazonaws.services.iotdata.model.DeleteThingShadowResult
 }
 
 @Generated
-class AWSIotDataDeleteThingShadowCommand() : AmazonWebServiceCommand<com.amazonaws.services.iotdata.model.DeleteThingShadowRequest> {
+class AWSIotDataDeleteThingShadowCommand() : AmazonWebServiceCommand<com.amazonaws.services.iotdata.model.DeleteThingShadowRequest, com.amazonaws.services.iotdata.model.DeleteThingShadowResult> {
 
 	var thingName: String? = null
 
@@ -41,8 +41,12 @@ class AWSIotDataDeleteThingShadowCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iotdata.deleteThingShadow(build())
+	override fun dryResult(): com.amazonaws.services.iotdata.model.DeleteThingShadowResult {
+	  return com.amazonaws.services.iotdata.model.DeleteThingShadowResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iotdata.model.DeleteThingShadowResult {
+		return environment.iotdata.deleteThingShadow(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -53,12 +57,12 @@ class AWSIotDataDeleteThingShadowCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AWSIotDataFunctions.getThingShadow(init: AWSIotDataGetThingShadowCommand.() -> Unit) {
-	this.block.declare(AWSIotDataGetThingShadowCommand().apply(init))
+fun AWSIotDataFunctions.getThingShadow(init: AWSIotDataGetThingShadowCommand.() -> Unit): com.amazonaws.services.iotdata.model.GetThingShadowResult {
+	return this.block.declare(AWSIotDataGetThingShadowCommand().apply(init)) as com.amazonaws.services.iotdata.model.GetThingShadowResult
 }
 
 @Generated
-class AWSIotDataGetThingShadowCommand() : AmazonWebServiceCommand<com.amazonaws.services.iotdata.model.GetThingShadowRequest> {
+class AWSIotDataGetThingShadowCommand() : AmazonWebServiceCommand<com.amazonaws.services.iotdata.model.GetThingShadowRequest, com.amazonaws.services.iotdata.model.GetThingShadowResult> {
 
 	var thingName: String? = null
 
@@ -68,8 +72,12 @@ class AWSIotDataGetThingShadowCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iotdata.getThingShadow(build())
+	override fun dryResult(): com.amazonaws.services.iotdata.model.GetThingShadowResult {
+	  return com.amazonaws.services.iotdata.model.GetThingShadowResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iotdata.model.GetThingShadowResult {
+		return environment.iotdata.getThingShadow(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -80,12 +88,12 @@ class AWSIotDataGetThingShadowCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AWSIotDataFunctions.publish(init: AWSIotDataPublishCommand.() -> Unit) {
-	this.block.declare(AWSIotDataPublishCommand().apply(init))
+fun AWSIotDataFunctions.publish(init: AWSIotDataPublishCommand.() -> Unit): com.amazonaws.services.iotdata.model.PublishResult {
+	return this.block.declare(AWSIotDataPublishCommand().apply(init)) as com.amazonaws.services.iotdata.model.PublishResult
 }
 
 @Generated
-class AWSIotDataPublishCommand() : AmazonWebServiceCommand<com.amazonaws.services.iotdata.model.PublishRequest> {
+class AWSIotDataPublishCommand() : AmazonWebServiceCommand<com.amazonaws.services.iotdata.model.PublishRequest, com.amazonaws.services.iotdata.model.PublishResult> {
 
 	var topic: String? = null
 	var qos: Int? = 0
@@ -99,8 +107,12 @@ class AWSIotDataPublishCommand() : AmazonWebServiceCommand<com.amazonaws.service
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iotdata.publish(build())
+	override fun dryResult(): com.amazonaws.services.iotdata.model.PublishResult {
+	  return com.amazonaws.services.iotdata.model.PublishResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iotdata.model.PublishResult {
+		return environment.iotdata.publish(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -113,12 +125,12 @@ class AWSIotDataPublishCommand() : AmazonWebServiceCommand<com.amazonaws.service
 }
 
 
-fun AWSIotDataFunctions.updateThingShadow(init: AWSIotDataUpdateThingShadowCommand.() -> Unit) {
-	this.block.declare(AWSIotDataUpdateThingShadowCommand().apply(init))
+fun AWSIotDataFunctions.updateThingShadow(init: AWSIotDataUpdateThingShadowCommand.() -> Unit): com.amazonaws.services.iotdata.model.UpdateThingShadowResult {
+	return this.block.declare(AWSIotDataUpdateThingShadowCommand().apply(init)) as com.amazonaws.services.iotdata.model.UpdateThingShadowResult
 }
 
 @Generated
-class AWSIotDataUpdateThingShadowCommand() : AmazonWebServiceCommand<com.amazonaws.services.iotdata.model.UpdateThingShadowRequest> {
+class AWSIotDataUpdateThingShadowCommand() : AmazonWebServiceCommand<com.amazonaws.services.iotdata.model.UpdateThingShadowRequest, com.amazonaws.services.iotdata.model.UpdateThingShadowResult> {
 
 	var thingName: String? = null
 	var payload: java.nio.ByteBuffer? = null
@@ -130,8 +142,12 @@ class AWSIotDataUpdateThingShadowCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iotdata.updateThingShadow(build())
+	override fun dryResult(): com.amazonaws.services.iotdata.model.UpdateThingShadowResult {
+	  return com.amazonaws.services.iotdata.model.UpdateThingShadowResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.iotdata.model.UpdateThingShadowResult {
+		return environment.iotdata.updateThingShadow(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

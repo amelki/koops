@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.lexmodels: AmazonLexModelBuilding
 @Generated
 class AmazonLexModelBuildingFunctions(val block: Block)
 
-infix fun AwsContinuation.lexmodels(init: AmazonLexModelBuildingFunctions.() -> Unit) {
-	AmazonLexModelBuildingFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.lexmodels(init: AmazonLexModelBuildingFunctions.() -> T): T {
+	return AmazonLexModelBuildingFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonLexModelBuildingFunctions.createBotVersion(init: AmazonLexModelBuildingCreateBotVersionCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingCreateBotVersionCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.createBotVersion(init: AmazonLexModelBuildingCreateBotVersionCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.CreateBotVersionResult {
+	return this.block.declare(AmazonLexModelBuildingCreateBotVersionCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.CreateBotVersionResult
 }
 
 @Generated
-class AmazonLexModelBuildingCreateBotVersionCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.CreateBotVersionRequest> {
+class AmazonLexModelBuildingCreateBotVersionCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.CreateBotVersionRequest, com.amazonaws.services.lexmodelbuilding.model.CreateBotVersionResult> {
 
 	var name: String? = null
 	var checksum: String? = null
@@ -43,8 +43,12 @@ class AmazonLexModelBuildingCreateBotVersionCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.createBotVersion(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.CreateBotVersionResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.CreateBotVersionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.CreateBotVersionResult {
+		return environment.lexmodels.createBotVersion(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -56,12 +60,12 @@ class AmazonLexModelBuildingCreateBotVersionCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AmazonLexModelBuildingFunctions.createIntentVersion(init: AmazonLexModelBuildingCreateIntentVersionCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingCreateIntentVersionCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.createIntentVersion(init: AmazonLexModelBuildingCreateIntentVersionCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.CreateIntentVersionResult {
+	return this.block.declare(AmazonLexModelBuildingCreateIntentVersionCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.CreateIntentVersionResult
 }
 
 @Generated
-class AmazonLexModelBuildingCreateIntentVersionCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.CreateIntentVersionRequest> {
+class AmazonLexModelBuildingCreateIntentVersionCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.CreateIntentVersionRequest, com.amazonaws.services.lexmodelbuilding.model.CreateIntentVersionResult> {
 
 	var name: String? = null
 	var checksum: String? = null
@@ -73,8 +77,12 @@ class AmazonLexModelBuildingCreateIntentVersionCommand() : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.createIntentVersion(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.CreateIntentVersionResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.CreateIntentVersionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.CreateIntentVersionResult {
+		return environment.lexmodels.createIntentVersion(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -86,12 +94,12 @@ class AmazonLexModelBuildingCreateIntentVersionCommand() : AmazonWebServiceComma
 }
 
 
-fun AmazonLexModelBuildingFunctions.createSlotTypeVersion(init: AmazonLexModelBuildingCreateSlotTypeVersionCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingCreateSlotTypeVersionCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.createSlotTypeVersion(init: AmazonLexModelBuildingCreateSlotTypeVersionCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.CreateSlotTypeVersionResult {
+	return this.block.declare(AmazonLexModelBuildingCreateSlotTypeVersionCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.CreateSlotTypeVersionResult
 }
 
 @Generated
-class AmazonLexModelBuildingCreateSlotTypeVersionCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.CreateSlotTypeVersionRequest> {
+class AmazonLexModelBuildingCreateSlotTypeVersionCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.CreateSlotTypeVersionRequest, com.amazonaws.services.lexmodelbuilding.model.CreateSlotTypeVersionResult> {
 
 	var name: String? = null
 	var checksum: String? = null
@@ -103,8 +111,12 @@ class AmazonLexModelBuildingCreateSlotTypeVersionCommand() : AmazonWebServiceCom
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.createSlotTypeVersion(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.CreateSlotTypeVersionResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.CreateSlotTypeVersionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.CreateSlotTypeVersionResult {
+		return environment.lexmodels.createSlotTypeVersion(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -116,12 +128,12 @@ class AmazonLexModelBuildingCreateSlotTypeVersionCommand() : AmazonWebServiceCom
 }
 
 
-fun AmazonLexModelBuildingFunctions.deleteBot(init: AmazonLexModelBuildingDeleteBotCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingDeleteBotCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.deleteBot(init: AmazonLexModelBuildingDeleteBotCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.DeleteBotResult {
+	return this.block.declare(AmazonLexModelBuildingDeleteBotCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.DeleteBotResult
 }
 
 @Generated
-class AmazonLexModelBuildingDeleteBotCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.DeleteBotRequest> {
+class AmazonLexModelBuildingDeleteBotCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.DeleteBotRequest, com.amazonaws.services.lexmodelbuilding.model.DeleteBotResult> {
 
 	var name: String? = null
 
@@ -131,8 +143,12 @@ class AmazonLexModelBuildingDeleteBotCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.deleteBot(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.DeleteBotResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.DeleteBotResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.DeleteBotResult {
+		return environment.lexmodels.deleteBot(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -143,12 +159,12 @@ class AmazonLexModelBuildingDeleteBotCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AmazonLexModelBuildingFunctions.deleteBotAlias(init: AmazonLexModelBuildingDeleteBotAliasCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingDeleteBotAliasCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.deleteBotAlias(init: AmazonLexModelBuildingDeleteBotAliasCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.DeleteBotAliasResult {
+	return this.block.declare(AmazonLexModelBuildingDeleteBotAliasCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.DeleteBotAliasResult
 }
 
 @Generated
-class AmazonLexModelBuildingDeleteBotAliasCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.DeleteBotAliasRequest> {
+class AmazonLexModelBuildingDeleteBotAliasCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.DeleteBotAliasRequest, com.amazonaws.services.lexmodelbuilding.model.DeleteBotAliasResult> {
 
 	var name: String? = null
 	var botName: String? = null
@@ -160,8 +176,12 @@ class AmazonLexModelBuildingDeleteBotAliasCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.deleteBotAlias(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.DeleteBotAliasResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.DeleteBotAliasResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.DeleteBotAliasResult {
+		return environment.lexmodels.deleteBotAlias(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -173,12 +193,12 @@ class AmazonLexModelBuildingDeleteBotAliasCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonLexModelBuildingFunctions.deleteBotChannelAssociation(init: AmazonLexModelBuildingDeleteBotChannelAssociationCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingDeleteBotChannelAssociationCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.deleteBotChannelAssociation(init: AmazonLexModelBuildingDeleteBotChannelAssociationCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.DeleteBotChannelAssociationResult {
+	return this.block.declare(AmazonLexModelBuildingDeleteBotChannelAssociationCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.DeleteBotChannelAssociationResult
 }
 
 @Generated
-class AmazonLexModelBuildingDeleteBotChannelAssociationCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.DeleteBotChannelAssociationRequest> {
+class AmazonLexModelBuildingDeleteBotChannelAssociationCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.DeleteBotChannelAssociationRequest, com.amazonaws.services.lexmodelbuilding.model.DeleteBotChannelAssociationResult> {
 
 	var name: String? = null
 	var botName: String? = null
@@ -192,8 +212,12 @@ class AmazonLexModelBuildingDeleteBotChannelAssociationCommand() : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.deleteBotChannelAssociation(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.DeleteBotChannelAssociationResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.DeleteBotChannelAssociationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.DeleteBotChannelAssociationResult {
+		return environment.lexmodels.deleteBotChannelAssociation(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -206,12 +230,12 @@ class AmazonLexModelBuildingDeleteBotChannelAssociationCommand() : AmazonWebServ
 }
 
 
-fun AmazonLexModelBuildingFunctions.deleteBotVersion(init: AmazonLexModelBuildingDeleteBotVersionCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingDeleteBotVersionCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.deleteBotVersion(init: AmazonLexModelBuildingDeleteBotVersionCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.DeleteBotVersionResult {
+	return this.block.declare(AmazonLexModelBuildingDeleteBotVersionCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.DeleteBotVersionResult
 }
 
 @Generated
-class AmazonLexModelBuildingDeleteBotVersionCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.DeleteBotVersionRequest> {
+class AmazonLexModelBuildingDeleteBotVersionCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.DeleteBotVersionRequest, com.amazonaws.services.lexmodelbuilding.model.DeleteBotVersionResult> {
 
 	var name: String? = null
 	var version: String? = null
@@ -223,8 +247,12 @@ class AmazonLexModelBuildingDeleteBotVersionCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.deleteBotVersion(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.DeleteBotVersionResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.DeleteBotVersionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.DeleteBotVersionResult {
+		return environment.lexmodels.deleteBotVersion(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -236,12 +264,12 @@ class AmazonLexModelBuildingDeleteBotVersionCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AmazonLexModelBuildingFunctions.deleteIntent(init: AmazonLexModelBuildingDeleteIntentCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingDeleteIntentCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.deleteIntent(init: AmazonLexModelBuildingDeleteIntentCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.DeleteIntentResult {
+	return this.block.declare(AmazonLexModelBuildingDeleteIntentCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.DeleteIntentResult
 }
 
 @Generated
-class AmazonLexModelBuildingDeleteIntentCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.DeleteIntentRequest> {
+class AmazonLexModelBuildingDeleteIntentCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.DeleteIntentRequest, com.amazonaws.services.lexmodelbuilding.model.DeleteIntentResult> {
 
 	var name: String? = null
 
@@ -251,8 +279,12 @@ class AmazonLexModelBuildingDeleteIntentCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.deleteIntent(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.DeleteIntentResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.DeleteIntentResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.DeleteIntentResult {
+		return environment.lexmodels.deleteIntent(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -263,12 +295,12 @@ class AmazonLexModelBuildingDeleteIntentCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonLexModelBuildingFunctions.deleteIntentVersion(init: AmazonLexModelBuildingDeleteIntentVersionCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingDeleteIntentVersionCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.deleteIntentVersion(init: AmazonLexModelBuildingDeleteIntentVersionCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.DeleteIntentVersionResult {
+	return this.block.declare(AmazonLexModelBuildingDeleteIntentVersionCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.DeleteIntentVersionResult
 }
 
 @Generated
-class AmazonLexModelBuildingDeleteIntentVersionCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.DeleteIntentVersionRequest> {
+class AmazonLexModelBuildingDeleteIntentVersionCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.DeleteIntentVersionRequest, com.amazonaws.services.lexmodelbuilding.model.DeleteIntentVersionResult> {
 
 	var name: String? = null
 	var version: String? = null
@@ -280,8 +312,12 @@ class AmazonLexModelBuildingDeleteIntentVersionCommand() : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.deleteIntentVersion(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.DeleteIntentVersionResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.DeleteIntentVersionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.DeleteIntentVersionResult {
+		return environment.lexmodels.deleteIntentVersion(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -293,12 +329,12 @@ class AmazonLexModelBuildingDeleteIntentVersionCommand() : AmazonWebServiceComma
 }
 
 
-fun AmazonLexModelBuildingFunctions.deleteSlotType(init: AmazonLexModelBuildingDeleteSlotTypeCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingDeleteSlotTypeCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.deleteSlotType(init: AmazonLexModelBuildingDeleteSlotTypeCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.DeleteSlotTypeResult {
+	return this.block.declare(AmazonLexModelBuildingDeleteSlotTypeCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.DeleteSlotTypeResult
 }
 
 @Generated
-class AmazonLexModelBuildingDeleteSlotTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.DeleteSlotTypeRequest> {
+class AmazonLexModelBuildingDeleteSlotTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.DeleteSlotTypeRequest, com.amazonaws.services.lexmodelbuilding.model.DeleteSlotTypeResult> {
 
 	var name: String? = null
 
@@ -308,8 +344,12 @@ class AmazonLexModelBuildingDeleteSlotTypeCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.deleteSlotType(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.DeleteSlotTypeResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.DeleteSlotTypeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.DeleteSlotTypeResult {
+		return environment.lexmodels.deleteSlotType(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -320,12 +360,12 @@ class AmazonLexModelBuildingDeleteSlotTypeCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonLexModelBuildingFunctions.deleteSlotTypeVersion(init: AmazonLexModelBuildingDeleteSlotTypeVersionCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingDeleteSlotTypeVersionCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.deleteSlotTypeVersion(init: AmazonLexModelBuildingDeleteSlotTypeVersionCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.DeleteSlotTypeVersionResult {
+	return this.block.declare(AmazonLexModelBuildingDeleteSlotTypeVersionCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.DeleteSlotTypeVersionResult
 }
 
 @Generated
-class AmazonLexModelBuildingDeleteSlotTypeVersionCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.DeleteSlotTypeVersionRequest> {
+class AmazonLexModelBuildingDeleteSlotTypeVersionCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.DeleteSlotTypeVersionRequest, com.amazonaws.services.lexmodelbuilding.model.DeleteSlotTypeVersionResult> {
 
 	var name: String? = null
 	var version: String? = null
@@ -337,8 +377,12 @@ class AmazonLexModelBuildingDeleteSlotTypeVersionCommand() : AmazonWebServiceCom
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.deleteSlotTypeVersion(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.DeleteSlotTypeVersionResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.DeleteSlotTypeVersionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.DeleteSlotTypeVersionResult {
+		return environment.lexmodels.deleteSlotTypeVersion(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -350,12 +394,12 @@ class AmazonLexModelBuildingDeleteSlotTypeVersionCommand() : AmazonWebServiceCom
 }
 
 
-fun AmazonLexModelBuildingFunctions.deleteUtterances(init: AmazonLexModelBuildingDeleteUtterancesCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingDeleteUtterancesCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.deleteUtterances(init: AmazonLexModelBuildingDeleteUtterancesCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.DeleteUtterancesResult {
+	return this.block.declare(AmazonLexModelBuildingDeleteUtterancesCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.DeleteUtterancesResult
 }
 
 @Generated
-class AmazonLexModelBuildingDeleteUtterancesCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.DeleteUtterancesRequest> {
+class AmazonLexModelBuildingDeleteUtterancesCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.DeleteUtterancesRequest, com.amazonaws.services.lexmodelbuilding.model.DeleteUtterancesResult> {
 
 	var botName: String? = null
 	var userId: String? = null
@@ -367,8 +411,12 @@ class AmazonLexModelBuildingDeleteUtterancesCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.deleteUtterances(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.DeleteUtterancesResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.DeleteUtterancesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.DeleteUtterancesResult {
+		return environment.lexmodels.deleteUtterances(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -380,12 +428,12 @@ class AmazonLexModelBuildingDeleteUtterancesCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AmazonLexModelBuildingFunctions.getBot(init: AmazonLexModelBuildingGetBotCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingGetBotCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.getBot(init: AmazonLexModelBuildingGetBotCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.GetBotResult {
+	return this.block.declare(AmazonLexModelBuildingGetBotCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.GetBotResult
 }
 
 @Generated
-class AmazonLexModelBuildingGetBotCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetBotRequest> {
+class AmazonLexModelBuildingGetBotCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetBotRequest, com.amazonaws.services.lexmodelbuilding.model.GetBotResult> {
 
 	var name: String? = null
 	var versionOrAlias: String? = null
@@ -397,8 +445,12 @@ class AmazonLexModelBuildingGetBotCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.getBot(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.GetBotResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.GetBotResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.GetBotResult {
+		return environment.lexmodels.getBot(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -410,12 +462,12 @@ class AmazonLexModelBuildingGetBotCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonLexModelBuildingFunctions.getBotAlias(init: AmazonLexModelBuildingGetBotAliasCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingGetBotAliasCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.getBotAlias(init: AmazonLexModelBuildingGetBotAliasCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.GetBotAliasResult {
+	return this.block.declare(AmazonLexModelBuildingGetBotAliasCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.GetBotAliasResult
 }
 
 @Generated
-class AmazonLexModelBuildingGetBotAliasCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetBotAliasRequest> {
+class AmazonLexModelBuildingGetBotAliasCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetBotAliasRequest, com.amazonaws.services.lexmodelbuilding.model.GetBotAliasResult> {
 
 	var name: String? = null
 	var botName: String? = null
@@ -427,8 +479,12 @@ class AmazonLexModelBuildingGetBotAliasCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.getBotAlias(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.GetBotAliasResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.GetBotAliasResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.GetBotAliasResult {
+		return environment.lexmodels.getBotAlias(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -440,12 +496,12 @@ class AmazonLexModelBuildingGetBotAliasCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AmazonLexModelBuildingFunctions.getBotAliases(init: AmazonLexModelBuildingGetBotAliasesCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingGetBotAliasesCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.getBotAliases(init: AmazonLexModelBuildingGetBotAliasesCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.GetBotAliasesResult {
+	return this.block.declare(AmazonLexModelBuildingGetBotAliasesCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.GetBotAliasesResult
 }
 
 @Generated
-class AmazonLexModelBuildingGetBotAliasesCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetBotAliasesRequest> {
+class AmazonLexModelBuildingGetBotAliasesCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetBotAliasesRequest, com.amazonaws.services.lexmodelbuilding.model.GetBotAliasesResult> {
 
 	var botName: String? = null
 	var nextToken: String? = null
@@ -461,8 +517,12 @@ class AmazonLexModelBuildingGetBotAliasesCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.getBotAliases(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.GetBotAliasesResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.GetBotAliasesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.GetBotAliasesResult {
+		return environment.lexmodels.getBotAliases(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -476,12 +536,12 @@ class AmazonLexModelBuildingGetBotAliasesCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AmazonLexModelBuildingFunctions.getBotChannelAssociation(init: AmazonLexModelBuildingGetBotChannelAssociationCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingGetBotChannelAssociationCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.getBotChannelAssociation(init: AmazonLexModelBuildingGetBotChannelAssociationCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.GetBotChannelAssociationResult {
+	return this.block.declare(AmazonLexModelBuildingGetBotChannelAssociationCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.GetBotChannelAssociationResult
 }
 
 @Generated
-class AmazonLexModelBuildingGetBotChannelAssociationCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetBotChannelAssociationRequest> {
+class AmazonLexModelBuildingGetBotChannelAssociationCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetBotChannelAssociationRequest, com.amazonaws.services.lexmodelbuilding.model.GetBotChannelAssociationResult> {
 
 	var name: String? = null
 	var botName: String? = null
@@ -495,8 +555,12 @@ class AmazonLexModelBuildingGetBotChannelAssociationCommand() : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.getBotChannelAssociation(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.GetBotChannelAssociationResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.GetBotChannelAssociationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.GetBotChannelAssociationResult {
+		return environment.lexmodels.getBotChannelAssociation(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -509,12 +573,12 @@ class AmazonLexModelBuildingGetBotChannelAssociationCommand() : AmazonWebService
 }
 
 
-fun AmazonLexModelBuildingFunctions.getBotChannelAssociations(init: AmazonLexModelBuildingGetBotChannelAssociationsCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingGetBotChannelAssociationsCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.getBotChannelAssociations(init: AmazonLexModelBuildingGetBotChannelAssociationsCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.GetBotChannelAssociationsResult {
+	return this.block.declare(AmazonLexModelBuildingGetBotChannelAssociationsCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.GetBotChannelAssociationsResult
 }
 
 @Generated
-class AmazonLexModelBuildingGetBotChannelAssociationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetBotChannelAssociationsRequest> {
+class AmazonLexModelBuildingGetBotChannelAssociationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetBotChannelAssociationsRequest, com.amazonaws.services.lexmodelbuilding.model.GetBotChannelAssociationsResult> {
 
 	var botName: String? = null
 	var botAlias: String? = null
@@ -532,8 +596,12 @@ class AmazonLexModelBuildingGetBotChannelAssociationsCommand() : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.getBotChannelAssociations(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.GetBotChannelAssociationsResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.GetBotChannelAssociationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.GetBotChannelAssociationsResult {
+		return environment.lexmodels.getBotChannelAssociations(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -548,12 +616,12 @@ class AmazonLexModelBuildingGetBotChannelAssociationsCommand() : AmazonWebServic
 }
 
 
-fun AmazonLexModelBuildingFunctions.getBotVersions(init: AmazonLexModelBuildingGetBotVersionsCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingGetBotVersionsCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.getBotVersions(init: AmazonLexModelBuildingGetBotVersionsCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.GetBotVersionsResult {
+	return this.block.declare(AmazonLexModelBuildingGetBotVersionsCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.GetBotVersionsResult
 }
 
 @Generated
-class AmazonLexModelBuildingGetBotVersionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetBotVersionsRequest> {
+class AmazonLexModelBuildingGetBotVersionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetBotVersionsRequest, com.amazonaws.services.lexmodelbuilding.model.GetBotVersionsResult> {
 
 	var name: String? = null
 	var nextToken: String? = null
@@ -567,8 +635,12 @@ class AmazonLexModelBuildingGetBotVersionsCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.getBotVersions(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.GetBotVersionsResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.GetBotVersionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.GetBotVersionsResult {
+		return environment.lexmodels.getBotVersions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -581,12 +653,12 @@ class AmazonLexModelBuildingGetBotVersionsCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonLexModelBuildingFunctions.getBots(init: AmazonLexModelBuildingGetBotsCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingGetBotsCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.getBots(init: AmazonLexModelBuildingGetBotsCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.GetBotsResult {
+	return this.block.declare(AmazonLexModelBuildingGetBotsCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.GetBotsResult
 }
 
 @Generated
-class AmazonLexModelBuildingGetBotsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetBotsRequest> {
+class AmazonLexModelBuildingGetBotsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetBotsRequest, com.amazonaws.services.lexmodelbuilding.model.GetBotsResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -600,8 +672,12 @@ class AmazonLexModelBuildingGetBotsCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.getBots(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.GetBotsResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.GetBotsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.GetBotsResult {
+		return environment.lexmodels.getBots(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -614,12 +690,12 @@ class AmazonLexModelBuildingGetBotsCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AmazonLexModelBuildingFunctions.getBuiltinIntent(init: AmazonLexModelBuildingGetBuiltinIntentCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingGetBuiltinIntentCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.getBuiltinIntent(init: AmazonLexModelBuildingGetBuiltinIntentCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.GetBuiltinIntentResult {
+	return this.block.declare(AmazonLexModelBuildingGetBuiltinIntentCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.GetBuiltinIntentResult
 }
 
 @Generated
-class AmazonLexModelBuildingGetBuiltinIntentCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetBuiltinIntentRequest> {
+class AmazonLexModelBuildingGetBuiltinIntentCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetBuiltinIntentRequest, com.amazonaws.services.lexmodelbuilding.model.GetBuiltinIntentResult> {
 
 	var signature: String? = null
 
@@ -629,8 +705,12 @@ class AmazonLexModelBuildingGetBuiltinIntentCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.getBuiltinIntent(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.GetBuiltinIntentResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.GetBuiltinIntentResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.GetBuiltinIntentResult {
+		return environment.lexmodels.getBuiltinIntent(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -641,12 +721,12 @@ class AmazonLexModelBuildingGetBuiltinIntentCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AmazonLexModelBuildingFunctions.getBuiltinIntents(init: AmazonLexModelBuildingGetBuiltinIntentsCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingGetBuiltinIntentsCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.getBuiltinIntents(init: AmazonLexModelBuildingGetBuiltinIntentsCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.GetBuiltinIntentsResult {
+	return this.block.declare(AmazonLexModelBuildingGetBuiltinIntentsCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.GetBuiltinIntentsResult
 }
 
 @Generated
-class AmazonLexModelBuildingGetBuiltinIntentsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetBuiltinIntentsRequest> {
+class AmazonLexModelBuildingGetBuiltinIntentsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetBuiltinIntentsRequest, com.amazonaws.services.lexmodelbuilding.model.GetBuiltinIntentsResult> {
 
 	var locale: Locale? = null
 	var signatureContains: String? = null
@@ -662,8 +742,12 @@ class AmazonLexModelBuildingGetBuiltinIntentsCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.getBuiltinIntents(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.GetBuiltinIntentsResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.GetBuiltinIntentsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.GetBuiltinIntentsResult {
+		return environment.lexmodels.getBuiltinIntents(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -677,12 +761,12 @@ class AmazonLexModelBuildingGetBuiltinIntentsCommand() : AmazonWebServiceCommand
 }
 
 
-fun AmazonLexModelBuildingFunctions.getBuiltinSlotTypes(init: AmazonLexModelBuildingGetBuiltinSlotTypesCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingGetBuiltinSlotTypesCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.getBuiltinSlotTypes(init: AmazonLexModelBuildingGetBuiltinSlotTypesCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.GetBuiltinSlotTypesResult {
+	return this.block.declare(AmazonLexModelBuildingGetBuiltinSlotTypesCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.GetBuiltinSlotTypesResult
 }
 
 @Generated
-class AmazonLexModelBuildingGetBuiltinSlotTypesCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetBuiltinSlotTypesRequest> {
+class AmazonLexModelBuildingGetBuiltinSlotTypesCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetBuiltinSlotTypesRequest, com.amazonaws.services.lexmodelbuilding.model.GetBuiltinSlotTypesResult> {
 
 	var locale: Locale? = null
 	var signatureContains: String? = null
@@ -698,8 +782,12 @@ class AmazonLexModelBuildingGetBuiltinSlotTypesCommand() : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.getBuiltinSlotTypes(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.GetBuiltinSlotTypesResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.GetBuiltinSlotTypesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.GetBuiltinSlotTypesResult {
+		return environment.lexmodels.getBuiltinSlotTypes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -713,12 +801,12 @@ class AmazonLexModelBuildingGetBuiltinSlotTypesCommand() : AmazonWebServiceComma
 }
 
 
-fun AmazonLexModelBuildingFunctions.getExport(init: AmazonLexModelBuildingGetExportCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingGetExportCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.getExport(init: AmazonLexModelBuildingGetExportCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.GetExportResult {
+	return this.block.declare(AmazonLexModelBuildingGetExportCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.GetExportResult
 }
 
 @Generated
-class AmazonLexModelBuildingGetExportCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetExportRequest> {
+class AmazonLexModelBuildingGetExportCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetExportRequest, com.amazonaws.services.lexmodelbuilding.model.GetExportResult> {
 
 	var name: String? = null
 	var version: String? = null
@@ -734,8 +822,12 @@ class AmazonLexModelBuildingGetExportCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.getExport(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.GetExportResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.GetExportResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.GetExportResult {
+		return environment.lexmodels.getExport(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -749,12 +841,12 @@ class AmazonLexModelBuildingGetExportCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AmazonLexModelBuildingFunctions.getImport(init: AmazonLexModelBuildingGetImportCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingGetImportCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.getImport(init: AmazonLexModelBuildingGetImportCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.GetImportResult {
+	return this.block.declare(AmazonLexModelBuildingGetImportCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.GetImportResult
 }
 
 @Generated
-class AmazonLexModelBuildingGetImportCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetImportRequest> {
+class AmazonLexModelBuildingGetImportCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetImportRequest, com.amazonaws.services.lexmodelbuilding.model.GetImportResult> {
 
 	var importId: String? = null
 
@@ -764,8 +856,12 @@ class AmazonLexModelBuildingGetImportCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.getImport(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.GetImportResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.GetImportResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.GetImportResult {
+		return environment.lexmodels.getImport(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -776,12 +872,12 @@ class AmazonLexModelBuildingGetImportCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AmazonLexModelBuildingFunctions.getIntent(init: AmazonLexModelBuildingGetIntentCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingGetIntentCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.getIntent(init: AmazonLexModelBuildingGetIntentCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.GetIntentResult {
+	return this.block.declare(AmazonLexModelBuildingGetIntentCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.GetIntentResult
 }
 
 @Generated
-class AmazonLexModelBuildingGetIntentCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetIntentRequest> {
+class AmazonLexModelBuildingGetIntentCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetIntentRequest, com.amazonaws.services.lexmodelbuilding.model.GetIntentResult> {
 
 	var name: String? = null
 	var version: String? = null
@@ -793,8 +889,12 @@ class AmazonLexModelBuildingGetIntentCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.getIntent(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.GetIntentResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.GetIntentResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.GetIntentResult {
+		return environment.lexmodels.getIntent(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -806,12 +906,12 @@ class AmazonLexModelBuildingGetIntentCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AmazonLexModelBuildingFunctions.getIntentVersions(init: AmazonLexModelBuildingGetIntentVersionsCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingGetIntentVersionsCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.getIntentVersions(init: AmazonLexModelBuildingGetIntentVersionsCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.GetIntentVersionsResult {
+	return this.block.declare(AmazonLexModelBuildingGetIntentVersionsCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.GetIntentVersionsResult
 }
 
 @Generated
-class AmazonLexModelBuildingGetIntentVersionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetIntentVersionsRequest> {
+class AmazonLexModelBuildingGetIntentVersionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetIntentVersionsRequest, com.amazonaws.services.lexmodelbuilding.model.GetIntentVersionsResult> {
 
 	var name: String? = null
 	var nextToken: String? = null
@@ -825,8 +925,12 @@ class AmazonLexModelBuildingGetIntentVersionsCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.getIntentVersions(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.GetIntentVersionsResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.GetIntentVersionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.GetIntentVersionsResult {
+		return environment.lexmodels.getIntentVersions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -839,12 +943,12 @@ class AmazonLexModelBuildingGetIntentVersionsCommand() : AmazonWebServiceCommand
 }
 
 
-fun AmazonLexModelBuildingFunctions.getIntents(init: AmazonLexModelBuildingGetIntentsCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingGetIntentsCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.getIntents(init: AmazonLexModelBuildingGetIntentsCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.GetIntentsResult {
+	return this.block.declare(AmazonLexModelBuildingGetIntentsCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.GetIntentsResult
 }
 
 @Generated
-class AmazonLexModelBuildingGetIntentsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetIntentsRequest> {
+class AmazonLexModelBuildingGetIntentsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetIntentsRequest, com.amazonaws.services.lexmodelbuilding.model.GetIntentsResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -858,8 +962,12 @@ class AmazonLexModelBuildingGetIntentsCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.getIntents(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.GetIntentsResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.GetIntentsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.GetIntentsResult {
+		return environment.lexmodels.getIntents(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -872,12 +980,12 @@ class AmazonLexModelBuildingGetIntentsCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonLexModelBuildingFunctions.getSlotType(init: AmazonLexModelBuildingGetSlotTypeCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingGetSlotTypeCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.getSlotType(init: AmazonLexModelBuildingGetSlotTypeCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.GetSlotTypeResult {
+	return this.block.declare(AmazonLexModelBuildingGetSlotTypeCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.GetSlotTypeResult
 }
 
 @Generated
-class AmazonLexModelBuildingGetSlotTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetSlotTypeRequest> {
+class AmazonLexModelBuildingGetSlotTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetSlotTypeRequest, com.amazonaws.services.lexmodelbuilding.model.GetSlotTypeResult> {
 
 	var name: String? = null
 	var version: String? = null
@@ -889,8 +997,12 @@ class AmazonLexModelBuildingGetSlotTypeCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.getSlotType(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.GetSlotTypeResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.GetSlotTypeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.GetSlotTypeResult {
+		return environment.lexmodels.getSlotType(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -902,12 +1014,12 @@ class AmazonLexModelBuildingGetSlotTypeCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AmazonLexModelBuildingFunctions.getSlotTypeVersions(init: AmazonLexModelBuildingGetSlotTypeVersionsCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingGetSlotTypeVersionsCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.getSlotTypeVersions(init: AmazonLexModelBuildingGetSlotTypeVersionsCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.GetSlotTypeVersionsResult {
+	return this.block.declare(AmazonLexModelBuildingGetSlotTypeVersionsCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.GetSlotTypeVersionsResult
 }
 
 @Generated
-class AmazonLexModelBuildingGetSlotTypeVersionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetSlotTypeVersionsRequest> {
+class AmazonLexModelBuildingGetSlotTypeVersionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetSlotTypeVersionsRequest, com.amazonaws.services.lexmodelbuilding.model.GetSlotTypeVersionsResult> {
 
 	var name: String? = null
 	var nextToken: String? = null
@@ -921,8 +1033,12 @@ class AmazonLexModelBuildingGetSlotTypeVersionsCommand() : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.getSlotTypeVersions(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.GetSlotTypeVersionsResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.GetSlotTypeVersionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.GetSlotTypeVersionsResult {
+		return environment.lexmodels.getSlotTypeVersions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -935,12 +1051,12 @@ class AmazonLexModelBuildingGetSlotTypeVersionsCommand() : AmazonWebServiceComma
 }
 
 
-fun AmazonLexModelBuildingFunctions.getSlotTypes(init: AmazonLexModelBuildingGetSlotTypesCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingGetSlotTypesCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.getSlotTypes(init: AmazonLexModelBuildingGetSlotTypesCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.GetSlotTypesResult {
+	return this.block.declare(AmazonLexModelBuildingGetSlotTypesCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.GetSlotTypesResult
 }
 
 @Generated
-class AmazonLexModelBuildingGetSlotTypesCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetSlotTypesRequest> {
+class AmazonLexModelBuildingGetSlotTypesCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetSlotTypesRequest, com.amazonaws.services.lexmodelbuilding.model.GetSlotTypesResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -954,8 +1070,12 @@ class AmazonLexModelBuildingGetSlotTypesCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.getSlotTypes(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.GetSlotTypesResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.GetSlotTypesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.GetSlotTypesResult {
+		return environment.lexmodels.getSlotTypes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -968,12 +1088,12 @@ class AmazonLexModelBuildingGetSlotTypesCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonLexModelBuildingFunctions.getUtterancesView(init: AmazonLexModelBuildingGetUtterancesViewCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingGetUtterancesViewCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.getUtterancesView(init: AmazonLexModelBuildingGetUtterancesViewCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.GetUtterancesViewResult {
+	return this.block.declare(AmazonLexModelBuildingGetUtterancesViewCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.GetUtterancesViewResult
 }
 
 @Generated
-class AmazonLexModelBuildingGetUtterancesViewCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetUtterancesViewRequest> {
+class AmazonLexModelBuildingGetUtterancesViewCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.GetUtterancesViewRequest, com.amazonaws.services.lexmodelbuilding.model.GetUtterancesViewResult> {
 
 	var botName: String? = null
 	var botVersions: List<String>? = null
@@ -987,8 +1107,12 @@ class AmazonLexModelBuildingGetUtterancesViewCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.getUtterancesView(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.GetUtterancesViewResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.GetUtterancesViewResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.GetUtterancesViewResult {
+		return environment.lexmodels.getUtterancesView(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1001,12 +1125,12 @@ class AmazonLexModelBuildingGetUtterancesViewCommand() : AmazonWebServiceCommand
 }
 
 
-fun AmazonLexModelBuildingFunctions.putBot(init: AmazonLexModelBuildingPutBotCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingPutBotCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.putBot(init: AmazonLexModelBuildingPutBotCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.PutBotResult {
+	return this.block.declare(AmazonLexModelBuildingPutBotCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.PutBotResult
 }
 
 @Generated
-class AmazonLexModelBuildingPutBotCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.PutBotRequest> {
+class AmazonLexModelBuildingPutBotCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.PutBotRequest, com.amazonaws.services.lexmodelbuilding.model.PutBotResult> {
 
 	var name: String? = null
 	var description: String? = null
@@ -1038,8 +1162,12 @@ class AmazonLexModelBuildingPutBotCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.putBot(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.PutBotResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.PutBotResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.PutBotResult {
+		return environment.lexmodels.putBot(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1061,12 +1189,12 @@ class AmazonLexModelBuildingPutBotCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonLexModelBuildingFunctions.putBotAlias(init: AmazonLexModelBuildingPutBotAliasCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingPutBotAliasCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.putBotAlias(init: AmazonLexModelBuildingPutBotAliasCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.PutBotAliasResult {
+	return this.block.declare(AmazonLexModelBuildingPutBotAliasCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.PutBotAliasResult
 }
 
 @Generated
-class AmazonLexModelBuildingPutBotAliasCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.PutBotAliasRequest> {
+class AmazonLexModelBuildingPutBotAliasCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.PutBotAliasRequest, com.amazonaws.services.lexmodelbuilding.model.PutBotAliasResult> {
 
 	var name: String? = null
 	var description: String? = null
@@ -1084,8 +1212,12 @@ class AmazonLexModelBuildingPutBotAliasCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.putBotAlias(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.PutBotAliasResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.PutBotAliasResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.PutBotAliasResult {
+		return environment.lexmodels.putBotAlias(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1100,12 +1232,12 @@ class AmazonLexModelBuildingPutBotAliasCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AmazonLexModelBuildingFunctions.putIntent(init: AmazonLexModelBuildingPutIntentCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingPutIntentCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.putIntent(init: AmazonLexModelBuildingPutIntentCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.PutIntentResult {
+	return this.block.declare(AmazonLexModelBuildingPutIntentCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.PutIntentResult
 }
 
 @Generated
-class AmazonLexModelBuildingPutIntentCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.PutIntentRequest> {
+class AmazonLexModelBuildingPutIntentCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.PutIntentRequest, com.amazonaws.services.lexmodelbuilding.model.PutIntentResult> {
 
 	var name: String? = null
 	var description: String? = null
@@ -1139,8 +1271,12 @@ class AmazonLexModelBuildingPutIntentCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.putIntent(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.PutIntentResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.PutIntentResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.PutIntentResult {
+		return environment.lexmodels.putIntent(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1163,12 +1299,12 @@ class AmazonLexModelBuildingPutIntentCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AmazonLexModelBuildingFunctions.putSlotType(init: AmazonLexModelBuildingPutSlotTypeCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingPutSlotTypeCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.putSlotType(init: AmazonLexModelBuildingPutSlotTypeCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.PutSlotTypeResult {
+	return this.block.declare(AmazonLexModelBuildingPutSlotTypeCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.PutSlotTypeResult
 }
 
 @Generated
-class AmazonLexModelBuildingPutSlotTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.PutSlotTypeRequest> {
+class AmazonLexModelBuildingPutSlotTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.PutSlotTypeRequest, com.amazonaws.services.lexmodelbuilding.model.PutSlotTypeResult> {
 
 	var name: String? = null
 	var description: String? = null
@@ -1188,8 +1324,12 @@ class AmazonLexModelBuildingPutSlotTypeCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.putSlotType(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.PutSlotTypeResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.PutSlotTypeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.PutSlotTypeResult {
+		return environment.lexmodels.putSlotType(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1205,12 +1345,12 @@ class AmazonLexModelBuildingPutSlotTypeCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AmazonLexModelBuildingFunctions.startImport(init: AmazonLexModelBuildingStartImportCommand.() -> Unit) {
-	this.block.declare(AmazonLexModelBuildingStartImportCommand().apply(init))
+fun AmazonLexModelBuildingFunctions.startImport(init: AmazonLexModelBuildingStartImportCommand.() -> Unit): com.amazonaws.services.lexmodelbuilding.model.StartImportResult {
+	return this.block.declare(AmazonLexModelBuildingStartImportCommand().apply(init)) as com.amazonaws.services.lexmodelbuilding.model.StartImportResult
 }
 
 @Generated
-class AmazonLexModelBuildingStartImportCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.StartImportRequest> {
+class AmazonLexModelBuildingStartImportCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexmodelbuilding.model.StartImportRequest, com.amazonaws.services.lexmodelbuilding.model.StartImportResult> {
 
 	var payload: java.nio.ByteBuffer? = null
 	var resourceType: ResourceType? = null
@@ -1224,8 +1364,12 @@ class AmazonLexModelBuildingStartImportCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexmodels.startImport(build())
+	override fun dryResult(): com.amazonaws.services.lexmodelbuilding.model.StartImportResult {
+	  return com.amazonaws.services.lexmodelbuilding.model.StartImportResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexmodelbuilding.model.StartImportResult {
+		return environment.lexmodels.startImport(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

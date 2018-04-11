@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.dms: AWSDatabaseMigrationService
 @Generated
 class AWSDatabaseMigrationServiceFunctions(val block: Block)
 
-infix fun AwsContinuation.dms(init: AWSDatabaseMigrationServiceFunctions.() -> Unit) {
-	AWSDatabaseMigrationServiceFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.dms(init: AWSDatabaseMigrationServiceFunctions.() -> T): T {
+	return AWSDatabaseMigrationServiceFunctions(shell).run(init)
 }
 
 			
 
-fun AWSDatabaseMigrationServiceFunctions.addTagsToResource(resourceArn: String, tags: List<com.amazonaws.services.databasemigrationservice.model.Tag>, init: AWSDatabaseMigrationServiceAddTagsToResourceCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceAddTagsToResourceCommand(resourceArn, tags).apply(init))
+fun AWSDatabaseMigrationServiceFunctions.addTagsToResource(resourceArn: String, tags: List<com.amazonaws.services.databasemigrationservice.model.Tag>, init: AWSDatabaseMigrationServiceAddTagsToResourceCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.AddTagsToResourceResult {
+	return this.block.declare(AWSDatabaseMigrationServiceAddTagsToResourceCommand(resourceArn, tags).apply(init)) as com.amazonaws.services.databasemigrationservice.model.AddTagsToResourceResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceAddTagsToResourceCommand(val resourceArn: String, val tags: List<com.amazonaws.services.databasemigrationservice.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.AddTagsToResourceRequest> {
+class AWSDatabaseMigrationServiceAddTagsToResourceCommand(val resourceArn: String, val tags: List<com.amazonaws.services.databasemigrationservice.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.AddTagsToResourceRequest, com.amazonaws.services.databasemigrationservice.model.AddTagsToResourceResult> {
 
 
 
@@ -42,8 +42,12 @@ class AWSDatabaseMigrationServiceAddTagsToResourceCommand(val resourceArn: Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.addTagsToResource(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.AddTagsToResourceResult {
+	  return com.amazonaws.services.databasemigrationservice.model.AddTagsToResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.AddTagsToResourceResult {
+		return environment.dms.addTagsToResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -55,12 +59,12 @@ class AWSDatabaseMigrationServiceAddTagsToResourceCommand(val resourceArn: Strin
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.createEndpoint(endpointIdentifier: String, endpointType: ReplicationEndpointTypeValue, engineName: String, init: AWSDatabaseMigrationServiceCreateEndpointCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceCreateEndpointCommand(endpointIdentifier, endpointType, engineName).apply(init))
+fun AWSDatabaseMigrationServiceFunctions.createEndpoint(endpointIdentifier: String, endpointType: ReplicationEndpointTypeValue, engineName: String, init: AWSDatabaseMigrationServiceCreateEndpointCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.CreateEndpointResult {
+	return this.block.declare(AWSDatabaseMigrationServiceCreateEndpointCommand(endpointIdentifier, endpointType, engineName).apply(init)) as com.amazonaws.services.databasemigrationservice.model.CreateEndpointResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceCreateEndpointCommand(val endpointIdentifier: String, val endpointType: ReplicationEndpointTypeValue, val engineName: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.CreateEndpointRequest> {
+class AWSDatabaseMigrationServiceCreateEndpointCommand(val endpointIdentifier: String, val endpointType: ReplicationEndpointTypeValue, val engineName: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.CreateEndpointRequest, com.amazonaws.services.databasemigrationservice.model.CreateEndpointResult> {
 
 	var username: String? = null
 	var password: String? = null
@@ -97,8 +101,12 @@ class AWSDatabaseMigrationServiceCreateEndpointCommand(val endpointIdentifier: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.createEndpoint(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.CreateEndpointResult {
+	  return com.amazonaws.services.databasemigrationservice.model.CreateEndpointResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.CreateEndpointResult {
+		return environment.dms.createEndpoint(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -124,12 +132,12 @@ class AWSDatabaseMigrationServiceCreateEndpointCommand(val endpointIdentifier: S
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.createEventSubscription(subscriptionName: String, snsTopicArn: String, init: AWSDatabaseMigrationServiceCreateEventSubscriptionCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceCreateEventSubscriptionCommand(subscriptionName, snsTopicArn).apply(init))
+fun AWSDatabaseMigrationServiceFunctions.createEventSubscription(subscriptionName: String, snsTopicArn: String, init: AWSDatabaseMigrationServiceCreateEventSubscriptionCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.CreateEventSubscriptionResult {
+	return this.block.declare(AWSDatabaseMigrationServiceCreateEventSubscriptionCommand(subscriptionName, snsTopicArn).apply(init)) as com.amazonaws.services.databasemigrationservice.model.CreateEventSubscriptionResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceCreateEventSubscriptionCommand(val subscriptionName: String, val snsTopicArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.CreateEventSubscriptionRequest> {
+class AWSDatabaseMigrationServiceCreateEventSubscriptionCommand(val subscriptionName: String, val snsTopicArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.CreateEventSubscriptionRequest, com.amazonaws.services.databasemigrationservice.model.CreateEventSubscriptionResult> {
 
 	var sourceType: String? = null
 	var eventCategories: List<String>? = null
@@ -149,8 +157,12 @@ class AWSDatabaseMigrationServiceCreateEventSubscriptionCommand(val subscription
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.createEventSubscription(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.CreateEventSubscriptionResult {
+	  return com.amazonaws.services.databasemigrationservice.model.CreateEventSubscriptionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.CreateEventSubscriptionResult {
+		return environment.dms.createEventSubscription(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -167,12 +179,12 @@ class AWSDatabaseMigrationServiceCreateEventSubscriptionCommand(val subscription
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.createReplicationInstance(replicationInstanceIdentifier: String, replicationInstanceClass: String, init: AWSDatabaseMigrationServiceCreateReplicationInstanceCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceCreateReplicationInstanceCommand(replicationInstanceIdentifier, replicationInstanceClass).apply(init))
+fun AWSDatabaseMigrationServiceFunctions.createReplicationInstance(replicationInstanceIdentifier: String, replicationInstanceClass: String, init: AWSDatabaseMigrationServiceCreateReplicationInstanceCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.CreateReplicationInstanceResult {
+	return this.block.declare(AWSDatabaseMigrationServiceCreateReplicationInstanceCommand(replicationInstanceIdentifier, replicationInstanceClass).apply(init)) as com.amazonaws.services.databasemigrationservice.model.CreateReplicationInstanceResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceCreateReplicationInstanceCommand(val replicationInstanceIdentifier: String, val replicationInstanceClass: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.CreateReplicationInstanceRequest> {
+class AWSDatabaseMigrationServiceCreateReplicationInstanceCommand(val replicationInstanceIdentifier: String, val replicationInstanceClass: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.CreateReplicationInstanceRequest, com.amazonaws.services.databasemigrationservice.model.CreateReplicationInstanceResult> {
 
 	var allocatedStorage: Int? = 0
 	var vpcSecurityGroupIds: List<String>? = null
@@ -204,8 +216,12 @@ class AWSDatabaseMigrationServiceCreateReplicationInstanceCommand(val replicatio
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.createReplicationInstance(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.CreateReplicationInstanceResult {
+	  return com.amazonaws.services.databasemigrationservice.model.CreateReplicationInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.CreateReplicationInstanceResult {
+		return environment.dms.createReplicationInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -228,12 +244,12 @@ class AWSDatabaseMigrationServiceCreateReplicationInstanceCommand(val replicatio
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.createReplicationSubnetGroup(replicationSubnetGroupIdentifier: String, replicationSubnetGroupDescription: String, subnetIds: List<String>, init: AWSDatabaseMigrationServiceCreateReplicationSubnetGroupCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceCreateReplicationSubnetGroupCommand(replicationSubnetGroupIdentifier, replicationSubnetGroupDescription, subnetIds).apply(init))
+fun AWSDatabaseMigrationServiceFunctions.createReplicationSubnetGroup(replicationSubnetGroupIdentifier: String, replicationSubnetGroupDescription: String, subnetIds: List<String>, init: AWSDatabaseMigrationServiceCreateReplicationSubnetGroupCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.CreateReplicationSubnetGroupResult {
+	return this.block.declare(AWSDatabaseMigrationServiceCreateReplicationSubnetGroupCommand(replicationSubnetGroupIdentifier, replicationSubnetGroupDescription, subnetIds).apply(init)) as com.amazonaws.services.databasemigrationservice.model.CreateReplicationSubnetGroupResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceCreateReplicationSubnetGroupCommand(val replicationSubnetGroupIdentifier: String, val replicationSubnetGroupDescription: String, val subnetIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.CreateReplicationSubnetGroupRequest> {
+class AWSDatabaseMigrationServiceCreateReplicationSubnetGroupCommand(val replicationSubnetGroupIdentifier: String, val replicationSubnetGroupDescription: String, val subnetIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.CreateReplicationSubnetGroupRequest, com.amazonaws.services.databasemigrationservice.model.CreateReplicationSubnetGroupResult> {
 
 	var tags: List<com.amazonaws.services.databasemigrationservice.model.Tag>? = null
 
@@ -246,8 +262,12 @@ class AWSDatabaseMigrationServiceCreateReplicationSubnetGroupCommand(val replica
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.createReplicationSubnetGroup(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.CreateReplicationSubnetGroupResult {
+	  return com.amazonaws.services.databasemigrationservice.model.CreateReplicationSubnetGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.CreateReplicationSubnetGroupResult {
+		return environment.dms.createReplicationSubnetGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -261,12 +281,12 @@ class AWSDatabaseMigrationServiceCreateReplicationSubnetGroupCommand(val replica
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.createReplicationTask(replicationTaskIdentifier: String, sourceEndpointArn: String, targetEndpointArn: String, replicationInstanceArn: String, migrationType: MigrationTypeValue, tableMappings: String, init: AWSDatabaseMigrationServiceCreateReplicationTaskCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceCreateReplicationTaskCommand(replicationTaskIdentifier, sourceEndpointArn, targetEndpointArn, replicationInstanceArn, migrationType, tableMappings).apply(init))
+fun AWSDatabaseMigrationServiceFunctions.createReplicationTask(replicationTaskIdentifier: String, sourceEndpointArn: String, targetEndpointArn: String, replicationInstanceArn: String, migrationType: MigrationTypeValue, tableMappings: String, init: AWSDatabaseMigrationServiceCreateReplicationTaskCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.CreateReplicationTaskResult {
+	return this.block.declare(AWSDatabaseMigrationServiceCreateReplicationTaskCommand(replicationTaskIdentifier, sourceEndpointArn, targetEndpointArn, replicationInstanceArn, migrationType, tableMappings).apply(init)) as com.amazonaws.services.databasemigrationservice.model.CreateReplicationTaskResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceCreateReplicationTaskCommand(val replicationTaskIdentifier: String, val sourceEndpointArn: String, val targetEndpointArn: String, val replicationInstanceArn: String, val migrationType: MigrationTypeValue, val tableMappings: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.CreateReplicationTaskRequest> {
+class AWSDatabaseMigrationServiceCreateReplicationTaskCommand(val replicationTaskIdentifier: String, val sourceEndpointArn: String, val targetEndpointArn: String, val replicationInstanceArn: String, val migrationType: MigrationTypeValue, val tableMappings: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.CreateReplicationTaskRequest, com.amazonaws.services.databasemigrationservice.model.CreateReplicationTaskResult> {
 
 	var replicationTaskSettings: String? = null
 	var cdcStartTime: java.util.Date? = null
@@ -286,8 +306,12 @@ class AWSDatabaseMigrationServiceCreateReplicationTaskCommand(val replicationTas
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.createReplicationTask(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.CreateReplicationTaskResult {
+	  return com.amazonaws.services.databasemigrationservice.model.CreateReplicationTaskResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.CreateReplicationTaskResult {
+		return environment.dms.createReplicationTask(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -306,12 +330,12 @@ class AWSDatabaseMigrationServiceCreateReplicationTaskCommand(val replicationTas
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.deleteCertificate(certificateArn: String, init: AWSDatabaseMigrationServiceDeleteCertificateCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceDeleteCertificateCommand(certificateArn).apply(init))
+fun AWSDatabaseMigrationServiceFunctions.deleteCertificate(certificateArn: String, init: AWSDatabaseMigrationServiceDeleteCertificateCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.DeleteCertificateResult {
+	return this.block.declare(AWSDatabaseMigrationServiceDeleteCertificateCommand(certificateArn).apply(init)) as com.amazonaws.services.databasemigrationservice.model.DeleteCertificateResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceDeleteCertificateCommand(val certificateArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DeleteCertificateRequest> {
+class AWSDatabaseMigrationServiceDeleteCertificateCommand(val certificateArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DeleteCertificateRequest, com.amazonaws.services.databasemigrationservice.model.DeleteCertificateResult> {
 
 
 
@@ -321,8 +345,12 @@ class AWSDatabaseMigrationServiceDeleteCertificateCommand(val certificateArn: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.deleteCertificate(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DeleteCertificateResult {
+	  return com.amazonaws.services.databasemigrationservice.model.DeleteCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DeleteCertificateResult {
+		return environment.dms.deleteCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -333,12 +361,12 @@ class AWSDatabaseMigrationServiceDeleteCertificateCommand(val certificateArn: St
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.deleteEndpoint(endpointArn: String, init: AWSDatabaseMigrationServiceDeleteEndpointCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceDeleteEndpointCommand(endpointArn).apply(init))
+fun AWSDatabaseMigrationServiceFunctions.deleteEndpoint(endpointArn: String, init: AWSDatabaseMigrationServiceDeleteEndpointCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.DeleteEndpointResult {
+	return this.block.declare(AWSDatabaseMigrationServiceDeleteEndpointCommand(endpointArn).apply(init)) as com.amazonaws.services.databasemigrationservice.model.DeleteEndpointResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceDeleteEndpointCommand(val endpointArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DeleteEndpointRequest> {
+class AWSDatabaseMigrationServiceDeleteEndpointCommand(val endpointArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DeleteEndpointRequest, com.amazonaws.services.databasemigrationservice.model.DeleteEndpointResult> {
 
 
 
@@ -348,8 +376,12 @@ class AWSDatabaseMigrationServiceDeleteEndpointCommand(val endpointArn: String) 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.deleteEndpoint(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DeleteEndpointResult {
+	  return com.amazonaws.services.databasemigrationservice.model.DeleteEndpointResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DeleteEndpointResult {
+		return environment.dms.deleteEndpoint(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -360,12 +392,12 @@ class AWSDatabaseMigrationServiceDeleteEndpointCommand(val endpointArn: String) 
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.deleteEventSubscription(subscriptionName: String, init: AWSDatabaseMigrationServiceDeleteEventSubscriptionCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceDeleteEventSubscriptionCommand(subscriptionName).apply(init))
+fun AWSDatabaseMigrationServiceFunctions.deleteEventSubscription(subscriptionName: String, init: AWSDatabaseMigrationServiceDeleteEventSubscriptionCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.DeleteEventSubscriptionResult {
+	return this.block.declare(AWSDatabaseMigrationServiceDeleteEventSubscriptionCommand(subscriptionName).apply(init)) as com.amazonaws.services.databasemigrationservice.model.DeleteEventSubscriptionResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceDeleteEventSubscriptionCommand(val subscriptionName: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DeleteEventSubscriptionRequest> {
+class AWSDatabaseMigrationServiceDeleteEventSubscriptionCommand(val subscriptionName: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DeleteEventSubscriptionRequest, com.amazonaws.services.databasemigrationservice.model.DeleteEventSubscriptionResult> {
 
 
 
@@ -375,8 +407,12 @@ class AWSDatabaseMigrationServiceDeleteEventSubscriptionCommand(val subscription
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.deleteEventSubscription(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DeleteEventSubscriptionResult {
+	  return com.amazonaws.services.databasemigrationservice.model.DeleteEventSubscriptionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DeleteEventSubscriptionResult {
+		return environment.dms.deleteEventSubscription(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -387,12 +423,12 @@ class AWSDatabaseMigrationServiceDeleteEventSubscriptionCommand(val subscription
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.deleteReplicationInstance(replicationInstanceArn: String, init: AWSDatabaseMigrationServiceDeleteReplicationInstanceCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceDeleteReplicationInstanceCommand(replicationInstanceArn).apply(init))
+fun AWSDatabaseMigrationServiceFunctions.deleteReplicationInstance(replicationInstanceArn: String, init: AWSDatabaseMigrationServiceDeleteReplicationInstanceCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.DeleteReplicationInstanceResult {
+	return this.block.declare(AWSDatabaseMigrationServiceDeleteReplicationInstanceCommand(replicationInstanceArn).apply(init)) as com.amazonaws.services.databasemigrationservice.model.DeleteReplicationInstanceResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceDeleteReplicationInstanceCommand(val replicationInstanceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DeleteReplicationInstanceRequest> {
+class AWSDatabaseMigrationServiceDeleteReplicationInstanceCommand(val replicationInstanceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DeleteReplicationInstanceRequest, com.amazonaws.services.databasemigrationservice.model.DeleteReplicationInstanceResult> {
 
 
 
@@ -402,8 +438,12 @@ class AWSDatabaseMigrationServiceDeleteReplicationInstanceCommand(val replicatio
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.deleteReplicationInstance(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DeleteReplicationInstanceResult {
+	  return com.amazonaws.services.databasemigrationservice.model.DeleteReplicationInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DeleteReplicationInstanceResult {
+		return environment.dms.deleteReplicationInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -414,12 +454,12 @@ class AWSDatabaseMigrationServiceDeleteReplicationInstanceCommand(val replicatio
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.deleteReplicationSubnetGroup(replicationSubnetGroupIdentifier: String, init: AWSDatabaseMigrationServiceDeleteReplicationSubnetGroupCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceDeleteReplicationSubnetGroupCommand(replicationSubnetGroupIdentifier).apply(init))
+fun AWSDatabaseMigrationServiceFunctions.deleteReplicationSubnetGroup(replicationSubnetGroupIdentifier: String, init: AWSDatabaseMigrationServiceDeleteReplicationSubnetGroupCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.DeleteReplicationSubnetGroupResult {
+	return this.block.declare(AWSDatabaseMigrationServiceDeleteReplicationSubnetGroupCommand(replicationSubnetGroupIdentifier).apply(init)) as com.amazonaws.services.databasemigrationservice.model.DeleteReplicationSubnetGroupResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceDeleteReplicationSubnetGroupCommand(val replicationSubnetGroupIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DeleteReplicationSubnetGroupRequest> {
+class AWSDatabaseMigrationServiceDeleteReplicationSubnetGroupCommand(val replicationSubnetGroupIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DeleteReplicationSubnetGroupRequest, com.amazonaws.services.databasemigrationservice.model.DeleteReplicationSubnetGroupResult> {
 
 
 
@@ -429,8 +469,12 @@ class AWSDatabaseMigrationServiceDeleteReplicationSubnetGroupCommand(val replica
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.deleteReplicationSubnetGroup(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DeleteReplicationSubnetGroupResult {
+	  return com.amazonaws.services.databasemigrationservice.model.DeleteReplicationSubnetGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DeleteReplicationSubnetGroupResult {
+		return environment.dms.deleteReplicationSubnetGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -441,12 +485,12 @@ class AWSDatabaseMigrationServiceDeleteReplicationSubnetGroupCommand(val replica
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.deleteReplicationTask(replicationTaskArn: String, init: AWSDatabaseMigrationServiceDeleteReplicationTaskCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceDeleteReplicationTaskCommand(replicationTaskArn).apply(init))
+fun AWSDatabaseMigrationServiceFunctions.deleteReplicationTask(replicationTaskArn: String, init: AWSDatabaseMigrationServiceDeleteReplicationTaskCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.DeleteReplicationTaskResult {
+	return this.block.declare(AWSDatabaseMigrationServiceDeleteReplicationTaskCommand(replicationTaskArn).apply(init)) as com.amazonaws.services.databasemigrationservice.model.DeleteReplicationTaskResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceDeleteReplicationTaskCommand(val replicationTaskArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DeleteReplicationTaskRequest> {
+class AWSDatabaseMigrationServiceDeleteReplicationTaskCommand(val replicationTaskArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DeleteReplicationTaskRequest, com.amazonaws.services.databasemigrationservice.model.DeleteReplicationTaskResult> {
 
 
 
@@ -456,8 +500,12 @@ class AWSDatabaseMigrationServiceDeleteReplicationTaskCommand(val replicationTas
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.deleteReplicationTask(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DeleteReplicationTaskResult {
+	  return com.amazonaws.services.databasemigrationservice.model.DeleteReplicationTaskResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DeleteReplicationTaskResult {
+		return environment.dms.deleteReplicationTask(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -468,12 +516,12 @@ class AWSDatabaseMigrationServiceDeleteReplicationTaskCommand(val replicationTas
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.describeAccountAttributes(init: AWSDatabaseMigrationServiceDescribeAccountAttributesCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceDescribeAccountAttributesCommand().apply(init))
+fun AWSDatabaseMigrationServiceFunctions.describeAccountAttributes(init: AWSDatabaseMigrationServiceDescribeAccountAttributesCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.DescribeAccountAttributesResult {
+	return this.block.declare(AWSDatabaseMigrationServiceDescribeAccountAttributesCommand().apply(init)) as com.amazonaws.services.databasemigrationservice.model.DescribeAccountAttributesResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceDescribeAccountAttributesCommand() : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeAccountAttributesRequest> {
+class AWSDatabaseMigrationServiceDescribeAccountAttributesCommand() : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeAccountAttributesRequest, com.amazonaws.services.databasemigrationservice.model.DescribeAccountAttributesResult> {
 
 
 
@@ -483,8 +531,12 @@ class AWSDatabaseMigrationServiceDescribeAccountAttributesCommand() : AmazonWebS
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.describeAccountAttributes(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeAccountAttributesResult {
+	  return com.amazonaws.services.databasemigrationservice.model.DescribeAccountAttributesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeAccountAttributesResult {
+		return environment.dms.describeAccountAttributes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -495,12 +547,12 @@ class AWSDatabaseMigrationServiceDescribeAccountAttributesCommand() : AmazonWebS
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.describeCertificates(init: AWSDatabaseMigrationServiceDescribeCertificatesCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceDescribeCertificatesCommand().apply(init))
+fun AWSDatabaseMigrationServiceFunctions.describeCertificates(init: AWSDatabaseMigrationServiceDescribeCertificatesCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.DescribeCertificatesResult {
+	return this.block.declare(AWSDatabaseMigrationServiceDescribeCertificatesCommand().apply(init)) as com.amazonaws.services.databasemigrationservice.model.DescribeCertificatesResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceDescribeCertificatesCommand() : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeCertificatesRequest> {
+class AWSDatabaseMigrationServiceDescribeCertificatesCommand() : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeCertificatesRequest, com.amazonaws.services.databasemigrationservice.model.DescribeCertificatesResult> {
 
 	var filters: List<com.amazonaws.services.databasemigrationservice.model.Filter>? = null
 	var maxRecords: Int? = 0
@@ -514,8 +566,12 @@ class AWSDatabaseMigrationServiceDescribeCertificatesCommand() : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.describeCertificates(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeCertificatesResult {
+	  return com.amazonaws.services.databasemigrationservice.model.DescribeCertificatesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeCertificatesResult {
+		return environment.dms.describeCertificates(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -528,12 +584,12 @@ class AWSDatabaseMigrationServiceDescribeCertificatesCommand() : AmazonWebServic
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.describeConnections(init: AWSDatabaseMigrationServiceDescribeConnectionsCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceDescribeConnectionsCommand().apply(init))
+fun AWSDatabaseMigrationServiceFunctions.describeConnections(init: AWSDatabaseMigrationServiceDescribeConnectionsCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.DescribeConnectionsResult {
+	return this.block.declare(AWSDatabaseMigrationServiceDescribeConnectionsCommand().apply(init)) as com.amazonaws.services.databasemigrationservice.model.DescribeConnectionsResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceDescribeConnectionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeConnectionsRequest> {
+class AWSDatabaseMigrationServiceDescribeConnectionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeConnectionsRequest, com.amazonaws.services.databasemigrationservice.model.DescribeConnectionsResult> {
 
 	var filters: List<com.amazonaws.services.databasemigrationservice.model.Filter>? = null
 	var maxRecords: Int? = 0
@@ -547,8 +603,12 @@ class AWSDatabaseMigrationServiceDescribeConnectionsCommand() : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.describeConnections(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeConnectionsResult {
+	  return com.amazonaws.services.databasemigrationservice.model.DescribeConnectionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeConnectionsResult {
+		return environment.dms.describeConnections(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -561,12 +621,12 @@ class AWSDatabaseMigrationServiceDescribeConnectionsCommand() : AmazonWebService
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.describeEndpointTypes(init: AWSDatabaseMigrationServiceDescribeEndpointTypesCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceDescribeEndpointTypesCommand().apply(init))
+fun AWSDatabaseMigrationServiceFunctions.describeEndpointTypes(init: AWSDatabaseMigrationServiceDescribeEndpointTypesCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.DescribeEndpointTypesResult {
+	return this.block.declare(AWSDatabaseMigrationServiceDescribeEndpointTypesCommand().apply(init)) as com.amazonaws.services.databasemigrationservice.model.DescribeEndpointTypesResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceDescribeEndpointTypesCommand() : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeEndpointTypesRequest> {
+class AWSDatabaseMigrationServiceDescribeEndpointTypesCommand() : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeEndpointTypesRequest, com.amazonaws.services.databasemigrationservice.model.DescribeEndpointTypesResult> {
 
 	var filters: List<com.amazonaws.services.databasemigrationservice.model.Filter>? = null
 	var maxRecords: Int? = 0
@@ -580,8 +640,12 @@ class AWSDatabaseMigrationServiceDescribeEndpointTypesCommand() : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.describeEndpointTypes(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeEndpointTypesResult {
+	  return com.amazonaws.services.databasemigrationservice.model.DescribeEndpointTypesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeEndpointTypesResult {
+		return environment.dms.describeEndpointTypes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -594,12 +658,12 @@ class AWSDatabaseMigrationServiceDescribeEndpointTypesCommand() : AmazonWebServi
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.describeEndpoints(init: AWSDatabaseMigrationServiceDescribeEndpointsCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceDescribeEndpointsCommand().apply(init))
+fun AWSDatabaseMigrationServiceFunctions.describeEndpoints(init: AWSDatabaseMigrationServiceDescribeEndpointsCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.DescribeEndpointsResult {
+	return this.block.declare(AWSDatabaseMigrationServiceDescribeEndpointsCommand().apply(init)) as com.amazonaws.services.databasemigrationservice.model.DescribeEndpointsResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceDescribeEndpointsCommand() : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeEndpointsRequest> {
+class AWSDatabaseMigrationServiceDescribeEndpointsCommand() : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeEndpointsRequest, com.amazonaws.services.databasemigrationservice.model.DescribeEndpointsResult> {
 
 	var filters: List<com.amazonaws.services.databasemigrationservice.model.Filter>? = null
 	var maxRecords: Int? = 0
@@ -613,8 +677,12 @@ class AWSDatabaseMigrationServiceDescribeEndpointsCommand() : AmazonWebServiceCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.describeEndpoints(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeEndpointsResult {
+	  return com.amazonaws.services.databasemigrationservice.model.DescribeEndpointsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeEndpointsResult {
+		return environment.dms.describeEndpoints(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -627,12 +695,12 @@ class AWSDatabaseMigrationServiceDescribeEndpointsCommand() : AmazonWebServiceCo
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.describeEventCategories(init: AWSDatabaseMigrationServiceDescribeEventCategoriesCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceDescribeEventCategoriesCommand().apply(init))
+fun AWSDatabaseMigrationServiceFunctions.describeEventCategories(init: AWSDatabaseMigrationServiceDescribeEventCategoriesCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.DescribeEventCategoriesResult {
+	return this.block.declare(AWSDatabaseMigrationServiceDescribeEventCategoriesCommand().apply(init)) as com.amazonaws.services.databasemigrationservice.model.DescribeEventCategoriesResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceDescribeEventCategoriesCommand() : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeEventCategoriesRequest> {
+class AWSDatabaseMigrationServiceDescribeEventCategoriesCommand() : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeEventCategoriesRequest, com.amazonaws.services.databasemigrationservice.model.DescribeEventCategoriesResult> {
 
 	var sourceType: String? = null
 	var filters: List<com.amazonaws.services.databasemigrationservice.model.Filter>? = null
@@ -644,8 +712,12 @@ class AWSDatabaseMigrationServiceDescribeEventCategoriesCommand() : AmazonWebSer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.describeEventCategories(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeEventCategoriesResult {
+	  return com.amazonaws.services.databasemigrationservice.model.DescribeEventCategoriesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeEventCategoriesResult {
+		return environment.dms.describeEventCategories(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -657,12 +729,12 @@ class AWSDatabaseMigrationServiceDescribeEventCategoriesCommand() : AmazonWebSer
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.describeEventSubscriptions(init: AWSDatabaseMigrationServiceDescribeEventSubscriptionsCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceDescribeEventSubscriptionsCommand().apply(init))
+fun AWSDatabaseMigrationServiceFunctions.describeEventSubscriptions(init: AWSDatabaseMigrationServiceDescribeEventSubscriptionsCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.DescribeEventSubscriptionsResult {
+	return this.block.declare(AWSDatabaseMigrationServiceDescribeEventSubscriptionsCommand().apply(init)) as com.amazonaws.services.databasemigrationservice.model.DescribeEventSubscriptionsResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceDescribeEventSubscriptionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeEventSubscriptionsRequest> {
+class AWSDatabaseMigrationServiceDescribeEventSubscriptionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeEventSubscriptionsRequest, com.amazonaws.services.databasemigrationservice.model.DescribeEventSubscriptionsResult> {
 
 	var subscriptionName: String? = null
 	var filters: List<com.amazonaws.services.databasemigrationservice.model.Filter>? = null
@@ -678,8 +750,12 @@ class AWSDatabaseMigrationServiceDescribeEventSubscriptionsCommand() : AmazonWeb
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.describeEventSubscriptions(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeEventSubscriptionsResult {
+	  return com.amazonaws.services.databasemigrationservice.model.DescribeEventSubscriptionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeEventSubscriptionsResult {
+		return environment.dms.describeEventSubscriptions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -693,12 +769,12 @@ class AWSDatabaseMigrationServiceDescribeEventSubscriptionsCommand() : AmazonWeb
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.describeEvents(init: AWSDatabaseMigrationServiceDescribeEventsCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceDescribeEventsCommand().apply(init))
+fun AWSDatabaseMigrationServiceFunctions.describeEvents(init: AWSDatabaseMigrationServiceDescribeEventsCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.DescribeEventsResult {
+	return this.block.declare(AWSDatabaseMigrationServiceDescribeEventsCommand().apply(init)) as com.amazonaws.services.databasemigrationservice.model.DescribeEventsResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceDescribeEventsCommand() : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeEventsRequest> {
+class AWSDatabaseMigrationServiceDescribeEventsCommand() : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeEventsRequest, com.amazonaws.services.databasemigrationservice.model.DescribeEventsResult> {
 
 	var sourceIdentifier: String? = null
 	var sourceType: SourceType? = null
@@ -724,8 +800,12 @@ class AWSDatabaseMigrationServiceDescribeEventsCommand() : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.describeEvents(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeEventsResult {
+	  return com.amazonaws.services.databasemigrationservice.model.DescribeEventsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeEventsResult {
+		return environment.dms.describeEvents(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -744,12 +824,12 @@ class AWSDatabaseMigrationServiceDescribeEventsCommand() : AmazonWebServiceComma
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.describeOrderableReplicationInstances(init: AWSDatabaseMigrationServiceDescribeOrderableReplicationInstancesCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceDescribeOrderableReplicationInstancesCommand().apply(init))
+fun AWSDatabaseMigrationServiceFunctions.describeOrderableReplicationInstances(init: AWSDatabaseMigrationServiceDescribeOrderableReplicationInstancesCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.DescribeOrderableReplicationInstancesResult {
+	return this.block.declare(AWSDatabaseMigrationServiceDescribeOrderableReplicationInstancesCommand().apply(init)) as com.amazonaws.services.databasemigrationservice.model.DescribeOrderableReplicationInstancesResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceDescribeOrderableReplicationInstancesCommand() : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeOrderableReplicationInstancesRequest> {
+class AWSDatabaseMigrationServiceDescribeOrderableReplicationInstancesCommand() : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeOrderableReplicationInstancesRequest, com.amazonaws.services.databasemigrationservice.model.DescribeOrderableReplicationInstancesResult> {
 
 	var maxRecords: Int? = 0
 	var marker: String? = null
@@ -761,8 +841,12 @@ class AWSDatabaseMigrationServiceDescribeOrderableReplicationInstancesCommand() 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.describeOrderableReplicationInstances(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeOrderableReplicationInstancesResult {
+	  return com.amazonaws.services.databasemigrationservice.model.DescribeOrderableReplicationInstancesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeOrderableReplicationInstancesResult {
+		return environment.dms.describeOrderableReplicationInstances(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -774,12 +858,12 @@ class AWSDatabaseMigrationServiceDescribeOrderableReplicationInstancesCommand() 
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.describeRefreshSchemasStatus(endpointArn: String, init: AWSDatabaseMigrationServiceDescribeRefreshSchemasStatusCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceDescribeRefreshSchemasStatusCommand(endpointArn).apply(init))
+fun AWSDatabaseMigrationServiceFunctions.describeRefreshSchemasStatus(endpointArn: String, init: AWSDatabaseMigrationServiceDescribeRefreshSchemasStatusCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.DescribeRefreshSchemasStatusResult {
+	return this.block.declare(AWSDatabaseMigrationServiceDescribeRefreshSchemasStatusCommand(endpointArn).apply(init)) as com.amazonaws.services.databasemigrationservice.model.DescribeRefreshSchemasStatusResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceDescribeRefreshSchemasStatusCommand(val endpointArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeRefreshSchemasStatusRequest> {
+class AWSDatabaseMigrationServiceDescribeRefreshSchemasStatusCommand(val endpointArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeRefreshSchemasStatusRequest, com.amazonaws.services.databasemigrationservice.model.DescribeRefreshSchemasStatusResult> {
 
 
 
@@ -789,8 +873,12 @@ class AWSDatabaseMigrationServiceDescribeRefreshSchemasStatusCommand(val endpoin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.describeRefreshSchemasStatus(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeRefreshSchemasStatusResult {
+	  return com.amazonaws.services.databasemigrationservice.model.DescribeRefreshSchemasStatusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeRefreshSchemasStatusResult {
+		return environment.dms.describeRefreshSchemasStatus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -801,12 +889,12 @@ class AWSDatabaseMigrationServiceDescribeRefreshSchemasStatusCommand(val endpoin
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.describeReplicationInstanceTaskLogs(replicationInstanceArn: String, init: AWSDatabaseMigrationServiceDescribeReplicationInstanceTaskLogsCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceDescribeReplicationInstanceTaskLogsCommand(replicationInstanceArn).apply(init))
+fun AWSDatabaseMigrationServiceFunctions.describeReplicationInstanceTaskLogs(replicationInstanceArn: String, init: AWSDatabaseMigrationServiceDescribeReplicationInstanceTaskLogsCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.DescribeReplicationInstanceTaskLogsResult {
+	return this.block.declare(AWSDatabaseMigrationServiceDescribeReplicationInstanceTaskLogsCommand(replicationInstanceArn).apply(init)) as com.amazonaws.services.databasemigrationservice.model.DescribeReplicationInstanceTaskLogsResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceDescribeReplicationInstanceTaskLogsCommand(val replicationInstanceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeReplicationInstanceTaskLogsRequest> {
+class AWSDatabaseMigrationServiceDescribeReplicationInstanceTaskLogsCommand(val replicationInstanceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeReplicationInstanceTaskLogsRequest, com.amazonaws.services.databasemigrationservice.model.DescribeReplicationInstanceTaskLogsResult> {
 
 	var maxRecords: Int? = 0
 	var marker: String? = null
@@ -819,8 +907,12 @@ class AWSDatabaseMigrationServiceDescribeReplicationInstanceTaskLogsCommand(val 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.describeReplicationInstanceTaskLogs(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeReplicationInstanceTaskLogsResult {
+	  return com.amazonaws.services.databasemigrationservice.model.DescribeReplicationInstanceTaskLogsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeReplicationInstanceTaskLogsResult {
+		return environment.dms.describeReplicationInstanceTaskLogs(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -833,12 +925,12 @@ class AWSDatabaseMigrationServiceDescribeReplicationInstanceTaskLogsCommand(val 
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.describeReplicationInstances(init: AWSDatabaseMigrationServiceDescribeReplicationInstancesCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceDescribeReplicationInstancesCommand().apply(init))
+fun AWSDatabaseMigrationServiceFunctions.describeReplicationInstances(init: AWSDatabaseMigrationServiceDescribeReplicationInstancesCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.DescribeReplicationInstancesResult {
+	return this.block.declare(AWSDatabaseMigrationServiceDescribeReplicationInstancesCommand().apply(init)) as com.amazonaws.services.databasemigrationservice.model.DescribeReplicationInstancesResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceDescribeReplicationInstancesCommand() : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeReplicationInstancesRequest> {
+class AWSDatabaseMigrationServiceDescribeReplicationInstancesCommand() : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeReplicationInstancesRequest, com.amazonaws.services.databasemigrationservice.model.DescribeReplicationInstancesResult> {
 
 	var filters: List<com.amazonaws.services.databasemigrationservice.model.Filter>? = null
 	var maxRecords: Int? = 0
@@ -852,8 +944,12 @@ class AWSDatabaseMigrationServiceDescribeReplicationInstancesCommand() : AmazonW
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.describeReplicationInstances(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeReplicationInstancesResult {
+	  return com.amazonaws.services.databasemigrationservice.model.DescribeReplicationInstancesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeReplicationInstancesResult {
+		return environment.dms.describeReplicationInstances(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -866,12 +962,12 @@ class AWSDatabaseMigrationServiceDescribeReplicationInstancesCommand() : AmazonW
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.describeReplicationSubnetGroups(init: AWSDatabaseMigrationServiceDescribeReplicationSubnetGroupsCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceDescribeReplicationSubnetGroupsCommand().apply(init))
+fun AWSDatabaseMigrationServiceFunctions.describeReplicationSubnetGroups(init: AWSDatabaseMigrationServiceDescribeReplicationSubnetGroupsCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.DescribeReplicationSubnetGroupsResult {
+	return this.block.declare(AWSDatabaseMigrationServiceDescribeReplicationSubnetGroupsCommand().apply(init)) as com.amazonaws.services.databasemigrationservice.model.DescribeReplicationSubnetGroupsResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceDescribeReplicationSubnetGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeReplicationSubnetGroupsRequest> {
+class AWSDatabaseMigrationServiceDescribeReplicationSubnetGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeReplicationSubnetGroupsRequest, com.amazonaws.services.databasemigrationservice.model.DescribeReplicationSubnetGroupsResult> {
 
 	var filters: List<com.amazonaws.services.databasemigrationservice.model.Filter>? = null
 	var maxRecords: Int? = 0
@@ -885,8 +981,12 @@ class AWSDatabaseMigrationServiceDescribeReplicationSubnetGroupsCommand() : Amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.describeReplicationSubnetGroups(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeReplicationSubnetGroupsResult {
+	  return com.amazonaws.services.databasemigrationservice.model.DescribeReplicationSubnetGroupsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeReplicationSubnetGroupsResult {
+		return environment.dms.describeReplicationSubnetGroups(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -899,12 +999,12 @@ class AWSDatabaseMigrationServiceDescribeReplicationSubnetGroupsCommand() : Amaz
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.describeReplicationTaskAssessmentResults(init: AWSDatabaseMigrationServiceDescribeReplicationTaskAssessmentResultsCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceDescribeReplicationTaskAssessmentResultsCommand().apply(init))
+fun AWSDatabaseMigrationServiceFunctions.describeReplicationTaskAssessmentResults(init: AWSDatabaseMigrationServiceDescribeReplicationTaskAssessmentResultsCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.DescribeReplicationTaskAssessmentResultsResult {
+	return this.block.declare(AWSDatabaseMigrationServiceDescribeReplicationTaskAssessmentResultsCommand().apply(init)) as com.amazonaws.services.databasemigrationservice.model.DescribeReplicationTaskAssessmentResultsResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceDescribeReplicationTaskAssessmentResultsCommand() : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeReplicationTaskAssessmentResultsRequest> {
+class AWSDatabaseMigrationServiceDescribeReplicationTaskAssessmentResultsCommand() : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeReplicationTaskAssessmentResultsRequest, com.amazonaws.services.databasemigrationservice.model.DescribeReplicationTaskAssessmentResultsResult> {
 
 	var replicationTaskArn: String? = null
 	var maxRecords: Int? = 0
@@ -918,8 +1018,12 @@ class AWSDatabaseMigrationServiceDescribeReplicationTaskAssessmentResultsCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.describeReplicationTaskAssessmentResults(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeReplicationTaskAssessmentResultsResult {
+	  return com.amazonaws.services.databasemigrationservice.model.DescribeReplicationTaskAssessmentResultsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeReplicationTaskAssessmentResultsResult {
+		return environment.dms.describeReplicationTaskAssessmentResults(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -932,12 +1036,12 @@ class AWSDatabaseMigrationServiceDescribeReplicationTaskAssessmentResultsCommand
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.describeReplicationTasks(init: AWSDatabaseMigrationServiceDescribeReplicationTasksCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceDescribeReplicationTasksCommand().apply(init))
+fun AWSDatabaseMigrationServiceFunctions.describeReplicationTasks(init: AWSDatabaseMigrationServiceDescribeReplicationTasksCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.DescribeReplicationTasksResult {
+	return this.block.declare(AWSDatabaseMigrationServiceDescribeReplicationTasksCommand().apply(init)) as com.amazonaws.services.databasemigrationservice.model.DescribeReplicationTasksResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceDescribeReplicationTasksCommand() : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeReplicationTasksRequest> {
+class AWSDatabaseMigrationServiceDescribeReplicationTasksCommand() : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeReplicationTasksRequest, com.amazonaws.services.databasemigrationservice.model.DescribeReplicationTasksResult> {
 
 	var filters: List<com.amazonaws.services.databasemigrationservice.model.Filter>? = null
 	var maxRecords: Int? = 0
@@ -951,8 +1055,12 @@ class AWSDatabaseMigrationServiceDescribeReplicationTasksCommand() : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.describeReplicationTasks(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeReplicationTasksResult {
+	  return com.amazonaws.services.databasemigrationservice.model.DescribeReplicationTasksResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeReplicationTasksResult {
+		return environment.dms.describeReplicationTasks(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -965,12 +1073,12 @@ class AWSDatabaseMigrationServiceDescribeReplicationTasksCommand() : AmazonWebSe
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.describeSchemas(endpointArn: String, init: AWSDatabaseMigrationServiceDescribeSchemasCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceDescribeSchemasCommand(endpointArn).apply(init))
+fun AWSDatabaseMigrationServiceFunctions.describeSchemas(endpointArn: String, init: AWSDatabaseMigrationServiceDescribeSchemasCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.DescribeSchemasResult {
+	return this.block.declare(AWSDatabaseMigrationServiceDescribeSchemasCommand(endpointArn).apply(init)) as com.amazonaws.services.databasemigrationservice.model.DescribeSchemasResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceDescribeSchemasCommand(val endpointArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeSchemasRequest> {
+class AWSDatabaseMigrationServiceDescribeSchemasCommand(val endpointArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeSchemasRequest, com.amazonaws.services.databasemigrationservice.model.DescribeSchemasResult> {
 
 	var maxRecords: Int? = 0
 	var marker: String? = null
@@ -983,8 +1091,12 @@ class AWSDatabaseMigrationServiceDescribeSchemasCommand(val endpointArn: String)
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.describeSchemas(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeSchemasResult {
+	  return com.amazonaws.services.databasemigrationservice.model.DescribeSchemasResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeSchemasResult {
+		return environment.dms.describeSchemas(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -997,12 +1109,12 @@ class AWSDatabaseMigrationServiceDescribeSchemasCommand(val endpointArn: String)
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.describeTableStatistics(replicationTaskArn: String, init: AWSDatabaseMigrationServiceDescribeTableStatisticsCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceDescribeTableStatisticsCommand(replicationTaskArn).apply(init))
+fun AWSDatabaseMigrationServiceFunctions.describeTableStatistics(replicationTaskArn: String, init: AWSDatabaseMigrationServiceDescribeTableStatisticsCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.DescribeTableStatisticsResult {
+	return this.block.declare(AWSDatabaseMigrationServiceDescribeTableStatisticsCommand(replicationTaskArn).apply(init)) as com.amazonaws.services.databasemigrationservice.model.DescribeTableStatisticsResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceDescribeTableStatisticsCommand(val replicationTaskArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeTableStatisticsRequest> {
+class AWSDatabaseMigrationServiceDescribeTableStatisticsCommand(val replicationTaskArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.DescribeTableStatisticsRequest, com.amazonaws.services.databasemigrationservice.model.DescribeTableStatisticsResult> {
 
 	var maxRecords: Int? = 0
 	var marker: String? = null
@@ -1017,8 +1129,12 @@ class AWSDatabaseMigrationServiceDescribeTableStatisticsCommand(val replicationT
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.describeTableStatistics(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.DescribeTableStatisticsResult {
+	  return com.amazonaws.services.databasemigrationservice.model.DescribeTableStatisticsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.DescribeTableStatisticsResult {
+		return environment.dms.describeTableStatistics(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1032,12 +1148,12 @@ class AWSDatabaseMigrationServiceDescribeTableStatisticsCommand(val replicationT
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.importCertificate(certificateIdentifier: String, init: AWSDatabaseMigrationServiceImportCertificateCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceImportCertificateCommand(certificateIdentifier).apply(init))
+fun AWSDatabaseMigrationServiceFunctions.importCertificate(certificateIdentifier: String, init: AWSDatabaseMigrationServiceImportCertificateCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.ImportCertificateResult {
+	return this.block.declare(AWSDatabaseMigrationServiceImportCertificateCommand(certificateIdentifier).apply(init)) as com.amazonaws.services.databasemigrationservice.model.ImportCertificateResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceImportCertificateCommand(val certificateIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.ImportCertificateRequest> {
+class AWSDatabaseMigrationServiceImportCertificateCommand(val certificateIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.ImportCertificateRequest, com.amazonaws.services.databasemigrationservice.model.ImportCertificateResult> {
 
 	var certificatePem: String? = null
 	var certificateWallet: java.nio.ByteBuffer? = null
@@ -1052,8 +1168,12 @@ class AWSDatabaseMigrationServiceImportCertificateCommand(val certificateIdentif
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.importCertificate(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.ImportCertificateResult {
+	  return com.amazonaws.services.databasemigrationservice.model.ImportCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.ImportCertificateResult {
+		return environment.dms.importCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1067,12 +1187,12 @@ class AWSDatabaseMigrationServiceImportCertificateCommand(val certificateIdentif
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.listTagsForResource(resourceArn: String, init: AWSDatabaseMigrationServiceListTagsForResourceCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceListTagsForResourceCommand(resourceArn).apply(init))
+fun AWSDatabaseMigrationServiceFunctions.listTagsForResource(resourceArn: String, init: AWSDatabaseMigrationServiceListTagsForResourceCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.ListTagsForResourceResult {
+	return this.block.declare(AWSDatabaseMigrationServiceListTagsForResourceCommand(resourceArn).apply(init)) as com.amazonaws.services.databasemigrationservice.model.ListTagsForResourceResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceListTagsForResourceCommand(val resourceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.ListTagsForResourceRequest> {
+class AWSDatabaseMigrationServiceListTagsForResourceCommand(val resourceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.ListTagsForResourceRequest, com.amazonaws.services.databasemigrationservice.model.ListTagsForResourceResult> {
 
 
 
@@ -1082,8 +1202,12 @@ class AWSDatabaseMigrationServiceListTagsForResourceCommand(val resourceArn: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.listTagsForResource(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.ListTagsForResourceResult {
+	  return com.amazonaws.services.databasemigrationservice.model.ListTagsForResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.ListTagsForResourceResult {
+		return environment.dms.listTagsForResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1094,12 +1218,12 @@ class AWSDatabaseMigrationServiceListTagsForResourceCommand(val resourceArn: Str
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.modifyEndpoint(endpointArn: String, init: AWSDatabaseMigrationServiceModifyEndpointCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceModifyEndpointCommand(endpointArn).apply(init))
+fun AWSDatabaseMigrationServiceFunctions.modifyEndpoint(endpointArn: String, init: AWSDatabaseMigrationServiceModifyEndpointCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.ModifyEndpointResult {
+	return this.block.declare(AWSDatabaseMigrationServiceModifyEndpointCommand(endpointArn).apply(init)) as com.amazonaws.services.databasemigrationservice.model.ModifyEndpointResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceModifyEndpointCommand(val endpointArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.ModifyEndpointRequest> {
+class AWSDatabaseMigrationServiceModifyEndpointCommand(val endpointArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.ModifyEndpointRequest, com.amazonaws.services.databasemigrationservice.model.ModifyEndpointResult> {
 
 	var endpointIdentifier: String? = null
 	var endpointType: ReplicationEndpointTypeValue? = null
@@ -1136,8 +1260,12 @@ class AWSDatabaseMigrationServiceModifyEndpointCommand(val endpointArn: String) 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.modifyEndpoint(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.ModifyEndpointResult {
+	  return com.amazonaws.services.databasemigrationservice.model.ModifyEndpointResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.ModifyEndpointResult {
+		return environment.dms.modifyEndpoint(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1162,12 +1290,12 @@ class AWSDatabaseMigrationServiceModifyEndpointCommand(val endpointArn: String) 
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.modifyEventSubscription(subscriptionName: String, init: AWSDatabaseMigrationServiceModifyEventSubscriptionCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceModifyEventSubscriptionCommand(subscriptionName).apply(init))
+fun AWSDatabaseMigrationServiceFunctions.modifyEventSubscription(subscriptionName: String, init: AWSDatabaseMigrationServiceModifyEventSubscriptionCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.ModifyEventSubscriptionResult {
+	return this.block.declare(AWSDatabaseMigrationServiceModifyEventSubscriptionCommand(subscriptionName).apply(init)) as com.amazonaws.services.databasemigrationservice.model.ModifyEventSubscriptionResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceModifyEventSubscriptionCommand(val subscriptionName: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.ModifyEventSubscriptionRequest> {
+class AWSDatabaseMigrationServiceModifyEventSubscriptionCommand(val subscriptionName: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.ModifyEventSubscriptionRequest, com.amazonaws.services.databasemigrationservice.model.ModifyEventSubscriptionResult> {
 
 	var snsTopicArn: String? = null
 	var sourceType: String? = null
@@ -1184,8 +1312,12 @@ class AWSDatabaseMigrationServiceModifyEventSubscriptionCommand(val subscription
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.modifyEventSubscription(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.ModifyEventSubscriptionResult {
+	  return com.amazonaws.services.databasemigrationservice.model.ModifyEventSubscriptionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.ModifyEventSubscriptionResult {
+		return environment.dms.modifyEventSubscription(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1200,12 +1332,12 @@ class AWSDatabaseMigrationServiceModifyEventSubscriptionCommand(val subscription
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.modifyReplicationInstance(replicationInstanceArn: String, init: AWSDatabaseMigrationServiceModifyReplicationInstanceCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceModifyReplicationInstanceCommand(replicationInstanceArn).apply(init))
+fun AWSDatabaseMigrationServiceFunctions.modifyReplicationInstance(replicationInstanceArn: String, init: AWSDatabaseMigrationServiceModifyReplicationInstanceCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.ModifyReplicationInstanceResult {
+	return this.block.declare(AWSDatabaseMigrationServiceModifyReplicationInstanceCommand(replicationInstanceArn).apply(init)) as com.amazonaws.services.databasemigrationservice.model.ModifyReplicationInstanceResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceModifyReplicationInstanceCommand(val replicationInstanceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.ModifyReplicationInstanceRequest> {
+class AWSDatabaseMigrationServiceModifyReplicationInstanceCommand(val replicationInstanceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.ModifyReplicationInstanceRequest, com.amazonaws.services.databasemigrationservice.model.ModifyReplicationInstanceResult> {
 
 	var allocatedStorage: Int? = 0
 	var applyImmediately: Boolean? = false
@@ -1234,8 +1366,12 @@ class AWSDatabaseMigrationServiceModifyReplicationInstanceCommand(val replicatio
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.modifyReplicationInstance(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.ModifyReplicationInstanceResult {
+	  return com.amazonaws.services.databasemigrationservice.model.ModifyReplicationInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.ModifyReplicationInstanceResult {
+		return environment.dms.modifyReplicationInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1256,12 +1392,12 @@ class AWSDatabaseMigrationServiceModifyReplicationInstanceCommand(val replicatio
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.modifyReplicationSubnetGroup(replicationSubnetGroupIdentifier: String, subnetIds: List<String>, init: AWSDatabaseMigrationServiceModifyReplicationSubnetGroupCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceModifyReplicationSubnetGroupCommand(replicationSubnetGroupIdentifier, subnetIds).apply(init))
+fun AWSDatabaseMigrationServiceFunctions.modifyReplicationSubnetGroup(replicationSubnetGroupIdentifier: String, subnetIds: List<String>, init: AWSDatabaseMigrationServiceModifyReplicationSubnetGroupCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.ModifyReplicationSubnetGroupResult {
+	return this.block.declare(AWSDatabaseMigrationServiceModifyReplicationSubnetGroupCommand(replicationSubnetGroupIdentifier, subnetIds).apply(init)) as com.amazonaws.services.databasemigrationservice.model.ModifyReplicationSubnetGroupResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceModifyReplicationSubnetGroupCommand(val replicationSubnetGroupIdentifier: String, val subnetIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.ModifyReplicationSubnetGroupRequest> {
+class AWSDatabaseMigrationServiceModifyReplicationSubnetGroupCommand(val replicationSubnetGroupIdentifier: String, val subnetIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.ModifyReplicationSubnetGroupRequest, com.amazonaws.services.databasemigrationservice.model.ModifyReplicationSubnetGroupResult> {
 
 	var replicationSubnetGroupDescription: String? = null
 
@@ -1273,8 +1409,12 @@ class AWSDatabaseMigrationServiceModifyReplicationSubnetGroupCommand(val replica
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.modifyReplicationSubnetGroup(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.ModifyReplicationSubnetGroupResult {
+	  return com.amazonaws.services.databasemigrationservice.model.ModifyReplicationSubnetGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.ModifyReplicationSubnetGroupResult {
+		return environment.dms.modifyReplicationSubnetGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1287,12 +1427,12 @@ class AWSDatabaseMigrationServiceModifyReplicationSubnetGroupCommand(val replica
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.modifyReplicationTask(replicationTaskArn: String, init: AWSDatabaseMigrationServiceModifyReplicationTaskCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceModifyReplicationTaskCommand(replicationTaskArn).apply(init))
+fun AWSDatabaseMigrationServiceFunctions.modifyReplicationTask(replicationTaskArn: String, init: AWSDatabaseMigrationServiceModifyReplicationTaskCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.ModifyReplicationTaskResult {
+	return this.block.declare(AWSDatabaseMigrationServiceModifyReplicationTaskCommand(replicationTaskArn).apply(init)) as com.amazonaws.services.databasemigrationservice.model.ModifyReplicationTaskResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceModifyReplicationTaskCommand(val replicationTaskArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.ModifyReplicationTaskRequest> {
+class AWSDatabaseMigrationServiceModifyReplicationTaskCommand(val replicationTaskArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.ModifyReplicationTaskRequest, com.amazonaws.services.databasemigrationservice.model.ModifyReplicationTaskResult> {
 
 	var replicationTaskIdentifier: String? = null
 	var migrationType: MigrationTypeValue? = null
@@ -1311,8 +1451,12 @@ class AWSDatabaseMigrationServiceModifyReplicationTaskCommand(val replicationTas
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.modifyReplicationTask(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.ModifyReplicationTaskResult {
+	  return com.amazonaws.services.databasemigrationservice.model.ModifyReplicationTaskResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.ModifyReplicationTaskResult {
+		return environment.dms.modifyReplicationTask(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1328,12 +1472,12 @@ class AWSDatabaseMigrationServiceModifyReplicationTaskCommand(val replicationTas
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.rebootReplicationInstance(replicationInstanceArn: String, init: AWSDatabaseMigrationServiceRebootReplicationInstanceCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceRebootReplicationInstanceCommand(replicationInstanceArn).apply(init))
+fun AWSDatabaseMigrationServiceFunctions.rebootReplicationInstance(replicationInstanceArn: String, init: AWSDatabaseMigrationServiceRebootReplicationInstanceCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.RebootReplicationInstanceResult {
+	return this.block.declare(AWSDatabaseMigrationServiceRebootReplicationInstanceCommand(replicationInstanceArn).apply(init)) as com.amazonaws.services.databasemigrationservice.model.RebootReplicationInstanceResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceRebootReplicationInstanceCommand(val replicationInstanceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.RebootReplicationInstanceRequest> {
+class AWSDatabaseMigrationServiceRebootReplicationInstanceCommand(val replicationInstanceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.RebootReplicationInstanceRequest, com.amazonaws.services.databasemigrationservice.model.RebootReplicationInstanceResult> {
 
 	var forceFailover: Boolean? = false
 
@@ -1344,8 +1488,12 @@ class AWSDatabaseMigrationServiceRebootReplicationInstanceCommand(val replicatio
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.rebootReplicationInstance(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.RebootReplicationInstanceResult {
+	  return com.amazonaws.services.databasemigrationservice.model.RebootReplicationInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.RebootReplicationInstanceResult {
+		return environment.dms.rebootReplicationInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1357,12 +1505,12 @@ class AWSDatabaseMigrationServiceRebootReplicationInstanceCommand(val replicatio
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.refreshSchemas(endpointArn: String, replicationInstanceArn: String, init: AWSDatabaseMigrationServiceRefreshSchemasCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceRefreshSchemasCommand(endpointArn, replicationInstanceArn).apply(init))
+fun AWSDatabaseMigrationServiceFunctions.refreshSchemas(endpointArn: String, replicationInstanceArn: String, init: AWSDatabaseMigrationServiceRefreshSchemasCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.RefreshSchemasResult {
+	return this.block.declare(AWSDatabaseMigrationServiceRefreshSchemasCommand(endpointArn, replicationInstanceArn).apply(init)) as com.amazonaws.services.databasemigrationservice.model.RefreshSchemasResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceRefreshSchemasCommand(val endpointArn: String, val replicationInstanceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.RefreshSchemasRequest> {
+class AWSDatabaseMigrationServiceRefreshSchemasCommand(val endpointArn: String, val replicationInstanceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.RefreshSchemasRequest, com.amazonaws.services.databasemigrationservice.model.RefreshSchemasResult> {
 
 
 
@@ -1373,8 +1521,12 @@ class AWSDatabaseMigrationServiceRefreshSchemasCommand(val endpointArn: String, 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.refreshSchemas(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.RefreshSchemasResult {
+	  return com.amazonaws.services.databasemigrationservice.model.RefreshSchemasResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.RefreshSchemasResult {
+		return environment.dms.refreshSchemas(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1386,12 +1538,12 @@ class AWSDatabaseMigrationServiceRefreshSchemasCommand(val endpointArn: String, 
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.reloadTables(replicationTaskArn: String, tablesToReload: List<com.amazonaws.services.databasemigrationservice.model.TableToReload>, init: AWSDatabaseMigrationServiceReloadTablesCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceReloadTablesCommand(replicationTaskArn, tablesToReload).apply(init))
+fun AWSDatabaseMigrationServiceFunctions.reloadTables(replicationTaskArn: String, tablesToReload: List<com.amazonaws.services.databasemigrationservice.model.TableToReload>, init: AWSDatabaseMigrationServiceReloadTablesCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.ReloadTablesResult {
+	return this.block.declare(AWSDatabaseMigrationServiceReloadTablesCommand(replicationTaskArn, tablesToReload).apply(init)) as com.amazonaws.services.databasemigrationservice.model.ReloadTablesResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceReloadTablesCommand(val replicationTaskArn: String, val tablesToReload: List<com.amazonaws.services.databasemigrationservice.model.TableToReload>) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.ReloadTablesRequest> {
+class AWSDatabaseMigrationServiceReloadTablesCommand(val replicationTaskArn: String, val tablesToReload: List<com.amazonaws.services.databasemigrationservice.model.TableToReload>) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.ReloadTablesRequest, com.amazonaws.services.databasemigrationservice.model.ReloadTablesResult> {
 
 
 
@@ -1402,8 +1554,12 @@ class AWSDatabaseMigrationServiceReloadTablesCommand(val replicationTaskArn: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.reloadTables(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.ReloadTablesResult {
+	  return com.amazonaws.services.databasemigrationservice.model.ReloadTablesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.ReloadTablesResult {
+		return environment.dms.reloadTables(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1415,12 +1571,12 @@ class AWSDatabaseMigrationServiceReloadTablesCommand(val replicationTaskArn: Str
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.removeTagsFromResource(resourceArn: String, tagKeys: List<String>, init: AWSDatabaseMigrationServiceRemoveTagsFromResourceCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceRemoveTagsFromResourceCommand(resourceArn, tagKeys).apply(init))
+fun AWSDatabaseMigrationServiceFunctions.removeTagsFromResource(resourceArn: String, tagKeys: List<String>, init: AWSDatabaseMigrationServiceRemoveTagsFromResourceCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.RemoveTagsFromResourceResult {
+	return this.block.declare(AWSDatabaseMigrationServiceRemoveTagsFromResourceCommand(resourceArn, tagKeys).apply(init)) as com.amazonaws.services.databasemigrationservice.model.RemoveTagsFromResourceResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceRemoveTagsFromResourceCommand(val resourceArn: String, val tagKeys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.RemoveTagsFromResourceRequest> {
+class AWSDatabaseMigrationServiceRemoveTagsFromResourceCommand(val resourceArn: String, val tagKeys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.RemoveTagsFromResourceRequest, com.amazonaws.services.databasemigrationservice.model.RemoveTagsFromResourceResult> {
 
 
 
@@ -1431,8 +1587,12 @@ class AWSDatabaseMigrationServiceRemoveTagsFromResourceCommand(val resourceArn: 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.removeTagsFromResource(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.RemoveTagsFromResourceResult {
+	  return com.amazonaws.services.databasemigrationservice.model.RemoveTagsFromResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.RemoveTagsFromResourceResult {
+		return environment.dms.removeTagsFromResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1444,12 +1604,12 @@ class AWSDatabaseMigrationServiceRemoveTagsFromResourceCommand(val resourceArn: 
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.startReplicationTask(replicationTaskArn: String, startReplicationTaskType: StartReplicationTaskTypeValue, init: AWSDatabaseMigrationServiceStartReplicationTaskCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceStartReplicationTaskCommand(replicationTaskArn, startReplicationTaskType).apply(init))
+fun AWSDatabaseMigrationServiceFunctions.startReplicationTask(replicationTaskArn: String, startReplicationTaskType: StartReplicationTaskTypeValue, init: AWSDatabaseMigrationServiceStartReplicationTaskCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.StartReplicationTaskResult {
+	return this.block.declare(AWSDatabaseMigrationServiceStartReplicationTaskCommand(replicationTaskArn, startReplicationTaskType).apply(init)) as com.amazonaws.services.databasemigrationservice.model.StartReplicationTaskResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceStartReplicationTaskCommand(val replicationTaskArn: String, val startReplicationTaskType: StartReplicationTaskTypeValue) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.StartReplicationTaskRequest> {
+class AWSDatabaseMigrationServiceStartReplicationTaskCommand(val replicationTaskArn: String, val startReplicationTaskType: StartReplicationTaskTypeValue) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.StartReplicationTaskRequest, com.amazonaws.services.databasemigrationservice.model.StartReplicationTaskResult> {
 
 	var cdcStartTime: java.util.Date? = null
 
@@ -1461,8 +1621,12 @@ class AWSDatabaseMigrationServiceStartReplicationTaskCommand(val replicationTask
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.startReplicationTask(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.StartReplicationTaskResult {
+	  return com.amazonaws.services.databasemigrationservice.model.StartReplicationTaskResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.StartReplicationTaskResult {
+		return environment.dms.startReplicationTask(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1475,12 +1639,12 @@ class AWSDatabaseMigrationServiceStartReplicationTaskCommand(val replicationTask
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.startReplicationTaskAssessment(replicationTaskArn: String, init: AWSDatabaseMigrationServiceStartReplicationTaskAssessmentCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceStartReplicationTaskAssessmentCommand(replicationTaskArn).apply(init))
+fun AWSDatabaseMigrationServiceFunctions.startReplicationTaskAssessment(replicationTaskArn: String, init: AWSDatabaseMigrationServiceStartReplicationTaskAssessmentCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.StartReplicationTaskAssessmentResult {
+	return this.block.declare(AWSDatabaseMigrationServiceStartReplicationTaskAssessmentCommand(replicationTaskArn).apply(init)) as com.amazonaws.services.databasemigrationservice.model.StartReplicationTaskAssessmentResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceStartReplicationTaskAssessmentCommand(val replicationTaskArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.StartReplicationTaskAssessmentRequest> {
+class AWSDatabaseMigrationServiceStartReplicationTaskAssessmentCommand(val replicationTaskArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.StartReplicationTaskAssessmentRequest, com.amazonaws.services.databasemigrationservice.model.StartReplicationTaskAssessmentResult> {
 
 
 
@@ -1490,8 +1654,12 @@ class AWSDatabaseMigrationServiceStartReplicationTaskAssessmentCommand(val repli
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.startReplicationTaskAssessment(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.StartReplicationTaskAssessmentResult {
+	  return com.amazonaws.services.databasemigrationservice.model.StartReplicationTaskAssessmentResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.StartReplicationTaskAssessmentResult {
+		return environment.dms.startReplicationTaskAssessment(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1502,12 +1670,12 @@ class AWSDatabaseMigrationServiceStartReplicationTaskAssessmentCommand(val repli
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.stopReplicationTask(replicationTaskArn: String, init: AWSDatabaseMigrationServiceStopReplicationTaskCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceStopReplicationTaskCommand(replicationTaskArn).apply(init))
+fun AWSDatabaseMigrationServiceFunctions.stopReplicationTask(replicationTaskArn: String, init: AWSDatabaseMigrationServiceStopReplicationTaskCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.StopReplicationTaskResult {
+	return this.block.declare(AWSDatabaseMigrationServiceStopReplicationTaskCommand(replicationTaskArn).apply(init)) as com.amazonaws.services.databasemigrationservice.model.StopReplicationTaskResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceStopReplicationTaskCommand(val replicationTaskArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.StopReplicationTaskRequest> {
+class AWSDatabaseMigrationServiceStopReplicationTaskCommand(val replicationTaskArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.StopReplicationTaskRequest, com.amazonaws.services.databasemigrationservice.model.StopReplicationTaskResult> {
 
 
 
@@ -1517,8 +1685,12 @@ class AWSDatabaseMigrationServiceStopReplicationTaskCommand(val replicationTaskA
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.stopReplicationTask(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.StopReplicationTaskResult {
+	  return com.amazonaws.services.databasemigrationservice.model.StopReplicationTaskResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.StopReplicationTaskResult {
+		return environment.dms.stopReplicationTask(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1529,12 +1701,12 @@ class AWSDatabaseMigrationServiceStopReplicationTaskCommand(val replicationTaskA
 }
 
 
-fun AWSDatabaseMigrationServiceFunctions.testConnection(replicationInstanceArn: String, endpointArn: String, init: AWSDatabaseMigrationServiceTestConnectionCommand.() -> Unit) {
-	this.block.declare(AWSDatabaseMigrationServiceTestConnectionCommand(replicationInstanceArn, endpointArn).apply(init))
+fun AWSDatabaseMigrationServiceFunctions.testConnection(replicationInstanceArn: String, endpointArn: String, init: AWSDatabaseMigrationServiceTestConnectionCommand.() -> Unit): com.amazonaws.services.databasemigrationservice.model.TestConnectionResult {
+	return this.block.declare(AWSDatabaseMigrationServiceTestConnectionCommand(replicationInstanceArn, endpointArn).apply(init)) as com.amazonaws.services.databasemigrationservice.model.TestConnectionResult
 }
 
 @Generated
-class AWSDatabaseMigrationServiceTestConnectionCommand(val replicationInstanceArn: String, val endpointArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.TestConnectionRequest> {
+class AWSDatabaseMigrationServiceTestConnectionCommand(val replicationInstanceArn: String, val endpointArn: String) : AmazonWebServiceCommand<com.amazonaws.services.databasemigrationservice.model.TestConnectionRequest, com.amazonaws.services.databasemigrationservice.model.TestConnectionResult> {
 
 
 
@@ -1545,8 +1717,12 @@ class AWSDatabaseMigrationServiceTestConnectionCommand(val replicationInstanceAr
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dms.testConnection(build())
+	override fun dryResult(): com.amazonaws.services.databasemigrationservice.model.TestConnectionResult {
+	  return com.amazonaws.services.databasemigrationservice.model.TestConnectionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.databasemigrationservice.model.TestConnectionResult {
+		return environment.dms.testConnection(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

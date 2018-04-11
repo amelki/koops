@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.elasticbeanstalk: AWSElasticBeanstalk
 @Generated
 class AWSElasticBeanstalkFunctions(val block: Block)
 
-infix fun AwsContinuation.elasticbeanstalk(init: AWSElasticBeanstalkFunctions.() -> Unit) {
-	AWSElasticBeanstalkFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.elasticbeanstalk(init: AWSElasticBeanstalkFunctions.() -> T): T {
+	return AWSElasticBeanstalkFunctions(shell).run(init)
 }
 
 			
 
-fun AWSElasticBeanstalkFunctions.abortEnvironmentUpdate(init: AWSElasticBeanstalkAbortEnvironmentUpdateCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkAbortEnvironmentUpdateCommand().apply(init))
+fun AWSElasticBeanstalkFunctions.abortEnvironmentUpdate(init: AWSElasticBeanstalkAbortEnvironmentUpdateCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.AbortEnvironmentUpdateResult {
+	return this.block.declare(AWSElasticBeanstalkAbortEnvironmentUpdateCommand().apply(init)) as com.amazonaws.services.elasticbeanstalk.model.AbortEnvironmentUpdateResult
 }
 
 @Generated
-class AWSElasticBeanstalkAbortEnvironmentUpdateCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.AbortEnvironmentUpdateRequest> {
+class AWSElasticBeanstalkAbortEnvironmentUpdateCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.AbortEnvironmentUpdateRequest, com.amazonaws.services.elasticbeanstalk.model.AbortEnvironmentUpdateResult> {
 
 	var environmentId: String? = null
 	var environmentName: String? = null
@@ -43,8 +43,12 @@ class AWSElasticBeanstalkAbortEnvironmentUpdateCommand() : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.abortEnvironmentUpdate(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.AbortEnvironmentUpdateResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.AbortEnvironmentUpdateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.AbortEnvironmentUpdateResult {
+		return environment.elasticbeanstalk.abortEnvironmentUpdate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -56,12 +60,12 @@ class AWSElasticBeanstalkAbortEnvironmentUpdateCommand() : AmazonWebServiceComma
 }
 
 
-fun AWSElasticBeanstalkFunctions.applyEnvironmentManagedAction(actionId: String, init: AWSElasticBeanstalkApplyEnvironmentManagedActionCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkApplyEnvironmentManagedActionCommand(actionId).apply(init))
+fun AWSElasticBeanstalkFunctions.applyEnvironmentManagedAction(actionId: String, init: AWSElasticBeanstalkApplyEnvironmentManagedActionCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.ApplyEnvironmentManagedActionResult {
+	return this.block.declare(AWSElasticBeanstalkApplyEnvironmentManagedActionCommand(actionId).apply(init)) as com.amazonaws.services.elasticbeanstalk.model.ApplyEnvironmentManagedActionResult
 }
 
 @Generated
-class AWSElasticBeanstalkApplyEnvironmentManagedActionCommand(val actionId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.ApplyEnvironmentManagedActionRequest> {
+class AWSElasticBeanstalkApplyEnvironmentManagedActionCommand(val actionId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.ApplyEnvironmentManagedActionRequest, com.amazonaws.services.elasticbeanstalk.model.ApplyEnvironmentManagedActionResult> {
 
 	var environmentName: String? = null
 	var environmentId: String? = null
@@ -74,8 +78,12 @@ class AWSElasticBeanstalkApplyEnvironmentManagedActionCommand(val actionId: Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.applyEnvironmentManagedAction(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.ApplyEnvironmentManagedActionResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.ApplyEnvironmentManagedActionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.ApplyEnvironmentManagedActionResult {
+		return environment.elasticbeanstalk.applyEnvironmentManagedAction(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -88,12 +96,12 @@ class AWSElasticBeanstalkApplyEnvironmentManagedActionCommand(val actionId: Stri
 }
 
 
-fun AWSElasticBeanstalkFunctions.checkDNSAvailability(cNAMEPrefix: String, init: AWSElasticBeanstalkCheckDNSAvailabilityCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkCheckDNSAvailabilityCommand(cNAMEPrefix).apply(init))
+fun AWSElasticBeanstalkFunctions.checkDNSAvailability(cNAMEPrefix: String, init: AWSElasticBeanstalkCheckDNSAvailabilityCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.CheckDNSAvailabilityResult {
+	return this.block.declare(AWSElasticBeanstalkCheckDNSAvailabilityCommand(cNAMEPrefix).apply(init)) as com.amazonaws.services.elasticbeanstalk.model.CheckDNSAvailabilityResult
 }
 
 @Generated
-class AWSElasticBeanstalkCheckDNSAvailabilityCommand(val cNAMEPrefix: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.CheckDNSAvailabilityRequest> {
+class AWSElasticBeanstalkCheckDNSAvailabilityCommand(val cNAMEPrefix: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.CheckDNSAvailabilityRequest, com.amazonaws.services.elasticbeanstalk.model.CheckDNSAvailabilityResult> {
 
 
 
@@ -103,8 +111,12 @@ class AWSElasticBeanstalkCheckDNSAvailabilityCommand(val cNAMEPrefix: String) : 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.checkDNSAvailability(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.CheckDNSAvailabilityResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.CheckDNSAvailabilityResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.CheckDNSAvailabilityResult {
+		return environment.elasticbeanstalk.checkDNSAvailability(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -115,12 +127,12 @@ class AWSElasticBeanstalkCheckDNSAvailabilityCommand(val cNAMEPrefix: String) : 
 }
 
 
-fun AWSElasticBeanstalkFunctions.composeEnvironments(init: AWSElasticBeanstalkComposeEnvironmentsCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkComposeEnvironmentsCommand().apply(init))
+fun AWSElasticBeanstalkFunctions.composeEnvironments(init: AWSElasticBeanstalkComposeEnvironmentsCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.ComposeEnvironmentsResult {
+	return this.block.declare(AWSElasticBeanstalkComposeEnvironmentsCommand().apply(init)) as com.amazonaws.services.elasticbeanstalk.model.ComposeEnvironmentsResult
 }
 
 @Generated
-class AWSElasticBeanstalkComposeEnvironmentsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.ComposeEnvironmentsRequest> {
+class AWSElasticBeanstalkComposeEnvironmentsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.ComposeEnvironmentsRequest, com.amazonaws.services.elasticbeanstalk.model.ComposeEnvironmentsResult> {
 
 	var applicationName: String? = null
 	var groupName: String? = null
@@ -134,8 +146,12 @@ class AWSElasticBeanstalkComposeEnvironmentsCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.composeEnvironments(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.ComposeEnvironmentsResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.ComposeEnvironmentsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.ComposeEnvironmentsResult {
+		return environment.elasticbeanstalk.composeEnvironments(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -148,12 +164,12 @@ class AWSElasticBeanstalkComposeEnvironmentsCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AWSElasticBeanstalkFunctions.createApplication(applicationName: String, init: AWSElasticBeanstalkCreateApplicationCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkCreateApplicationCommand(applicationName).apply(init))
+fun AWSElasticBeanstalkFunctions.createApplication(applicationName: String, init: AWSElasticBeanstalkCreateApplicationCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.CreateApplicationResult {
+	return this.block.declare(AWSElasticBeanstalkCreateApplicationCommand(applicationName).apply(init)) as com.amazonaws.services.elasticbeanstalk.model.CreateApplicationResult
 }
 
 @Generated
-class AWSElasticBeanstalkCreateApplicationCommand(val applicationName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.CreateApplicationRequest> {
+class AWSElasticBeanstalkCreateApplicationCommand(val applicationName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.CreateApplicationRequest, com.amazonaws.services.elasticbeanstalk.model.CreateApplicationResult> {
 
 	var description: String? = null
 	var resourceLifecycleConfig: com.amazonaws.services.elasticbeanstalk.model.ApplicationResourceLifecycleConfig? = null
@@ -166,8 +182,12 @@ class AWSElasticBeanstalkCreateApplicationCommand(val applicationName: String) :
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.createApplication(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.CreateApplicationResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.CreateApplicationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.CreateApplicationResult {
+		return environment.elasticbeanstalk.createApplication(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -180,12 +200,12 @@ class AWSElasticBeanstalkCreateApplicationCommand(val applicationName: String) :
 }
 
 
-fun AWSElasticBeanstalkFunctions.createApplicationVersion(applicationName: String, versionLabel: String, init: AWSElasticBeanstalkCreateApplicationVersionCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkCreateApplicationVersionCommand(applicationName, versionLabel).apply(init))
+fun AWSElasticBeanstalkFunctions.createApplicationVersion(applicationName: String, versionLabel: String, init: AWSElasticBeanstalkCreateApplicationVersionCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.CreateApplicationVersionResult {
+	return this.block.declare(AWSElasticBeanstalkCreateApplicationVersionCommand(applicationName, versionLabel).apply(init)) as com.amazonaws.services.elasticbeanstalk.model.CreateApplicationVersionResult
 }
 
 @Generated
-class AWSElasticBeanstalkCreateApplicationVersionCommand(val applicationName: String, val versionLabel: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.CreateApplicationVersionRequest> {
+class AWSElasticBeanstalkCreateApplicationVersionCommand(val applicationName: String, val versionLabel: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.CreateApplicationVersionRequest, com.amazonaws.services.elasticbeanstalk.model.CreateApplicationVersionResult> {
 
 	var description: String? = null
 	var sourceBuildInformation: com.amazonaws.services.elasticbeanstalk.model.SourceBuildInformation? = null
@@ -207,8 +227,12 @@ class AWSElasticBeanstalkCreateApplicationVersionCommand(val applicationName: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.createApplicationVersion(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.CreateApplicationVersionResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.CreateApplicationVersionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.CreateApplicationVersionResult {
+		return environment.elasticbeanstalk.createApplicationVersion(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -226,12 +250,12 @@ class AWSElasticBeanstalkCreateApplicationVersionCommand(val applicationName: St
 }
 
 
-fun AWSElasticBeanstalkFunctions.createConfigurationTemplate(applicationName: String, templateName: String, init: AWSElasticBeanstalkCreateConfigurationTemplateCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkCreateConfigurationTemplateCommand(applicationName, templateName).apply(init))
+fun AWSElasticBeanstalkFunctions.createConfigurationTemplate(applicationName: String, templateName: String, init: AWSElasticBeanstalkCreateConfigurationTemplateCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.CreateConfigurationTemplateResult {
+	return this.block.declare(AWSElasticBeanstalkCreateConfigurationTemplateCommand(applicationName, templateName).apply(init)) as com.amazonaws.services.elasticbeanstalk.model.CreateConfigurationTemplateResult
 }
 
 @Generated
-class AWSElasticBeanstalkCreateConfigurationTemplateCommand(val applicationName: String, val templateName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.CreateConfigurationTemplateRequest> {
+class AWSElasticBeanstalkCreateConfigurationTemplateCommand(val applicationName: String, val templateName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.CreateConfigurationTemplateRequest, com.amazonaws.services.elasticbeanstalk.model.CreateConfigurationTemplateResult> {
 
 	var solutionStackName: String? = null
 	var platformArn: String? = null
@@ -253,8 +277,12 @@ class AWSElasticBeanstalkCreateConfigurationTemplateCommand(val applicationName:
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.createConfigurationTemplate(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.CreateConfigurationTemplateResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.CreateConfigurationTemplateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.CreateConfigurationTemplateResult {
+		return environment.elasticbeanstalk.createConfigurationTemplate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -272,12 +300,12 @@ class AWSElasticBeanstalkCreateConfigurationTemplateCommand(val applicationName:
 }
 
 
-fun AWSElasticBeanstalkFunctions.createEnvironment(applicationName: String, init: AWSElasticBeanstalkCreateEnvironmentCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkCreateEnvironmentCommand(applicationName).apply(init))
+fun AWSElasticBeanstalkFunctions.createEnvironment(applicationName: String, init: AWSElasticBeanstalkCreateEnvironmentCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.CreateEnvironmentResult {
+	return this.block.declare(AWSElasticBeanstalkCreateEnvironmentCommand(applicationName).apply(init)) as com.amazonaws.services.elasticbeanstalk.model.CreateEnvironmentResult
 }
 
 @Generated
-class AWSElasticBeanstalkCreateEnvironmentCommand(val applicationName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.CreateEnvironmentRequest> {
+class AWSElasticBeanstalkCreateEnvironmentCommand(val applicationName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.CreateEnvironmentRequest, com.amazonaws.services.elasticbeanstalk.model.CreateEnvironmentResult> {
 
 	var environmentName: String? = null
 	var groupName: String? = null
@@ -310,8 +338,12 @@ class AWSElasticBeanstalkCreateEnvironmentCommand(val applicationName: String) :
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.createEnvironment(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.CreateEnvironmentResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.CreateEnvironmentResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.CreateEnvironmentResult {
+		return environment.elasticbeanstalk.createEnvironment(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -334,12 +366,12 @@ class AWSElasticBeanstalkCreateEnvironmentCommand(val applicationName: String) :
 }
 
 
-fun AWSElasticBeanstalkFunctions.createPlatformVersion(platformName: String, platformVersion: String, platformDefinitionBundle: com.amazonaws.services.elasticbeanstalk.model.S3Location, init: AWSElasticBeanstalkCreatePlatformVersionCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkCreatePlatformVersionCommand(platformName, platformVersion, platformDefinitionBundle).apply(init))
+fun AWSElasticBeanstalkFunctions.createPlatformVersion(platformName: String, platformVersion: String, platformDefinitionBundle: com.amazonaws.services.elasticbeanstalk.model.S3Location, init: AWSElasticBeanstalkCreatePlatformVersionCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.CreatePlatformVersionResult {
+	return this.block.declare(AWSElasticBeanstalkCreatePlatformVersionCommand(platformName, platformVersion, platformDefinitionBundle).apply(init)) as com.amazonaws.services.elasticbeanstalk.model.CreatePlatformVersionResult
 }
 
 @Generated
-class AWSElasticBeanstalkCreatePlatformVersionCommand(val platformName: String, val platformVersion: String, val platformDefinitionBundle: com.amazonaws.services.elasticbeanstalk.model.S3Location) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.CreatePlatformVersionRequest> {
+class AWSElasticBeanstalkCreatePlatformVersionCommand(val platformName: String, val platformVersion: String, val platformDefinitionBundle: com.amazonaws.services.elasticbeanstalk.model.S3Location) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.CreatePlatformVersionRequest, com.amazonaws.services.elasticbeanstalk.model.CreatePlatformVersionResult> {
 
 	var environmentName: String? = null
 	var optionSettings: List<com.amazonaws.services.elasticbeanstalk.model.ConfigurationOptionSetting>? = null
@@ -354,8 +386,12 @@ class AWSElasticBeanstalkCreatePlatformVersionCommand(val platformName: String, 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.createPlatformVersion(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.CreatePlatformVersionResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.CreatePlatformVersionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.CreatePlatformVersionResult {
+		return environment.elasticbeanstalk.createPlatformVersion(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -370,12 +406,12 @@ class AWSElasticBeanstalkCreatePlatformVersionCommand(val platformName: String, 
 }
 
 
-fun AWSElasticBeanstalkFunctions.createStorageLocation(init: AWSElasticBeanstalkCreateStorageLocationCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkCreateStorageLocationCommand().apply(init))
+fun AWSElasticBeanstalkFunctions.createStorageLocation(init: AWSElasticBeanstalkCreateStorageLocationCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.CreateStorageLocationResult {
+	return this.block.declare(AWSElasticBeanstalkCreateStorageLocationCommand().apply(init)) as com.amazonaws.services.elasticbeanstalk.model.CreateStorageLocationResult
 }
 
 @Generated
-class AWSElasticBeanstalkCreateStorageLocationCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.CreateStorageLocationRequest> {
+class AWSElasticBeanstalkCreateStorageLocationCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.CreateStorageLocationRequest, com.amazonaws.services.elasticbeanstalk.model.CreateStorageLocationResult> {
 
 
 
@@ -385,8 +421,12 @@ class AWSElasticBeanstalkCreateStorageLocationCommand() : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.createStorageLocation(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.CreateStorageLocationResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.CreateStorageLocationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.CreateStorageLocationResult {
+		return environment.elasticbeanstalk.createStorageLocation(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -397,12 +437,12 @@ class AWSElasticBeanstalkCreateStorageLocationCommand() : AmazonWebServiceComman
 }
 
 
-fun AWSElasticBeanstalkFunctions.deleteApplication(applicationName: String, init: AWSElasticBeanstalkDeleteApplicationCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkDeleteApplicationCommand(applicationName).apply(init))
+fun AWSElasticBeanstalkFunctions.deleteApplication(applicationName: String, init: AWSElasticBeanstalkDeleteApplicationCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.DeleteApplicationResult {
+	return this.block.declare(AWSElasticBeanstalkDeleteApplicationCommand(applicationName).apply(init)) as com.amazonaws.services.elasticbeanstalk.model.DeleteApplicationResult
 }
 
 @Generated
-class AWSElasticBeanstalkDeleteApplicationCommand(val applicationName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DeleteApplicationRequest> {
+class AWSElasticBeanstalkDeleteApplicationCommand(val applicationName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DeleteApplicationRequest, com.amazonaws.services.elasticbeanstalk.model.DeleteApplicationResult> {
 
 	var terminateEnvByForce: Boolean? = false
 
@@ -413,8 +453,12 @@ class AWSElasticBeanstalkDeleteApplicationCommand(val applicationName: String) :
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.deleteApplication(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.DeleteApplicationResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.DeleteApplicationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.DeleteApplicationResult {
+		return environment.elasticbeanstalk.deleteApplication(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -426,12 +470,12 @@ class AWSElasticBeanstalkDeleteApplicationCommand(val applicationName: String) :
 }
 
 
-fun AWSElasticBeanstalkFunctions.deleteApplicationVersion(applicationName: String, versionLabel: String, init: AWSElasticBeanstalkDeleteApplicationVersionCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkDeleteApplicationVersionCommand(applicationName, versionLabel).apply(init))
+fun AWSElasticBeanstalkFunctions.deleteApplicationVersion(applicationName: String, versionLabel: String, init: AWSElasticBeanstalkDeleteApplicationVersionCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.DeleteApplicationVersionResult {
+	return this.block.declare(AWSElasticBeanstalkDeleteApplicationVersionCommand(applicationName, versionLabel).apply(init)) as com.amazonaws.services.elasticbeanstalk.model.DeleteApplicationVersionResult
 }
 
 @Generated
-class AWSElasticBeanstalkDeleteApplicationVersionCommand(val applicationName: String, val versionLabel: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DeleteApplicationVersionRequest> {
+class AWSElasticBeanstalkDeleteApplicationVersionCommand(val applicationName: String, val versionLabel: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DeleteApplicationVersionRequest, com.amazonaws.services.elasticbeanstalk.model.DeleteApplicationVersionResult> {
 
 	var deleteSourceBundle: Boolean? = false
 
@@ -443,8 +487,12 @@ class AWSElasticBeanstalkDeleteApplicationVersionCommand(val applicationName: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.deleteApplicationVersion(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.DeleteApplicationVersionResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.DeleteApplicationVersionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.DeleteApplicationVersionResult {
+		return environment.elasticbeanstalk.deleteApplicationVersion(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -457,12 +505,12 @@ class AWSElasticBeanstalkDeleteApplicationVersionCommand(val applicationName: St
 }
 
 
-fun AWSElasticBeanstalkFunctions.deleteConfigurationTemplate(applicationName: String, templateName: String, init: AWSElasticBeanstalkDeleteConfigurationTemplateCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkDeleteConfigurationTemplateCommand(applicationName, templateName).apply(init))
+fun AWSElasticBeanstalkFunctions.deleteConfigurationTemplate(applicationName: String, templateName: String, init: AWSElasticBeanstalkDeleteConfigurationTemplateCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.DeleteConfigurationTemplateResult {
+	return this.block.declare(AWSElasticBeanstalkDeleteConfigurationTemplateCommand(applicationName, templateName).apply(init)) as com.amazonaws.services.elasticbeanstalk.model.DeleteConfigurationTemplateResult
 }
 
 @Generated
-class AWSElasticBeanstalkDeleteConfigurationTemplateCommand(val applicationName: String, val templateName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DeleteConfigurationTemplateRequest> {
+class AWSElasticBeanstalkDeleteConfigurationTemplateCommand(val applicationName: String, val templateName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DeleteConfigurationTemplateRequest, com.amazonaws.services.elasticbeanstalk.model.DeleteConfigurationTemplateResult> {
 
 
 
@@ -473,8 +521,12 @@ class AWSElasticBeanstalkDeleteConfigurationTemplateCommand(val applicationName:
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.deleteConfigurationTemplate(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.DeleteConfigurationTemplateResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.DeleteConfigurationTemplateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.DeleteConfigurationTemplateResult {
+		return environment.elasticbeanstalk.deleteConfigurationTemplate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -486,12 +538,12 @@ class AWSElasticBeanstalkDeleteConfigurationTemplateCommand(val applicationName:
 }
 
 
-fun AWSElasticBeanstalkFunctions.deleteEnvironmentConfiguration(applicationName: String, environmentName: String, init: AWSElasticBeanstalkDeleteEnvironmentConfigurationCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkDeleteEnvironmentConfigurationCommand(applicationName, environmentName).apply(init))
+fun AWSElasticBeanstalkFunctions.deleteEnvironmentConfiguration(applicationName: String, environmentName: String, init: AWSElasticBeanstalkDeleteEnvironmentConfigurationCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.DeleteEnvironmentConfigurationResult {
+	return this.block.declare(AWSElasticBeanstalkDeleteEnvironmentConfigurationCommand(applicationName, environmentName).apply(init)) as com.amazonaws.services.elasticbeanstalk.model.DeleteEnvironmentConfigurationResult
 }
 
 @Generated
-class AWSElasticBeanstalkDeleteEnvironmentConfigurationCommand(val applicationName: String, val environmentName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DeleteEnvironmentConfigurationRequest> {
+class AWSElasticBeanstalkDeleteEnvironmentConfigurationCommand(val applicationName: String, val environmentName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DeleteEnvironmentConfigurationRequest, com.amazonaws.services.elasticbeanstalk.model.DeleteEnvironmentConfigurationResult> {
 
 
 
@@ -502,8 +554,12 @@ class AWSElasticBeanstalkDeleteEnvironmentConfigurationCommand(val applicationNa
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.deleteEnvironmentConfiguration(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.DeleteEnvironmentConfigurationResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.DeleteEnvironmentConfigurationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.DeleteEnvironmentConfigurationResult {
+		return environment.elasticbeanstalk.deleteEnvironmentConfiguration(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -515,12 +571,12 @@ class AWSElasticBeanstalkDeleteEnvironmentConfigurationCommand(val applicationNa
 }
 
 
-fun AWSElasticBeanstalkFunctions.deletePlatformVersion(init: AWSElasticBeanstalkDeletePlatformVersionCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkDeletePlatformVersionCommand().apply(init))
+fun AWSElasticBeanstalkFunctions.deletePlatformVersion(init: AWSElasticBeanstalkDeletePlatformVersionCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.DeletePlatformVersionResult {
+	return this.block.declare(AWSElasticBeanstalkDeletePlatformVersionCommand().apply(init)) as com.amazonaws.services.elasticbeanstalk.model.DeletePlatformVersionResult
 }
 
 @Generated
-class AWSElasticBeanstalkDeletePlatformVersionCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DeletePlatformVersionRequest> {
+class AWSElasticBeanstalkDeletePlatformVersionCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DeletePlatformVersionRequest, com.amazonaws.services.elasticbeanstalk.model.DeletePlatformVersionResult> {
 
 	var platformArn: String? = null
 
@@ -530,8 +586,12 @@ class AWSElasticBeanstalkDeletePlatformVersionCommand() : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.deletePlatformVersion(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.DeletePlatformVersionResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.DeletePlatformVersionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.DeletePlatformVersionResult {
+		return environment.elasticbeanstalk.deletePlatformVersion(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -542,12 +602,12 @@ class AWSElasticBeanstalkDeletePlatformVersionCommand() : AmazonWebServiceComman
 }
 
 
-fun AWSElasticBeanstalkFunctions.describeAccountAttributes(init: AWSElasticBeanstalkDescribeAccountAttributesCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkDescribeAccountAttributesCommand().apply(init))
+fun AWSElasticBeanstalkFunctions.describeAccountAttributes(init: AWSElasticBeanstalkDescribeAccountAttributesCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.DescribeAccountAttributesResult {
+	return this.block.declare(AWSElasticBeanstalkDescribeAccountAttributesCommand().apply(init)) as com.amazonaws.services.elasticbeanstalk.model.DescribeAccountAttributesResult
 }
 
 @Generated
-class AWSElasticBeanstalkDescribeAccountAttributesCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DescribeAccountAttributesRequest> {
+class AWSElasticBeanstalkDescribeAccountAttributesCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DescribeAccountAttributesRequest, com.amazonaws.services.elasticbeanstalk.model.DescribeAccountAttributesResult> {
 
 
 
@@ -557,8 +617,12 @@ class AWSElasticBeanstalkDescribeAccountAttributesCommand() : AmazonWebServiceCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.describeAccountAttributes(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.DescribeAccountAttributesResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.DescribeAccountAttributesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.DescribeAccountAttributesResult {
+		return environment.elasticbeanstalk.describeAccountAttributes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -569,12 +633,12 @@ class AWSElasticBeanstalkDescribeAccountAttributesCommand() : AmazonWebServiceCo
 }
 
 
-fun AWSElasticBeanstalkFunctions.describeApplicationVersions(init: AWSElasticBeanstalkDescribeApplicationVersionsCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkDescribeApplicationVersionsCommand().apply(init))
+fun AWSElasticBeanstalkFunctions.describeApplicationVersions(init: AWSElasticBeanstalkDescribeApplicationVersionsCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.DescribeApplicationVersionsResult {
+	return this.block.declare(AWSElasticBeanstalkDescribeApplicationVersionsCommand().apply(init)) as com.amazonaws.services.elasticbeanstalk.model.DescribeApplicationVersionsResult
 }
 
 @Generated
-class AWSElasticBeanstalkDescribeApplicationVersionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DescribeApplicationVersionsRequest> {
+class AWSElasticBeanstalkDescribeApplicationVersionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DescribeApplicationVersionsRequest, com.amazonaws.services.elasticbeanstalk.model.DescribeApplicationVersionsResult> {
 
 	var applicationName: String? = null
 	var versionLabels: List<String>? = null
@@ -590,8 +654,12 @@ class AWSElasticBeanstalkDescribeApplicationVersionsCommand() : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.describeApplicationVersions(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.DescribeApplicationVersionsResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.DescribeApplicationVersionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.DescribeApplicationVersionsResult {
+		return environment.elasticbeanstalk.describeApplicationVersions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -605,12 +673,12 @@ class AWSElasticBeanstalkDescribeApplicationVersionsCommand() : AmazonWebService
 }
 
 
-fun AWSElasticBeanstalkFunctions.describeApplications(init: AWSElasticBeanstalkDescribeApplicationsCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkDescribeApplicationsCommand().apply(init))
+fun AWSElasticBeanstalkFunctions.describeApplications(init: AWSElasticBeanstalkDescribeApplicationsCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.DescribeApplicationsResult {
+	return this.block.declare(AWSElasticBeanstalkDescribeApplicationsCommand().apply(init)) as com.amazonaws.services.elasticbeanstalk.model.DescribeApplicationsResult
 }
 
 @Generated
-class AWSElasticBeanstalkDescribeApplicationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DescribeApplicationsRequest> {
+class AWSElasticBeanstalkDescribeApplicationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DescribeApplicationsRequest, com.amazonaws.services.elasticbeanstalk.model.DescribeApplicationsResult> {
 
 	var applicationNames: List<String>? = null
 
@@ -620,8 +688,12 @@ class AWSElasticBeanstalkDescribeApplicationsCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.describeApplications(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.DescribeApplicationsResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.DescribeApplicationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.DescribeApplicationsResult {
+		return environment.elasticbeanstalk.describeApplications(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -632,12 +704,12 @@ class AWSElasticBeanstalkDescribeApplicationsCommand() : AmazonWebServiceCommand
 }
 
 
-fun AWSElasticBeanstalkFunctions.describeConfigurationOptions(init: AWSElasticBeanstalkDescribeConfigurationOptionsCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkDescribeConfigurationOptionsCommand().apply(init))
+fun AWSElasticBeanstalkFunctions.describeConfigurationOptions(init: AWSElasticBeanstalkDescribeConfigurationOptionsCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.DescribeConfigurationOptionsResult {
+	return this.block.declare(AWSElasticBeanstalkDescribeConfigurationOptionsCommand().apply(init)) as com.amazonaws.services.elasticbeanstalk.model.DescribeConfigurationOptionsResult
 }
 
 @Generated
-class AWSElasticBeanstalkDescribeConfigurationOptionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DescribeConfigurationOptionsRequest> {
+class AWSElasticBeanstalkDescribeConfigurationOptionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DescribeConfigurationOptionsRequest, com.amazonaws.services.elasticbeanstalk.model.DescribeConfigurationOptionsResult> {
 
 	var applicationName: String? = null
 	var templateName: String? = null
@@ -657,8 +729,12 @@ class AWSElasticBeanstalkDescribeConfigurationOptionsCommand() : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.describeConfigurationOptions(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.DescribeConfigurationOptionsResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.DescribeConfigurationOptionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.DescribeConfigurationOptionsResult {
+		return environment.elasticbeanstalk.describeConfigurationOptions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -674,12 +750,12 @@ class AWSElasticBeanstalkDescribeConfigurationOptionsCommand() : AmazonWebServic
 }
 
 
-fun AWSElasticBeanstalkFunctions.describeConfigurationSettings(applicationName: String, init: AWSElasticBeanstalkDescribeConfigurationSettingsCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkDescribeConfigurationSettingsCommand(applicationName).apply(init))
+fun AWSElasticBeanstalkFunctions.describeConfigurationSettings(applicationName: String, init: AWSElasticBeanstalkDescribeConfigurationSettingsCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.DescribeConfigurationSettingsResult {
+	return this.block.declare(AWSElasticBeanstalkDescribeConfigurationSettingsCommand(applicationName).apply(init)) as com.amazonaws.services.elasticbeanstalk.model.DescribeConfigurationSettingsResult
 }
 
 @Generated
-class AWSElasticBeanstalkDescribeConfigurationSettingsCommand(val applicationName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DescribeConfigurationSettingsRequest> {
+class AWSElasticBeanstalkDescribeConfigurationSettingsCommand(val applicationName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DescribeConfigurationSettingsRequest, com.amazonaws.services.elasticbeanstalk.model.DescribeConfigurationSettingsResult> {
 
 	var templateName: String? = null
 	var environmentName: String? = null
@@ -692,8 +768,12 @@ class AWSElasticBeanstalkDescribeConfigurationSettingsCommand(val applicationNam
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.describeConfigurationSettings(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.DescribeConfigurationSettingsResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.DescribeConfigurationSettingsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.DescribeConfigurationSettingsResult {
+		return environment.elasticbeanstalk.describeConfigurationSettings(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -706,12 +786,12 @@ class AWSElasticBeanstalkDescribeConfigurationSettingsCommand(val applicationNam
 }
 
 
-fun AWSElasticBeanstalkFunctions.describeEnvironmentHealth(init: AWSElasticBeanstalkDescribeEnvironmentHealthCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkDescribeEnvironmentHealthCommand().apply(init))
+fun AWSElasticBeanstalkFunctions.describeEnvironmentHealth(init: AWSElasticBeanstalkDescribeEnvironmentHealthCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentHealthResult {
+	return this.block.declare(AWSElasticBeanstalkDescribeEnvironmentHealthCommand().apply(init)) as com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentHealthResult
 }
 
 @Generated
-class AWSElasticBeanstalkDescribeEnvironmentHealthCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentHealthRequest> {
+class AWSElasticBeanstalkDescribeEnvironmentHealthCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentHealthRequest, com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentHealthResult> {
 
 	var environmentName: String? = null
 	var environmentId: String? = null
@@ -725,8 +805,12 @@ class AWSElasticBeanstalkDescribeEnvironmentHealthCommand() : AmazonWebServiceCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.describeEnvironmentHealth(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentHealthResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentHealthResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentHealthResult {
+		return environment.elasticbeanstalk.describeEnvironmentHealth(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -739,12 +823,12 @@ class AWSElasticBeanstalkDescribeEnvironmentHealthCommand() : AmazonWebServiceCo
 }
 
 
-fun AWSElasticBeanstalkFunctions.describeEnvironmentManagedActionHistory(init: AWSElasticBeanstalkDescribeEnvironmentManagedActionHistoryCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkDescribeEnvironmentManagedActionHistoryCommand().apply(init))
+fun AWSElasticBeanstalkFunctions.describeEnvironmentManagedActionHistory(init: AWSElasticBeanstalkDescribeEnvironmentManagedActionHistoryCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentManagedActionHistoryResult {
+	return this.block.declare(AWSElasticBeanstalkDescribeEnvironmentManagedActionHistoryCommand().apply(init)) as com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentManagedActionHistoryResult
 }
 
 @Generated
-class AWSElasticBeanstalkDescribeEnvironmentManagedActionHistoryCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentManagedActionHistoryRequest> {
+class AWSElasticBeanstalkDescribeEnvironmentManagedActionHistoryCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentManagedActionHistoryRequest, com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentManagedActionHistoryResult> {
 
 	var environmentId: String? = null
 	var environmentName: String? = null
@@ -760,8 +844,12 @@ class AWSElasticBeanstalkDescribeEnvironmentManagedActionHistoryCommand() : Amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.describeEnvironmentManagedActionHistory(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentManagedActionHistoryResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentManagedActionHistoryResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentManagedActionHistoryResult {
+		return environment.elasticbeanstalk.describeEnvironmentManagedActionHistory(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -775,12 +863,12 @@ class AWSElasticBeanstalkDescribeEnvironmentManagedActionHistoryCommand() : Amaz
 }
 
 
-fun AWSElasticBeanstalkFunctions.describeEnvironmentManagedActions(init: AWSElasticBeanstalkDescribeEnvironmentManagedActionsCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkDescribeEnvironmentManagedActionsCommand().apply(init))
+fun AWSElasticBeanstalkFunctions.describeEnvironmentManagedActions(init: AWSElasticBeanstalkDescribeEnvironmentManagedActionsCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentManagedActionsResult {
+	return this.block.declare(AWSElasticBeanstalkDescribeEnvironmentManagedActionsCommand().apply(init)) as com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentManagedActionsResult
 }
 
 @Generated
-class AWSElasticBeanstalkDescribeEnvironmentManagedActionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentManagedActionsRequest> {
+class AWSElasticBeanstalkDescribeEnvironmentManagedActionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentManagedActionsRequest, com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentManagedActionsResult> {
 
 	var environmentName: String? = null
 	var environmentId: String? = null
@@ -794,8 +882,12 @@ class AWSElasticBeanstalkDescribeEnvironmentManagedActionsCommand() : AmazonWebS
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.describeEnvironmentManagedActions(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentManagedActionsResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentManagedActionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentManagedActionsResult {
+		return environment.elasticbeanstalk.describeEnvironmentManagedActions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -808,12 +900,12 @@ class AWSElasticBeanstalkDescribeEnvironmentManagedActionsCommand() : AmazonWebS
 }
 
 
-fun AWSElasticBeanstalkFunctions.describeEnvironmentResources(init: AWSElasticBeanstalkDescribeEnvironmentResourcesCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkDescribeEnvironmentResourcesCommand().apply(init))
+fun AWSElasticBeanstalkFunctions.describeEnvironmentResources(init: AWSElasticBeanstalkDescribeEnvironmentResourcesCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentResourcesResult {
+	return this.block.declare(AWSElasticBeanstalkDescribeEnvironmentResourcesCommand().apply(init)) as com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentResourcesResult
 }
 
 @Generated
-class AWSElasticBeanstalkDescribeEnvironmentResourcesCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentResourcesRequest> {
+class AWSElasticBeanstalkDescribeEnvironmentResourcesCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentResourcesRequest, com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentResourcesResult> {
 
 	var environmentId: String? = null
 	var environmentName: String? = null
@@ -825,8 +917,12 @@ class AWSElasticBeanstalkDescribeEnvironmentResourcesCommand() : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.describeEnvironmentResources(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentResourcesResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentResourcesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentResourcesResult {
+		return environment.elasticbeanstalk.describeEnvironmentResources(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -838,12 +934,12 @@ class AWSElasticBeanstalkDescribeEnvironmentResourcesCommand() : AmazonWebServic
 }
 
 
-fun AWSElasticBeanstalkFunctions.describeEnvironments(init: AWSElasticBeanstalkDescribeEnvironmentsCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkDescribeEnvironmentsCommand().apply(init))
+fun AWSElasticBeanstalkFunctions.describeEnvironments(init: AWSElasticBeanstalkDescribeEnvironmentsCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentsResult {
+	return this.block.declare(AWSElasticBeanstalkDescribeEnvironmentsCommand().apply(init)) as com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentsResult
 }
 
 @Generated
-class AWSElasticBeanstalkDescribeEnvironmentsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentsRequest> {
+class AWSElasticBeanstalkDescribeEnvironmentsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentsRequest, com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentsResult> {
 
 	var applicationName: String? = null
 	var versionLabel: String? = null
@@ -867,8 +963,12 @@ class AWSElasticBeanstalkDescribeEnvironmentsCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.describeEnvironments(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentsResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentsResult {
+		return environment.elasticbeanstalk.describeEnvironments(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -886,12 +986,12 @@ class AWSElasticBeanstalkDescribeEnvironmentsCommand() : AmazonWebServiceCommand
 }
 
 
-fun AWSElasticBeanstalkFunctions.describeEvents(init: AWSElasticBeanstalkDescribeEventsCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkDescribeEventsCommand().apply(init))
+fun AWSElasticBeanstalkFunctions.describeEvents(init: AWSElasticBeanstalkDescribeEventsCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.DescribeEventsResult {
+	return this.block.declare(AWSElasticBeanstalkDescribeEventsCommand().apply(init)) as com.amazonaws.services.elasticbeanstalk.model.DescribeEventsResult
 }
 
 @Generated
-class AWSElasticBeanstalkDescribeEventsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DescribeEventsRequest> {
+class AWSElasticBeanstalkDescribeEventsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DescribeEventsRequest, com.amazonaws.services.elasticbeanstalk.model.DescribeEventsResult> {
 
 	var applicationName: String? = null
 	var versionLabel: String? = null
@@ -923,8 +1023,12 @@ class AWSElasticBeanstalkDescribeEventsCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.describeEvents(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.DescribeEventsResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.DescribeEventsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.DescribeEventsResult {
+		return environment.elasticbeanstalk.describeEvents(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -946,12 +1050,12 @@ class AWSElasticBeanstalkDescribeEventsCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AWSElasticBeanstalkFunctions.describeInstancesHealth(init: AWSElasticBeanstalkDescribeInstancesHealthCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkDescribeInstancesHealthCommand().apply(init))
+fun AWSElasticBeanstalkFunctions.describeInstancesHealth(init: AWSElasticBeanstalkDescribeInstancesHealthCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.DescribeInstancesHealthResult {
+	return this.block.declare(AWSElasticBeanstalkDescribeInstancesHealthCommand().apply(init)) as com.amazonaws.services.elasticbeanstalk.model.DescribeInstancesHealthResult
 }
 
 @Generated
-class AWSElasticBeanstalkDescribeInstancesHealthCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DescribeInstancesHealthRequest> {
+class AWSElasticBeanstalkDescribeInstancesHealthCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DescribeInstancesHealthRequest, com.amazonaws.services.elasticbeanstalk.model.DescribeInstancesHealthResult> {
 
 	var environmentName: String? = null
 	var environmentId: String? = null
@@ -967,8 +1071,12 @@ class AWSElasticBeanstalkDescribeInstancesHealthCommand() : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.describeInstancesHealth(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.DescribeInstancesHealthResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.DescribeInstancesHealthResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.DescribeInstancesHealthResult {
+		return environment.elasticbeanstalk.describeInstancesHealth(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -982,12 +1090,12 @@ class AWSElasticBeanstalkDescribeInstancesHealthCommand() : AmazonWebServiceComm
 }
 
 
-fun AWSElasticBeanstalkFunctions.describePlatformVersion(init: AWSElasticBeanstalkDescribePlatformVersionCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkDescribePlatformVersionCommand().apply(init))
+fun AWSElasticBeanstalkFunctions.describePlatformVersion(init: AWSElasticBeanstalkDescribePlatformVersionCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.DescribePlatformVersionResult {
+	return this.block.declare(AWSElasticBeanstalkDescribePlatformVersionCommand().apply(init)) as com.amazonaws.services.elasticbeanstalk.model.DescribePlatformVersionResult
 }
 
 @Generated
-class AWSElasticBeanstalkDescribePlatformVersionCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DescribePlatformVersionRequest> {
+class AWSElasticBeanstalkDescribePlatformVersionCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.DescribePlatformVersionRequest, com.amazonaws.services.elasticbeanstalk.model.DescribePlatformVersionResult> {
 
 	var platformArn: String? = null
 
@@ -997,8 +1105,12 @@ class AWSElasticBeanstalkDescribePlatformVersionCommand() : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.describePlatformVersion(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.DescribePlatformVersionResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.DescribePlatformVersionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.DescribePlatformVersionResult {
+		return environment.elasticbeanstalk.describePlatformVersion(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1009,12 +1121,12 @@ class AWSElasticBeanstalkDescribePlatformVersionCommand() : AmazonWebServiceComm
 }
 
 
-fun AWSElasticBeanstalkFunctions.listAvailableSolutionStacks(init: AWSElasticBeanstalkListAvailableSolutionStacksCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkListAvailableSolutionStacksCommand().apply(init))
+fun AWSElasticBeanstalkFunctions.listAvailableSolutionStacks(init: AWSElasticBeanstalkListAvailableSolutionStacksCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.ListAvailableSolutionStacksResult {
+	return this.block.declare(AWSElasticBeanstalkListAvailableSolutionStacksCommand().apply(init)) as com.amazonaws.services.elasticbeanstalk.model.ListAvailableSolutionStacksResult
 }
 
 @Generated
-class AWSElasticBeanstalkListAvailableSolutionStacksCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.ListAvailableSolutionStacksRequest> {
+class AWSElasticBeanstalkListAvailableSolutionStacksCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.ListAvailableSolutionStacksRequest, com.amazonaws.services.elasticbeanstalk.model.ListAvailableSolutionStacksResult> {
 
 
 
@@ -1024,8 +1136,12 @@ class AWSElasticBeanstalkListAvailableSolutionStacksCommand() : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.listAvailableSolutionStacks(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.ListAvailableSolutionStacksResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.ListAvailableSolutionStacksResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.ListAvailableSolutionStacksResult {
+		return environment.elasticbeanstalk.listAvailableSolutionStacks(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1036,12 +1152,12 @@ class AWSElasticBeanstalkListAvailableSolutionStacksCommand() : AmazonWebService
 }
 
 
-fun AWSElasticBeanstalkFunctions.listPlatformVersions(init: AWSElasticBeanstalkListPlatformVersionsCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkListPlatformVersionsCommand().apply(init))
+fun AWSElasticBeanstalkFunctions.listPlatformVersions(init: AWSElasticBeanstalkListPlatformVersionsCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.ListPlatformVersionsResult {
+	return this.block.declare(AWSElasticBeanstalkListPlatformVersionsCommand().apply(init)) as com.amazonaws.services.elasticbeanstalk.model.ListPlatformVersionsResult
 }
 
 @Generated
-class AWSElasticBeanstalkListPlatformVersionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.ListPlatformVersionsRequest> {
+class AWSElasticBeanstalkListPlatformVersionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.ListPlatformVersionsRequest, com.amazonaws.services.elasticbeanstalk.model.ListPlatformVersionsResult> {
 
 	var filters: List<com.amazonaws.services.elasticbeanstalk.model.PlatformFilter>? = null
 	var maxRecords: Int? = 0
@@ -1055,8 +1171,12 @@ class AWSElasticBeanstalkListPlatformVersionsCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.listPlatformVersions(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.ListPlatformVersionsResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.ListPlatformVersionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.ListPlatformVersionsResult {
+		return environment.elasticbeanstalk.listPlatformVersions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1069,12 +1189,12 @@ class AWSElasticBeanstalkListPlatformVersionsCommand() : AmazonWebServiceCommand
 }
 
 
-fun AWSElasticBeanstalkFunctions.listTagsForResource(resourceArn: String, init: AWSElasticBeanstalkListTagsForResourceCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkListTagsForResourceCommand(resourceArn).apply(init))
+fun AWSElasticBeanstalkFunctions.listTagsForResource(resourceArn: String, init: AWSElasticBeanstalkListTagsForResourceCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.ListTagsForResourceResult {
+	return this.block.declare(AWSElasticBeanstalkListTagsForResourceCommand(resourceArn).apply(init)) as com.amazonaws.services.elasticbeanstalk.model.ListTagsForResourceResult
 }
 
 @Generated
-class AWSElasticBeanstalkListTagsForResourceCommand(val resourceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.ListTagsForResourceRequest> {
+class AWSElasticBeanstalkListTagsForResourceCommand(val resourceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.ListTagsForResourceRequest, com.amazonaws.services.elasticbeanstalk.model.ListTagsForResourceResult> {
 
 
 
@@ -1084,8 +1204,12 @@ class AWSElasticBeanstalkListTagsForResourceCommand(val resourceArn: String) : A
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.listTagsForResource(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.ListTagsForResourceResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.ListTagsForResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.ListTagsForResourceResult {
+		return environment.elasticbeanstalk.listTagsForResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1096,12 +1220,12 @@ class AWSElasticBeanstalkListTagsForResourceCommand(val resourceArn: String) : A
 }
 
 
-fun AWSElasticBeanstalkFunctions.rebuildEnvironment(init: AWSElasticBeanstalkRebuildEnvironmentCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkRebuildEnvironmentCommand().apply(init))
+fun AWSElasticBeanstalkFunctions.rebuildEnvironment(init: AWSElasticBeanstalkRebuildEnvironmentCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.RebuildEnvironmentResult {
+	return this.block.declare(AWSElasticBeanstalkRebuildEnvironmentCommand().apply(init)) as com.amazonaws.services.elasticbeanstalk.model.RebuildEnvironmentResult
 }
 
 @Generated
-class AWSElasticBeanstalkRebuildEnvironmentCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.RebuildEnvironmentRequest> {
+class AWSElasticBeanstalkRebuildEnvironmentCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.RebuildEnvironmentRequest, com.amazonaws.services.elasticbeanstalk.model.RebuildEnvironmentResult> {
 
 	var environmentId: String? = null
 	var environmentName: String? = null
@@ -1113,8 +1237,12 @@ class AWSElasticBeanstalkRebuildEnvironmentCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.rebuildEnvironment(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.RebuildEnvironmentResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.RebuildEnvironmentResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.RebuildEnvironmentResult {
+		return environment.elasticbeanstalk.rebuildEnvironment(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1126,12 +1254,12 @@ class AWSElasticBeanstalkRebuildEnvironmentCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AWSElasticBeanstalkFunctions.requestEnvironmentInfo(infoType: EnvironmentInfoType, init: AWSElasticBeanstalkRequestEnvironmentInfoCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkRequestEnvironmentInfoCommand(infoType).apply(init))
+fun AWSElasticBeanstalkFunctions.requestEnvironmentInfo(infoType: EnvironmentInfoType, init: AWSElasticBeanstalkRequestEnvironmentInfoCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.RequestEnvironmentInfoResult {
+	return this.block.declare(AWSElasticBeanstalkRequestEnvironmentInfoCommand(infoType).apply(init)) as com.amazonaws.services.elasticbeanstalk.model.RequestEnvironmentInfoResult
 }
 
 @Generated
-class AWSElasticBeanstalkRequestEnvironmentInfoCommand(val infoType: EnvironmentInfoType) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.RequestEnvironmentInfoRequest> {
+class AWSElasticBeanstalkRequestEnvironmentInfoCommand(val infoType: EnvironmentInfoType) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.RequestEnvironmentInfoRequest, com.amazonaws.services.elasticbeanstalk.model.RequestEnvironmentInfoResult> {
 
 	var environmentId: String? = null
 	var environmentName: String? = null
@@ -1144,8 +1272,12 @@ class AWSElasticBeanstalkRequestEnvironmentInfoCommand(val infoType: Environment
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.requestEnvironmentInfo(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.RequestEnvironmentInfoResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.RequestEnvironmentInfoResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.RequestEnvironmentInfoResult {
+		return environment.elasticbeanstalk.requestEnvironmentInfo(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1158,12 +1290,12 @@ class AWSElasticBeanstalkRequestEnvironmentInfoCommand(val infoType: Environment
 }
 
 
-fun AWSElasticBeanstalkFunctions.restartAppServer(init: AWSElasticBeanstalkRestartAppServerCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkRestartAppServerCommand().apply(init))
+fun AWSElasticBeanstalkFunctions.restartAppServer(init: AWSElasticBeanstalkRestartAppServerCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.RestartAppServerResult {
+	return this.block.declare(AWSElasticBeanstalkRestartAppServerCommand().apply(init)) as com.amazonaws.services.elasticbeanstalk.model.RestartAppServerResult
 }
 
 @Generated
-class AWSElasticBeanstalkRestartAppServerCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.RestartAppServerRequest> {
+class AWSElasticBeanstalkRestartAppServerCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.RestartAppServerRequest, com.amazonaws.services.elasticbeanstalk.model.RestartAppServerResult> {
 
 	var environmentId: String? = null
 	var environmentName: String? = null
@@ -1175,8 +1307,12 @@ class AWSElasticBeanstalkRestartAppServerCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.restartAppServer(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.RestartAppServerResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.RestartAppServerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.RestartAppServerResult {
+		return environment.elasticbeanstalk.restartAppServer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1188,12 +1324,12 @@ class AWSElasticBeanstalkRestartAppServerCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AWSElasticBeanstalkFunctions.retrieveEnvironmentInfo(infoType: EnvironmentInfoType, init: AWSElasticBeanstalkRetrieveEnvironmentInfoCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkRetrieveEnvironmentInfoCommand(infoType).apply(init))
+fun AWSElasticBeanstalkFunctions.retrieveEnvironmentInfo(infoType: EnvironmentInfoType, init: AWSElasticBeanstalkRetrieveEnvironmentInfoCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.RetrieveEnvironmentInfoResult {
+	return this.block.declare(AWSElasticBeanstalkRetrieveEnvironmentInfoCommand(infoType).apply(init)) as com.amazonaws.services.elasticbeanstalk.model.RetrieveEnvironmentInfoResult
 }
 
 @Generated
-class AWSElasticBeanstalkRetrieveEnvironmentInfoCommand(val infoType: EnvironmentInfoType) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.RetrieveEnvironmentInfoRequest> {
+class AWSElasticBeanstalkRetrieveEnvironmentInfoCommand(val infoType: EnvironmentInfoType) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.RetrieveEnvironmentInfoRequest, com.amazonaws.services.elasticbeanstalk.model.RetrieveEnvironmentInfoResult> {
 
 	var environmentId: String? = null
 	var environmentName: String? = null
@@ -1206,8 +1342,12 @@ class AWSElasticBeanstalkRetrieveEnvironmentInfoCommand(val infoType: Environmen
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.retrieveEnvironmentInfo(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.RetrieveEnvironmentInfoResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.RetrieveEnvironmentInfoResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.RetrieveEnvironmentInfoResult {
+		return environment.elasticbeanstalk.retrieveEnvironmentInfo(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1220,12 +1360,12 @@ class AWSElasticBeanstalkRetrieveEnvironmentInfoCommand(val infoType: Environmen
 }
 
 
-fun AWSElasticBeanstalkFunctions.swapEnvironmentCNAMEs(init: AWSElasticBeanstalkSwapEnvironmentCNAMEsCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkSwapEnvironmentCNAMEsCommand().apply(init))
+fun AWSElasticBeanstalkFunctions.swapEnvironmentCNAMEs(init: AWSElasticBeanstalkSwapEnvironmentCNAMEsCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.SwapEnvironmentCNAMEsResult {
+	return this.block.declare(AWSElasticBeanstalkSwapEnvironmentCNAMEsCommand().apply(init)) as com.amazonaws.services.elasticbeanstalk.model.SwapEnvironmentCNAMEsResult
 }
 
 @Generated
-class AWSElasticBeanstalkSwapEnvironmentCNAMEsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.SwapEnvironmentCNAMEsRequest> {
+class AWSElasticBeanstalkSwapEnvironmentCNAMEsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.SwapEnvironmentCNAMEsRequest, com.amazonaws.services.elasticbeanstalk.model.SwapEnvironmentCNAMEsResult> {
 
 	var sourceEnvironmentId: String? = null
 	var sourceEnvironmentName: String? = null
@@ -1241,8 +1381,12 @@ class AWSElasticBeanstalkSwapEnvironmentCNAMEsCommand() : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.swapEnvironmentCNAMEs(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.SwapEnvironmentCNAMEsResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.SwapEnvironmentCNAMEsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.SwapEnvironmentCNAMEsResult {
+		return environment.elasticbeanstalk.swapEnvironmentCNAMEs(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1256,12 +1400,12 @@ class AWSElasticBeanstalkSwapEnvironmentCNAMEsCommand() : AmazonWebServiceComman
 }
 
 
-fun AWSElasticBeanstalkFunctions.terminateEnvironment(init: AWSElasticBeanstalkTerminateEnvironmentCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkTerminateEnvironmentCommand().apply(init))
+fun AWSElasticBeanstalkFunctions.terminateEnvironment(init: AWSElasticBeanstalkTerminateEnvironmentCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.TerminateEnvironmentResult {
+	return this.block.declare(AWSElasticBeanstalkTerminateEnvironmentCommand().apply(init)) as com.amazonaws.services.elasticbeanstalk.model.TerminateEnvironmentResult
 }
 
 @Generated
-class AWSElasticBeanstalkTerminateEnvironmentCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.TerminateEnvironmentRequest> {
+class AWSElasticBeanstalkTerminateEnvironmentCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.TerminateEnvironmentRequest, com.amazonaws.services.elasticbeanstalk.model.TerminateEnvironmentResult> {
 
 	var environmentId: String? = null
 	var environmentName: String? = null
@@ -1277,8 +1421,12 @@ class AWSElasticBeanstalkTerminateEnvironmentCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.terminateEnvironment(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.TerminateEnvironmentResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.TerminateEnvironmentResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.TerminateEnvironmentResult {
+		return environment.elasticbeanstalk.terminateEnvironment(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1292,12 +1440,12 @@ class AWSElasticBeanstalkTerminateEnvironmentCommand() : AmazonWebServiceCommand
 }
 
 
-fun AWSElasticBeanstalkFunctions.updateApplication(applicationName: String, init: AWSElasticBeanstalkUpdateApplicationCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkUpdateApplicationCommand(applicationName).apply(init))
+fun AWSElasticBeanstalkFunctions.updateApplication(applicationName: String, init: AWSElasticBeanstalkUpdateApplicationCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.UpdateApplicationResult {
+	return this.block.declare(AWSElasticBeanstalkUpdateApplicationCommand(applicationName).apply(init)) as com.amazonaws.services.elasticbeanstalk.model.UpdateApplicationResult
 }
 
 @Generated
-class AWSElasticBeanstalkUpdateApplicationCommand(val applicationName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.UpdateApplicationRequest> {
+class AWSElasticBeanstalkUpdateApplicationCommand(val applicationName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.UpdateApplicationRequest, com.amazonaws.services.elasticbeanstalk.model.UpdateApplicationResult> {
 
 	var description: String? = null
 
@@ -1308,8 +1456,12 @@ class AWSElasticBeanstalkUpdateApplicationCommand(val applicationName: String) :
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.updateApplication(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.UpdateApplicationResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.UpdateApplicationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.UpdateApplicationResult {
+		return environment.elasticbeanstalk.updateApplication(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1321,12 +1473,12 @@ class AWSElasticBeanstalkUpdateApplicationCommand(val applicationName: String) :
 }
 
 
-fun AWSElasticBeanstalkFunctions.updateApplicationResourceLifecycle(applicationName: String, resourceLifecycleConfig: com.amazonaws.services.elasticbeanstalk.model.ApplicationResourceLifecycleConfig, init: AWSElasticBeanstalkUpdateApplicationResourceLifecycleCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkUpdateApplicationResourceLifecycleCommand(applicationName, resourceLifecycleConfig).apply(init))
+fun AWSElasticBeanstalkFunctions.updateApplicationResourceLifecycle(applicationName: String, resourceLifecycleConfig: com.amazonaws.services.elasticbeanstalk.model.ApplicationResourceLifecycleConfig, init: AWSElasticBeanstalkUpdateApplicationResourceLifecycleCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.UpdateApplicationResourceLifecycleResult {
+	return this.block.declare(AWSElasticBeanstalkUpdateApplicationResourceLifecycleCommand(applicationName, resourceLifecycleConfig).apply(init)) as com.amazonaws.services.elasticbeanstalk.model.UpdateApplicationResourceLifecycleResult
 }
 
 @Generated
-class AWSElasticBeanstalkUpdateApplicationResourceLifecycleCommand(val applicationName: String, val resourceLifecycleConfig: com.amazonaws.services.elasticbeanstalk.model.ApplicationResourceLifecycleConfig) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.UpdateApplicationResourceLifecycleRequest> {
+class AWSElasticBeanstalkUpdateApplicationResourceLifecycleCommand(val applicationName: String, val resourceLifecycleConfig: com.amazonaws.services.elasticbeanstalk.model.ApplicationResourceLifecycleConfig) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.UpdateApplicationResourceLifecycleRequest, com.amazonaws.services.elasticbeanstalk.model.UpdateApplicationResourceLifecycleResult> {
 
 
 
@@ -1337,8 +1489,12 @@ class AWSElasticBeanstalkUpdateApplicationResourceLifecycleCommand(val applicati
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.updateApplicationResourceLifecycle(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.UpdateApplicationResourceLifecycleResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.UpdateApplicationResourceLifecycleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.UpdateApplicationResourceLifecycleResult {
+		return environment.elasticbeanstalk.updateApplicationResourceLifecycle(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1350,12 +1506,12 @@ class AWSElasticBeanstalkUpdateApplicationResourceLifecycleCommand(val applicati
 }
 
 
-fun AWSElasticBeanstalkFunctions.updateApplicationVersion(applicationName: String, versionLabel: String, init: AWSElasticBeanstalkUpdateApplicationVersionCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkUpdateApplicationVersionCommand(applicationName, versionLabel).apply(init))
+fun AWSElasticBeanstalkFunctions.updateApplicationVersion(applicationName: String, versionLabel: String, init: AWSElasticBeanstalkUpdateApplicationVersionCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.UpdateApplicationVersionResult {
+	return this.block.declare(AWSElasticBeanstalkUpdateApplicationVersionCommand(applicationName, versionLabel).apply(init)) as com.amazonaws.services.elasticbeanstalk.model.UpdateApplicationVersionResult
 }
 
 @Generated
-class AWSElasticBeanstalkUpdateApplicationVersionCommand(val applicationName: String, val versionLabel: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.UpdateApplicationVersionRequest> {
+class AWSElasticBeanstalkUpdateApplicationVersionCommand(val applicationName: String, val versionLabel: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.UpdateApplicationVersionRequest, com.amazonaws.services.elasticbeanstalk.model.UpdateApplicationVersionResult> {
 
 	var description: String? = null
 
@@ -1367,8 +1523,12 @@ class AWSElasticBeanstalkUpdateApplicationVersionCommand(val applicationName: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.updateApplicationVersion(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.UpdateApplicationVersionResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.UpdateApplicationVersionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.UpdateApplicationVersionResult {
+		return environment.elasticbeanstalk.updateApplicationVersion(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1381,12 +1541,12 @@ class AWSElasticBeanstalkUpdateApplicationVersionCommand(val applicationName: St
 }
 
 
-fun AWSElasticBeanstalkFunctions.updateConfigurationTemplate(applicationName: String, templateName: String, init: AWSElasticBeanstalkUpdateConfigurationTemplateCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkUpdateConfigurationTemplateCommand(applicationName, templateName).apply(init))
+fun AWSElasticBeanstalkFunctions.updateConfigurationTemplate(applicationName: String, templateName: String, init: AWSElasticBeanstalkUpdateConfigurationTemplateCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.UpdateConfigurationTemplateResult {
+	return this.block.declare(AWSElasticBeanstalkUpdateConfigurationTemplateCommand(applicationName, templateName).apply(init)) as com.amazonaws.services.elasticbeanstalk.model.UpdateConfigurationTemplateResult
 }
 
 @Generated
-class AWSElasticBeanstalkUpdateConfigurationTemplateCommand(val applicationName: String, val templateName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.UpdateConfigurationTemplateRequest> {
+class AWSElasticBeanstalkUpdateConfigurationTemplateCommand(val applicationName: String, val templateName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.UpdateConfigurationTemplateRequest, com.amazonaws.services.elasticbeanstalk.model.UpdateConfigurationTemplateResult> {
 
 	var description: String? = null
 	var optionSettings: List<com.amazonaws.services.elasticbeanstalk.model.ConfigurationOptionSetting>? = null
@@ -1402,8 +1562,12 @@ class AWSElasticBeanstalkUpdateConfigurationTemplateCommand(val applicationName:
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.updateConfigurationTemplate(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.UpdateConfigurationTemplateResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.UpdateConfigurationTemplateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.UpdateConfigurationTemplateResult {
+		return environment.elasticbeanstalk.updateConfigurationTemplate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1418,12 +1582,12 @@ class AWSElasticBeanstalkUpdateConfigurationTemplateCommand(val applicationName:
 }
 
 
-fun AWSElasticBeanstalkFunctions.updateEnvironment(init: AWSElasticBeanstalkUpdateEnvironmentCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkUpdateEnvironmentCommand().apply(init))
+fun AWSElasticBeanstalkFunctions.updateEnvironment(init: AWSElasticBeanstalkUpdateEnvironmentCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.UpdateEnvironmentResult {
+	return this.block.declare(AWSElasticBeanstalkUpdateEnvironmentCommand().apply(init)) as com.amazonaws.services.elasticbeanstalk.model.UpdateEnvironmentResult
 }
 
 @Generated
-class AWSElasticBeanstalkUpdateEnvironmentCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.UpdateEnvironmentRequest> {
+class AWSElasticBeanstalkUpdateEnvironmentCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.UpdateEnvironmentRequest, com.amazonaws.services.elasticbeanstalk.model.UpdateEnvironmentResult> {
 
 	var applicationName: String? = null
 	var environmentId: String? = null
@@ -1455,8 +1619,12 @@ class AWSElasticBeanstalkUpdateEnvironmentCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.updateEnvironment(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.UpdateEnvironmentResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.UpdateEnvironmentResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.UpdateEnvironmentResult {
+		return environment.elasticbeanstalk.updateEnvironment(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1478,12 +1646,12 @@ class AWSElasticBeanstalkUpdateEnvironmentCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AWSElasticBeanstalkFunctions.updateTagsForResource(resourceArn: String, init: AWSElasticBeanstalkUpdateTagsForResourceCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkUpdateTagsForResourceCommand(resourceArn).apply(init))
+fun AWSElasticBeanstalkFunctions.updateTagsForResource(resourceArn: String, init: AWSElasticBeanstalkUpdateTagsForResourceCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.UpdateTagsForResourceResult {
+	return this.block.declare(AWSElasticBeanstalkUpdateTagsForResourceCommand(resourceArn).apply(init)) as com.amazonaws.services.elasticbeanstalk.model.UpdateTagsForResourceResult
 }
 
 @Generated
-class AWSElasticBeanstalkUpdateTagsForResourceCommand(val resourceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.UpdateTagsForResourceRequest> {
+class AWSElasticBeanstalkUpdateTagsForResourceCommand(val resourceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.UpdateTagsForResourceRequest, com.amazonaws.services.elasticbeanstalk.model.UpdateTagsForResourceResult> {
 
 	var tagsToAdd: List<com.amazonaws.services.elasticbeanstalk.model.Tag>? = null
 	var tagsToRemove: List<String>? = null
@@ -1496,8 +1664,12 @@ class AWSElasticBeanstalkUpdateTagsForResourceCommand(val resourceArn: String) :
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.updateTagsForResource(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.UpdateTagsForResourceResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.UpdateTagsForResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.UpdateTagsForResourceResult {
+		return environment.elasticbeanstalk.updateTagsForResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1510,12 +1682,12 @@ class AWSElasticBeanstalkUpdateTagsForResourceCommand(val resourceArn: String) :
 }
 
 
-fun AWSElasticBeanstalkFunctions.validateConfigurationSettings(applicationName: String, optionSettings: List<com.amazonaws.services.elasticbeanstalk.model.ConfigurationOptionSetting>, init: AWSElasticBeanstalkValidateConfigurationSettingsCommand.() -> Unit) {
-	this.block.declare(AWSElasticBeanstalkValidateConfigurationSettingsCommand(applicationName, optionSettings).apply(init))
+fun AWSElasticBeanstalkFunctions.validateConfigurationSettings(applicationName: String, optionSettings: List<com.amazonaws.services.elasticbeanstalk.model.ConfigurationOptionSetting>, init: AWSElasticBeanstalkValidateConfigurationSettingsCommand.() -> Unit): com.amazonaws.services.elasticbeanstalk.model.ValidateConfigurationSettingsResult {
+	return this.block.declare(AWSElasticBeanstalkValidateConfigurationSettingsCommand(applicationName, optionSettings).apply(init)) as com.amazonaws.services.elasticbeanstalk.model.ValidateConfigurationSettingsResult
 }
 
 @Generated
-class AWSElasticBeanstalkValidateConfigurationSettingsCommand(val applicationName: String, val optionSettings: List<com.amazonaws.services.elasticbeanstalk.model.ConfigurationOptionSetting>) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.ValidateConfigurationSettingsRequest> {
+class AWSElasticBeanstalkValidateConfigurationSettingsCommand(val applicationName: String, val optionSettings: List<com.amazonaws.services.elasticbeanstalk.model.ConfigurationOptionSetting>) : AmazonWebServiceCommand<com.amazonaws.services.elasticbeanstalk.model.ValidateConfigurationSettingsRequest, com.amazonaws.services.elasticbeanstalk.model.ValidateConfigurationSettingsResult> {
 
 	var templateName: String? = null
 	var environmentName: String? = null
@@ -1529,8 +1701,12 @@ class AWSElasticBeanstalkValidateConfigurationSettingsCommand(val applicationNam
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticbeanstalk.validateConfigurationSettings(build())
+	override fun dryResult(): com.amazonaws.services.elasticbeanstalk.model.ValidateConfigurationSettingsResult {
+	  return com.amazonaws.services.elasticbeanstalk.model.ValidateConfigurationSettingsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticbeanstalk.model.ValidateConfigurationSettingsResult {
+		return environment.elasticbeanstalk.validateConfigurationSettings(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

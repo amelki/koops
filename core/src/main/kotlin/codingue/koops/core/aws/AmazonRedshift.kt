@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.redshift: AmazonRedshift
 @Generated
 class AmazonRedshiftFunctions(val block: Block)
 
-infix fun AwsContinuation.redshift(init: AmazonRedshiftFunctions.() -> Unit) {
-	AmazonRedshiftFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.redshift(init: AmazonRedshiftFunctions.() -> T): T {
+	return AmazonRedshiftFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonRedshiftFunctions.authorizeClusterSecurityGroupIngress(clusterSecurityGroupName: String, init: AmazonRedshiftAuthorizeClusterSecurityGroupIngressCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftAuthorizeClusterSecurityGroupIngressCommand(clusterSecurityGroupName).apply(init))
+fun AmazonRedshiftFunctions.authorizeClusterSecurityGroupIngress(clusterSecurityGroupName: String, init: AmazonRedshiftAuthorizeClusterSecurityGroupIngressCommand.() -> Unit): com.amazonaws.services.redshift.model.ClusterSecurityGroup {
+	return this.block.declare(AmazonRedshiftAuthorizeClusterSecurityGroupIngressCommand(clusterSecurityGroupName).apply(init)) as com.amazonaws.services.redshift.model.ClusterSecurityGroup
 }
 
 @Generated
-class AmazonRedshiftAuthorizeClusterSecurityGroupIngressCommand(val clusterSecurityGroupName: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.AuthorizeClusterSecurityGroupIngressRequest> {
+class AmazonRedshiftAuthorizeClusterSecurityGroupIngressCommand(val clusterSecurityGroupName: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.AuthorizeClusterSecurityGroupIngressRequest, com.amazonaws.services.redshift.model.ClusterSecurityGroup> {
 
 	var cIDRIP: String? = null
 	var eC2SecurityGroupName: String? = null
@@ -46,8 +46,12 @@ class AmazonRedshiftAuthorizeClusterSecurityGroupIngressCommand(val clusterSecur
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.authorizeClusterSecurityGroupIngress(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.ClusterSecurityGroup {
+	  return com.amazonaws.services.redshift.model.ClusterSecurityGroup()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.ClusterSecurityGroup {
+		return environment.redshift.authorizeClusterSecurityGroupIngress(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -61,12 +65,12 @@ class AmazonRedshiftAuthorizeClusterSecurityGroupIngressCommand(val clusterSecur
 }
 
 
-fun AmazonRedshiftFunctions.authorizeSnapshotAccess(snapshotIdentifier: String, accountWithRestoreAccess: String, init: AmazonRedshiftAuthorizeSnapshotAccessCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftAuthorizeSnapshotAccessCommand(snapshotIdentifier, accountWithRestoreAccess).apply(init))
+fun AmazonRedshiftFunctions.authorizeSnapshotAccess(snapshotIdentifier: String, accountWithRestoreAccess: String, init: AmazonRedshiftAuthorizeSnapshotAccessCommand.() -> Unit): com.amazonaws.services.redshift.model.Snapshot {
+	return this.block.declare(AmazonRedshiftAuthorizeSnapshotAccessCommand(snapshotIdentifier, accountWithRestoreAccess).apply(init)) as com.amazonaws.services.redshift.model.Snapshot
 }
 
 @Generated
-class AmazonRedshiftAuthorizeSnapshotAccessCommand(val snapshotIdentifier: String, val accountWithRestoreAccess: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.AuthorizeSnapshotAccessRequest> {
+class AmazonRedshiftAuthorizeSnapshotAccessCommand(val snapshotIdentifier: String, val accountWithRestoreAccess: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.AuthorizeSnapshotAccessRequest, com.amazonaws.services.redshift.model.Snapshot> {
 
 	var snapshotClusterIdentifier: String? = null
 
@@ -78,8 +82,12 @@ class AmazonRedshiftAuthorizeSnapshotAccessCommand(val snapshotIdentifier: Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.authorizeSnapshotAccess(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.Snapshot {
+	  return com.amazonaws.services.redshift.model.Snapshot()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.Snapshot {
+		return environment.redshift.authorizeSnapshotAccess(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -92,12 +100,12 @@ class AmazonRedshiftAuthorizeSnapshotAccessCommand(val snapshotIdentifier: Strin
 }
 
 
-fun AmazonRedshiftFunctions.copyClusterSnapshot(sourceSnapshotIdentifier: String, targetSnapshotIdentifier: String, init: AmazonRedshiftCopyClusterSnapshotCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftCopyClusterSnapshotCommand(sourceSnapshotIdentifier, targetSnapshotIdentifier).apply(init))
+fun AmazonRedshiftFunctions.copyClusterSnapshot(sourceSnapshotIdentifier: String, targetSnapshotIdentifier: String, init: AmazonRedshiftCopyClusterSnapshotCommand.() -> Unit): com.amazonaws.services.redshift.model.Snapshot {
+	return this.block.declare(AmazonRedshiftCopyClusterSnapshotCommand(sourceSnapshotIdentifier, targetSnapshotIdentifier).apply(init)) as com.amazonaws.services.redshift.model.Snapshot
 }
 
 @Generated
-class AmazonRedshiftCopyClusterSnapshotCommand(val sourceSnapshotIdentifier: String, val targetSnapshotIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.CopyClusterSnapshotRequest> {
+class AmazonRedshiftCopyClusterSnapshotCommand(val sourceSnapshotIdentifier: String, val targetSnapshotIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.CopyClusterSnapshotRequest, com.amazonaws.services.redshift.model.Snapshot> {
 
 	var sourceSnapshotClusterIdentifier: String? = null
 
@@ -109,8 +117,12 @@ class AmazonRedshiftCopyClusterSnapshotCommand(val sourceSnapshotIdentifier: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.copyClusterSnapshot(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.Snapshot {
+	  return com.amazonaws.services.redshift.model.Snapshot()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.Snapshot {
+		return environment.redshift.copyClusterSnapshot(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -123,12 +135,12 @@ class AmazonRedshiftCopyClusterSnapshotCommand(val sourceSnapshotIdentifier: Str
 }
 
 
-fun AmazonRedshiftFunctions.createCluster(clusterIdentifier: String, nodeType: String, masterUsername: String, masterUserPassword: String, init: AmazonRedshiftCreateClusterCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftCreateClusterCommand(clusterIdentifier, nodeType, masterUsername, masterUserPassword).apply(init))
+fun AmazonRedshiftFunctions.createCluster(clusterIdentifier: String, nodeType: String, masterUsername: String, masterUserPassword: String, init: AmazonRedshiftCreateClusterCommand.() -> Unit): com.amazonaws.services.redshift.model.Cluster {
+	return this.block.declare(AmazonRedshiftCreateClusterCommand(clusterIdentifier, nodeType, masterUsername, masterUserPassword).apply(init)) as com.amazonaws.services.redshift.model.Cluster
 }
 
 @Generated
-class AmazonRedshiftCreateClusterCommand(val clusterIdentifier: String, val nodeType: String, val masterUsername: String, val masterUserPassword: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.CreateClusterRequest> {
+class AmazonRedshiftCreateClusterCommand(val clusterIdentifier: String, val nodeType: String, val masterUsername: String, val masterUserPassword: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.CreateClusterRequest, com.amazonaws.services.redshift.model.Cluster> {
 
 	var dBName: String? = null
 	var clusterType: String? = null
@@ -186,8 +198,12 @@ class AmazonRedshiftCreateClusterCommand(val clusterIdentifier: String, val node
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.createCluster(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.Cluster {
+	  return com.amazonaws.services.redshift.model.Cluster()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.Cluster {
+		return environment.redshift.createCluster(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -224,12 +240,12 @@ class AmazonRedshiftCreateClusterCommand(val clusterIdentifier: String, val node
 }
 
 
-fun AmazonRedshiftFunctions.createClusterParameterGroup(parameterGroupName: String, parameterGroupFamily: String, description: String, init: AmazonRedshiftCreateClusterParameterGroupCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftCreateClusterParameterGroupCommand(parameterGroupName, parameterGroupFamily, description).apply(init))
+fun AmazonRedshiftFunctions.createClusterParameterGroup(parameterGroupName: String, parameterGroupFamily: String, description: String, init: AmazonRedshiftCreateClusterParameterGroupCommand.() -> Unit): com.amazonaws.services.redshift.model.ClusterParameterGroup {
+	return this.block.declare(AmazonRedshiftCreateClusterParameterGroupCommand(parameterGroupName, parameterGroupFamily, description).apply(init)) as com.amazonaws.services.redshift.model.ClusterParameterGroup
 }
 
 @Generated
-class AmazonRedshiftCreateClusterParameterGroupCommand(val parameterGroupName: String, val parameterGroupFamily: String, val description: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.CreateClusterParameterGroupRequest> {
+class AmazonRedshiftCreateClusterParameterGroupCommand(val parameterGroupName: String, val parameterGroupFamily: String, val description: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.CreateClusterParameterGroupRequest, com.amazonaws.services.redshift.model.ClusterParameterGroup> {
 
 	var tags: List<com.amazonaws.services.redshift.model.Tag>? = null
 
@@ -242,8 +258,12 @@ class AmazonRedshiftCreateClusterParameterGroupCommand(val parameterGroupName: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.createClusterParameterGroup(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.ClusterParameterGroup {
+	  return com.amazonaws.services.redshift.model.ClusterParameterGroup()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.ClusterParameterGroup {
+		return environment.redshift.createClusterParameterGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -257,12 +277,12 @@ class AmazonRedshiftCreateClusterParameterGroupCommand(val parameterGroupName: S
 }
 
 
-fun AmazonRedshiftFunctions.createClusterSecurityGroup(clusterSecurityGroupName: String, description: String, init: AmazonRedshiftCreateClusterSecurityGroupCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftCreateClusterSecurityGroupCommand(clusterSecurityGroupName, description).apply(init))
+fun AmazonRedshiftFunctions.createClusterSecurityGroup(clusterSecurityGroupName: String, description: String, init: AmazonRedshiftCreateClusterSecurityGroupCommand.() -> Unit): com.amazonaws.services.redshift.model.ClusterSecurityGroup {
+	return this.block.declare(AmazonRedshiftCreateClusterSecurityGroupCommand(clusterSecurityGroupName, description).apply(init)) as com.amazonaws.services.redshift.model.ClusterSecurityGroup
 }
 
 @Generated
-class AmazonRedshiftCreateClusterSecurityGroupCommand(val clusterSecurityGroupName: String, val description: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.CreateClusterSecurityGroupRequest> {
+class AmazonRedshiftCreateClusterSecurityGroupCommand(val clusterSecurityGroupName: String, val description: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.CreateClusterSecurityGroupRequest, com.amazonaws.services.redshift.model.ClusterSecurityGroup> {
 
 	var tags: List<com.amazonaws.services.redshift.model.Tag>? = null
 
@@ -274,8 +294,12 @@ class AmazonRedshiftCreateClusterSecurityGroupCommand(val clusterSecurityGroupNa
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.createClusterSecurityGroup(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.ClusterSecurityGroup {
+	  return com.amazonaws.services.redshift.model.ClusterSecurityGroup()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.ClusterSecurityGroup {
+		return environment.redshift.createClusterSecurityGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -288,12 +312,12 @@ class AmazonRedshiftCreateClusterSecurityGroupCommand(val clusterSecurityGroupNa
 }
 
 
-fun AmazonRedshiftFunctions.createClusterSnapshot(snapshotIdentifier: String, clusterIdentifier: String, init: AmazonRedshiftCreateClusterSnapshotCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftCreateClusterSnapshotCommand(snapshotIdentifier, clusterIdentifier).apply(init))
+fun AmazonRedshiftFunctions.createClusterSnapshot(snapshotIdentifier: String, clusterIdentifier: String, init: AmazonRedshiftCreateClusterSnapshotCommand.() -> Unit): com.amazonaws.services.redshift.model.Snapshot {
+	return this.block.declare(AmazonRedshiftCreateClusterSnapshotCommand(snapshotIdentifier, clusterIdentifier).apply(init)) as com.amazonaws.services.redshift.model.Snapshot
 }
 
 @Generated
-class AmazonRedshiftCreateClusterSnapshotCommand(val snapshotIdentifier: String, val clusterIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.CreateClusterSnapshotRequest> {
+class AmazonRedshiftCreateClusterSnapshotCommand(val snapshotIdentifier: String, val clusterIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.CreateClusterSnapshotRequest, com.amazonaws.services.redshift.model.Snapshot> {
 
 	var tags: List<com.amazonaws.services.redshift.model.Tag>? = null
 
@@ -305,8 +329,12 @@ class AmazonRedshiftCreateClusterSnapshotCommand(val snapshotIdentifier: String,
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.createClusterSnapshot(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.Snapshot {
+	  return com.amazonaws.services.redshift.model.Snapshot()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.Snapshot {
+		return environment.redshift.createClusterSnapshot(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -319,12 +347,12 @@ class AmazonRedshiftCreateClusterSnapshotCommand(val snapshotIdentifier: String,
 }
 
 
-fun AmazonRedshiftFunctions.createClusterSubnetGroup(clusterSubnetGroupName: String, description: String, subnetIds: List<String>, init: AmazonRedshiftCreateClusterSubnetGroupCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftCreateClusterSubnetGroupCommand(clusterSubnetGroupName, description, subnetIds).apply(init))
+fun AmazonRedshiftFunctions.createClusterSubnetGroup(clusterSubnetGroupName: String, description: String, subnetIds: List<String>, init: AmazonRedshiftCreateClusterSubnetGroupCommand.() -> Unit): com.amazonaws.services.redshift.model.ClusterSubnetGroup {
+	return this.block.declare(AmazonRedshiftCreateClusterSubnetGroupCommand(clusterSubnetGroupName, description, subnetIds).apply(init)) as com.amazonaws.services.redshift.model.ClusterSubnetGroup
 }
 
 @Generated
-class AmazonRedshiftCreateClusterSubnetGroupCommand(val clusterSubnetGroupName: String, val description: String, val subnetIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.CreateClusterSubnetGroupRequest> {
+class AmazonRedshiftCreateClusterSubnetGroupCommand(val clusterSubnetGroupName: String, val description: String, val subnetIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.CreateClusterSubnetGroupRequest, com.amazonaws.services.redshift.model.ClusterSubnetGroup> {
 
 	var tags: List<com.amazonaws.services.redshift.model.Tag>? = null
 
@@ -337,8 +365,12 @@ class AmazonRedshiftCreateClusterSubnetGroupCommand(val clusterSubnetGroupName: 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.createClusterSubnetGroup(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.ClusterSubnetGroup {
+	  return com.amazonaws.services.redshift.model.ClusterSubnetGroup()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.ClusterSubnetGroup {
+		return environment.redshift.createClusterSubnetGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -352,12 +384,12 @@ class AmazonRedshiftCreateClusterSubnetGroupCommand(val clusterSubnetGroupName: 
 }
 
 
-fun AmazonRedshiftFunctions.createEventSubscription(subscriptionName: String, snsTopicArn: String, init: AmazonRedshiftCreateEventSubscriptionCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftCreateEventSubscriptionCommand(subscriptionName, snsTopicArn).apply(init))
+fun AmazonRedshiftFunctions.createEventSubscription(subscriptionName: String, snsTopicArn: String, init: AmazonRedshiftCreateEventSubscriptionCommand.() -> Unit): com.amazonaws.services.redshift.model.EventSubscription {
+	return this.block.declare(AmazonRedshiftCreateEventSubscriptionCommand(subscriptionName, snsTopicArn).apply(init)) as com.amazonaws.services.redshift.model.EventSubscription
 }
 
 @Generated
-class AmazonRedshiftCreateEventSubscriptionCommand(val subscriptionName: String, val snsTopicArn: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.CreateEventSubscriptionRequest> {
+class AmazonRedshiftCreateEventSubscriptionCommand(val subscriptionName: String, val snsTopicArn: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.CreateEventSubscriptionRequest, com.amazonaws.services.redshift.model.EventSubscription> {
 
 	var sourceType: String? = null
 	var sourceIds: List<String>? = null
@@ -379,8 +411,12 @@ class AmazonRedshiftCreateEventSubscriptionCommand(val subscriptionName: String,
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.createEventSubscription(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.EventSubscription {
+	  return com.amazonaws.services.redshift.model.EventSubscription()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.EventSubscription {
+		return environment.redshift.createEventSubscription(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -398,12 +434,12 @@ class AmazonRedshiftCreateEventSubscriptionCommand(val subscriptionName: String,
 }
 
 
-fun AmazonRedshiftFunctions.createHsmClientCertificate(hsmClientCertificateIdentifier: String, init: AmazonRedshiftCreateHsmClientCertificateCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftCreateHsmClientCertificateCommand(hsmClientCertificateIdentifier).apply(init))
+fun AmazonRedshiftFunctions.createHsmClientCertificate(hsmClientCertificateIdentifier: String, init: AmazonRedshiftCreateHsmClientCertificateCommand.() -> Unit): com.amazonaws.services.redshift.model.HsmClientCertificate {
+	return this.block.declare(AmazonRedshiftCreateHsmClientCertificateCommand(hsmClientCertificateIdentifier).apply(init)) as com.amazonaws.services.redshift.model.HsmClientCertificate
 }
 
 @Generated
-class AmazonRedshiftCreateHsmClientCertificateCommand(val hsmClientCertificateIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.CreateHsmClientCertificateRequest> {
+class AmazonRedshiftCreateHsmClientCertificateCommand(val hsmClientCertificateIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.CreateHsmClientCertificateRequest, com.amazonaws.services.redshift.model.HsmClientCertificate> {
 
 	var tags: List<com.amazonaws.services.redshift.model.Tag>? = null
 
@@ -414,8 +450,12 @@ class AmazonRedshiftCreateHsmClientCertificateCommand(val hsmClientCertificateId
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.createHsmClientCertificate(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.HsmClientCertificate {
+	  return com.amazonaws.services.redshift.model.HsmClientCertificate()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.HsmClientCertificate {
+		return environment.redshift.createHsmClientCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -427,12 +467,12 @@ class AmazonRedshiftCreateHsmClientCertificateCommand(val hsmClientCertificateId
 }
 
 
-fun AmazonRedshiftFunctions.createHsmConfiguration(hsmConfigurationIdentifier: String, description: String, hsmIpAddress: String, hsmPartitionName: String, hsmPartitionPassword: String, hsmServerPublicCertificate: String, init: AmazonRedshiftCreateHsmConfigurationCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftCreateHsmConfigurationCommand(hsmConfigurationIdentifier, description, hsmIpAddress, hsmPartitionName, hsmPartitionPassword, hsmServerPublicCertificate).apply(init))
+fun AmazonRedshiftFunctions.createHsmConfiguration(hsmConfigurationIdentifier: String, description: String, hsmIpAddress: String, hsmPartitionName: String, hsmPartitionPassword: String, hsmServerPublicCertificate: String, init: AmazonRedshiftCreateHsmConfigurationCommand.() -> Unit): com.amazonaws.services.redshift.model.HsmConfiguration {
+	return this.block.declare(AmazonRedshiftCreateHsmConfigurationCommand(hsmConfigurationIdentifier, description, hsmIpAddress, hsmPartitionName, hsmPartitionPassword, hsmServerPublicCertificate).apply(init)) as com.amazonaws.services.redshift.model.HsmConfiguration
 }
 
 @Generated
-class AmazonRedshiftCreateHsmConfigurationCommand(val hsmConfigurationIdentifier: String, val description: String, val hsmIpAddress: String, val hsmPartitionName: String, val hsmPartitionPassword: String, val hsmServerPublicCertificate: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.CreateHsmConfigurationRequest> {
+class AmazonRedshiftCreateHsmConfigurationCommand(val hsmConfigurationIdentifier: String, val description: String, val hsmIpAddress: String, val hsmPartitionName: String, val hsmPartitionPassword: String, val hsmServerPublicCertificate: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.CreateHsmConfigurationRequest, com.amazonaws.services.redshift.model.HsmConfiguration> {
 
 	var tags: List<com.amazonaws.services.redshift.model.Tag>? = null
 
@@ -448,8 +488,12 @@ class AmazonRedshiftCreateHsmConfigurationCommand(val hsmConfigurationIdentifier
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.createHsmConfiguration(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.HsmConfiguration {
+	  return com.amazonaws.services.redshift.model.HsmConfiguration()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.HsmConfiguration {
+		return environment.redshift.createHsmConfiguration(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -466,12 +510,12 @@ class AmazonRedshiftCreateHsmConfigurationCommand(val hsmConfigurationIdentifier
 }
 
 
-fun AmazonRedshiftFunctions.createSnapshotCopyGrant(snapshotCopyGrantName: String, init: AmazonRedshiftCreateSnapshotCopyGrantCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftCreateSnapshotCopyGrantCommand(snapshotCopyGrantName).apply(init))
+fun AmazonRedshiftFunctions.createSnapshotCopyGrant(snapshotCopyGrantName: String, init: AmazonRedshiftCreateSnapshotCopyGrantCommand.() -> Unit): com.amazonaws.services.redshift.model.SnapshotCopyGrant {
+	return this.block.declare(AmazonRedshiftCreateSnapshotCopyGrantCommand(snapshotCopyGrantName).apply(init)) as com.amazonaws.services.redshift.model.SnapshotCopyGrant
 }
 
 @Generated
-class AmazonRedshiftCreateSnapshotCopyGrantCommand(val snapshotCopyGrantName: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.CreateSnapshotCopyGrantRequest> {
+class AmazonRedshiftCreateSnapshotCopyGrantCommand(val snapshotCopyGrantName: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.CreateSnapshotCopyGrantRequest, com.amazonaws.services.redshift.model.SnapshotCopyGrant> {
 
 	var kmsKeyId: String? = null
 	var tags: List<com.amazonaws.services.redshift.model.Tag>? = null
@@ -484,8 +528,12 @@ class AmazonRedshiftCreateSnapshotCopyGrantCommand(val snapshotCopyGrantName: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.createSnapshotCopyGrant(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.SnapshotCopyGrant {
+	  return com.amazonaws.services.redshift.model.SnapshotCopyGrant()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.SnapshotCopyGrant {
+		return environment.redshift.createSnapshotCopyGrant(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -498,12 +546,12 @@ class AmazonRedshiftCreateSnapshotCopyGrantCommand(val snapshotCopyGrantName: St
 }
 
 
-fun AmazonRedshiftFunctions.createTags(resourceName: String, tags: List<com.amazonaws.services.redshift.model.Tag>, init: AmazonRedshiftCreateTagsCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftCreateTagsCommand(resourceName, tags).apply(init))
+fun AmazonRedshiftFunctions.createTags(resourceName: String, tags: List<com.amazonaws.services.redshift.model.Tag>, init: AmazonRedshiftCreateTagsCommand.() -> Unit): com.amazonaws.services.redshift.model.CreateTagsResult {
+	return this.block.declare(AmazonRedshiftCreateTagsCommand(resourceName, tags).apply(init)) as com.amazonaws.services.redshift.model.CreateTagsResult
 }
 
 @Generated
-class AmazonRedshiftCreateTagsCommand(val resourceName: String, val tags: List<com.amazonaws.services.redshift.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.CreateTagsRequest> {
+class AmazonRedshiftCreateTagsCommand(val resourceName: String, val tags: List<com.amazonaws.services.redshift.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.CreateTagsRequest, com.amazonaws.services.redshift.model.CreateTagsResult> {
 
 
 
@@ -514,8 +562,12 @@ class AmazonRedshiftCreateTagsCommand(val resourceName: String, val tags: List<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.createTags(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.CreateTagsResult {
+	  return com.amazonaws.services.redshift.model.CreateTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.CreateTagsResult {
+		return environment.redshift.createTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -527,12 +579,12 @@ class AmazonRedshiftCreateTagsCommand(val resourceName: String, val tags: List<c
 }
 
 
-fun AmazonRedshiftFunctions.deleteCluster(clusterIdentifier: String, init: AmazonRedshiftDeleteClusterCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDeleteClusterCommand(clusterIdentifier).apply(init))
+fun AmazonRedshiftFunctions.deleteCluster(clusterIdentifier: String, init: AmazonRedshiftDeleteClusterCommand.() -> Unit): com.amazonaws.services.redshift.model.Cluster {
+	return this.block.declare(AmazonRedshiftDeleteClusterCommand(clusterIdentifier).apply(init)) as com.amazonaws.services.redshift.model.Cluster
 }
 
 @Generated
-class AmazonRedshiftDeleteClusterCommand(val clusterIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DeleteClusterRequest> {
+class AmazonRedshiftDeleteClusterCommand(val clusterIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DeleteClusterRequest, com.amazonaws.services.redshift.model.Cluster> {
 
 	var skipFinalClusterSnapshot: Boolean? = false
 	var finalClusterSnapshotIdentifier: String? = null
@@ -545,8 +597,12 @@ class AmazonRedshiftDeleteClusterCommand(val clusterIdentifier: String) : Amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.deleteCluster(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.Cluster {
+	  return com.amazonaws.services.redshift.model.Cluster()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.Cluster {
+		return environment.redshift.deleteCluster(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -559,12 +615,12 @@ class AmazonRedshiftDeleteClusterCommand(val clusterIdentifier: String) : Amazon
 }
 
 
-fun AmazonRedshiftFunctions.deleteClusterParameterGroup(parameterGroupName: String, init: AmazonRedshiftDeleteClusterParameterGroupCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDeleteClusterParameterGroupCommand(parameterGroupName).apply(init))
+fun AmazonRedshiftFunctions.deleteClusterParameterGroup(parameterGroupName: String, init: AmazonRedshiftDeleteClusterParameterGroupCommand.() -> Unit): com.amazonaws.services.redshift.model.DeleteClusterParameterGroupResult {
+	return this.block.declare(AmazonRedshiftDeleteClusterParameterGroupCommand(parameterGroupName).apply(init)) as com.amazonaws.services.redshift.model.DeleteClusterParameterGroupResult
 }
 
 @Generated
-class AmazonRedshiftDeleteClusterParameterGroupCommand(val parameterGroupName: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DeleteClusterParameterGroupRequest> {
+class AmazonRedshiftDeleteClusterParameterGroupCommand(val parameterGroupName: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DeleteClusterParameterGroupRequest, com.amazonaws.services.redshift.model.DeleteClusterParameterGroupResult> {
 
 
 
@@ -574,8 +630,12 @@ class AmazonRedshiftDeleteClusterParameterGroupCommand(val parameterGroupName: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.deleteClusterParameterGroup(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.DeleteClusterParameterGroupResult {
+	  return com.amazonaws.services.redshift.model.DeleteClusterParameterGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DeleteClusterParameterGroupResult {
+		return environment.redshift.deleteClusterParameterGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -586,12 +646,12 @@ class AmazonRedshiftDeleteClusterParameterGroupCommand(val parameterGroupName: S
 }
 
 
-fun AmazonRedshiftFunctions.deleteClusterSecurityGroup(clusterSecurityGroupName: String, init: AmazonRedshiftDeleteClusterSecurityGroupCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDeleteClusterSecurityGroupCommand(clusterSecurityGroupName).apply(init))
+fun AmazonRedshiftFunctions.deleteClusterSecurityGroup(clusterSecurityGroupName: String, init: AmazonRedshiftDeleteClusterSecurityGroupCommand.() -> Unit): com.amazonaws.services.redshift.model.DeleteClusterSecurityGroupResult {
+	return this.block.declare(AmazonRedshiftDeleteClusterSecurityGroupCommand(clusterSecurityGroupName).apply(init)) as com.amazonaws.services.redshift.model.DeleteClusterSecurityGroupResult
 }
 
 @Generated
-class AmazonRedshiftDeleteClusterSecurityGroupCommand(val clusterSecurityGroupName: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DeleteClusterSecurityGroupRequest> {
+class AmazonRedshiftDeleteClusterSecurityGroupCommand(val clusterSecurityGroupName: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DeleteClusterSecurityGroupRequest, com.amazonaws.services.redshift.model.DeleteClusterSecurityGroupResult> {
 
 
 
@@ -601,8 +661,12 @@ class AmazonRedshiftDeleteClusterSecurityGroupCommand(val clusterSecurityGroupNa
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.deleteClusterSecurityGroup(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.DeleteClusterSecurityGroupResult {
+	  return com.amazonaws.services.redshift.model.DeleteClusterSecurityGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DeleteClusterSecurityGroupResult {
+		return environment.redshift.deleteClusterSecurityGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -613,12 +677,12 @@ class AmazonRedshiftDeleteClusterSecurityGroupCommand(val clusterSecurityGroupNa
 }
 
 
-fun AmazonRedshiftFunctions.deleteClusterSnapshot(snapshotIdentifier: String, init: AmazonRedshiftDeleteClusterSnapshotCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDeleteClusterSnapshotCommand(snapshotIdentifier).apply(init))
+fun AmazonRedshiftFunctions.deleteClusterSnapshot(snapshotIdentifier: String, init: AmazonRedshiftDeleteClusterSnapshotCommand.() -> Unit): com.amazonaws.services.redshift.model.Snapshot {
+	return this.block.declare(AmazonRedshiftDeleteClusterSnapshotCommand(snapshotIdentifier).apply(init)) as com.amazonaws.services.redshift.model.Snapshot
 }
 
 @Generated
-class AmazonRedshiftDeleteClusterSnapshotCommand(val snapshotIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DeleteClusterSnapshotRequest> {
+class AmazonRedshiftDeleteClusterSnapshotCommand(val snapshotIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DeleteClusterSnapshotRequest, com.amazonaws.services.redshift.model.Snapshot> {
 
 	var snapshotClusterIdentifier: String? = null
 
@@ -629,8 +693,12 @@ class AmazonRedshiftDeleteClusterSnapshotCommand(val snapshotIdentifier: String)
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.deleteClusterSnapshot(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.Snapshot {
+	  return com.amazonaws.services.redshift.model.Snapshot()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.Snapshot {
+		return environment.redshift.deleteClusterSnapshot(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -642,12 +710,12 @@ class AmazonRedshiftDeleteClusterSnapshotCommand(val snapshotIdentifier: String)
 }
 
 
-fun AmazonRedshiftFunctions.deleteClusterSubnetGroup(clusterSubnetGroupName: String, init: AmazonRedshiftDeleteClusterSubnetGroupCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDeleteClusterSubnetGroupCommand(clusterSubnetGroupName).apply(init))
+fun AmazonRedshiftFunctions.deleteClusterSubnetGroup(clusterSubnetGroupName: String, init: AmazonRedshiftDeleteClusterSubnetGroupCommand.() -> Unit): com.amazonaws.services.redshift.model.DeleteClusterSubnetGroupResult {
+	return this.block.declare(AmazonRedshiftDeleteClusterSubnetGroupCommand(clusterSubnetGroupName).apply(init)) as com.amazonaws.services.redshift.model.DeleteClusterSubnetGroupResult
 }
 
 @Generated
-class AmazonRedshiftDeleteClusterSubnetGroupCommand(val clusterSubnetGroupName: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DeleteClusterSubnetGroupRequest> {
+class AmazonRedshiftDeleteClusterSubnetGroupCommand(val clusterSubnetGroupName: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DeleteClusterSubnetGroupRequest, com.amazonaws.services.redshift.model.DeleteClusterSubnetGroupResult> {
 
 
 
@@ -657,8 +725,12 @@ class AmazonRedshiftDeleteClusterSubnetGroupCommand(val clusterSubnetGroupName: 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.deleteClusterSubnetGroup(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.DeleteClusterSubnetGroupResult {
+	  return com.amazonaws.services.redshift.model.DeleteClusterSubnetGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DeleteClusterSubnetGroupResult {
+		return environment.redshift.deleteClusterSubnetGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -669,12 +741,12 @@ class AmazonRedshiftDeleteClusterSubnetGroupCommand(val clusterSubnetGroupName: 
 }
 
 
-fun AmazonRedshiftFunctions.deleteEventSubscription(subscriptionName: String, init: AmazonRedshiftDeleteEventSubscriptionCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDeleteEventSubscriptionCommand(subscriptionName).apply(init))
+fun AmazonRedshiftFunctions.deleteEventSubscription(subscriptionName: String, init: AmazonRedshiftDeleteEventSubscriptionCommand.() -> Unit): com.amazonaws.services.redshift.model.DeleteEventSubscriptionResult {
+	return this.block.declare(AmazonRedshiftDeleteEventSubscriptionCommand(subscriptionName).apply(init)) as com.amazonaws.services.redshift.model.DeleteEventSubscriptionResult
 }
 
 @Generated
-class AmazonRedshiftDeleteEventSubscriptionCommand(val subscriptionName: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DeleteEventSubscriptionRequest> {
+class AmazonRedshiftDeleteEventSubscriptionCommand(val subscriptionName: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DeleteEventSubscriptionRequest, com.amazonaws.services.redshift.model.DeleteEventSubscriptionResult> {
 
 
 
@@ -684,8 +756,12 @@ class AmazonRedshiftDeleteEventSubscriptionCommand(val subscriptionName: String)
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.deleteEventSubscription(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.DeleteEventSubscriptionResult {
+	  return com.amazonaws.services.redshift.model.DeleteEventSubscriptionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DeleteEventSubscriptionResult {
+		return environment.redshift.deleteEventSubscription(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -696,12 +772,12 @@ class AmazonRedshiftDeleteEventSubscriptionCommand(val subscriptionName: String)
 }
 
 
-fun AmazonRedshiftFunctions.deleteHsmClientCertificate(hsmClientCertificateIdentifier: String, init: AmazonRedshiftDeleteHsmClientCertificateCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDeleteHsmClientCertificateCommand(hsmClientCertificateIdentifier).apply(init))
+fun AmazonRedshiftFunctions.deleteHsmClientCertificate(hsmClientCertificateIdentifier: String, init: AmazonRedshiftDeleteHsmClientCertificateCommand.() -> Unit): com.amazonaws.services.redshift.model.DeleteHsmClientCertificateResult {
+	return this.block.declare(AmazonRedshiftDeleteHsmClientCertificateCommand(hsmClientCertificateIdentifier).apply(init)) as com.amazonaws.services.redshift.model.DeleteHsmClientCertificateResult
 }
 
 @Generated
-class AmazonRedshiftDeleteHsmClientCertificateCommand(val hsmClientCertificateIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DeleteHsmClientCertificateRequest> {
+class AmazonRedshiftDeleteHsmClientCertificateCommand(val hsmClientCertificateIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DeleteHsmClientCertificateRequest, com.amazonaws.services.redshift.model.DeleteHsmClientCertificateResult> {
 
 
 
@@ -711,8 +787,12 @@ class AmazonRedshiftDeleteHsmClientCertificateCommand(val hsmClientCertificateId
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.deleteHsmClientCertificate(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.DeleteHsmClientCertificateResult {
+	  return com.amazonaws.services.redshift.model.DeleteHsmClientCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DeleteHsmClientCertificateResult {
+		return environment.redshift.deleteHsmClientCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -723,12 +803,12 @@ class AmazonRedshiftDeleteHsmClientCertificateCommand(val hsmClientCertificateId
 }
 
 
-fun AmazonRedshiftFunctions.deleteHsmConfiguration(hsmConfigurationIdentifier: String, init: AmazonRedshiftDeleteHsmConfigurationCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDeleteHsmConfigurationCommand(hsmConfigurationIdentifier).apply(init))
+fun AmazonRedshiftFunctions.deleteHsmConfiguration(hsmConfigurationIdentifier: String, init: AmazonRedshiftDeleteHsmConfigurationCommand.() -> Unit): com.amazonaws.services.redshift.model.DeleteHsmConfigurationResult {
+	return this.block.declare(AmazonRedshiftDeleteHsmConfigurationCommand(hsmConfigurationIdentifier).apply(init)) as com.amazonaws.services.redshift.model.DeleteHsmConfigurationResult
 }
 
 @Generated
-class AmazonRedshiftDeleteHsmConfigurationCommand(val hsmConfigurationIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DeleteHsmConfigurationRequest> {
+class AmazonRedshiftDeleteHsmConfigurationCommand(val hsmConfigurationIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DeleteHsmConfigurationRequest, com.amazonaws.services.redshift.model.DeleteHsmConfigurationResult> {
 
 
 
@@ -738,8 +818,12 @@ class AmazonRedshiftDeleteHsmConfigurationCommand(val hsmConfigurationIdentifier
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.deleteHsmConfiguration(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.DeleteHsmConfigurationResult {
+	  return com.amazonaws.services.redshift.model.DeleteHsmConfigurationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DeleteHsmConfigurationResult {
+		return environment.redshift.deleteHsmConfiguration(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -750,12 +834,12 @@ class AmazonRedshiftDeleteHsmConfigurationCommand(val hsmConfigurationIdentifier
 }
 
 
-fun AmazonRedshiftFunctions.deleteSnapshotCopyGrant(snapshotCopyGrantName: String, init: AmazonRedshiftDeleteSnapshotCopyGrantCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDeleteSnapshotCopyGrantCommand(snapshotCopyGrantName).apply(init))
+fun AmazonRedshiftFunctions.deleteSnapshotCopyGrant(snapshotCopyGrantName: String, init: AmazonRedshiftDeleteSnapshotCopyGrantCommand.() -> Unit): com.amazonaws.services.redshift.model.DeleteSnapshotCopyGrantResult {
+	return this.block.declare(AmazonRedshiftDeleteSnapshotCopyGrantCommand(snapshotCopyGrantName).apply(init)) as com.amazonaws.services.redshift.model.DeleteSnapshotCopyGrantResult
 }
 
 @Generated
-class AmazonRedshiftDeleteSnapshotCopyGrantCommand(val snapshotCopyGrantName: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DeleteSnapshotCopyGrantRequest> {
+class AmazonRedshiftDeleteSnapshotCopyGrantCommand(val snapshotCopyGrantName: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DeleteSnapshotCopyGrantRequest, com.amazonaws.services.redshift.model.DeleteSnapshotCopyGrantResult> {
 
 
 
@@ -765,8 +849,12 @@ class AmazonRedshiftDeleteSnapshotCopyGrantCommand(val snapshotCopyGrantName: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.deleteSnapshotCopyGrant(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.DeleteSnapshotCopyGrantResult {
+	  return com.amazonaws.services.redshift.model.DeleteSnapshotCopyGrantResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DeleteSnapshotCopyGrantResult {
+		return environment.redshift.deleteSnapshotCopyGrant(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -777,12 +865,12 @@ class AmazonRedshiftDeleteSnapshotCopyGrantCommand(val snapshotCopyGrantName: St
 }
 
 
-fun AmazonRedshiftFunctions.deleteTags(resourceName: String, tagKeys: List<String>, init: AmazonRedshiftDeleteTagsCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDeleteTagsCommand(resourceName, tagKeys).apply(init))
+fun AmazonRedshiftFunctions.deleteTags(resourceName: String, tagKeys: List<String>, init: AmazonRedshiftDeleteTagsCommand.() -> Unit): com.amazonaws.services.redshift.model.DeleteTagsResult {
+	return this.block.declare(AmazonRedshiftDeleteTagsCommand(resourceName, tagKeys).apply(init)) as com.amazonaws.services.redshift.model.DeleteTagsResult
 }
 
 @Generated
-class AmazonRedshiftDeleteTagsCommand(val resourceName: String, val tagKeys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DeleteTagsRequest> {
+class AmazonRedshiftDeleteTagsCommand(val resourceName: String, val tagKeys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DeleteTagsRequest, com.amazonaws.services.redshift.model.DeleteTagsResult> {
 
 
 
@@ -793,8 +881,12 @@ class AmazonRedshiftDeleteTagsCommand(val resourceName: String, val tagKeys: Lis
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.deleteTags(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.DeleteTagsResult {
+	  return com.amazonaws.services.redshift.model.DeleteTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DeleteTagsResult {
+		return environment.redshift.deleteTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -806,12 +898,12 @@ class AmazonRedshiftDeleteTagsCommand(val resourceName: String, val tagKeys: Lis
 }
 
 
-fun AmazonRedshiftFunctions.describeClusterParameterGroups(init: AmazonRedshiftDescribeClusterParameterGroupsCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDescribeClusterParameterGroupsCommand().apply(init))
+fun AmazonRedshiftFunctions.describeClusterParameterGroups(init: AmazonRedshiftDescribeClusterParameterGroupsCommand.() -> Unit): com.amazonaws.services.redshift.model.DescribeClusterParameterGroupsResult {
+	return this.block.declare(AmazonRedshiftDescribeClusterParameterGroupsCommand().apply(init)) as com.amazonaws.services.redshift.model.DescribeClusterParameterGroupsResult
 }
 
 @Generated
-class AmazonRedshiftDescribeClusterParameterGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeClusterParameterGroupsRequest> {
+class AmazonRedshiftDescribeClusterParameterGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeClusterParameterGroupsRequest, com.amazonaws.services.redshift.model.DescribeClusterParameterGroupsResult> {
 
 	var parameterGroupName: String? = null
 	var maxRecords: Int? = 0
@@ -829,8 +921,12 @@ class AmazonRedshiftDescribeClusterParameterGroupsCommand() : AmazonWebServiceCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.describeClusterParameterGroups(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeClusterParameterGroupsResult {
+	  return com.amazonaws.services.redshift.model.DescribeClusterParameterGroupsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeClusterParameterGroupsResult {
+		return environment.redshift.describeClusterParameterGroups(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -845,12 +941,12 @@ class AmazonRedshiftDescribeClusterParameterGroupsCommand() : AmazonWebServiceCo
 }
 
 
-fun AmazonRedshiftFunctions.describeClusterParameters(parameterGroupName: String, init: AmazonRedshiftDescribeClusterParametersCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDescribeClusterParametersCommand(parameterGroupName).apply(init))
+fun AmazonRedshiftFunctions.describeClusterParameters(parameterGroupName: String, init: AmazonRedshiftDescribeClusterParametersCommand.() -> Unit): com.amazonaws.services.redshift.model.DescribeClusterParametersResult {
+	return this.block.declare(AmazonRedshiftDescribeClusterParametersCommand(parameterGroupName).apply(init)) as com.amazonaws.services.redshift.model.DescribeClusterParametersResult
 }
 
 @Generated
-class AmazonRedshiftDescribeClusterParametersCommand(val parameterGroupName: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeClusterParametersRequest> {
+class AmazonRedshiftDescribeClusterParametersCommand(val parameterGroupName: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeClusterParametersRequest, com.amazonaws.services.redshift.model.DescribeClusterParametersResult> {
 
 	var source: String? = null
 	var maxRecords: Int? = 0
@@ -865,8 +961,12 @@ class AmazonRedshiftDescribeClusterParametersCommand(val parameterGroupName: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.describeClusterParameters(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeClusterParametersResult {
+	  return com.amazonaws.services.redshift.model.DescribeClusterParametersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeClusterParametersResult {
+		return environment.redshift.describeClusterParameters(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -880,12 +980,12 @@ class AmazonRedshiftDescribeClusterParametersCommand(val parameterGroupName: Str
 }
 
 
-fun AmazonRedshiftFunctions.describeClusterSecurityGroups(init: AmazonRedshiftDescribeClusterSecurityGroupsCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDescribeClusterSecurityGroupsCommand().apply(init))
+fun AmazonRedshiftFunctions.describeClusterSecurityGroups(init: AmazonRedshiftDescribeClusterSecurityGroupsCommand.() -> Unit): com.amazonaws.services.redshift.model.DescribeClusterSecurityGroupsResult {
+	return this.block.declare(AmazonRedshiftDescribeClusterSecurityGroupsCommand().apply(init)) as com.amazonaws.services.redshift.model.DescribeClusterSecurityGroupsResult
 }
 
 @Generated
-class AmazonRedshiftDescribeClusterSecurityGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeClusterSecurityGroupsRequest> {
+class AmazonRedshiftDescribeClusterSecurityGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeClusterSecurityGroupsRequest, com.amazonaws.services.redshift.model.DescribeClusterSecurityGroupsResult> {
 
 	var clusterSecurityGroupName: String? = null
 	var maxRecords: Int? = 0
@@ -903,8 +1003,12 @@ class AmazonRedshiftDescribeClusterSecurityGroupsCommand() : AmazonWebServiceCom
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.describeClusterSecurityGroups(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeClusterSecurityGroupsResult {
+	  return com.amazonaws.services.redshift.model.DescribeClusterSecurityGroupsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeClusterSecurityGroupsResult {
+		return environment.redshift.describeClusterSecurityGroups(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -919,12 +1023,12 @@ class AmazonRedshiftDescribeClusterSecurityGroupsCommand() : AmazonWebServiceCom
 }
 
 
-fun AmazonRedshiftFunctions.describeClusterSnapshots(init: AmazonRedshiftDescribeClusterSnapshotsCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDescribeClusterSnapshotsCommand().apply(init))
+fun AmazonRedshiftFunctions.describeClusterSnapshots(init: AmazonRedshiftDescribeClusterSnapshotsCommand.() -> Unit): com.amazonaws.services.redshift.model.DescribeClusterSnapshotsResult {
+	return this.block.declare(AmazonRedshiftDescribeClusterSnapshotsCommand().apply(init)) as com.amazonaws.services.redshift.model.DescribeClusterSnapshotsResult
 }
 
 @Generated
-class AmazonRedshiftDescribeClusterSnapshotsCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeClusterSnapshotsRequest> {
+class AmazonRedshiftDescribeClusterSnapshotsCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeClusterSnapshotsRequest, com.amazonaws.services.redshift.model.DescribeClusterSnapshotsResult> {
 
 	var clusterIdentifier: String? = null
 	var snapshotIdentifier: String? = null
@@ -954,8 +1058,12 @@ class AmazonRedshiftDescribeClusterSnapshotsCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.describeClusterSnapshots(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeClusterSnapshotsResult {
+	  return com.amazonaws.services.redshift.model.DescribeClusterSnapshotsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeClusterSnapshotsResult {
+		return environment.redshift.describeClusterSnapshots(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -976,12 +1084,12 @@ class AmazonRedshiftDescribeClusterSnapshotsCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AmazonRedshiftFunctions.describeClusterSubnetGroups(init: AmazonRedshiftDescribeClusterSubnetGroupsCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDescribeClusterSubnetGroupsCommand().apply(init))
+fun AmazonRedshiftFunctions.describeClusterSubnetGroups(init: AmazonRedshiftDescribeClusterSubnetGroupsCommand.() -> Unit): com.amazonaws.services.redshift.model.DescribeClusterSubnetGroupsResult {
+	return this.block.declare(AmazonRedshiftDescribeClusterSubnetGroupsCommand().apply(init)) as com.amazonaws.services.redshift.model.DescribeClusterSubnetGroupsResult
 }
 
 @Generated
-class AmazonRedshiftDescribeClusterSubnetGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeClusterSubnetGroupsRequest> {
+class AmazonRedshiftDescribeClusterSubnetGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeClusterSubnetGroupsRequest, com.amazonaws.services.redshift.model.DescribeClusterSubnetGroupsResult> {
 
 	var clusterSubnetGroupName: String? = null
 	var maxRecords: Int? = 0
@@ -999,8 +1107,12 @@ class AmazonRedshiftDescribeClusterSubnetGroupsCommand() : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.describeClusterSubnetGroups(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeClusterSubnetGroupsResult {
+	  return com.amazonaws.services.redshift.model.DescribeClusterSubnetGroupsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeClusterSubnetGroupsResult {
+		return environment.redshift.describeClusterSubnetGroups(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1015,12 +1127,12 @@ class AmazonRedshiftDescribeClusterSubnetGroupsCommand() : AmazonWebServiceComma
 }
 
 
-fun AmazonRedshiftFunctions.describeClusterVersions(init: AmazonRedshiftDescribeClusterVersionsCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDescribeClusterVersionsCommand().apply(init))
+fun AmazonRedshiftFunctions.describeClusterVersions(init: AmazonRedshiftDescribeClusterVersionsCommand.() -> Unit): com.amazonaws.services.redshift.model.DescribeClusterVersionsResult {
+	return this.block.declare(AmazonRedshiftDescribeClusterVersionsCommand().apply(init)) as com.amazonaws.services.redshift.model.DescribeClusterVersionsResult
 }
 
 @Generated
-class AmazonRedshiftDescribeClusterVersionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeClusterVersionsRequest> {
+class AmazonRedshiftDescribeClusterVersionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeClusterVersionsRequest, com.amazonaws.services.redshift.model.DescribeClusterVersionsResult> {
 
 	var clusterVersion: String? = null
 	var clusterParameterGroupFamily: String? = null
@@ -1036,8 +1148,12 @@ class AmazonRedshiftDescribeClusterVersionsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.describeClusterVersions(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeClusterVersionsResult {
+	  return com.amazonaws.services.redshift.model.DescribeClusterVersionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeClusterVersionsResult {
+		return environment.redshift.describeClusterVersions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1051,12 +1167,12 @@ class AmazonRedshiftDescribeClusterVersionsCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AmazonRedshiftFunctions.describeClusters(init: AmazonRedshiftDescribeClustersCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDescribeClustersCommand().apply(init))
+fun AmazonRedshiftFunctions.describeClusters(init: AmazonRedshiftDescribeClustersCommand.() -> Unit): com.amazonaws.services.redshift.model.DescribeClustersResult {
+	return this.block.declare(AmazonRedshiftDescribeClustersCommand().apply(init)) as com.amazonaws.services.redshift.model.DescribeClustersResult
 }
 
 @Generated
-class AmazonRedshiftDescribeClustersCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeClustersRequest> {
+class AmazonRedshiftDescribeClustersCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeClustersRequest, com.amazonaws.services.redshift.model.DescribeClustersResult> {
 
 	var clusterIdentifier: String? = null
 	var maxRecords: Int? = 0
@@ -1074,8 +1190,12 @@ class AmazonRedshiftDescribeClustersCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.describeClusters(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeClustersResult {
+	  return com.amazonaws.services.redshift.model.DescribeClustersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeClustersResult {
+		return environment.redshift.describeClusters(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1090,12 +1210,12 @@ class AmazonRedshiftDescribeClustersCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AmazonRedshiftFunctions.describeDefaultClusterParameters(parameterGroupFamily: String, init: AmazonRedshiftDescribeDefaultClusterParametersCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDescribeDefaultClusterParametersCommand(parameterGroupFamily).apply(init))
+fun AmazonRedshiftFunctions.describeDefaultClusterParameters(parameterGroupFamily: String, init: AmazonRedshiftDescribeDefaultClusterParametersCommand.() -> Unit): com.amazonaws.services.redshift.model.DefaultClusterParameters {
+	return this.block.declare(AmazonRedshiftDescribeDefaultClusterParametersCommand(parameterGroupFamily).apply(init)) as com.amazonaws.services.redshift.model.DefaultClusterParameters
 }
 
 @Generated
-class AmazonRedshiftDescribeDefaultClusterParametersCommand(val parameterGroupFamily: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeDefaultClusterParametersRequest> {
+class AmazonRedshiftDescribeDefaultClusterParametersCommand(val parameterGroupFamily: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeDefaultClusterParametersRequest, com.amazonaws.services.redshift.model.DefaultClusterParameters> {
 
 	var maxRecords: Int? = 0
 	var marker: String? = null
@@ -1108,8 +1228,12 @@ class AmazonRedshiftDescribeDefaultClusterParametersCommand(val parameterGroupFa
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.describeDefaultClusterParameters(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.DefaultClusterParameters {
+	  return com.amazonaws.services.redshift.model.DefaultClusterParameters()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DefaultClusterParameters {
+		return environment.redshift.describeDefaultClusterParameters(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1122,12 +1246,12 @@ class AmazonRedshiftDescribeDefaultClusterParametersCommand(val parameterGroupFa
 }
 
 
-fun AmazonRedshiftFunctions.describeEventCategories(init: AmazonRedshiftDescribeEventCategoriesCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDescribeEventCategoriesCommand().apply(init))
+fun AmazonRedshiftFunctions.describeEventCategories(init: AmazonRedshiftDescribeEventCategoriesCommand.() -> Unit): com.amazonaws.services.redshift.model.DescribeEventCategoriesResult {
+	return this.block.declare(AmazonRedshiftDescribeEventCategoriesCommand().apply(init)) as com.amazonaws.services.redshift.model.DescribeEventCategoriesResult
 }
 
 @Generated
-class AmazonRedshiftDescribeEventCategoriesCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeEventCategoriesRequest> {
+class AmazonRedshiftDescribeEventCategoriesCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeEventCategoriesRequest, com.amazonaws.services.redshift.model.DescribeEventCategoriesResult> {
 
 	var sourceType: String? = null
 
@@ -1137,8 +1261,12 @@ class AmazonRedshiftDescribeEventCategoriesCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.describeEventCategories(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeEventCategoriesResult {
+	  return com.amazonaws.services.redshift.model.DescribeEventCategoriesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeEventCategoriesResult {
+		return environment.redshift.describeEventCategories(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1149,12 +1277,12 @@ class AmazonRedshiftDescribeEventCategoriesCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AmazonRedshiftFunctions.describeEventSubscriptions(init: AmazonRedshiftDescribeEventSubscriptionsCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDescribeEventSubscriptionsCommand().apply(init))
+fun AmazonRedshiftFunctions.describeEventSubscriptions(init: AmazonRedshiftDescribeEventSubscriptionsCommand.() -> Unit): com.amazonaws.services.redshift.model.DescribeEventSubscriptionsResult {
+	return this.block.declare(AmazonRedshiftDescribeEventSubscriptionsCommand().apply(init)) as com.amazonaws.services.redshift.model.DescribeEventSubscriptionsResult
 }
 
 @Generated
-class AmazonRedshiftDescribeEventSubscriptionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeEventSubscriptionsRequest> {
+class AmazonRedshiftDescribeEventSubscriptionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeEventSubscriptionsRequest, com.amazonaws.services.redshift.model.DescribeEventSubscriptionsResult> {
 
 	var subscriptionName: String? = null
 	var maxRecords: Int? = 0
@@ -1172,8 +1300,12 @@ class AmazonRedshiftDescribeEventSubscriptionsCommand() : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.describeEventSubscriptions(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeEventSubscriptionsResult {
+	  return com.amazonaws.services.redshift.model.DescribeEventSubscriptionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeEventSubscriptionsResult {
+		return environment.redshift.describeEventSubscriptions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1188,12 +1320,12 @@ class AmazonRedshiftDescribeEventSubscriptionsCommand() : AmazonWebServiceComman
 }
 
 
-fun AmazonRedshiftFunctions.describeEvents(init: AmazonRedshiftDescribeEventsCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDescribeEventsCommand().apply(init))
+fun AmazonRedshiftFunctions.describeEvents(init: AmazonRedshiftDescribeEventsCommand.() -> Unit): com.amazonaws.services.redshift.model.DescribeEventsResult {
+	return this.block.declare(AmazonRedshiftDescribeEventsCommand().apply(init)) as com.amazonaws.services.redshift.model.DescribeEventsResult
 }
 
 @Generated
-class AmazonRedshiftDescribeEventsCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeEventsRequest> {
+class AmazonRedshiftDescribeEventsCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeEventsRequest, com.amazonaws.services.redshift.model.DescribeEventsResult> {
 
 	var sourceIdentifier: String? = null
 	var sourceType: SourceType? = null
@@ -1215,8 +1347,12 @@ class AmazonRedshiftDescribeEventsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.describeEvents(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeEventsResult {
+	  return com.amazonaws.services.redshift.model.DescribeEventsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeEventsResult {
+		return environment.redshift.describeEvents(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1233,12 +1369,12 @@ class AmazonRedshiftDescribeEventsCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonRedshiftFunctions.describeHsmClientCertificates(init: AmazonRedshiftDescribeHsmClientCertificatesCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDescribeHsmClientCertificatesCommand().apply(init))
+fun AmazonRedshiftFunctions.describeHsmClientCertificates(init: AmazonRedshiftDescribeHsmClientCertificatesCommand.() -> Unit): com.amazonaws.services.redshift.model.DescribeHsmClientCertificatesResult {
+	return this.block.declare(AmazonRedshiftDescribeHsmClientCertificatesCommand().apply(init)) as com.amazonaws.services.redshift.model.DescribeHsmClientCertificatesResult
 }
 
 @Generated
-class AmazonRedshiftDescribeHsmClientCertificatesCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeHsmClientCertificatesRequest> {
+class AmazonRedshiftDescribeHsmClientCertificatesCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeHsmClientCertificatesRequest, com.amazonaws.services.redshift.model.DescribeHsmClientCertificatesResult> {
 
 	var hsmClientCertificateIdentifier: String? = null
 	var maxRecords: Int? = 0
@@ -1256,8 +1392,12 @@ class AmazonRedshiftDescribeHsmClientCertificatesCommand() : AmazonWebServiceCom
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.describeHsmClientCertificates(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeHsmClientCertificatesResult {
+	  return com.amazonaws.services.redshift.model.DescribeHsmClientCertificatesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeHsmClientCertificatesResult {
+		return environment.redshift.describeHsmClientCertificates(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1272,12 +1412,12 @@ class AmazonRedshiftDescribeHsmClientCertificatesCommand() : AmazonWebServiceCom
 }
 
 
-fun AmazonRedshiftFunctions.describeHsmConfigurations(init: AmazonRedshiftDescribeHsmConfigurationsCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDescribeHsmConfigurationsCommand().apply(init))
+fun AmazonRedshiftFunctions.describeHsmConfigurations(init: AmazonRedshiftDescribeHsmConfigurationsCommand.() -> Unit): com.amazonaws.services.redshift.model.DescribeHsmConfigurationsResult {
+	return this.block.declare(AmazonRedshiftDescribeHsmConfigurationsCommand().apply(init)) as com.amazonaws.services.redshift.model.DescribeHsmConfigurationsResult
 }
 
 @Generated
-class AmazonRedshiftDescribeHsmConfigurationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeHsmConfigurationsRequest> {
+class AmazonRedshiftDescribeHsmConfigurationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeHsmConfigurationsRequest, com.amazonaws.services.redshift.model.DescribeHsmConfigurationsResult> {
 
 	var hsmConfigurationIdentifier: String? = null
 	var maxRecords: Int? = 0
@@ -1295,8 +1435,12 @@ class AmazonRedshiftDescribeHsmConfigurationsCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.describeHsmConfigurations(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeHsmConfigurationsResult {
+	  return com.amazonaws.services.redshift.model.DescribeHsmConfigurationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeHsmConfigurationsResult {
+		return environment.redshift.describeHsmConfigurations(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1311,12 +1455,12 @@ class AmazonRedshiftDescribeHsmConfigurationsCommand() : AmazonWebServiceCommand
 }
 
 
-fun AmazonRedshiftFunctions.describeLoggingStatus(clusterIdentifier: String, init: AmazonRedshiftDescribeLoggingStatusCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDescribeLoggingStatusCommand(clusterIdentifier).apply(init))
+fun AmazonRedshiftFunctions.describeLoggingStatus(clusterIdentifier: String, init: AmazonRedshiftDescribeLoggingStatusCommand.() -> Unit): com.amazonaws.services.redshift.model.DescribeLoggingStatusResult {
+	return this.block.declare(AmazonRedshiftDescribeLoggingStatusCommand(clusterIdentifier).apply(init)) as com.amazonaws.services.redshift.model.DescribeLoggingStatusResult
 }
 
 @Generated
-class AmazonRedshiftDescribeLoggingStatusCommand(val clusterIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeLoggingStatusRequest> {
+class AmazonRedshiftDescribeLoggingStatusCommand(val clusterIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeLoggingStatusRequest, com.amazonaws.services.redshift.model.DescribeLoggingStatusResult> {
 
 
 
@@ -1326,8 +1470,12 @@ class AmazonRedshiftDescribeLoggingStatusCommand(val clusterIdentifier: String) 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.describeLoggingStatus(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeLoggingStatusResult {
+	  return com.amazonaws.services.redshift.model.DescribeLoggingStatusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeLoggingStatusResult {
+		return environment.redshift.describeLoggingStatus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1338,12 +1486,12 @@ class AmazonRedshiftDescribeLoggingStatusCommand(val clusterIdentifier: String) 
 }
 
 
-fun AmazonRedshiftFunctions.describeOrderableClusterOptions(init: AmazonRedshiftDescribeOrderableClusterOptionsCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDescribeOrderableClusterOptionsCommand().apply(init))
+fun AmazonRedshiftFunctions.describeOrderableClusterOptions(init: AmazonRedshiftDescribeOrderableClusterOptionsCommand.() -> Unit): com.amazonaws.services.redshift.model.DescribeOrderableClusterOptionsResult {
+	return this.block.declare(AmazonRedshiftDescribeOrderableClusterOptionsCommand().apply(init)) as com.amazonaws.services.redshift.model.DescribeOrderableClusterOptionsResult
 }
 
 @Generated
-class AmazonRedshiftDescribeOrderableClusterOptionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeOrderableClusterOptionsRequest> {
+class AmazonRedshiftDescribeOrderableClusterOptionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeOrderableClusterOptionsRequest, com.amazonaws.services.redshift.model.DescribeOrderableClusterOptionsResult> {
 
 	var clusterVersion: String? = null
 	var nodeType: String? = null
@@ -1359,8 +1507,12 @@ class AmazonRedshiftDescribeOrderableClusterOptionsCommand() : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.describeOrderableClusterOptions(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeOrderableClusterOptionsResult {
+	  return com.amazonaws.services.redshift.model.DescribeOrderableClusterOptionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeOrderableClusterOptionsResult {
+		return environment.redshift.describeOrderableClusterOptions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1374,12 +1526,12 @@ class AmazonRedshiftDescribeOrderableClusterOptionsCommand() : AmazonWebServiceC
 }
 
 
-fun AmazonRedshiftFunctions.describeReservedNodeOfferings(init: AmazonRedshiftDescribeReservedNodeOfferingsCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDescribeReservedNodeOfferingsCommand().apply(init))
+fun AmazonRedshiftFunctions.describeReservedNodeOfferings(init: AmazonRedshiftDescribeReservedNodeOfferingsCommand.() -> Unit): com.amazonaws.services.redshift.model.DescribeReservedNodeOfferingsResult {
+	return this.block.declare(AmazonRedshiftDescribeReservedNodeOfferingsCommand().apply(init)) as com.amazonaws.services.redshift.model.DescribeReservedNodeOfferingsResult
 }
 
 @Generated
-class AmazonRedshiftDescribeReservedNodeOfferingsCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeReservedNodeOfferingsRequest> {
+class AmazonRedshiftDescribeReservedNodeOfferingsCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeReservedNodeOfferingsRequest, com.amazonaws.services.redshift.model.DescribeReservedNodeOfferingsResult> {
 
 	var reservedNodeOfferingId: String? = null
 	var maxRecords: Int? = 0
@@ -1393,8 +1545,12 @@ class AmazonRedshiftDescribeReservedNodeOfferingsCommand() : AmazonWebServiceCom
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.describeReservedNodeOfferings(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeReservedNodeOfferingsResult {
+	  return com.amazonaws.services.redshift.model.DescribeReservedNodeOfferingsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeReservedNodeOfferingsResult {
+		return environment.redshift.describeReservedNodeOfferings(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1407,12 +1563,12 @@ class AmazonRedshiftDescribeReservedNodeOfferingsCommand() : AmazonWebServiceCom
 }
 
 
-fun AmazonRedshiftFunctions.describeReservedNodes(init: AmazonRedshiftDescribeReservedNodesCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDescribeReservedNodesCommand().apply(init))
+fun AmazonRedshiftFunctions.describeReservedNodes(init: AmazonRedshiftDescribeReservedNodesCommand.() -> Unit): com.amazonaws.services.redshift.model.DescribeReservedNodesResult {
+	return this.block.declare(AmazonRedshiftDescribeReservedNodesCommand().apply(init)) as com.amazonaws.services.redshift.model.DescribeReservedNodesResult
 }
 
 @Generated
-class AmazonRedshiftDescribeReservedNodesCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeReservedNodesRequest> {
+class AmazonRedshiftDescribeReservedNodesCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeReservedNodesRequest, com.amazonaws.services.redshift.model.DescribeReservedNodesResult> {
 
 	var reservedNodeId: String? = null
 	var maxRecords: Int? = 0
@@ -1426,8 +1582,12 @@ class AmazonRedshiftDescribeReservedNodesCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.describeReservedNodes(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeReservedNodesResult {
+	  return com.amazonaws.services.redshift.model.DescribeReservedNodesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeReservedNodesResult {
+		return environment.redshift.describeReservedNodes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1440,12 +1600,12 @@ class AmazonRedshiftDescribeReservedNodesCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AmazonRedshiftFunctions.describeResize(clusterIdentifier: String, init: AmazonRedshiftDescribeResizeCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDescribeResizeCommand(clusterIdentifier).apply(init))
+fun AmazonRedshiftFunctions.describeResize(clusterIdentifier: String, init: AmazonRedshiftDescribeResizeCommand.() -> Unit): com.amazonaws.services.redshift.model.DescribeResizeResult {
+	return this.block.declare(AmazonRedshiftDescribeResizeCommand(clusterIdentifier).apply(init)) as com.amazonaws.services.redshift.model.DescribeResizeResult
 }
 
 @Generated
-class AmazonRedshiftDescribeResizeCommand(val clusterIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeResizeRequest> {
+class AmazonRedshiftDescribeResizeCommand(val clusterIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeResizeRequest, com.amazonaws.services.redshift.model.DescribeResizeResult> {
 
 
 
@@ -1455,8 +1615,12 @@ class AmazonRedshiftDescribeResizeCommand(val clusterIdentifier: String) : Amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.describeResize(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeResizeResult {
+	  return com.amazonaws.services.redshift.model.DescribeResizeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeResizeResult {
+		return environment.redshift.describeResize(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1467,12 +1631,12 @@ class AmazonRedshiftDescribeResizeCommand(val clusterIdentifier: String) : Amazo
 }
 
 
-fun AmazonRedshiftFunctions.describeSnapshotCopyGrants(init: AmazonRedshiftDescribeSnapshotCopyGrantsCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDescribeSnapshotCopyGrantsCommand().apply(init))
+fun AmazonRedshiftFunctions.describeSnapshotCopyGrants(init: AmazonRedshiftDescribeSnapshotCopyGrantsCommand.() -> Unit): com.amazonaws.services.redshift.model.DescribeSnapshotCopyGrantsResult {
+	return this.block.declare(AmazonRedshiftDescribeSnapshotCopyGrantsCommand().apply(init)) as com.amazonaws.services.redshift.model.DescribeSnapshotCopyGrantsResult
 }
 
 @Generated
-class AmazonRedshiftDescribeSnapshotCopyGrantsCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeSnapshotCopyGrantsRequest> {
+class AmazonRedshiftDescribeSnapshotCopyGrantsCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeSnapshotCopyGrantsRequest, com.amazonaws.services.redshift.model.DescribeSnapshotCopyGrantsResult> {
 
 	var snapshotCopyGrantName: String? = null
 	var maxRecords: Int? = 0
@@ -1490,8 +1654,12 @@ class AmazonRedshiftDescribeSnapshotCopyGrantsCommand() : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.describeSnapshotCopyGrants(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeSnapshotCopyGrantsResult {
+	  return com.amazonaws.services.redshift.model.DescribeSnapshotCopyGrantsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeSnapshotCopyGrantsResult {
+		return environment.redshift.describeSnapshotCopyGrants(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1506,12 +1674,12 @@ class AmazonRedshiftDescribeSnapshotCopyGrantsCommand() : AmazonWebServiceComman
 }
 
 
-fun AmazonRedshiftFunctions.describeTableRestoreStatus(init: AmazonRedshiftDescribeTableRestoreStatusCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDescribeTableRestoreStatusCommand().apply(init))
+fun AmazonRedshiftFunctions.describeTableRestoreStatus(init: AmazonRedshiftDescribeTableRestoreStatusCommand.() -> Unit): com.amazonaws.services.redshift.model.DescribeTableRestoreStatusResult {
+	return this.block.declare(AmazonRedshiftDescribeTableRestoreStatusCommand().apply(init)) as com.amazonaws.services.redshift.model.DescribeTableRestoreStatusResult
 }
 
 @Generated
-class AmazonRedshiftDescribeTableRestoreStatusCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeTableRestoreStatusRequest> {
+class AmazonRedshiftDescribeTableRestoreStatusCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeTableRestoreStatusRequest, com.amazonaws.services.redshift.model.DescribeTableRestoreStatusResult> {
 
 	var clusterIdentifier: String? = null
 	var tableRestoreRequestId: String? = null
@@ -1527,8 +1695,12 @@ class AmazonRedshiftDescribeTableRestoreStatusCommand() : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.describeTableRestoreStatus(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeTableRestoreStatusResult {
+	  return com.amazonaws.services.redshift.model.DescribeTableRestoreStatusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeTableRestoreStatusResult {
+		return environment.redshift.describeTableRestoreStatus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1542,12 +1714,12 @@ class AmazonRedshiftDescribeTableRestoreStatusCommand() : AmazonWebServiceComman
 }
 
 
-fun AmazonRedshiftFunctions.describeTags(init: AmazonRedshiftDescribeTagsCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDescribeTagsCommand().apply(init))
+fun AmazonRedshiftFunctions.describeTags(init: AmazonRedshiftDescribeTagsCommand.() -> Unit): com.amazonaws.services.redshift.model.DescribeTagsResult {
+	return this.block.declare(AmazonRedshiftDescribeTagsCommand().apply(init)) as com.amazonaws.services.redshift.model.DescribeTagsResult
 }
 
 @Generated
-class AmazonRedshiftDescribeTagsCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeTagsRequest> {
+class AmazonRedshiftDescribeTagsCommand() : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DescribeTagsRequest, com.amazonaws.services.redshift.model.DescribeTagsResult> {
 
 	var resourceName: String? = null
 	var resourceType: String? = null
@@ -1567,8 +1739,12 @@ class AmazonRedshiftDescribeTagsCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.describeTags(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.DescribeTagsResult {
+	  return com.amazonaws.services.redshift.model.DescribeTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DescribeTagsResult {
+		return environment.redshift.describeTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1584,12 +1760,12 @@ class AmazonRedshiftDescribeTagsCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AmazonRedshiftFunctions.disableLogging(clusterIdentifier: String, init: AmazonRedshiftDisableLoggingCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDisableLoggingCommand(clusterIdentifier).apply(init))
+fun AmazonRedshiftFunctions.disableLogging(clusterIdentifier: String, init: AmazonRedshiftDisableLoggingCommand.() -> Unit): com.amazonaws.services.redshift.model.DisableLoggingResult {
+	return this.block.declare(AmazonRedshiftDisableLoggingCommand(clusterIdentifier).apply(init)) as com.amazonaws.services.redshift.model.DisableLoggingResult
 }
 
 @Generated
-class AmazonRedshiftDisableLoggingCommand(val clusterIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DisableLoggingRequest> {
+class AmazonRedshiftDisableLoggingCommand(val clusterIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DisableLoggingRequest, com.amazonaws.services.redshift.model.DisableLoggingResult> {
 
 
 
@@ -1599,8 +1775,12 @@ class AmazonRedshiftDisableLoggingCommand(val clusterIdentifier: String) : Amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.disableLogging(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.DisableLoggingResult {
+	  return com.amazonaws.services.redshift.model.DisableLoggingResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.DisableLoggingResult {
+		return environment.redshift.disableLogging(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1611,12 +1791,12 @@ class AmazonRedshiftDisableLoggingCommand(val clusterIdentifier: String) : Amazo
 }
 
 
-fun AmazonRedshiftFunctions.disableSnapshotCopy(clusterIdentifier: String, init: AmazonRedshiftDisableSnapshotCopyCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftDisableSnapshotCopyCommand(clusterIdentifier).apply(init))
+fun AmazonRedshiftFunctions.disableSnapshotCopy(clusterIdentifier: String, init: AmazonRedshiftDisableSnapshotCopyCommand.() -> Unit): com.amazonaws.services.redshift.model.Cluster {
+	return this.block.declare(AmazonRedshiftDisableSnapshotCopyCommand(clusterIdentifier).apply(init)) as com.amazonaws.services.redshift.model.Cluster
 }
 
 @Generated
-class AmazonRedshiftDisableSnapshotCopyCommand(val clusterIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DisableSnapshotCopyRequest> {
+class AmazonRedshiftDisableSnapshotCopyCommand(val clusterIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.DisableSnapshotCopyRequest, com.amazonaws.services.redshift.model.Cluster> {
 
 
 
@@ -1626,8 +1806,12 @@ class AmazonRedshiftDisableSnapshotCopyCommand(val clusterIdentifier: String) : 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.disableSnapshotCopy(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.Cluster {
+	  return com.amazonaws.services.redshift.model.Cluster()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.Cluster {
+		return environment.redshift.disableSnapshotCopy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1638,12 +1822,12 @@ class AmazonRedshiftDisableSnapshotCopyCommand(val clusterIdentifier: String) : 
 }
 
 
-fun AmazonRedshiftFunctions.enableLogging(clusterIdentifier: String, bucketName: String, init: AmazonRedshiftEnableLoggingCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftEnableLoggingCommand(clusterIdentifier, bucketName).apply(init))
+fun AmazonRedshiftFunctions.enableLogging(clusterIdentifier: String, bucketName: String, init: AmazonRedshiftEnableLoggingCommand.() -> Unit): com.amazonaws.services.redshift.model.EnableLoggingResult {
+	return this.block.declare(AmazonRedshiftEnableLoggingCommand(clusterIdentifier, bucketName).apply(init)) as com.amazonaws.services.redshift.model.EnableLoggingResult
 }
 
 @Generated
-class AmazonRedshiftEnableLoggingCommand(val clusterIdentifier: String, val bucketName: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.EnableLoggingRequest> {
+class AmazonRedshiftEnableLoggingCommand(val clusterIdentifier: String, val bucketName: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.EnableLoggingRequest, com.amazonaws.services.redshift.model.EnableLoggingResult> {
 
 	var s3KeyPrefix: String? = null
 
@@ -1655,8 +1839,12 @@ class AmazonRedshiftEnableLoggingCommand(val clusterIdentifier: String, val buck
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.enableLogging(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.EnableLoggingResult {
+	  return com.amazonaws.services.redshift.model.EnableLoggingResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.EnableLoggingResult {
+		return environment.redshift.enableLogging(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1669,12 +1857,12 @@ class AmazonRedshiftEnableLoggingCommand(val clusterIdentifier: String, val buck
 }
 
 
-fun AmazonRedshiftFunctions.enableSnapshotCopy(clusterIdentifier: String, destinationRegion: String, init: AmazonRedshiftEnableSnapshotCopyCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftEnableSnapshotCopyCommand(clusterIdentifier, destinationRegion).apply(init))
+fun AmazonRedshiftFunctions.enableSnapshotCopy(clusterIdentifier: String, destinationRegion: String, init: AmazonRedshiftEnableSnapshotCopyCommand.() -> Unit): com.amazonaws.services.redshift.model.Cluster {
+	return this.block.declare(AmazonRedshiftEnableSnapshotCopyCommand(clusterIdentifier, destinationRegion).apply(init)) as com.amazonaws.services.redshift.model.Cluster
 }
 
 @Generated
-class AmazonRedshiftEnableSnapshotCopyCommand(val clusterIdentifier: String, val destinationRegion: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.EnableSnapshotCopyRequest> {
+class AmazonRedshiftEnableSnapshotCopyCommand(val clusterIdentifier: String, val destinationRegion: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.EnableSnapshotCopyRequest, com.amazonaws.services.redshift.model.Cluster> {
 
 	var retentionPeriod: Int? = 0
 	var snapshotCopyGrantName: String? = null
@@ -1688,8 +1876,12 @@ class AmazonRedshiftEnableSnapshotCopyCommand(val clusterIdentifier: String, val
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.enableSnapshotCopy(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.Cluster {
+	  return com.amazonaws.services.redshift.model.Cluster()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.Cluster {
+		return environment.redshift.enableSnapshotCopy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1703,12 +1895,12 @@ class AmazonRedshiftEnableSnapshotCopyCommand(val clusterIdentifier: String, val
 }
 
 
-fun AmazonRedshiftFunctions.getClusterCredentials(dbUser: String, clusterIdentifier: String, init: AmazonRedshiftGetClusterCredentialsCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftGetClusterCredentialsCommand(dbUser, clusterIdentifier).apply(init))
+fun AmazonRedshiftFunctions.getClusterCredentials(dbUser: String, clusterIdentifier: String, init: AmazonRedshiftGetClusterCredentialsCommand.() -> Unit): com.amazonaws.services.redshift.model.GetClusterCredentialsResult {
+	return this.block.declare(AmazonRedshiftGetClusterCredentialsCommand(dbUser, clusterIdentifier).apply(init)) as com.amazonaws.services.redshift.model.GetClusterCredentialsResult
 }
 
 @Generated
-class AmazonRedshiftGetClusterCredentialsCommand(val dbUser: String, val clusterIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.GetClusterCredentialsRequest> {
+class AmazonRedshiftGetClusterCredentialsCommand(val dbUser: String, val clusterIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.GetClusterCredentialsRequest, com.amazonaws.services.redshift.model.GetClusterCredentialsResult> {
 
 	var dbName: String? = null
 	var durationSeconds: Int? = 0
@@ -1726,8 +1918,12 @@ class AmazonRedshiftGetClusterCredentialsCommand(val dbUser: String, val cluster
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.getClusterCredentials(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.GetClusterCredentialsResult {
+	  return com.amazonaws.services.redshift.model.GetClusterCredentialsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.GetClusterCredentialsResult {
+		return environment.redshift.getClusterCredentials(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1743,12 +1939,12 @@ class AmazonRedshiftGetClusterCredentialsCommand(val dbUser: String, val cluster
 }
 
 
-fun AmazonRedshiftFunctions.modifyCluster(clusterIdentifier: String, init: AmazonRedshiftModifyClusterCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftModifyClusterCommand(clusterIdentifier).apply(init))
+fun AmazonRedshiftFunctions.modifyCluster(clusterIdentifier: String, init: AmazonRedshiftModifyClusterCommand.() -> Unit): com.amazonaws.services.redshift.model.Cluster {
+	return this.block.declare(AmazonRedshiftModifyClusterCommand(clusterIdentifier).apply(init)) as com.amazonaws.services.redshift.model.Cluster
 }
 
 @Generated
-class AmazonRedshiftModifyClusterCommand(val clusterIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.ModifyClusterRequest> {
+class AmazonRedshiftModifyClusterCommand(val clusterIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.ModifyClusterRequest, com.amazonaws.services.redshift.model.Cluster> {
 
 	var clusterType: String? = null
 	var nodeType: String? = null
@@ -1791,8 +1987,12 @@ class AmazonRedshiftModifyClusterCommand(val clusterIdentifier: String) : Amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.modifyCluster(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.Cluster {
+	  return com.amazonaws.services.redshift.model.Cluster()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.Cluster {
+		return environment.redshift.modifyCluster(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1820,12 +2020,12 @@ class AmazonRedshiftModifyClusterCommand(val clusterIdentifier: String) : Amazon
 }
 
 
-fun AmazonRedshiftFunctions.modifyClusterIamRoles(clusterIdentifier: String, init: AmazonRedshiftModifyClusterIamRolesCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftModifyClusterIamRolesCommand(clusterIdentifier).apply(init))
+fun AmazonRedshiftFunctions.modifyClusterIamRoles(clusterIdentifier: String, init: AmazonRedshiftModifyClusterIamRolesCommand.() -> Unit): com.amazonaws.services.redshift.model.Cluster {
+	return this.block.declare(AmazonRedshiftModifyClusterIamRolesCommand(clusterIdentifier).apply(init)) as com.amazonaws.services.redshift.model.Cluster
 }
 
 @Generated
-class AmazonRedshiftModifyClusterIamRolesCommand(val clusterIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.ModifyClusterIamRolesRequest> {
+class AmazonRedshiftModifyClusterIamRolesCommand(val clusterIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.ModifyClusterIamRolesRequest, com.amazonaws.services.redshift.model.Cluster> {
 
 	var addIamRoles: List<String>? = null
 	var removeIamRoles: List<String>? = null
@@ -1838,8 +2038,12 @@ class AmazonRedshiftModifyClusterIamRolesCommand(val clusterIdentifier: String) 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.modifyClusterIamRoles(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.Cluster {
+	  return com.amazonaws.services.redshift.model.Cluster()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.Cluster {
+		return environment.redshift.modifyClusterIamRoles(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1852,12 +2056,12 @@ class AmazonRedshiftModifyClusterIamRolesCommand(val clusterIdentifier: String) 
 }
 
 
-fun AmazonRedshiftFunctions.modifyClusterParameterGroup(parameterGroupName: String, parameters: List<com.amazonaws.services.redshift.model.Parameter>, init: AmazonRedshiftModifyClusterParameterGroupCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftModifyClusterParameterGroupCommand(parameterGroupName, parameters).apply(init))
+fun AmazonRedshiftFunctions.modifyClusterParameterGroup(parameterGroupName: String, parameters: List<com.amazonaws.services.redshift.model.Parameter>, init: AmazonRedshiftModifyClusterParameterGroupCommand.() -> Unit): com.amazonaws.services.redshift.model.ModifyClusterParameterGroupResult {
+	return this.block.declare(AmazonRedshiftModifyClusterParameterGroupCommand(parameterGroupName, parameters).apply(init)) as com.amazonaws.services.redshift.model.ModifyClusterParameterGroupResult
 }
 
 @Generated
-class AmazonRedshiftModifyClusterParameterGroupCommand(val parameterGroupName: String, val parameters: List<com.amazonaws.services.redshift.model.Parameter>) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.ModifyClusterParameterGroupRequest> {
+class AmazonRedshiftModifyClusterParameterGroupCommand(val parameterGroupName: String, val parameters: List<com.amazonaws.services.redshift.model.Parameter>) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.ModifyClusterParameterGroupRequest, com.amazonaws.services.redshift.model.ModifyClusterParameterGroupResult> {
 
 
 
@@ -1868,8 +2072,12 @@ class AmazonRedshiftModifyClusterParameterGroupCommand(val parameterGroupName: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.modifyClusterParameterGroup(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.ModifyClusterParameterGroupResult {
+	  return com.amazonaws.services.redshift.model.ModifyClusterParameterGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.ModifyClusterParameterGroupResult {
+		return environment.redshift.modifyClusterParameterGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1881,12 +2089,12 @@ class AmazonRedshiftModifyClusterParameterGroupCommand(val parameterGroupName: S
 }
 
 
-fun AmazonRedshiftFunctions.modifyClusterSubnetGroup(clusterSubnetGroupName: String, subnetIds: List<String>, init: AmazonRedshiftModifyClusterSubnetGroupCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftModifyClusterSubnetGroupCommand(clusterSubnetGroupName, subnetIds).apply(init))
+fun AmazonRedshiftFunctions.modifyClusterSubnetGroup(clusterSubnetGroupName: String, subnetIds: List<String>, init: AmazonRedshiftModifyClusterSubnetGroupCommand.() -> Unit): com.amazonaws.services.redshift.model.ClusterSubnetGroup {
+	return this.block.declare(AmazonRedshiftModifyClusterSubnetGroupCommand(clusterSubnetGroupName, subnetIds).apply(init)) as com.amazonaws.services.redshift.model.ClusterSubnetGroup
 }
 
 @Generated
-class AmazonRedshiftModifyClusterSubnetGroupCommand(val clusterSubnetGroupName: String, val subnetIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.ModifyClusterSubnetGroupRequest> {
+class AmazonRedshiftModifyClusterSubnetGroupCommand(val clusterSubnetGroupName: String, val subnetIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.ModifyClusterSubnetGroupRequest, com.amazonaws.services.redshift.model.ClusterSubnetGroup> {
 
 	var description: String? = null
 
@@ -1898,8 +2106,12 @@ class AmazonRedshiftModifyClusterSubnetGroupCommand(val clusterSubnetGroupName: 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.modifyClusterSubnetGroup(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.ClusterSubnetGroup {
+	  return com.amazonaws.services.redshift.model.ClusterSubnetGroup()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.ClusterSubnetGroup {
+		return environment.redshift.modifyClusterSubnetGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1912,12 +2124,12 @@ class AmazonRedshiftModifyClusterSubnetGroupCommand(val clusterSubnetGroupName: 
 }
 
 
-fun AmazonRedshiftFunctions.modifyEventSubscription(subscriptionName: String, init: AmazonRedshiftModifyEventSubscriptionCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftModifyEventSubscriptionCommand(subscriptionName).apply(init))
+fun AmazonRedshiftFunctions.modifyEventSubscription(subscriptionName: String, init: AmazonRedshiftModifyEventSubscriptionCommand.() -> Unit): com.amazonaws.services.redshift.model.EventSubscription {
+	return this.block.declare(AmazonRedshiftModifyEventSubscriptionCommand(subscriptionName).apply(init)) as com.amazonaws.services.redshift.model.EventSubscription
 }
 
 @Generated
-class AmazonRedshiftModifyEventSubscriptionCommand(val subscriptionName: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.ModifyEventSubscriptionRequest> {
+class AmazonRedshiftModifyEventSubscriptionCommand(val subscriptionName: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.ModifyEventSubscriptionRequest, com.amazonaws.services.redshift.model.EventSubscription> {
 
 	var snsTopicArn: String? = null
 	var sourceType: String? = null
@@ -1938,8 +2150,12 @@ class AmazonRedshiftModifyEventSubscriptionCommand(val subscriptionName: String)
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.modifyEventSubscription(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.EventSubscription {
+	  return com.amazonaws.services.redshift.model.EventSubscription()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.EventSubscription {
+		return environment.redshift.modifyEventSubscription(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1956,12 +2172,12 @@ class AmazonRedshiftModifyEventSubscriptionCommand(val subscriptionName: String)
 }
 
 
-fun AmazonRedshiftFunctions.modifySnapshotCopyRetentionPeriod(clusterIdentifier: String, retentionPeriod: Int, init: AmazonRedshiftModifySnapshotCopyRetentionPeriodCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftModifySnapshotCopyRetentionPeriodCommand(clusterIdentifier, retentionPeriod).apply(init))
+fun AmazonRedshiftFunctions.modifySnapshotCopyRetentionPeriod(clusterIdentifier: String, retentionPeriod: Int, init: AmazonRedshiftModifySnapshotCopyRetentionPeriodCommand.() -> Unit): com.amazonaws.services.redshift.model.Cluster {
+	return this.block.declare(AmazonRedshiftModifySnapshotCopyRetentionPeriodCommand(clusterIdentifier, retentionPeriod).apply(init)) as com.amazonaws.services.redshift.model.Cluster
 }
 
 @Generated
-class AmazonRedshiftModifySnapshotCopyRetentionPeriodCommand(val clusterIdentifier: String, val retentionPeriod: Int) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.ModifySnapshotCopyRetentionPeriodRequest> {
+class AmazonRedshiftModifySnapshotCopyRetentionPeriodCommand(val clusterIdentifier: String, val retentionPeriod: Int) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.ModifySnapshotCopyRetentionPeriodRequest, com.amazonaws.services.redshift.model.Cluster> {
 
 
 
@@ -1972,8 +2188,12 @@ class AmazonRedshiftModifySnapshotCopyRetentionPeriodCommand(val clusterIdentifi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.modifySnapshotCopyRetentionPeriod(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.Cluster {
+	  return com.amazonaws.services.redshift.model.Cluster()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.Cluster {
+		return environment.redshift.modifySnapshotCopyRetentionPeriod(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1985,12 +2205,12 @@ class AmazonRedshiftModifySnapshotCopyRetentionPeriodCommand(val clusterIdentifi
 }
 
 
-fun AmazonRedshiftFunctions.purchaseReservedNodeOffering(reservedNodeOfferingId: String, init: AmazonRedshiftPurchaseReservedNodeOfferingCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftPurchaseReservedNodeOfferingCommand(reservedNodeOfferingId).apply(init))
+fun AmazonRedshiftFunctions.purchaseReservedNodeOffering(reservedNodeOfferingId: String, init: AmazonRedshiftPurchaseReservedNodeOfferingCommand.() -> Unit): com.amazonaws.services.redshift.model.ReservedNode {
+	return this.block.declare(AmazonRedshiftPurchaseReservedNodeOfferingCommand(reservedNodeOfferingId).apply(init)) as com.amazonaws.services.redshift.model.ReservedNode
 }
 
 @Generated
-class AmazonRedshiftPurchaseReservedNodeOfferingCommand(val reservedNodeOfferingId: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.PurchaseReservedNodeOfferingRequest> {
+class AmazonRedshiftPurchaseReservedNodeOfferingCommand(val reservedNodeOfferingId: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.PurchaseReservedNodeOfferingRequest, com.amazonaws.services.redshift.model.ReservedNode> {
 
 	var nodeCount: Int? = 0
 
@@ -2001,8 +2221,12 @@ class AmazonRedshiftPurchaseReservedNodeOfferingCommand(val reservedNodeOffering
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.purchaseReservedNodeOffering(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.ReservedNode {
+	  return com.amazonaws.services.redshift.model.ReservedNode()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.ReservedNode {
+		return environment.redshift.purchaseReservedNodeOffering(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2014,12 +2238,12 @@ class AmazonRedshiftPurchaseReservedNodeOfferingCommand(val reservedNodeOffering
 }
 
 
-fun AmazonRedshiftFunctions.rebootCluster(clusterIdentifier: String, init: AmazonRedshiftRebootClusterCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftRebootClusterCommand(clusterIdentifier).apply(init))
+fun AmazonRedshiftFunctions.rebootCluster(clusterIdentifier: String, init: AmazonRedshiftRebootClusterCommand.() -> Unit): com.amazonaws.services.redshift.model.Cluster {
+	return this.block.declare(AmazonRedshiftRebootClusterCommand(clusterIdentifier).apply(init)) as com.amazonaws.services.redshift.model.Cluster
 }
 
 @Generated
-class AmazonRedshiftRebootClusterCommand(val clusterIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.RebootClusterRequest> {
+class AmazonRedshiftRebootClusterCommand(val clusterIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.RebootClusterRequest, com.amazonaws.services.redshift.model.Cluster> {
 
 
 
@@ -2029,8 +2253,12 @@ class AmazonRedshiftRebootClusterCommand(val clusterIdentifier: String) : Amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.rebootCluster(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.Cluster {
+	  return com.amazonaws.services.redshift.model.Cluster()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.Cluster {
+		return environment.redshift.rebootCluster(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2041,12 +2269,12 @@ class AmazonRedshiftRebootClusterCommand(val clusterIdentifier: String) : Amazon
 }
 
 
-fun AmazonRedshiftFunctions.resetClusterParameterGroup(parameterGroupName: String, init: AmazonRedshiftResetClusterParameterGroupCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftResetClusterParameterGroupCommand(parameterGroupName).apply(init))
+fun AmazonRedshiftFunctions.resetClusterParameterGroup(parameterGroupName: String, init: AmazonRedshiftResetClusterParameterGroupCommand.() -> Unit): com.amazonaws.services.redshift.model.ResetClusterParameterGroupResult {
+	return this.block.declare(AmazonRedshiftResetClusterParameterGroupCommand(parameterGroupName).apply(init)) as com.amazonaws.services.redshift.model.ResetClusterParameterGroupResult
 }
 
 @Generated
-class AmazonRedshiftResetClusterParameterGroupCommand(val parameterGroupName: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.ResetClusterParameterGroupRequest> {
+class AmazonRedshiftResetClusterParameterGroupCommand(val parameterGroupName: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.ResetClusterParameterGroupRequest, com.amazonaws.services.redshift.model.ResetClusterParameterGroupResult> {
 
 	var resetAllParameters: Boolean? = false
 	var parameters: List<com.amazonaws.services.redshift.model.Parameter>? = null
@@ -2059,8 +2287,12 @@ class AmazonRedshiftResetClusterParameterGroupCommand(val parameterGroupName: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.resetClusterParameterGroup(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.ResetClusterParameterGroupResult {
+	  return com.amazonaws.services.redshift.model.ResetClusterParameterGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.ResetClusterParameterGroupResult {
+		return environment.redshift.resetClusterParameterGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2073,12 +2305,12 @@ class AmazonRedshiftResetClusterParameterGroupCommand(val parameterGroupName: St
 }
 
 
-fun AmazonRedshiftFunctions.restoreFromClusterSnapshot(clusterIdentifier: String, snapshotIdentifier: String, init: AmazonRedshiftRestoreFromClusterSnapshotCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftRestoreFromClusterSnapshotCommand(clusterIdentifier, snapshotIdentifier).apply(init))
+fun AmazonRedshiftFunctions.restoreFromClusterSnapshot(clusterIdentifier: String, snapshotIdentifier: String, init: AmazonRedshiftRestoreFromClusterSnapshotCommand.() -> Unit): com.amazonaws.services.redshift.model.Cluster {
+	return this.block.declare(AmazonRedshiftRestoreFromClusterSnapshotCommand(clusterIdentifier, snapshotIdentifier).apply(init)) as com.amazonaws.services.redshift.model.Cluster
 }
 
 @Generated
-class AmazonRedshiftRestoreFromClusterSnapshotCommand(val clusterIdentifier: String, val snapshotIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.RestoreFromClusterSnapshotRequest> {
+class AmazonRedshiftRestoreFromClusterSnapshotCommand(val clusterIdentifier: String, val snapshotIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.RestoreFromClusterSnapshotRequest, com.amazonaws.services.redshift.model.Cluster> {
 
 	var snapshotClusterIdentifier: String? = null
 	var port: Int? = 0
@@ -2128,8 +2360,12 @@ class AmazonRedshiftRestoreFromClusterSnapshotCommand(val clusterIdentifier: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.restoreFromClusterSnapshot(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.Cluster {
+	  return com.amazonaws.services.redshift.model.Cluster()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.Cluster {
+		return environment.redshift.restoreFromClusterSnapshot(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2161,12 +2397,12 @@ class AmazonRedshiftRestoreFromClusterSnapshotCommand(val clusterIdentifier: Str
 }
 
 
-fun AmazonRedshiftFunctions.restoreTableFromClusterSnapshot(clusterIdentifier: String, snapshotIdentifier: String, sourceDatabaseName: String, sourceTableName: String, newTableName: String, init: AmazonRedshiftRestoreTableFromClusterSnapshotCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftRestoreTableFromClusterSnapshotCommand(clusterIdentifier, snapshotIdentifier, sourceDatabaseName, sourceTableName, newTableName).apply(init))
+fun AmazonRedshiftFunctions.restoreTableFromClusterSnapshot(clusterIdentifier: String, snapshotIdentifier: String, sourceDatabaseName: String, sourceTableName: String, newTableName: String, init: AmazonRedshiftRestoreTableFromClusterSnapshotCommand.() -> Unit): com.amazonaws.services.redshift.model.TableRestoreStatus {
+	return this.block.declare(AmazonRedshiftRestoreTableFromClusterSnapshotCommand(clusterIdentifier, snapshotIdentifier, sourceDatabaseName, sourceTableName, newTableName).apply(init)) as com.amazonaws.services.redshift.model.TableRestoreStatus
 }
 
 @Generated
-class AmazonRedshiftRestoreTableFromClusterSnapshotCommand(val clusterIdentifier: String, val snapshotIdentifier: String, val sourceDatabaseName: String, val sourceTableName: String, val newTableName: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.RestoreTableFromClusterSnapshotRequest> {
+class AmazonRedshiftRestoreTableFromClusterSnapshotCommand(val clusterIdentifier: String, val snapshotIdentifier: String, val sourceDatabaseName: String, val sourceTableName: String, val newTableName: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.RestoreTableFromClusterSnapshotRequest, com.amazonaws.services.redshift.model.TableRestoreStatus> {
 
 	var sourceSchemaName: String? = null
 	var targetDatabaseName: String? = null
@@ -2185,8 +2421,12 @@ class AmazonRedshiftRestoreTableFromClusterSnapshotCommand(val clusterIdentifier
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.restoreTableFromClusterSnapshot(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.TableRestoreStatus {
+	  return com.amazonaws.services.redshift.model.TableRestoreStatus()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.TableRestoreStatus {
+		return environment.redshift.restoreTableFromClusterSnapshot(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2204,12 +2444,12 @@ class AmazonRedshiftRestoreTableFromClusterSnapshotCommand(val clusterIdentifier
 }
 
 
-fun AmazonRedshiftFunctions.revokeClusterSecurityGroupIngress(clusterSecurityGroupName: String, init: AmazonRedshiftRevokeClusterSecurityGroupIngressCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftRevokeClusterSecurityGroupIngressCommand(clusterSecurityGroupName).apply(init))
+fun AmazonRedshiftFunctions.revokeClusterSecurityGroupIngress(clusterSecurityGroupName: String, init: AmazonRedshiftRevokeClusterSecurityGroupIngressCommand.() -> Unit): com.amazonaws.services.redshift.model.ClusterSecurityGroup {
+	return this.block.declare(AmazonRedshiftRevokeClusterSecurityGroupIngressCommand(clusterSecurityGroupName).apply(init)) as com.amazonaws.services.redshift.model.ClusterSecurityGroup
 }
 
 @Generated
-class AmazonRedshiftRevokeClusterSecurityGroupIngressCommand(val clusterSecurityGroupName: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.RevokeClusterSecurityGroupIngressRequest> {
+class AmazonRedshiftRevokeClusterSecurityGroupIngressCommand(val clusterSecurityGroupName: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.RevokeClusterSecurityGroupIngressRequest, com.amazonaws.services.redshift.model.ClusterSecurityGroup> {
 
 	var cIDRIP: String? = null
 	var eC2SecurityGroupName: String? = null
@@ -2224,8 +2464,12 @@ class AmazonRedshiftRevokeClusterSecurityGroupIngressCommand(val clusterSecurity
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.revokeClusterSecurityGroupIngress(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.ClusterSecurityGroup {
+	  return com.amazonaws.services.redshift.model.ClusterSecurityGroup()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.ClusterSecurityGroup {
+		return environment.redshift.revokeClusterSecurityGroupIngress(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2239,12 +2483,12 @@ class AmazonRedshiftRevokeClusterSecurityGroupIngressCommand(val clusterSecurity
 }
 
 
-fun AmazonRedshiftFunctions.revokeSnapshotAccess(snapshotIdentifier: String, accountWithRestoreAccess: String, init: AmazonRedshiftRevokeSnapshotAccessCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftRevokeSnapshotAccessCommand(snapshotIdentifier, accountWithRestoreAccess).apply(init))
+fun AmazonRedshiftFunctions.revokeSnapshotAccess(snapshotIdentifier: String, accountWithRestoreAccess: String, init: AmazonRedshiftRevokeSnapshotAccessCommand.() -> Unit): com.amazonaws.services.redshift.model.Snapshot {
+	return this.block.declare(AmazonRedshiftRevokeSnapshotAccessCommand(snapshotIdentifier, accountWithRestoreAccess).apply(init)) as com.amazonaws.services.redshift.model.Snapshot
 }
 
 @Generated
-class AmazonRedshiftRevokeSnapshotAccessCommand(val snapshotIdentifier: String, val accountWithRestoreAccess: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.RevokeSnapshotAccessRequest> {
+class AmazonRedshiftRevokeSnapshotAccessCommand(val snapshotIdentifier: String, val accountWithRestoreAccess: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.RevokeSnapshotAccessRequest, com.amazonaws.services.redshift.model.Snapshot> {
 
 	var snapshotClusterIdentifier: String? = null
 
@@ -2256,8 +2500,12 @@ class AmazonRedshiftRevokeSnapshotAccessCommand(val snapshotIdentifier: String, 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.revokeSnapshotAccess(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.Snapshot {
+	  return com.amazonaws.services.redshift.model.Snapshot()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.Snapshot {
+		return environment.redshift.revokeSnapshotAccess(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2270,12 +2518,12 @@ class AmazonRedshiftRevokeSnapshotAccessCommand(val snapshotIdentifier: String, 
 }
 
 
-fun AmazonRedshiftFunctions.rotateEncryptionKey(clusterIdentifier: String, init: AmazonRedshiftRotateEncryptionKeyCommand.() -> Unit) {
-	this.block.declare(AmazonRedshiftRotateEncryptionKeyCommand(clusterIdentifier).apply(init))
+fun AmazonRedshiftFunctions.rotateEncryptionKey(clusterIdentifier: String, init: AmazonRedshiftRotateEncryptionKeyCommand.() -> Unit): com.amazonaws.services.redshift.model.Cluster {
+	return this.block.declare(AmazonRedshiftRotateEncryptionKeyCommand(clusterIdentifier).apply(init)) as com.amazonaws.services.redshift.model.Cluster
 }
 
 @Generated
-class AmazonRedshiftRotateEncryptionKeyCommand(val clusterIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.RotateEncryptionKeyRequest> {
+class AmazonRedshiftRotateEncryptionKeyCommand(val clusterIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.redshift.model.RotateEncryptionKeyRequest, com.amazonaws.services.redshift.model.Cluster> {
 
 
 
@@ -2285,8 +2533,12 @@ class AmazonRedshiftRotateEncryptionKeyCommand(val clusterIdentifier: String) : 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.redshift.rotateEncryptionKey(build())
+	override fun dryResult(): com.amazonaws.services.redshift.model.Cluster {
+	  return com.amazonaws.services.redshift.model.Cluster()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.redshift.model.Cluster {
+		return environment.redshift.rotateEncryptionKey(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

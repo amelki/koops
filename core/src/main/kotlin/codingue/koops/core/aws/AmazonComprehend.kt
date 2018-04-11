@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.comprehend: AmazonComprehend
 @Generated
 class AmazonComprehendFunctions(val block: Block)
 
-infix fun AwsContinuation.comprehend(init: AmazonComprehendFunctions.() -> Unit) {
-	AmazonComprehendFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.comprehend(init: AmazonComprehendFunctions.() -> T): T {
+	return AmazonComprehendFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonComprehendFunctions.batchDetectDominantLanguage(textList: List<String>, init: AmazonComprehendBatchDetectDominantLanguageCommand.() -> Unit) {
-	this.block.declare(AmazonComprehendBatchDetectDominantLanguageCommand(textList).apply(init))
+fun AmazonComprehendFunctions.batchDetectDominantLanguage(textList: List<String>, init: AmazonComprehendBatchDetectDominantLanguageCommand.() -> Unit): com.amazonaws.services.comprehend.model.BatchDetectDominantLanguageResult {
+	return this.block.declare(AmazonComprehendBatchDetectDominantLanguageCommand(textList).apply(init)) as com.amazonaws.services.comprehend.model.BatchDetectDominantLanguageResult
 }
 
 @Generated
-class AmazonComprehendBatchDetectDominantLanguageCommand(val textList: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.comprehend.model.BatchDetectDominantLanguageRequest> {
+class AmazonComprehendBatchDetectDominantLanguageCommand(val textList: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.comprehend.model.BatchDetectDominantLanguageRequest, com.amazonaws.services.comprehend.model.BatchDetectDominantLanguageResult> {
 
 
 
@@ -41,8 +41,12 @@ class AmazonComprehendBatchDetectDominantLanguageCommand(val textList: List<Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.comprehend.batchDetectDominantLanguage(build())
+	override fun dryResult(): com.amazonaws.services.comprehend.model.BatchDetectDominantLanguageResult {
+	  return com.amazonaws.services.comprehend.model.BatchDetectDominantLanguageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.comprehend.model.BatchDetectDominantLanguageResult {
+		return environment.comprehend.batchDetectDominantLanguage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -53,12 +57,12 @@ class AmazonComprehendBatchDetectDominantLanguageCommand(val textList: List<Stri
 }
 
 
-fun AmazonComprehendFunctions.batchDetectEntities(textList: List<String>, languageCode: String, init: AmazonComprehendBatchDetectEntitiesCommand.() -> Unit) {
-	this.block.declare(AmazonComprehendBatchDetectEntitiesCommand(textList, languageCode).apply(init))
+fun AmazonComprehendFunctions.batchDetectEntities(textList: List<String>, languageCode: String, init: AmazonComprehendBatchDetectEntitiesCommand.() -> Unit): com.amazonaws.services.comprehend.model.BatchDetectEntitiesResult {
+	return this.block.declare(AmazonComprehendBatchDetectEntitiesCommand(textList, languageCode).apply(init)) as com.amazonaws.services.comprehend.model.BatchDetectEntitiesResult
 }
 
 @Generated
-class AmazonComprehendBatchDetectEntitiesCommand(val textList: List<String>, val languageCode: String) : AmazonWebServiceCommand<com.amazonaws.services.comprehend.model.BatchDetectEntitiesRequest> {
+class AmazonComprehendBatchDetectEntitiesCommand(val textList: List<String>, val languageCode: String) : AmazonWebServiceCommand<com.amazonaws.services.comprehend.model.BatchDetectEntitiesRequest, com.amazonaws.services.comprehend.model.BatchDetectEntitiesResult> {
 
 
 
@@ -69,8 +73,12 @@ class AmazonComprehendBatchDetectEntitiesCommand(val textList: List<String>, val
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.comprehend.batchDetectEntities(build())
+	override fun dryResult(): com.amazonaws.services.comprehend.model.BatchDetectEntitiesResult {
+	  return com.amazonaws.services.comprehend.model.BatchDetectEntitiesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.comprehend.model.BatchDetectEntitiesResult {
+		return environment.comprehend.batchDetectEntities(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -82,12 +90,12 @@ class AmazonComprehendBatchDetectEntitiesCommand(val textList: List<String>, val
 }
 
 
-fun AmazonComprehendFunctions.batchDetectKeyPhrases(textList: List<String>, languageCode: String, init: AmazonComprehendBatchDetectKeyPhrasesCommand.() -> Unit) {
-	this.block.declare(AmazonComprehendBatchDetectKeyPhrasesCommand(textList, languageCode).apply(init))
+fun AmazonComprehendFunctions.batchDetectKeyPhrases(textList: List<String>, languageCode: String, init: AmazonComprehendBatchDetectKeyPhrasesCommand.() -> Unit): com.amazonaws.services.comprehend.model.BatchDetectKeyPhrasesResult {
+	return this.block.declare(AmazonComprehendBatchDetectKeyPhrasesCommand(textList, languageCode).apply(init)) as com.amazonaws.services.comprehend.model.BatchDetectKeyPhrasesResult
 }
 
 @Generated
-class AmazonComprehendBatchDetectKeyPhrasesCommand(val textList: List<String>, val languageCode: String) : AmazonWebServiceCommand<com.amazonaws.services.comprehend.model.BatchDetectKeyPhrasesRequest> {
+class AmazonComprehendBatchDetectKeyPhrasesCommand(val textList: List<String>, val languageCode: String) : AmazonWebServiceCommand<com.amazonaws.services.comprehend.model.BatchDetectKeyPhrasesRequest, com.amazonaws.services.comprehend.model.BatchDetectKeyPhrasesResult> {
 
 
 
@@ -98,8 +106,12 @@ class AmazonComprehendBatchDetectKeyPhrasesCommand(val textList: List<String>, v
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.comprehend.batchDetectKeyPhrases(build())
+	override fun dryResult(): com.amazonaws.services.comprehend.model.BatchDetectKeyPhrasesResult {
+	  return com.amazonaws.services.comprehend.model.BatchDetectKeyPhrasesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.comprehend.model.BatchDetectKeyPhrasesResult {
+		return environment.comprehend.batchDetectKeyPhrases(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -111,12 +123,12 @@ class AmazonComprehendBatchDetectKeyPhrasesCommand(val textList: List<String>, v
 }
 
 
-fun AmazonComprehendFunctions.batchDetectSentiment(textList: List<String>, languageCode: String, init: AmazonComprehendBatchDetectSentimentCommand.() -> Unit) {
-	this.block.declare(AmazonComprehendBatchDetectSentimentCommand(textList, languageCode).apply(init))
+fun AmazonComprehendFunctions.batchDetectSentiment(textList: List<String>, languageCode: String, init: AmazonComprehendBatchDetectSentimentCommand.() -> Unit): com.amazonaws.services.comprehend.model.BatchDetectSentimentResult {
+	return this.block.declare(AmazonComprehendBatchDetectSentimentCommand(textList, languageCode).apply(init)) as com.amazonaws.services.comprehend.model.BatchDetectSentimentResult
 }
 
 @Generated
-class AmazonComprehendBatchDetectSentimentCommand(val textList: List<String>, val languageCode: String) : AmazonWebServiceCommand<com.amazonaws.services.comprehend.model.BatchDetectSentimentRequest> {
+class AmazonComprehendBatchDetectSentimentCommand(val textList: List<String>, val languageCode: String) : AmazonWebServiceCommand<com.amazonaws.services.comprehend.model.BatchDetectSentimentRequest, com.amazonaws.services.comprehend.model.BatchDetectSentimentResult> {
 
 
 
@@ -127,8 +139,12 @@ class AmazonComprehendBatchDetectSentimentCommand(val textList: List<String>, va
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.comprehend.batchDetectSentiment(build())
+	override fun dryResult(): com.amazonaws.services.comprehend.model.BatchDetectSentimentResult {
+	  return com.amazonaws.services.comprehend.model.BatchDetectSentimentResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.comprehend.model.BatchDetectSentimentResult {
+		return environment.comprehend.batchDetectSentiment(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -140,12 +156,12 @@ class AmazonComprehendBatchDetectSentimentCommand(val textList: List<String>, va
 }
 
 
-fun AmazonComprehendFunctions.describeTopicsDetectionJob(jobId: String, init: AmazonComprehendDescribeTopicsDetectionJobCommand.() -> Unit) {
-	this.block.declare(AmazonComprehendDescribeTopicsDetectionJobCommand(jobId).apply(init))
+fun AmazonComprehendFunctions.describeTopicsDetectionJob(jobId: String, init: AmazonComprehendDescribeTopicsDetectionJobCommand.() -> Unit): com.amazonaws.services.comprehend.model.DescribeTopicsDetectionJobResult {
+	return this.block.declare(AmazonComprehendDescribeTopicsDetectionJobCommand(jobId).apply(init)) as com.amazonaws.services.comprehend.model.DescribeTopicsDetectionJobResult
 }
 
 @Generated
-class AmazonComprehendDescribeTopicsDetectionJobCommand(val jobId: String) : AmazonWebServiceCommand<com.amazonaws.services.comprehend.model.DescribeTopicsDetectionJobRequest> {
+class AmazonComprehendDescribeTopicsDetectionJobCommand(val jobId: String) : AmazonWebServiceCommand<com.amazonaws.services.comprehend.model.DescribeTopicsDetectionJobRequest, com.amazonaws.services.comprehend.model.DescribeTopicsDetectionJobResult> {
 
 
 
@@ -155,8 +171,12 @@ class AmazonComprehendDescribeTopicsDetectionJobCommand(val jobId: String) : Ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.comprehend.describeTopicsDetectionJob(build())
+	override fun dryResult(): com.amazonaws.services.comprehend.model.DescribeTopicsDetectionJobResult {
+	  return com.amazonaws.services.comprehend.model.DescribeTopicsDetectionJobResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.comprehend.model.DescribeTopicsDetectionJobResult {
+		return environment.comprehend.describeTopicsDetectionJob(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -167,12 +187,12 @@ class AmazonComprehendDescribeTopicsDetectionJobCommand(val jobId: String) : Ama
 }
 
 
-fun AmazonComprehendFunctions.detectDominantLanguage(text: String, init: AmazonComprehendDetectDominantLanguageCommand.() -> Unit) {
-	this.block.declare(AmazonComprehendDetectDominantLanguageCommand(text).apply(init))
+fun AmazonComprehendFunctions.detectDominantLanguage(text: String, init: AmazonComprehendDetectDominantLanguageCommand.() -> Unit): com.amazonaws.services.comprehend.model.DetectDominantLanguageResult {
+	return this.block.declare(AmazonComprehendDetectDominantLanguageCommand(text).apply(init)) as com.amazonaws.services.comprehend.model.DetectDominantLanguageResult
 }
 
 @Generated
-class AmazonComprehendDetectDominantLanguageCommand(val text: String) : AmazonWebServiceCommand<com.amazonaws.services.comprehend.model.DetectDominantLanguageRequest> {
+class AmazonComprehendDetectDominantLanguageCommand(val text: String) : AmazonWebServiceCommand<com.amazonaws.services.comprehend.model.DetectDominantLanguageRequest, com.amazonaws.services.comprehend.model.DetectDominantLanguageResult> {
 
 
 
@@ -182,8 +202,12 @@ class AmazonComprehendDetectDominantLanguageCommand(val text: String) : AmazonWe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.comprehend.detectDominantLanguage(build())
+	override fun dryResult(): com.amazonaws.services.comprehend.model.DetectDominantLanguageResult {
+	  return com.amazonaws.services.comprehend.model.DetectDominantLanguageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.comprehend.model.DetectDominantLanguageResult {
+		return environment.comprehend.detectDominantLanguage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -194,12 +218,12 @@ class AmazonComprehendDetectDominantLanguageCommand(val text: String) : AmazonWe
 }
 
 
-fun AmazonComprehendFunctions.detectEntities(text: String, languageCode: LanguageCode, init: AmazonComprehendDetectEntitiesCommand.() -> Unit) {
-	this.block.declare(AmazonComprehendDetectEntitiesCommand(text, languageCode).apply(init))
+fun AmazonComprehendFunctions.detectEntities(text: String, languageCode: LanguageCode, init: AmazonComprehendDetectEntitiesCommand.() -> Unit): com.amazonaws.services.comprehend.model.DetectEntitiesResult {
+	return this.block.declare(AmazonComprehendDetectEntitiesCommand(text, languageCode).apply(init)) as com.amazonaws.services.comprehend.model.DetectEntitiesResult
 }
 
 @Generated
-class AmazonComprehendDetectEntitiesCommand(val text: String, val languageCode: LanguageCode) : AmazonWebServiceCommand<com.amazonaws.services.comprehend.model.DetectEntitiesRequest> {
+class AmazonComprehendDetectEntitiesCommand(val text: String, val languageCode: LanguageCode) : AmazonWebServiceCommand<com.amazonaws.services.comprehend.model.DetectEntitiesRequest, com.amazonaws.services.comprehend.model.DetectEntitiesResult> {
 
 
 
@@ -210,8 +234,12 @@ class AmazonComprehendDetectEntitiesCommand(val text: String, val languageCode: 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.comprehend.detectEntities(build())
+	override fun dryResult(): com.amazonaws.services.comprehend.model.DetectEntitiesResult {
+	  return com.amazonaws.services.comprehend.model.DetectEntitiesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.comprehend.model.DetectEntitiesResult {
+		return environment.comprehend.detectEntities(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -223,12 +251,12 @@ class AmazonComprehendDetectEntitiesCommand(val text: String, val languageCode: 
 }
 
 
-fun AmazonComprehendFunctions.detectKeyPhrases(text: String, languageCode: LanguageCode, init: AmazonComprehendDetectKeyPhrasesCommand.() -> Unit) {
-	this.block.declare(AmazonComprehendDetectKeyPhrasesCommand(text, languageCode).apply(init))
+fun AmazonComprehendFunctions.detectKeyPhrases(text: String, languageCode: LanguageCode, init: AmazonComprehendDetectKeyPhrasesCommand.() -> Unit): com.amazonaws.services.comprehend.model.DetectKeyPhrasesResult {
+	return this.block.declare(AmazonComprehendDetectKeyPhrasesCommand(text, languageCode).apply(init)) as com.amazonaws.services.comprehend.model.DetectKeyPhrasesResult
 }
 
 @Generated
-class AmazonComprehendDetectKeyPhrasesCommand(val text: String, val languageCode: LanguageCode) : AmazonWebServiceCommand<com.amazonaws.services.comprehend.model.DetectKeyPhrasesRequest> {
+class AmazonComprehendDetectKeyPhrasesCommand(val text: String, val languageCode: LanguageCode) : AmazonWebServiceCommand<com.amazonaws.services.comprehend.model.DetectKeyPhrasesRequest, com.amazonaws.services.comprehend.model.DetectKeyPhrasesResult> {
 
 
 
@@ -239,8 +267,12 @@ class AmazonComprehendDetectKeyPhrasesCommand(val text: String, val languageCode
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.comprehend.detectKeyPhrases(build())
+	override fun dryResult(): com.amazonaws.services.comprehend.model.DetectKeyPhrasesResult {
+	  return com.amazonaws.services.comprehend.model.DetectKeyPhrasesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.comprehend.model.DetectKeyPhrasesResult {
+		return environment.comprehend.detectKeyPhrases(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -252,12 +284,12 @@ class AmazonComprehendDetectKeyPhrasesCommand(val text: String, val languageCode
 }
 
 
-fun AmazonComprehendFunctions.detectSentiment(text: String, languageCode: LanguageCode, init: AmazonComprehendDetectSentimentCommand.() -> Unit) {
-	this.block.declare(AmazonComprehendDetectSentimentCommand(text, languageCode).apply(init))
+fun AmazonComprehendFunctions.detectSentiment(text: String, languageCode: LanguageCode, init: AmazonComprehendDetectSentimentCommand.() -> Unit): com.amazonaws.services.comprehend.model.DetectSentimentResult {
+	return this.block.declare(AmazonComprehendDetectSentimentCommand(text, languageCode).apply(init)) as com.amazonaws.services.comprehend.model.DetectSentimentResult
 }
 
 @Generated
-class AmazonComprehendDetectSentimentCommand(val text: String, val languageCode: LanguageCode) : AmazonWebServiceCommand<com.amazonaws.services.comprehend.model.DetectSentimentRequest> {
+class AmazonComprehendDetectSentimentCommand(val text: String, val languageCode: LanguageCode) : AmazonWebServiceCommand<com.amazonaws.services.comprehend.model.DetectSentimentRequest, com.amazonaws.services.comprehend.model.DetectSentimentResult> {
 
 
 
@@ -268,8 +300,12 @@ class AmazonComprehendDetectSentimentCommand(val text: String, val languageCode:
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.comprehend.detectSentiment(build())
+	override fun dryResult(): com.amazonaws.services.comprehend.model.DetectSentimentResult {
+	  return com.amazonaws.services.comprehend.model.DetectSentimentResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.comprehend.model.DetectSentimentResult {
+		return environment.comprehend.detectSentiment(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -281,12 +317,12 @@ class AmazonComprehendDetectSentimentCommand(val text: String, val languageCode:
 }
 
 
-fun AmazonComprehendFunctions.listTopicsDetectionJobs(init: AmazonComprehendListTopicsDetectionJobsCommand.() -> Unit) {
-	this.block.declare(AmazonComprehendListTopicsDetectionJobsCommand().apply(init))
+fun AmazonComprehendFunctions.listTopicsDetectionJobs(init: AmazonComprehendListTopicsDetectionJobsCommand.() -> Unit): com.amazonaws.services.comprehend.model.ListTopicsDetectionJobsResult {
+	return this.block.declare(AmazonComprehendListTopicsDetectionJobsCommand().apply(init)) as com.amazonaws.services.comprehend.model.ListTopicsDetectionJobsResult
 }
 
 @Generated
-class AmazonComprehendListTopicsDetectionJobsCommand() : AmazonWebServiceCommand<com.amazonaws.services.comprehend.model.ListTopicsDetectionJobsRequest> {
+class AmazonComprehendListTopicsDetectionJobsCommand() : AmazonWebServiceCommand<com.amazonaws.services.comprehend.model.ListTopicsDetectionJobsRequest, com.amazonaws.services.comprehend.model.ListTopicsDetectionJobsResult> {
 
 	var filter: com.amazonaws.services.comprehend.model.TopicsDetectionJobFilter? = null
 	var nextToken: String? = null
@@ -300,8 +336,12 @@ class AmazonComprehendListTopicsDetectionJobsCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.comprehend.listTopicsDetectionJobs(build())
+	override fun dryResult(): com.amazonaws.services.comprehend.model.ListTopicsDetectionJobsResult {
+	  return com.amazonaws.services.comprehend.model.ListTopicsDetectionJobsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.comprehend.model.ListTopicsDetectionJobsResult {
+		return environment.comprehend.listTopicsDetectionJobs(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -314,12 +354,12 @@ class AmazonComprehendListTopicsDetectionJobsCommand() : AmazonWebServiceCommand
 }
 
 
-fun AmazonComprehendFunctions.startTopicsDetectionJob(inputDataConfig: com.amazonaws.services.comprehend.model.InputDataConfig, outputDataConfig: com.amazonaws.services.comprehend.model.OutputDataConfig, dataAccessRoleArn: String, init: AmazonComprehendStartTopicsDetectionJobCommand.() -> Unit) {
-	this.block.declare(AmazonComprehendStartTopicsDetectionJobCommand(inputDataConfig, outputDataConfig, dataAccessRoleArn).apply(init))
+fun AmazonComprehendFunctions.startTopicsDetectionJob(inputDataConfig: com.amazonaws.services.comprehend.model.InputDataConfig, outputDataConfig: com.amazonaws.services.comprehend.model.OutputDataConfig, dataAccessRoleArn: String, init: AmazonComprehendStartTopicsDetectionJobCommand.() -> Unit): com.amazonaws.services.comprehend.model.StartTopicsDetectionJobResult {
+	return this.block.declare(AmazonComprehendStartTopicsDetectionJobCommand(inputDataConfig, outputDataConfig, dataAccessRoleArn).apply(init)) as com.amazonaws.services.comprehend.model.StartTopicsDetectionJobResult
 }
 
 @Generated
-class AmazonComprehendStartTopicsDetectionJobCommand(val inputDataConfig: com.amazonaws.services.comprehend.model.InputDataConfig, val outputDataConfig: com.amazonaws.services.comprehend.model.OutputDataConfig, val dataAccessRoleArn: String) : AmazonWebServiceCommand<com.amazonaws.services.comprehend.model.StartTopicsDetectionJobRequest> {
+class AmazonComprehendStartTopicsDetectionJobCommand(val inputDataConfig: com.amazonaws.services.comprehend.model.InputDataConfig, val outputDataConfig: com.amazonaws.services.comprehend.model.OutputDataConfig, val dataAccessRoleArn: String) : AmazonWebServiceCommand<com.amazonaws.services.comprehend.model.StartTopicsDetectionJobRequest, com.amazonaws.services.comprehend.model.StartTopicsDetectionJobResult> {
 
 	var jobName: String? = null
 	var numberOfTopics: Int? = 0
@@ -336,8 +376,12 @@ class AmazonComprehendStartTopicsDetectionJobCommand(val inputDataConfig: com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.comprehend.startTopicsDetectionJob(build())
+	override fun dryResult(): com.amazonaws.services.comprehend.model.StartTopicsDetectionJobResult {
+	  return com.amazonaws.services.comprehend.model.StartTopicsDetectionJobResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.comprehend.model.StartTopicsDetectionJobResult {
+		return environment.comprehend.startTopicsDetectionJob(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

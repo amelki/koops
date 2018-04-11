@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.connect: AmazonConnect
 @Generated
 class AmazonConnectFunctions(val block: Block)
 
-infix fun AwsContinuation.connect(init: AmazonConnectFunctions.() -> Unit) {
-	AmazonConnectFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.connect(init: AmazonConnectFunctions.() -> T): T {
+	return AmazonConnectFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonConnectFunctions.startOutboundVoiceContact(destinationPhoneNumber: String, contactFlowId: String, instanceId: String, init: AmazonConnectStartOutboundVoiceContactCommand.() -> Unit) {
-	this.block.declare(AmazonConnectStartOutboundVoiceContactCommand(destinationPhoneNumber, contactFlowId, instanceId).apply(init))
+fun AmazonConnectFunctions.startOutboundVoiceContact(destinationPhoneNumber: String, contactFlowId: String, instanceId: String, init: AmazonConnectStartOutboundVoiceContactCommand.() -> Unit): com.amazonaws.services.connect.model.StartOutboundVoiceContactResult {
+	return this.block.declare(AmazonConnectStartOutboundVoiceContactCommand(destinationPhoneNumber, contactFlowId, instanceId).apply(init)) as com.amazonaws.services.connect.model.StartOutboundVoiceContactResult
 }
 
 @Generated
-class AmazonConnectStartOutboundVoiceContactCommand(val destinationPhoneNumber: String, val contactFlowId: String, val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.connect.model.StartOutboundVoiceContactRequest> {
+class AmazonConnectStartOutboundVoiceContactCommand(val destinationPhoneNumber: String, val contactFlowId: String, val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.connect.model.StartOutboundVoiceContactRequest, com.amazonaws.services.connect.model.StartOutboundVoiceContactResult> {
 
 	var clientToken: String? = null
 	var sourcePhoneNumber: String? = null
@@ -50,8 +50,12 @@ class AmazonConnectStartOutboundVoiceContactCommand(val destinationPhoneNumber: 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.connect.startOutboundVoiceContact(build())
+	override fun dryResult(): com.amazonaws.services.connect.model.StartOutboundVoiceContactResult {
+	  return com.amazonaws.services.connect.model.StartOutboundVoiceContactResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.connect.model.StartOutboundVoiceContactResult {
+		return environment.connect.startOutboundVoiceContact(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -68,12 +72,12 @@ class AmazonConnectStartOutboundVoiceContactCommand(val destinationPhoneNumber: 
 }
 
 
-fun AmazonConnectFunctions.stopContact(contactId: String, instanceId: String, init: AmazonConnectStopContactCommand.() -> Unit) {
-	this.block.declare(AmazonConnectStopContactCommand(contactId, instanceId).apply(init))
+fun AmazonConnectFunctions.stopContact(contactId: String, instanceId: String, init: AmazonConnectStopContactCommand.() -> Unit): com.amazonaws.services.connect.model.StopContactResult {
+	return this.block.declare(AmazonConnectStopContactCommand(contactId, instanceId).apply(init)) as com.amazonaws.services.connect.model.StopContactResult
 }
 
 @Generated
-class AmazonConnectStopContactCommand(val contactId: String, val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.connect.model.StopContactRequest> {
+class AmazonConnectStopContactCommand(val contactId: String, val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.connect.model.StopContactRequest, com.amazonaws.services.connect.model.StopContactResult> {
 
 
 
@@ -84,8 +88,12 @@ class AmazonConnectStopContactCommand(val contactId: String, val instanceId: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.connect.stopContact(build())
+	override fun dryResult(): com.amazonaws.services.connect.model.StopContactResult {
+	  return com.amazonaws.services.connect.model.StopContactResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.connect.model.StopContactResult {
+		return environment.connect.stopContact(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.storagegateway: AWSStorageGateway
 @Generated
 class AWSStorageGatewayFunctions(val block: Block)
 
-infix fun AwsContinuation.storagegateway(init: AWSStorageGatewayFunctions.() -> Unit) {
-	AWSStorageGatewayFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.storagegateway(init: AWSStorageGatewayFunctions.() -> T): T {
+	return AWSStorageGatewayFunctions(shell).run(init)
 }
 
 			
 
-fun AWSStorageGatewayFunctions.activateGateway(activationKey: String, gatewayName: String, gatewayTimezone: String, gatewayRegion: String, init: AWSStorageGatewayActivateGatewayCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayActivateGatewayCommand(activationKey, gatewayName, gatewayTimezone, gatewayRegion).apply(init))
+fun AWSStorageGatewayFunctions.activateGateway(activationKey: String, gatewayName: String, gatewayTimezone: String, gatewayRegion: String, init: AWSStorageGatewayActivateGatewayCommand.() -> Unit): com.amazonaws.services.storagegateway.model.ActivateGatewayResult {
+	return this.block.declare(AWSStorageGatewayActivateGatewayCommand(activationKey, gatewayName, gatewayTimezone, gatewayRegion).apply(init)) as com.amazonaws.services.storagegateway.model.ActivateGatewayResult
 }
 
 @Generated
-class AWSStorageGatewayActivateGatewayCommand(val activationKey: String, val gatewayName: String, val gatewayTimezone: String, val gatewayRegion: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.ActivateGatewayRequest> {
+class AWSStorageGatewayActivateGatewayCommand(val activationKey: String, val gatewayName: String, val gatewayTimezone: String, val gatewayRegion: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.ActivateGatewayRequest, com.amazonaws.services.storagegateway.model.ActivateGatewayResult> {
 
 	var gatewayType: String? = null
 	var tapeDriveType: String? = null
@@ -49,8 +49,12 @@ class AWSStorageGatewayActivateGatewayCommand(val activationKey: String, val gat
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.activateGateway(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.ActivateGatewayResult {
+	  return com.amazonaws.services.storagegateway.model.ActivateGatewayResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.ActivateGatewayResult {
+		return environment.storagegateway.activateGateway(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -67,12 +71,12 @@ class AWSStorageGatewayActivateGatewayCommand(val activationKey: String, val gat
 }
 
 
-fun AWSStorageGatewayFunctions.addCache(gatewayARN: String, diskIds: List<String>, init: AWSStorageGatewayAddCacheCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayAddCacheCommand(gatewayARN, diskIds).apply(init))
+fun AWSStorageGatewayFunctions.addCache(gatewayARN: String, diskIds: List<String>, init: AWSStorageGatewayAddCacheCommand.() -> Unit): com.amazonaws.services.storagegateway.model.AddCacheResult {
+	return this.block.declare(AWSStorageGatewayAddCacheCommand(gatewayARN, diskIds).apply(init)) as com.amazonaws.services.storagegateway.model.AddCacheResult
 }
 
 @Generated
-class AWSStorageGatewayAddCacheCommand(val gatewayARN: String, val diskIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.AddCacheRequest> {
+class AWSStorageGatewayAddCacheCommand(val gatewayARN: String, val diskIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.AddCacheRequest, com.amazonaws.services.storagegateway.model.AddCacheResult> {
 
 
 
@@ -83,8 +87,12 @@ class AWSStorageGatewayAddCacheCommand(val gatewayARN: String, val diskIds: List
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.addCache(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.AddCacheResult {
+	  return com.amazonaws.services.storagegateway.model.AddCacheResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.AddCacheResult {
+		return environment.storagegateway.addCache(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -96,12 +104,12 @@ class AWSStorageGatewayAddCacheCommand(val gatewayARN: String, val diskIds: List
 }
 
 
-fun AWSStorageGatewayFunctions.addTagsToResource(resourceARN: String, tags: List<com.amazonaws.services.storagegateway.model.Tag>, init: AWSStorageGatewayAddTagsToResourceCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayAddTagsToResourceCommand(resourceARN, tags).apply(init))
+fun AWSStorageGatewayFunctions.addTagsToResource(resourceARN: String, tags: List<com.amazonaws.services.storagegateway.model.Tag>, init: AWSStorageGatewayAddTagsToResourceCommand.() -> Unit): com.amazonaws.services.storagegateway.model.AddTagsToResourceResult {
+	return this.block.declare(AWSStorageGatewayAddTagsToResourceCommand(resourceARN, tags).apply(init)) as com.amazonaws.services.storagegateway.model.AddTagsToResourceResult
 }
 
 @Generated
-class AWSStorageGatewayAddTagsToResourceCommand(val resourceARN: String, val tags: List<com.amazonaws.services.storagegateway.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.AddTagsToResourceRequest> {
+class AWSStorageGatewayAddTagsToResourceCommand(val resourceARN: String, val tags: List<com.amazonaws.services.storagegateway.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.AddTagsToResourceRequest, com.amazonaws.services.storagegateway.model.AddTagsToResourceResult> {
 
 
 
@@ -112,8 +120,12 @@ class AWSStorageGatewayAddTagsToResourceCommand(val resourceARN: String, val tag
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.addTagsToResource(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.AddTagsToResourceResult {
+	  return com.amazonaws.services.storagegateway.model.AddTagsToResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.AddTagsToResourceResult {
+		return environment.storagegateway.addTagsToResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -125,12 +137,12 @@ class AWSStorageGatewayAddTagsToResourceCommand(val resourceARN: String, val tag
 }
 
 
-fun AWSStorageGatewayFunctions.addUploadBuffer(gatewayARN: String, diskIds: List<String>, init: AWSStorageGatewayAddUploadBufferCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayAddUploadBufferCommand(gatewayARN, diskIds).apply(init))
+fun AWSStorageGatewayFunctions.addUploadBuffer(gatewayARN: String, diskIds: List<String>, init: AWSStorageGatewayAddUploadBufferCommand.() -> Unit): com.amazonaws.services.storagegateway.model.AddUploadBufferResult {
+	return this.block.declare(AWSStorageGatewayAddUploadBufferCommand(gatewayARN, diskIds).apply(init)) as com.amazonaws.services.storagegateway.model.AddUploadBufferResult
 }
 
 @Generated
-class AWSStorageGatewayAddUploadBufferCommand(val gatewayARN: String, val diskIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.AddUploadBufferRequest> {
+class AWSStorageGatewayAddUploadBufferCommand(val gatewayARN: String, val diskIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.AddUploadBufferRequest, com.amazonaws.services.storagegateway.model.AddUploadBufferResult> {
 
 
 
@@ -141,8 +153,12 @@ class AWSStorageGatewayAddUploadBufferCommand(val gatewayARN: String, val diskId
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.addUploadBuffer(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.AddUploadBufferResult {
+	  return com.amazonaws.services.storagegateway.model.AddUploadBufferResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.AddUploadBufferResult {
+		return environment.storagegateway.addUploadBuffer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -154,12 +170,12 @@ class AWSStorageGatewayAddUploadBufferCommand(val gatewayARN: String, val diskId
 }
 
 
-fun AWSStorageGatewayFunctions.addWorkingStorage(gatewayARN: String, diskIds: List<String>, init: AWSStorageGatewayAddWorkingStorageCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayAddWorkingStorageCommand(gatewayARN, diskIds).apply(init))
+fun AWSStorageGatewayFunctions.addWorkingStorage(gatewayARN: String, diskIds: List<String>, init: AWSStorageGatewayAddWorkingStorageCommand.() -> Unit): com.amazonaws.services.storagegateway.model.AddWorkingStorageResult {
+	return this.block.declare(AWSStorageGatewayAddWorkingStorageCommand(gatewayARN, diskIds).apply(init)) as com.amazonaws.services.storagegateway.model.AddWorkingStorageResult
 }
 
 @Generated
-class AWSStorageGatewayAddWorkingStorageCommand(val gatewayARN: String, val diskIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.AddWorkingStorageRequest> {
+class AWSStorageGatewayAddWorkingStorageCommand(val gatewayARN: String, val diskIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.AddWorkingStorageRequest, com.amazonaws.services.storagegateway.model.AddWorkingStorageResult> {
 
 
 
@@ -170,8 +186,12 @@ class AWSStorageGatewayAddWorkingStorageCommand(val gatewayARN: String, val disk
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.addWorkingStorage(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.AddWorkingStorageResult {
+	  return com.amazonaws.services.storagegateway.model.AddWorkingStorageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.AddWorkingStorageResult {
+		return environment.storagegateway.addWorkingStorage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -183,12 +203,12 @@ class AWSStorageGatewayAddWorkingStorageCommand(val gatewayARN: String, val disk
 }
 
 
-fun AWSStorageGatewayFunctions.cancelArchival(gatewayARN: String, tapeARN: String, init: AWSStorageGatewayCancelArchivalCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayCancelArchivalCommand(gatewayARN, tapeARN).apply(init))
+fun AWSStorageGatewayFunctions.cancelArchival(gatewayARN: String, tapeARN: String, init: AWSStorageGatewayCancelArchivalCommand.() -> Unit): com.amazonaws.services.storagegateway.model.CancelArchivalResult {
+	return this.block.declare(AWSStorageGatewayCancelArchivalCommand(gatewayARN, tapeARN).apply(init)) as com.amazonaws.services.storagegateway.model.CancelArchivalResult
 }
 
 @Generated
-class AWSStorageGatewayCancelArchivalCommand(val gatewayARN: String, val tapeARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.CancelArchivalRequest> {
+class AWSStorageGatewayCancelArchivalCommand(val gatewayARN: String, val tapeARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.CancelArchivalRequest, com.amazonaws.services.storagegateway.model.CancelArchivalResult> {
 
 
 
@@ -199,8 +219,12 @@ class AWSStorageGatewayCancelArchivalCommand(val gatewayARN: String, val tapeARN
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.cancelArchival(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.CancelArchivalResult {
+	  return com.amazonaws.services.storagegateway.model.CancelArchivalResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.CancelArchivalResult {
+		return environment.storagegateway.cancelArchival(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -212,12 +236,12 @@ class AWSStorageGatewayCancelArchivalCommand(val gatewayARN: String, val tapeARN
 }
 
 
-fun AWSStorageGatewayFunctions.cancelRetrieval(gatewayARN: String, tapeARN: String, init: AWSStorageGatewayCancelRetrievalCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayCancelRetrievalCommand(gatewayARN, tapeARN).apply(init))
+fun AWSStorageGatewayFunctions.cancelRetrieval(gatewayARN: String, tapeARN: String, init: AWSStorageGatewayCancelRetrievalCommand.() -> Unit): com.amazonaws.services.storagegateway.model.CancelRetrievalResult {
+	return this.block.declare(AWSStorageGatewayCancelRetrievalCommand(gatewayARN, tapeARN).apply(init)) as com.amazonaws.services.storagegateway.model.CancelRetrievalResult
 }
 
 @Generated
-class AWSStorageGatewayCancelRetrievalCommand(val gatewayARN: String, val tapeARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.CancelRetrievalRequest> {
+class AWSStorageGatewayCancelRetrievalCommand(val gatewayARN: String, val tapeARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.CancelRetrievalRequest, com.amazonaws.services.storagegateway.model.CancelRetrievalResult> {
 
 
 
@@ -228,8 +252,12 @@ class AWSStorageGatewayCancelRetrievalCommand(val gatewayARN: String, val tapeAR
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.cancelRetrieval(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.CancelRetrievalResult {
+	  return com.amazonaws.services.storagegateway.model.CancelRetrievalResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.CancelRetrievalResult {
+		return environment.storagegateway.cancelRetrieval(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -241,12 +269,12 @@ class AWSStorageGatewayCancelRetrievalCommand(val gatewayARN: String, val tapeAR
 }
 
 
-fun AWSStorageGatewayFunctions.createCachediSCSIVolume(gatewayARN: String, volumeSizeInBytes: Long, targetName: String, networkInterfaceId: String, clientToken: String, init: AWSStorageGatewayCreateCachediSCSIVolumeCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayCreateCachediSCSIVolumeCommand(gatewayARN, volumeSizeInBytes, targetName, networkInterfaceId, clientToken).apply(init))
+fun AWSStorageGatewayFunctions.createCachediSCSIVolume(gatewayARN: String, volumeSizeInBytes: Long, targetName: String, networkInterfaceId: String, clientToken: String, init: AWSStorageGatewayCreateCachediSCSIVolumeCommand.() -> Unit): com.amazonaws.services.storagegateway.model.CreateCachediSCSIVolumeResult {
+	return this.block.declare(AWSStorageGatewayCreateCachediSCSIVolumeCommand(gatewayARN, volumeSizeInBytes, targetName, networkInterfaceId, clientToken).apply(init)) as com.amazonaws.services.storagegateway.model.CreateCachediSCSIVolumeResult
 }
 
 @Generated
-class AWSStorageGatewayCreateCachediSCSIVolumeCommand(val gatewayARN: String, val volumeSizeInBytes: Long, val targetName: String, val networkInterfaceId: String, val clientToken: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.CreateCachediSCSIVolumeRequest> {
+class AWSStorageGatewayCreateCachediSCSIVolumeCommand(val gatewayARN: String, val volumeSizeInBytes: Long, val targetName: String, val networkInterfaceId: String, val clientToken: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.CreateCachediSCSIVolumeRequest, com.amazonaws.services.storagegateway.model.CreateCachediSCSIVolumeResult> {
 
 	var snapshotId: String? = null
 	var sourceVolumeARN: String? = null
@@ -263,8 +291,12 @@ class AWSStorageGatewayCreateCachediSCSIVolumeCommand(val gatewayARN: String, va
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.createCachediSCSIVolume(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.CreateCachediSCSIVolumeResult {
+	  return com.amazonaws.services.storagegateway.model.CreateCachediSCSIVolumeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.CreateCachediSCSIVolumeResult {
+		return environment.storagegateway.createCachediSCSIVolume(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -281,12 +313,12 @@ class AWSStorageGatewayCreateCachediSCSIVolumeCommand(val gatewayARN: String, va
 }
 
 
-fun AWSStorageGatewayFunctions.createNFSFileShare(clientToken: String, gatewayARN: String, role: String, locationARN: String, init: AWSStorageGatewayCreateNFSFileShareCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayCreateNFSFileShareCommand(clientToken, gatewayARN, role, locationARN).apply(init))
+fun AWSStorageGatewayFunctions.createNFSFileShare(clientToken: String, gatewayARN: String, role: String, locationARN: String, init: AWSStorageGatewayCreateNFSFileShareCommand.() -> Unit): com.amazonaws.services.storagegateway.model.CreateNFSFileShareResult {
+	return this.block.declare(AWSStorageGatewayCreateNFSFileShareCommand(clientToken, gatewayARN, role, locationARN).apply(init)) as com.amazonaws.services.storagegateway.model.CreateNFSFileShareResult
 }
 
 @Generated
-class AWSStorageGatewayCreateNFSFileShareCommand(val clientToken: String, val gatewayARN: String, val role: String, val locationARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.CreateNFSFileShareRequest> {
+class AWSStorageGatewayCreateNFSFileShareCommand(val clientToken: String, val gatewayARN: String, val role: String, val locationARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.CreateNFSFileShareRequest, com.amazonaws.services.storagegateway.model.CreateNFSFileShareResult> {
 
 	var nFSFileShareDefaults: com.amazonaws.services.storagegateway.model.NFSFileShareDefaults? = null
 	var kMSEncrypted: Boolean? = false
@@ -318,8 +350,12 @@ class AWSStorageGatewayCreateNFSFileShareCommand(val clientToken: String, val ga
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.createNFSFileShare(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.CreateNFSFileShareResult {
+	  return com.amazonaws.services.storagegateway.model.CreateNFSFileShareResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.CreateNFSFileShareResult {
+		return environment.storagegateway.createNFSFileShare(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -343,12 +379,12 @@ class AWSStorageGatewayCreateNFSFileShareCommand(val clientToken: String, val ga
 }
 
 
-fun AWSStorageGatewayFunctions.createSnapshot(volumeARN: String, snapshotDescription: String, init: AWSStorageGatewayCreateSnapshotCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayCreateSnapshotCommand(volumeARN, snapshotDescription).apply(init))
+fun AWSStorageGatewayFunctions.createSnapshot(volumeARN: String, snapshotDescription: String, init: AWSStorageGatewayCreateSnapshotCommand.() -> Unit): com.amazonaws.services.storagegateway.model.CreateSnapshotResult {
+	return this.block.declare(AWSStorageGatewayCreateSnapshotCommand(volumeARN, snapshotDescription).apply(init)) as com.amazonaws.services.storagegateway.model.CreateSnapshotResult
 }
 
 @Generated
-class AWSStorageGatewayCreateSnapshotCommand(val volumeARN: String, val snapshotDescription: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.CreateSnapshotRequest> {
+class AWSStorageGatewayCreateSnapshotCommand(val volumeARN: String, val snapshotDescription: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.CreateSnapshotRequest, com.amazonaws.services.storagegateway.model.CreateSnapshotResult> {
 
 
 
@@ -359,8 +395,12 @@ class AWSStorageGatewayCreateSnapshotCommand(val volumeARN: String, val snapshot
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.createSnapshot(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.CreateSnapshotResult {
+	  return com.amazonaws.services.storagegateway.model.CreateSnapshotResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.CreateSnapshotResult {
+		return environment.storagegateway.createSnapshot(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -372,12 +412,12 @@ class AWSStorageGatewayCreateSnapshotCommand(val volumeARN: String, val snapshot
 }
 
 
-fun AWSStorageGatewayFunctions.createSnapshotFromVolumeRecoveryPoint(volumeARN: String, snapshotDescription: String, init: AWSStorageGatewayCreateSnapshotFromVolumeRecoveryPointCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayCreateSnapshotFromVolumeRecoveryPointCommand(volumeARN, snapshotDescription).apply(init))
+fun AWSStorageGatewayFunctions.createSnapshotFromVolumeRecoveryPoint(volumeARN: String, snapshotDescription: String, init: AWSStorageGatewayCreateSnapshotFromVolumeRecoveryPointCommand.() -> Unit): com.amazonaws.services.storagegateway.model.CreateSnapshotFromVolumeRecoveryPointResult {
+	return this.block.declare(AWSStorageGatewayCreateSnapshotFromVolumeRecoveryPointCommand(volumeARN, snapshotDescription).apply(init)) as com.amazonaws.services.storagegateway.model.CreateSnapshotFromVolumeRecoveryPointResult
 }
 
 @Generated
-class AWSStorageGatewayCreateSnapshotFromVolumeRecoveryPointCommand(val volumeARN: String, val snapshotDescription: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.CreateSnapshotFromVolumeRecoveryPointRequest> {
+class AWSStorageGatewayCreateSnapshotFromVolumeRecoveryPointCommand(val volumeARN: String, val snapshotDescription: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.CreateSnapshotFromVolumeRecoveryPointRequest, com.amazonaws.services.storagegateway.model.CreateSnapshotFromVolumeRecoveryPointResult> {
 
 
 
@@ -388,8 +428,12 @@ class AWSStorageGatewayCreateSnapshotFromVolumeRecoveryPointCommand(val volumeAR
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.createSnapshotFromVolumeRecoveryPoint(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.CreateSnapshotFromVolumeRecoveryPointResult {
+	  return com.amazonaws.services.storagegateway.model.CreateSnapshotFromVolumeRecoveryPointResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.CreateSnapshotFromVolumeRecoveryPointResult {
+		return environment.storagegateway.createSnapshotFromVolumeRecoveryPoint(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -401,12 +445,12 @@ class AWSStorageGatewayCreateSnapshotFromVolumeRecoveryPointCommand(val volumeAR
 }
 
 
-fun AWSStorageGatewayFunctions.createStorediSCSIVolume(gatewayARN: String, diskId: String, preserveExistingData: Boolean, targetName: String, networkInterfaceId: String, init: AWSStorageGatewayCreateStorediSCSIVolumeCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayCreateStorediSCSIVolumeCommand(gatewayARN, diskId, preserveExistingData, targetName, networkInterfaceId).apply(init))
+fun AWSStorageGatewayFunctions.createStorediSCSIVolume(gatewayARN: String, diskId: String, preserveExistingData: Boolean, targetName: String, networkInterfaceId: String, init: AWSStorageGatewayCreateStorediSCSIVolumeCommand.() -> Unit): com.amazonaws.services.storagegateway.model.CreateStorediSCSIVolumeResult {
+	return this.block.declare(AWSStorageGatewayCreateStorediSCSIVolumeCommand(gatewayARN, diskId, preserveExistingData, targetName, networkInterfaceId).apply(init)) as com.amazonaws.services.storagegateway.model.CreateStorediSCSIVolumeResult
 }
 
 @Generated
-class AWSStorageGatewayCreateStorediSCSIVolumeCommand(val gatewayARN: String, val diskId: String, val preserveExistingData: Boolean, val targetName: String, val networkInterfaceId: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.CreateStorediSCSIVolumeRequest> {
+class AWSStorageGatewayCreateStorediSCSIVolumeCommand(val gatewayARN: String, val diskId: String, val preserveExistingData: Boolean, val targetName: String, val networkInterfaceId: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.CreateStorediSCSIVolumeRequest, com.amazonaws.services.storagegateway.model.CreateStorediSCSIVolumeResult> {
 
 	var snapshotId: String? = null
 
@@ -421,8 +465,12 @@ class AWSStorageGatewayCreateStorediSCSIVolumeCommand(val gatewayARN: String, va
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.createStorediSCSIVolume(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.CreateStorediSCSIVolumeResult {
+	  return com.amazonaws.services.storagegateway.model.CreateStorediSCSIVolumeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.CreateStorediSCSIVolumeResult {
+		return environment.storagegateway.createStorediSCSIVolume(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -438,12 +486,12 @@ class AWSStorageGatewayCreateStorediSCSIVolumeCommand(val gatewayARN: String, va
 }
 
 
-fun AWSStorageGatewayFunctions.createTapeWithBarcode(gatewayARN: String, tapeSizeInBytes: Long, tapeBarcode: String, init: AWSStorageGatewayCreateTapeWithBarcodeCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayCreateTapeWithBarcodeCommand(gatewayARN, tapeSizeInBytes, tapeBarcode).apply(init))
+fun AWSStorageGatewayFunctions.createTapeWithBarcode(gatewayARN: String, tapeSizeInBytes: Long, tapeBarcode: String, init: AWSStorageGatewayCreateTapeWithBarcodeCommand.() -> Unit): com.amazonaws.services.storagegateway.model.CreateTapeWithBarcodeResult {
+	return this.block.declare(AWSStorageGatewayCreateTapeWithBarcodeCommand(gatewayARN, tapeSizeInBytes, tapeBarcode).apply(init)) as com.amazonaws.services.storagegateway.model.CreateTapeWithBarcodeResult
 }
 
 @Generated
-class AWSStorageGatewayCreateTapeWithBarcodeCommand(val gatewayARN: String, val tapeSizeInBytes: Long, val tapeBarcode: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.CreateTapeWithBarcodeRequest> {
+class AWSStorageGatewayCreateTapeWithBarcodeCommand(val gatewayARN: String, val tapeSizeInBytes: Long, val tapeBarcode: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.CreateTapeWithBarcodeRequest, com.amazonaws.services.storagegateway.model.CreateTapeWithBarcodeResult> {
 
 
 
@@ -455,8 +503,12 @@ class AWSStorageGatewayCreateTapeWithBarcodeCommand(val gatewayARN: String, val 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.createTapeWithBarcode(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.CreateTapeWithBarcodeResult {
+	  return com.amazonaws.services.storagegateway.model.CreateTapeWithBarcodeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.CreateTapeWithBarcodeResult {
+		return environment.storagegateway.createTapeWithBarcode(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -469,12 +521,12 @@ class AWSStorageGatewayCreateTapeWithBarcodeCommand(val gatewayARN: String, val 
 }
 
 
-fun AWSStorageGatewayFunctions.createTapes(gatewayARN: String, tapeSizeInBytes: Long, clientToken: String, numTapesToCreate: Int, tapeBarcodePrefix: String, init: AWSStorageGatewayCreateTapesCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayCreateTapesCommand(gatewayARN, tapeSizeInBytes, clientToken, numTapesToCreate, tapeBarcodePrefix).apply(init))
+fun AWSStorageGatewayFunctions.createTapes(gatewayARN: String, tapeSizeInBytes: Long, clientToken: String, numTapesToCreate: Int, tapeBarcodePrefix: String, init: AWSStorageGatewayCreateTapesCommand.() -> Unit): com.amazonaws.services.storagegateway.model.CreateTapesResult {
+	return this.block.declare(AWSStorageGatewayCreateTapesCommand(gatewayARN, tapeSizeInBytes, clientToken, numTapesToCreate, tapeBarcodePrefix).apply(init)) as com.amazonaws.services.storagegateway.model.CreateTapesResult
 }
 
 @Generated
-class AWSStorageGatewayCreateTapesCommand(val gatewayARN: String, val tapeSizeInBytes: Long, val clientToken: String, val numTapesToCreate: Int, val tapeBarcodePrefix: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.CreateTapesRequest> {
+class AWSStorageGatewayCreateTapesCommand(val gatewayARN: String, val tapeSizeInBytes: Long, val clientToken: String, val numTapesToCreate: Int, val tapeBarcodePrefix: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.CreateTapesRequest, com.amazonaws.services.storagegateway.model.CreateTapesResult> {
 
 
 
@@ -488,8 +540,12 @@ class AWSStorageGatewayCreateTapesCommand(val gatewayARN: String, val tapeSizeIn
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.createTapes(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.CreateTapesResult {
+	  return com.amazonaws.services.storagegateway.model.CreateTapesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.CreateTapesResult {
+		return environment.storagegateway.createTapes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -504,12 +560,12 @@ class AWSStorageGatewayCreateTapesCommand(val gatewayARN: String, val tapeSizeIn
 }
 
 
-fun AWSStorageGatewayFunctions.deleteBandwidthRateLimit(gatewayARN: String, bandwidthType: String, init: AWSStorageGatewayDeleteBandwidthRateLimitCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayDeleteBandwidthRateLimitCommand(gatewayARN, bandwidthType).apply(init))
+fun AWSStorageGatewayFunctions.deleteBandwidthRateLimit(gatewayARN: String, bandwidthType: String, init: AWSStorageGatewayDeleteBandwidthRateLimitCommand.() -> Unit): com.amazonaws.services.storagegateway.model.DeleteBandwidthRateLimitResult {
+	return this.block.declare(AWSStorageGatewayDeleteBandwidthRateLimitCommand(gatewayARN, bandwidthType).apply(init)) as com.amazonaws.services.storagegateway.model.DeleteBandwidthRateLimitResult
 }
 
 @Generated
-class AWSStorageGatewayDeleteBandwidthRateLimitCommand(val gatewayARN: String, val bandwidthType: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DeleteBandwidthRateLimitRequest> {
+class AWSStorageGatewayDeleteBandwidthRateLimitCommand(val gatewayARN: String, val bandwidthType: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DeleteBandwidthRateLimitRequest, com.amazonaws.services.storagegateway.model.DeleteBandwidthRateLimitResult> {
 
 
 
@@ -520,8 +576,12 @@ class AWSStorageGatewayDeleteBandwidthRateLimitCommand(val gatewayARN: String, v
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.deleteBandwidthRateLimit(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.DeleteBandwidthRateLimitResult {
+	  return com.amazonaws.services.storagegateway.model.DeleteBandwidthRateLimitResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DeleteBandwidthRateLimitResult {
+		return environment.storagegateway.deleteBandwidthRateLimit(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -533,12 +593,12 @@ class AWSStorageGatewayDeleteBandwidthRateLimitCommand(val gatewayARN: String, v
 }
 
 
-fun AWSStorageGatewayFunctions.deleteChapCredentials(targetARN: String, initiatorName: String, init: AWSStorageGatewayDeleteChapCredentialsCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayDeleteChapCredentialsCommand(targetARN, initiatorName).apply(init))
+fun AWSStorageGatewayFunctions.deleteChapCredentials(targetARN: String, initiatorName: String, init: AWSStorageGatewayDeleteChapCredentialsCommand.() -> Unit): com.amazonaws.services.storagegateway.model.DeleteChapCredentialsResult {
+	return this.block.declare(AWSStorageGatewayDeleteChapCredentialsCommand(targetARN, initiatorName).apply(init)) as com.amazonaws.services.storagegateway.model.DeleteChapCredentialsResult
 }
 
 @Generated
-class AWSStorageGatewayDeleteChapCredentialsCommand(val targetARN: String, val initiatorName: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DeleteChapCredentialsRequest> {
+class AWSStorageGatewayDeleteChapCredentialsCommand(val targetARN: String, val initiatorName: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DeleteChapCredentialsRequest, com.amazonaws.services.storagegateway.model.DeleteChapCredentialsResult> {
 
 
 
@@ -549,8 +609,12 @@ class AWSStorageGatewayDeleteChapCredentialsCommand(val targetARN: String, val i
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.deleteChapCredentials(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.DeleteChapCredentialsResult {
+	  return com.amazonaws.services.storagegateway.model.DeleteChapCredentialsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DeleteChapCredentialsResult {
+		return environment.storagegateway.deleteChapCredentials(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -562,12 +626,12 @@ class AWSStorageGatewayDeleteChapCredentialsCommand(val targetARN: String, val i
 }
 
 
-fun AWSStorageGatewayFunctions.deleteFileShare(fileShareARN: String, init: AWSStorageGatewayDeleteFileShareCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayDeleteFileShareCommand(fileShareARN).apply(init))
+fun AWSStorageGatewayFunctions.deleteFileShare(fileShareARN: String, init: AWSStorageGatewayDeleteFileShareCommand.() -> Unit): com.amazonaws.services.storagegateway.model.DeleteFileShareResult {
+	return this.block.declare(AWSStorageGatewayDeleteFileShareCommand(fileShareARN).apply(init)) as com.amazonaws.services.storagegateway.model.DeleteFileShareResult
 }
 
 @Generated
-class AWSStorageGatewayDeleteFileShareCommand(val fileShareARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DeleteFileShareRequest> {
+class AWSStorageGatewayDeleteFileShareCommand(val fileShareARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DeleteFileShareRequest, com.amazonaws.services.storagegateway.model.DeleteFileShareResult> {
 
 	var forceDelete: Boolean? = false
 
@@ -578,8 +642,12 @@ class AWSStorageGatewayDeleteFileShareCommand(val fileShareARN: String) : Amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.deleteFileShare(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.DeleteFileShareResult {
+	  return com.amazonaws.services.storagegateway.model.DeleteFileShareResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DeleteFileShareResult {
+		return environment.storagegateway.deleteFileShare(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -591,12 +659,12 @@ class AWSStorageGatewayDeleteFileShareCommand(val fileShareARN: String) : Amazon
 }
 
 
-fun AWSStorageGatewayFunctions.deleteGateway(gatewayARN: String, init: AWSStorageGatewayDeleteGatewayCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayDeleteGatewayCommand(gatewayARN).apply(init))
+fun AWSStorageGatewayFunctions.deleteGateway(gatewayARN: String, init: AWSStorageGatewayDeleteGatewayCommand.() -> Unit): com.amazonaws.services.storagegateway.model.DeleteGatewayResult {
+	return this.block.declare(AWSStorageGatewayDeleteGatewayCommand(gatewayARN).apply(init)) as com.amazonaws.services.storagegateway.model.DeleteGatewayResult
 }
 
 @Generated
-class AWSStorageGatewayDeleteGatewayCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DeleteGatewayRequest> {
+class AWSStorageGatewayDeleteGatewayCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DeleteGatewayRequest, com.amazonaws.services.storagegateway.model.DeleteGatewayResult> {
 
 
 
@@ -606,8 +674,12 @@ class AWSStorageGatewayDeleteGatewayCommand(val gatewayARN: String) : AmazonWebS
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.deleteGateway(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.DeleteGatewayResult {
+	  return com.amazonaws.services.storagegateway.model.DeleteGatewayResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DeleteGatewayResult {
+		return environment.storagegateway.deleteGateway(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -618,12 +690,12 @@ class AWSStorageGatewayDeleteGatewayCommand(val gatewayARN: String) : AmazonWebS
 }
 
 
-fun AWSStorageGatewayFunctions.deleteSnapshotSchedule(volumeARN: String, init: AWSStorageGatewayDeleteSnapshotScheduleCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayDeleteSnapshotScheduleCommand(volumeARN).apply(init))
+fun AWSStorageGatewayFunctions.deleteSnapshotSchedule(volumeARN: String, init: AWSStorageGatewayDeleteSnapshotScheduleCommand.() -> Unit): com.amazonaws.services.storagegateway.model.DeleteSnapshotScheduleResult {
+	return this.block.declare(AWSStorageGatewayDeleteSnapshotScheduleCommand(volumeARN).apply(init)) as com.amazonaws.services.storagegateway.model.DeleteSnapshotScheduleResult
 }
 
 @Generated
-class AWSStorageGatewayDeleteSnapshotScheduleCommand(val volumeARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DeleteSnapshotScheduleRequest> {
+class AWSStorageGatewayDeleteSnapshotScheduleCommand(val volumeARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DeleteSnapshotScheduleRequest, com.amazonaws.services.storagegateway.model.DeleteSnapshotScheduleResult> {
 
 
 
@@ -633,8 +705,12 @@ class AWSStorageGatewayDeleteSnapshotScheduleCommand(val volumeARN: String) : Am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.deleteSnapshotSchedule(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.DeleteSnapshotScheduleResult {
+	  return com.amazonaws.services.storagegateway.model.DeleteSnapshotScheduleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DeleteSnapshotScheduleResult {
+		return environment.storagegateway.deleteSnapshotSchedule(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -645,12 +721,12 @@ class AWSStorageGatewayDeleteSnapshotScheduleCommand(val volumeARN: String) : Am
 }
 
 
-fun AWSStorageGatewayFunctions.deleteTape(gatewayARN: String, tapeARN: String, init: AWSStorageGatewayDeleteTapeCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayDeleteTapeCommand(gatewayARN, tapeARN).apply(init))
+fun AWSStorageGatewayFunctions.deleteTape(gatewayARN: String, tapeARN: String, init: AWSStorageGatewayDeleteTapeCommand.() -> Unit): com.amazonaws.services.storagegateway.model.DeleteTapeResult {
+	return this.block.declare(AWSStorageGatewayDeleteTapeCommand(gatewayARN, tapeARN).apply(init)) as com.amazonaws.services.storagegateway.model.DeleteTapeResult
 }
 
 @Generated
-class AWSStorageGatewayDeleteTapeCommand(val gatewayARN: String, val tapeARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DeleteTapeRequest> {
+class AWSStorageGatewayDeleteTapeCommand(val gatewayARN: String, val tapeARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DeleteTapeRequest, com.amazonaws.services.storagegateway.model.DeleteTapeResult> {
 
 
 
@@ -661,8 +737,12 @@ class AWSStorageGatewayDeleteTapeCommand(val gatewayARN: String, val tapeARN: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.deleteTape(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.DeleteTapeResult {
+	  return com.amazonaws.services.storagegateway.model.DeleteTapeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DeleteTapeResult {
+		return environment.storagegateway.deleteTape(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -674,12 +754,12 @@ class AWSStorageGatewayDeleteTapeCommand(val gatewayARN: String, val tapeARN: St
 }
 
 
-fun AWSStorageGatewayFunctions.deleteTapeArchive(tapeARN: String, init: AWSStorageGatewayDeleteTapeArchiveCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayDeleteTapeArchiveCommand(tapeARN).apply(init))
+fun AWSStorageGatewayFunctions.deleteTapeArchive(tapeARN: String, init: AWSStorageGatewayDeleteTapeArchiveCommand.() -> Unit): com.amazonaws.services.storagegateway.model.DeleteTapeArchiveResult {
+	return this.block.declare(AWSStorageGatewayDeleteTapeArchiveCommand(tapeARN).apply(init)) as com.amazonaws.services.storagegateway.model.DeleteTapeArchiveResult
 }
 
 @Generated
-class AWSStorageGatewayDeleteTapeArchiveCommand(val tapeARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DeleteTapeArchiveRequest> {
+class AWSStorageGatewayDeleteTapeArchiveCommand(val tapeARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DeleteTapeArchiveRequest, com.amazonaws.services.storagegateway.model.DeleteTapeArchiveResult> {
 
 
 
@@ -689,8 +769,12 @@ class AWSStorageGatewayDeleteTapeArchiveCommand(val tapeARN: String) : AmazonWeb
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.deleteTapeArchive(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.DeleteTapeArchiveResult {
+	  return com.amazonaws.services.storagegateway.model.DeleteTapeArchiveResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DeleteTapeArchiveResult {
+		return environment.storagegateway.deleteTapeArchive(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -701,12 +785,12 @@ class AWSStorageGatewayDeleteTapeArchiveCommand(val tapeARN: String) : AmazonWeb
 }
 
 
-fun AWSStorageGatewayFunctions.deleteVolume(volumeARN: String, init: AWSStorageGatewayDeleteVolumeCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayDeleteVolumeCommand(volumeARN).apply(init))
+fun AWSStorageGatewayFunctions.deleteVolume(volumeARN: String, init: AWSStorageGatewayDeleteVolumeCommand.() -> Unit): com.amazonaws.services.storagegateway.model.DeleteVolumeResult {
+	return this.block.declare(AWSStorageGatewayDeleteVolumeCommand(volumeARN).apply(init)) as com.amazonaws.services.storagegateway.model.DeleteVolumeResult
 }
 
 @Generated
-class AWSStorageGatewayDeleteVolumeCommand(val volumeARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DeleteVolumeRequest> {
+class AWSStorageGatewayDeleteVolumeCommand(val volumeARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DeleteVolumeRequest, com.amazonaws.services.storagegateway.model.DeleteVolumeResult> {
 
 
 
@@ -716,8 +800,12 @@ class AWSStorageGatewayDeleteVolumeCommand(val volumeARN: String) : AmazonWebSer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.deleteVolume(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.DeleteVolumeResult {
+	  return com.amazonaws.services.storagegateway.model.DeleteVolumeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DeleteVolumeResult {
+		return environment.storagegateway.deleteVolume(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -728,12 +816,12 @@ class AWSStorageGatewayDeleteVolumeCommand(val volumeARN: String) : AmazonWebSer
 }
 
 
-fun AWSStorageGatewayFunctions.describeBandwidthRateLimit(gatewayARN: String, init: AWSStorageGatewayDescribeBandwidthRateLimitCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayDescribeBandwidthRateLimitCommand(gatewayARN).apply(init))
+fun AWSStorageGatewayFunctions.describeBandwidthRateLimit(gatewayARN: String, init: AWSStorageGatewayDescribeBandwidthRateLimitCommand.() -> Unit): com.amazonaws.services.storagegateway.model.DescribeBandwidthRateLimitResult {
+	return this.block.declare(AWSStorageGatewayDescribeBandwidthRateLimitCommand(gatewayARN).apply(init)) as com.amazonaws.services.storagegateway.model.DescribeBandwidthRateLimitResult
 }
 
 @Generated
-class AWSStorageGatewayDescribeBandwidthRateLimitCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DescribeBandwidthRateLimitRequest> {
+class AWSStorageGatewayDescribeBandwidthRateLimitCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DescribeBandwidthRateLimitRequest, com.amazonaws.services.storagegateway.model.DescribeBandwidthRateLimitResult> {
 
 
 
@@ -743,8 +831,12 @@ class AWSStorageGatewayDescribeBandwidthRateLimitCommand(val gatewayARN: String)
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.describeBandwidthRateLimit(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.DescribeBandwidthRateLimitResult {
+	  return com.amazonaws.services.storagegateway.model.DescribeBandwidthRateLimitResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DescribeBandwidthRateLimitResult {
+		return environment.storagegateway.describeBandwidthRateLimit(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -755,12 +847,12 @@ class AWSStorageGatewayDescribeBandwidthRateLimitCommand(val gatewayARN: String)
 }
 
 
-fun AWSStorageGatewayFunctions.describeCache(gatewayARN: String, init: AWSStorageGatewayDescribeCacheCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayDescribeCacheCommand(gatewayARN).apply(init))
+fun AWSStorageGatewayFunctions.describeCache(gatewayARN: String, init: AWSStorageGatewayDescribeCacheCommand.() -> Unit): com.amazonaws.services.storagegateway.model.DescribeCacheResult {
+	return this.block.declare(AWSStorageGatewayDescribeCacheCommand(gatewayARN).apply(init)) as com.amazonaws.services.storagegateway.model.DescribeCacheResult
 }
 
 @Generated
-class AWSStorageGatewayDescribeCacheCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DescribeCacheRequest> {
+class AWSStorageGatewayDescribeCacheCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DescribeCacheRequest, com.amazonaws.services.storagegateway.model.DescribeCacheResult> {
 
 
 
@@ -770,8 +862,12 @@ class AWSStorageGatewayDescribeCacheCommand(val gatewayARN: String) : AmazonWebS
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.describeCache(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.DescribeCacheResult {
+	  return com.amazonaws.services.storagegateway.model.DescribeCacheResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DescribeCacheResult {
+		return environment.storagegateway.describeCache(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -782,12 +878,12 @@ class AWSStorageGatewayDescribeCacheCommand(val gatewayARN: String) : AmazonWebS
 }
 
 
-fun AWSStorageGatewayFunctions.describeCachediSCSIVolumes(volumeARNs: List<String>, init: AWSStorageGatewayDescribeCachediSCSIVolumesCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayDescribeCachediSCSIVolumesCommand(volumeARNs).apply(init))
+fun AWSStorageGatewayFunctions.describeCachediSCSIVolumes(volumeARNs: List<String>, init: AWSStorageGatewayDescribeCachediSCSIVolumesCommand.() -> Unit): com.amazonaws.services.storagegateway.model.DescribeCachediSCSIVolumesResult {
+	return this.block.declare(AWSStorageGatewayDescribeCachediSCSIVolumesCommand(volumeARNs).apply(init)) as com.amazonaws.services.storagegateway.model.DescribeCachediSCSIVolumesResult
 }
 
 @Generated
-class AWSStorageGatewayDescribeCachediSCSIVolumesCommand(val volumeARNs: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DescribeCachediSCSIVolumesRequest> {
+class AWSStorageGatewayDescribeCachediSCSIVolumesCommand(val volumeARNs: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DescribeCachediSCSIVolumesRequest, com.amazonaws.services.storagegateway.model.DescribeCachediSCSIVolumesResult> {
 
 
 
@@ -797,8 +893,12 @@ class AWSStorageGatewayDescribeCachediSCSIVolumesCommand(val volumeARNs: List<St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.describeCachediSCSIVolumes(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.DescribeCachediSCSIVolumesResult {
+	  return com.amazonaws.services.storagegateway.model.DescribeCachediSCSIVolumesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DescribeCachediSCSIVolumesResult {
+		return environment.storagegateway.describeCachediSCSIVolumes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -809,12 +909,12 @@ class AWSStorageGatewayDescribeCachediSCSIVolumesCommand(val volumeARNs: List<St
 }
 
 
-fun AWSStorageGatewayFunctions.describeChapCredentials(targetARN: String, init: AWSStorageGatewayDescribeChapCredentialsCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayDescribeChapCredentialsCommand(targetARN).apply(init))
+fun AWSStorageGatewayFunctions.describeChapCredentials(targetARN: String, init: AWSStorageGatewayDescribeChapCredentialsCommand.() -> Unit): com.amazonaws.services.storagegateway.model.DescribeChapCredentialsResult {
+	return this.block.declare(AWSStorageGatewayDescribeChapCredentialsCommand(targetARN).apply(init)) as com.amazonaws.services.storagegateway.model.DescribeChapCredentialsResult
 }
 
 @Generated
-class AWSStorageGatewayDescribeChapCredentialsCommand(val targetARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DescribeChapCredentialsRequest> {
+class AWSStorageGatewayDescribeChapCredentialsCommand(val targetARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DescribeChapCredentialsRequest, com.amazonaws.services.storagegateway.model.DescribeChapCredentialsResult> {
 
 
 
@@ -824,8 +924,12 @@ class AWSStorageGatewayDescribeChapCredentialsCommand(val targetARN: String) : A
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.describeChapCredentials(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.DescribeChapCredentialsResult {
+	  return com.amazonaws.services.storagegateway.model.DescribeChapCredentialsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DescribeChapCredentialsResult {
+		return environment.storagegateway.describeChapCredentials(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -836,12 +940,12 @@ class AWSStorageGatewayDescribeChapCredentialsCommand(val targetARN: String) : A
 }
 
 
-fun AWSStorageGatewayFunctions.describeGatewayInformation(gatewayARN: String, init: AWSStorageGatewayDescribeGatewayInformationCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayDescribeGatewayInformationCommand(gatewayARN).apply(init))
+fun AWSStorageGatewayFunctions.describeGatewayInformation(gatewayARN: String, init: AWSStorageGatewayDescribeGatewayInformationCommand.() -> Unit): com.amazonaws.services.storagegateway.model.DescribeGatewayInformationResult {
+	return this.block.declare(AWSStorageGatewayDescribeGatewayInformationCommand(gatewayARN).apply(init)) as com.amazonaws.services.storagegateway.model.DescribeGatewayInformationResult
 }
 
 @Generated
-class AWSStorageGatewayDescribeGatewayInformationCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DescribeGatewayInformationRequest> {
+class AWSStorageGatewayDescribeGatewayInformationCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DescribeGatewayInformationRequest, com.amazonaws.services.storagegateway.model.DescribeGatewayInformationResult> {
 
 
 
@@ -851,8 +955,12 @@ class AWSStorageGatewayDescribeGatewayInformationCommand(val gatewayARN: String)
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.describeGatewayInformation(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.DescribeGatewayInformationResult {
+	  return com.amazonaws.services.storagegateway.model.DescribeGatewayInformationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DescribeGatewayInformationResult {
+		return environment.storagegateway.describeGatewayInformation(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -863,12 +971,12 @@ class AWSStorageGatewayDescribeGatewayInformationCommand(val gatewayARN: String)
 }
 
 
-fun AWSStorageGatewayFunctions.describeMaintenanceStartTime(gatewayARN: String, init: AWSStorageGatewayDescribeMaintenanceStartTimeCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayDescribeMaintenanceStartTimeCommand(gatewayARN).apply(init))
+fun AWSStorageGatewayFunctions.describeMaintenanceStartTime(gatewayARN: String, init: AWSStorageGatewayDescribeMaintenanceStartTimeCommand.() -> Unit): com.amazonaws.services.storagegateway.model.DescribeMaintenanceStartTimeResult {
+	return this.block.declare(AWSStorageGatewayDescribeMaintenanceStartTimeCommand(gatewayARN).apply(init)) as com.amazonaws.services.storagegateway.model.DescribeMaintenanceStartTimeResult
 }
 
 @Generated
-class AWSStorageGatewayDescribeMaintenanceStartTimeCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DescribeMaintenanceStartTimeRequest> {
+class AWSStorageGatewayDescribeMaintenanceStartTimeCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DescribeMaintenanceStartTimeRequest, com.amazonaws.services.storagegateway.model.DescribeMaintenanceStartTimeResult> {
 
 
 
@@ -878,8 +986,12 @@ class AWSStorageGatewayDescribeMaintenanceStartTimeCommand(val gatewayARN: Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.describeMaintenanceStartTime(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.DescribeMaintenanceStartTimeResult {
+	  return com.amazonaws.services.storagegateway.model.DescribeMaintenanceStartTimeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DescribeMaintenanceStartTimeResult {
+		return environment.storagegateway.describeMaintenanceStartTime(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -890,12 +1002,12 @@ class AWSStorageGatewayDescribeMaintenanceStartTimeCommand(val gatewayARN: Strin
 }
 
 
-fun AWSStorageGatewayFunctions.describeNFSFileShares(fileShareARNList: List<String>, init: AWSStorageGatewayDescribeNFSFileSharesCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayDescribeNFSFileSharesCommand(fileShareARNList).apply(init))
+fun AWSStorageGatewayFunctions.describeNFSFileShares(fileShareARNList: List<String>, init: AWSStorageGatewayDescribeNFSFileSharesCommand.() -> Unit): com.amazonaws.services.storagegateway.model.DescribeNFSFileSharesResult {
+	return this.block.declare(AWSStorageGatewayDescribeNFSFileSharesCommand(fileShareARNList).apply(init)) as com.amazonaws.services.storagegateway.model.DescribeNFSFileSharesResult
 }
 
 @Generated
-class AWSStorageGatewayDescribeNFSFileSharesCommand(val fileShareARNList: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DescribeNFSFileSharesRequest> {
+class AWSStorageGatewayDescribeNFSFileSharesCommand(val fileShareARNList: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DescribeNFSFileSharesRequest, com.amazonaws.services.storagegateway.model.DescribeNFSFileSharesResult> {
 
 
 
@@ -905,8 +1017,12 @@ class AWSStorageGatewayDescribeNFSFileSharesCommand(val fileShareARNList: List<S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.describeNFSFileShares(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.DescribeNFSFileSharesResult {
+	  return com.amazonaws.services.storagegateway.model.DescribeNFSFileSharesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DescribeNFSFileSharesResult {
+		return environment.storagegateway.describeNFSFileShares(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -917,12 +1033,12 @@ class AWSStorageGatewayDescribeNFSFileSharesCommand(val fileShareARNList: List<S
 }
 
 
-fun AWSStorageGatewayFunctions.describeSnapshotSchedule(volumeARN: String, init: AWSStorageGatewayDescribeSnapshotScheduleCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayDescribeSnapshotScheduleCommand(volumeARN).apply(init))
+fun AWSStorageGatewayFunctions.describeSnapshotSchedule(volumeARN: String, init: AWSStorageGatewayDescribeSnapshotScheduleCommand.() -> Unit): com.amazonaws.services.storagegateway.model.DescribeSnapshotScheduleResult {
+	return this.block.declare(AWSStorageGatewayDescribeSnapshotScheduleCommand(volumeARN).apply(init)) as com.amazonaws.services.storagegateway.model.DescribeSnapshotScheduleResult
 }
 
 @Generated
-class AWSStorageGatewayDescribeSnapshotScheduleCommand(val volumeARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DescribeSnapshotScheduleRequest> {
+class AWSStorageGatewayDescribeSnapshotScheduleCommand(val volumeARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DescribeSnapshotScheduleRequest, com.amazonaws.services.storagegateway.model.DescribeSnapshotScheduleResult> {
 
 
 
@@ -932,8 +1048,12 @@ class AWSStorageGatewayDescribeSnapshotScheduleCommand(val volumeARN: String) : 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.describeSnapshotSchedule(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.DescribeSnapshotScheduleResult {
+	  return com.amazonaws.services.storagegateway.model.DescribeSnapshotScheduleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DescribeSnapshotScheduleResult {
+		return environment.storagegateway.describeSnapshotSchedule(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -944,12 +1064,12 @@ class AWSStorageGatewayDescribeSnapshotScheduleCommand(val volumeARN: String) : 
 }
 
 
-fun AWSStorageGatewayFunctions.describeStorediSCSIVolumes(volumeARNs: List<String>, init: AWSStorageGatewayDescribeStorediSCSIVolumesCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayDescribeStorediSCSIVolumesCommand(volumeARNs).apply(init))
+fun AWSStorageGatewayFunctions.describeStorediSCSIVolumes(volumeARNs: List<String>, init: AWSStorageGatewayDescribeStorediSCSIVolumesCommand.() -> Unit): com.amazonaws.services.storagegateway.model.DescribeStorediSCSIVolumesResult {
+	return this.block.declare(AWSStorageGatewayDescribeStorediSCSIVolumesCommand(volumeARNs).apply(init)) as com.amazonaws.services.storagegateway.model.DescribeStorediSCSIVolumesResult
 }
 
 @Generated
-class AWSStorageGatewayDescribeStorediSCSIVolumesCommand(val volumeARNs: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DescribeStorediSCSIVolumesRequest> {
+class AWSStorageGatewayDescribeStorediSCSIVolumesCommand(val volumeARNs: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DescribeStorediSCSIVolumesRequest, com.amazonaws.services.storagegateway.model.DescribeStorediSCSIVolumesResult> {
 
 
 
@@ -959,8 +1079,12 @@ class AWSStorageGatewayDescribeStorediSCSIVolumesCommand(val volumeARNs: List<St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.describeStorediSCSIVolumes(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.DescribeStorediSCSIVolumesResult {
+	  return com.amazonaws.services.storagegateway.model.DescribeStorediSCSIVolumesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DescribeStorediSCSIVolumesResult {
+		return environment.storagegateway.describeStorediSCSIVolumes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -971,12 +1095,12 @@ class AWSStorageGatewayDescribeStorediSCSIVolumesCommand(val volumeARNs: List<St
 }
 
 
-fun AWSStorageGatewayFunctions.describeTapeArchives(init: AWSStorageGatewayDescribeTapeArchivesCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayDescribeTapeArchivesCommand().apply(init))
+fun AWSStorageGatewayFunctions.describeTapeArchives(init: AWSStorageGatewayDescribeTapeArchivesCommand.() -> Unit): com.amazonaws.services.storagegateway.model.DescribeTapeArchivesResult {
+	return this.block.declare(AWSStorageGatewayDescribeTapeArchivesCommand().apply(init)) as com.amazonaws.services.storagegateway.model.DescribeTapeArchivesResult
 }
 
 @Generated
-class AWSStorageGatewayDescribeTapeArchivesCommand() : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DescribeTapeArchivesRequest> {
+class AWSStorageGatewayDescribeTapeArchivesCommand() : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DescribeTapeArchivesRequest, com.amazonaws.services.storagegateway.model.DescribeTapeArchivesResult> {
 
 	var tapeARNs: List<String>? = null
 	var marker: String? = null
@@ -990,8 +1114,12 @@ class AWSStorageGatewayDescribeTapeArchivesCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.describeTapeArchives(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.DescribeTapeArchivesResult {
+	  return com.amazonaws.services.storagegateway.model.DescribeTapeArchivesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DescribeTapeArchivesResult {
+		return environment.storagegateway.describeTapeArchives(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1004,12 +1132,12 @@ class AWSStorageGatewayDescribeTapeArchivesCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AWSStorageGatewayFunctions.describeTapeRecoveryPoints(gatewayARN: String, init: AWSStorageGatewayDescribeTapeRecoveryPointsCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayDescribeTapeRecoveryPointsCommand(gatewayARN).apply(init))
+fun AWSStorageGatewayFunctions.describeTapeRecoveryPoints(gatewayARN: String, init: AWSStorageGatewayDescribeTapeRecoveryPointsCommand.() -> Unit): com.amazonaws.services.storagegateway.model.DescribeTapeRecoveryPointsResult {
+	return this.block.declare(AWSStorageGatewayDescribeTapeRecoveryPointsCommand(gatewayARN).apply(init)) as com.amazonaws.services.storagegateway.model.DescribeTapeRecoveryPointsResult
 }
 
 @Generated
-class AWSStorageGatewayDescribeTapeRecoveryPointsCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DescribeTapeRecoveryPointsRequest> {
+class AWSStorageGatewayDescribeTapeRecoveryPointsCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DescribeTapeRecoveryPointsRequest, com.amazonaws.services.storagegateway.model.DescribeTapeRecoveryPointsResult> {
 
 	var marker: String? = null
 	var limit: Int? = 0
@@ -1022,8 +1150,12 @@ class AWSStorageGatewayDescribeTapeRecoveryPointsCommand(val gatewayARN: String)
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.describeTapeRecoveryPoints(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.DescribeTapeRecoveryPointsResult {
+	  return com.amazonaws.services.storagegateway.model.DescribeTapeRecoveryPointsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DescribeTapeRecoveryPointsResult {
+		return environment.storagegateway.describeTapeRecoveryPoints(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1036,12 +1168,12 @@ class AWSStorageGatewayDescribeTapeRecoveryPointsCommand(val gatewayARN: String)
 }
 
 
-fun AWSStorageGatewayFunctions.describeTapes(gatewayARN: String, init: AWSStorageGatewayDescribeTapesCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayDescribeTapesCommand(gatewayARN).apply(init))
+fun AWSStorageGatewayFunctions.describeTapes(gatewayARN: String, init: AWSStorageGatewayDescribeTapesCommand.() -> Unit): com.amazonaws.services.storagegateway.model.DescribeTapesResult {
+	return this.block.declare(AWSStorageGatewayDescribeTapesCommand(gatewayARN).apply(init)) as com.amazonaws.services.storagegateway.model.DescribeTapesResult
 }
 
 @Generated
-class AWSStorageGatewayDescribeTapesCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DescribeTapesRequest> {
+class AWSStorageGatewayDescribeTapesCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DescribeTapesRequest, com.amazonaws.services.storagegateway.model.DescribeTapesResult> {
 
 	var tapeARNs: List<String>? = null
 	var marker: String? = null
@@ -1056,8 +1188,12 @@ class AWSStorageGatewayDescribeTapesCommand(val gatewayARN: String) : AmazonWebS
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.describeTapes(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.DescribeTapesResult {
+	  return com.amazonaws.services.storagegateway.model.DescribeTapesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DescribeTapesResult {
+		return environment.storagegateway.describeTapes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1071,12 +1207,12 @@ class AWSStorageGatewayDescribeTapesCommand(val gatewayARN: String) : AmazonWebS
 }
 
 
-fun AWSStorageGatewayFunctions.describeUploadBuffer(gatewayARN: String, init: AWSStorageGatewayDescribeUploadBufferCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayDescribeUploadBufferCommand(gatewayARN).apply(init))
+fun AWSStorageGatewayFunctions.describeUploadBuffer(gatewayARN: String, init: AWSStorageGatewayDescribeUploadBufferCommand.() -> Unit): com.amazonaws.services.storagegateway.model.DescribeUploadBufferResult {
+	return this.block.declare(AWSStorageGatewayDescribeUploadBufferCommand(gatewayARN).apply(init)) as com.amazonaws.services.storagegateway.model.DescribeUploadBufferResult
 }
 
 @Generated
-class AWSStorageGatewayDescribeUploadBufferCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DescribeUploadBufferRequest> {
+class AWSStorageGatewayDescribeUploadBufferCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DescribeUploadBufferRequest, com.amazonaws.services.storagegateway.model.DescribeUploadBufferResult> {
 
 
 
@@ -1086,8 +1222,12 @@ class AWSStorageGatewayDescribeUploadBufferCommand(val gatewayARN: String) : Ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.describeUploadBuffer(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.DescribeUploadBufferResult {
+	  return com.amazonaws.services.storagegateway.model.DescribeUploadBufferResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DescribeUploadBufferResult {
+		return environment.storagegateway.describeUploadBuffer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1098,12 +1238,12 @@ class AWSStorageGatewayDescribeUploadBufferCommand(val gatewayARN: String) : Ama
 }
 
 
-fun AWSStorageGatewayFunctions.describeVTLDevices(gatewayARN: String, init: AWSStorageGatewayDescribeVTLDevicesCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayDescribeVTLDevicesCommand(gatewayARN).apply(init))
+fun AWSStorageGatewayFunctions.describeVTLDevices(gatewayARN: String, init: AWSStorageGatewayDescribeVTLDevicesCommand.() -> Unit): com.amazonaws.services.storagegateway.model.DescribeVTLDevicesResult {
+	return this.block.declare(AWSStorageGatewayDescribeVTLDevicesCommand(gatewayARN).apply(init)) as com.amazonaws.services.storagegateway.model.DescribeVTLDevicesResult
 }
 
 @Generated
-class AWSStorageGatewayDescribeVTLDevicesCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DescribeVTLDevicesRequest> {
+class AWSStorageGatewayDescribeVTLDevicesCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DescribeVTLDevicesRequest, com.amazonaws.services.storagegateway.model.DescribeVTLDevicesResult> {
 
 	var vTLDeviceARNs: List<String>? = null
 	var marker: String? = null
@@ -1118,8 +1258,12 @@ class AWSStorageGatewayDescribeVTLDevicesCommand(val gatewayARN: String) : Amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.describeVTLDevices(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.DescribeVTLDevicesResult {
+	  return com.amazonaws.services.storagegateway.model.DescribeVTLDevicesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DescribeVTLDevicesResult {
+		return environment.storagegateway.describeVTLDevices(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1133,12 +1277,12 @@ class AWSStorageGatewayDescribeVTLDevicesCommand(val gatewayARN: String) : Amazo
 }
 
 
-fun AWSStorageGatewayFunctions.describeWorkingStorage(gatewayARN: String, init: AWSStorageGatewayDescribeWorkingStorageCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayDescribeWorkingStorageCommand(gatewayARN).apply(init))
+fun AWSStorageGatewayFunctions.describeWorkingStorage(gatewayARN: String, init: AWSStorageGatewayDescribeWorkingStorageCommand.() -> Unit): com.amazonaws.services.storagegateway.model.DescribeWorkingStorageResult {
+	return this.block.declare(AWSStorageGatewayDescribeWorkingStorageCommand(gatewayARN).apply(init)) as com.amazonaws.services.storagegateway.model.DescribeWorkingStorageResult
 }
 
 @Generated
-class AWSStorageGatewayDescribeWorkingStorageCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DescribeWorkingStorageRequest> {
+class AWSStorageGatewayDescribeWorkingStorageCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DescribeWorkingStorageRequest, com.amazonaws.services.storagegateway.model.DescribeWorkingStorageResult> {
 
 
 
@@ -1148,8 +1292,12 @@ class AWSStorageGatewayDescribeWorkingStorageCommand(val gatewayARN: String) : A
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.describeWorkingStorage(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.DescribeWorkingStorageResult {
+	  return com.amazonaws.services.storagegateway.model.DescribeWorkingStorageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DescribeWorkingStorageResult {
+		return environment.storagegateway.describeWorkingStorage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1160,12 +1308,12 @@ class AWSStorageGatewayDescribeWorkingStorageCommand(val gatewayARN: String) : A
 }
 
 
-fun AWSStorageGatewayFunctions.disableGateway(gatewayARN: String, init: AWSStorageGatewayDisableGatewayCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayDisableGatewayCommand(gatewayARN).apply(init))
+fun AWSStorageGatewayFunctions.disableGateway(gatewayARN: String, init: AWSStorageGatewayDisableGatewayCommand.() -> Unit): com.amazonaws.services.storagegateway.model.DisableGatewayResult {
+	return this.block.declare(AWSStorageGatewayDisableGatewayCommand(gatewayARN).apply(init)) as com.amazonaws.services.storagegateway.model.DisableGatewayResult
 }
 
 @Generated
-class AWSStorageGatewayDisableGatewayCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DisableGatewayRequest> {
+class AWSStorageGatewayDisableGatewayCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.DisableGatewayRequest, com.amazonaws.services.storagegateway.model.DisableGatewayResult> {
 
 
 
@@ -1175,8 +1323,12 @@ class AWSStorageGatewayDisableGatewayCommand(val gatewayARN: String) : AmazonWeb
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.disableGateway(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.DisableGatewayResult {
+	  return com.amazonaws.services.storagegateway.model.DisableGatewayResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.DisableGatewayResult {
+		return environment.storagegateway.disableGateway(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1187,12 +1339,12 @@ class AWSStorageGatewayDisableGatewayCommand(val gatewayARN: String) : AmazonWeb
 }
 
 
-fun AWSStorageGatewayFunctions.listFileShares(init: AWSStorageGatewayListFileSharesCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayListFileSharesCommand().apply(init))
+fun AWSStorageGatewayFunctions.listFileShares(init: AWSStorageGatewayListFileSharesCommand.() -> Unit): com.amazonaws.services.storagegateway.model.ListFileSharesResult {
+	return this.block.declare(AWSStorageGatewayListFileSharesCommand().apply(init)) as com.amazonaws.services.storagegateway.model.ListFileSharesResult
 }
 
 @Generated
-class AWSStorageGatewayListFileSharesCommand() : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.ListFileSharesRequest> {
+class AWSStorageGatewayListFileSharesCommand() : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.ListFileSharesRequest, com.amazonaws.services.storagegateway.model.ListFileSharesResult> {
 
 	var gatewayARN: String? = null
 	var limit: Int? = 0
@@ -1206,8 +1358,12 @@ class AWSStorageGatewayListFileSharesCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.listFileShares(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.ListFileSharesResult {
+	  return com.amazonaws.services.storagegateway.model.ListFileSharesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.ListFileSharesResult {
+		return environment.storagegateway.listFileShares(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1220,12 +1376,12 @@ class AWSStorageGatewayListFileSharesCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AWSStorageGatewayFunctions.listGateways(init: AWSStorageGatewayListGatewaysCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayListGatewaysCommand().apply(init))
+fun AWSStorageGatewayFunctions.listGateways(init: AWSStorageGatewayListGatewaysCommand.() -> Unit): com.amazonaws.services.storagegateway.model.ListGatewaysResult {
+	return this.block.declare(AWSStorageGatewayListGatewaysCommand().apply(init)) as com.amazonaws.services.storagegateway.model.ListGatewaysResult
 }
 
 @Generated
-class AWSStorageGatewayListGatewaysCommand() : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.ListGatewaysRequest> {
+class AWSStorageGatewayListGatewaysCommand() : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.ListGatewaysRequest, com.amazonaws.services.storagegateway.model.ListGatewaysResult> {
 
 	var marker: String? = null
 	var limit: Int? = 0
@@ -1237,8 +1393,12 @@ class AWSStorageGatewayListGatewaysCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.listGateways(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.ListGatewaysResult {
+	  return com.amazonaws.services.storagegateway.model.ListGatewaysResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.ListGatewaysResult {
+		return environment.storagegateway.listGateways(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1250,12 +1410,12 @@ class AWSStorageGatewayListGatewaysCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AWSStorageGatewayFunctions.listLocalDisks(gatewayARN: String, init: AWSStorageGatewayListLocalDisksCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayListLocalDisksCommand(gatewayARN).apply(init))
+fun AWSStorageGatewayFunctions.listLocalDisks(gatewayARN: String, init: AWSStorageGatewayListLocalDisksCommand.() -> Unit): com.amazonaws.services.storagegateway.model.ListLocalDisksResult {
+	return this.block.declare(AWSStorageGatewayListLocalDisksCommand(gatewayARN).apply(init)) as com.amazonaws.services.storagegateway.model.ListLocalDisksResult
 }
 
 @Generated
-class AWSStorageGatewayListLocalDisksCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.ListLocalDisksRequest> {
+class AWSStorageGatewayListLocalDisksCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.ListLocalDisksRequest, com.amazonaws.services.storagegateway.model.ListLocalDisksResult> {
 
 
 
@@ -1265,8 +1425,12 @@ class AWSStorageGatewayListLocalDisksCommand(val gatewayARN: String) : AmazonWeb
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.listLocalDisks(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.ListLocalDisksResult {
+	  return com.amazonaws.services.storagegateway.model.ListLocalDisksResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.ListLocalDisksResult {
+		return environment.storagegateway.listLocalDisks(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1277,12 +1441,12 @@ class AWSStorageGatewayListLocalDisksCommand(val gatewayARN: String) : AmazonWeb
 }
 
 
-fun AWSStorageGatewayFunctions.listTagsForResource(resourceARN: String, init: AWSStorageGatewayListTagsForResourceCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayListTagsForResourceCommand(resourceARN).apply(init))
+fun AWSStorageGatewayFunctions.listTagsForResource(resourceARN: String, init: AWSStorageGatewayListTagsForResourceCommand.() -> Unit): com.amazonaws.services.storagegateway.model.ListTagsForResourceResult {
+	return this.block.declare(AWSStorageGatewayListTagsForResourceCommand(resourceARN).apply(init)) as com.amazonaws.services.storagegateway.model.ListTagsForResourceResult
 }
 
 @Generated
-class AWSStorageGatewayListTagsForResourceCommand(val resourceARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.ListTagsForResourceRequest> {
+class AWSStorageGatewayListTagsForResourceCommand(val resourceARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.ListTagsForResourceRequest, com.amazonaws.services.storagegateway.model.ListTagsForResourceResult> {
 
 	var marker: String? = null
 	var limit: Int? = 0
@@ -1295,8 +1459,12 @@ class AWSStorageGatewayListTagsForResourceCommand(val resourceARN: String) : Ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.listTagsForResource(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.ListTagsForResourceResult {
+	  return com.amazonaws.services.storagegateway.model.ListTagsForResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.ListTagsForResourceResult {
+		return environment.storagegateway.listTagsForResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1309,12 +1477,12 @@ class AWSStorageGatewayListTagsForResourceCommand(val resourceARN: String) : Ama
 }
 
 
-fun AWSStorageGatewayFunctions.listTapes(init: AWSStorageGatewayListTapesCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayListTapesCommand().apply(init))
+fun AWSStorageGatewayFunctions.listTapes(init: AWSStorageGatewayListTapesCommand.() -> Unit): com.amazonaws.services.storagegateway.model.ListTapesResult {
+	return this.block.declare(AWSStorageGatewayListTapesCommand().apply(init)) as com.amazonaws.services.storagegateway.model.ListTapesResult
 }
 
 @Generated
-class AWSStorageGatewayListTapesCommand() : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.ListTapesRequest> {
+class AWSStorageGatewayListTapesCommand() : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.ListTapesRequest, com.amazonaws.services.storagegateway.model.ListTapesResult> {
 
 	var tapeARNs: List<String>? = null
 	var marker: String? = null
@@ -1328,8 +1496,12 @@ class AWSStorageGatewayListTapesCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.listTapes(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.ListTapesResult {
+	  return com.amazonaws.services.storagegateway.model.ListTapesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.ListTapesResult {
+		return environment.storagegateway.listTapes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1342,12 +1514,12 @@ class AWSStorageGatewayListTapesCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AWSStorageGatewayFunctions.listVolumeInitiators(volumeARN: String, init: AWSStorageGatewayListVolumeInitiatorsCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayListVolumeInitiatorsCommand(volumeARN).apply(init))
+fun AWSStorageGatewayFunctions.listVolumeInitiators(volumeARN: String, init: AWSStorageGatewayListVolumeInitiatorsCommand.() -> Unit): com.amazonaws.services.storagegateway.model.ListVolumeInitiatorsResult {
+	return this.block.declare(AWSStorageGatewayListVolumeInitiatorsCommand(volumeARN).apply(init)) as com.amazonaws.services.storagegateway.model.ListVolumeInitiatorsResult
 }
 
 @Generated
-class AWSStorageGatewayListVolumeInitiatorsCommand(val volumeARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.ListVolumeInitiatorsRequest> {
+class AWSStorageGatewayListVolumeInitiatorsCommand(val volumeARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.ListVolumeInitiatorsRequest, com.amazonaws.services.storagegateway.model.ListVolumeInitiatorsResult> {
 
 
 
@@ -1357,8 +1529,12 @@ class AWSStorageGatewayListVolumeInitiatorsCommand(val volumeARN: String) : Amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.listVolumeInitiators(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.ListVolumeInitiatorsResult {
+	  return com.amazonaws.services.storagegateway.model.ListVolumeInitiatorsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.ListVolumeInitiatorsResult {
+		return environment.storagegateway.listVolumeInitiators(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1369,12 +1545,12 @@ class AWSStorageGatewayListVolumeInitiatorsCommand(val volumeARN: String) : Amaz
 }
 
 
-fun AWSStorageGatewayFunctions.listVolumeRecoveryPoints(gatewayARN: String, init: AWSStorageGatewayListVolumeRecoveryPointsCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayListVolumeRecoveryPointsCommand(gatewayARN).apply(init))
+fun AWSStorageGatewayFunctions.listVolumeRecoveryPoints(gatewayARN: String, init: AWSStorageGatewayListVolumeRecoveryPointsCommand.() -> Unit): com.amazonaws.services.storagegateway.model.ListVolumeRecoveryPointsResult {
+	return this.block.declare(AWSStorageGatewayListVolumeRecoveryPointsCommand(gatewayARN).apply(init)) as com.amazonaws.services.storagegateway.model.ListVolumeRecoveryPointsResult
 }
 
 @Generated
-class AWSStorageGatewayListVolumeRecoveryPointsCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.ListVolumeRecoveryPointsRequest> {
+class AWSStorageGatewayListVolumeRecoveryPointsCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.ListVolumeRecoveryPointsRequest, com.amazonaws.services.storagegateway.model.ListVolumeRecoveryPointsResult> {
 
 
 
@@ -1384,8 +1560,12 @@ class AWSStorageGatewayListVolumeRecoveryPointsCommand(val gatewayARN: String) :
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.listVolumeRecoveryPoints(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.ListVolumeRecoveryPointsResult {
+	  return com.amazonaws.services.storagegateway.model.ListVolumeRecoveryPointsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.ListVolumeRecoveryPointsResult {
+		return environment.storagegateway.listVolumeRecoveryPoints(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1396,12 +1576,12 @@ class AWSStorageGatewayListVolumeRecoveryPointsCommand(val gatewayARN: String) :
 }
 
 
-fun AWSStorageGatewayFunctions.listVolumes(init: AWSStorageGatewayListVolumesCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayListVolumesCommand().apply(init))
+fun AWSStorageGatewayFunctions.listVolumes(init: AWSStorageGatewayListVolumesCommand.() -> Unit): com.amazonaws.services.storagegateway.model.ListVolumesResult {
+	return this.block.declare(AWSStorageGatewayListVolumesCommand().apply(init)) as com.amazonaws.services.storagegateway.model.ListVolumesResult
 }
 
 @Generated
-class AWSStorageGatewayListVolumesCommand() : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.ListVolumesRequest> {
+class AWSStorageGatewayListVolumesCommand() : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.ListVolumesRequest, com.amazonaws.services.storagegateway.model.ListVolumesResult> {
 
 	var gatewayARN: String? = null
 	var marker: String? = null
@@ -1415,8 +1595,12 @@ class AWSStorageGatewayListVolumesCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.listVolumes(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.ListVolumesResult {
+	  return com.amazonaws.services.storagegateway.model.ListVolumesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.ListVolumesResult {
+		return environment.storagegateway.listVolumes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1429,12 +1613,12 @@ class AWSStorageGatewayListVolumesCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AWSStorageGatewayFunctions.notifyWhenUploaded(fileShareARN: String, init: AWSStorageGatewayNotifyWhenUploadedCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayNotifyWhenUploadedCommand(fileShareARN).apply(init))
+fun AWSStorageGatewayFunctions.notifyWhenUploaded(fileShareARN: String, init: AWSStorageGatewayNotifyWhenUploadedCommand.() -> Unit): com.amazonaws.services.storagegateway.model.NotifyWhenUploadedResult {
+	return this.block.declare(AWSStorageGatewayNotifyWhenUploadedCommand(fileShareARN).apply(init)) as com.amazonaws.services.storagegateway.model.NotifyWhenUploadedResult
 }
 
 @Generated
-class AWSStorageGatewayNotifyWhenUploadedCommand(val fileShareARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.NotifyWhenUploadedRequest> {
+class AWSStorageGatewayNotifyWhenUploadedCommand(val fileShareARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.NotifyWhenUploadedRequest, com.amazonaws.services.storagegateway.model.NotifyWhenUploadedResult> {
 
 
 
@@ -1444,8 +1628,12 @@ class AWSStorageGatewayNotifyWhenUploadedCommand(val fileShareARN: String) : Ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.notifyWhenUploaded(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.NotifyWhenUploadedResult {
+	  return com.amazonaws.services.storagegateway.model.NotifyWhenUploadedResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.NotifyWhenUploadedResult {
+		return environment.storagegateway.notifyWhenUploaded(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1456,12 +1644,12 @@ class AWSStorageGatewayNotifyWhenUploadedCommand(val fileShareARN: String) : Ama
 }
 
 
-fun AWSStorageGatewayFunctions.refreshCache(fileShareARN: String, init: AWSStorageGatewayRefreshCacheCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayRefreshCacheCommand(fileShareARN).apply(init))
+fun AWSStorageGatewayFunctions.refreshCache(fileShareARN: String, init: AWSStorageGatewayRefreshCacheCommand.() -> Unit): com.amazonaws.services.storagegateway.model.RefreshCacheResult {
+	return this.block.declare(AWSStorageGatewayRefreshCacheCommand(fileShareARN).apply(init)) as com.amazonaws.services.storagegateway.model.RefreshCacheResult
 }
 
 @Generated
-class AWSStorageGatewayRefreshCacheCommand(val fileShareARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.RefreshCacheRequest> {
+class AWSStorageGatewayRefreshCacheCommand(val fileShareARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.RefreshCacheRequest, com.amazonaws.services.storagegateway.model.RefreshCacheResult> {
 
 
 
@@ -1471,8 +1659,12 @@ class AWSStorageGatewayRefreshCacheCommand(val fileShareARN: String) : AmazonWeb
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.refreshCache(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.RefreshCacheResult {
+	  return com.amazonaws.services.storagegateway.model.RefreshCacheResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.RefreshCacheResult {
+		return environment.storagegateway.refreshCache(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1483,12 +1675,12 @@ class AWSStorageGatewayRefreshCacheCommand(val fileShareARN: String) : AmazonWeb
 }
 
 
-fun AWSStorageGatewayFunctions.removeTagsFromResource(resourceARN: String, tagKeys: List<String>, init: AWSStorageGatewayRemoveTagsFromResourceCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayRemoveTagsFromResourceCommand(resourceARN, tagKeys).apply(init))
+fun AWSStorageGatewayFunctions.removeTagsFromResource(resourceARN: String, tagKeys: List<String>, init: AWSStorageGatewayRemoveTagsFromResourceCommand.() -> Unit): com.amazonaws.services.storagegateway.model.RemoveTagsFromResourceResult {
+	return this.block.declare(AWSStorageGatewayRemoveTagsFromResourceCommand(resourceARN, tagKeys).apply(init)) as com.amazonaws.services.storagegateway.model.RemoveTagsFromResourceResult
 }
 
 @Generated
-class AWSStorageGatewayRemoveTagsFromResourceCommand(val resourceARN: String, val tagKeys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.RemoveTagsFromResourceRequest> {
+class AWSStorageGatewayRemoveTagsFromResourceCommand(val resourceARN: String, val tagKeys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.RemoveTagsFromResourceRequest, com.amazonaws.services.storagegateway.model.RemoveTagsFromResourceResult> {
 
 
 
@@ -1499,8 +1691,12 @@ class AWSStorageGatewayRemoveTagsFromResourceCommand(val resourceARN: String, va
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.removeTagsFromResource(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.RemoveTagsFromResourceResult {
+	  return com.amazonaws.services.storagegateway.model.RemoveTagsFromResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.RemoveTagsFromResourceResult {
+		return environment.storagegateway.removeTagsFromResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1512,12 +1708,12 @@ class AWSStorageGatewayRemoveTagsFromResourceCommand(val resourceARN: String, va
 }
 
 
-fun AWSStorageGatewayFunctions.resetCache(gatewayARN: String, init: AWSStorageGatewayResetCacheCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayResetCacheCommand(gatewayARN).apply(init))
+fun AWSStorageGatewayFunctions.resetCache(gatewayARN: String, init: AWSStorageGatewayResetCacheCommand.() -> Unit): com.amazonaws.services.storagegateway.model.ResetCacheResult {
+	return this.block.declare(AWSStorageGatewayResetCacheCommand(gatewayARN).apply(init)) as com.amazonaws.services.storagegateway.model.ResetCacheResult
 }
 
 @Generated
-class AWSStorageGatewayResetCacheCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.ResetCacheRequest> {
+class AWSStorageGatewayResetCacheCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.ResetCacheRequest, com.amazonaws.services.storagegateway.model.ResetCacheResult> {
 
 
 
@@ -1527,8 +1723,12 @@ class AWSStorageGatewayResetCacheCommand(val gatewayARN: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.resetCache(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.ResetCacheResult {
+	  return com.amazonaws.services.storagegateway.model.ResetCacheResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.ResetCacheResult {
+		return environment.storagegateway.resetCache(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1539,12 +1739,12 @@ class AWSStorageGatewayResetCacheCommand(val gatewayARN: String) : AmazonWebServ
 }
 
 
-fun AWSStorageGatewayFunctions.retrieveTapeArchive(tapeARN: String, gatewayARN: String, init: AWSStorageGatewayRetrieveTapeArchiveCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayRetrieveTapeArchiveCommand(tapeARN, gatewayARN).apply(init))
+fun AWSStorageGatewayFunctions.retrieveTapeArchive(tapeARN: String, gatewayARN: String, init: AWSStorageGatewayRetrieveTapeArchiveCommand.() -> Unit): com.amazonaws.services.storagegateway.model.RetrieveTapeArchiveResult {
+	return this.block.declare(AWSStorageGatewayRetrieveTapeArchiveCommand(tapeARN, gatewayARN).apply(init)) as com.amazonaws.services.storagegateway.model.RetrieveTapeArchiveResult
 }
 
 @Generated
-class AWSStorageGatewayRetrieveTapeArchiveCommand(val tapeARN: String, val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.RetrieveTapeArchiveRequest> {
+class AWSStorageGatewayRetrieveTapeArchiveCommand(val tapeARN: String, val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.RetrieveTapeArchiveRequest, com.amazonaws.services.storagegateway.model.RetrieveTapeArchiveResult> {
 
 
 
@@ -1555,8 +1755,12 @@ class AWSStorageGatewayRetrieveTapeArchiveCommand(val tapeARN: String, val gatew
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.retrieveTapeArchive(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.RetrieveTapeArchiveResult {
+	  return com.amazonaws.services.storagegateway.model.RetrieveTapeArchiveResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.RetrieveTapeArchiveResult {
+		return environment.storagegateway.retrieveTapeArchive(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1568,12 +1772,12 @@ class AWSStorageGatewayRetrieveTapeArchiveCommand(val tapeARN: String, val gatew
 }
 
 
-fun AWSStorageGatewayFunctions.retrieveTapeRecoveryPoint(tapeARN: String, gatewayARN: String, init: AWSStorageGatewayRetrieveTapeRecoveryPointCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayRetrieveTapeRecoveryPointCommand(tapeARN, gatewayARN).apply(init))
+fun AWSStorageGatewayFunctions.retrieveTapeRecoveryPoint(tapeARN: String, gatewayARN: String, init: AWSStorageGatewayRetrieveTapeRecoveryPointCommand.() -> Unit): com.amazonaws.services.storagegateway.model.RetrieveTapeRecoveryPointResult {
+	return this.block.declare(AWSStorageGatewayRetrieveTapeRecoveryPointCommand(tapeARN, gatewayARN).apply(init)) as com.amazonaws.services.storagegateway.model.RetrieveTapeRecoveryPointResult
 }
 
 @Generated
-class AWSStorageGatewayRetrieveTapeRecoveryPointCommand(val tapeARN: String, val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.RetrieveTapeRecoveryPointRequest> {
+class AWSStorageGatewayRetrieveTapeRecoveryPointCommand(val tapeARN: String, val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.RetrieveTapeRecoveryPointRequest, com.amazonaws.services.storagegateway.model.RetrieveTapeRecoveryPointResult> {
 
 
 
@@ -1584,8 +1788,12 @@ class AWSStorageGatewayRetrieveTapeRecoveryPointCommand(val tapeARN: String, val
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.retrieveTapeRecoveryPoint(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.RetrieveTapeRecoveryPointResult {
+	  return com.amazonaws.services.storagegateway.model.RetrieveTapeRecoveryPointResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.RetrieveTapeRecoveryPointResult {
+		return environment.storagegateway.retrieveTapeRecoveryPoint(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1597,12 +1805,12 @@ class AWSStorageGatewayRetrieveTapeRecoveryPointCommand(val tapeARN: String, val
 }
 
 
-fun AWSStorageGatewayFunctions.setLocalConsolePassword(gatewayARN: String, localConsolePassword: String, init: AWSStorageGatewaySetLocalConsolePasswordCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewaySetLocalConsolePasswordCommand(gatewayARN, localConsolePassword).apply(init))
+fun AWSStorageGatewayFunctions.setLocalConsolePassword(gatewayARN: String, localConsolePassword: String, init: AWSStorageGatewaySetLocalConsolePasswordCommand.() -> Unit): com.amazonaws.services.storagegateway.model.SetLocalConsolePasswordResult {
+	return this.block.declare(AWSStorageGatewaySetLocalConsolePasswordCommand(gatewayARN, localConsolePassword).apply(init)) as com.amazonaws.services.storagegateway.model.SetLocalConsolePasswordResult
 }
 
 @Generated
-class AWSStorageGatewaySetLocalConsolePasswordCommand(val gatewayARN: String, val localConsolePassword: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.SetLocalConsolePasswordRequest> {
+class AWSStorageGatewaySetLocalConsolePasswordCommand(val gatewayARN: String, val localConsolePassword: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.SetLocalConsolePasswordRequest, com.amazonaws.services.storagegateway.model.SetLocalConsolePasswordResult> {
 
 
 
@@ -1613,8 +1821,12 @@ class AWSStorageGatewaySetLocalConsolePasswordCommand(val gatewayARN: String, va
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.setLocalConsolePassword(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.SetLocalConsolePasswordResult {
+	  return com.amazonaws.services.storagegateway.model.SetLocalConsolePasswordResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.SetLocalConsolePasswordResult {
+		return environment.storagegateway.setLocalConsolePassword(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1626,12 +1838,12 @@ class AWSStorageGatewaySetLocalConsolePasswordCommand(val gatewayARN: String, va
 }
 
 
-fun AWSStorageGatewayFunctions.shutdownGateway(gatewayARN: String, init: AWSStorageGatewayShutdownGatewayCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayShutdownGatewayCommand(gatewayARN).apply(init))
+fun AWSStorageGatewayFunctions.shutdownGateway(gatewayARN: String, init: AWSStorageGatewayShutdownGatewayCommand.() -> Unit): com.amazonaws.services.storagegateway.model.ShutdownGatewayResult {
+	return this.block.declare(AWSStorageGatewayShutdownGatewayCommand(gatewayARN).apply(init)) as com.amazonaws.services.storagegateway.model.ShutdownGatewayResult
 }
 
 @Generated
-class AWSStorageGatewayShutdownGatewayCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.ShutdownGatewayRequest> {
+class AWSStorageGatewayShutdownGatewayCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.ShutdownGatewayRequest, com.amazonaws.services.storagegateway.model.ShutdownGatewayResult> {
 
 
 
@@ -1641,8 +1853,12 @@ class AWSStorageGatewayShutdownGatewayCommand(val gatewayARN: String) : AmazonWe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.shutdownGateway(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.ShutdownGatewayResult {
+	  return com.amazonaws.services.storagegateway.model.ShutdownGatewayResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.ShutdownGatewayResult {
+		return environment.storagegateway.shutdownGateway(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1653,12 +1869,12 @@ class AWSStorageGatewayShutdownGatewayCommand(val gatewayARN: String) : AmazonWe
 }
 
 
-fun AWSStorageGatewayFunctions.startGateway(gatewayARN: String, init: AWSStorageGatewayStartGatewayCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayStartGatewayCommand(gatewayARN).apply(init))
+fun AWSStorageGatewayFunctions.startGateway(gatewayARN: String, init: AWSStorageGatewayStartGatewayCommand.() -> Unit): com.amazonaws.services.storagegateway.model.StartGatewayResult {
+	return this.block.declare(AWSStorageGatewayStartGatewayCommand(gatewayARN).apply(init)) as com.amazonaws.services.storagegateway.model.StartGatewayResult
 }
 
 @Generated
-class AWSStorageGatewayStartGatewayCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.StartGatewayRequest> {
+class AWSStorageGatewayStartGatewayCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.StartGatewayRequest, com.amazonaws.services.storagegateway.model.StartGatewayResult> {
 
 
 
@@ -1668,8 +1884,12 @@ class AWSStorageGatewayStartGatewayCommand(val gatewayARN: String) : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.startGateway(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.StartGatewayResult {
+	  return com.amazonaws.services.storagegateway.model.StartGatewayResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.StartGatewayResult {
+		return environment.storagegateway.startGateway(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1680,12 +1900,12 @@ class AWSStorageGatewayStartGatewayCommand(val gatewayARN: String) : AmazonWebSe
 }
 
 
-fun AWSStorageGatewayFunctions.updateBandwidthRateLimit(gatewayARN: String, init: AWSStorageGatewayUpdateBandwidthRateLimitCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayUpdateBandwidthRateLimitCommand(gatewayARN).apply(init))
+fun AWSStorageGatewayFunctions.updateBandwidthRateLimit(gatewayARN: String, init: AWSStorageGatewayUpdateBandwidthRateLimitCommand.() -> Unit): com.amazonaws.services.storagegateway.model.UpdateBandwidthRateLimitResult {
+	return this.block.declare(AWSStorageGatewayUpdateBandwidthRateLimitCommand(gatewayARN).apply(init)) as com.amazonaws.services.storagegateway.model.UpdateBandwidthRateLimitResult
 }
 
 @Generated
-class AWSStorageGatewayUpdateBandwidthRateLimitCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.UpdateBandwidthRateLimitRequest> {
+class AWSStorageGatewayUpdateBandwidthRateLimitCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.UpdateBandwidthRateLimitRequest, com.amazonaws.services.storagegateway.model.UpdateBandwidthRateLimitResult> {
 
 	var averageUploadRateLimitInBitsPerSec: Long? = 0L
 	var averageDownloadRateLimitInBitsPerSec: Long? = 0L
@@ -1698,8 +1918,12 @@ class AWSStorageGatewayUpdateBandwidthRateLimitCommand(val gatewayARN: String) :
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.updateBandwidthRateLimit(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.UpdateBandwidthRateLimitResult {
+	  return com.amazonaws.services.storagegateway.model.UpdateBandwidthRateLimitResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.UpdateBandwidthRateLimitResult {
+		return environment.storagegateway.updateBandwidthRateLimit(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1712,12 +1936,12 @@ class AWSStorageGatewayUpdateBandwidthRateLimitCommand(val gatewayARN: String) :
 }
 
 
-fun AWSStorageGatewayFunctions.updateChapCredentials(targetARN: String, secretToAuthenticateInitiator: String, initiatorName: String, init: AWSStorageGatewayUpdateChapCredentialsCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayUpdateChapCredentialsCommand(targetARN, secretToAuthenticateInitiator, initiatorName).apply(init))
+fun AWSStorageGatewayFunctions.updateChapCredentials(targetARN: String, secretToAuthenticateInitiator: String, initiatorName: String, init: AWSStorageGatewayUpdateChapCredentialsCommand.() -> Unit): com.amazonaws.services.storagegateway.model.UpdateChapCredentialsResult {
+	return this.block.declare(AWSStorageGatewayUpdateChapCredentialsCommand(targetARN, secretToAuthenticateInitiator, initiatorName).apply(init)) as com.amazonaws.services.storagegateway.model.UpdateChapCredentialsResult
 }
 
 @Generated
-class AWSStorageGatewayUpdateChapCredentialsCommand(val targetARN: String, val secretToAuthenticateInitiator: String, val initiatorName: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.UpdateChapCredentialsRequest> {
+class AWSStorageGatewayUpdateChapCredentialsCommand(val targetARN: String, val secretToAuthenticateInitiator: String, val initiatorName: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.UpdateChapCredentialsRequest, com.amazonaws.services.storagegateway.model.UpdateChapCredentialsResult> {
 
 	var secretToAuthenticateTarget: String? = null
 
@@ -1730,8 +1954,12 @@ class AWSStorageGatewayUpdateChapCredentialsCommand(val targetARN: String, val s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.updateChapCredentials(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.UpdateChapCredentialsResult {
+	  return com.amazonaws.services.storagegateway.model.UpdateChapCredentialsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.UpdateChapCredentialsResult {
+		return environment.storagegateway.updateChapCredentials(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1745,12 +1973,12 @@ class AWSStorageGatewayUpdateChapCredentialsCommand(val targetARN: String, val s
 }
 
 
-fun AWSStorageGatewayFunctions.updateGatewayInformation(gatewayARN: String, init: AWSStorageGatewayUpdateGatewayInformationCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayUpdateGatewayInformationCommand(gatewayARN).apply(init))
+fun AWSStorageGatewayFunctions.updateGatewayInformation(gatewayARN: String, init: AWSStorageGatewayUpdateGatewayInformationCommand.() -> Unit): com.amazonaws.services.storagegateway.model.UpdateGatewayInformationResult {
+	return this.block.declare(AWSStorageGatewayUpdateGatewayInformationCommand(gatewayARN).apply(init)) as com.amazonaws.services.storagegateway.model.UpdateGatewayInformationResult
 }
 
 @Generated
-class AWSStorageGatewayUpdateGatewayInformationCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.UpdateGatewayInformationRequest> {
+class AWSStorageGatewayUpdateGatewayInformationCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.UpdateGatewayInformationRequest, com.amazonaws.services.storagegateway.model.UpdateGatewayInformationResult> {
 
 	var gatewayName: String? = null
 	var gatewayTimezone: String? = null
@@ -1763,8 +1991,12 @@ class AWSStorageGatewayUpdateGatewayInformationCommand(val gatewayARN: String) :
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.updateGatewayInformation(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.UpdateGatewayInformationResult {
+	  return com.amazonaws.services.storagegateway.model.UpdateGatewayInformationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.UpdateGatewayInformationResult {
+		return environment.storagegateway.updateGatewayInformation(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1777,12 +2009,12 @@ class AWSStorageGatewayUpdateGatewayInformationCommand(val gatewayARN: String) :
 }
 
 
-fun AWSStorageGatewayFunctions.updateGatewaySoftwareNow(gatewayARN: String, init: AWSStorageGatewayUpdateGatewaySoftwareNowCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayUpdateGatewaySoftwareNowCommand(gatewayARN).apply(init))
+fun AWSStorageGatewayFunctions.updateGatewaySoftwareNow(gatewayARN: String, init: AWSStorageGatewayUpdateGatewaySoftwareNowCommand.() -> Unit): com.amazonaws.services.storagegateway.model.UpdateGatewaySoftwareNowResult {
+	return this.block.declare(AWSStorageGatewayUpdateGatewaySoftwareNowCommand(gatewayARN).apply(init)) as com.amazonaws.services.storagegateway.model.UpdateGatewaySoftwareNowResult
 }
 
 @Generated
-class AWSStorageGatewayUpdateGatewaySoftwareNowCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.UpdateGatewaySoftwareNowRequest> {
+class AWSStorageGatewayUpdateGatewaySoftwareNowCommand(val gatewayARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.UpdateGatewaySoftwareNowRequest, com.amazonaws.services.storagegateway.model.UpdateGatewaySoftwareNowResult> {
 
 
 
@@ -1792,8 +2024,12 @@ class AWSStorageGatewayUpdateGatewaySoftwareNowCommand(val gatewayARN: String) :
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.updateGatewaySoftwareNow(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.UpdateGatewaySoftwareNowResult {
+	  return com.amazonaws.services.storagegateway.model.UpdateGatewaySoftwareNowResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.UpdateGatewaySoftwareNowResult {
+		return environment.storagegateway.updateGatewaySoftwareNow(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1804,12 +2040,12 @@ class AWSStorageGatewayUpdateGatewaySoftwareNowCommand(val gatewayARN: String) :
 }
 
 
-fun AWSStorageGatewayFunctions.updateMaintenanceStartTime(gatewayARN: String, hourOfDay: Int, minuteOfHour: Int, dayOfWeek: Int, init: AWSStorageGatewayUpdateMaintenanceStartTimeCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayUpdateMaintenanceStartTimeCommand(gatewayARN, hourOfDay, minuteOfHour, dayOfWeek).apply(init))
+fun AWSStorageGatewayFunctions.updateMaintenanceStartTime(gatewayARN: String, hourOfDay: Int, minuteOfHour: Int, dayOfWeek: Int, init: AWSStorageGatewayUpdateMaintenanceStartTimeCommand.() -> Unit): com.amazonaws.services.storagegateway.model.UpdateMaintenanceStartTimeResult {
+	return this.block.declare(AWSStorageGatewayUpdateMaintenanceStartTimeCommand(gatewayARN, hourOfDay, minuteOfHour, dayOfWeek).apply(init)) as com.amazonaws.services.storagegateway.model.UpdateMaintenanceStartTimeResult
 }
 
 @Generated
-class AWSStorageGatewayUpdateMaintenanceStartTimeCommand(val gatewayARN: String, val hourOfDay: Int, val minuteOfHour: Int, val dayOfWeek: Int) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.UpdateMaintenanceStartTimeRequest> {
+class AWSStorageGatewayUpdateMaintenanceStartTimeCommand(val gatewayARN: String, val hourOfDay: Int, val minuteOfHour: Int, val dayOfWeek: Int) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.UpdateMaintenanceStartTimeRequest, com.amazonaws.services.storagegateway.model.UpdateMaintenanceStartTimeResult> {
 
 
 
@@ -1822,8 +2058,12 @@ class AWSStorageGatewayUpdateMaintenanceStartTimeCommand(val gatewayARN: String,
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.updateMaintenanceStartTime(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.UpdateMaintenanceStartTimeResult {
+	  return com.amazonaws.services.storagegateway.model.UpdateMaintenanceStartTimeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.UpdateMaintenanceStartTimeResult {
+		return environment.storagegateway.updateMaintenanceStartTime(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1837,12 +2077,12 @@ class AWSStorageGatewayUpdateMaintenanceStartTimeCommand(val gatewayARN: String,
 }
 
 
-fun AWSStorageGatewayFunctions.updateNFSFileShare(fileShareARN: String, init: AWSStorageGatewayUpdateNFSFileShareCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayUpdateNFSFileShareCommand(fileShareARN).apply(init))
+fun AWSStorageGatewayFunctions.updateNFSFileShare(fileShareARN: String, init: AWSStorageGatewayUpdateNFSFileShareCommand.() -> Unit): com.amazonaws.services.storagegateway.model.UpdateNFSFileShareResult {
+	return this.block.declare(AWSStorageGatewayUpdateNFSFileShareCommand(fileShareARN).apply(init)) as com.amazonaws.services.storagegateway.model.UpdateNFSFileShareResult
 }
 
 @Generated
-class AWSStorageGatewayUpdateNFSFileShareCommand(val fileShareARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.UpdateNFSFileShareRequest> {
+class AWSStorageGatewayUpdateNFSFileShareCommand(val fileShareARN: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.UpdateNFSFileShareRequest, com.amazonaws.services.storagegateway.model.UpdateNFSFileShareResult> {
 
 	var kMSEncrypted: Boolean? = false
 	var kMSKey: String? = null
@@ -1871,8 +2111,12 @@ class AWSStorageGatewayUpdateNFSFileShareCommand(val fileShareARN: String) : Ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.updateNFSFileShare(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.UpdateNFSFileShareResult {
+	  return com.amazonaws.services.storagegateway.model.UpdateNFSFileShareResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.UpdateNFSFileShareResult {
+		return environment.storagegateway.updateNFSFileShare(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1893,12 +2137,12 @@ class AWSStorageGatewayUpdateNFSFileShareCommand(val fileShareARN: String) : Ama
 }
 
 
-fun AWSStorageGatewayFunctions.updateSnapshotSchedule(volumeARN: String, startAt: Int, recurrenceInHours: Int, init: AWSStorageGatewayUpdateSnapshotScheduleCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayUpdateSnapshotScheduleCommand(volumeARN, startAt, recurrenceInHours).apply(init))
+fun AWSStorageGatewayFunctions.updateSnapshotSchedule(volumeARN: String, startAt: Int, recurrenceInHours: Int, init: AWSStorageGatewayUpdateSnapshotScheduleCommand.() -> Unit): com.amazonaws.services.storagegateway.model.UpdateSnapshotScheduleResult {
+	return this.block.declare(AWSStorageGatewayUpdateSnapshotScheduleCommand(volumeARN, startAt, recurrenceInHours).apply(init)) as com.amazonaws.services.storagegateway.model.UpdateSnapshotScheduleResult
 }
 
 @Generated
-class AWSStorageGatewayUpdateSnapshotScheduleCommand(val volumeARN: String, val startAt: Int, val recurrenceInHours: Int) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.UpdateSnapshotScheduleRequest> {
+class AWSStorageGatewayUpdateSnapshotScheduleCommand(val volumeARN: String, val startAt: Int, val recurrenceInHours: Int) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.UpdateSnapshotScheduleRequest, com.amazonaws.services.storagegateway.model.UpdateSnapshotScheduleResult> {
 
 	var description: String? = null
 
@@ -1911,8 +2155,12 @@ class AWSStorageGatewayUpdateSnapshotScheduleCommand(val volumeARN: String, val 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.updateSnapshotSchedule(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.UpdateSnapshotScheduleResult {
+	  return com.amazonaws.services.storagegateway.model.UpdateSnapshotScheduleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.UpdateSnapshotScheduleResult {
+		return environment.storagegateway.updateSnapshotSchedule(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1926,12 +2174,12 @@ class AWSStorageGatewayUpdateSnapshotScheduleCommand(val volumeARN: String, val 
 }
 
 
-fun AWSStorageGatewayFunctions.updateVTLDeviceType(vTLDeviceARN: String, deviceType: String, init: AWSStorageGatewayUpdateVTLDeviceTypeCommand.() -> Unit) {
-	this.block.declare(AWSStorageGatewayUpdateVTLDeviceTypeCommand(vTLDeviceARN, deviceType).apply(init))
+fun AWSStorageGatewayFunctions.updateVTLDeviceType(vTLDeviceARN: String, deviceType: String, init: AWSStorageGatewayUpdateVTLDeviceTypeCommand.() -> Unit): com.amazonaws.services.storagegateway.model.UpdateVTLDeviceTypeResult {
+	return this.block.declare(AWSStorageGatewayUpdateVTLDeviceTypeCommand(vTLDeviceARN, deviceType).apply(init)) as com.amazonaws.services.storagegateway.model.UpdateVTLDeviceTypeResult
 }
 
 @Generated
-class AWSStorageGatewayUpdateVTLDeviceTypeCommand(val vTLDeviceARN: String, val deviceType: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.UpdateVTLDeviceTypeRequest> {
+class AWSStorageGatewayUpdateVTLDeviceTypeCommand(val vTLDeviceARN: String, val deviceType: String) : AmazonWebServiceCommand<com.amazonaws.services.storagegateway.model.UpdateVTLDeviceTypeRequest, com.amazonaws.services.storagegateway.model.UpdateVTLDeviceTypeResult> {
 
 
 
@@ -1942,8 +2190,12 @@ class AWSStorageGatewayUpdateVTLDeviceTypeCommand(val vTLDeviceARN: String, val 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.storagegateway.updateVTLDeviceType(build())
+	override fun dryResult(): com.amazonaws.services.storagegateway.model.UpdateVTLDeviceTypeResult {
+	  return com.amazonaws.services.storagegateway.model.UpdateVTLDeviceTypeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.storagegateway.model.UpdateVTLDeviceTypeResult {
+		return environment.storagegateway.updateVTLDeviceType(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

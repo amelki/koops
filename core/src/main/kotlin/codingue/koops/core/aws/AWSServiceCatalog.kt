@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.servicecatalog: AWSServiceCatalog
 @Generated
 class AWSServiceCatalogFunctions(val block: Block)
 
-infix fun AwsContinuation.servicecatalog(init: AWSServiceCatalogFunctions.() -> Unit) {
-	AWSServiceCatalogFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.servicecatalog(init: AWSServiceCatalogFunctions.() -> T): T {
+	return AWSServiceCatalogFunctions(shell).run(init)
 }
 
 			
 
-fun AWSServiceCatalogFunctions.acceptPortfolioShare(portfolioId: String, init: AWSServiceCatalogAcceptPortfolioShareCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogAcceptPortfolioShareCommand(portfolioId).apply(init))
+fun AWSServiceCatalogFunctions.acceptPortfolioShare(portfolioId: String, init: AWSServiceCatalogAcceptPortfolioShareCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.AcceptPortfolioShareResult {
+	return this.block.declare(AWSServiceCatalogAcceptPortfolioShareCommand(portfolioId).apply(init)) as com.amazonaws.services.servicecatalog.model.AcceptPortfolioShareResult
 }
 
 @Generated
-class AWSServiceCatalogAcceptPortfolioShareCommand(val portfolioId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.AcceptPortfolioShareRequest> {
+class AWSServiceCatalogAcceptPortfolioShareCommand(val portfolioId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.AcceptPortfolioShareRequest, com.amazonaws.services.servicecatalog.model.AcceptPortfolioShareResult> {
 
 	var acceptLanguage: String? = null
 
@@ -42,8 +42,12 @@ class AWSServiceCatalogAcceptPortfolioShareCommand(val portfolioId: String) : Am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.acceptPortfolioShare(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.AcceptPortfolioShareResult {
+	  return com.amazonaws.services.servicecatalog.model.AcceptPortfolioShareResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.AcceptPortfolioShareResult {
+		return environment.servicecatalog.acceptPortfolioShare(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -55,12 +59,12 @@ class AWSServiceCatalogAcceptPortfolioShareCommand(val portfolioId: String) : Am
 }
 
 
-fun AWSServiceCatalogFunctions.associatePrincipalWithPortfolio(portfolioId: String, principalARN: String, principalType: PrincipalType, init: AWSServiceCatalogAssociatePrincipalWithPortfolioCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogAssociatePrincipalWithPortfolioCommand(portfolioId, principalARN, principalType).apply(init))
+fun AWSServiceCatalogFunctions.associatePrincipalWithPortfolio(portfolioId: String, principalARN: String, principalType: PrincipalType, init: AWSServiceCatalogAssociatePrincipalWithPortfolioCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.AssociatePrincipalWithPortfolioResult {
+	return this.block.declare(AWSServiceCatalogAssociatePrincipalWithPortfolioCommand(portfolioId, principalARN, principalType).apply(init)) as com.amazonaws.services.servicecatalog.model.AssociatePrincipalWithPortfolioResult
 }
 
 @Generated
-class AWSServiceCatalogAssociatePrincipalWithPortfolioCommand(val portfolioId: String, val principalARN: String, val principalType: PrincipalType) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.AssociatePrincipalWithPortfolioRequest> {
+class AWSServiceCatalogAssociatePrincipalWithPortfolioCommand(val portfolioId: String, val principalARN: String, val principalType: PrincipalType) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.AssociatePrincipalWithPortfolioRequest, com.amazonaws.services.servicecatalog.model.AssociatePrincipalWithPortfolioResult> {
 
 	var acceptLanguage: String? = null
 
@@ -73,8 +77,12 @@ class AWSServiceCatalogAssociatePrincipalWithPortfolioCommand(val portfolioId: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.associatePrincipalWithPortfolio(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.AssociatePrincipalWithPortfolioResult {
+	  return com.amazonaws.services.servicecatalog.model.AssociatePrincipalWithPortfolioResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.AssociatePrincipalWithPortfolioResult {
+		return environment.servicecatalog.associatePrincipalWithPortfolio(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -88,12 +96,12 @@ class AWSServiceCatalogAssociatePrincipalWithPortfolioCommand(val portfolioId: S
 }
 
 
-fun AWSServiceCatalogFunctions.associateProductWithPortfolio(productId: String, portfolioId: String, init: AWSServiceCatalogAssociateProductWithPortfolioCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogAssociateProductWithPortfolioCommand(productId, portfolioId).apply(init))
+fun AWSServiceCatalogFunctions.associateProductWithPortfolio(productId: String, portfolioId: String, init: AWSServiceCatalogAssociateProductWithPortfolioCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.AssociateProductWithPortfolioResult {
+	return this.block.declare(AWSServiceCatalogAssociateProductWithPortfolioCommand(productId, portfolioId).apply(init)) as com.amazonaws.services.servicecatalog.model.AssociateProductWithPortfolioResult
 }
 
 @Generated
-class AWSServiceCatalogAssociateProductWithPortfolioCommand(val productId: String, val portfolioId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.AssociateProductWithPortfolioRequest> {
+class AWSServiceCatalogAssociateProductWithPortfolioCommand(val productId: String, val portfolioId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.AssociateProductWithPortfolioRequest, com.amazonaws.services.servicecatalog.model.AssociateProductWithPortfolioResult> {
 
 	var acceptLanguage: String? = null
 	var sourcePortfolioId: String? = null
@@ -107,8 +115,12 @@ class AWSServiceCatalogAssociateProductWithPortfolioCommand(val productId: Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.associateProductWithPortfolio(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.AssociateProductWithPortfolioResult {
+	  return com.amazonaws.services.servicecatalog.model.AssociateProductWithPortfolioResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.AssociateProductWithPortfolioResult {
+		return environment.servicecatalog.associateProductWithPortfolio(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -122,12 +134,12 @@ class AWSServiceCatalogAssociateProductWithPortfolioCommand(val productId: Strin
 }
 
 
-fun AWSServiceCatalogFunctions.associateTagOptionWithResource(resourceId: String, tagOptionId: String, init: AWSServiceCatalogAssociateTagOptionWithResourceCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogAssociateTagOptionWithResourceCommand(resourceId, tagOptionId).apply(init))
+fun AWSServiceCatalogFunctions.associateTagOptionWithResource(resourceId: String, tagOptionId: String, init: AWSServiceCatalogAssociateTagOptionWithResourceCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.AssociateTagOptionWithResourceResult {
+	return this.block.declare(AWSServiceCatalogAssociateTagOptionWithResourceCommand(resourceId, tagOptionId).apply(init)) as com.amazonaws.services.servicecatalog.model.AssociateTagOptionWithResourceResult
 }
 
 @Generated
-class AWSServiceCatalogAssociateTagOptionWithResourceCommand(val resourceId: String, val tagOptionId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.AssociateTagOptionWithResourceRequest> {
+class AWSServiceCatalogAssociateTagOptionWithResourceCommand(val resourceId: String, val tagOptionId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.AssociateTagOptionWithResourceRequest, com.amazonaws.services.servicecatalog.model.AssociateTagOptionWithResourceResult> {
 
 
 
@@ -138,8 +150,12 @@ class AWSServiceCatalogAssociateTagOptionWithResourceCommand(val resourceId: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.associateTagOptionWithResource(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.AssociateTagOptionWithResourceResult {
+	  return com.amazonaws.services.servicecatalog.model.AssociateTagOptionWithResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.AssociateTagOptionWithResourceResult {
+		return environment.servicecatalog.associateTagOptionWithResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -151,12 +167,12 @@ class AWSServiceCatalogAssociateTagOptionWithResourceCommand(val resourceId: Str
 }
 
 
-fun AWSServiceCatalogFunctions.copyProduct(sourceProductArn: String, idempotencyToken: String, init: AWSServiceCatalogCopyProductCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogCopyProductCommand(sourceProductArn, idempotencyToken).apply(init))
+fun AWSServiceCatalogFunctions.copyProduct(sourceProductArn: String, idempotencyToken: String, init: AWSServiceCatalogCopyProductCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.CopyProductResult {
+	return this.block.declare(AWSServiceCatalogCopyProductCommand(sourceProductArn, idempotencyToken).apply(init)) as com.amazonaws.services.servicecatalog.model.CopyProductResult
 }
 
 @Generated
-class AWSServiceCatalogCopyProductCommand(val sourceProductArn: String, val idempotencyToken: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.CopyProductRequest> {
+class AWSServiceCatalogCopyProductCommand(val sourceProductArn: String, val idempotencyToken: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.CopyProductRequest, com.amazonaws.services.servicecatalog.model.CopyProductResult> {
 
 	var acceptLanguage: String? = null
 	var targetProductId: String? = null
@@ -176,8 +192,12 @@ class AWSServiceCatalogCopyProductCommand(val sourceProductArn: String, val idem
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.copyProduct(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.CopyProductResult {
+	  return com.amazonaws.services.servicecatalog.model.CopyProductResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.CopyProductResult {
+		return environment.servicecatalog.copyProduct(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -194,12 +214,12 @@ class AWSServiceCatalogCopyProductCommand(val sourceProductArn: String, val idem
 }
 
 
-fun AWSServiceCatalogFunctions.createConstraint(portfolioId: String, productId: String, parameters: String, type: String, idempotencyToken: String, init: AWSServiceCatalogCreateConstraintCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogCreateConstraintCommand(portfolioId, productId, parameters, type, idempotencyToken).apply(init))
+fun AWSServiceCatalogFunctions.createConstraint(portfolioId: String, productId: String, parameters: String, type: String, idempotencyToken: String, init: AWSServiceCatalogCreateConstraintCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.CreateConstraintResult {
+	return this.block.declare(AWSServiceCatalogCreateConstraintCommand(portfolioId, productId, parameters, type, idempotencyToken).apply(init)) as com.amazonaws.services.servicecatalog.model.CreateConstraintResult
 }
 
 @Generated
-class AWSServiceCatalogCreateConstraintCommand(val portfolioId: String, val productId: String, val parameters: String, val type: String, val idempotencyToken: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.CreateConstraintRequest> {
+class AWSServiceCatalogCreateConstraintCommand(val portfolioId: String, val productId: String, val parameters: String, val type: String, val idempotencyToken: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.CreateConstraintRequest, com.amazonaws.services.servicecatalog.model.CreateConstraintResult> {
 
 	var acceptLanguage: String? = null
 	var description: String? = null
@@ -216,8 +236,12 @@ class AWSServiceCatalogCreateConstraintCommand(val portfolioId: String, val prod
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.createConstraint(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.CreateConstraintResult {
+	  return com.amazonaws.services.servicecatalog.model.CreateConstraintResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.CreateConstraintResult {
+		return environment.servicecatalog.createConstraint(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -234,12 +258,12 @@ class AWSServiceCatalogCreateConstraintCommand(val portfolioId: String, val prod
 }
 
 
-fun AWSServiceCatalogFunctions.createPortfolio(displayName: String, providerName: String, idempotencyToken: String, init: AWSServiceCatalogCreatePortfolioCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogCreatePortfolioCommand(displayName, providerName, idempotencyToken).apply(init))
+fun AWSServiceCatalogFunctions.createPortfolio(displayName: String, providerName: String, idempotencyToken: String, init: AWSServiceCatalogCreatePortfolioCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.CreatePortfolioResult {
+	return this.block.declare(AWSServiceCatalogCreatePortfolioCommand(displayName, providerName, idempotencyToken).apply(init)) as com.amazonaws.services.servicecatalog.model.CreatePortfolioResult
 }
 
 @Generated
-class AWSServiceCatalogCreatePortfolioCommand(val displayName: String, val providerName: String, val idempotencyToken: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.CreatePortfolioRequest> {
+class AWSServiceCatalogCreatePortfolioCommand(val displayName: String, val providerName: String, val idempotencyToken: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.CreatePortfolioRequest, com.amazonaws.services.servicecatalog.model.CreatePortfolioResult> {
 
 	var acceptLanguage: String? = null
 	var description: String? = null
@@ -256,8 +280,12 @@ class AWSServiceCatalogCreatePortfolioCommand(val displayName: String, val provi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.createPortfolio(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.CreatePortfolioResult {
+	  return com.amazonaws.services.servicecatalog.model.CreatePortfolioResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.CreatePortfolioResult {
+		return environment.servicecatalog.createPortfolio(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -273,12 +301,12 @@ class AWSServiceCatalogCreatePortfolioCommand(val displayName: String, val provi
 }
 
 
-fun AWSServiceCatalogFunctions.createPortfolioShare(portfolioId: String, accountId: String, init: AWSServiceCatalogCreatePortfolioShareCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogCreatePortfolioShareCommand(portfolioId, accountId).apply(init))
+fun AWSServiceCatalogFunctions.createPortfolioShare(portfolioId: String, accountId: String, init: AWSServiceCatalogCreatePortfolioShareCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.CreatePortfolioShareResult {
+	return this.block.declare(AWSServiceCatalogCreatePortfolioShareCommand(portfolioId, accountId).apply(init)) as com.amazonaws.services.servicecatalog.model.CreatePortfolioShareResult
 }
 
 @Generated
-class AWSServiceCatalogCreatePortfolioShareCommand(val portfolioId: String, val accountId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.CreatePortfolioShareRequest> {
+class AWSServiceCatalogCreatePortfolioShareCommand(val portfolioId: String, val accountId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.CreatePortfolioShareRequest, com.amazonaws.services.servicecatalog.model.CreatePortfolioShareResult> {
 
 	var acceptLanguage: String? = null
 
@@ -290,8 +318,12 @@ class AWSServiceCatalogCreatePortfolioShareCommand(val portfolioId: String, val 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.createPortfolioShare(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.CreatePortfolioShareResult {
+	  return com.amazonaws.services.servicecatalog.model.CreatePortfolioShareResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.CreatePortfolioShareResult {
+		return environment.servicecatalog.createPortfolioShare(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -304,12 +336,12 @@ class AWSServiceCatalogCreatePortfolioShareCommand(val portfolioId: String, val 
 }
 
 
-fun AWSServiceCatalogFunctions.createProduct(name: String, owner: String, productType: ProductType, provisioningArtifactParameters: com.amazonaws.services.servicecatalog.model.ProvisioningArtifactProperties, idempotencyToken: String, init: AWSServiceCatalogCreateProductCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogCreateProductCommand(name, owner, productType, provisioningArtifactParameters, idempotencyToken).apply(init))
+fun AWSServiceCatalogFunctions.createProduct(name: String, owner: String, productType: ProductType, provisioningArtifactParameters: com.amazonaws.services.servicecatalog.model.ProvisioningArtifactProperties, idempotencyToken: String, init: AWSServiceCatalogCreateProductCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.CreateProductResult {
+	return this.block.declare(AWSServiceCatalogCreateProductCommand(name, owner, productType, provisioningArtifactParameters, idempotencyToken).apply(init)) as com.amazonaws.services.servicecatalog.model.CreateProductResult
 }
 
 @Generated
-class AWSServiceCatalogCreateProductCommand(val name: String, val owner: String, val productType: ProductType, val provisioningArtifactParameters: com.amazonaws.services.servicecatalog.model.ProvisioningArtifactProperties, val idempotencyToken: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.CreateProductRequest> {
+class AWSServiceCatalogCreateProductCommand(val name: String, val owner: String, val productType: ProductType, val provisioningArtifactParameters: com.amazonaws.services.servicecatalog.model.ProvisioningArtifactProperties, val idempotencyToken: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.CreateProductRequest, com.amazonaws.services.servicecatalog.model.CreateProductResult> {
 
 	var acceptLanguage: String? = null
 	var description: String? = null
@@ -336,8 +368,12 @@ class AWSServiceCatalogCreateProductCommand(val name: String, val owner: String,
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.createProduct(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.CreateProductResult {
+	  return com.amazonaws.services.servicecatalog.model.CreateProductResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.CreateProductResult {
+		return environment.servicecatalog.createProduct(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -359,12 +395,12 @@ class AWSServiceCatalogCreateProductCommand(val name: String, val owner: String,
 }
 
 
-fun AWSServiceCatalogFunctions.createProvisionedProductPlan(planName: String, planType: ProvisionedProductPlanType, productId: String, provisionedProductName: String, provisioningArtifactId: String, idempotencyToken: String, init: AWSServiceCatalogCreateProvisionedProductPlanCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogCreateProvisionedProductPlanCommand(planName, planType, productId, provisionedProductName, provisioningArtifactId, idempotencyToken).apply(init))
+fun AWSServiceCatalogFunctions.createProvisionedProductPlan(planName: String, planType: ProvisionedProductPlanType, productId: String, provisionedProductName: String, provisioningArtifactId: String, idempotencyToken: String, init: AWSServiceCatalogCreateProvisionedProductPlanCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.CreateProvisionedProductPlanResult {
+	return this.block.declare(AWSServiceCatalogCreateProvisionedProductPlanCommand(planName, planType, productId, provisionedProductName, provisioningArtifactId, idempotencyToken).apply(init)) as com.amazonaws.services.servicecatalog.model.CreateProvisionedProductPlanResult
 }
 
 @Generated
-class AWSServiceCatalogCreateProvisionedProductPlanCommand(val planName: String, val planType: ProvisionedProductPlanType, val productId: String, val provisionedProductName: String, val provisioningArtifactId: String, val idempotencyToken: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.CreateProvisionedProductPlanRequest> {
+class AWSServiceCatalogCreateProvisionedProductPlanCommand(val planName: String, val planType: ProvisionedProductPlanType, val productId: String, val provisionedProductName: String, val provisioningArtifactId: String, val idempotencyToken: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.CreateProvisionedProductPlanRequest, com.amazonaws.services.servicecatalog.model.CreateProvisionedProductPlanResult> {
 
 	var acceptLanguage: String? = null
 	var notificationArns: List<String>? = null
@@ -388,8 +424,12 @@ class AWSServiceCatalogCreateProvisionedProductPlanCommand(val planName: String,
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.createProvisionedProductPlan(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.CreateProvisionedProductPlanResult {
+	  return com.amazonaws.services.servicecatalog.model.CreateProvisionedProductPlanResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.CreateProvisionedProductPlanResult {
+		return environment.servicecatalog.createProvisionedProductPlan(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -410,12 +450,12 @@ class AWSServiceCatalogCreateProvisionedProductPlanCommand(val planName: String,
 }
 
 
-fun AWSServiceCatalogFunctions.createProvisioningArtifact(productId: String, parameters: com.amazonaws.services.servicecatalog.model.ProvisioningArtifactProperties, idempotencyToken: String, init: AWSServiceCatalogCreateProvisioningArtifactCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogCreateProvisioningArtifactCommand(productId, parameters, idempotencyToken).apply(init))
+fun AWSServiceCatalogFunctions.createProvisioningArtifact(productId: String, parameters: com.amazonaws.services.servicecatalog.model.ProvisioningArtifactProperties, idempotencyToken: String, init: AWSServiceCatalogCreateProvisioningArtifactCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.CreateProvisioningArtifactResult {
+	return this.block.declare(AWSServiceCatalogCreateProvisioningArtifactCommand(productId, parameters, idempotencyToken).apply(init)) as com.amazonaws.services.servicecatalog.model.CreateProvisioningArtifactResult
 }
 
 @Generated
-class AWSServiceCatalogCreateProvisioningArtifactCommand(val productId: String, val parameters: com.amazonaws.services.servicecatalog.model.ProvisioningArtifactProperties, val idempotencyToken: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.CreateProvisioningArtifactRequest> {
+class AWSServiceCatalogCreateProvisioningArtifactCommand(val productId: String, val parameters: com.amazonaws.services.servicecatalog.model.ProvisioningArtifactProperties, val idempotencyToken: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.CreateProvisioningArtifactRequest, com.amazonaws.services.servicecatalog.model.CreateProvisioningArtifactResult> {
 
 	var acceptLanguage: String? = null
 
@@ -428,8 +468,12 @@ class AWSServiceCatalogCreateProvisioningArtifactCommand(val productId: String, 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.createProvisioningArtifact(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.CreateProvisioningArtifactResult {
+	  return com.amazonaws.services.servicecatalog.model.CreateProvisioningArtifactResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.CreateProvisioningArtifactResult {
+		return environment.servicecatalog.createProvisioningArtifact(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -443,12 +487,12 @@ class AWSServiceCatalogCreateProvisioningArtifactCommand(val productId: String, 
 }
 
 
-fun AWSServiceCatalogFunctions.createTagOption(key: String, value: String, init: AWSServiceCatalogCreateTagOptionCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogCreateTagOptionCommand(key, value).apply(init))
+fun AWSServiceCatalogFunctions.createTagOption(key: String, value: String, init: AWSServiceCatalogCreateTagOptionCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.CreateTagOptionResult {
+	return this.block.declare(AWSServiceCatalogCreateTagOptionCommand(key, value).apply(init)) as com.amazonaws.services.servicecatalog.model.CreateTagOptionResult
 }
 
 @Generated
-class AWSServiceCatalogCreateTagOptionCommand(val key: String, val value: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.CreateTagOptionRequest> {
+class AWSServiceCatalogCreateTagOptionCommand(val key: String, val value: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.CreateTagOptionRequest, com.amazonaws.services.servicecatalog.model.CreateTagOptionResult> {
 
 
 
@@ -459,8 +503,12 @@ class AWSServiceCatalogCreateTagOptionCommand(val key: String, val value: String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.createTagOption(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.CreateTagOptionResult {
+	  return com.amazonaws.services.servicecatalog.model.CreateTagOptionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.CreateTagOptionResult {
+		return environment.servicecatalog.createTagOption(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -472,12 +520,12 @@ class AWSServiceCatalogCreateTagOptionCommand(val key: String, val value: String
 }
 
 
-fun AWSServiceCatalogFunctions.deleteConstraint(id: String, init: AWSServiceCatalogDeleteConstraintCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogDeleteConstraintCommand(id).apply(init))
+fun AWSServiceCatalogFunctions.deleteConstraint(id: String, init: AWSServiceCatalogDeleteConstraintCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.DeleteConstraintResult {
+	return this.block.declare(AWSServiceCatalogDeleteConstraintCommand(id).apply(init)) as com.amazonaws.services.servicecatalog.model.DeleteConstraintResult
 }
 
 @Generated
-class AWSServiceCatalogDeleteConstraintCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DeleteConstraintRequest> {
+class AWSServiceCatalogDeleteConstraintCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DeleteConstraintRequest, com.amazonaws.services.servicecatalog.model.DeleteConstraintResult> {
 
 	var acceptLanguage: String? = null
 
@@ -488,8 +536,12 @@ class AWSServiceCatalogDeleteConstraintCommand(val id: String) : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.deleteConstraint(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DeleteConstraintResult {
+	  return com.amazonaws.services.servicecatalog.model.DeleteConstraintResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DeleteConstraintResult {
+		return environment.servicecatalog.deleteConstraint(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -501,12 +553,12 @@ class AWSServiceCatalogDeleteConstraintCommand(val id: String) : AmazonWebServic
 }
 
 
-fun AWSServiceCatalogFunctions.deletePortfolio(id: String, init: AWSServiceCatalogDeletePortfolioCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogDeletePortfolioCommand(id).apply(init))
+fun AWSServiceCatalogFunctions.deletePortfolio(id: String, init: AWSServiceCatalogDeletePortfolioCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.DeletePortfolioResult {
+	return this.block.declare(AWSServiceCatalogDeletePortfolioCommand(id).apply(init)) as com.amazonaws.services.servicecatalog.model.DeletePortfolioResult
 }
 
 @Generated
-class AWSServiceCatalogDeletePortfolioCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DeletePortfolioRequest> {
+class AWSServiceCatalogDeletePortfolioCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DeletePortfolioRequest, com.amazonaws.services.servicecatalog.model.DeletePortfolioResult> {
 
 	var acceptLanguage: String? = null
 
@@ -517,8 +569,12 @@ class AWSServiceCatalogDeletePortfolioCommand(val id: String) : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.deletePortfolio(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DeletePortfolioResult {
+	  return com.amazonaws.services.servicecatalog.model.DeletePortfolioResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DeletePortfolioResult {
+		return environment.servicecatalog.deletePortfolio(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -530,12 +586,12 @@ class AWSServiceCatalogDeletePortfolioCommand(val id: String) : AmazonWebService
 }
 
 
-fun AWSServiceCatalogFunctions.deletePortfolioShare(portfolioId: String, accountId: String, init: AWSServiceCatalogDeletePortfolioShareCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogDeletePortfolioShareCommand(portfolioId, accountId).apply(init))
+fun AWSServiceCatalogFunctions.deletePortfolioShare(portfolioId: String, accountId: String, init: AWSServiceCatalogDeletePortfolioShareCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.DeletePortfolioShareResult {
+	return this.block.declare(AWSServiceCatalogDeletePortfolioShareCommand(portfolioId, accountId).apply(init)) as com.amazonaws.services.servicecatalog.model.DeletePortfolioShareResult
 }
 
 @Generated
-class AWSServiceCatalogDeletePortfolioShareCommand(val portfolioId: String, val accountId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DeletePortfolioShareRequest> {
+class AWSServiceCatalogDeletePortfolioShareCommand(val portfolioId: String, val accountId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DeletePortfolioShareRequest, com.amazonaws.services.servicecatalog.model.DeletePortfolioShareResult> {
 
 	var acceptLanguage: String? = null
 
@@ -547,8 +603,12 @@ class AWSServiceCatalogDeletePortfolioShareCommand(val portfolioId: String, val 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.deletePortfolioShare(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DeletePortfolioShareResult {
+	  return com.amazonaws.services.servicecatalog.model.DeletePortfolioShareResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DeletePortfolioShareResult {
+		return environment.servicecatalog.deletePortfolioShare(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -561,12 +621,12 @@ class AWSServiceCatalogDeletePortfolioShareCommand(val portfolioId: String, val 
 }
 
 
-fun AWSServiceCatalogFunctions.deleteProduct(id: String, init: AWSServiceCatalogDeleteProductCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogDeleteProductCommand(id).apply(init))
+fun AWSServiceCatalogFunctions.deleteProduct(id: String, init: AWSServiceCatalogDeleteProductCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.DeleteProductResult {
+	return this.block.declare(AWSServiceCatalogDeleteProductCommand(id).apply(init)) as com.amazonaws.services.servicecatalog.model.DeleteProductResult
 }
 
 @Generated
-class AWSServiceCatalogDeleteProductCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DeleteProductRequest> {
+class AWSServiceCatalogDeleteProductCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DeleteProductRequest, com.amazonaws.services.servicecatalog.model.DeleteProductResult> {
 
 	var acceptLanguage: String? = null
 
@@ -577,8 +637,12 @@ class AWSServiceCatalogDeleteProductCommand(val id: String) : AmazonWebServiceCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.deleteProduct(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DeleteProductResult {
+	  return com.amazonaws.services.servicecatalog.model.DeleteProductResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DeleteProductResult {
+		return environment.servicecatalog.deleteProduct(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -590,12 +654,12 @@ class AWSServiceCatalogDeleteProductCommand(val id: String) : AmazonWebServiceCo
 }
 
 
-fun AWSServiceCatalogFunctions.deleteProvisionedProductPlan(planId: String, init: AWSServiceCatalogDeleteProvisionedProductPlanCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogDeleteProvisionedProductPlanCommand(planId).apply(init))
+fun AWSServiceCatalogFunctions.deleteProvisionedProductPlan(planId: String, init: AWSServiceCatalogDeleteProvisionedProductPlanCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.DeleteProvisionedProductPlanResult {
+	return this.block.declare(AWSServiceCatalogDeleteProvisionedProductPlanCommand(planId).apply(init)) as com.amazonaws.services.servicecatalog.model.DeleteProvisionedProductPlanResult
 }
 
 @Generated
-class AWSServiceCatalogDeleteProvisionedProductPlanCommand(val planId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DeleteProvisionedProductPlanRequest> {
+class AWSServiceCatalogDeleteProvisionedProductPlanCommand(val planId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DeleteProvisionedProductPlanRequest, com.amazonaws.services.servicecatalog.model.DeleteProvisionedProductPlanResult> {
 
 	var acceptLanguage: String? = null
 	var ignoreErrors: Boolean? = false
@@ -608,8 +672,12 @@ class AWSServiceCatalogDeleteProvisionedProductPlanCommand(val planId: String) :
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.deleteProvisionedProductPlan(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DeleteProvisionedProductPlanResult {
+	  return com.amazonaws.services.servicecatalog.model.DeleteProvisionedProductPlanResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DeleteProvisionedProductPlanResult {
+		return environment.servicecatalog.deleteProvisionedProductPlan(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -622,12 +690,12 @@ class AWSServiceCatalogDeleteProvisionedProductPlanCommand(val planId: String) :
 }
 
 
-fun AWSServiceCatalogFunctions.deleteProvisioningArtifact(productId: String, provisioningArtifactId: String, init: AWSServiceCatalogDeleteProvisioningArtifactCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogDeleteProvisioningArtifactCommand(productId, provisioningArtifactId).apply(init))
+fun AWSServiceCatalogFunctions.deleteProvisioningArtifact(productId: String, provisioningArtifactId: String, init: AWSServiceCatalogDeleteProvisioningArtifactCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.DeleteProvisioningArtifactResult {
+	return this.block.declare(AWSServiceCatalogDeleteProvisioningArtifactCommand(productId, provisioningArtifactId).apply(init)) as com.amazonaws.services.servicecatalog.model.DeleteProvisioningArtifactResult
 }
 
 @Generated
-class AWSServiceCatalogDeleteProvisioningArtifactCommand(val productId: String, val provisioningArtifactId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DeleteProvisioningArtifactRequest> {
+class AWSServiceCatalogDeleteProvisioningArtifactCommand(val productId: String, val provisioningArtifactId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DeleteProvisioningArtifactRequest, com.amazonaws.services.servicecatalog.model.DeleteProvisioningArtifactResult> {
 
 	var acceptLanguage: String? = null
 
@@ -639,8 +707,12 @@ class AWSServiceCatalogDeleteProvisioningArtifactCommand(val productId: String, 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.deleteProvisioningArtifact(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DeleteProvisioningArtifactResult {
+	  return com.amazonaws.services.servicecatalog.model.DeleteProvisioningArtifactResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DeleteProvisioningArtifactResult {
+		return environment.servicecatalog.deleteProvisioningArtifact(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -653,12 +725,12 @@ class AWSServiceCatalogDeleteProvisioningArtifactCommand(val productId: String, 
 }
 
 
-fun AWSServiceCatalogFunctions.deleteTagOption(id: String, init: AWSServiceCatalogDeleteTagOptionCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogDeleteTagOptionCommand(id).apply(init))
+fun AWSServiceCatalogFunctions.deleteTagOption(id: String, init: AWSServiceCatalogDeleteTagOptionCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.DeleteTagOptionResult {
+	return this.block.declare(AWSServiceCatalogDeleteTagOptionCommand(id).apply(init)) as com.amazonaws.services.servicecatalog.model.DeleteTagOptionResult
 }
 
 @Generated
-class AWSServiceCatalogDeleteTagOptionCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DeleteTagOptionRequest> {
+class AWSServiceCatalogDeleteTagOptionCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DeleteTagOptionRequest, com.amazonaws.services.servicecatalog.model.DeleteTagOptionResult> {
 
 
 
@@ -668,8 +740,12 @@ class AWSServiceCatalogDeleteTagOptionCommand(val id: String) : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.deleteTagOption(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DeleteTagOptionResult {
+	  return com.amazonaws.services.servicecatalog.model.DeleteTagOptionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DeleteTagOptionResult {
+		return environment.servicecatalog.deleteTagOption(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -680,12 +756,12 @@ class AWSServiceCatalogDeleteTagOptionCommand(val id: String) : AmazonWebService
 }
 
 
-fun AWSServiceCatalogFunctions.describeConstraint(id: String, init: AWSServiceCatalogDescribeConstraintCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogDescribeConstraintCommand(id).apply(init))
+fun AWSServiceCatalogFunctions.describeConstraint(id: String, init: AWSServiceCatalogDescribeConstraintCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.DescribeConstraintResult {
+	return this.block.declare(AWSServiceCatalogDescribeConstraintCommand(id).apply(init)) as com.amazonaws.services.servicecatalog.model.DescribeConstraintResult
 }
 
 @Generated
-class AWSServiceCatalogDescribeConstraintCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DescribeConstraintRequest> {
+class AWSServiceCatalogDescribeConstraintCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DescribeConstraintRequest, com.amazonaws.services.servicecatalog.model.DescribeConstraintResult> {
 
 	var acceptLanguage: String? = null
 
@@ -696,8 +772,12 @@ class AWSServiceCatalogDescribeConstraintCommand(val id: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.describeConstraint(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DescribeConstraintResult {
+	  return com.amazonaws.services.servicecatalog.model.DescribeConstraintResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DescribeConstraintResult {
+		return environment.servicecatalog.describeConstraint(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -709,12 +789,12 @@ class AWSServiceCatalogDescribeConstraintCommand(val id: String) : AmazonWebServ
 }
 
 
-fun AWSServiceCatalogFunctions.describeCopyProductStatus(copyProductToken: String, init: AWSServiceCatalogDescribeCopyProductStatusCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogDescribeCopyProductStatusCommand(copyProductToken).apply(init))
+fun AWSServiceCatalogFunctions.describeCopyProductStatus(copyProductToken: String, init: AWSServiceCatalogDescribeCopyProductStatusCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.DescribeCopyProductStatusResult {
+	return this.block.declare(AWSServiceCatalogDescribeCopyProductStatusCommand(copyProductToken).apply(init)) as com.amazonaws.services.servicecatalog.model.DescribeCopyProductStatusResult
 }
 
 @Generated
-class AWSServiceCatalogDescribeCopyProductStatusCommand(val copyProductToken: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DescribeCopyProductStatusRequest> {
+class AWSServiceCatalogDescribeCopyProductStatusCommand(val copyProductToken: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DescribeCopyProductStatusRequest, com.amazonaws.services.servicecatalog.model.DescribeCopyProductStatusResult> {
 
 	var acceptLanguage: String? = null
 
@@ -725,8 +805,12 @@ class AWSServiceCatalogDescribeCopyProductStatusCommand(val copyProductToken: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.describeCopyProductStatus(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DescribeCopyProductStatusResult {
+	  return com.amazonaws.services.servicecatalog.model.DescribeCopyProductStatusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DescribeCopyProductStatusResult {
+		return environment.servicecatalog.describeCopyProductStatus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -738,12 +822,12 @@ class AWSServiceCatalogDescribeCopyProductStatusCommand(val copyProductToken: St
 }
 
 
-fun AWSServiceCatalogFunctions.describePortfolio(id: String, init: AWSServiceCatalogDescribePortfolioCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogDescribePortfolioCommand(id).apply(init))
+fun AWSServiceCatalogFunctions.describePortfolio(id: String, init: AWSServiceCatalogDescribePortfolioCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.DescribePortfolioResult {
+	return this.block.declare(AWSServiceCatalogDescribePortfolioCommand(id).apply(init)) as com.amazonaws.services.servicecatalog.model.DescribePortfolioResult
 }
 
 @Generated
-class AWSServiceCatalogDescribePortfolioCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DescribePortfolioRequest> {
+class AWSServiceCatalogDescribePortfolioCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DescribePortfolioRequest, com.amazonaws.services.servicecatalog.model.DescribePortfolioResult> {
 
 	var acceptLanguage: String? = null
 
@@ -754,8 +838,12 @@ class AWSServiceCatalogDescribePortfolioCommand(val id: String) : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.describePortfolio(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DescribePortfolioResult {
+	  return com.amazonaws.services.servicecatalog.model.DescribePortfolioResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DescribePortfolioResult {
+		return environment.servicecatalog.describePortfolio(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -767,12 +855,12 @@ class AWSServiceCatalogDescribePortfolioCommand(val id: String) : AmazonWebServi
 }
 
 
-fun AWSServiceCatalogFunctions.describeProduct(id: String, init: AWSServiceCatalogDescribeProductCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogDescribeProductCommand(id).apply(init))
+fun AWSServiceCatalogFunctions.describeProduct(id: String, init: AWSServiceCatalogDescribeProductCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.DescribeProductResult {
+	return this.block.declare(AWSServiceCatalogDescribeProductCommand(id).apply(init)) as com.amazonaws.services.servicecatalog.model.DescribeProductResult
 }
 
 @Generated
-class AWSServiceCatalogDescribeProductCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DescribeProductRequest> {
+class AWSServiceCatalogDescribeProductCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DescribeProductRequest, com.amazonaws.services.servicecatalog.model.DescribeProductResult> {
 
 	var acceptLanguage: String? = null
 
@@ -783,8 +871,12 @@ class AWSServiceCatalogDescribeProductCommand(val id: String) : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.describeProduct(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DescribeProductResult {
+	  return com.amazonaws.services.servicecatalog.model.DescribeProductResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DescribeProductResult {
+		return environment.servicecatalog.describeProduct(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -796,12 +888,12 @@ class AWSServiceCatalogDescribeProductCommand(val id: String) : AmazonWebService
 }
 
 
-fun AWSServiceCatalogFunctions.describeProductAsAdmin(id: String, init: AWSServiceCatalogDescribeProductAsAdminCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogDescribeProductAsAdminCommand(id).apply(init))
+fun AWSServiceCatalogFunctions.describeProductAsAdmin(id: String, init: AWSServiceCatalogDescribeProductAsAdminCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.DescribeProductAsAdminResult {
+	return this.block.declare(AWSServiceCatalogDescribeProductAsAdminCommand(id).apply(init)) as com.amazonaws.services.servicecatalog.model.DescribeProductAsAdminResult
 }
 
 @Generated
-class AWSServiceCatalogDescribeProductAsAdminCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DescribeProductAsAdminRequest> {
+class AWSServiceCatalogDescribeProductAsAdminCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DescribeProductAsAdminRequest, com.amazonaws.services.servicecatalog.model.DescribeProductAsAdminResult> {
 
 	var acceptLanguage: String? = null
 
@@ -812,8 +904,12 @@ class AWSServiceCatalogDescribeProductAsAdminCommand(val id: String) : AmazonWeb
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.describeProductAsAdmin(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DescribeProductAsAdminResult {
+	  return com.amazonaws.services.servicecatalog.model.DescribeProductAsAdminResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DescribeProductAsAdminResult {
+		return environment.servicecatalog.describeProductAsAdmin(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -825,12 +921,12 @@ class AWSServiceCatalogDescribeProductAsAdminCommand(val id: String) : AmazonWeb
 }
 
 
-fun AWSServiceCatalogFunctions.describeProductView(id: String, init: AWSServiceCatalogDescribeProductViewCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogDescribeProductViewCommand(id).apply(init))
+fun AWSServiceCatalogFunctions.describeProductView(id: String, init: AWSServiceCatalogDescribeProductViewCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.DescribeProductViewResult {
+	return this.block.declare(AWSServiceCatalogDescribeProductViewCommand(id).apply(init)) as com.amazonaws.services.servicecatalog.model.DescribeProductViewResult
 }
 
 @Generated
-class AWSServiceCatalogDescribeProductViewCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DescribeProductViewRequest> {
+class AWSServiceCatalogDescribeProductViewCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DescribeProductViewRequest, com.amazonaws.services.servicecatalog.model.DescribeProductViewResult> {
 
 	var acceptLanguage: String? = null
 
@@ -841,8 +937,12 @@ class AWSServiceCatalogDescribeProductViewCommand(val id: String) : AmazonWebSer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.describeProductView(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DescribeProductViewResult {
+	  return com.amazonaws.services.servicecatalog.model.DescribeProductViewResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DescribeProductViewResult {
+		return environment.servicecatalog.describeProductView(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -854,12 +954,12 @@ class AWSServiceCatalogDescribeProductViewCommand(val id: String) : AmazonWebSer
 }
 
 
-fun AWSServiceCatalogFunctions.describeProvisionedProduct(id: String, init: AWSServiceCatalogDescribeProvisionedProductCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogDescribeProvisionedProductCommand(id).apply(init))
+fun AWSServiceCatalogFunctions.describeProvisionedProduct(id: String, init: AWSServiceCatalogDescribeProvisionedProductCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.DescribeProvisionedProductResult {
+	return this.block.declare(AWSServiceCatalogDescribeProvisionedProductCommand(id).apply(init)) as com.amazonaws.services.servicecatalog.model.DescribeProvisionedProductResult
 }
 
 @Generated
-class AWSServiceCatalogDescribeProvisionedProductCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DescribeProvisionedProductRequest> {
+class AWSServiceCatalogDescribeProvisionedProductCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DescribeProvisionedProductRequest, com.amazonaws.services.servicecatalog.model.DescribeProvisionedProductResult> {
 
 	var acceptLanguage: String? = null
 
@@ -870,8 +970,12 @@ class AWSServiceCatalogDescribeProvisionedProductCommand(val id: String) : Amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.describeProvisionedProduct(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DescribeProvisionedProductResult {
+	  return com.amazonaws.services.servicecatalog.model.DescribeProvisionedProductResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DescribeProvisionedProductResult {
+		return environment.servicecatalog.describeProvisionedProduct(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -883,12 +987,12 @@ class AWSServiceCatalogDescribeProvisionedProductCommand(val id: String) : Amazo
 }
 
 
-fun AWSServiceCatalogFunctions.describeProvisionedProductPlan(planId: String, init: AWSServiceCatalogDescribeProvisionedProductPlanCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogDescribeProvisionedProductPlanCommand(planId).apply(init))
+fun AWSServiceCatalogFunctions.describeProvisionedProductPlan(planId: String, init: AWSServiceCatalogDescribeProvisionedProductPlanCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.DescribeProvisionedProductPlanResult {
+	return this.block.declare(AWSServiceCatalogDescribeProvisionedProductPlanCommand(planId).apply(init)) as com.amazonaws.services.servicecatalog.model.DescribeProvisionedProductPlanResult
 }
 
 @Generated
-class AWSServiceCatalogDescribeProvisionedProductPlanCommand(val planId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DescribeProvisionedProductPlanRequest> {
+class AWSServiceCatalogDescribeProvisionedProductPlanCommand(val planId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DescribeProvisionedProductPlanRequest, com.amazonaws.services.servicecatalog.model.DescribeProvisionedProductPlanResult> {
 
 	var acceptLanguage: String? = null
 	var pageSize: Int? = 0
@@ -903,8 +1007,12 @@ class AWSServiceCatalogDescribeProvisionedProductPlanCommand(val planId: String)
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.describeProvisionedProductPlan(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DescribeProvisionedProductPlanResult {
+	  return com.amazonaws.services.servicecatalog.model.DescribeProvisionedProductPlanResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DescribeProvisionedProductPlanResult {
+		return environment.servicecatalog.describeProvisionedProductPlan(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -918,12 +1026,12 @@ class AWSServiceCatalogDescribeProvisionedProductPlanCommand(val planId: String)
 }
 
 
-fun AWSServiceCatalogFunctions.describeProvisioningArtifact(provisioningArtifactId: String, productId: String, init: AWSServiceCatalogDescribeProvisioningArtifactCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogDescribeProvisioningArtifactCommand(provisioningArtifactId, productId).apply(init))
+fun AWSServiceCatalogFunctions.describeProvisioningArtifact(provisioningArtifactId: String, productId: String, init: AWSServiceCatalogDescribeProvisioningArtifactCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.DescribeProvisioningArtifactResult {
+	return this.block.declare(AWSServiceCatalogDescribeProvisioningArtifactCommand(provisioningArtifactId, productId).apply(init)) as com.amazonaws.services.servicecatalog.model.DescribeProvisioningArtifactResult
 }
 
 @Generated
-class AWSServiceCatalogDescribeProvisioningArtifactCommand(val provisioningArtifactId: String, val productId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DescribeProvisioningArtifactRequest> {
+class AWSServiceCatalogDescribeProvisioningArtifactCommand(val provisioningArtifactId: String, val productId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DescribeProvisioningArtifactRequest, com.amazonaws.services.servicecatalog.model.DescribeProvisioningArtifactResult> {
 
 	var acceptLanguage: String? = null
 	var verbose: Boolean? = false
@@ -937,8 +1045,12 @@ class AWSServiceCatalogDescribeProvisioningArtifactCommand(val provisioningArtif
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.describeProvisioningArtifact(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DescribeProvisioningArtifactResult {
+	  return com.amazonaws.services.servicecatalog.model.DescribeProvisioningArtifactResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DescribeProvisioningArtifactResult {
+		return environment.servicecatalog.describeProvisioningArtifact(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -952,12 +1064,12 @@ class AWSServiceCatalogDescribeProvisioningArtifactCommand(val provisioningArtif
 }
 
 
-fun AWSServiceCatalogFunctions.describeProvisioningParameters(productId: String, provisioningArtifactId: String, init: AWSServiceCatalogDescribeProvisioningParametersCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogDescribeProvisioningParametersCommand(productId, provisioningArtifactId).apply(init))
+fun AWSServiceCatalogFunctions.describeProvisioningParameters(productId: String, provisioningArtifactId: String, init: AWSServiceCatalogDescribeProvisioningParametersCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.DescribeProvisioningParametersResult {
+	return this.block.declare(AWSServiceCatalogDescribeProvisioningParametersCommand(productId, provisioningArtifactId).apply(init)) as com.amazonaws.services.servicecatalog.model.DescribeProvisioningParametersResult
 }
 
 @Generated
-class AWSServiceCatalogDescribeProvisioningParametersCommand(val productId: String, val provisioningArtifactId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DescribeProvisioningParametersRequest> {
+class AWSServiceCatalogDescribeProvisioningParametersCommand(val productId: String, val provisioningArtifactId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DescribeProvisioningParametersRequest, com.amazonaws.services.servicecatalog.model.DescribeProvisioningParametersResult> {
 
 	var acceptLanguage: String? = null
 	var pathId: String? = null
@@ -971,8 +1083,12 @@ class AWSServiceCatalogDescribeProvisioningParametersCommand(val productId: Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.describeProvisioningParameters(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DescribeProvisioningParametersResult {
+	  return com.amazonaws.services.servicecatalog.model.DescribeProvisioningParametersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DescribeProvisioningParametersResult {
+		return environment.servicecatalog.describeProvisioningParameters(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -986,12 +1102,12 @@ class AWSServiceCatalogDescribeProvisioningParametersCommand(val productId: Stri
 }
 
 
-fun AWSServiceCatalogFunctions.describeRecord(id: String, init: AWSServiceCatalogDescribeRecordCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogDescribeRecordCommand(id).apply(init))
+fun AWSServiceCatalogFunctions.describeRecord(id: String, init: AWSServiceCatalogDescribeRecordCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.DescribeRecordResult {
+	return this.block.declare(AWSServiceCatalogDescribeRecordCommand(id).apply(init)) as com.amazonaws.services.servicecatalog.model.DescribeRecordResult
 }
 
 @Generated
-class AWSServiceCatalogDescribeRecordCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DescribeRecordRequest> {
+class AWSServiceCatalogDescribeRecordCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DescribeRecordRequest, com.amazonaws.services.servicecatalog.model.DescribeRecordResult> {
 
 	var acceptLanguage: String? = null
 	var pageToken: String? = null
@@ -1006,8 +1122,12 @@ class AWSServiceCatalogDescribeRecordCommand(val id: String) : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.describeRecord(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DescribeRecordResult {
+	  return com.amazonaws.services.servicecatalog.model.DescribeRecordResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DescribeRecordResult {
+		return environment.servicecatalog.describeRecord(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1021,12 +1141,12 @@ class AWSServiceCatalogDescribeRecordCommand(val id: String) : AmazonWebServiceC
 }
 
 
-fun AWSServiceCatalogFunctions.describeTagOption(id: String, init: AWSServiceCatalogDescribeTagOptionCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogDescribeTagOptionCommand(id).apply(init))
+fun AWSServiceCatalogFunctions.describeTagOption(id: String, init: AWSServiceCatalogDescribeTagOptionCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.DescribeTagOptionResult {
+	return this.block.declare(AWSServiceCatalogDescribeTagOptionCommand(id).apply(init)) as com.amazonaws.services.servicecatalog.model.DescribeTagOptionResult
 }
 
 @Generated
-class AWSServiceCatalogDescribeTagOptionCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DescribeTagOptionRequest> {
+class AWSServiceCatalogDescribeTagOptionCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DescribeTagOptionRequest, com.amazonaws.services.servicecatalog.model.DescribeTagOptionResult> {
 
 
 
@@ -1036,8 +1156,12 @@ class AWSServiceCatalogDescribeTagOptionCommand(val id: String) : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.describeTagOption(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DescribeTagOptionResult {
+	  return com.amazonaws.services.servicecatalog.model.DescribeTagOptionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DescribeTagOptionResult {
+		return environment.servicecatalog.describeTagOption(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1048,12 +1172,12 @@ class AWSServiceCatalogDescribeTagOptionCommand(val id: String) : AmazonWebServi
 }
 
 
-fun AWSServiceCatalogFunctions.disassociatePrincipalFromPortfolio(portfolioId: String, principalARN: String, init: AWSServiceCatalogDisassociatePrincipalFromPortfolioCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogDisassociatePrincipalFromPortfolioCommand(portfolioId, principalARN).apply(init))
+fun AWSServiceCatalogFunctions.disassociatePrincipalFromPortfolio(portfolioId: String, principalARN: String, init: AWSServiceCatalogDisassociatePrincipalFromPortfolioCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.DisassociatePrincipalFromPortfolioResult {
+	return this.block.declare(AWSServiceCatalogDisassociatePrincipalFromPortfolioCommand(portfolioId, principalARN).apply(init)) as com.amazonaws.services.servicecatalog.model.DisassociatePrincipalFromPortfolioResult
 }
 
 @Generated
-class AWSServiceCatalogDisassociatePrincipalFromPortfolioCommand(val portfolioId: String, val principalARN: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DisassociatePrincipalFromPortfolioRequest> {
+class AWSServiceCatalogDisassociatePrincipalFromPortfolioCommand(val portfolioId: String, val principalARN: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DisassociatePrincipalFromPortfolioRequest, com.amazonaws.services.servicecatalog.model.DisassociatePrincipalFromPortfolioResult> {
 
 	var acceptLanguage: String? = null
 
@@ -1065,8 +1189,12 @@ class AWSServiceCatalogDisassociatePrincipalFromPortfolioCommand(val portfolioId
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.disassociatePrincipalFromPortfolio(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DisassociatePrincipalFromPortfolioResult {
+	  return com.amazonaws.services.servicecatalog.model.DisassociatePrincipalFromPortfolioResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DisassociatePrincipalFromPortfolioResult {
+		return environment.servicecatalog.disassociatePrincipalFromPortfolio(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1079,12 +1207,12 @@ class AWSServiceCatalogDisassociatePrincipalFromPortfolioCommand(val portfolioId
 }
 
 
-fun AWSServiceCatalogFunctions.disassociateProductFromPortfolio(productId: String, portfolioId: String, init: AWSServiceCatalogDisassociateProductFromPortfolioCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogDisassociateProductFromPortfolioCommand(productId, portfolioId).apply(init))
+fun AWSServiceCatalogFunctions.disassociateProductFromPortfolio(productId: String, portfolioId: String, init: AWSServiceCatalogDisassociateProductFromPortfolioCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.DisassociateProductFromPortfolioResult {
+	return this.block.declare(AWSServiceCatalogDisassociateProductFromPortfolioCommand(productId, portfolioId).apply(init)) as com.amazonaws.services.servicecatalog.model.DisassociateProductFromPortfolioResult
 }
 
 @Generated
-class AWSServiceCatalogDisassociateProductFromPortfolioCommand(val productId: String, val portfolioId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DisassociateProductFromPortfolioRequest> {
+class AWSServiceCatalogDisassociateProductFromPortfolioCommand(val productId: String, val portfolioId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DisassociateProductFromPortfolioRequest, com.amazonaws.services.servicecatalog.model.DisassociateProductFromPortfolioResult> {
 
 	var acceptLanguage: String? = null
 
@@ -1096,8 +1224,12 @@ class AWSServiceCatalogDisassociateProductFromPortfolioCommand(val productId: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.disassociateProductFromPortfolio(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DisassociateProductFromPortfolioResult {
+	  return com.amazonaws.services.servicecatalog.model.DisassociateProductFromPortfolioResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DisassociateProductFromPortfolioResult {
+		return environment.servicecatalog.disassociateProductFromPortfolio(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1110,12 +1242,12 @@ class AWSServiceCatalogDisassociateProductFromPortfolioCommand(val productId: St
 }
 
 
-fun AWSServiceCatalogFunctions.disassociateTagOptionFromResource(resourceId: String, tagOptionId: String, init: AWSServiceCatalogDisassociateTagOptionFromResourceCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogDisassociateTagOptionFromResourceCommand(resourceId, tagOptionId).apply(init))
+fun AWSServiceCatalogFunctions.disassociateTagOptionFromResource(resourceId: String, tagOptionId: String, init: AWSServiceCatalogDisassociateTagOptionFromResourceCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.DisassociateTagOptionFromResourceResult {
+	return this.block.declare(AWSServiceCatalogDisassociateTagOptionFromResourceCommand(resourceId, tagOptionId).apply(init)) as com.amazonaws.services.servicecatalog.model.DisassociateTagOptionFromResourceResult
 }
 
 @Generated
-class AWSServiceCatalogDisassociateTagOptionFromResourceCommand(val resourceId: String, val tagOptionId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DisassociateTagOptionFromResourceRequest> {
+class AWSServiceCatalogDisassociateTagOptionFromResourceCommand(val resourceId: String, val tagOptionId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.DisassociateTagOptionFromResourceRequest, com.amazonaws.services.servicecatalog.model.DisassociateTagOptionFromResourceResult> {
 
 
 
@@ -1126,8 +1258,12 @@ class AWSServiceCatalogDisassociateTagOptionFromResourceCommand(val resourceId: 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.disassociateTagOptionFromResource(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.DisassociateTagOptionFromResourceResult {
+	  return com.amazonaws.services.servicecatalog.model.DisassociateTagOptionFromResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.DisassociateTagOptionFromResourceResult {
+		return environment.servicecatalog.disassociateTagOptionFromResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1139,12 +1275,12 @@ class AWSServiceCatalogDisassociateTagOptionFromResourceCommand(val resourceId: 
 }
 
 
-fun AWSServiceCatalogFunctions.executeProvisionedProductPlan(planId: String, idempotencyToken: String, init: AWSServiceCatalogExecuteProvisionedProductPlanCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogExecuteProvisionedProductPlanCommand(planId, idempotencyToken).apply(init))
+fun AWSServiceCatalogFunctions.executeProvisionedProductPlan(planId: String, idempotencyToken: String, init: AWSServiceCatalogExecuteProvisionedProductPlanCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.ExecuteProvisionedProductPlanResult {
+	return this.block.declare(AWSServiceCatalogExecuteProvisionedProductPlanCommand(planId, idempotencyToken).apply(init)) as com.amazonaws.services.servicecatalog.model.ExecuteProvisionedProductPlanResult
 }
 
 @Generated
-class AWSServiceCatalogExecuteProvisionedProductPlanCommand(val planId: String, val idempotencyToken: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.ExecuteProvisionedProductPlanRequest> {
+class AWSServiceCatalogExecuteProvisionedProductPlanCommand(val planId: String, val idempotencyToken: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.ExecuteProvisionedProductPlanRequest, com.amazonaws.services.servicecatalog.model.ExecuteProvisionedProductPlanResult> {
 
 	var acceptLanguage: String? = null
 
@@ -1156,8 +1292,12 @@ class AWSServiceCatalogExecuteProvisionedProductPlanCommand(val planId: String, 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.executeProvisionedProductPlan(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.ExecuteProvisionedProductPlanResult {
+	  return com.amazonaws.services.servicecatalog.model.ExecuteProvisionedProductPlanResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.ExecuteProvisionedProductPlanResult {
+		return environment.servicecatalog.executeProvisionedProductPlan(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1170,12 +1310,12 @@ class AWSServiceCatalogExecuteProvisionedProductPlanCommand(val planId: String, 
 }
 
 
-fun AWSServiceCatalogFunctions.listAcceptedPortfolioShares(init: AWSServiceCatalogListAcceptedPortfolioSharesCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogListAcceptedPortfolioSharesCommand().apply(init))
+fun AWSServiceCatalogFunctions.listAcceptedPortfolioShares(init: AWSServiceCatalogListAcceptedPortfolioSharesCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.ListAcceptedPortfolioSharesResult {
+	return this.block.declare(AWSServiceCatalogListAcceptedPortfolioSharesCommand().apply(init)) as com.amazonaws.services.servicecatalog.model.ListAcceptedPortfolioSharesResult
 }
 
 @Generated
-class AWSServiceCatalogListAcceptedPortfolioSharesCommand() : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.ListAcceptedPortfolioSharesRequest> {
+class AWSServiceCatalogListAcceptedPortfolioSharesCommand() : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.ListAcceptedPortfolioSharesRequest, com.amazonaws.services.servicecatalog.model.ListAcceptedPortfolioSharesResult> {
 
 	var acceptLanguage: String? = null
 	var pageToken: String? = null
@@ -1189,8 +1329,12 @@ class AWSServiceCatalogListAcceptedPortfolioSharesCommand() : AmazonWebServiceCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.listAcceptedPortfolioShares(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.ListAcceptedPortfolioSharesResult {
+	  return com.amazonaws.services.servicecatalog.model.ListAcceptedPortfolioSharesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.ListAcceptedPortfolioSharesResult {
+		return environment.servicecatalog.listAcceptedPortfolioShares(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1203,12 +1347,12 @@ class AWSServiceCatalogListAcceptedPortfolioSharesCommand() : AmazonWebServiceCo
 }
 
 
-fun AWSServiceCatalogFunctions.listConstraintsForPortfolio(portfolioId: String, init: AWSServiceCatalogListConstraintsForPortfolioCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogListConstraintsForPortfolioCommand(portfolioId).apply(init))
+fun AWSServiceCatalogFunctions.listConstraintsForPortfolio(portfolioId: String, init: AWSServiceCatalogListConstraintsForPortfolioCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.ListConstraintsForPortfolioResult {
+	return this.block.declare(AWSServiceCatalogListConstraintsForPortfolioCommand(portfolioId).apply(init)) as com.amazonaws.services.servicecatalog.model.ListConstraintsForPortfolioResult
 }
 
 @Generated
-class AWSServiceCatalogListConstraintsForPortfolioCommand(val portfolioId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.ListConstraintsForPortfolioRequest> {
+class AWSServiceCatalogListConstraintsForPortfolioCommand(val portfolioId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.ListConstraintsForPortfolioRequest, com.amazonaws.services.servicecatalog.model.ListConstraintsForPortfolioResult> {
 
 	var acceptLanguage: String? = null
 	var productId: String? = null
@@ -1225,8 +1369,12 @@ class AWSServiceCatalogListConstraintsForPortfolioCommand(val portfolioId: Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.listConstraintsForPortfolio(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.ListConstraintsForPortfolioResult {
+	  return com.amazonaws.services.servicecatalog.model.ListConstraintsForPortfolioResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.ListConstraintsForPortfolioResult {
+		return environment.servicecatalog.listConstraintsForPortfolio(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1241,12 +1389,12 @@ class AWSServiceCatalogListConstraintsForPortfolioCommand(val portfolioId: Strin
 }
 
 
-fun AWSServiceCatalogFunctions.listLaunchPaths(productId: String, init: AWSServiceCatalogListLaunchPathsCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogListLaunchPathsCommand(productId).apply(init))
+fun AWSServiceCatalogFunctions.listLaunchPaths(productId: String, init: AWSServiceCatalogListLaunchPathsCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.ListLaunchPathsResult {
+	return this.block.declare(AWSServiceCatalogListLaunchPathsCommand(productId).apply(init)) as com.amazonaws.services.servicecatalog.model.ListLaunchPathsResult
 }
 
 @Generated
-class AWSServiceCatalogListLaunchPathsCommand(val productId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.ListLaunchPathsRequest> {
+class AWSServiceCatalogListLaunchPathsCommand(val productId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.ListLaunchPathsRequest, com.amazonaws.services.servicecatalog.model.ListLaunchPathsResult> {
 
 	var acceptLanguage: String? = null
 	var pageSize: Int? = 0
@@ -1261,8 +1409,12 @@ class AWSServiceCatalogListLaunchPathsCommand(val productId: String) : AmazonWeb
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.listLaunchPaths(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.ListLaunchPathsResult {
+	  return com.amazonaws.services.servicecatalog.model.ListLaunchPathsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.ListLaunchPathsResult {
+		return environment.servicecatalog.listLaunchPaths(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1276,12 +1428,12 @@ class AWSServiceCatalogListLaunchPathsCommand(val productId: String) : AmazonWeb
 }
 
 
-fun AWSServiceCatalogFunctions.listPortfolioAccess(portfolioId: String, init: AWSServiceCatalogListPortfolioAccessCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogListPortfolioAccessCommand(portfolioId).apply(init))
+fun AWSServiceCatalogFunctions.listPortfolioAccess(portfolioId: String, init: AWSServiceCatalogListPortfolioAccessCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.ListPortfolioAccessResult {
+	return this.block.declare(AWSServiceCatalogListPortfolioAccessCommand(portfolioId).apply(init)) as com.amazonaws.services.servicecatalog.model.ListPortfolioAccessResult
 }
 
 @Generated
-class AWSServiceCatalogListPortfolioAccessCommand(val portfolioId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.ListPortfolioAccessRequest> {
+class AWSServiceCatalogListPortfolioAccessCommand(val portfolioId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.ListPortfolioAccessRequest, com.amazonaws.services.servicecatalog.model.ListPortfolioAccessResult> {
 
 	var acceptLanguage: String? = null
 
@@ -1292,8 +1444,12 @@ class AWSServiceCatalogListPortfolioAccessCommand(val portfolioId: String) : Ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.listPortfolioAccess(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.ListPortfolioAccessResult {
+	  return com.amazonaws.services.servicecatalog.model.ListPortfolioAccessResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.ListPortfolioAccessResult {
+		return environment.servicecatalog.listPortfolioAccess(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1305,12 +1461,12 @@ class AWSServiceCatalogListPortfolioAccessCommand(val portfolioId: String) : Ama
 }
 
 
-fun AWSServiceCatalogFunctions.listPortfolios(init: AWSServiceCatalogListPortfoliosCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogListPortfoliosCommand().apply(init))
+fun AWSServiceCatalogFunctions.listPortfolios(init: AWSServiceCatalogListPortfoliosCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.ListPortfoliosResult {
+	return this.block.declare(AWSServiceCatalogListPortfoliosCommand().apply(init)) as com.amazonaws.services.servicecatalog.model.ListPortfoliosResult
 }
 
 @Generated
-class AWSServiceCatalogListPortfoliosCommand() : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.ListPortfoliosRequest> {
+class AWSServiceCatalogListPortfoliosCommand() : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.ListPortfoliosRequest, com.amazonaws.services.servicecatalog.model.ListPortfoliosResult> {
 
 	var acceptLanguage: String? = null
 	var pageToken: String? = null
@@ -1324,8 +1480,12 @@ class AWSServiceCatalogListPortfoliosCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.listPortfolios(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.ListPortfoliosResult {
+	  return com.amazonaws.services.servicecatalog.model.ListPortfoliosResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.ListPortfoliosResult {
+		return environment.servicecatalog.listPortfolios(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1338,12 +1498,12 @@ class AWSServiceCatalogListPortfoliosCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AWSServiceCatalogFunctions.listPortfoliosForProduct(productId: String, init: AWSServiceCatalogListPortfoliosForProductCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogListPortfoliosForProductCommand(productId).apply(init))
+fun AWSServiceCatalogFunctions.listPortfoliosForProduct(productId: String, init: AWSServiceCatalogListPortfoliosForProductCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.ListPortfoliosForProductResult {
+	return this.block.declare(AWSServiceCatalogListPortfoliosForProductCommand(productId).apply(init)) as com.amazonaws.services.servicecatalog.model.ListPortfoliosForProductResult
 }
 
 @Generated
-class AWSServiceCatalogListPortfoliosForProductCommand(val productId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.ListPortfoliosForProductRequest> {
+class AWSServiceCatalogListPortfoliosForProductCommand(val productId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.ListPortfoliosForProductRequest, com.amazonaws.services.servicecatalog.model.ListPortfoliosForProductResult> {
 
 	var acceptLanguage: String? = null
 	var pageToken: String? = null
@@ -1358,8 +1518,12 @@ class AWSServiceCatalogListPortfoliosForProductCommand(val productId: String) : 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.listPortfoliosForProduct(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.ListPortfoliosForProductResult {
+	  return com.amazonaws.services.servicecatalog.model.ListPortfoliosForProductResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.ListPortfoliosForProductResult {
+		return environment.servicecatalog.listPortfoliosForProduct(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1373,12 +1537,12 @@ class AWSServiceCatalogListPortfoliosForProductCommand(val productId: String) : 
 }
 
 
-fun AWSServiceCatalogFunctions.listPrincipalsForPortfolio(portfolioId: String, init: AWSServiceCatalogListPrincipalsForPortfolioCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogListPrincipalsForPortfolioCommand(portfolioId).apply(init))
+fun AWSServiceCatalogFunctions.listPrincipalsForPortfolio(portfolioId: String, init: AWSServiceCatalogListPrincipalsForPortfolioCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.ListPrincipalsForPortfolioResult {
+	return this.block.declare(AWSServiceCatalogListPrincipalsForPortfolioCommand(portfolioId).apply(init)) as com.amazonaws.services.servicecatalog.model.ListPrincipalsForPortfolioResult
 }
 
 @Generated
-class AWSServiceCatalogListPrincipalsForPortfolioCommand(val portfolioId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.ListPrincipalsForPortfolioRequest> {
+class AWSServiceCatalogListPrincipalsForPortfolioCommand(val portfolioId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.ListPrincipalsForPortfolioRequest, com.amazonaws.services.servicecatalog.model.ListPrincipalsForPortfolioResult> {
 
 	var acceptLanguage: String? = null
 	var pageSize: Int? = 0
@@ -1393,8 +1557,12 @@ class AWSServiceCatalogListPrincipalsForPortfolioCommand(val portfolioId: String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.listPrincipalsForPortfolio(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.ListPrincipalsForPortfolioResult {
+	  return com.amazonaws.services.servicecatalog.model.ListPrincipalsForPortfolioResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.ListPrincipalsForPortfolioResult {
+		return environment.servicecatalog.listPrincipalsForPortfolio(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1408,12 +1576,12 @@ class AWSServiceCatalogListPrincipalsForPortfolioCommand(val portfolioId: String
 }
 
 
-fun AWSServiceCatalogFunctions.listProvisionedProductPlans(init: AWSServiceCatalogListProvisionedProductPlansCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogListProvisionedProductPlansCommand().apply(init))
+fun AWSServiceCatalogFunctions.listProvisionedProductPlans(init: AWSServiceCatalogListProvisionedProductPlansCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.ListProvisionedProductPlansResult {
+	return this.block.declare(AWSServiceCatalogListProvisionedProductPlansCommand().apply(init)) as com.amazonaws.services.servicecatalog.model.ListProvisionedProductPlansResult
 }
 
 @Generated
-class AWSServiceCatalogListProvisionedProductPlansCommand() : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.ListProvisionedProductPlansRequest> {
+class AWSServiceCatalogListProvisionedProductPlansCommand() : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.ListProvisionedProductPlansRequest, com.amazonaws.services.servicecatalog.model.ListProvisionedProductPlansResult> {
 
 	var acceptLanguage: String? = null
 	var provisionProductId: String? = null
@@ -1431,8 +1599,12 @@ class AWSServiceCatalogListProvisionedProductPlansCommand() : AmazonWebServiceCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.listProvisionedProductPlans(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.ListProvisionedProductPlansResult {
+	  return com.amazonaws.services.servicecatalog.model.ListProvisionedProductPlansResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.ListProvisionedProductPlansResult {
+		return environment.servicecatalog.listProvisionedProductPlans(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1447,12 +1619,12 @@ class AWSServiceCatalogListProvisionedProductPlansCommand() : AmazonWebServiceCo
 }
 
 
-fun AWSServiceCatalogFunctions.listProvisioningArtifacts(productId: String, init: AWSServiceCatalogListProvisioningArtifactsCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogListProvisioningArtifactsCommand(productId).apply(init))
+fun AWSServiceCatalogFunctions.listProvisioningArtifacts(productId: String, init: AWSServiceCatalogListProvisioningArtifactsCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.ListProvisioningArtifactsResult {
+	return this.block.declare(AWSServiceCatalogListProvisioningArtifactsCommand(productId).apply(init)) as com.amazonaws.services.servicecatalog.model.ListProvisioningArtifactsResult
 }
 
 @Generated
-class AWSServiceCatalogListProvisioningArtifactsCommand(val productId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.ListProvisioningArtifactsRequest> {
+class AWSServiceCatalogListProvisioningArtifactsCommand(val productId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.ListProvisioningArtifactsRequest, com.amazonaws.services.servicecatalog.model.ListProvisioningArtifactsResult> {
 
 	var acceptLanguage: String? = null
 
@@ -1463,8 +1635,12 @@ class AWSServiceCatalogListProvisioningArtifactsCommand(val productId: String) :
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.listProvisioningArtifacts(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.ListProvisioningArtifactsResult {
+	  return com.amazonaws.services.servicecatalog.model.ListProvisioningArtifactsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.ListProvisioningArtifactsResult {
+		return environment.servicecatalog.listProvisioningArtifacts(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1476,12 +1652,12 @@ class AWSServiceCatalogListProvisioningArtifactsCommand(val productId: String) :
 }
 
 
-fun AWSServiceCatalogFunctions.listRecordHistory(init: AWSServiceCatalogListRecordHistoryCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogListRecordHistoryCommand().apply(init))
+fun AWSServiceCatalogFunctions.listRecordHistory(init: AWSServiceCatalogListRecordHistoryCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.ListRecordHistoryResult {
+	return this.block.declare(AWSServiceCatalogListRecordHistoryCommand().apply(init)) as com.amazonaws.services.servicecatalog.model.ListRecordHistoryResult
 }
 
 @Generated
-class AWSServiceCatalogListRecordHistoryCommand() : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.ListRecordHistoryRequest> {
+class AWSServiceCatalogListRecordHistoryCommand() : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.ListRecordHistoryRequest, com.amazonaws.services.servicecatalog.model.ListRecordHistoryResult> {
 
 	var acceptLanguage: String? = null
 	var accessLevelFilter: com.amazonaws.services.servicecatalog.model.AccessLevelFilter? = null
@@ -1499,8 +1675,12 @@ class AWSServiceCatalogListRecordHistoryCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.listRecordHistory(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.ListRecordHistoryResult {
+	  return com.amazonaws.services.servicecatalog.model.ListRecordHistoryResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.ListRecordHistoryResult {
+		return environment.servicecatalog.listRecordHistory(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1515,12 +1695,12 @@ class AWSServiceCatalogListRecordHistoryCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AWSServiceCatalogFunctions.listResourcesForTagOption(tagOptionId: String, init: AWSServiceCatalogListResourcesForTagOptionCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogListResourcesForTagOptionCommand(tagOptionId).apply(init))
+fun AWSServiceCatalogFunctions.listResourcesForTagOption(tagOptionId: String, init: AWSServiceCatalogListResourcesForTagOptionCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.ListResourcesForTagOptionResult {
+	return this.block.declare(AWSServiceCatalogListResourcesForTagOptionCommand(tagOptionId).apply(init)) as com.amazonaws.services.servicecatalog.model.ListResourcesForTagOptionResult
 }
 
 @Generated
-class AWSServiceCatalogListResourcesForTagOptionCommand(val tagOptionId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.ListResourcesForTagOptionRequest> {
+class AWSServiceCatalogListResourcesForTagOptionCommand(val tagOptionId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.ListResourcesForTagOptionRequest, com.amazonaws.services.servicecatalog.model.ListResourcesForTagOptionResult> {
 
 	var resourceType: String? = null
 	var pageSize: Int? = 0
@@ -1535,8 +1715,12 @@ class AWSServiceCatalogListResourcesForTagOptionCommand(val tagOptionId: String)
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.listResourcesForTagOption(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.ListResourcesForTagOptionResult {
+	  return com.amazonaws.services.servicecatalog.model.ListResourcesForTagOptionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.ListResourcesForTagOptionResult {
+		return environment.servicecatalog.listResourcesForTagOption(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1550,12 +1734,12 @@ class AWSServiceCatalogListResourcesForTagOptionCommand(val tagOptionId: String)
 }
 
 
-fun AWSServiceCatalogFunctions.listTagOptions(init: AWSServiceCatalogListTagOptionsCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogListTagOptionsCommand().apply(init))
+fun AWSServiceCatalogFunctions.listTagOptions(init: AWSServiceCatalogListTagOptionsCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.ListTagOptionsResult {
+	return this.block.declare(AWSServiceCatalogListTagOptionsCommand().apply(init)) as com.amazonaws.services.servicecatalog.model.ListTagOptionsResult
 }
 
 @Generated
-class AWSServiceCatalogListTagOptionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.ListTagOptionsRequest> {
+class AWSServiceCatalogListTagOptionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.ListTagOptionsRequest, com.amazonaws.services.servicecatalog.model.ListTagOptionsResult> {
 
 	var filters: com.amazonaws.services.servicecatalog.model.ListTagOptionsFilters? = null
 	var pageSize: Int? = 0
@@ -1569,8 +1753,12 @@ class AWSServiceCatalogListTagOptionsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.listTagOptions(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.ListTagOptionsResult {
+	  return com.amazonaws.services.servicecatalog.model.ListTagOptionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.ListTagOptionsResult {
+		return environment.servicecatalog.listTagOptions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1583,12 +1771,12 @@ class AWSServiceCatalogListTagOptionsCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AWSServiceCatalogFunctions.provisionProduct(productId: String, provisioningArtifactId: String, provisionedProductName: String, provisionToken: String, init: AWSServiceCatalogProvisionProductCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogProvisionProductCommand(productId, provisioningArtifactId, provisionedProductName, provisionToken).apply(init))
+fun AWSServiceCatalogFunctions.provisionProduct(productId: String, provisioningArtifactId: String, provisionedProductName: String, provisionToken: String, init: AWSServiceCatalogProvisionProductCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.ProvisionProductResult {
+	return this.block.declare(AWSServiceCatalogProvisionProductCommand(productId, provisioningArtifactId, provisionedProductName, provisionToken).apply(init)) as com.amazonaws.services.servicecatalog.model.ProvisionProductResult
 }
 
 @Generated
-class AWSServiceCatalogProvisionProductCommand(val productId: String, val provisioningArtifactId: String, val provisionedProductName: String, val provisionToken: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.ProvisionProductRequest> {
+class AWSServiceCatalogProvisionProductCommand(val productId: String, val provisioningArtifactId: String, val provisionedProductName: String, val provisionToken: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.ProvisionProductRequest, com.amazonaws.services.servicecatalog.model.ProvisionProductResult> {
 
 	var acceptLanguage: String? = null
 	var pathId: String? = null
@@ -1610,8 +1798,12 @@ class AWSServiceCatalogProvisionProductCommand(val productId: String, val provis
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.provisionProduct(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.ProvisionProductResult {
+	  return com.amazonaws.services.servicecatalog.model.ProvisionProductResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.ProvisionProductResult {
+		return environment.servicecatalog.provisionProduct(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1630,12 +1822,12 @@ class AWSServiceCatalogProvisionProductCommand(val productId: String, val provis
 }
 
 
-fun AWSServiceCatalogFunctions.rejectPortfolioShare(portfolioId: String, init: AWSServiceCatalogRejectPortfolioShareCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogRejectPortfolioShareCommand(portfolioId).apply(init))
+fun AWSServiceCatalogFunctions.rejectPortfolioShare(portfolioId: String, init: AWSServiceCatalogRejectPortfolioShareCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.RejectPortfolioShareResult {
+	return this.block.declare(AWSServiceCatalogRejectPortfolioShareCommand(portfolioId).apply(init)) as com.amazonaws.services.servicecatalog.model.RejectPortfolioShareResult
 }
 
 @Generated
-class AWSServiceCatalogRejectPortfolioShareCommand(val portfolioId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.RejectPortfolioShareRequest> {
+class AWSServiceCatalogRejectPortfolioShareCommand(val portfolioId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.RejectPortfolioShareRequest, com.amazonaws.services.servicecatalog.model.RejectPortfolioShareResult> {
 
 	var acceptLanguage: String? = null
 
@@ -1646,8 +1838,12 @@ class AWSServiceCatalogRejectPortfolioShareCommand(val portfolioId: String) : Am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.rejectPortfolioShare(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.RejectPortfolioShareResult {
+	  return com.amazonaws.services.servicecatalog.model.RejectPortfolioShareResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.RejectPortfolioShareResult {
+		return environment.servicecatalog.rejectPortfolioShare(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1659,12 +1855,12 @@ class AWSServiceCatalogRejectPortfolioShareCommand(val portfolioId: String) : Am
 }
 
 
-fun AWSServiceCatalogFunctions.scanProvisionedProducts(init: AWSServiceCatalogScanProvisionedProductsCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogScanProvisionedProductsCommand().apply(init))
+fun AWSServiceCatalogFunctions.scanProvisionedProducts(init: AWSServiceCatalogScanProvisionedProductsCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.ScanProvisionedProductsResult {
+	return this.block.declare(AWSServiceCatalogScanProvisionedProductsCommand().apply(init)) as com.amazonaws.services.servicecatalog.model.ScanProvisionedProductsResult
 }
 
 @Generated
-class AWSServiceCatalogScanProvisionedProductsCommand() : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.ScanProvisionedProductsRequest> {
+class AWSServiceCatalogScanProvisionedProductsCommand() : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.ScanProvisionedProductsRequest, com.amazonaws.services.servicecatalog.model.ScanProvisionedProductsResult> {
 
 	var acceptLanguage: String? = null
 	var accessLevelFilter: com.amazonaws.services.servicecatalog.model.AccessLevelFilter? = null
@@ -1680,8 +1876,12 @@ class AWSServiceCatalogScanProvisionedProductsCommand() : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.scanProvisionedProducts(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.ScanProvisionedProductsResult {
+	  return com.amazonaws.services.servicecatalog.model.ScanProvisionedProductsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.ScanProvisionedProductsResult {
+		return environment.servicecatalog.scanProvisionedProducts(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1695,12 +1895,12 @@ class AWSServiceCatalogScanProvisionedProductsCommand() : AmazonWebServiceComman
 }
 
 
-fun AWSServiceCatalogFunctions.searchProducts(init: AWSServiceCatalogSearchProductsCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogSearchProductsCommand().apply(init))
+fun AWSServiceCatalogFunctions.searchProducts(init: AWSServiceCatalogSearchProductsCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.SearchProductsResult {
+	return this.block.declare(AWSServiceCatalogSearchProductsCommand().apply(init)) as com.amazonaws.services.servicecatalog.model.SearchProductsResult
 }
 
 @Generated
-class AWSServiceCatalogSearchProductsCommand() : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.SearchProductsRequest> {
+class AWSServiceCatalogSearchProductsCommand() : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.SearchProductsRequest, com.amazonaws.services.servicecatalog.model.SearchProductsResult> {
 
 	var acceptLanguage: String? = null
 	var filters: Map<ProductViewFilterBy, List<String>>? = null
@@ -1720,8 +1920,12 @@ class AWSServiceCatalogSearchProductsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.searchProducts(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.SearchProductsResult {
+	  return com.amazonaws.services.servicecatalog.model.SearchProductsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.SearchProductsResult {
+		return environment.servicecatalog.searchProducts(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1737,12 +1941,12 @@ class AWSServiceCatalogSearchProductsCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AWSServiceCatalogFunctions.searchProductsAsAdmin(init: AWSServiceCatalogSearchProductsAsAdminCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogSearchProductsAsAdminCommand().apply(init))
+fun AWSServiceCatalogFunctions.searchProductsAsAdmin(init: AWSServiceCatalogSearchProductsAsAdminCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.SearchProductsAsAdminResult {
+	return this.block.declare(AWSServiceCatalogSearchProductsAsAdminCommand().apply(init)) as com.amazonaws.services.servicecatalog.model.SearchProductsAsAdminResult
 }
 
 @Generated
-class AWSServiceCatalogSearchProductsAsAdminCommand() : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.SearchProductsAsAdminRequest> {
+class AWSServiceCatalogSearchProductsAsAdminCommand() : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.SearchProductsAsAdminRequest, com.amazonaws.services.servicecatalog.model.SearchProductsAsAdminResult> {
 
 	var acceptLanguage: String? = null
 	var portfolioId: String? = null
@@ -1766,8 +1970,12 @@ class AWSServiceCatalogSearchProductsAsAdminCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.searchProductsAsAdmin(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.SearchProductsAsAdminResult {
+	  return com.amazonaws.services.servicecatalog.model.SearchProductsAsAdminResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.SearchProductsAsAdminResult {
+		return environment.servicecatalog.searchProductsAsAdmin(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1785,12 +1993,12 @@ class AWSServiceCatalogSearchProductsAsAdminCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AWSServiceCatalogFunctions.searchProvisionedProducts(init: AWSServiceCatalogSearchProvisionedProductsCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogSearchProvisionedProductsCommand().apply(init))
+fun AWSServiceCatalogFunctions.searchProvisionedProducts(init: AWSServiceCatalogSearchProvisionedProductsCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.SearchProvisionedProductsResult {
+	return this.block.declare(AWSServiceCatalogSearchProvisionedProductsCommand().apply(init)) as com.amazonaws.services.servicecatalog.model.SearchProvisionedProductsResult
 }
 
 @Generated
-class AWSServiceCatalogSearchProvisionedProductsCommand() : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.SearchProvisionedProductsRequest> {
+class AWSServiceCatalogSearchProvisionedProductsCommand() : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.SearchProvisionedProductsRequest, com.amazonaws.services.servicecatalog.model.SearchProvisionedProductsResult> {
 
 	var acceptLanguage: String? = null
 	var accessLevelFilter: com.amazonaws.services.servicecatalog.model.AccessLevelFilter? = null
@@ -1812,8 +2020,12 @@ class AWSServiceCatalogSearchProvisionedProductsCommand() : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.searchProvisionedProducts(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.SearchProvisionedProductsResult {
+	  return com.amazonaws.services.servicecatalog.model.SearchProvisionedProductsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.SearchProvisionedProductsResult {
+		return environment.servicecatalog.searchProvisionedProducts(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1830,12 +2042,12 @@ class AWSServiceCatalogSearchProvisionedProductsCommand() : AmazonWebServiceComm
 }
 
 
-fun AWSServiceCatalogFunctions.terminateProvisionedProduct(terminateToken: String, init: AWSServiceCatalogTerminateProvisionedProductCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogTerminateProvisionedProductCommand(terminateToken).apply(init))
+fun AWSServiceCatalogFunctions.terminateProvisionedProduct(terminateToken: String, init: AWSServiceCatalogTerminateProvisionedProductCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.TerminateProvisionedProductResult {
+	return this.block.declare(AWSServiceCatalogTerminateProvisionedProductCommand(terminateToken).apply(init)) as com.amazonaws.services.servicecatalog.model.TerminateProvisionedProductResult
 }
 
 @Generated
-class AWSServiceCatalogTerminateProvisionedProductCommand(val terminateToken: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.TerminateProvisionedProductRequest> {
+class AWSServiceCatalogTerminateProvisionedProductCommand(val terminateToken: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.TerminateProvisionedProductRequest, com.amazonaws.services.servicecatalog.model.TerminateProvisionedProductResult> {
 
 	var provisionedProductName: String? = null
 	var provisionedProductId: String? = null
@@ -1852,8 +2064,12 @@ class AWSServiceCatalogTerminateProvisionedProductCommand(val terminateToken: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.terminateProvisionedProduct(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.TerminateProvisionedProductResult {
+	  return com.amazonaws.services.servicecatalog.model.TerminateProvisionedProductResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.TerminateProvisionedProductResult {
+		return environment.servicecatalog.terminateProvisionedProduct(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1868,12 +2084,12 @@ class AWSServiceCatalogTerminateProvisionedProductCommand(val terminateToken: St
 }
 
 
-fun AWSServiceCatalogFunctions.updateConstraint(id: String, init: AWSServiceCatalogUpdateConstraintCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogUpdateConstraintCommand(id).apply(init))
+fun AWSServiceCatalogFunctions.updateConstraint(id: String, init: AWSServiceCatalogUpdateConstraintCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.UpdateConstraintResult {
+	return this.block.declare(AWSServiceCatalogUpdateConstraintCommand(id).apply(init)) as com.amazonaws.services.servicecatalog.model.UpdateConstraintResult
 }
 
 @Generated
-class AWSServiceCatalogUpdateConstraintCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.UpdateConstraintRequest> {
+class AWSServiceCatalogUpdateConstraintCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.UpdateConstraintRequest, com.amazonaws.services.servicecatalog.model.UpdateConstraintResult> {
 
 	var acceptLanguage: String? = null
 	var description: String? = null
@@ -1886,8 +2102,12 @@ class AWSServiceCatalogUpdateConstraintCommand(val id: String) : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.updateConstraint(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.UpdateConstraintResult {
+	  return com.amazonaws.services.servicecatalog.model.UpdateConstraintResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.UpdateConstraintResult {
+		return environment.servicecatalog.updateConstraint(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1900,12 +2120,12 @@ class AWSServiceCatalogUpdateConstraintCommand(val id: String) : AmazonWebServic
 }
 
 
-fun AWSServiceCatalogFunctions.updatePortfolio(id: String, init: AWSServiceCatalogUpdatePortfolioCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogUpdatePortfolioCommand(id).apply(init))
+fun AWSServiceCatalogFunctions.updatePortfolio(id: String, init: AWSServiceCatalogUpdatePortfolioCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.UpdatePortfolioResult {
+	return this.block.declare(AWSServiceCatalogUpdatePortfolioCommand(id).apply(init)) as com.amazonaws.services.servicecatalog.model.UpdatePortfolioResult
 }
 
 @Generated
-class AWSServiceCatalogUpdatePortfolioCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.UpdatePortfolioRequest> {
+class AWSServiceCatalogUpdatePortfolioCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.UpdatePortfolioRequest, com.amazonaws.services.servicecatalog.model.UpdatePortfolioResult> {
 
 	var acceptLanguage: String? = null
 	var displayName: String? = null
@@ -1926,8 +2146,12 @@ class AWSServiceCatalogUpdatePortfolioCommand(val id: String) : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.updatePortfolio(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.UpdatePortfolioResult {
+	  return com.amazonaws.services.servicecatalog.model.UpdatePortfolioResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.UpdatePortfolioResult {
+		return environment.servicecatalog.updatePortfolio(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1944,12 +2168,12 @@ class AWSServiceCatalogUpdatePortfolioCommand(val id: String) : AmazonWebService
 }
 
 
-fun AWSServiceCatalogFunctions.updateProduct(id: String, init: AWSServiceCatalogUpdateProductCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogUpdateProductCommand(id).apply(init))
+fun AWSServiceCatalogFunctions.updateProduct(id: String, init: AWSServiceCatalogUpdateProductCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.UpdateProductResult {
+	return this.block.declare(AWSServiceCatalogUpdateProductCommand(id).apply(init)) as com.amazonaws.services.servicecatalog.model.UpdateProductResult
 }
 
 @Generated
-class AWSServiceCatalogUpdateProductCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.UpdateProductRequest> {
+class AWSServiceCatalogUpdateProductCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.UpdateProductRequest, com.amazonaws.services.servicecatalog.model.UpdateProductResult> {
 
 	var acceptLanguage: String? = null
 	var name: String? = null
@@ -1978,8 +2202,12 @@ class AWSServiceCatalogUpdateProductCommand(val id: String) : AmazonWebServiceCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.updateProduct(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.UpdateProductResult {
+	  return com.amazonaws.services.servicecatalog.model.UpdateProductResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.UpdateProductResult {
+		return environment.servicecatalog.updateProduct(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2000,12 +2228,12 @@ class AWSServiceCatalogUpdateProductCommand(val id: String) : AmazonWebServiceCo
 }
 
 
-fun AWSServiceCatalogFunctions.updateProvisionedProduct(updateToken: String, init: AWSServiceCatalogUpdateProvisionedProductCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogUpdateProvisionedProductCommand(updateToken).apply(init))
+fun AWSServiceCatalogFunctions.updateProvisionedProduct(updateToken: String, init: AWSServiceCatalogUpdateProvisionedProductCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.UpdateProvisionedProductResult {
+	return this.block.declare(AWSServiceCatalogUpdateProvisionedProductCommand(updateToken).apply(init)) as com.amazonaws.services.servicecatalog.model.UpdateProvisionedProductResult
 }
 
 @Generated
-class AWSServiceCatalogUpdateProvisionedProductCommand(val updateToken: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.UpdateProvisionedProductRequest> {
+class AWSServiceCatalogUpdateProvisionedProductCommand(val updateToken: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.UpdateProvisionedProductRequest, com.amazonaws.services.servicecatalog.model.UpdateProvisionedProductResult> {
 
 	var acceptLanguage: String? = null
 	var provisionedProductName: String? = null
@@ -2028,8 +2256,12 @@ class AWSServiceCatalogUpdateProvisionedProductCommand(val updateToken: String) 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.updateProvisionedProduct(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.UpdateProvisionedProductResult {
+	  return com.amazonaws.services.servicecatalog.model.UpdateProvisionedProductResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.UpdateProvisionedProductResult {
+		return environment.servicecatalog.updateProvisionedProduct(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2047,12 +2279,12 @@ class AWSServiceCatalogUpdateProvisionedProductCommand(val updateToken: String) 
 }
 
 
-fun AWSServiceCatalogFunctions.updateProvisioningArtifact(productId: String, provisioningArtifactId: String, init: AWSServiceCatalogUpdateProvisioningArtifactCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogUpdateProvisioningArtifactCommand(productId, provisioningArtifactId).apply(init))
+fun AWSServiceCatalogFunctions.updateProvisioningArtifact(productId: String, provisioningArtifactId: String, init: AWSServiceCatalogUpdateProvisioningArtifactCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.UpdateProvisioningArtifactResult {
+	return this.block.declare(AWSServiceCatalogUpdateProvisioningArtifactCommand(productId, provisioningArtifactId).apply(init)) as com.amazonaws.services.servicecatalog.model.UpdateProvisioningArtifactResult
 }
 
 @Generated
-class AWSServiceCatalogUpdateProvisioningArtifactCommand(val productId: String, val provisioningArtifactId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.UpdateProvisioningArtifactRequest> {
+class AWSServiceCatalogUpdateProvisioningArtifactCommand(val productId: String, val provisioningArtifactId: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.UpdateProvisioningArtifactRequest, com.amazonaws.services.servicecatalog.model.UpdateProvisioningArtifactResult> {
 
 	var acceptLanguage: String? = null
 	var name: String? = null
@@ -2070,8 +2302,12 @@ class AWSServiceCatalogUpdateProvisioningArtifactCommand(val productId: String, 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.updateProvisioningArtifact(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.UpdateProvisioningArtifactResult {
+	  return com.amazonaws.services.servicecatalog.model.UpdateProvisioningArtifactResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.UpdateProvisioningArtifactResult {
+		return environment.servicecatalog.updateProvisioningArtifact(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2087,12 +2323,12 @@ class AWSServiceCatalogUpdateProvisioningArtifactCommand(val productId: String, 
 }
 
 
-fun AWSServiceCatalogFunctions.updateTagOption(id: String, init: AWSServiceCatalogUpdateTagOptionCommand.() -> Unit) {
-	this.block.declare(AWSServiceCatalogUpdateTagOptionCommand(id).apply(init))
+fun AWSServiceCatalogFunctions.updateTagOption(id: String, init: AWSServiceCatalogUpdateTagOptionCommand.() -> Unit): com.amazonaws.services.servicecatalog.model.UpdateTagOptionResult {
+	return this.block.declare(AWSServiceCatalogUpdateTagOptionCommand(id).apply(init)) as com.amazonaws.services.servicecatalog.model.UpdateTagOptionResult
 }
 
 @Generated
-class AWSServiceCatalogUpdateTagOptionCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.UpdateTagOptionRequest> {
+class AWSServiceCatalogUpdateTagOptionCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.servicecatalog.model.UpdateTagOptionRequest, com.amazonaws.services.servicecatalog.model.UpdateTagOptionResult> {
 
 	var value: String? = null
 	var active: Boolean? = false
@@ -2105,8 +2341,12 @@ class AWSServiceCatalogUpdateTagOptionCommand(val id: String) : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.servicecatalog.updateTagOption(build())
+	override fun dryResult(): com.amazonaws.services.servicecatalog.model.UpdateTagOptionResult {
+	  return com.amazonaws.services.servicecatalog.model.UpdateTagOptionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.servicecatalog.model.UpdateTagOptionResult {
+		return environment.servicecatalog.updateTagOption(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

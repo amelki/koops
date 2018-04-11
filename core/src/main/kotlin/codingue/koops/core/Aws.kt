@@ -1,18 +1,24 @@
 package codingue.koops.core
 
 import com.amazonaws.AmazonWebServiceRequest
+import com.amazonaws.AmazonWebServiceResult
+import com.amazonaws.ResponseMetadata
 
 //class AwsEnvironment(val s3: AmazonS3, val lambda: AWSLambda): Environment()
 
 @CliMarker
-interface AmazonWebServiceCommand<out T : AmazonWebServiceRequest>: Command {
+interface AmazonWebServiceCommand<out T : AmazonWebServiceRequest, out R: AmazonWebServiceResult<*>>: Command<R> {
 	fun build(): T
-	override fun dryRun() {
+	fun dryResult(): R
+	override fun dryRun(): R {
 		println(descriptor())
+		return dryResult()
 	}
 
 	fun descriptor(): AmazonWebServiceDescriptor
 }
+
+class VoidResult: AmazonWebServiceResult<ResponseMetadata>()
 
 interface Argument
 class KeyValue(val name: String, val value: String): Argument {

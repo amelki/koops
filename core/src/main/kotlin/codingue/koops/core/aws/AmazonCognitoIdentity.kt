@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.cognito_identity: AmazonCognitoIdentity
 @Generated
 class AmazonCognitoIdentityFunctions(val block: Block)
 
-infix fun AwsContinuation.cognito_identity(init: AmazonCognitoIdentityFunctions.() -> Unit) {
-	AmazonCognitoIdentityFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.cognito_identity(init: AmazonCognitoIdentityFunctions.() -> T): T {
+	return AmazonCognitoIdentityFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonCognitoIdentityFunctions.createIdentityPool(identityPoolName: String, allowUnauthenticatedIdentities: Boolean, init: AmazonCognitoIdentityCreateIdentityPoolCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoIdentityCreateIdentityPoolCommand(identityPoolName, allowUnauthenticatedIdentities).apply(init))
+fun AmazonCognitoIdentityFunctions.createIdentityPool(identityPoolName: String, allowUnauthenticatedIdentities: Boolean, init: AmazonCognitoIdentityCreateIdentityPoolCommand.() -> Unit): com.amazonaws.services.cognitoidentity.model.CreateIdentityPoolResult {
+	return this.block.declare(AmazonCognitoIdentityCreateIdentityPoolCommand(identityPoolName, allowUnauthenticatedIdentities).apply(init)) as com.amazonaws.services.cognitoidentity.model.CreateIdentityPoolResult
 }
 
 @Generated
-class AmazonCognitoIdentityCreateIdentityPoolCommand(val identityPoolName: String, val allowUnauthenticatedIdentities: Boolean) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.CreateIdentityPoolRequest> {
+class AmazonCognitoIdentityCreateIdentityPoolCommand(val identityPoolName: String, val allowUnauthenticatedIdentities: Boolean) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.CreateIdentityPoolRequest, com.amazonaws.services.cognitoidentity.model.CreateIdentityPoolResult> {
 
 	var supportedLoginProviders: Map<String, String>? = null
 	var developerProviderName: String? = null
@@ -51,8 +51,12 @@ class AmazonCognitoIdentityCreateIdentityPoolCommand(val identityPoolName: Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_identity.createIdentityPool(build())
+	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.CreateIdentityPoolResult {
+	  return com.amazonaws.services.cognitoidentity.model.CreateIdentityPoolResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.CreateIdentityPoolResult {
+		return environment.cognito_identity.createIdentityPool(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -69,12 +73,12 @@ class AmazonCognitoIdentityCreateIdentityPoolCommand(val identityPoolName: Strin
 }
 
 
-fun AmazonCognitoIdentityFunctions.deleteIdentities(identityIdsToDelete: List<String>, init: AmazonCognitoIdentityDeleteIdentitiesCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoIdentityDeleteIdentitiesCommand(identityIdsToDelete).apply(init))
+fun AmazonCognitoIdentityFunctions.deleteIdentities(identityIdsToDelete: List<String>, init: AmazonCognitoIdentityDeleteIdentitiesCommand.() -> Unit): com.amazonaws.services.cognitoidentity.model.DeleteIdentitiesResult {
+	return this.block.declare(AmazonCognitoIdentityDeleteIdentitiesCommand(identityIdsToDelete).apply(init)) as com.amazonaws.services.cognitoidentity.model.DeleteIdentitiesResult
 }
 
 @Generated
-class AmazonCognitoIdentityDeleteIdentitiesCommand(val identityIdsToDelete: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.DeleteIdentitiesRequest> {
+class AmazonCognitoIdentityDeleteIdentitiesCommand(val identityIdsToDelete: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.DeleteIdentitiesRequest, com.amazonaws.services.cognitoidentity.model.DeleteIdentitiesResult> {
 
 
 
@@ -84,8 +88,12 @@ class AmazonCognitoIdentityDeleteIdentitiesCommand(val identityIdsToDelete: List
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_identity.deleteIdentities(build())
+	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.DeleteIdentitiesResult {
+	  return com.amazonaws.services.cognitoidentity.model.DeleteIdentitiesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.DeleteIdentitiesResult {
+		return environment.cognito_identity.deleteIdentities(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -96,12 +104,12 @@ class AmazonCognitoIdentityDeleteIdentitiesCommand(val identityIdsToDelete: List
 }
 
 
-fun AmazonCognitoIdentityFunctions.deleteIdentityPool(identityPoolId: String, init: AmazonCognitoIdentityDeleteIdentityPoolCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoIdentityDeleteIdentityPoolCommand(identityPoolId).apply(init))
+fun AmazonCognitoIdentityFunctions.deleteIdentityPool(identityPoolId: String, init: AmazonCognitoIdentityDeleteIdentityPoolCommand.() -> Unit): com.amazonaws.services.cognitoidentity.model.DeleteIdentityPoolResult {
+	return this.block.declare(AmazonCognitoIdentityDeleteIdentityPoolCommand(identityPoolId).apply(init)) as com.amazonaws.services.cognitoidentity.model.DeleteIdentityPoolResult
 }
 
 @Generated
-class AmazonCognitoIdentityDeleteIdentityPoolCommand(val identityPoolId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.DeleteIdentityPoolRequest> {
+class AmazonCognitoIdentityDeleteIdentityPoolCommand(val identityPoolId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.DeleteIdentityPoolRequest, com.amazonaws.services.cognitoidentity.model.DeleteIdentityPoolResult> {
 
 
 
@@ -111,8 +119,12 @@ class AmazonCognitoIdentityDeleteIdentityPoolCommand(val identityPoolId: String)
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_identity.deleteIdentityPool(build())
+	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.DeleteIdentityPoolResult {
+	  return com.amazonaws.services.cognitoidentity.model.DeleteIdentityPoolResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.DeleteIdentityPoolResult {
+		return environment.cognito_identity.deleteIdentityPool(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -123,12 +135,12 @@ class AmazonCognitoIdentityDeleteIdentityPoolCommand(val identityPoolId: String)
 }
 
 
-fun AmazonCognitoIdentityFunctions.describeIdentity(identityId: String, init: AmazonCognitoIdentityDescribeIdentityCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoIdentityDescribeIdentityCommand(identityId).apply(init))
+fun AmazonCognitoIdentityFunctions.describeIdentity(identityId: String, init: AmazonCognitoIdentityDescribeIdentityCommand.() -> Unit): com.amazonaws.services.cognitoidentity.model.DescribeIdentityResult {
+	return this.block.declare(AmazonCognitoIdentityDescribeIdentityCommand(identityId).apply(init)) as com.amazonaws.services.cognitoidentity.model.DescribeIdentityResult
 }
 
 @Generated
-class AmazonCognitoIdentityDescribeIdentityCommand(val identityId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.DescribeIdentityRequest> {
+class AmazonCognitoIdentityDescribeIdentityCommand(val identityId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.DescribeIdentityRequest, com.amazonaws.services.cognitoidentity.model.DescribeIdentityResult> {
 
 
 
@@ -138,8 +150,12 @@ class AmazonCognitoIdentityDescribeIdentityCommand(val identityId: String) : Ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_identity.describeIdentity(build())
+	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.DescribeIdentityResult {
+	  return com.amazonaws.services.cognitoidentity.model.DescribeIdentityResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.DescribeIdentityResult {
+		return environment.cognito_identity.describeIdentity(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -150,12 +166,12 @@ class AmazonCognitoIdentityDescribeIdentityCommand(val identityId: String) : Ama
 }
 
 
-fun AmazonCognitoIdentityFunctions.describeIdentityPool(identityPoolId: String, init: AmazonCognitoIdentityDescribeIdentityPoolCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoIdentityDescribeIdentityPoolCommand(identityPoolId).apply(init))
+fun AmazonCognitoIdentityFunctions.describeIdentityPool(identityPoolId: String, init: AmazonCognitoIdentityDescribeIdentityPoolCommand.() -> Unit): com.amazonaws.services.cognitoidentity.model.DescribeIdentityPoolResult {
+	return this.block.declare(AmazonCognitoIdentityDescribeIdentityPoolCommand(identityPoolId).apply(init)) as com.amazonaws.services.cognitoidentity.model.DescribeIdentityPoolResult
 }
 
 @Generated
-class AmazonCognitoIdentityDescribeIdentityPoolCommand(val identityPoolId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.DescribeIdentityPoolRequest> {
+class AmazonCognitoIdentityDescribeIdentityPoolCommand(val identityPoolId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.DescribeIdentityPoolRequest, com.amazonaws.services.cognitoidentity.model.DescribeIdentityPoolResult> {
 
 
 
@@ -165,8 +181,12 @@ class AmazonCognitoIdentityDescribeIdentityPoolCommand(val identityPoolId: Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_identity.describeIdentityPool(build())
+	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.DescribeIdentityPoolResult {
+	  return com.amazonaws.services.cognitoidentity.model.DescribeIdentityPoolResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.DescribeIdentityPoolResult {
+		return environment.cognito_identity.describeIdentityPool(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -177,12 +197,12 @@ class AmazonCognitoIdentityDescribeIdentityPoolCommand(val identityPoolId: Strin
 }
 
 
-fun AmazonCognitoIdentityFunctions.getCredentialsForIdentity(identityId: String, init: AmazonCognitoIdentityGetCredentialsForIdentityCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoIdentityGetCredentialsForIdentityCommand(identityId).apply(init))
+fun AmazonCognitoIdentityFunctions.getCredentialsForIdentity(identityId: String, init: AmazonCognitoIdentityGetCredentialsForIdentityCommand.() -> Unit): com.amazonaws.services.cognitoidentity.model.GetCredentialsForIdentityResult {
+	return this.block.declare(AmazonCognitoIdentityGetCredentialsForIdentityCommand(identityId).apply(init)) as com.amazonaws.services.cognitoidentity.model.GetCredentialsForIdentityResult
 }
 
 @Generated
-class AmazonCognitoIdentityGetCredentialsForIdentityCommand(val identityId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.GetCredentialsForIdentityRequest> {
+class AmazonCognitoIdentityGetCredentialsForIdentityCommand(val identityId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.GetCredentialsForIdentityRequest, com.amazonaws.services.cognitoidentity.model.GetCredentialsForIdentityResult> {
 
 	var logins: Map<String, String>? = null
 	var customRoleArn: String? = null
@@ -195,8 +215,12 @@ class AmazonCognitoIdentityGetCredentialsForIdentityCommand(val identityId: Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_identity.getCredentialsForIdentity(build())
+	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.GetCredentialsForIdentityResult {
+	  return com.amazonaws.services.cognitoidentity.model.GetCredentialsForIdentityResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.GetCredentialsForIdentityResult {
+		return environment.cognito_identity.getCredentialsForIdentity(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -209,12 +233,12 @@ class AmazonCognitoIdentityGetCredentialsForIdentityCommand(val identityId: Stri
 }
 
 
-fun AmazonCognitoIdentityFunctions.getId(identityPoolId: String, init: AmazonCognitoIdentityGetIdCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoIdentityGetIdCommand(identityPoolId).apply(init))
+fun AmazonCognitoIdentityFunctions.getId(identityPoolId: String, init: AmazonCognitoIdentityGetIdCommand.() -> Unit): com.amazonaws.services.cognitoidentity.model.GetIdResult {
+	return this.block.declare(AmazonCognitoIdentityGetIdCommand(identityPoolId).apply(init)) as com.amazonaws.services.cognitoidentity.model.GetIdResult
 }
 
 @Generated
-class AmazonCognitoIdentityGetIdCommand(val identityPoolId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.GetIdRequest> {
+class AmazonCognitoIdentityGetIdCommand(val identityPoolId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.GetIdRequest, com.amazonaws.services.cognitoidentity.model.GetIdResult> {
 
 	var accountId: String? = null
 	var logins: Map<String, String>? = null
@@ -227,8 +251,12 @@ class AmazonCognitoIdentityGetIdCommand(val identityPoolId: String) : AmazonWebS
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_identity.getId(build())
+	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.GetIdResult {
+	  return com.amazonaws.services.cognitoidentity.model.GetIdResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.GetIdResult {
+		return environment.cognito_identity.getId(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -241,12 +269,12 @@ class AmazonCognitoIdentityGetIdCommand(val identityPoolId: String) : AmazonWebS
 }
 
 
-fun AmazonCognitoIdentityFunctions.getIdentityPoolRoles(identityPoolId: String, init: AmazonCognitoIdentityGetIdentityPoolRolesCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoIdentityGetIdentityPoolRolesCommand(identityPoolId).apply(init))
+fun AmazonCognitoIdentityFunctions.getIdentityPoolRoles(identityPoolId: String, init: AmazonCognitoIdentityGetIdentityPoolRolesCommand.() -> Unit): com.amazonaws.services.cognitoidentity.model.GetIdentityPoolRolesResult {
+	return this.block.declare(AmazonCognitoIdentityGetIdentityPoolRolesCommand(identityPoolId).apply(init)) as com.amazonaws.services.cognitoidentity.model.GetIdentityPoolRolesResult
 }
 
 @Generated
-class AmazonCognitoIdentityGetIdentityPoolRolesCommand(val identityPoolId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.GetIdentityPoolRolesRequest> {
+class AmazonCognitoIdentityGetIdentityPoolRolesCommand(val identityPoolId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.GetIdentityPoolRolesRequest, com.amazonaws.services.cognitoidentity.model.GetIdentityPoolRolesResult> {
 
 
 
@@ -256,8 +284,12 @@ class AmazonCognitoIdentityGetIdentityPoolRolesCommand(val identityPoolId: Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_identity.getIdentityPoolRoles(build())
+	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.GetIdentityPoolRolesResult {
+	  return com.amazonaws.services.cognitoidentity.model.GetIdentityPoolRolesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.GetIdentityPoolRolesResult {
+		return environment.cognito_identity.getIdentityPoolRoles(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -268,12 +300,12 @@ class AmazonCognitoIdentityGetIdentityPoolRolesCommand(val identityPoolId: Strin
 }
 
 
-fun AmazonCognitoIdentityFunctions.getOpenIdToken(identityId: String, init: AmazonCognitoIdentityGetOpenIdTokenCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoIdentityGetOpenIdTokenCommand(identityId).apply(init))
+fun AmazonCognitoIdentityFunctions.getOpenIdToken(identityId: String, init: AmazonCognitoIdentityGetOpenIdTokenCommand.() -> Unit): com.amazonaws.services.cognitoidentity.model.GetOpenIdTokenResult {
+	return this.block.declare(AmazonCognitoIdentityGetOpenIdTokenCommand(identityId).apply(init)) as com.amazonaws.services.cognitoidentity.model.GetOpenIdTokenResult
 }
 
 @Generated
-class AmazonCognitoIdentityGetOpenIdTokenCommand(val identityId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.GetOpenIdTokenRequest> {
+class AmazonCognitoIdentityGetOpenIdTokenCommand(val identityId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.GetOpenIdTokenRequest, com.amazonaws.services.cognitoidentity.model.GetOpenIdTokenResult> {
 
 	var logins: Map<String, String>? = null
 
@@ -284,8 +316,12 @@ class AmazonCognitoIdentityGetOpenIdTokenCommand(val identityId: String) : Amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_identity.getOpenIdToken(build())
+	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.GetOpenIdTokenResult {
+	  return com.amazonaws.services.cognitoidentity.model.GetOpenIdTokenResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.GetOpenIdTokenResult {
+		return environment.cognito_identity.getOpenIdToken(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -297,12 +333,12 @@ class AmazonCognitoIdentityGetOpenIdTokenCommand(val identityId: String) : Amazo
 }
 
 
-fun AmazonCognitoIdentityFunctions.getOpenIdTokenForDeveloperIdentity(identityPoolId: String, logins: Map<String, String>, init: AmazonCognitoIdentityGetOpenIdTokenForDeveloperIdentityCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoIdentityGetOpenIdTokenForDeveloperIdentityCommand(identityPoolId, logins).apply(init))
+fun AmazonCognitoIdentityFunctions.getOpenIdTokenForDeveloperIdentity(identityPoolId: String, logins: Map<String, String>, init: AmazonCognitoIdentityGetOpenIdTokenForDeveloperIdentityCommand.() -> Unit): com.amazonaws.services.cognitoidentity.model.GetOpenIdTokenForDeveloperIdentityResult {
+	return this.block.declare(AmazonCognitoIdentityGetOpenIdTokenForDeveloperIdentityCommand(identityPoolId, logins).apply(init)) as com.amazonaws.services.cognitoidentity.model.GetOpenIdTokenForDeveloperIdentityResult
 }
 
 @Generated
-class AmazonCognitoIdentityGetOpenIdTokenForDeveloperIdentityCommand(val identityPoolId: String, val logins: Map<String, String>) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.GetOpenIdTokenForDeveloperIdentityRequest> {
+class AmazonCognitoIdentityGetOpenIdTokenForDeveloperIdentityCommand(val identityPoolId: String, val logins: Map<String, String>) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.GetOpenIdTokenForDeveloperIdentityRequest, com.amazonaws.services.cognitoidentity.model.GetOpenIdTokenForDeveloperIdentityResult> {
 
 	var identityId: String? = null
 	var tokenDuration: Long? = 0L
@@ -316,8 +352,12 @@ class AmazonCognitoIdentityGetOpenIdTokenForDeveloperIdentityCommand(val identit
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_identity.getOpenIdTokenForDeveloperIdentity(build())
+	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.GetOpenIdTokenForDeveloperIdentityResult {
+	  return com.amazonaws.services.cognitoidentity.model.GetOpenIdTokenForDeveloperIdentityResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.GetOpenIdTokenForDeveloperIdentityResult {
+		return environment.cognito_identity.getOpenIdTokenForDeveloperIdentity(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -331,12 +371,12 @@ class AmazonCognitoIdentityGetOpenIdTokenForDeveloperIdentityCommand(val identit
 }
 
 
-fun AmazonCognitoIdentityFunctions.listIdentities(identityPoolId: String, maxResults: Int, init: AmazonCognitoIdentityListIdentitiesCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoIdentityListIdentitiesCommand(identityPoolId, maxResults).apply(init))
+fun AmazonCognitoIdentityFunctions.listIdentities(identityPoolId: String, maxResults: Int, init: AmazonCognitoIdentityListIdentitiesCommand.() -> Unit): com.amazonaws.services.cognitoidentity.model.ListIdentitiesResult {
+	return this.block.declare(AmazonCognitoIdentityListIdentitiesCommand(identityPoolId, maxResults).apply(init)) as com.amazonaws.services.cognitoidentity.model.ListIdentitiesResult
 }
 
 @Generated
-class AmazonCognitoIdentityListIdentitiesCommand(val identityPoolId: String, val maxResults: Int) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.ListIdentitiesRequest> {
+class AmazonCognitoIdentityListIdentitiesCommand(val identityPoolId: String, val maxResults: Int) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.ListIdentitiesRequest, com.amazonaws.services.cognitoidentity.model.ListIdentitiesResult> {
 
 	var nextToken: String? = null
 	var hideDisabled: Boolean? = false
@@ -350,8 +390,12 @@ class AmazonCognitoIdentityListIdentitiesCommand(val identityPoolId: String, val
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_identity.listIdentities(build())
+	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.ListIdentitiesResult {
+	  return com.amazonaws.services.cognitoidentity.model.ListIdentitiesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.ListIdentitiesResult {
+		return environment.cognito_identity.listIdentities(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -365,12 +409,12 @@ class AmazonCognitoIdentityListIdentitiesCommand(val identityPoolId: String, val
 }
 
 
-fun AmazonCognitoIdentityFunctions.listIdentityPools(maxResults: Int, init: AmazonCognitoIdentityListIdentityPoolsCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoIdentityListIdentityPoolsCommand(maxResults).apply(init))
+fun AmazonCognitoIdentityFunctions.listIdentityPools(maxResults: Int, init: AmazonCognitoIdentityListIdentityPoolsCommand.() -> Unit): com.amazonaws.services.cognitoidentity.model.ListIdentityPoolsResult {
+	return this.block.declare(AmazonCognitoIdentityListIdentityPoolsCommand(maxResults).apply(init)) as com.amazonaws.services.cognitoidentity.model.ListIdentityPoolsResult
 }
 
 @Generated
-class AmazonCognitoIdentityListIdentityPoolsCommand(val maxResults: Int) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.ListIdentityPoolsRequest> {
+class AmazonCognitoIdentityListIdentityPoolsCommand(val maxResults: Int) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.ListIdentityPoolsRequest, com.amazonaws.services.cognitoidentity.model.ListIdentityPoolsResult> {
 
 	var nextToken: String? = null
 
@@ -381,8 +425,12 @@ class AmazonCognitoIdentityListIdentityPoolsCommand(val maxResults: Int) : Amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_identity.listIdentityPools(build())
+	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.ListIdentityPoolsResult {
+	  return com.amazonaws.services.cognitoidentity.model.ListIdentityPoolsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.ListIdentityPoolsResult {
+		return environment.cognito_identity.listIdentityPools(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -394,12 +442,12 @@ class AmazonCognitoIdentityListIdentityPoolsCommand(val maxResults: Int) : Amazo
 }
 
 
-fun AmazonCognitoIdentityFunctions.lookupDeveloperIdentity(identityPoolId: String, init: AmazonCognitoIdentityLookupDeveloperIdentityCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoIdentityLookupDeveloperIdentityCommand(identityPoolId).apply(init))
+fun AmazonCognitoIdentityFunctions.lookupDeveloperIdentity(identityPoolId: String, init: AmazonCognitoIdentityLookupDeveloperIdentityCommand.() -> Unit): com.amazonaws.services.cognitoidentity.model.LookupDeveloperIdentityResult {
+	return this.block.declare(AmazonCognitoIdentityLookupDeveloperIdentityCommand(identityPoolId).apply(init)) as com.amazonaws.services.cognitoidentity.model.LookupDeveloperIdentityResult
 }
 
 @Generated
-class AmazonCognitoIdentityLookupDeveloperIdentityCommand(val identityPoolId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.LookupDeveloperIdentityRequest> {
+class AmazonCognitoIdentityLookupDeveloperIdentityCommand(val identityPoolId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.LookupDeveloperIdentityRequest, com.amazonaws.services.cognitoidentity.model.LookupDeveloperIdentityResult> {
 
 	var identityId: String? = null
 	var developerUserIdentifier: String? = null
@@ -416,8 +464,12 @@ class AmazonCognitoIdentityLookupDeveloperIdentityCommand(val identityPoolId: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_identity.lookupDeveloperIdentity(build())
+	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.LookupDeveloperIdentityResult {
+	  return com.amazonaws.services.cognitoidentity.model.LookupDeveloperIdentityResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.LookupDeveloperIdentityResult {
+		return environment.cognito_identity.lookupDeveloperIdentity(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -432,12 +484,12 @@ class AmazonCognitoIdentityLookupDeveloperIdentityCommand(val identityPoolId: St
 }
 
 
-fun AmazonCognitoIdentityFunctions.mergeDeveloperIdentities(sourceUserIdentifier: String, destinationUserIdentifier: String, developerProviderName: String, identityPoolId: String, init: AmazonCognitoIdentityMergeDeveloperIdentitiesCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoIdentityMergeDeveloperIdentitiesCommand(sourceUserIdentifier, destinationUserIdentifier, developerProviderName, identityPoolId).apply(init))
+fun AmazonCognitoIdentityFunctions.mergeDeveloperIdentities(sourceUserIdentifier: String, destinationUserIdentifier: String, developerProviderName: String, identityPoolId: String, init: AmazonCognitoIdentityMergeDeveloperIdentitiesCommand.() -> Unit): com.amazonaws.services.cognitoidentity.model.MergeDeveloperIdentitiesResult {
+	return this.block.declare(AmazonCognitoIdentityMergeDeveloperIdentitiesCommand(sourceUserIdentifier, destinationUserIdentifier, developerProviderName, identityPoolId).apply(init)) as com.amazonaws.services.cognitoidentity.model.MergeDeveloperIdentitiesResult
 }
 
 @Generated
-class AmazonCognitoIdentityMergeDeveloperIdentitiesCommand(val sourceUserIdentifier: String, val destinationUserIdentifier: String, val developerProviderName: String, val identityPoolId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.MergeDeveloperIdentitiesRequest> {
+class AmazonCognitoIdentityMergeDeveloperIdentitiesCommand(val sourceUserIdentifier: String, val destinationUserIdentifier: String, val developerProviderName: String, val identityPoolId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.MergeDeveloperIdentitiesRequest, com.amazonaws.services.cognitoidentity.model.MergeDeveloperIdentitiesResult> {
 
 
 
@@ -450,8 +502,12 @@ class AmazonCognitoIdentityMergeDeveloperIdentitiesCommand(val sourceUserIdentif
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_identity.mergeDeveloperIdentities(build())
+	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.MergeDeveloperIdentitiesResult {
+	  return com.amazonaws.services.cognitoidentity.model.MergeDeveloperIdentitiesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.MergeDeveloperIdentitiesResult {
+		return environment.cognito_identity.mergeDeveloperIdentities(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -465,12 +521,12 @@ class AmazonCognitoIdentityMergeDeveloperIdentitiesCommand(val sourceUserIdentif
 }
 
 
-fun AmazonCognitoIdentityFunctions.setIdentityPoolRoles(identityPoolId: String, roles: Map<String, String>, init: AmazonCognitoIdentitySetIdentityPoolRolesCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoIdentitySetIdentityPoolRolesCommand(identityPoolId, roles).apply(init))
+fun AmazonCognitoIdentityFunctions.setIdentityPoolRoles(identityPoolId: String, roles: Map<String, String>, init: AmazonCognitoIdentitySetIdentityPoolRolesCommand.() -> Unit): com.amazonaws.services.cognitoidentity.model.SetIdentityPoolRolesResult {
+	return this.block.declare(AmazonCognitoIdentitySetIdentityPoolRolesCommand(identityPoolId, roles).apply(init)) as com.amazonaws.services.cognitoidentity.model.SetIdentityPoolRolesResult
 }
 
 @Generated
-class AmazonCognitoIdentitySetIdentityPoolRolesCommand(val identityPoolId: String, val roles: Map<String, String>) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.SetIdentityPoolRolesRequest> {
+class AmazonCognitoIdentitySetIdentityPoolRolesCommand(val identityPoolId: String, val roles: Map<String, String>) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.SetIdentityPoolRolesRequest, com.amazonaws.services.cognitoidentity.model.SetIdentityPoolRolesResult> {
 
 	var roleMappings: Map<String, com.amazonaws.services.cognitoidentity.model.RoleMapping>? = null
 
@@ -482,8 +538,12 @@ class AmazonCognitoIdentitySetIdentityPoolRolesCommand(val identityPoolId: Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_identity.setIdentityPoolRoles(build())
+	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.SetIdentityPoolRolesResult {
+	  return com.amazonaws.services.cognitoidentity.model.SetIdentityPoolRolesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.SetIdentityPoolRolesResult {
+		return environment.cognito_identity.setIdentityPoolRoles(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -496,12 +556,12 @@ class AmazonCognitoIdentitySetIdentityPoolRolesCommand(val identityPoolId: Strin
 }
 
 
-fun AmazonCognitoIdentityFunctions.unlinkDeveloperIdentity(identityId: String, identityPoolId: String, developerProviderName: String, developerUserIdentifier: String, init: AmazonCognitoIdentityUnlinkDeveloperIdentityCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoIdentityUnlinkDeveloperIdentityCommand(identityId, identityPoolId, developerProviderName, developerUserIdentifier).apply(init))
+fun AmazonCognitoIdentityFunctions.unlinkDeveloperIdentity(identityId: String, identityPoolId: String, developerProviderName: String, developerUserIdentifier: String, init: AmazonCognitoIdentityUnlinkDeveloperIdentityCommand.() -> Unit): com.amazonaws.services.cognitoidentity.model.UnlinkDeveloperIdentityResult {
+	return this.block.declare(AmazonCognitoIdentityUnlinkDeveloperIdentityCommand(identityId, identityPoolId, developerProviderName, developerUserIdentifier).apply(init)) as com.amazonaws.services.cognitoidentity.model.UnlinkDeveloperIdentityResult
 }
 
 @Generated
-class AmazonCognitoIdentityUnlinkDeveloperIdentityCommand(val identityId: String, val identityPoolId: String, val developerProviderName: String, val developerUserIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.UnlinkDeveloperIdentityRequest> {
+class AmazonCognitoIdentityUnlinkDeveloperIdentityCommand(val identityId: String, val identityPoolId: String, val developerProviderName: String, val developerUserIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.UnlinkDeveloperIdentityRequest, com.amazonaws.services.cognitoidentity.model.UnlinkDeveloperIdentityResult> {
 
 
 
@@ -514,8 +574,12 @@ class AmazonCognitoIdentityUnlinkDeveloperIdentityCommand(val identityId: String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_identity.unlinkDeveloperIdentity(build())
+	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.UnlinkDeveloperIdentityResult {
+	  return com.amazonaws.services.cognitoidentity.model.UnlinkDeveloperIdentityResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.UnlinkDeveloperIdentityResult {
+		return environment.cognito_identity.unlinkDeveloperIdentity(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -529,12 +593,12 @@ class AmazonCognitoIdentityUnlinkDeveloperIdentityCommand(val identityId: String
 }
 
 
-fun AmazonCognitoIdentityFunctions.unlinkIdentity(identityId: String, logins: Map<String, String>, loginsToRemove: List<String>, init: AmazonCognitoIdentityUnlinkIdentityCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoIdentityUnlinkIdentityCommand(identityId, logins, loginsToRemove).apply(init))
+fun AmazonCognitoIdentityFunctions.unlinkIdentity(identityId: String, logins: Map<String, String>, loginsToRemove: List<String>, init: AmazonCognitoIdentityUnlinkIdentityCommand.() -> Unit): com.amazonaws.services.cognitoidentity.model.UnlinkIdentityResult {
+	return this.block.declare(AmazonCognitoIdentityUnlinkIdentityCommand(identityId, logins, loginsToRemove).apply(init)) as com.amazonaws.services.cognitoidentity.model.UnlinkIdentityResult
 }
 
 @Generated
-class AmazonCognitoIdentityUnlinkIdentityCommand(val identityId: String, val logins: Map<String, String>, val loginsToRemove: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.UnlinkIdentityRequest> {
+class AmazonCognitoIdentityUnlinkIdentityCommand(val identityId: String, val logins: Map<String, String>, val loginsToRemove: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.UnlinkIdentityRequest, com.amazonaws.services.cognitoidentity.model.UnlinkIdentityResult> {
 
 
 
@@ -546,8 +610,12 @@ class AmazonCognitoIdentityUnlinkIdentityCommand(val identityId: String, val log
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_identity.unlinkIdentity(build())
+	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.UnlinkIdentityResult {
+	  return com.amazonaws.services.cognitoidentity.model.UnlinkIdentityResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.UnlinkIdentityResult {
+		return environment.cognito_identity.unlinkIdentity(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -560,12 +628,12 @@ class AmazonCognitoIdentityUnlinkIdentityCommand(val identityId: String, val log
 }
 
 
-fun AmazonCognitoIdentityFunctions.updateIdentityPool(identityPoolId: String, identityPoolName: String, allowUnauthenticatedIdentities: Boolean, init: AmazonCognitoIdentityUpdateIdentityPoolCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoIdentityUpdateIdentityPoolCommand(identityPoolId, identityPoolName, allowUnauthenticatedIdentities).apply(init))
+fun AmazonCognitoIdentityFunctions.updateIdentityPool(identityPoolId: String, identityPoolName: String, allowUnauthenticatedIdentities: Boolean, init: AmazonCognitoIdentityUpdateIdentityPoolCommand.() -> Unit): com.amazonaws.services.cognitoidentity.model.UpdateIdentityPoolResult {
+	return this.block.declare(AmazonCognitoIdentityUpdateIdentityPoolCommand(identityPoolId, identityPoolName, allowUnauthenticatedIdentities).apply(init)) as com.amazonaws.services.cognitoidentity.model.UpdateIdentityPoolResult
 }
 
 @Generated
-class AmazonCognitoIdentityUpdateIdentityPoolCommand(val identityPoolId: String, val identityPoolName: String, val allowUnauthenticatedIdentities: Boolean) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.UpdateIdentityPoolRequest> {
+class AmazonCognitoIdentityUpdateIdentityPoolCommand(val identityPoolId: String, val identityPoolName: String, val allowUnauthenticatedIdentities: Boolean) : AmazonWebServiceCommand<com.amazonaws.services.cognitoidentity.model.UpdateIdentityPoolRequest, com.amazonaws.services.cognitoidentity.model.UpdateIdentityPoolResult> {
 
 	var supportedLoginProviders: Map<String, String>? = null
 	var developerProviderName: String? = null
@@ -586,8 +654,12 @@ class AmazonCognitoIdentityUpdateIdentityPoolCommand(val identityPoolId: String,
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_identity.updateIdentityPool(build())
+	override fun dryResult(): com.amazonaws.services.cognitoidentity.model.UpdateIdentityPoolResult {
+	  return com.amazonaws.services.cognitoidentity.model.UpdateIdentityPoolResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitoidentity.model.UpdateIdentityPoolResult {
+		return environment.cognito_identity.updateIdentityPool(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

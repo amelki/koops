@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.polly: AmazonPolly
 @Generated
 class AmazonPollyFunctions(val block: Block)
 
-infix fun AwsContinuation.polly(init: AmazonPollyFunctions.() -> Unit) {
-	AmazonPollyFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.polly(init: AmazonPollyFunctions.() -> T): T {
+	return AmazonPollyFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonPollyFunctions.deleteLexicon(name: String, init: AmazonPollyDeleteLexiconCommand.() -> Unit) {
-	this.block.declare(AmazonPollyDeleteLexiconCommand(name).apply(init))
+fun AmazonPollyFunctions.deleteLexicon(name: String, init: AmazonPollyDeleteLexiconCommand.() -> Unit): com.amazonaws.services.polly.model.DeleteLexiconResult {
+	return this.block.declare(AmazonPollyDeleteLexiconCommand(name).apply(init)) as com.amazonaws.services.polly.model.DeleteLexiconResult
 }
 
 @Generated
-class AmazonPollyDeleteLexiconCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.polly.model.DeleteLexiconRequest> {
+class AmazonPollyDeleteLexiconCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.polly.model.DeleteLexiconRequest, com.amazonaws.services.polly.model.DeleteLexiconResult> {
 
 
 
@@ -41,8 +41,12 @@ class AmazonPollyDeleteLexiconCommand(val name: String) : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.polly.deleteLexicon(build())
+	override fun dryResult(): com.amazonaws.services.polly.model.DeleteLexiconResult {
+	  return com.amazonaws.services.polly.model.DeleteLexiconResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.polly.model.DeleteLexiconResult {
+		return environment.polly.deleteLexicon(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -53,12 +57,12 @@ class AmazonPollyDeleteLexiconCommand(val name: String) : AmazonWebServiceComman
 }
 
 
-fun AmazonPollyFunctions.describeVoices(init: AmazonPollyDescribeVoicesCommand.() -> Unit) {
-	this.block.declare(AmazonPollyDescribeVoicesCommand().apply(init))
+fun AmazonPollyFunctions.describeVoices(init: AmazonPollyDescribeVoicesCommand.() -> Unit): com.amazonaws.services.polly.model.DescribeVoicesResult {
+	return this.block.declare(AmazonPollyDescribeVoicesCommand().apply(init)) as com.amazonaws.services.polly.model.DescribeVoicesResult
 }
 
 @Generated
-class AmazonPollyDescribeVoicesCommand() : AmazonWebServiceCommand<com.amazonaws.services.polly.model.DescribeVoicesRequest> {
+class AmazonPollyDescribeVoicesCommand() : AmazonWebServiceCommand<com.amazonaws.services.polly.model.DescribeVoicesRequest, com.amazonaws.services.polly.model.DescribeVoicesResult> {
 
 	var languageCode: LanguageCode? = null
 	var nextToken: String? = null
@@ -70,8 +74,12 @@ class AmazonPollyDescribeVoicesCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.polly.describeVoices(build())
+	override fun dryResult(): com.amazonaws.services.polly.model.DescribeVoicesResult {
+	  return com.amazonaws.services.polly.model.DescribeVoicesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.polly.model.DescribeVoicesResult {
+		return environment.polly.describeVoices(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -83,12 +91,12 @@ class AmazonPollyDescribeVoicesCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AmazonPollyFunctions.getLexicon(name: String, init: AmazonPollyGetLexiconCommand.() -> Unit) {
-	this.block.declare(AmazonPollyGetLexiconCommand(name).apply(init))
+fun AmazonPollyFunctions.getLexicon(name: String, init: AmazonPollyGetLexiconCommand.() -> Unit): com.amazonaws.services.polly.model.GetLexiconResult {
+	return this.block.declare(AmazonPollyGetLexiconCommand(name).apply(init)) as com.amazonaws.services.polly.model.GetLexiconResult
 }
 
 @Generated
-class AmazonPollyGetLexiconCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.polly.model.GetLexiconRequest> {
+class AmazonPollyGetLexiconCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.polly.model.GetLexiconRequest, com.amazonaws.services.polly.model.GetLexiconResult> {
 
 
 
@@ -98,8 +106,12 @@ class AmazonPollyGetLexiconCommand(val name: String) : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.polly.getLexicon(build())
+	override fun dryResult(): com.amazonaws.services.polly.model.GetLexiconResult {
+	  return com.amazonaws.services.polly.model.GetLexiconResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.polly.model.GetLexiconResult {
+		return environment.polly.getLexicon(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -110,12 +122,12 @@ class AmazonPollyGetLexiconCommand(val name: String) : AmazonWebServiceCommand<c
 }
 
 
-fun AmazonPollyFunctions.listLexicons(init: AmazonPollyListLexiconsCommand.() -> Unit) {
-	this.block.declare(AmazonPollyListLexiconsCommand().apply(init))
+fun AmazonPollyFunctions.listLexicons(init: AmazonPollyListLexiconsCommand.() -> Unit): com.amazonaws.services.polly.model.ListLexiconsResult {
+	return this.block.declare(AmazonPollyListLexiconsCommand().apply(init)) as com.amazonaws.services.polly.model.ListLexiconsResult
 }
 
 @Generated
-class AmazonPollyListLexiconsCommand() : AmazonWebServiceCommand<com.amazonaws.services.polly.model.ListLexiconsRequest> {
+class AmazonPollyListLexiconsCommand() : AmazonWebServiceCommand<com.amazonaws.services.polly.model.ListLexiconsRequest, com.amazonaws.services.polly.model.ListLexiconsResult> {
 
 	var nextToken: String? = null
 
@@ -125,8 +137,12 @@ class AmazonPollyListLexiconsCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.polly.listLexicons(build())
+	override fun dryResult(): com.amazonaws.services.polly.model.ListLexiconsResult {
+	  return com.amazonaws.services.polly.model.ListLexiconsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.polly.model.ListLexiconsResult {
+		return environment.polly.listLexicons(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -137,12 +153,12 @@ class AmazonPollyListLexiconsCommand() : AmazonWebServiceCommand<com.amazonaws.s
 }
 
 
-fun AmazonPollyFunctions.putLexicon(name: String, content: String, init: AmazonPollyPutLexiconCommand.() -> Unit) {
-	this.block.declare(AmazonPollyPutLexiconCommand(name, content).apply(init))
+fun AmazonPollyFunctions.putLexicon(name: String, content: String, init: AmazonPollyPutLexiconCommand.() -> Unit): com.amazonaws.services.polly.model.PutLexiconResult {
+	return this.block.declare(AmazonPollyPutLexiconCommand(name, content).apply(init)) as com.amazonaws.services.polly.model.PutLexiconResult
 }
 
 @Generated
-class AmazonPollyPutLexiconCommand(val name: String, val content: String) : AmazonWebServiceCommand<com.amazonaws.services.polly.model.PutLexiconRequest> {
+class AmazonPollyPutLexiconCommand(val name: String, val content: String) : AmazonWebServiceCommand<com.amazonaws.services.polly.model.PutLexiconRequest, com.amazonaws.services.polly.model.PutLexiconResult> {
 
 
 
@@ -153,8 +169,12 @@ class AmazonPollyPutLexiconCommand(val name: String, val content: String) : Amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.polly.putLexicon(build())
+	override fun dryResult(): com.amazonaws.services.polly.model.PutLexiconResult {
+	  return com.amazonaws.services.polly.model.PutLexiconResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.polly.model.PutLexiconResult {
+		return environment.polly.putLexicon(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -166,12 +186,12 @@ class AmazonPollyPutLexiconCommand(val name: String, val content: String) : Amaz
 }
 
 
-fun AmazonPollyFunctions.synthesizeSpeech(outputFormat: OutputFormat, text: String, voiceId: VoiceId, init: AmazonPollySynthesizeSpeechCommand.() -> Unit) {
-	this.block.declare(AmazonPollySynthesizeSpeechCommand(outputFormat, text, voiceId).apply(init))
+fun AmazonPollyFunctions.synthesizeSpeech(outputFormat: OutputFormat, text: String, voiceId: VoiceId, init: AmazonPollySynthesizeSpeechCommand.() -> Unit): com.amazonaws.services.polly.model.SynthesizeSpeechResult {
+	return this.block.declare(AmazonPollySynthesizeSpeechCommand(outputFormat, text, voiceId).apply(init)) as com.amazonaws.services.polly.model.SynthesizeSpeechResult
 }
 
 @Generated
-class AmazonPollySynthesizeSpeechCommand(val outputFormat: OutputFormat, val text: String, val voiceId: VoiceId) : AmazonWebServiceCommand<com.amazonaws.services.polly.model.SynthesizeSpeechRequest> {
+class AmazonPollySynthesizeSpeechCommand(val outputFormat: OutputFormat, val text: String, val voiceId: VoiceId) : AmazonWebServiceCommand<com.amazonaws.services.polly.model.SynthesizeSpeechRequest, com.amazonaws.services.polly.model.SynthesizeSpeechResult> {
 
 	var lexiconNames: List<String>? = null
 	var sampleRate: String? = null
@@ -190,8 +210,12 @@ class AmazonPollySynthesizeSpeechCommand(val outputFormat: OutputFormat, val tex
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.polly.synthesizeSpeech(build())
+	override fun dryResult(): com.amazonaws.services.polly.model.SynthesizeSpeechResult {
+	  return com.amazonaws.services.polly.model.SynthesizeSpeechResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.polly.model.SynthesizeSpeechResult {
+		return environment.polly.synthesizeSpeech(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.kinesisvideo: AmazonKinesisVideoMedia
 @Generated
 class AmazonKinesisVideoMediaFunctions(val block: Block)
 
-infix fun AwsContinuation.kinesisvideo(init: AmazonKinesisVideoMediaFunctions.() -> Unit) {
-	AmazonKinesisVideoMediaFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.kinesisvideo(init: AmazonKinesisVideoMediaFunctions.() -> T): T {
+	return AmazonKinesisVideoMediaFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonKinesisVideoMediaFunctions.getMedia(startSelector: com.amazonaws.services.kinesisvideo.model.StartSelector, init: AmazonKinesisVideoMediaGetMediaCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisVideoMediaGetMediaCommand(startSelector).apply(init))
+fun AmazonKinesisVideoMediaFunctions.getMedia(startSelector: com.amazonaws.services.kinesisvideo.model.StartSelector, init: AmazonKinesisVideoMediaGetMediaCommand.() -> Unit): com.amazonaws.services.kinesisvideo.model.GetMediaResult {
+	return this.block.declare(AmazonKinesisVideoMediaGetMediaCommand(startSelector).apply(init)) as com.amazonaws.services.kinesisvideo.model.GetMediaResult
 }
 
 @Generated
-class AmazonKinesisVideoMediaGetMediaCommand(val startSelector: com.amazonaws.services.kinesisvideo.model.StartSelector) : AmazonWebServiceCommand<com.amazonaws.services.kinesisvideo.model.GetMediaRequest> {
+class AmazonKinesisVideoMediaGetMediaCommand(val startSelector: com.amazonaws.services.kinesisvideo.model.StartSelector) : AmazonWebServiceCommand<com.amazonaws.services.kinesisvideo.model.GetMediaRequest, com.amazonaws.services.kinesisvideo.model.GetMediaResult> {
 
 	var streamName: String? = null
 	var streamARN: String? = null
@@ -44,8 +44,12 @@ class AmazonKinesisVideoMediaGetMediaCommand(val startSelector: com.amazonaws.se
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesisvideo.getMedia(build())
+	override fun dryResult(): com.amazonaws.services.kinesisvideo.model.GetMediaResult {
+	  return com.amazonaws.services.kinesisvideo.model.GetMediaResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisvideo.model.GetMediaResult {
+		return environment.kinesisvideo.getMedia(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

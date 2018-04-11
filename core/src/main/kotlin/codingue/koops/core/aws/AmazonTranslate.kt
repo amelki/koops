@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.translate: AmazonTranslate
 @Generated
 class AmazonTranslateFunctions(val block: Block)
 
-infix fun AwsContinuation.translate(init: AmazonTranslateFunctions.() -> Unit) {
-	AmazonTranslateFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.translate(init: AmazonTranslateFunctions.() -> T): T {
+	return AmazonTranslateFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonTranslateFunctions.translateText(text: String, sourceLanguageCode: String, targetLanguageCode: String, init: AmazonTranslateTranslateTextCommand.() -> Unit) {
-	this.block.declare(AmazonTranslateTranslateTextCommand(text, sourceLanguageCode, targetLanguageCode).apply(init))
+fun AmazonTranslateFunctions.translateText(text: String, sourceLanguageCode: String, targetLanguageCode: String, init: AmazonTranslateTranslateTextCommand.() -> Unit): com.amazonaws.services.translate.model.TranslateTextResult {
+	return this.block.declare(AmazonTranslateTranslateTextCommand(text, sourceLanguageCode, targetLanguageCode).apply(init)) as com.amazonaws.services.translate.model.TranslateTextResult
 }
 
 @Generated
-class AmazonTranslateTranslateTextCommand(val text: String, val sourceLanguageCode: String, val targetLanguageCode: String) : AmazonWebServiceCommand<com.amazonaws.services.translate.model.TranslateTextRequest> {
+class AmazonTranslateTranslateTextCommand(val text: String, val sourceLanguageCode: String, val targetLanguageCode: String) : AmazonWebServiceCommand<com.amazonaws.services.translate.model.TranslateTextRequest, com.amazonaws.services.translate.model.TranslateTextResult> {
 
 
 
@@ -43,8 +43,12 @@ class AmazonTranslateTranslateTextCommand(val text: String, val sourceLanguageCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.translate.translateText(build())
+	override fun dryResult(): com.amazonaws.services.translate.model.TranslateTextResult {
+	  return com.amazonaws.services.translate.model.TranslateTextResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.translate.model.TranslateTextResult {
+		return environment.translate.translateText(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.codebuild: AWSCodeBuild
 @Generated
 class AWSCodeBuildFunctions(val block: Block)
 
-infix fun AwsContinuation.codebuild(init: AWSCodeBuildFunctions.() -> Unit) {
-	AWSCodeBuildFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.codebuild(init: AWSCodeBuildFunctions.() -> T): T {
+	return AWSCodeBuildFunctions(shell).run(init)
 }
 
 			
 
-fun AWSCodeBuildFunctions.batchDeleteBuilds(init: AWSCodeBuildBatchDeleteBuildsCommand.() -> Unit) {
-	this.block.declare(AWSCodeBuildBatchDeleteBuildsCommand().apply(init))
+fun AWSCodeBuildFunctions.batchDeleteBuilds(init: AWSCodeBuildBatchDeleteBuildsCommand.() -> Unit): com.amazonaws.services.codebuild.model.BatchDeleteBuildsResult {
+	return this.block.declare(AWSCodeBuildBatchDeleteBuildsCommand().apply(init)) as com.amazonaws.services.codebuild.model.BatchDeleteBuildsResult
 }
 
 @Generated
-class AWSCodeBuildBatchDeleteBuildsCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.BatchDeleteBuildsRequest> {
+class AWSCodeBuildBatchDeleteBuildsCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.BatchDeleteBuildsRequest, com.amazonaws.services.codebuild.model.BatchDeleteBuildsResult> {
 
 	var ids: List<String>? = null
 
@@ -41,8 +41,12 @@ class AWSCodeBuildBatchDeleteBuildsCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codebuild.batchDeleteBuilds(build())
+	override fun dryResult(): com.amazonaws.services.codebuild.model.BatchDeleteBuildsResult {
+	  return com.amazonaws.services.codebuild.model.BatchDeleteBuildsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codebuild.model.BatchDeleteBuildsResult {
+		return environment.codebuild.batchDeleteBuilds(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -53,12 +57,12 @@ class AWSCodeBuildBatchDeleteBuildsCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AWSCodeBuildFunctions.batchGetBuilds(init: AWSCodeBuildBatchGetBuildsCommand.() -> Unit) {
-	this.block.declare(AWSCodeBuildBatchGetBuildsCommand().apply(init))
+fun AWSCodeBuildFunctions.batchGetBuilds(init: AWSCodeBuildBatchGetBuildsCommand.() -> Unit): com.amazonaws.services.codebuild.model.BatchGetBuildsResult {
+	return this.block.declare(AWSCodeBuildBatchGetBuildsCommand().apply(init)) as com.amazonaws.services.codebuild.model.BatchGetBuildsResult
 }
 
 @Generated
-class AWSCodeBuildBatchGetBuildsCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.BatchGetBuildsRequest> {
+class AWSCodeBuildBatchGetBuildsCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.BatchGetBuildsRequest, com.amazonaws.services.codebuild.model.BatchGetBuildsResult> {
 
 	var ids: List<String>? = null
 
@@ -68,8 +72,12 @@ class AWSCodeBuildBatchGetBuildsCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codebuild.batchGetBuilds(build())
+	override fun dryResult(): com.amazonaws.services.codebuild.model.BatchGetBuildsResult {
+	  return com.amazonaws.services.codebuild.model.BatchGetBuildsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codebuild.model.BatchGetBuildsResult {
+		return environment.codebuild.batchGetBuilds(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -80,12 +88,12 @@ class AWSCodeBuildBatchGetBuildsCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AWSCodeBuildFunctions.batchGetProjects(init: AWSCodeBuildBatchGetProjectsCommand.() -> Unit) {
-	this.block.declare(AWSCodeBuildBatchGetProjectsCommand().apply(init))
+fun AWSCodeBuildFunctions.batchGetProjects(init: AWSCodeBuildBatchGetProjectsCommand.() -> Unit): com.amazonaws.services.codebuild.model.BatchGetProjectsResult {
+	return this.block.declare(AWSCodeBuildBatchGetProjectsCommand().apply(init)) as com.amazonaws.services.codebuild.model.BatchGetProjectsResult
 }
 
 @Generated
-class AWSCodeBuildBatchGetProjectsCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.BatchGetProjectsRequest> {
+class AWSCodeBuildBatchGetProjectsCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.BatchGetProjectsRequest, com.amazonaws.services.codebuild.model.BatchGetProjectsResult> {
 
 	var names: List<String>? = null
 
@@ -95,8 +103,12 @@ class AWSCodeBuildBatchGetProjectsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codebuild.batchGetProjects(build())
+	override fun dryResult(): com.amazonaws.services.codebuild.model.BatchGetProjectsResult {
+	  return com.amazonaws.services.codebuild.model.BatchGetProjectsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codebuild.model.BatchGetProjectsResult {
+		return environment.codebuild.batchGetProjects(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -107,12 +119,12 @@ class AWSCodeBuildBatchGetProjectsCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AWSCodeBuildFunctions.createProject(init: AWSCodeBuildCreateProjectCommand.() -> Unit) {
-	this.block.declare(AWSCodeBuildCreateProjectCommand().apply(init))
+fun AWSCodeBuildFunctions.createProject(init: AWSCodeBuildCreateProjectCommand.() -> Unit): com.amazonaws.services.codebuild.model.CreateProjectResult {
+	return this.block.declare(AWSCodeBuildCreateProjectCommand().apply(init)) as com.amazonaws.services.codebuild.model.CreateProjectResult
 }
 
 @Generated
-class AWSCodeBuildCreateProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.CreateProjectRequest> {
+class AWSCodeBuildCreateProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.CreateProjectRequest, com.amazonaws.services.codebuild.model.CreateProjectResult> {
 
 	var name: String? = null
 	var description: String? = null
@@ -144,8 +156,12 @@ class AWSCodeBuildCreateProjectCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codebuild.createProject(build())
+	override fun dryResult(): com.amazonaws.services.codebuild.model.CreateProjectResult {
+	  return com.amazonaws.services.codebuild.model.CreateProjectResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codebuild.model.CreateProjectResult {
+		return environment.codebuild.createProject(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -167,12 +183,12 @@ class AWSCodeBuildCreateProjectCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AWSCodeBuildFunctions.createWebhook(init: AWSCodeBuildCreateWebhookCommand.() -> Unit) {
-	this.block.declare(AWSCodeBuildCreateWebhookCommand().apply(init))
+fun AWSCodeBuildFunctions.createWebhook(init: AWSCodeBuildCreateWebhookCommand.() -> Unit): com.amazonaws.services.codebuild.model.CreateWebhookResult {
+	return this.block.declare(AWSCodeBuildCreateWebhookCommand().apply(init)) as com.amazonaws.services.codebuild.model.CreateWebhookResult
 }
 
 @Generated
-class AWSCodeBuildCreateWebhookCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.CreateWebhookRequest> {
+class AWSCodeBuildCreateWebhookCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.CreateWebhookRequest, com.amazonaws.services.codebuild.model.CreateWebhookResult> {
 
 	var projectName: String? = null
 	var branchFilter: String? = null
@@ -184,8 +200,12 @@ class AWSCodeBuildCreateWebhookCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codebuild.createWebhook(build())
+	override fun dryResult(): com.amazonaws.services.codebuild.model.CreateWebhookResult {
+	  return com.amazonaws.services.codebuild.model.CreateWebhookResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codebuild.model.CreateWebhookResult {
+		return environment.codebuild.createWebhook(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -197,12 +217,12 @@ class AWSCodeBuildCreateWebhookCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AWSCodeBuildFunctions.deleteProject(init: AWSCodeBuildDeleteProjectCommand.() -> Unit) {
-	this.block.declare(AWSCodeBuildDeleteProjectCommand().apply(init))
+fun AWSCodeBuildFunctions.deleteProject(init: AWSCodeBuildDeleteProjectCommand.() -> Unit): com.amazonaws.services.codebuild.model.DeleteProjectResult {
+	return this.block.declare(AWSCodeBuildDeleteProjectCommand().apply(init)) as com.amazonaws.services.codebuild.model.DeleteProjectResult
 }
 
 @Generated
-class AWSCodeBuildDeleteProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.DeleteProjectRequest> {
+class AWSCodeBuildDeleteProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.DeleteProjectRequest, com.amazonaws.services.codebuild.model.DeleteProjectResult> {
 
 	var name: String? = null
 
@@ -212,8 +232,12 @@ class AWSCodeBuildDeleteProjectCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codebuild.deleteProject(build())
+	override fun dryResult(): com.amazonaws.services.codebuild.model.DeleteProjectResult {
+	  return com.amazonaws.services.codebuild.model.DeleteProjectResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codebuild.model.DeleteProjectResult {
+		return environment.codebuild.deleteProject(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -224,12 +248,12 @@ class AWSCodeBuildDeleteProjectCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AWSCodeBuildFunctions.deleteWebhook(init: AWSCodeBuildDeleteWebhookCommand.() -> Unit) {
-	this.block.declare(AWSCodeBuildDeleteWebhookCommand().apply(init))
+fun AWSCodeBuildFunctions.deleteWebhook(init: AWSCodeBuildDeleteWebhookCommand.() -> Unit): com.amazonaws.services.codebuild.model.DeleteWebhookResult {
+	return this.block.declare(AWSCodeBuildDeleteWebhookCommand().apply(init)) as com.amazonaws.services.codebuild.model.DeleteWebhookResult
 }
 
 @Generated
-class AWSCodeBuildDeleteWebhookCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.DeleteWebhookRequest> {
+class AWSCodeBuildDeleteWebhookCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.DeleteWebhookRequest, com.amazonaws.services.codebuild.model.DeleteWebhookResult> {
 
 	var projectName: String? = null
 
@@ -239,8 +263,12 @@ class AWSCodeBuildDeleteWebhookCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codebuild.deleteWebhook(build())
+	override fun dryResult(): com.amazonaws.services.codebuild.model.DeleteWebhookResult {
+	  return com.amazonaws.services.codebuild.model.DeleteWebhookResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codebuild.model.DeleteWebhookResult {
+		return environment.codebuild.deleteWebhook(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -251,12 +279,12 @@ class AWSCodeBuildDeleteWebhookCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AWSCodeBuildFunctions.invalidateProjectCache(init: AWSCodeBuildInvalidateProjectCacheCommand.() -> Unit) {
-	this.block.declare(AWSCodeBuildInvalidateProjectCacheCommand().apply(init))
+fun AWSCodeBuildFunctions.invalidateProjectCache(init: AWSCodeBuildInvalidateProjectCacheCommand.() -> Unit): com.amazonaws.services.codebuild.model.InvalidateProjectCacheResult {
+	return this.block.declare(AWSCodeBuildInvalidateProjectCacheCommand().apply(init)) as com.amazonaws.services.codebuild.model.InvalidateProjectCacheResult
 }
 
 @Generated
-class AWSCodeBuildInvalidateProjectCacheCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.InvalidateProjectCacheRequest> {
+class AWSCodeBuildInvalidateProjectCacheCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.InvalidateProjectCacheRequest, com.amazonaws.services.codebuild.model.InvalidateProjectCacheResult> {
 
 	var projectName: String? = null
 
@@ -266,8 +294,12 @@ class AWSCodeBuildInvalidateProjectCacheCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codebuild.invalidateProjectCache(build())
+	override fun dryResult(): com.amazonaws.services.codebuild.model.InvalidateProjectCacheResult {
+	  return com.amazonaws.services.codebuild.model.InvalidateProjectCacheResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codebuild.model.InvalidateProjectCacheResult {
+		return environment.codebuild.invalidateProjectCache(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -278,12 +310,12 @@ class AWSCodeBuildInvalidateProjectCacheCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AWSCodeBuildFunctions.listBuilds(init: AWSCodeBuildListBuildsCommand.() -> Unit) {
-	this.block.declare(AWSCodeBuildListBuildsCommand().apply(init))
+fun AWSCodeBuildFunctions.listBuilds(init: AWSCodeBuildListBuildsCommand.() -> Unit): com.amazonaws.services.codebuild.model.ListBuildsResult {
+	return this.block.declare(AWSCodeBuildListBuildsCommand().apply(init)) as com.amazonaws.services.codebuild.model.ListBuildsResult
 }
 
 @Generated
-class AWSCodeBuildListBuildsCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.ListBuildsRequest> {
+class AWSCodeBuildListBuildsCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.ListBuildsRequest, com.amazonaws.services.codebuild.model.ListBuildsResult> {
 
 	var sortOrder: SortOrderType? = null
 	var nextToken: String? = null
@@ -295,8 +327,12 @@ class AWSCodeBuildListBuildsCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codebuild.listBuilds(build())
+	override fun dryResult(): com.amazonaws.services.codebuild.model.ListBuildsResult {
+	  return com.amazonaws.services.codebuild.model.ListBuildsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codebuild.model.ListBuildsResult {
+		return environment.codebuild.listBuilds(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -308,12 +344,12 @@ class AWSCodeBuildListBuildsCommand() : AmazonWebServiceCommand<com.amazonaws.se
 }
 
 
-fun AWSCodeBuildFunctions.listBuildsForProject(init: AWSCodeBuildListBuildsForProjectCommand.() -> Unit) {
-	this.block.declare(AWSCodeBuildListBuildsForProjectCommand().apply(init))
+fun AWSCodeBuildFunctions.listBuildsForProject(init: AWSCodeBuildListBuildsForProjectCommand.() -> Unit): com.amazonaws.services.codebuild.model.ListBuildsForProjectResult {
+	return this.block.declare(AWSCodeBuildListBuildsForProjectCommand().apply(init)) as com.amazonaws.services.codebuild.model.ListBuildsForProjectResult
 }
 
 @Generated
-class AWSCodeBuildListBuildsForProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.ListBuildsForProjectRequest> {
+class AWSCodeBuildListBuildsForProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.ListBuildsForProjectRequest, com.amazonaws.services.codebuild.model.ListBuildsForProjectResult> {
 
 	var projectName: String? = null
 	var sortOrder: SortOrderType? = null
@@ -327,8 +363,12 @@ class AWSCodeBuildListBuildsForProjectCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codebuild.listBuildsForProject(build())
+	override fun dryResult(): com.amazonaws.services.codebuild.model.ListBuildsForProjectResult {
+	  return com.amazonaws.services.codebuild.model.ListBuildsForProjectResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codebuild.model.ListBuildsForProjectResult {
+		return environment.codebuild.listBuildsForProject(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -341,12 +381,12 @@ class AWSCodeBuildListBuildsForProjectCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AWSCodeBuildFunctions.listCuratedEnvironmentImages(init: AWSCodeBuildListCuratedEnvironmentImagesCommand.() -> Unit) {
-	this.block.declare(AWSCodeBuildListCuratedEnvironmentImagesCommand().apply(init))
+fun AWSCodeBuildFunctions.listCuratedEnvironmentImages(init: AWSCodeBuildListCuratedEnvironmentImagesCommand.() -> Unit): com.amazonaws.services.codebuild.model.ListCuratedEnvironmentImagesResult {
+	return this.block.declare(AWSCodeBuildListCuratedEnvironmentImagesCommand().apply(init)) as com.amazonaws.services.codebuild.model.ListCuratedEnvironmentImagesResult
 }
 
 @Generated
-class AWSCodeBuildListCuratedEnvironmentImagesCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.ListCuratedEnvironmentImagesRequest> {
+class AWSCodeBuildListCuratedEnvironmentImagesCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.ListCuratedEnvironmentImagesRequest, com.amazonaws.services.codebuild.model.ListCuratedEnvironmentImagesResult> {
 
 
 
@@ -356,8 +396,12 @@ class AWSCodeBuildListCuratedEnvironmentImagesCommand() : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codebuild.listCuratedEnvironmentImages(build())
+	override fun dryResult(): com.amazonaws.services.codebuild.model.ListCuratedEnvironmentImagesResult {
+	  return com.amazonaws.services.codebuild.model.ListCuratedEnvironmentImagesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codebuild.model.ListCuratedEnvironmentImagesResult {
+		return environment.codebuild.listCuratedEnvironmentImages(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -368,12 +412,12 @@ class AWSCodeBuildListCuratedEnvironmentImagesCommand() : AmazonWebServiceComman
 }
 
 
-fun AWSCodeBuildFunctions.listProjects(init: AWSCodeBuildListProjectsCommand.() -> Unit) {
-	this.block.declare(AWSCodeBuildListProjectsCommand().apply(init))
+fun AWSCodeBuildFunctions.listProjects(init: AWSCodeBuildListProjectsCommand.() -> Unit): com.amazonaws.services.codebuild.model.ListProjectsResult {
+	return this.block.declare(AWSCodeBuildListProjectsCommand().apply(init)) as com.amazonaws.services.codebuild.model.ListProjectsResult
 }
 
 @Generated
-class AWSCodeBuildListProjectsCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.ListProjectsRequest> {
+class AWSCodeBuildListProjectsCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.ListProjectsRequest, com.amazonaws.services.codebuild.model.ListProjectsResult> {
 
 	var sortBy: ProjectSortByType? = null
 	var sortOrder: SortOrderType? = null
@@ -387,8 +431,12 @@ class AWSCodeBuildListProjectsCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codebuild.listProjects(build())
+	override fun dryResult(): com.amazonaws.services.codebuild.model.ListProjectsResult {
+	  return com.amazonaws.services.codebuild.model.ListProjectsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codebuild.model.ListProjectsResult {
+		return environment.codebuild.listProjects(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -401,12 +449,12 @@ class AWSCodeBuildListProjectsCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AWSCodeBuildFunctions.startBuild(init: AWSCodeBuildStartBuildCommand.() -> Unit) {
-	this.block.declare(AWSCodeBuildStartBuildCommand().apply(init))
+fun AWSCodeBuildFunctions.startBuild(init: AWSCodeBuildStartBuildCommand.() -> Unit): com.amazonaws.services.codebuild.model.StartBuildResult {
+	return this.block.declare(AWSCodeBuildStartBuildCommand().apply(init)) as com.amazonaws.services.codebuild.model.StartBuildResult
 }
 
 @Generated
-class AWSCodeBuildStartBuildCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.StartBuildRequest> {
+class AWSCodeBuildStartBuildCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.StartBuildRequest, com.amazonaws.services.codebuild.model.StartBuildResult> {
 
 	var projectName: String? = null
 	var sourceVersion: String? = null
@@ -428,8 +476,12 @@ class AWSCodeBuildStartBuildCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codebuild.startBuild(build())
+	override fun dryResult(): com.amazonaws.services.codebuild.model.StartBuildResult {
+	  return com.amazonaws.services.codebuild.model.StartBuildResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codebuild.model.StartBuildResult {
+		return environment.codebuild.startBuild(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -446,12 +498,12 @@ class AWSCodeBuildStartBuildCommand() : AmazonWebServiceCommand<com.amazonaws.se
 }
 
 
-fun AWSCodeBuildFunctions.stopBuild(init: AWSCodeBuildStopBuildCommand.() -> Unit) {
-	this.block.declare(AWSCodeBuildStopBuildCommand().apply(init))
+fun AWSCodeBuildFunctions.stopBuild(init: AWSCodeBuildStopBuildCommand.() -> Unit): com.amazonaws.services.codebuild.model.StopBuildResult {
+	return this.block.declare(AWSCodeBuildStopBuildCommand().apply(init)) as com.amazonaws.services.codebuild.model.StopBuildResult
 }
 
 @Generated
-class AWSCodeBuildStopBuildCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.StopBuildRequest> {
+class AWSCodeBuildStopBuildCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.StopBuildRequest, com.amazonaws.services.codebuild.model.StopBuildResult> {
 
 	var id: String? = null
 
@@ -461,8 +513,12 @@ class AWSCodeBuildStopBuildCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codebuild.stopBuild(build())
+	override fun dryResult(): com.amazonaws.services.codebuild.model.StopBuildResult {
+	  return com.amazonaws.services.codebuild.model.StopBuildResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codebuild.model.StopBuildResult {
+		return environment.codebuild.stopBuild(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -473,12 +529,12 @@ class AWSCodeBuildStopBuildCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 }
 
 
-fun AWSCodeBuildFunctions.updateProject(init: AWSCodeBuildUpdateProjectCommand.() -> Unit) {
-	this.block.declare(AWSCodeBuildUpdateProjectCommand().apply(init))
+fun AWSCodeBuildFunctions.updateProject(init: AWSCodeBuildUpdateProjectCommand.() -> Unit): com.amazonaws.services.codebuild.model.UpdateProjectResult {
+	return this.block.declare(AWSCodeBuildUpdateProjectCommand().apply(init)) as com.amazonaws.services.codebuild.model.UpdateProjectResult
 }
 
 @Generated
-class AWSCodeBuildUpdateProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.UpdateProjectRequest> {
+class AWSCodeBuildUpdateProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.UpdateProjectRequest, com.amazonaws.services.codebuild.model.UpdateProjectResult> {
 
 	var name: String? = null
 	var description: String? = null
@@ -510,8 +566,12 @@ class AWSCodeBuildUpdateProjectCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codebuild.updateProject(build())
+	override fun dryResult(): com.amazonaws.services.codebuild.model.UpdateProjectResult {
+	  return com.amazonaws.services.codebuild.model.UpdateProjectResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codebuild.model.UpdateProjectResult {
+		return environment.codebuild.updateProject(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -533,12 +593,12 @@ class AWSCodeBuildUpdateProjectCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AWSCodeBuildFunctions.updateWebhook(init: AWSCodeBuildUpdateWebhookCommand.() -> Unit) {
-	this.block.declare(AWSCodeBuildUpdateWebhookCommand().apply(init))
+fun AWSCodeBuildFunctions.updateWebhook(init: AWSCodeBuildUpdateWebhookCommand.() -> Unit): com.amazonaws.services.codebuild.model.UpdateWebhookResult {
+	return this.block.declare(AWSCodeBuildUpdateWebhookCommand().apply(init)) as com.amazonaws.services.codebuild.model.UpdateWebhookResult
 }
 
 @Generated
-class AWSCodeBuildUpdateWebhookCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.UpdateWebhookRequest> {
+class AWSCodeBuildUpdateWebhookCommand() : AmazonWebServiceCommand<com.amazonaws.services.codebuild.model.UpdateWebhookRequest, com.amazonaws.services.codebuild.model.UpdateWebhookResult> {
 
 	var projectName: String? = null
 	var branchFilter: String? = null
@@ -552,8 +612,12 @@ class AWSCodeBuildUpdateWebhookCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codebuild.updateWebhook(build())
+	override fun dryResult(): com.amazonaws.services.codebuild.model.UpdateWebhookResult {
+	  return com.amazonaws.services.codebuild.model.UpdateWebhookResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codebuild.model.UpdateWebhookResult {
+		return environment.codebuild.updateWebhook(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

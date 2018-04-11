@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.dynamodbstreams: AmazonDynamoDBStreams
 @Generated
 class AmazonDynamoDBStreamsFunctions(val block: Block)
 
-infix fun AwsContinuation.dynamodbstreams(init: AmazonDynamoDBStreamsFunctions.() -> Unit) {
-	AmazonDynamoDBStreamsFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.dynamodbstreams(init: AmazonDynamoDBStreamsFunctions.() -> T): T {
+	return AmazonDynamoDBStreamsFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonDynamoDBStreamsFunctions.describeStream(streamArn: String, init: AmazonDynamoDBStreamsDescribeStreamCommand.() -> Unit) {
-	this.block.declare(AmazonDynamoDBStreamsDescribeStreamCommand(streamArn).apply(init))
+fun AmazonDynamoDBStreamsFunctions.describeStream(streamArn: String, init: AmazonDynamoDBStreamsDescribeStreamCommand.() -> Unit): com.amazonaws.services.dynamodbv2.model.DescribeStreamResult {
+	return this.block.declare(AmazonDynamoDBStreamsDescribeStreamCommand(streamArn).apply(init)) as com.amazonaws.services.dynamodbv2.model.DescribeStreamResult
 }
 
 @Generated
-class AmazonDynamoDBStreamsDescribeStreamCommand(val streamArn: String) : AmazonWebServiceCommand<com.amazonaws.services.dynamodbv2.model.DescribeStreamRequest> {
+class AmazonDynamoDBStreamsDescribeStreamCommand(val streamArn: String) : AmazonWebServiceCommand<com.amazonaws.services.dynamodbv2.model.DescribeStreamRequest, com.amazonaws.services.dynamodbv2.model.DescribeStreamResult> {
 
 	var limit: Int? = 0
 	var exclusiveStartShardId: String? = null
@@ -44,8 +44,12 @@ class AmazonDynamoDBStreamsDescribeStreamCommand(val streamArn: String) : Amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dynamodbstreams.describeStream(build())
+	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.DescribeStreamResult {
+	  return com.amazonaws.services.dynamodbv2.model.DescribeStreamResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.DescribeStreamResult {
+		return environment.dynamodbstreams.describeStream(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -58,12 +62,12 @@ class AmazonDynamoDBStreamsDescribeStreamCommand(val streamArn: String) : Amazon
 }
 
 
-fun AmazonDynamoDBStreamsFunctions.getRecords(shardIterator: String, init: AmazonDynamoDBStreamsGetRecordsCommand.() -> Unit) {
-	this.block.declare(AmazonDynamoDBStreamsGetRecordsCommand(shardIterator).apply(init))
+fun AmazonDynamoDBStreamsFunctions.getRecords(shardIterator: String, init: AmazonDynamoDBStreamsGetRecordsCommand.() -> Unit): com.amazonaws.services.dynamodbv2.model.GetRecordsResult {
+	return this.block.declare(AmazonDynamoDBStreamsGetRecordsCommand(shardIterator).apply(init)) as com.amazonaws.services.dynamodbv2.model.GetRecordsResult
 }
 
 @Generated
-class AmazonDynamoDBStreamsGetRecordsCommand(val shardIterator: String) : AmazonWebServiceCommand<com.amazonaws.services.dynamodbv2.model.GetRecordsRequest> {
+class AmazonDynamoDBStreamsGetRecordsCommand(val shardIterator: String) : AmazonWebServiceCommand<com.amazonaws.services.dynamodbv2.model.GetRecordsRequest, com.amazonaws.services.dynamodbv2.model.GetRecordsResult> {
 
 	var limit: Int? = 0
 
@@ -74,8 +78,12 @@ class AmazonDynamoDBStreamsGetRecordsCommand(val shardIterator: String) : Amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dynamodbstreams.getRecords(build())
+	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.GetRecordsResult {
+	  return com.amazonaws.services.dynamodbv2.model.GetRecordsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.GetRecordsResult {
+		return environment.dynamodbstreams.getRecords(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -87,12 +95,12 @@ class AmazonDynamoDBStreamsGetRecordsCommand(val shardIterator: String) : Amazon
 }
 
 
-fun AmazonDynamoDBStreamsFunctions.getShardIterator(streamArn: String, shardId: String, shardIteratorType: ShardIteratorType, init: AmazonDynamoDBStreamsGetShardIteratorCommand.() -> Unit) {
-	this.block.declare(AmazonDynamoDBStreamsGetShardIteratorCommand(streamArn, shardId, shardIteratorType).apply(init))
+fun AmazonDynamoDBStreamsFunctions.getShardIterator(streamArn: String, shardId: String, shardIteratorType: ShardIteratorType, init: AmazonDynamoDBStreamsGetShardIteratorCommand.() -> Unit): com.amazonaws.services.dynamodbv2.model.GetShardIteratorResult {
+	return this.block.declare(AmazonDynamoDBStreamsGetShardIteratorCommand(streamArn, shardId, shardIteratorType).apply(init)) as com.amazonaws.services.dynamodbv2.model.GetShardIteratorResult
 }
 
 @Generated
-class AmazonDynamoDBStreamsGetShardIteratorCommand(val streamArn: String, val shardId: String, val shardIteratorType: ShardIteratorType) : AmazonWebServiceCommand<com.amazonaws.services.dynamodbv2.model.GetShardIteratorRequest> {
+class AmazonDynamoDBStreamsGetShardIteratorCommand(val streamArn: String, val shardId: String, val shardIteratorType: ShardIteratorType) : AmazonWebServiceCommand<com.amazonaws.services.dynamodbv2.model.GetShardIteratorRequest, com.amazonaws.services.dynamodbv2.model.GetShardIteratorResult> {
 
 	var sequenceNumber: String? = null
 
@@ -105,8 +113,12 @@ class AmazonDynamoDBStreamsGetShardIteratorCommand(val streamArn: String, val sh
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dynamodbstreams.getShardIterator(build())
+	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.GetShardIteratorResult {
+	  return com.amazonaws.services.dynamodbv2.model.GetShardIteratorResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.GetShardIteratorResult {
+		return environment.dynamodbstreams.getShardIterator(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -120,12 +132,12 @@ class AmazonDynamoDBStreamsGetShardIteratorCommand(val streamArn: String, val sh
 }
 
 
-fun AmazonDynamoDBStreamsFunctions.listStreams(init: AmazonDynamoDBStreamsListStreamsCommand.() -> Unit) {
-	this.block.declare(AmazonDynamoDBStreamsListStreamsCommand().apply(init))
+fun AmazonDynamoDBStreamsFunctions.listStreams(init: AmazonDynamoDBStreamsListStreamsCommand.() -> Unit): com.amazonaws.services.dynamodbv2.model.ListStreamsResult {
+	return this.block.declare(AmazonDynamoDBStreamsListStreamsCommand().apply(init)) as com.amazonaws.services.dynamodbv2.model.ListStreamsResult
 }
 
 @Generated
-class AmazonDynamoDBStreamsListStreamsCommand() : AmazonWebServiceCommand<com.amazonaws.services.dynamodbv2.model.ListStreamsRequest> {
+class AmazonDynamoDBStreamsListStreamsCommand() : AmazonWebServiceCommand<com.amazonaws.services.dynamodbv2.model.ListStreamsRequest, com.amazonaws.services.dynamodbv2.model.ListStreamsResult> {
 
 	var tableName: String? = null
 	var limit: Int? = 0
@@ -139,8 +151,12 @@ class AmazonDynamoDBStreamsListStreamsCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.dynamodbstreams.listStreams(build())
+	override fun dryResult(): com.amazonaws.services.dynamodbv2.model.ListStreamsResult {
+	  return com.amazonaws.services.dynamodbv2.model.ListStreamsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.dynamodbv2.model.ListStreamsResult {
+		return environment.dynamodbstreams.listStreams(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

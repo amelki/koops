@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.cloud9: AWSCloud9
 @Generated
 class AWSCloud9Functions(val block: Block)
 
-infix fun AwsContinuation.cloud9(init: AWSCloud9Functions.() -> Unit) {
-	AWSCloud9Functions(shell).apply(init)
+infix fun <T> AwsContinuation.cloud9(init: AWSCloud9Functions.() -> T): T {
+	return AWSCloud9Functions(shell).run(init)
 }
 
 			
 
-fun AWSCloud9Functions.createEnvironmentEC2(init: AWSCloud9CreateEnvironmentEC2Command.() -> Unit) {
-	this.block.declare(AWSCloud9CreateEnvironmentEC2Command().apply(init))
+fun AWSCloud9Functions.createEnvironmentEC2(init: AWSCloud9CreateEnvironmentEC2Command.() -> Unit): com.amazonaws.services.cloud9.model.CreateEnvironmentEC2Result {
+	return this.block.declare(AWSCloud9CreateEnvironmentEC2Command().apply(init)) as com.amazonaws.services.cloud9.model.CreateEnvironmentEC2Result
 }
 
 @Generated
-class AWSCloud9CreateEnvironmentEC2Command() : AmazonWebServiceCommand<com.amazonaws.services.cloud9.model.CreateEnvironmentEC2Request> {
+class AWSCloud9CreateEnvironmentEC2Command() : AmazonWebServiceCommand<com.amazonaws.services.cloud9.model.CreateEnvironmentEC2Request, com.amazonaws.services.cloud9.model.CreateEnvironmentEC2Result> {
 
 	var name: String? = null
 	var description: String? = null
@@ -53,8 +53,12 @@ class AWSCloud9CreateEnvironmentEC2Command() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloud9.createEnvironmentEC2(build())
+	override fun dryResult(): com.amazonaws.services.cloud9.model.CreateEnvironmentEC2Result {
+	  return com.amazonaws.services.cloud9.model.CreateEnvironmentEC2Result()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloud9.model.CreateEnvironmentEC2Result {
+		return environment.cloud9.createEnvironmentEC2(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -71,12 +75,12 @@ class AWSCloud9CreateEnvironmentEC2Command() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AWSCloud9Functions.createEnvironmentMembership(init: AWSCloud9CreateEnvironmentMembershipCommand.() -> Unit) {
-	this.block.declare(AWSCloud9CreateEnvironmentMembershipCommand().apply(init))
+fun AWSCloud9Functions.createEnvironmentMembership(init: AWSCloud9CreateEnvironmentMembershipCommand.() -> Unit): com.amazonaws.services.cloud9.model.CreateEnvironmentMembershipResult {
+	return this.block.declare(AWSCloud9CreateEnvironmentMembershipCommand().apply(init)) as com.amazonaws.services.cloud9.model.CreateEnvironmentMembershipResult
 }
 
 @Generated
-class AWSCloud9CreateEnvironmentMembershipCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloud9.model.CreateEnvironmentMembershipRequest> {
+class AWSCloud9CreateEnvironmentMembershipCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloud9.model.CreateEnvironmentMembershipRequest, com.amazonaws.services.cloud9.model.CreateEnvironmentMembershipResult> {
 
 	var environmentId: String? = null
 	var userArn: String? = null
@@ -90,8 +94,12 @@ class AWSCloud9CreateEnvironmentMembershipCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloud9.createEnvironmentMembership(build())
+	override fun dryResult(): com.amazonaws.services.cloud9.model.CreateEnvironmentMembershipResult {
+	  return com.amazonaws.services.cloud9.model.CreateEnvironmentMembershipResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloud9.model.CreateEnvironmentMembershipResult {
+		return environment.cloud9.createEnvironmentMembership(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -104,12 +112,12 @@ class AWSCloud9CreateEnvironmentMembershipCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AWSCloud9Functions.deleteEnvironment(init: AWSCloud9DeleteEnvironmentCommand.() -> Unit) {
-	this.block.declare(AWSCloud9DeleteEnvironmentCommand().apply(init))
+fun AWSCloud9Functions.deleteEnvironment(init: AWSCloud9DeleteEnvironmentCommand.() -> Unit): com.amazonaws.services.cloud9.model.DeleteEnvironmentResult {
+	return this.block.declare(AWSCloud9DeleteEnvironmentCommand().apply(init)) as com.amazonaws.services.cloud9.model.DeleteEnvironmentResult
 }
 
 @Generated
-class AWSCloud9DeleteEnvironmentCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloud9.model.DeleteEnvironmentRequest> {
+class AWSCloud9DeleteEnvironmentCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloud9.model.DeleteEnvironmentRequest, com.amazonaws.services.cloud9.model.DeleteEnvironmentResult> {
 
 	var environmentId: String? = null
 
@@ -119,8 +127,12 @@ class AWSCloud9DeleteEnvironmentCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloud9.deleteEnvironment(build())
+	override fun dryResult(): com.amazonaws.services.cloud9.model.DeleteEnvironmentResult {
+	  return com.amazonaws.services.cloud9.model.DeleteEnvironmentResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloud9.model.DeleteEnvironmentResult {
+		return environment.cloud9.deleteEnvironment(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -131,12 +143,12 @@ class AWSCloud9DeleteEnvironmentCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AWSCloud9Functions.deleteEnvironmentMembership(init: AWSCloud9DeleteEnvironmentMembershipCommand.() -> Unit) {
-	this.block.declare(AWSCloud9DeleteEnvironmentMembershipCommand().apply(init))
+fun AWSCloud9Functions.deleteEnvironmentMembership(init: AWSCloud9DeleteEnvironmentMembershipCommand.() -> Unit): com.amazonaws.services.cloud9.model.DeleteEnvironmentMembershipResult {
+	return this.block.declare(AWSCloud9DeleteEnvironmentMembershipCommand().apply(init)) as com.amazonaws.services.cloud9.model.DeleteEnvironmentMembershipResult
 }
 
 @Generated
-class AWSCloud9DeleteEnvironmentMembershipCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloud9.model.DeleteEnvironmentMembershipRequest> {
+class AWSCloud9DeleteEnvironmentMembershipCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloud9.model.DeleteEnvironmentMembershipRequest, com.amazonaws.services.cloud9.model.DeleteEnvironmentMembershipResult> {
 
 	var environmentId: String? = null
 	var userArn: String? = null
@@ -148,8 +160,12 @@ class AWSCloud9DeleteEnvironmentMembershipCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloud9.deleteEnvironmentMembership(build())
+	override fun dryResult(): com.amazonaws.services.cloud9.model.DeleteEnvironmentMembershipResult {
+	  return com.amazonaws.services.cloud9.model.DeleteEnvironmentMembershipResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloud9.model.DeleteEnvironmentMembershipResult {
+		return environment.cloud9.deleteEnvironmentMembership(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -161,12 +177,12 @@ class AWSCloud9DeleteEnvironmentMembershipCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AWSCloud9Functions.describeEnvironmentMemberships(init: AWSCloud9DescribeEnvironmentMembershipsCommand.() -> Unit) {
-	this.block.declare(AWSCloud9DescribeEnvironmentMembershipsCommand().apply(init))
+fun AWSCloud9Functions.describeEnvironmentMemberships(init: AWSCloud9DescribeEnvironmentMembershipsCommand.() -> Unit): com.amazonaws.services.cloud9.model.DescribeEnvironmentMembershipsResult {
+	return this.block.declare(AWSCloud9DescribeEnvironmentMembershipsCommand().apply(init)) as com.amazonaws.services.cloud9.model.DescribeEnvironmentMembershipsResult
 }
 
 @Generated
-class AWSCloud9DescribeEnvironmentMembershipsCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloud9.model.DescribeEnvironmentMembershipsRequest> {
+class AWSCloud9DescribeEnvironmentMembershipsCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloud9.model.DescribeEnvironmentMembershipsRequest, com.amazonaws.services.cloud9.model.DescribeEnvironmentMembershipsResult> {
 
 	var userArn: String? = null
 	var environmentId: String? = null
@@ -184,8 +200,12 @@ class AWSCloud9DescribeEnvironmentMembershipsCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloud9.describeEnvironmentMemberships(build())
+	override fun dryResult(): com.amazonaws.services.cloud9.model.DescribeEnvironmentMembershipsResult {
+	  return com.amazonaws.services.cloud9.model.DescribeEnvironmentMembershipsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloud9.model.DescribeEnvironmentMembershipsResult {
+		return environment.cloud9.describeEnvironmentMemberships(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -200,12 +220,12 @@ class AWSCloud9DescribeEnvironmentMembershipsCommand() : AmazonWebServiceCommand
 }
 
 
-fun AWSCloud9Functions.describeEnvironmentStatus(init: AWSCloud9DescribeEnvironmentStatusCommand.() -> Unit) {
-	this.block.declare(AWSCloud9DescribeEnvironmentStatusCommand().apply(init))
+fun AWSCloud9Functions.describeEnvironmentStatus(init: AWSCloud9DescribeEnvironmentStatusCommand.() -> Unit): com.amazonaws.services.cloud9.model.DescribeEnvironmentStatusResult {
+	return this.block.declare(AWSCloud9DescribeEnvironmentStatusCommand().apply(init)) as com.amazonaws.services.cloud9.model.DescribeEnvironmentStatusResult
 }
 
 @Generated
-class AWSCloud9DescribeEnvironmentStatusCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloud9.model.DescribeEnvironmentStatusRequest> {
+class AWSCloud9DescribeEnvironmentStatusCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloud9.model.DescribeEnvironmentStatusRequest, com.amazonaws.services.cloud9.model.DescribeEnvironmentStatusResult> {
 
 	var environmentId: String? = null
 
@@ -215,8 +235,12 @@ class AWSCloud9DescribeEnvironmentStatusCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloud9.describeEnvironmentStatus(build())
+	override fun dryResult(): com.amazonaws.services.cloud9.model.DescribeEnvironmentStatusResult {
+	  return com.amazonaws.services.cloud9.model.DescribeEnvironmentStatusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloud9.model.DescribeEnvironmentStatusResult {
+		return environment.cloud9.describeEnvironmentStatus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -227,12 +251,12 @@ class AWSCloud9DescribeEnvironmentStatusCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AWSCloud9Functions.describeEnvironments(init: AWSCloud9DescribeEnvironmentsCommand.() -> Unit) {
-	this.block.declare(AWSCloud9DescribeEnvironmentsCommand().apply(init))
+fun AWSCloud9Functions.describeEnvironments(init: AWSCloud9DescribeEnvironmentsCommand.() -> Unit): com.amazonaws.services.cloud9.model.DescribeEnvironmentsResult {
+	return this.block.declare(AWSCloud9DescribeEnvironmentsCommand().apply(init)) as com.amazonaws.services.cloud9.model.DescribeEnvironmentsResult
 }
 
 @Generated
-class AWSCloud9DescribeEnvironmentsCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloud9.model.DescribeEnvironmentsRequest> {
+class AWSCloud9DescribeEnvironmentsCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloud9.model.DescribeEnvironmentsRequest, com.amazonaws.services.cloud9.model.DescribeEnvironmentsResult> {
 
 	var environmentIds: List<String>? = null
 
@@ -242,8 +266,12 @@ class AWSCloud9DescribeEnvironmentsCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloud9.describeEnvironments(build())
+	override fun dryResult(): com.amazonaws.services.cloud9.model.DescribeEnvironmentsResult {
+	  return com.amazonaws.services.cloud9.model.DescribeEnvironmentsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloud9.model.DescribeEnvironmentsResult {
+		return environment.cloud9.describeEnvironments(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -254,12 +282,12 @@ class AWSCloud9DescribeEnvironmentsCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AWSCloud9Functions.listEnvironments(init: AWSCloud9ListEnvironmentsCommand.() -> Unit) {
-	this.block.declare(AWSCloud9ListEnvironmentsCommand().apply(init))
+fun AWSCloud9Functions.listEnvironments(init: AWSCloud9ListEnvironmentsCommand.() -> Unit): com.amazonaws.services.cloud9.model.ListEnvironmentsResult {
+	return this.block.declare(AWSCloud9ListEnvironmentsCommand().apply(init)) as com.amazonaws.services.cloud9.model.ListEnvironmentsResult
 }
 
 @Generated
-class AWSCloud9ListEnvironmentsCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloud9.model.ListEnvironmentsRequest> {
+class AWSCloud9ListEnvironmentsCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloud9.model.ListEnvironmentsRequest, com.amazonaws.services.cloud9.model.ListEnvironmentsResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -271,8 +299,12 @@ class AWSCloud9ListEnvironmentsCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloud9.listEnvironments(build())
+	override fun dryResult(): com.amazonaws.services.cloud9.model.ListEnvironmentsResult {
+	  return com.amazonaws.services.cloud9.model.ListEnvironmentsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloud9.model.ListEnvironmentsResult {
+		return environment.cloud9.listEnvironments(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -284,12 +316,12 @@ class AWSCloud9ListEnvironmentsCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AWSCloud9Functions.updateEnvironment(init: AWSCloud9UpdateEnvironmentCommand.() -> Unit) {
-	this.block.declare(AWSCloud9UpdateEnvironmentCommand().apply(init))
+fun AWSCloud9Functions.updateEnvironment(init: AWSCloud9UpdateEnvironmentCommand.() -> Unit): com.amazonaws.services.cloud9.model.UpdateEnvironmentResult {
+	return this.block.declare(AWSCloud9UpdateEnvironmentCommand().apply(init)) as com.amazonaws.services.cloud9.model.UpdateEnvironmentResult
 }
 
 @Generated
-class AWSCloud9UpdateEnvironmentCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloud9.model.UpdateEnvironmentRequest> {
+class AWSCloud9UpdateEnvironmentCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloud9.model.UpdateEnvironmentRequest, com.amazonaws.services.cloud9.model.UpdateEnvironmentResult> {
 
 	var environmentId: String? = null
 	var name: String? = null
@@ -303,8 +335,12 @@ class AWSCloud9UpdateEnvironmentCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloud9.updateEnvironment(build())
+	override fun dryResult(): com.amazonaws.services.cloud9.model.UpdateEnvironmentResult {
+	  return com.amazonaws.services.cloud9.model.UpdateEnvironmentResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloud9.model.UpdateEnvironmentResult {
+		return environment.cloud9.updateEnvironment(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -317,12 +353,12 @@ class AWSCloud9UpdateEnvironmentCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AWSCloud9Functions.updateEnvironmentMembership(init: AWSCloud9UpdateEnvironmentMembershipCommand.() -> Unit) {
-	this.block.declare(AWSCloud9UpdateEnvironmentMembershipCommand().apply(init))
+fun AWSCloud9Functions.updateEnvironmentMembership(init: AWSCloud9UpdateEnvironmentMembershipCommand.() -> Unit): com.amazonaws.services.cloud9.model.UpdateEnvironmentMembershipResult {
+	return this.block.declare(AWSCloud9UpdateEnvironmentMembershipCommand().apply(init)) as com.amazonaws.services.cloud9.model.UpdateEnvironmentMembershipResult
 }
 
 @Generated
-class AWSCloud9UpdateEnvironmentMembershipCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloud9.model.UpdateEnvironmentMembershipRequest> {
+class AWSCloud9UpdateEnvironmentMembershipCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloud9.model.UpdateEnvironmentMembershipRequest, com.amazonaws.services.cloud9.model.UpdateEnvironmentMembershipResult> {
 
 	var environmentId: String? = null
 	var userArn: String? = null
@@ -336,8 +372,12 @@ class AWSCloud9UpdateEnvironmentMembershipCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloud9.updateEnvironmentMembership(build())
+	override fun dryResult(): com.amazonaws.services.cloud9.model.UpdateEnvironmentMembershipResult {
+	  return com.amazonaws.services.cloud9.model.UpdateEnvironmentMembershipResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloud9.model.UpdateEnvironmentMembershipResult {
+		return environment.cloud9.updateEnvironmentMembership(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

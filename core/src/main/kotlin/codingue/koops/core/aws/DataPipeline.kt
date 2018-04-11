@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.datapipeline: DataPipeline
 @Generated
 class DataPipelineFunctions(val block: Block)
 
-infix fun AwsContinuation.datapipeline(init: DataPipelineFunctions.() -> Unit) {
-	DataPipelineFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.datapipeline(init: DataPipelineFunctions.() -> T): T {
+	return DataPipelineFunctions(shell).run(init)
 }
 
 			
 
-fun DataPipelineFunctions.activatePipeline(init: DataPipelineActivatePipelineCommand.() -> Unit) {
-	this.block.declare(DataPipelineActivatePipelineCommand().apply(init))
+fun DataPipelineFunctions.activatePipeline(init: DataPipelineActivatePipelineCommand.() -> Unit): com.amazonaws.services.datapipeline.model.ActivatePipelineResult {
+	return this.block.declare(DataPipelineActivatePipelineCommand().apply(init)) as com.amazonaws.services.datapipeline.model.ActivatePipelineResult
 }
 
 @Generated
-class DataPipelineActivatePipelineCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.ActivatePipelineRequest> {
+class DataPipelineActivatePipelineCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.ActivatePipelineRequest, com.amazonaws.services.datapipeline.model.ActivatePipelineResult> {
 
 	var pipelineId: String? = null
 	var parameterValues: List<com.amazonaws.services.datapipeline.model.ParameterValue>? = null
@@ -45,8 +45,12 @@ class DataPipelineActivatePipelineCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.datapipeline.activatePipeline(build())
+	override fun dryResult(): com.amazonaws.services.datapipeline.model.ActivatePipelineResult {
+	  return com.amazonaws.services.datapipeline.model.ActivatePipelineResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.ActivatePipelineResult {
+		return environment.datapipeline.activatePipeline(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -59,12 +63,12 @@ class DataPipelineActivatePipelineCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun DataPipelineFunctions.addTags(init: DataPipelineAddTagsCommand.() -> Unit) {
-	this.block.declare(DataPipelineAddTagsCommand().apply(init))
+fun DataPipelineFunctions.addTags(init: DataPipelineAddTagsCommand.() -> Unit): com.amazonaws.services.datapipeline.model.AddTagsResult {
+	return this.block.declare(DataPipelineAddTagsCommand().apply(init)) as com.amazonaws.services.datapipeline.model.AddTagsResult
 }
 
 @Generated
-class DataPipelineAddTagsCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.AddTagsRequest> {
+class DataPipelineAddTagsCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.AddTagsRequest, com.amazonaws.services.datapipeline.model.AddTagsResult> {
 
 	var pipelineId: String? = null
 	var tags: List<com.amazonaws.services.datapipeline.model.Tag>? = null
@@ -76,8 +80,12 @@ class DataPipelineAddTagsCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.datapipeline.addTags(build())
+	override fun dryResult(): com.amazonaws.services.datapipeline.model.AddTagsResult {
+	  return com.amazonaws.services.datapipeline.model.AddTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.AddTagsResult {
+		return environment.datapipeline.addTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -89,12 +97,12 @@ class DataPipelineAddTagsCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 }
 
 
-fun DataPipelineFunctions.createPipeline(init: DataPipelineCreatePipelineCommand.() -> Unit) {
-	this.block.declare(DataPipelineCreatePipelineCommand().apply(init))
+fun DataPipelineFunctions.createPipeline(init: DataPipelineCreatePipelineCommand.() -> Unit): com.amazonaws.services.datapipeline.model.CreatePipelineResult {
+	return this.block.declare(DataPipelineCreatePipelineCommand().apply(init)) as com.amazonaws.services.datapipeline.model.CreatePipelineResult
 }
 
 @Generated
-class DataPipelineCreatePipelineCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.CreatePipelineRequest> {
+class DataPipelineCreatePipelineCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.CreatePipelineRequest, com.amazonaws.services.datapipeline.model.CreatePipelineResult> {
 
 	var name: String? = null
 	var uniqueId: String? = null
@@ -110,8 +118,12 @@ class DataPipelineCreatePipelineCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.datapipeline.createPipeline(build())
+	override fun dryResult(): com.amazonaws.services.datapipeline.model.CreatePipelineResult {
+	  return com.amazonaws.services.datapipeline.model.CreatePipelineResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.CreatePipelineResult {
+		return environment.datapipeline.createPipeline(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -125,12 +137,12 @@ class DataPipelineCreatePipelineCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun DataPipelineFunctions.deactivatePipeline(init: DataPipelineDeactivatePipelineCommand.() -> Unit) {
-	this.block.declare(DataPipelineDeactivatePipelineCommand().apply(init))
+fun DataPipelineFunctions.deactivatePipeline(init: DataPipelineDeactivatePipelineCommand.() -> Unit): com.amazonaws.services.datapipeline.model.DeactivatePipelineResult {
+	return this.block.declare(DataPipelineDeactivatePipelineCommand().apply(init)) as com.amazonaws.services.datapipeline.model.DeactivatePipelineResult
 }
 
 @Generated
-class DataPipelineDeactivatePipelineCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.DeactivatePipelineRequest> {
+class DataPipelineDeactivatePipelineCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.DeactivatePipelineRequest, com.amazonaws.services.datapipeline.model.DeactivatePipelineResult> {
 
 	var pipelineId: String? = null
 	var cancelActive: Boolean? = false
@@ -142,8 +154,12 @@ class DataPipelineDeactivatePipelineCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.datapipeline.deactivatePipeline(build())
+	override fun dryResult(): com.amazonaws.services.datapipeline.model.DeactivatePipelineResult {
+	  return com.amazonaws.services.datapipeline.model.DeactivatePipelineResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.DeactivatePipelineResult {
+		return environment.datapipeline.deactivatePipeline(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -155,12 +171,12 @@ class DataPipelineDeactivatePipelineCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun DataPipelineFunctions.deletePipeline(init: DataPipelineDeletePipelineCommand.() -> Unit) {
-	this.block.declare(DataPipelineDeletePipelineCommand().apply(init))
+fun DataPipelineFunctions.deletePipeline(init: DataPipelineDeletePipelineCommand.() -> Unit): com.amazonaws.services.datapipeline.model.DeletePipelineResult {
+	return this.block.declare(DataPipelineDeletePipelineCommand().apply(init)) as com.amazonaws.services.datapipeline.model.DeletePipelineResult
 }
 
 @Generated
-class DataPipelineDeletePipelineCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.DeletePipelineRequest> {
+class DataPipelineDeletePipelineCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.DeletePipelineRequest, com.amazonaws.services.datapipeline.model.DeletePipelineResult> {
 
 	var pipelineId: String? = null
 
@@ -170,8 +186,12 @@ class DataPipelineDeletePipelineCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.datapipeline.deletePipeline(build())
+	override fun dryResult(): com.amazonaws.services.datapipeline.model.DeletePipelineResult {
+	  return com.amazonaws.services.datapipeline.model.DeletePipelineResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.DeletePipelineResult {
+		return environment.datapipeline.deletePipeline(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -182,12 +202,12 @@ class DataPipelineDeletePipelineCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun DataPipelineFunctions.describeObjects(init: DataPipelineDescribeObjectsCommand.() -> Unit) {
-	this.block.declare(DataPipelineDescribeObjectsCommand().apply(init))
+fun DataPipelineFunctions.describeObjects(init: DataPipelineDescribeObjectsCommand.() -> Unit): com.amazonaws.services.datapipeline.model.DescribeObjectsResult {
+	return this.block.declare(DataPipelineDescribeObjectsCommand().apply(init)) as com.amazonaws.services.datapipeline.model.DescribeObjectsResult
 }
 
 @Generated
-class DataPipelineDescribeObjectsCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.DescribeObjectsRequest> {
+class DataPipelineDescribeObjectsCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.DescribeObjectsRequest, com.amazonaws.services.datapipeline.model.DescribeObjectsResult> {
 
 	var pipelineId: String? = null
 	var objectIds: List<String>? = null
@@ -203,8 +223,12 @@ class DataPipelineDescribeObjectsCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.datapipeline.describeObjects(build())
+	override fun dryResult(): com.amazonaws.services.datapipeline.model.DescribeObjectsResult {
+	  return com.amazonaws.services.datapipeline.model.DescribeObjectsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.DescribeObjectsResult {
+		return environment.datapipeline.describeObjects(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -218,12 +242,12 @@ class DataPipelineDescribeObjectsCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun DataPipelineFunctions.describePipelines(init: DataPipelineDescribePipelinesCommand.() -> Unit) {
-	this.block.declare(DataPipelineDescribePipelinesCommand().apply(init))
+fun DataPipelineFunctions.describePipelines(init: DataPipelineDescribePipelinesCommand.() -> Unit): com.amazonaws.services.datapipeline.model.DescribePipelinesResult {
+	return this.block.declare(DataPipelineDescribePipelinesCommand().apply(init)) as com.amazonaws.services.datapipeline.model.DescribePipelinesResult
 }
 
 @Generated
-class DataPipelineDescribePipelinesCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.DescribePipelinesRequest> {
+class DataPipelineDescribePipelinesCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.DescribePipelinesRequest, com.amazonaws.services.datapipeline.model.DescribePipelinesResult> {
 
 	var pipelineIds: List<String>? = null
 
@@ -233,8 +257,12 @@ class DataPipelineDescribePipelinesCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.datapipeline.describePipelines(build())
+	override fun dryResult(): com.amazonaws.services.datapipeline.model.DescribePipelinesResult {
+	  return com.amazonaws.services.datapipeline.model.DescribePipelinesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.DescribePipelinesResult {
+		return environment.datapipeline.describePipelines(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -245,12 +273,12 @@ class DataPipelineDescribePipelinesCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun DataPipelineFunctions.evaluateExpression(init: DataPipelineEvaluateExpressionCommand.() -> Unit) {
-	this.block.declare(DataPipelineEvaluateExpressionCommand().apply(init))
+fun DataPipelineFunctions.evaluateExpression(init: DataPipelineEvaluateExpressionCommand.() -> Unit): com.amazonaws.services.datapipeline.model.EvaluateExpressionResult {
+	return this.block.declare(DataPipelineEvaluateExpressionCommand().apply(init)) as com.amazonaws.services.datapipeline.model.EvaluateExpressionResult
 }
 
 @Generated
-class DataPipelineEvaluateExpressionCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.EvaluateExpressionRequest> {
+class DataPipelineEvaluateExpressionCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.EvaluateExpressionRequest, com.amazonaws.services.datapipeline.model.EvaluateExpressionResult> {
 
 	var pipelineId: String? = null
 	var objectId: String? = null
@@ -264,8 +292,12 @@ class DataPipelineEvaluateExpressionCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.datapipeline.evaluateExpression(build())
+	override fun dryResult(): com.amazonaws.services.datapipeline.model.EvaluateExpressionResult {
+	  return com.amazonaws.services.datapipeline.model.EvaluateExpressionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.EvaluateExpressionResult {
+		return environment.datapipeline.evaluateExpression(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -278,12 +310,12 @@ class DataPipelineEvaluateExpressionCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun DataPipelineFunctions.getPipelineDefinition(init: DataPipelineGetPipelineDefinitionCommand.() -> Unit) {
-	this.block.declare(DataPipelineGetPipelineDefinitionCommand().apply(init))
+fun DataPipelineFunctions.getPipelineDefinition(init: DataPipelineGetPipelineDefinitionCommand.() -> Unit): com.amazonaws.services.datapipeline.model.GetPipelineDefinitionResult {
+	return this.block.declare(DataPipelineGetPipelineDefinitionCommand().apply(init)) as com.amazonaws.services.datapipeline.model.GetPipelineDefinitionResult
 }
 
 @Generated
-class DataPipelineGetPipelineDefinitionCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.GetPipelineDefinitionRequest> {
+class DataPipelineGetPipelineDefinitionCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.GetPipelineDefinitionRequest, com.amazonaws.services.datapipeline.model.GetPipelineDefinitionResult> {
 
 	var pipelineId: String? = null
 	var version: String? = null
@@ -295,8 +327,12 @@ class DataPipelineGetPipelineDefinitionCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.datapipeline.getPipelineDefinition(build())
+	override fun dryResult(): com.amazonaws.services.datapipeline.model.GetPipelineDefinitionResult {
+	  return com.amazonaws.services.datapipeline.model.GetPipelineDefinitionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.GetPipelineDefinitionResult {
+		return environment.datapipeline.getPipelineDefinition(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -308,12 +344,12 @@ class DataPipelineGetPipelineDefinitionCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun DataPipelineFunctions.listPipelines(init: DataPipelineListPipelinesCommand.() -> Unit) {
-	this.block.declare(DataPipelineListPipelinesCommand().apply(init))
+fun DataPipelineFunctions.listPipelines(init: DataPipelineListPipelinesCommand.() -> Unit): com.amazonaws.services.datapipeline.model.ListPipelinesResult {
+	return this.block.declare(DataPipelineListPipelinesCommand().apply(init)) as com.amazonaws.services.datapipeline.model.ListPipelinesResult
 }
 
 @Generated
-class DataPipelineListPipelinesCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.ListPipelinesRequest> {
+class DataPipelineListPipelinesCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.ListPipelinesRequest, com.amazonaws.services.datapipeline.model.ListPipelinesResult> {
 
 	var marker: String? = null
 
@@ -323,8 +359,12 @@ class DataPipelineListPipelinesCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.datapipeline.listPipelines(build())
+	override fun dryResult(): com.amazonaws.services.datapipeline.model.ListPipelinesResult {
+	  return com.amazonaws.services.datapipeline.model.ListPipelinesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.ListPipelinesResult {
+		return environment.datapipeline.listPipelines(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -335,12 +375,12 @@ class DataPipelineListPipelinesCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun DataPipelineFunctions.pollForTask(init: DataPipelinePollForTaskCommand.() -> Unit) {
-	this.block.declare(DataPipelinePollForTaskCommand().apply(init))
+fun DataPipelineFunctions.pollForTask(init: DataPipelinePollForTaskCommand.() -> Unit): com.amazonaws.services.datapipeline.model.PollForTaskResult {
+	return this.block.declare(DataPipelinePollForTaskCommand().apply(init)) as com.amazonaws.services.datapipeline.model.PollForTaskResult
 }
 
 @Generated
-class DataPipelinePollForTaskCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.PollForTaskRequest> {
+class DataPipelinePollForTaskCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.PollForTaskRequest, com.amazonaws.services.datapipeline.model.PollForTaskResult> {
 
 	var workerGroup: String? = null
 	var hostname: String? = null
@@ -354,8 +394,12 @@ class DataPipelinePollForTaskCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.datapipeline.pollForTask(build())
+	override fun dryResult(): com.amazonaws.services.datapipeline.model.PollForTaskResult {
+	  return com.amazonaws.services.datapipeline.model.PollForTaskResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.PollForTaskResult {
+		return environment.datapipeline.pollForTask(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -368,12 +412,12 @@ class DataPipelinePollForTaskCommand() : AmazonWebServiceCommand<com.amazonaws.s
 }
 
 
-fun DataPipelineFunctions.putPipelineDefinition(init: DataPipelinePutPipelineDefinitionCommand.() -> Unit) {
-	this.block.declare(DataPipelinePutPipelineDefinitionCommand().apply(init))
+fun DataPipelineFunctions.putPipelineDefinition(init: DataPipelinePutPipelineDefinitionCommand.() -> Unit): com.amazonaws.services.datapipeline.model.PutPipelineDefinitionResult {
+	return this.block.declare(DataPipelinePutPipelineDefinitionCommand().apply(init)) as com.amazonaws.services.datapipeline.model.PutPipelineDefinitionResult
 }
 
 @Generated
-class DataPipelinePutPipelineDefinitionCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.PutPipelineDefinitionRequest> {
+class DataPipelinePutPipelineDefinitionCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.PutPipelineDefinitionRequest, com.amazonaws.services.datapipeline.model.PutPipelineDefinitionResult> {
 
 	var pipelineId: String? = null
 	var pipelineObjects: List<com.amazonaws.services.datapipeline.model.PipelineObject>? = null
@@ -389,8 +433,12 @@ class DataPipelinePutPipelineDefinitionCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.datapipeline.putPipelineDefinition(build())
+	override fun dryResult(): com.amazonaws.services.datapipeline.model.PutPipelineDefinitionResult {
+	  return com.amazonaws.services.datapipeline.model.PutPipelineDefinitionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.PutPipelineDefinitionResult {
+		return environment.datapipeline.putPipelineDefinition(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -404,12 +452,12 @@ class DataPipelinePutPipelineDefinitionCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun DataPipelineFunctions.queryObjects(init: DataPipelineQueryObjectsCommand.() -> Unit) {
-	this.block.declare(DataPipelineQueryObjectsCommand().apply(init))
+fun DataPipelineFunctions.queryObjects(init: DataPipelineQueryObjectsCommand.() -> Unit): com.amazonaws.services.datapipeline.model.QueryObjectsResult {
+	return this.block.declare(DataPipelineQueryObjectsCommand().apply(init)) as com.amazonaws.services.datapipeline.model.QueryObjectsResult
 }
 
 @Generated
-class DataPipelineQueryObjectsCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.QueryObjectsRequest> {
+class DataPipelineQueryObjectsCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.QueryObjectsRequest, com.amazonaws.services.datapipeline.model.QueryObjectsResult> {
 
 	var pipelineId: String? = null
 	var query: com.amazonaws.services.datapipeline.model.Query? = null
@@ -427,8 +475,12 @@ class DataPipelineQueryObjectsCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.datapipeline.queryObjects(build())
+	override fun dryResult(): com.amazonaws.services.datapipeline.model.QueryObjectsResult {
+	  return com.amazonaws.services.datapipeline.model.QueryObjectsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.QueryObjectsResult {
+		return environment.datapipeline.queryObjects(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -443,12 +495,12 @@ class DataPipelineQueryObjectsCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun DataPipelineFunctions.removeTags(init: DataPipelineRemoveTagsCommand.() -> Unit) {
-	this.block.declare(DataPipelineRemoveTagsCommand().apply(init))
+fun DataPipelineFunctions.removeTags(init: DataPipelineRemoveTagsCommand.() -> Unit): com.amazonaws.services.datapipeline.model.RemoveTagsResult {
+	return this.block.declare(DataPipelineRemoveTagsCommand().apply(init)) as com.amazonaws.services.datapipeline.model.RemoveTagsResult
 }
 
 @Generated
-class DataPipelineRemoveTagsCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.RemoveTagsRequest> {
+class DataPipelineRemoveTagsCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.RemoveTagsRequest, com.amazonaws.services.datapipeline.model.RemoveTagsResult> {
 
 	var pipelineId: String? = null
 	var tagKeys: List<String>? = null
@@ -460,8 +512,12 @@ class DataPipelineRemoveTagsCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.datapipeline.removeTags(build())
+	override fun dryResult(): com.amazonaws.services.datapipeline.model.RemoveTagsResult {
+	  return com.amazonaws.services.datapipeline.model.RemoveTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.RemoveTagsResult {
+		return environment.datapipeline.removeTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -473,12 +529,12 @@ class DataPipelineRemoveTagsCommand() : AmazonWebServiceCommand<com.amazonaws.se
 }
 
 
-fun DataPipelineFunctions.reportTaskProgress(init: DataPipelineReportTaskProgressCommand.() -> Unit) {
-	this.block.declare(DataPipelineReportTaskProgressCommand().apply(init))
+fun DataPipelineFunctions.reportTaskProgress(init: DataPipelineReportTaskProgressCommand.() -> Unit): com.amazonaws.services.datapipeline.model.ReportTaskProgressResult {
+	return this.block.declare(DataPipelineReportTaskProgressCommand().apply(init)) as com.amazonaws.services.datapipeline.model.ReportTaskProgressResult
 }
 
 @Generated
-class DataPipelineReportTaskProgressCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.ReportTaskProgressRequest> {
+class DataPipelineReportTaskProgressCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.ReportTaskProgressRequest, com.amazonaws.services.datapipeline.model.ReportTaskProgressResult> {
 
 	var taskId: String? = null
 	var fields: List<com.amazonaws.services.datapipeline.model.Field>? = null
@@ -490,8 +546,12 @@ class DataPipelineReportTaskProgressCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.datapipeline.reportTaskProgress(build())
+	override fun dryResult(): com.amazonaws.services.datapipeline.model.ReportTaskProgressResult {
+	  return com.amazonaws.services.datapipeline.model.ReportTaskProgressResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.ReportTaskProgressResult {
+		return environment.datapipeline.reportTaskProgress(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -503,12 +563,12 @@ class DataPipelineReportTaskProgressCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun DataPipelineFunctions.reportTaskRunnerHeartbeat(init: DataPipelineReportTaskRunnerHeartbeatCommand.() -> Unit) {
-	this.block.declare(DataPipelineReportTaskRunnerHeartbeatCommand().apply(init))
+fun DataPipelineFunctions.reportTaskRunnerHeartbeat(init: DataPipelineReportTaskRunnerHeartbeatCommand.() -> Unit): com.amazonaws.services.datapipeline.model.ReportTaskRunnerHeartbeatResult {
+	return this.block.declare(DataPipelineReportTaskRunnerHeartbeatCommand().apply(init)) as com.amazonaws.services.datapipeline.model.ReportTaskRunnerHeartbeatResult
 }
 
 @Generated
-class DataPipelineReportTaskRunnerHeartbeatCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.ReportTaskRunnerHeartbeatRequest> {
+class DataPipelineReportTaskRunnerHeartbeatCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.ReportTaskRunnerHeartbeatRequest, com.amazonaws.services.datapipeline.model.ReportTaskRunnerHeartbeatResult> {
 
 	var taskrunnerId: String? = null
 	var workerGroup: String? = null
@@ -522,8 +582,12 @@ class DataPipelineReportTaskRunnerHeartbeatCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.datapipeline.reportTaskRunnerHeartbeat(build())
+	override fun dryResult(): com.amazonaws.services.datapipeline.model.ReportTaskRunnerHeartbeatResult {
+	  return com.amazonaws.services.datapipeline.model.ReportTaskRunnerHeartbeatResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.ReportTaskRunnerHeartbeatResult {
+		return environment.datapipeline.reportTaskRunnerHeartbeat(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -536,12 +600,12 @@ class DataPipelineReportTaskRunnerHeartbeatCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun DataPipelineFunctions.setStatus(init: DataPipelineSetStatusCommand.() -> Unit) {
-	this.block.declare(DataPipelineSetStatusCommand().apply(init))
+fun DataPipelineFunctions.setStatus(init: DataPipelineSetStatusCommand.() -> Unit): com.amazonaws.services.datapipeline.model.SetStatusResult {
+	return this.block.declare(DataPipelineSetStatusCommand().apply(init)) as com.amazonaws.services.datapipeline.model.SetStatusResult
 }
 
 @Generated
-class DataPipelineSetStatusCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.SetStatusRequest> {
+class DataPipelineSetStatusCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.SetStatusRequest, com.amazonaws.services.datapipeline.model.SetStatusResult> {
 
 	var pipelineId: String? = null
 	var objectIds: List<String>? = null
@@ -555,8 +619,12 @@ class DataPipelineSetStatusCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.datapipeline.setStatus(build())
+	override fun dryResult(): com.amazonaws.services.datapipeline.model.SetStatusResult {
+	  return com.amazonaws.services.datapipeline.model.SetStatusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.SetStatusResult {
+		return environment.datapipeline.setStatus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -569,12 +637,12 @@ class DataPipelineSetStatusCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 }
 
 
-fun DataPipelineFunctions.setTaskStatus(init: DataPipelineSetTaskStatusCommand.() -> Unit) {
-	this.block.declare(DataPipelineSetTaskStatusCommand().apply(init))
+fun DataPipelineFunctions.setTaskStatus(init: DataPipelineSetTaskStatusCommand.() -> Unit): com.amazonaws.services.datapipeline.model.SetTaskStatusResult {
+	return this.block.declare(DataPipelineSetTaskStatusCommand().apply(init)) as com.amazonaws.services.datapipeline.model.SetTaskStatusResult
 }
 
 @Generated
-class DataPipelineSetTaskStatusCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.SetTaskStatusRequest> {
+class DataPipelineSetTaskStatusCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.SetTaskStatusRequest, com.amazonaws.services.datapipeline.model.SetTaskStatusResult> {
 
 	var taskId: String? = null
 	var taskStatus: TaskStatus? = null
@@ -592,8 +660,12 @@ class DataPipelineSetTaskStatusCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.datapipeline.setTaskStatus(build())
+	override fun dryResult(): com.amazonaws.services.datapipeline.model.SetTaskStatusResult {
+	  return com.amazonaws.services.datapipeline.model.SetTaskStatusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.SetTaskStatusResult {
+		return environment.datapipeline.setTaskStatus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -608,12 +680,12 @@ class DataPipelineSetTaskStatusCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun DataPipelineFunctions.validatePipelineDefinition(init: DataPipelineValidatePipelineDefinitionCommand.() -> Unit) {
-	this.block.declare(DataPipelineValidatePipelineDefinitionCommand().apply(init))
+fun DataPipelineFunctions.validatePipelineDefinition(init: DataPipelineValidatePipelineDefinitionCommand.() -> Unit): com.amazonaws.services.datapipeline.model.ValidatePipelineDefinitionResult {
+	return this.block.declare(DataPipelineValidatePipelineDefinitionCommand().apply(init)) as com.amazonaws.services.datapipeline.model.ValidatePipelineDefinitionResult
 }
 
 @Generated
-class DataPipelineValidatePipelineDefinitionCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.ValidatePipelineDefinitionRequest> {
+class DataPipelineValidatePipelineDefinitionCommand() : AmazonWebServiceCommand<com.amazonaws.services.datapipeline.model.ValidatePipelineDefinitionRequest, com.amazonaws.services.datapipeline.model.ValidatePipelineDefinitionResult> {
 
 	var pipelineId: String? = null
 	var pipelineObjects: List<com.amazonaws.services.datapipeline.model.PipelineObject>? = null
@@ -629,8 +701,12 @@ class DataPipelineValidatePipelineDefinitionCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.datapipeline.validatePipelineDefinition(build())
+	override fun dryResult(): com.amazonaws.services.datapipeline.model.ValidatePipelineDefinitionResult {
+	  return com.amazonaws.services.datapipeline.model.ValidatePipelineDefinitionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.datapipeline.model.ValidatePipelineDefinitionResult {
+		return environment.datapipeline.validatePipelineDefinition(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

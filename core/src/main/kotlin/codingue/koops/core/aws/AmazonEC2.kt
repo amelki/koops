@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.ec2: AmazonEC2
 @Generated
 class AmazonEC2Functions(val block: Block)
 
-infix fun AwsContinuation.ec2(init: AmazonEC2Functions.() -> Unit) {
-	AmazonEC2Functions(shell).apply(init)
+infix fun <T> AwsContinuation.ec2(init: AmazonEC2Functions.() -> T): T {
+	return AmazonEC2Functions(shell).run(init)
 }
 
 			
 
-fun AmazonEC2Functions.acceptReservedInstancesExchangeQuote(reservedInstanceIds: List<String>, init: AmazonEC2AcceptReservedInstancesExchangeQuoteCommand.() -> Unit) {
-	this.block.declare(AmazonEC2AcceptReservedInstancesExchangeQuoteCommand(reservedInstanceIds).apply(init))
+fun AmazonEC2Functions.acceptReservedInstancesExchangeQuote(reservedInstanceIds: List<String>, init: AmazonEC2AcceptReservedInstancesExchangeQuoteCommand.() -> Unit): com.amazonaws.services.ec2.model.AcceptReservedInstancesExchangeQuoteResult {
+	return this.block.declare(AmazonEC2AcceptReservedInstancesExchangeQuoteCommand(reservedInstanceIds).apply(init)) as com.amazonaws.services.ec2.model.AcceptReservedInstancesExchangeQuoteResult
 }
 
 @Generated
-class AmazonEC2AcceptReservedInstancesExchangeQuoteCommand(val reservedInstanceIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AcceptReservedInstancesExchangeQuoteRequest> {
+class AmazonEC2AcceptReservedInstancesExchangeQuoteCommand(val reservedInstanceIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AcceptReservedInstancesExchangeQuoteRequest, com.amazonaws.services.ec2.model.AcceptReservedInstancesExchangeQuoteResult> {
 
 	var targetConfigurations: List<com.amazonaws.services.ec2.model.TargetConfigurationRequest>? = null
 
@@ -42,8 +42,12 @@ class AmazonEC2AcceptReservedInstancesExchangeQuoteCommand(val reservedInstanceI
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.acceptReservedInstancesExchangeQuote(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.AcceptReservedInstancesExchangeQuoteResult {
+	  return com.amazonaws.services.ec2.model.AcceptReservedInstancesExchangeQuoteResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AcceptReservedInstancesExchangeQuoteResult {
+		return environment.ec2.acceptReservedInstancesExchangeQuote(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -55,12 +59,12 @@ class AmazonEC2AcceptReservedInstancesExchangeQuoteCommand(val reservedInstanceI
 }
 
 
-fun AmazonEC2Functions.acceptVpcEndpointConnections(serviceId: String, vpcEndpointIds: List<String>, init: AmazonEC2AcceptVpcEndpointConnectionsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2AcceptVpcEndpointConnectionsCommand(serviceId, vpcEndpointIds).apply(init))
+fun AmazonEC2Functions.acceptVpcEndpointConnections(serviceId: String, vpcEndpointIds: List<String>, init: AmazonEC2AcceptVpcEndpointConnectionsCommand.() -> Unit): com.amazonaws.services.ec2.model.AcceptVpcEndpointConnectionsResult {
+	return this.block.declare(AmazonEC2AcceptVpcEndpointConnectionsCommand(serviceId, vpcEndpointIds).apply(init)) as com.amazonaws.services.ec2.model.AcceptVpcEndpointConnectionsResult
 }
 
 @Generated
-class AmazonEC2AcceptVpcEndpointConnectionsCommand(val serviceId: String, val vpcEndpointIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AcceptVpcEndpointConnectionsRequest> {
+class AmazonEC2AcceptVpcEndpointConnectionsCommand(val serviceId: String, val vpcEndpointIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AcceptVpcEndpointConnectionsRequest, com.amazonaws.services.ec2.model.AcceptVpcEndpointConnectionsResult> {
 
 
 
@@ -71,8 +75,12 @@ class AmazonEC2AcceptVpcEndpointConnectionsCommand(val serviceId: String, val vp
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.acceptVpcEndpointConnections(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.AcceptVpcEndpointConnectionsResult {
+	  return com.amazonaws.services.ec2.model.AcceptVpcEndpointConnectionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AcceptVpcEndpointConnectionsResult {
+		return environment.ec2.acceptVpcEndpointConnections(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -84,12 +92,12 @@ class AmazonEC2AcceptVpcEndpointConnectionsCommand(val serviceId: String, val vp
 }
 
 
-fun AmazonEC2Functions.acceptVpcPeeringConnection(init: AmazonEC2AcceptVpcPeeringConnectionCommand.() -> Unit) {
-	this.block.declare(AmazonEC2AcceptVpcPeeringConnectionCommand().apply(init))
+fun AmazonEC2Functions.acceptVpcPeeringConnection(init: AmazonEC2AcceptVpcPeeringConnectionCommand.() -> Unit): com.amazonaws.services.ec2.model.AcceptVpcPeeringConnectionResult {
+	return this.block.declare(AmazonEC2AcceptVpcPeeringConnectionCommand().apply(init)) as com.amazonaws.services.ec2.model.AcceptVpcPeeringConnectionResult
 }
 
 @Generated
-class AmazonEC2AcceptVpcPeeringConnectionCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AcceptVpcPeeringConnectionRequest> {
+class AmazonEC2AcceptVpcPeeringConnectionCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AcceptVpcPeeringConnectionRequest, com.amazonaws.services.ec2.model.AcceptVpcPeeringConnectionResult> {
 
 	var vpcPeeringConnectionId: String? = null
 
@@ -99,8 +107,12 @@ class AmazonEC2AcceptVpcPeeringConnectionCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.acceptVpcPeeringConnection(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.AcceptVpcPeeringConnectionResult {
+	  return com.amazonaws.services.ec2.model.AcceptVpcPeeringConnectionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AcceptVpcPeeringConnectionResult {
+		return environment.ec2.acceptVpcPeeringConnection(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -111,12 +123,12 @@ class AmazonEC2AcceptVpcPeeringConnectionCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AmazonEC2Functions.allocateAddress(init: AmazonEC2AllocateAddressCommand.() -> Unit) {
-	this.block.declare(AmazonEC2AllocateAddressCommand().apply(init))
+fun AmazonEC2Functions.allocateAddress(init: AmazonEC2AllocateAddressCommand.() -> Unit): com.amazonaws.services.ec2.model.AllocateAddressResult {
+	return this.block.declare(AmazonEC2AllocateAddressCommand().apply(init)) as com.amazonaws.services.ec2.model.AllocateAddressResult
 }
 
 @Generated
-class AmazonEC2AllocateAddressCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AllocateAddressRequest> {
+class AmazonEC2AllocateAddressCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AllocateAddressRequest, com.amazonaws.services.ec2.model.AllocateAddressResult> {
 
 	var domain: DomainType? = null
 	var address: String? = null
@@ -128,8 +140,12 @@ class AmazonEC2AllocateAddressCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.allocateAddress(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.AllocateAddressResult {
+	  return com.amazonaws.services.ec2.model.AllocateAddressResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AllocateAddressResult {
+		return environment.ec2.allocateAddress(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -141,12 +157,12 @@ class AmazonEC2AllocateAddressCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AmazonEC2Functions.allocateHosts(availabilityZone: String, instanceType: String, quantity: Int, init: AmazonEC2AllocateHostsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2AllocateHostsCommand(availabilityZone, instanceType, quantity).apply(init))
+fun AmazonEC2Functions.allocateHosts(availabilityZone: String, instanceType: String, quantity: Int, init: AmazonEC2AllocateHostsCommand.() -> Unit): com.amazonaws.services.ec2.model.AllocateHostsResult {
+	return this.block.declare(AmazonEC2AllocateHostsCommand(availabilityZone, instanceType, quantity).apply(init)) as com.amazonaws.services.ec2.model.AllocateHostsResult
 }
 
 @Generated
-class AmazonEC2AllocateHostsCommand(val availabilityZone: String, val instanceType: String, val quantity: Int) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AllocateHostsRequest> {
+class AmazonEC2AllocateHostsCommand(val availabilityZone: String, val instanceType: String, val quantity: Int) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AllocateHostsRequest, com.amazonaws.services.ec2.model.AllocateHostsResult> {
 
 	var autoPlacement: AutoPlacement? = null
 	var clientToken: String? = null
@@ -161,8 +177,12 @@ class AmazonEC2AllocateHostsCommand(val availabilityZone: String, val instanceTy
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.allocateHosts(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.AllocateHostsResult {
+	  return com.amazonaws.services.ec2.model.AllocateHostsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AllocateHostsResult {
+		return environment.ec2.allocateHosts(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -177,12 +197,12 @@ class AmazonEC2AllocateHostsCommand(val availabilityZone: String, val instanceTy
 }
 
 
-fun AmazonEC2Functions.assignIpv6Addresses(networkInterfaceId: String, init: AmazonEC2AssignIpv6AddressesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2AssignIpv6AddressesCommand(networkInterfaceId).apply(init))
+fun AmazonEC2Functions.assignIpv6Addresses(networkInterfaceId: String, init: AmazonEC2AssignIpv6AddressesCommand.() -> Unit): com.amazonaws.services.ec2.model.AssignIpv6AddressesResult {
+	return this.block.declare(AmazonEC2AssignIpv6AddressesCommand(networkInterfaceId).apply(init)) as com.amazonaws.services.ec2.model.AssignIpv6AddressesResult
 }
 
 @Generated
-class AmazonEC2AssignIpv6AddressesCommand(val networkInterfaceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AssignIpv6AddressesRequest> {
+class AmazonEC2AssignIpv6AddressesCommand(val networkInterfaceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AssignIpv6AddressesRequest, com.amazonaws.services.ec2.model.AssignIpv6AddressesResult> {
 
 	var ipv6AddressCount: Int? = 0
 	var ipv6Addresses: List<String>? = null
@@ -195,8 +215,12 @@ class AmazonEC2AssignIpv6AddressesCommand(val networkInterfaceId: String) : Amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.assignIpv6Addresses(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.AssignIpv6AddressesResult {
+	  return com.amazonaws.services.ec2.model.AssignIpv6AddressesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AssignIpv6AddressesResult {
+		return environment.ec2.assignIpv6Addresses(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -209,12 +233,12 @@ class AmazonEC2AssignIpv6AddressesCommand(val networkInterfaceId: String) : Amaz
 }
 
 
-fun AmazonEC2Functions.assignPrivateIpAddresses(networkInterfaceId: String, init: AmazonEC2AssignPrivateIpAddressesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2AssignPrivateIpAddressesCommand(networkInterfaceId).apply(init))
+fun AmazonEC2Functions.assignPrivateIpAddresses(networkInterfaceId: String, init: AmazonEC2AssignPrivateIpAddressesCommand.() -> Unit): com.amazonaws.services.ec2.model.AssignPrivateIpAddressesResult {
+	return this.block.declare(AmazonEC2AssignPrivateIpAddressesCommand(networkInterfaceId).apply(init)) as com.amazonaws.services.ec2.model.AssignPrivateIpAddressesResult
 }
 
 @Generated
-class AmazonEC2AssignPrivateIpAddressesCommand(val networkInterfaceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AssignPrivateIpAddressesRequest> {
+class AmazonEC2AssignPrivateIpAddressesCommand(val networkInterfaceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AssignPrivateIpAddressesRequest, com.amazonaws.services.ec2.model.AssignPrivateIpAddressesResult> {
 
 	var allowReassignment: Boolean? = false
 	var privateIpAddresses: List<String>? = null
@@ -229,8 +253,12 @@ class AmazonEC2AssignPrivateIpAddressesCommand(val networkInterfaceId: String) :
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.assignPrivateIpAddresses(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.AssignPrivateIpAddressesResult {
+	  return com.amazonaws.services.ec2.model.AssignPrivateIpAddressesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AssignPrivateIpAddressesResult {
+		return environment.ec2.assignPrivateIpAddresses(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -244,12 +272,12 @@ class AmazonEC2AssignPrivateIpAddressesCommand(val networkInterfaceId: String) :
 }
 
 
-fun AmazonEC2Functions.associateAddress(init: AmazonEC2AssociateAddressCommand.() -> Unit) {
-	this.block.declare(AmazonEC2AssociateAddressCommand().apply(init))
+fun AmazonEC2Functions.associateAddress(init: AmazonEC2AssociateAddressCommand.() -> Unit): com.amazonaws.services.ec2.model.AssociateAddressResult {
+	return this.block.declare(AmazonEC2AssociateAddressCommand().apply(init)) as com.amazonaws.services.ec2.model.AssociateAddressResult
 }
 
 @Generated
-class AmazonEC2AssociateAddressCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AssociateAddressRequest> {
+class AmazonEC2AssociateAddressCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AssociateAddressRequest, com.amazonaws.services.ec2.model.AssociateAddressResult> {
 
 	var allocationId: String? = null
 	var instanceId: String? = null
@@ -269,8 +297,12 @@ class AmazonEC2AssociateAddressCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.associateAddress(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.AssociateAddressResult {
+	  return com.amazonaws.services.ec2.model.AssociateAddressResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AssociateAddressResult {
+		return environment.ec2.associateAddress(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -286,12 +318,12 @@ class AmazonEC2AssociateAddressCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AmazonEC2Functions.associateDhcpOptions(dhcpOptionsId: String, vpcId: String, init: AmazonEC2AssociateDhcpOptionsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2AssociateDhcpOptionsCommand(dhcpOptionsId, vpcId).apply(init))
+fun AmazonEC2Functions.associateDhcpOptions(dhcpOptionsId: String, vpcId: String, init: AmazonEC2AssociateDhcpOptionsCommand.() -> Unit): com.amazonaws.services.ec2.model.AssociateDhcpOptionsResult {
+	return this.block.declare(AmazonEC2AssociateDhcpOptionsCommand(dhcpOptionsId, vpcId).apply(init)) as com.amazonaws.services.ec2.model.AssociateDhcpOptionsResult
 }
 
 @Generated
-class AmazonEC2AssociateDhcpOptionsCommand(val dhcpOptionsId: String, val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AssociateDhcpOptionsRequest> {
+class AmazonEC2AssociateDhcpOptionsCommand(val dhcpOptionsId: String, val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AssociateDhcpOptionsRequest, com.amazonaws.services.ec2.model.AssociateDhcpOptionsResult> {
 
 
 
@@ -302,8 +334,12 @@ class AmazonEC2AssociateDhcpOptionsCommand(val dhcpOptionsId: String, val vpcId:
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.associateDhcpOptions(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.AssociateDhcpOptionsResult {
+	  return com.amazonaws.services.ec2.model.AssociateDhcpOptionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AssociateDhcpOptionsResult {
+		return environment.ec2.associateDhcpOptions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -315,12 +351,12 @@ class AmazonEC2AssociateDhcpOptionsCommand(val dhcpOptionsId: String, val vpcId:
 }
 
 
-fun AmazonEC2Functions.associateIamInstanceProfile(iamInstanceProfile: com.amazonaws.services.ec2.model.IamInstanceProfileSpecification, instanceId: String, init: AmazonEC2AssociateIamInstanceProfileCommand.() -> Unit) {
-	this.block.declare(AmazonEC2AssociateIamInstanceProfileCommand(iamInstanceProfile, instanceId).apply(init))
+fun AmazonEC2Functions.associateIamInstanceProfile(iamInstanceProfile: com.amazonaws.services.ec2.model.IamInstanceProfileSpecification, instanceId: String, init: AmazonEC2AssociateIamInstanceProfileCommand.() -> Unit): com.amazonaws.services.ec2.model.AssociateIamInstanceProfileResult {
+	return this.block.declare(AmazonEC2AssociateIamInstanceProfileCommand(iamInstanceProfile, instanceId).apply(init)) as com.amazonaws.services.ec2.model.AssociateIamInstanceProfileResult
 }
 
 @Generated
-class AmazonEC2AssociateIamInstanceProfileCommand(val iamInstanceProfile: com.amazonaws.services.ec2.model.IamInstanceProfileSpecification, val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AssociateIamInstanceProfileRequest> {
+class AmazonEC2AssociateIamInstanceProfileCommand(val iamInstanceProfile: com.amazonaws.services.ec2.model.IamInstanceProfileSpecification, val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AssociateIamInstanceProfileRequest, com.amazonaws.services.ec2.model.AssociateIamInstanceProfileResult> {
 
 
 
@@ -331,8 +367,12 @@ class AmazonEC2AssociateIamInstanceProfileCommand(val iamInstanceProfile: com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.associateIamInstanceProfile(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.AssociateIamInstanceProfileResult {
+	  return com.amazonaws.services.ec2.model.AssociateIamInstanceProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AssociateIamInstanceProfileResult {
+		return environment.ec2.associateIamInstanceProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -344,12 +384,12 @@ class AmazonEC2AssociateIamInstanceProfileCommand(val iamInstanceProfile: com.am
 }
 
 
-fun AmazonEC2Functions.associateRouteTable(routeTableId: String, subnetId: String, init: AmazonEC2AssociateRouteTableCommand.() -> Unit) {
-	this.block.declare(AmazonEC2AssociateRouteTableCommand(routeTableId, subnetId).apply(init))
+fun AmazonEC2Functions.associateRouteTable(routeTableId: String, subnetId: String, init: AmazonEC2AssociateRouteTableCommand.() -> Unit): com.amazonaws.services.ec2.model.AssociateRouteTableResult {
+	return this.block.declare(AmazonEC2AssociateRouteTableCommand(routeTableId, subnetId).apply(init)) as com.amazonaws.services.ec2.model.AssociateRouteTableResult
 }
 
 @Generated
-class AmazonEC2AssociateRouteTableCommand(val routeTableId: String, val subnetId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AssociateRouteTableRequest> {
+class AmazonEC2AssociateRouteTableCommand(val routeTableId: String, val subnetId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AssociateRouteTableRequest, com.amazonaws.services.ec2.model.AssociateRouteTableResult> {
 
 
 
@@ -360,8 +400,12 @@ class AmazonEC2AssociateRouteTableCommand(val routeTableId: String, val subnetId
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.associateRouteTable(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.AssociateRouteTableResult {
+	  return com.amazonaws.services.ec2.model.AssociateRouteTableResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AssociateRouteTableResult {
+		return environment.ec2.associateRouteTable(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -373,12 +417,12 @@ class AmazonEC2AssociateRouteTableCommand(val routeTableId: String, val subnetId
 }
 
 
-fun AmazonEC2Functions.associateSubnetCidrBlock(ipv6CidrBlock: String, subnetId: String, init: AmazonEC2AssociateSubnetCidrBlockCommand.() -> Unit) {
-	this.block.declare(AmazonEC2AssociateSubnetCidrBlockCommand(ipv6CidrBlock, subnetId).apply(init))
+fun AmazonEC2Functions.associateSubnetCidrBlock(ipv6CidrBlock: String, subnetId: String, init: AmazonEC2AssociateSubnetCidrBlockCommand.() -> Unit): com.amazonaws.services.ec2.model.AssociateSubnetCidrBlockResult {
+	return this.block.declare(AmazonEC2AssociateSubnetCidrBlockCommand(ipv6CidrBlock, subnetId).apply(init)) as com.amazonaws.services.ec2.model.AssociateSubnetCidrBlockResult
 }
 
 @Generated
-class AmazonEC2AssociateSubnetCidrBlockCommand(val ipv6CidrBlock: String, val subnetId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AssociateSubnetCidrBlockRequest> {
+class AmazonEC2AssociateSubnetCidrBlockCommand(val ipv6CidrBlock: String, val subnetId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AssociateSubnetCidrBlockRequest, com.amazonaws.services.ec2.model.AssociateSubnetCidrBlockResult> {
 
 
 
@@ -389,8 +433,12 @@ class AmazonEC2AssociateSubnetCidrBlockCommand(val ipv6CidrBlock: String, val su
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.associateSubnetCidrBlock(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.AssociateSubnetCidrBlockResult {
+	  return com.amazonaws.services.ec2.model.AssociateSubnetCidrBlockResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AssociateSubnetCidrBlockResult {
+		return environment.ec2.associateSubnetCidrBlock(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -402,12 +450,12 @@ class AmazonEC2AssociateSubnetCidrBlockCommand(val ipv6CidrBlock: String, val su
 }
 
 
-fun AmazonEC2Functions.associateVpcCidrBlock(vpcId: String, init: AmazonEC2AssociateVpcCidrBlockCommand.() -> Unit) {
-	this.block.declare(AmazonEC2AssociateVpcCidrBlockCommand(vpcId).apply(init))
+fun AmazonEC2Functions.associateVpcCidrBlock(vpcId: String, init: AmazonEC2AssociateVpcCidrBlockCommand.() -> Unit): com.amazonaws.services.ec2.model.AssociateVpcCidrBlockResult {
+	return this.block.declare(AmazonEC2AssociateVpcCidrBlockCommand(vpcId).apply(init)) as com.amazonaws.services.ec2.model.AssociateVpcCidrBlockResult
 }
 
 @Generated
-class AmazonEC2AssociateVpcCidrBlockCommand(val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AssociateVpcCidrBlockRequest> {
+class AmazonEC2AssociateVpcCidrBlockCommand(val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AssociateVpcCidrBlockRequest, com.amazonaws.services.ec2.model.AssociateVpcCidrBlockResult> {
 
 	var amazonProvidedIpv6CidrBlock: Boolean? = false
 	var cidrBlock: String? = null
@@ -420,8 +468,12 @@ class AmazonEC2AssociateVpcCidrBlockCommand(val vpcId: String) : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.associateVpcCidrBlock(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.AssociateVpcCidrBlockResult {
+	  return com.amazonaws.services.ec2.model.AssociateVpcCidrBlockResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AssociateVpcCidrBlockResult {
+		return environment.ec2.associateVpcCidrBlock(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -434,12 +486,12 @@ class AmazonEC2AssociateVpcCidrBlockCommand(val vpcId: String) : AmazonWebServic
 }
 
 
-fun AmazonEC2Functions.attachClassicLinkVpc(groups: List<String>, instanceId: String, vpcId: String, init: AmazonEC2AttachClassicLinkVpcCommand.() -> Unit) {
-	this.block.declare(AmazonEC2AttachClassicLinkVpcCommand(groups, instanceId, vpcId).apply(init))
+fun AmazonEC2Functions.attachClassicLinkVpc(groups: List<String>, instanceId: String, vpcId: String, init: AmazonEC2AttachClassicLinkVpcCommand.() -> Unit): com.amazonaws.services.ec2.model.AttachClassicLinkVpcResult {
+	return this.block.declare(AmazonEC2AttachClassicLinkVpcCommand(groups, instanceId, vpcId).apply(init)) as com.amazonaws.services.ec2.model.AttachClassicLinkVpcResult
 }
 
 @Generated
-class AmazonEC2AttachClassicLinkVpcCommand(val groups: List<String>, val instanceId: String, val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AttachClassicLinkVpcRequest> {
+class AmazonEC2AttachClassicLinkVpcCommand(val groups: List<String>, val instanceId: String, val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AttachClassicLinkVpcRequest, com.amazonaws.services.ec2.model.AttachClassicLinkVpcResult> {
 
 
 
@@ -451,8 +503,12 @@ class AmazonEC2AttachClassicLinkVpcCommand(val groups: List<String>, val instanc
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.attachClassicLinkVpc(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.AttachClassicLinkVpcResult {
+	  return com.amazonaws.services.ec2.model.AttachClassicLinkVpcResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AttachClassicLinkVpcResult {
+		return environment.ec2.attachClassicLinkVpc(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -465,12 +521,12 @@ class AmazonEC2AttachClassicLinkVpcCommand(val groups: List<String>, val instanc
 }
 
 
-fun AmazonEC2Functions.attachInternetGateway(internetGatewayId: String, vpcId: String, init: AmazonEC2AttachInternetGatewayCommand.() -> Unit) {
-	this.block.declare(AmazonEC2AttachInternetGatewayCommand(internetGatewayId, vpcId).apply(init))
+fun AmazonEC2Functions.attachInternetGateway(internetGatewayId: String, vpcId: String, init: AmazonEC2AttachInternetGatewayCommand.() -> Unit): com.amazonaws.services.ec2.model.AttachInternetGatewayResult {
+	return this.block.declare(AmazonEC2AttachInternetGatewayCommand(internetGatewayId, vpcId).apply(init)) as com.amazonaws.services.ec2.model.AttachInternetGatewayResult
 }
 
 @Generated
-class AmazonEC2AttachInternetGatewayCommand(val internetGatewayId: String, val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AttachInternetGatewayRequest> {
+class AmazonEC2AttachInternetGatewayCommand(val internetGatewayId: String, val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AttachInternetGatewayRequest, com.amazonaws.services.ec2.model.AttachInternetGatewayResult> {
 
 
 
@@ -481,8 +537,12 @@ class AmazonEC2AttachInternetGatewayCommand(val internetGatewayId: String, val v
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.attachInternetGateway(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.AttachInternetGatewayResult {
+	  return com.amazonaws.services.ec2.model.AttachInternetGatewayResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AttachInternetGatewayResult {
+		return environment.ec2.attachInternetGateway(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -494,12 +554,12 @@ class AmazonEC2AttachInternetGatewayCommand(val internetGatewayId: String, val v
 }
 
 
-fun AmazonEC2Functions.attachNetworkInterface(deviceIndex: Int, instanceId: String, networkInterfaceId: String, init: AmazonEC2AttachNetworkInterfaceCommand.() -> Unit) {
-	this.block.declare(AmazonEC2AttachNetworkInterfaceCommand(deviceIndex, instanceId, networkInterfaceId).apply(init))
+fun AmazonEC2Functions.attachNetworkInterface(deviceIndex: Int, instanceId: String, networkInterfaceId: String, init: AmazonEC2AttachNetworkInterfaceCommand.() -> Unit): com.amazonaws.services.ec2.model.AttachNetworkInterfaceResult {
+	return this.block.declare(AmazonEC2AttachNetworkInterfaceCommand(deviceIndex, instanceId, networkInterfaceId).apply(init)) as com.amazonaws.services.ec2.model.AttachNetworkInterfaceResult
 }
 
 @Generated
-class AmazonEC2AttachNetworkInterfaceCommand(val deviceIndex: Int, val instanceId: String, val networkInterfaceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AttachNetworkInterfaceRequest> {
+class AmazonEC2AttachNetworkInterfaceCommand(val deviceIndex: Int, val instanceId: String, val networkInterfaceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AttachNetworkInterfaceRequest, com.amazonaws.services.ec2.model.AttachNetworkInterfaceResult> {
 
 
 
@@ -511,8 +571,12 @@ class AmazonEC2AttachNetworkInterfaceCommand(val deviceIndex: Int, val instanceI
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.attachNetworkInterface(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.AttachNetworkInterfaceResult {
+	  return com.amazonaws.services.ec2.model.AttachNetworkInterfaceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AttachNetworkInterfaceResult {
+		return environment.ec2.attachNetworkInterface(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -525,12 +589,12 @@ class AmazonEC2AttachNetworkInterfaceCommand(val deviceIndex: Int, val instanceI
 }
 
 
-fun AmazonEC2Functions.attachVolume(device: String, instanceId: String, volumeId: String, init: AmazonEC2AttachVolumeCommand.() -> Unit) {
-	this.block.declare(AmazonEC2AttachVolumeCommand(device, instanceId, volumeId).apply(init))
+fun AmazonEC2Functions.attachVolume(device: String, instanceId: String, volumeId: String, init: AmazonEC2AttachVolumeCommand.() -> Unit): com.amazonaws.services.ec2.model.AttachVolumeResult {
+	return this.block.declare(AmazonEC2AttachVolumeCommand(device, instanceId, volumeId).apply(init)) as com.amazonaws.services.ec2.model.AttachVolumeResult
 }
 
 @Generated
-class AmazonEC2AttachVolumeCommand(val device: String, val instanceId: String, val volumeId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AttachVolumeRequest> {
+class AmazonEC2AttachVolumeCommand(val device: String, val instanceId: String, val volumeId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AttachVolumeRequest, com.amazonaws.services.ec2.model.AttachVolumeResult> {
 
 
 
@@ -542,8 +606,12 @@ class AmazonEC2AttachVolumeCommand(val device: String, val instanceId: String, v
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.attachVolume(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.AttachVolumeResult {
+	  return com.amazonaws.services.ec2.model.AttachVolumeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AttachVolumeResult {
+		return environment.ec2.attachVolume(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -556,12 +624,12 @@ class AmazonEC2AttachVolumeCommand(val device: String, val instanceId: String, v
 }
 
 
-fun AmazonEC2Functions.attachVpnGateway(vpcId: String, vpnGatewayId: String, init: AmazonEC2AttachVpnGatewayCommand.() -> Unit) {
-	this.block.declare(AmazonEC2AttachVpnGatewayCommand(vpcId, vpnGatewayId).apply(init))
+fun AmazonEC2Functions.attachVpnGateway(vpcId: String, vpnGatewayId: String, init: AmazonEC2AttachVpnGatewayCommand.() -> Unit): com.amazonaws.services.ec2.model.AttachVpnGatewayResult {
+	return this.block.declare(AmazonEC2AttachVpnGatewayCommand(vpcId, vpnGatewayId).apply(init)) as com.amazonaws.services.ec2.model.AttachVpnGatewayResult
 }
 
 @Generated
-class AmazonEC2AttachVpnGatewayCommand(val vpcId: String, val vpnGatewayId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AttachVpnGatewayRequest> {
+class AmazonEC2AttachVpnGatewayCommand(val vpcId: String, val vpnGatewayId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AttachVpnGatewayRequest, com.amazonaws.services.ec2.model.AttachVpnGatewayResult> {
 
 
 
@@ -572,8 +640,12 @@ class AmazonEC2AttachVpnGatewayCommand(val vpcId: String, val vpnGatewayId: Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.attachVpnGateway(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.AttachVpnGatewayResult {
+	  return com.amazonaws.services.ec2.model.AttachVpnGatewayResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AttachVpnGatewayResult {
+		return environment.ec2.attachVpnGateway(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -585,12 +657,12 @@ class AmazonEC2AttachVpnGatewayCommand(val vpcId: String, val vpnGatewayId: Stri
 }
 
 
-fun AmazonEC2Functions.authorizeSecurityGroupEgress(groupId: String, init: AmazonEC2AuthorizeSecurityGroupEgressCommand.() -> Unit) {
-	this.block.declare(AmazonEC2AuthorizeSecurityGroupEgressCommand(groupId).apply(init))
+fun AmazonEC2Functions.authorizeSecurityGroupEgress(groupId: String, init: AmazonEC2AuthorizeSecurityGroupEgressCommand.() -> Unit): com.amazonaws.services.ec2.model.AuthorizeSecurityGroupEgressResult {
+	return this.block.declare(AmazonEC2AuthorizeSecurityGroupEgressCommand(groupId).apply(init)) as com.amazonaws.services.ec2.model.AuthorizeSecurityGroupEgressResult
 }
 
 @Generated
-class AmazonEC2AuthorizeSecurityGroupEgressCommand(val groupId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AuthorizeSecurityGroupEgressRequest> {
+class AmazonEC2AuthorizeSecurityGroupEgressCommand(val groupId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AuthorizeSecurityGroupEgressRequest, com.amazonaws.services.ec2.model.AuthorizeSecurityGroupEgressResult> {
 
 	var ipPermissions: List<com.amazonaws.services.ec2.model.IpPermission>? = null
 	var cidrIp: String? = null
@@ -613,8 +685,12 @@ class AmazonEC2AuthorizeSecurityGroupEgressCommand(val groupId: String) : Amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.authorizeSecurityGroupEgress(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.AuthorizeSecurityGroupEgressResult {
+	  return com.amazonaws.services.ec2.model.AuthorizeSecurityGroupEgressResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AuthorizeSecurityGroupEgressResult {
+		return environment.ec2.authorizeSecurityGroupEgress(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -632,12 +708,12 @@ class AmazonEC2AuthorizeSecurityGroupEgressCommand(val groupId: String) : Amazon
 }
 
 
-fun AmazonEC2Functions.authorizeSecurityGroupIngress(init: AmazonEC2AuthorizeSecurityGroupIngressCommand.() -> Unit) {
-	this.block.declare(AmazonEC2AuthorizeSecurityGroupIngressCommand().apply(init))
+fun AmazonEC2Functions.authorizeSecurityGroupIngress(init: AmazonEC2AuthorizeSecurityGroupIngressCommand.() -> Unit): com.amazonaws.services.ec2.model.AuthorizeSecurityGroupIngressResult {
+	return this.block.declare(AmazonEC2AuthorizeSecurityGroupIngressCommand().apply(init)) as com.amazonaws.services.ec2.model.AuthorizeSecurityGroupIngressResult
 }
 
 @Generated
-class AmazonEC2AuthorizeSecurityGroupIngressCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AuthorizeSecurityGroupIngressRequest> {
+class AmazonEC2AuthorizeSecurityGroupIngressCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.AuthorizeSecurityGroupIngressRequest, com.amazonaws.services.ec2.model.AuthorizeSecurityGroupIngressResult> {
 
 	var cidrIp: String? = null
 	var fromPort: Int? = 0
@@ -663,8 +739,12 @@ class AmazonEC2AuthorizeSecurityGroupIngressCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.authorizeSecurityGroupIngress(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.AuthorizeSecurityGroupIngressResult {
+	  return com.amazonaws.services.ec2.model.AuthorizeSecurityGroupIngressResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.AuthorizeSecurityGroupIngressResult {
+		return environment.ec2.authorizeSecurityGroupIngress(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -683,12 +763,12 @@ class AmazonEC2AuthorizeSecurityGroupIngressCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AmazonEC2Functions.bundleInstance(instanceId: String, storage: com.amazonaws.services.ec2.model.Storage, init: AmazonEC2BundleInstanceCommand.() -> Unit) {
-	this.block.declare(AmazonEC2BundleInstanceCommand(instanceId, storage).apply(init))
+fun AmazonEC2Functions.bundleInstance(instanceId: String, storage: com.amazonaws.services.ec2.model.Storage, init: AmazonEC2BundleInstanceCommand.() -> Unit): com.amazonaws.services.ec2.model.BundleInstanceResult {
+	return this.block.declare(AmazonEC2BundleInstanceCommand(instanceId, storage).apply(init)) as com.amazonaws.services.ec2.model.BundleInstanceResult
 }
 
 @Generated
-class AmazonEC2BundleInstanceCommand(val instanceId: String, val storage: com.amazonaws.services.ec2.model.Storage) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.BundleInstanceRequest> {
+class AmazonEC2BundleInstanceCommand(val instanceId: String, val storage: com.amazonaws.services.ec2.model.Storage) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.BundleInstanceRequest, com.amazonaws.services.ec2.model.BundleInstanceResult> {
 
 
 
@@ -699,8 +779,12 @@ class AmazonEC2BundleInstanceCommand(val instanceId: String, val storage: com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.bundleInstance(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.BundleInstanceResult {
+	  return com.amazonaws.services.ec2.model.BundleInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.BundleInstanceResult {
+		return environment.ec2.bundleInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -712,12 +796,12 @@ class AmazonEC2BundleInstanceCommand(val instanceId: String, val storage: com.am
 }
 
 
-fun AmazonEC2Functions.cancelBundleTask(bundleId: String, init: AmazonEC2CancelBundleTaskCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CancelBundleTaskCommand(bundleId).apply(init))
+fun AmazonEC2Functions.cancelBundleTask(bundleId: String, init: AmazonEC2CancelBundleTaskCommand.() -> Unit): com.amazonaws.services.ec2.model.CancelBundleTaskResult {
+	return this.block.declare(AmazonEC2CancelBundleTaskCommand(bundleId).apply(init)) as com.amazonaws.services.ec2.model.CancelBundleTaskResult
 }
 
 @Generated
-class AmazonEC2CancelBundleTaskCommand(val bundleId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CancelBundleTaskRequest> {
+class AmazonEC2CancelBundleTaskCommand(val bundleId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CancelBundleTaskRequest, com.amazonaws.services.ec2.model.CancelBundleTaskResult> {
 
 
 
@@ -727,8 +811,12 @@ class AmazonEC2CancelBundleTaskCommand(val bundleId: String) : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.cancelBundleTask(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CancelBundleTaskResult {
+	  return com.amazonaws.services.ec2.model.CancelBundleTaskResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CancelBundleTaskResult {
+		return environment.ec2.cancelBundleTask(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -739,12 +827,12 @@ class AmazonEC2CancelBundleTaskCommand(val bundleId: String) : AmazonWebServiceC
 }
 
 
-fun AmazonEC2Functions.cancelConversionTask(conversionTaskId: String, init: AmazonEC2CancelConversionTaskCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CancelConversionTaskCommand(conversionTaskId).apply(init))
+fun AmazonEC2Functions.cancelConversionTask(conversionTaskId: String, init: AmazonEC2CancelConversionTaskCommand.() -> Unit): com.amazonaws.services.ec2.model.CancelConversionTaskResult {
+	return this.block.declare(AmazonEC2CancelConversionTaskCommand(conversionTaskId).apply(init)) as com.amazonaws.services.ec2.model.CancelConversionTaskResult
 }
 
 @Generated
-class AmazonEC2CancelConversionTaskCommand(val conversionTaskId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CancelConversionTaskRequest> {
+class AmazonEC2CancelConversionTaskCommand(val conversionTaskId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CancelConversionTaskRequest, com.amazonaws.services.ec2.model.CancelConversionTaskResult> {
 
 	var reasonMessage: String? = null
 
@@ -755,8 +843,12 @@ class AmazonEC2CancelConversionTaskCommand(val conversionTaskId: String) : Amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.cancelConversionTask(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CancelConversionTaskResult {
+	  return com.amazonaws.services.ec2.model.CancelConversionTaskResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CancelConversionTaskResult {
+		return environment.ec2.cancelConversionTask(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -768,12 +860,12 @@ class AmazonEC2CancelConversionTaskCommand(val conversionTaskId: String) : Amazo
 }
 
 
-fun AmazonEC2Functions.cancelExportTask(exportTaskId: String, init: AmazonEC2CancelExportTaskCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CancelExportTaskCommand(exportTaskId).apply(init))
+fun AmazonEC2Functions.cancelExportTask(exportTaskId: String, init: AmazonEC2CancelExportTaskCommand.() -> Unit): com.amazonaws.services.ec2.model.CancelExportTaskResult {
+	return this.block.declare(AmazonEC2CancelExportTaskCommand(exportTaskId).apply(init)) as com.amazonaws.services.ec2.model.CancelExportTaskResult
 }
 
 @Generated
-class AmazonEC2CancelExportTaskCommand(val exportTaskId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CancelExportTaskRequest> {
+class AmazonEC2CancelExportTaskCommand(val exportTaskId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CancelExportTaskRequest, com.amazonaws.services.ec2.model.CancelExportTaskResult> {
 
 
 
@@ -783,8 +875,12 @@ class AmazonEC2CancelExportTaskCommand(val exportTaskId: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.cancelExportTask(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CancelExportTaskResult {
+	  return com.amazonaws.services.ec2.model.CancelExportTaskResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CancelExportTaskResult {
+		return environment.ec2.cancelExportTask(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -795,12 +891,12 @@ class AmazonEC2CancelExportTaskCommand(val exportTaskId: String) : AmazonWebServ
 }
 
 
-fun AmazonEC2Functions.cancelImportTask(init: AmazonEC2CancelImportTaskCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CancelImportTaskCommand().apply(init))
+fun AmazonEC2Functions.cancelImportTask(init: AmazonEC2CancelImportTaskCommand.() -> Unit): com.amazonaws.services.ec2.model.CancelImportTaskResult {
+	return this.block.declare(AmazonEC2CancelImportTaskCommand().apply(init)) as com.amazonaws.services.ec2.model.CancelImportTaskResult
 }
 
 @Generated
-class AmazonEC2CancelImportTaskCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CancelImportTaskRequest> {
+class AmazonEC2CancelImportTaskCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CancelImportTaskRequest, com.amazonaws.services.ec2.model.CancelImportTaskResult> {
 
 	var cancelReason: String? = null
 	var importTaskId: String? = null
@@ -812,8 +908,12 @@ class AmazonEC2CancelImportTaskCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.cancelImportTask(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CancelImportTaskResult {
+	  return com.amazonaws.services.ec2.model.CancelImportTaskResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CancelImportTaskResult {
+		return environment.ec2.cancelImportTask(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -825,12 +925,12 @@ class AmazonEC2CancelImportTaskCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AmazonEC2Functions.cancelReservedInstancesListing(reservedInstancesListingId: String, init: AmazonEC2CancelReservedInstancesListingCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CancelReservedInstancesListingCommand(reservedInstancesListingId).apply(init))
+fun AmazonEC2Functions.cancelReservedInstancesListing(reservedInstancesListingId: String, init: AmazonEC2CancelReservedInstancesListingCommand.() -> Unit): com.amazonaws.services.ec2.model.CancelReservedInstancesListingResult {
+	return this.block.declare(AmazonEC2CancelReservedInstancesListingCommand(reservedInstancesListingId).apply(init)) as com.amazonaws.services.ec2.model.CancelReservedInstancesListingResult
 }
 
 @Generated
-class AmazonEC2CancelReservedInstancesListingCommand(val reservedInstancesListingId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CancelReservedInstancesListingRequest> {
+class AmazonEC2CancelReservedInstancesListingCommand(val reservedInstancesListingId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CancelReservedInstancesListingRequest, com.amazonaws.services.ec2.model.CancelReservedInstancesListingResult> {
 
 
 
@@ -840,8 +940,12 @@ class AmazonEC2CancelReservedInstancesListingCommand(val reservedInstancesListin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.cancelReservedInstancesListing(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CancelReservedInstancesListingResult {
+	  return com.amazonaws.services.ec2.model.CancelReservedInstancesListingResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CancelReservedInstancesListingResult {
+		return environment.ec2.cancelReservedInstancesListing(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -852,12 +956,12 @@ class AmazonEC2CancelReservedInstancesListingCommand(val reservedInstancesListin
 }
 
 
-fun AmazonEC2Functions.cancelSpotFleetRequests(spotFleetRequestIds: List<String>, terminateInstances: Boolean, init: AmazonEC2CancelSpotFleetRequestsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CancelSpotFleetRequestsCommand(spotFleetRequestIds, terminateInstances).apply(init))
+fun AmazonEC2Functions.cancelSpotFleetRequests(spotFleetRequestIds: List<String>, terminateInstances: Boolean, init: AmazonEC2CancelSpotFleetRequestsCommand.() -> Unit): com.amazonaws.services.ec2.model.CancelSpotFleetRequestsResult {
+	return this.block.declare(AmazonEC2CancelSpotFleetRequestsCommand(spotFleetRequestIds, terminateInstances).apply(init)) as com.amazonaws.services.ec2.model.CancelSpotFleetRequestsResult
 }
 
 @Generated
-class AmazonEC2CancelSpotFleetRequestsCommand(val spotFleetRequestIds: List<String>, val terminateInstances: Boolean) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CancelSpotFleetRequestsRequest> {
+class AmazonEC2CancelSpotFleetRequestsCommand(val spotFleetRequestIds: List<String>, val terminateInstances: Boolean) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CancelSpotFleetRequestsRequest, com.amazonaws.services.ec2.model.CancelSpotFleetRequestsResult> {
 
 
 
@@ -868,8 +972,12 @@ class AmazonEC2CancelSpotFleetRequestsCommand(val spotFleetRequestIds: List<Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.cancelSpotFleetRequests(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CancelSpotFleetRequestsResult {
+	  return com.amazonaws.services.ec2.model.CancelSpotFleetRequestsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CancelSpotFleetRequestsResult {
+		return environment.ec2.cancelSpotFleetRequests(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -881,12 +989,12 @@ class AmazonEC2CancelSpotFleetRequestsCommand(val spotFleetRequestIds: List<Stri
 }
 
 
-fun AmazonEC2Functions.cancelSpotInstanceRequests(spotInstanceRequestIds: List<String>, init: AmazonEC2CancelSpotInstanceRequestsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CancelSpotInstanceRequestsCommand(spotInstanceRequestIds).apply(init))
+fun AmazonEC2Functions.cancelSpotInstanceRequests(spotInstanceRequestIds: List<String>, init: AmazonEC2CancelSpotInstanceRequestsCommand.() -> Unit): com.amazonaws.services.ec2.model.CancelSpotInstanceRequestsResult {
+	return this.block.declare(AmazonEC2CancelSpotInstanceRequestsCommand(spotInstanceRequestIds).apply(init)) as com.amazonaws.services.ec2.model.CancelSpotInstanceRequestsResult
 }
 
 @Generated
-class AmazonEC2CancelSpotInstanceRequestsCommand(val spotInstanceRequestIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CancelSpotInstanceRequestsRequest> {
+class AmazonEC2CancelSpotInstanceRequestsCommand(val spotInstanceRequestIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CancelSpotInstanceRequestsRequest, com.amazonaws.services.ec2.model.CancelSpotInstanceRequestsResult> {
 
 
 
@@ -896,8 +1004,12 @@ class AmazonEC2CancelSpotInstanceRequestsCommand(val spotInstanceRequestIds: Lis
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.cancelSpotInstanceRequests(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CancelSpotInstanceRequestsResult {
+	  return com.amazonaws.services.ec2.model.CancelSpotInstanceRequestsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CancelSpotInstanceRequestsResult {
+		return environment.ec2.cancelSpotInstanceRequests(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -908,12 +1020,12 @@ class AmazonEC2CancelSpotInstanceRequestsCommand(val spotInstanceRequestIds: Lis
 }
 
 
-fun AmazonEC2Functions.confirmProductInstance(instanceId: String, productCode: String, init: AmazonEC2ConfirmProductInstanceCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ConfirmProductInstanceCommand(instanceId, productCode).apply(init))
+fun AmazonEC2Functions.confirmProductInstance(instanceId: String, productCode: String, init: AmazonEC2ConfirmProductInstanceCommand.() -> Unit): com.amazonaws.services.ec2.model.ConfirmProductInstanceResult {
+	return this.block.declare(AmazonEC2ConfirmProductInstanceCommand(instanceId, productCode).apply(init)) as com.amazonaws.services.ec2.model.ConfirmProductInstanceResult
 }
 
 @Generated
-class AmazonEC2ConfirmProductInstanceCommand(val instanceId: String, val productCode: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ConfirmProductInstanceRequest> {
+class AmazonEC2ConfirmProductInstanceCommand(val instanceId: String, val productCode: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ConfirmProductInstanceRequest, com.amazonaws.services.ec2.model.ConfirmProductInstanceResult> {
 
 
 
@@ -924,8 +1036,12 @@ class AmazonEC2ConfirmProductInstanceCommand(val instanceId: String, val product
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.confirmProductInstance(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ConfirmProductInstanceResult {
+	  return com.amazonaws.services.ec2.model.ConfirmProductInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ConfirmProductInstanceResult {
+		return environment.ec2.confirmProductInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -937,12 +1053,12 @@ class AmazonEC2ConfirmProductInstanceCommand(val instanceId: String, val product
 }
 
 
-fun AmazonEC2Functions.copyFpgaImage(sourceFpgaImageId: String, sourceRegion: String, init: AmazonEC2CopyFpgaImageCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CopyFpgaImageCommand(sourceFpgaImageId, sourceRegion).apply(init))
+fun AmazonEC2Functions.copyFpgaImage(sourceFpgaImageId: String, sourceRegion: String, init: AmazonEC2CopyFpgaImageCommand.() -> Unit): com.amazonaws.services.ec2.model.CopyFpgaImageResult {
+	return this.block.declare(AmazonEC2CopyFpgaImageCommand(sourceFpgaImageId, sourceRegion).apply(init)) as com.amazonaws.services.ec2.model.CopyFpgaImageResult
 }
 
 @Generated
-class AmazonEC2CopyFpgaImageCommand(val sourceFpgaImageId: String, val sourceRegion: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CopyFpgaImageRequest> {
+class AmazonEC2CopyFpgaImageCommand(val sourceFpgaImageId: String, val sourceRegion: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CopyFpgaImageRequest, com.amazonaws.services.ec2.model.CopyFpgaImageResult> {
 
 	var description: String? = null
 	var name: String? = null
@@ -958,8 +1074,12 @@ class AmazonEC2CopyFpgaImageCommand(val sourceFpgaImageId: String, val sourceReg
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.copyFpgaImage(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CopyFpgaImageResult {
+	  return com.amazonaws.services.ec2.model.CopyFpgaImageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CopyFpgaImageResult {
+		return environment.ec2.copyFpgaImage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -974,12 +1094,12 @@ class AmazonEC2CopyFpgaImageCommand(val sourceFpgaImageId: String, val sourceReg
 }
 
 
-fun AmazonEC2Functions.copyImage(name: String, sourceImageId: String, sourceRegion: String, init: AmazonEC2CopyImageCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CopyImageCommand(name, sourceImageId, sourceRegion).apply(init))
+fun AmazonEC2Functions.copyImage(name: String, sourceImageId: String, sourceRegion: String, init: AmazonEC2CopyImageCommand.() -> Unit): com.amazonaws.services.ec2.model.CopyImageResult {
+	return this.block.declare(AmazonEC2CopyImageCommand(name, sourceImageId, sourceRegion).apply(init)) as com.amazonaws.services.ec2.model.CopyImageResult
 }
 
 @Generated
-class AmazonEC2CopyImageCommand(val name: String, val sourceImageId: String, val sourceRegion: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CopyImageRequest> {
+class AmazonEC2CopyImageCommand(val name: String, val sourceImageId: String, val sourceRegion: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CopyImageRequest, com.amazonaws.services.ec2.model.CopyImageResult> {
 
 	var clientToken: String? = null
 	var description: String? = null
@@ -998,8 +1118,12 @@ class AmazonEC2CopyImageCommand(val name: String, val sourceImageId: String, val
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.copyImage(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CopyImageResult {
+	  return com.amazonaws.services.ec2.model.CopyImageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CopyImageResult {
+		return environment.ec2.copyImage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1016,12 +1140,12 @@ class AmazonEC2CopyImageCommand(val name: String, val sourceImageId: String, val
 }
 
 
-fun AmazonEC2Functions.copySnapshot(sourceRegion: String, sourceSnapshotId: String, init: AmazonEC2CopySnapshotCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CopySnapshotCommand(sourceRegion, sourceSnapshotId).apply(init))
+fun AmazonEC2Functions.copySnapshot(sourceRegion: String, sourceSnapshotId: String, init: AmazonEC2CopySnapshotCommand.() -> Unit): com.amazonaws.services.ec2.model.CopySnapshotResult {
+	return this.block.declare(AmazonEC2CopySnapshotCommand(sourceRegion, sourceSnapshotId).apply(init)) as com.amazonaws.services.ec2.model.CopySnapshotResult
 }
 
 @Generated
-class AmazonEC2CopySnapshotCommand(val sourceRegion: String, val sourceSnapshotId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CopySnapshotRequest> {
+class AmazonEC2CopySnapshotCommand(val sourceRegion: String, val sourceSnapshotId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CopySnapshotRequest, com.amazonaws.services.ec2.model.CopySnapshotResult> {
 
 	var description: String? = null
 	var destinationRegion: String? = null
@@ -1041,8 +1165,12 @@ class AmazonEC2CopySnapshotCommand(val sourceRegion: String, val sourceSnapshotI
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.copySnapshot(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CopySnapshotResult {
+	  return com.amazonaws.services.ec2.model.CopySnapshotResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CopySnapshotResult {
+		return environment.ec2.copySnapshot(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1059,12 +1187,12 @@ class AmazonEC2CopySnapshotCommand(val sourceRegion: String, val sourceSnapshotI
 }
 
 
-fun AmazonEC2Functions.createCustomerGateway(bgpAsn: Int, publicIp: String, type: GatewayType, init: AmazonEC2CreateCustomerGatewayCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateCustomerGatewayCommand(bgpAsn, publicIp, type).apply(init))
+fun AmazonEC2Functions.createCustomerGateway(bgpAsn: Int, publicIp: String, type: GatewayType, init: AmazonEC2CreateCustomerGatewayCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateCustomerGatewayResult {
+	return this.block.declare(AmazonEC2CreateCustomerGatewayCommand(bgpAsn, publicIp, type).apply(init)) as com.amazonaws.services.ec2.model.CreateCustomerGatewayResult
 }
 
 @Generated
-class AmazonEC2CreateCustomerGatewayCommand(val bgpAsn: Int, val publicIp: String, val type: GatewayType) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateCustomerGatewayRequest> {
+class AmazonEC2CreateCustomerGatewayCommand(val bgpAsn: Int, val publicIp: String, val type: GatewayType) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateCustomerGatewayRequest, com.amazonaws.services.ec2.model.CreateCustomerGatewayResult> {
 
 
 
@@ -1076,8 +1204,12 @@ class AmazonEC2CreateCustomerGatewayCommand(val bgpAsn: Int, val publicIp: Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createCustomerGateway(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateCustomerGatewayResult {
+	  return com.amazonaws.services.ec2.model.CreateCustomerGatewayResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateCustomerGatewayResult {
+		return environment.ec2.createCustomerGateway(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1090,12 +1222,12 @@ class AmazonEC2CreateCustomerGatewayCommand(val bgpAsn: Int, val publicIp: Strin
 }
 
 
-fun AmazonEC2Functions.createDefaultSubnet(availabilityZone: String, init: AmazonEC2CreateDefaultSubnetCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateDefaultSubnetCommand(availabilityZone).apply(init))
+fun AmazonEC2Functions.createDefaultSubnet(availabilityZone: String, init: AmazonEC2CreateDefaultSubnetCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateDefaultSubnetResult {
+	return this.block.declare(AmazonEC2CreateDefaultSubnetCommand(availabilityZone).apply(init)) as com.amazonaws.services.ec2.model.CreateDefaultSubnetResult
 }
 
 @Generated
-class AmazonEC2CreateDefaultSubnetCommand(val availabilityZone: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateDefaultSubnetRequest> {
+class AmazonEC2CreateDefaultSubnetCommand(val availabilityZone: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateDefaultSubnetRequest, com.amazonaws.services.ec2.model.CreateDefaultSubnetResult> {
 
 
 
@@ -1105,8 +1237,12 @@ class AmazonEC2CreateDefaultSubnetCommand(val availabilityZone: String) : Amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createDefaultSubnet(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateDefaultSubnetResult {
+	  return com.amazonaws.services.ec2.model.CreateDefaultSubnetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateDefaultSubnetResult {
+		return environment.ec2.createDefaultSubnet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1117,12 +1253,12 @@ class AmazonEC2CreateDefaultSubnetCommand(val availabilityZone: String) : Amazon
 }
 
 
-fun AmazonEC2Functions.createDefaultVpc(init: AmazonEC2CreateDefaultVpcCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateDefaultVpcCommand().apply(init))
+fun AmazonEC2Functions.createDefaultVpc(init: AmazonEC2CreateDefaultVpcCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateDefaultVpcResult {
+	return this.block.declare(AmazonEC2CreateDefaultVpcCommand().apply(init)) as com.amazonaws.services.ec2.model.CreateDefaultVpcResult
 }
 
 @Generated
-class AmazonEC2CreateDefaultVpcCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateDefaultVpcRequest> {
+class AmazonEC2CreateDefaultVpcCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateDefaultVpcRequest, com.amazonaws.services.ec2.model.CreateDefaultVpcResult> {
 
 
 
@@ -1132,8 +1268,12 @@ class AmazonEC2CreateDefaultVpcCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createDefaultVpc(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateDefaultVpcResult {
+	  return com.amazonaws.services.ec2.model.CreateDefaultVpcResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateDefaultVpcResult {
+		return environment.ec2.createDefaultVpc(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1144,12 +1284,12 @@ class AmazonEC2CreateDefaultVpcCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AmazonEC2Functions.createDhcpOptions(dhcpConfigurations: List<com.amazonaws.services.ec2.model.DhcpConfiguration>, init: AmazonEC2CreateDhcpOptionsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateDhcpOptionsCommand(dhcpConfigurations).apply(init))
+fun AmazonEC2Functions.createDhcpOptions(dhcpConfigurations: List<com.amazonaws.services.ec2.model.DhcpConfiguration>, init: AmazonEC2CreateDhcpOptionsCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateDhcpOptionsResult {
+	return this.block.declare(AmazonEC2CreateDhcpOptionsCommand(dhcpConfigurations).apply(init)) as com.amazonaws.services.ec2.model.CreateDhcpOptionsResult
 }
 
 @Generated
-class AmazonEC2CreateDhcpOptionsCommand(val dhcpConfigurations: List<com.amazonaws.services.ec2.model.DhcpConfiguration>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateDhcpOptionsRequest> {
+class AmazonEC2CreateDhcpOptionsCommand(val dhcpConfigurations: List<com.amazonaws.services.ec2.model.DhcpConfiguration>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateDhcpOptionsRequest, com.amazonaws.services.ec2.model.CreateDhcpOptionsResult> {
 
 
 
@@ -1159,8 +1299,12 @@ class AmazonEC2CreateDhcpOptionsCommand(val dhcpConfigurations: List<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createDhcpOptions(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateDhcpOptionsResult {
+	  return com.amazonaws.services.ec2.model.CreateDhcpOptionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateDhcpOptionsResult {
+		return environment.ec2.createDhcpOptions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1171,12 +1315,12 @@ class AmazonEC2CreateDhcpOptionsCommand(val dhcpConfigurations: List<com.amazona
 }
 
 
-fun AmazonEC2Functions.createEgressOnlyInternetGateway(vpcId: String, init: AmazonEC2CreateEgressOnlyInternetGatewayCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateEgressOnlyInternetGatewayCommand(vpcId).apply(init))
+fun AmazonEC2Functions.createEgressOnlyInternetGateway(vpcId: String, init: AmazonEC2CreateEgressOnlyInternetGatewayCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateEgressOnlyInternetGatewayResult {
+	return this.block.declare(AmazonEC2CreateEgressOnlyInternetGatewayCommand(vpcId).apply(init)) as com.amazonaws.services.ec2.model.CreateEgressOnlyInternetGatewayResult
 }
 
 @Generated
-class AmazonEC2CreateEgressOnlyInternetGatewayCommand(val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateEgressOnlyInternetGatewayRequest> {
+class AmazonEC2CreateEgressOnlyInternetGatewayCommand(val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateEgressOnlyInternetGatewayRequest, com.amazonaws.services.ec2.model.CreateEgressOnlyInternetGatewayResult> {
 
 	var clientToken: String? = null
 
@@ -1187,8 +1331,12 @@ class AmazonEC2CreateEgressOnlyInternetGatewayCommand(val vpcId: String) : Amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createEgressOnlyInternetGateway(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateEgressOnlyInternetGatewayResult {
+	  return com.amazonaws.services.ec2.model.CreateEgressOnlyInternetGatewayResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateEgressOnlyInternetGatewayResult {
+		return environment.ec2.createEgressOnlyInternetGateway(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1200,12 +1348,12 @@ class AmazonEC2CreateEgressOnlyInternetGatewayCommand(val vpcId: String) : Amazo
 }
 
 
-fun AmazonEC2Functions.createFlowLogs(deliverLogsPermissionArn: String, logGroupName: String, resourceIds: List<String>, resourceType: FlowLogsResourceType, trafficType: TrafficType, init: AmazonEC2CreateFlowLogsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateFlowLogsCommand(deliverLogsPermissionArn, logGroupName, resourceIds, resourceType, trafficType).apply(init))
+fun AmazonEC2Functions.createFlowLogs(deliverLogsPermissionArn: String, logGroupName: String, resourceIds: List<String>, resourceType: FlowLogsResourceType, trafficType: TrafficType, init: AmazonEC2CreateFlowLogsCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateFlowLogsResult {
+	return this.block.declare(AmazonEC2CreateFlowLogsCommand(deliverLogsPermissionArn, logGroupName, resourceIds, resourceType, trafficType).apply(init)) as com.amazonaws.services.ec2.model.CreateFlowLogsResult
 }
 
 @Generated
-class AmazonEC2CreateFlowLogsCommand(val deliverLogsPermissionArn: String, val logGroupName: String, val resourceIds: List<String>, val resourceType: FlowLogsResourceType, val trafficType: TrafficType) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateFlowLogsRequest> {
+class AmazonEC2CreateFlowLogsCommand(val deliverLogsPermissionArn: String, val logGroupName: String, val resourceIds: List<String>, val resourceType: FlowLogsResourceType, val trafficType: TrafficType) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateFlowLogsRequest, com.amazonaws.services.ec2.model.CreateFlowLogsResult> {
 
 	var clientToken: String? = null
 
@@ -1220,8 +1368,12 @@ class AmazonEC2CreateFlowLogsCommand(val deliverLogsPermissionArn: String, val l
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createFlowLogs(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateFlowLogsResult {
+	  return com.amazonaws.services.ec2.model.CreateFlowLogsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateFlowLogsResult {
+		return environment.ec2.createFlowLogs(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1237,12 +1389,12 @@ class AmazonEC2CreateFlowLogsCommand(val deliverLogsPermissionArn: String, val l
 }
 
 
-fun AmazonEC2Functions.createFpgaImage(inputStorageLocation: com.amazonaws.services.ec2.model.StorageLocation, init: AmazonEC2CreateFpgaImageCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateFpgaImageCommand(inputStorageLocation).apply(init))
+fun AmazonEC2Functions.createFpgaImage(inputStorageLocation: com.amazonaws.services.ec2.model.StorageLocation, init: AmazonEC2CreateFpgaImageCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateFpgaImageResult {
+	return this.block.declare(AmazonEC2CreateFpgaImageCommand(inputStorageLocation).apply(init)) as com.amazonaws.services.ec2.model.CreateFpgaImageResult
 }
 
 @Generated
-class AmazonEC2CreateFpgaImageCommand(val inputStorageLocation: com.amazonaws.services.ec2.model.StorageLocation) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateFpgaImageRequest> {
+class AmazonEC2CreateFpgaImageCommand(val inputStorageLocation: com.amazonaws.services.ec2.model.StorageLocation) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateFpgaImageRequest, com.amazonaws.services.ec2.model.CreateFpgaImageResult> {
 
 	var logsStorageLocation: com.amazonaws.services.ec2.model.StorageLocation? = null
 	var description: String? = null
@@ -1259,8 +1411,12 @@ class AmazonEC2CreateFpgaImageCommand(val inputStorageLocation: com.amazonaws.se
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createFpgaImage(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateFpgaImageResult {
+	  return com.amazonaws.services.ec2.model.CreateFpgaImageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateFpgaImageResult {
+		return environment.ec2.createFpgaImage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1275,12 +1431,12 @@ class AmazonEC2CreateFpgaImageCommand(val inputStorageLocation: com.amazonaws.se
 }
 
 
-fun AmazonEC2Functions.createImage(instanceId: String, name: String, init: AmazonEC2CreateImageCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateImageCommand(instanceId, name).apply(init))
+fun AmazonEC2Functions.createImage(instanceId: String, name: String, init: AmazonEC2CreateImageCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateImageResult {
+	return this.block.declare(AmazonEC2CreateImageCommand(instanceId, name).apply(init)) as com.amazonaws.services.ec2.model.CreateImageResult
 }
 
 @Generated
-class AmazonEC2CreateImageCommand(val instanceId: String, val name: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateImageRequest> {
+class AmazonEC2CreateImageCommand(val instanceId: String, val name: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateImageRequest, com.amazonaws.services.ec2.model.CreateImageResult> {
 
 	var blockDeviceMappings: List<com.amazonaws.services.ec2.model.BlockDeviceMapping>? = null
 	var description: String? = null
@@ -1296,8 +1452,12 @@ class AmazonEC2CreateImageCommand(val instanceId: String, val name: String) : Am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createImage(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateImageResult {
+	  return com.amazonaws.services.ec2.model.CreateImageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateImageResult {
+		return environment.ec2.createImage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1312,12 +1472,12 @@ class AmazonEC2CreateImageCommand(val instanceId: String, val name: String) : Am
 }
 
 
-fun AmazonEC2Functions.createInstanceExportTask(instanceId: String, init: AmazonEC2CreateInstanceExportTaskCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateInstanceExportTaskCommand(instanceId).apply(init))
+fun AmazonEC2Functions.createInstanceExportTask(instanceId: String, init: AmazonEC2CreateInstanceExportTaskCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateInstanceExportTaskResult {
+	return this.block.declare(AmazonEC2CreateInstanceExportTaskCommand(instanceId).apply(init)) as com.amazonaws.services.ec2.model.CreateInstanceExportTaskResult
 }
 
 @Generated
-class AmazonEC2CreateInstanceExportTaskCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateInstanceExportTaskRequest> {
+class AmazonEC2CreateInstanceExportTaskCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateInstanceExportTaskRequest, com.amazonaws.services.ec2.model.CreateInstanceExportTaskResult> {
 
 	var description: String? = null
 	var exportToS3Task: com.amazonaws.services.ec2.model.ExportToS3TaskSpecification? = null
@@ -1332,8 +1492,12 @@ class AmazonEC2CreateInstanceExportTaskCommand(val instanceId: String) : AmazonW
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createInstanceExportTask(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateInstanceExportTaskResult {
+	  return com.amazonaws.services.ec2.model.CreateInstanceExportTaskResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateInstanceExportTaskResult {
+		return environment.ec2.createInstanceExportTask(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1347,12 +1511,12 @@ class AmazonEC2CreateInstanceExportTaskCommand(val instanceId: String) : AmazonW
 }
 
 
-fun AmazonEC2Functions.createInternetGateway(init: AmazonEC2CreateInternetGatewayCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateInternetGatewayCommand().apply(init))
+fun AmazonEC2Functions.createInternetGateway(init: AmazonEC2CreateInternetGatewayCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateInternetGatewayResult {
+	return this.block.declare(AmazonEC2CreateInternetGatewayCommand().apply(init)) as com.amazonaws.services.ec2.model.CreateInternetGatewayResult
 }
 
 @Generated
-class AmazonEC2CreateInternetGatewayCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateInternetGatewayRequest> {
+class AmazonEC2CreateInternetGatewayCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateInternetGatewayRequest, com.amazonaws.services.ec2.model.CreateInternetGatewayResult> {
 
 
 
@@ -1362,8 +1526,12 @@ class AmazonEC2CreateInternetGatewayCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createInternetGateway(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateInternetGatewayResult {
+	  return com.amazonaws.services.ec2.model.CreateInternetGatewayResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateInternetGatewayResult {
+		return environment.ec2.createInternetGateway(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1374,12 +1542,12 @@ class AmazonEC2CreateInternetGatewayCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AmazonEC2Functions.createKeyPair(keyName: String, init: AmazonEC2CreateKeyPairCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateKeyPairCommand(keyName).apply(init))
+fun AmazonEC2Functions.createKeyPair(keyName: String, init: AmazonEC2CreateKeyPairCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateKeyPairResult {
+	return this.block.declare(AmazonEC2CreateKeyPairCommand(keyName).apply(init)) as com.amazonaws.services.ec2.model.CreateKeyPairResult
 }
 
 @Generated
-class AmazonEC2CreateKeyPairCommand(val keyName: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateKeyPairRequest> {
+class AmazonEC2CreateKeyPairCommand(val keyName: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateKeyPairRequest, com.amazonaws.services.ec2.model.CreateKeyPairResult> {
 
 
 
@@ -1389,8 +1557,12 @@ class AmazonEC2CreateKeyPairCommand(val keyName: String) : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createKeyPair(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateKeyPairResult {
+	  return com.amazonaws.services.ec2.model.CreateKeyPairResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateKeyPairResult {
+		return environment.ec2.createKeyPair(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1401,12 +1573,12 @@ class AmazonEC2CreateKeyPairCommand(val keyName: String) : AmazonWebServiceComma
 }
 
 
-fun AmazonEC2Functions.createLaunchTemplate(launchTemplateName: String, launchTemplateData: com.amazonaws.services.ec2.model.RequestLaunchTemplateData, init: AmazonEC2CreateLaunchTemplateCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateLaunchTemplateCommand(launchTemplateName, launchTemplateData).apply(init))
+fun AmazonEC2Functions.createLaunchTemplate(launchTemplateName: String, launchTemplateData: com.amazonaws.services.ec2.model.RequestLaunchTemplateData, init: AmazonEC2CreateLaunchTemplateCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateLaunchTemplateResult {
+	return this.block.declare(AmazonEC2CreateLaunchTemplateCommand(launchTemplateName, launchTemplateData).apply(init)) as com.amazonaws.services.ec2.model.CreateLaunchTemplateResult
 }
 
 @Generated
-class AmazonEC2CreateLaunchTemplateCommand(val launchTemplateName: String, val launchTemplateData: com.amazonaws.services.ec2.model.RequestLaunchTemplateData) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateLaunchTemplateRequest> {
+class AmazonEC2CreateLaunchTemplateCommand(val launchTemplateName: String, val launchTemplateData: com.amazonaws.services.ec2.model.RequestLaunchTemplateData) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateLaunchTemplateRequest, com.amazonaws.services.ec2.model.CreateLaunchTemplateResult> {
 
 	var clientToken: String? = null
 	var versionDescription: String? = null
@@ -1420,8 +1592,12 @@ class AmazonEC2CreateLaunchTemplateCommand(val launchTemplateName: String, val l
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createLaunchTemplate(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateLaunchTemplateResult {
+	  return com.amazonaws.services.ec2.model.CreateLaunchTemplateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateLaunchTemplateResult {
+		return environment.ec2.createLaunchTemplate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1435,12 +1611,12 @@ class AmazonEC2CreateLaunchTemplateCommand(val launchTemplateName: String, val l
 }
 
 
-fun AmazonEC2Functions.createLaunchTemplateVersion(launchTemplateData: com.amazonaws.services.ec2.model.RequestLaunchTemplateData, init: AmazonEC2CreateLaunchTemplateVersionCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateLaunchTemplateVersionCommand(launchTemplateData).apply(init))
+fun AmazonEC2Functions.createLaunchTemplateVersion(launchTemplateData: com.amazonaws.services.ec2.model.RequestLaunchTemplateData, init: AmazonEC2CreateLaunchTemplateVersionCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateLaunchTemplateVersionResult {
+	return this.block.declare(AmazonEC2CreateLaunchTemplateVersionCommand(launchTemplateData).apply(init)) as com.amazonaws.services.ec2.model.CreateLaunchTemplateVersionResult
 }
 
 @Generated
-class AmazonEC2CreateLaunchTemplateVersionCommand(val launchTemplateData: com.amazonaws.services.ec2.model.RequestLaunchTemplateData) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateLaunchTemplateVersionRequest> {
+class AmazonEC2CreateLaunchTemplateVersionCommand(val launchTemplateData: com.amazonaws.services.ec2.model.RequestLaunchTemplateData) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateLaunchTemplateVersionRequest, com.amazonaws.services.ec2.model.CreateLaunchTemplateVersionResult> {
 
 	var clientToken: String? = null
 	var launchTemplateId: String? = null
@@ -1459,8 +1635,12 @@ class AmazonEC2CreateLaunchTemplateVersionCommand(val launchTemplateData: com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createLaunchTemplateVersion(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateLaunchTemplateVersionResult {
+	  return com.amazonaws.services.ec2.model.CreateLaunchTemplateVersionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateLaunchTemplateVersionResult {
+		return environment.ec2.createLaunchTemplateVersion(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1476,12 +1656,12 @@ class AmazonEC2CreateLaunchTemplateVersionCommand(val launchTemplateData: com.am
 }
 
 
-fun AmazonEC2Functions.createNatGateway(allocationId: String, subnetId: String, init: AmazonEC2CreateNatGatewayCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateNatGatewayCommand(allocationId, subnetId).apply(init))
+fun AmazonEC2Functions.createNatGateway(allocationId: String, subnetId: String, init: AmazonEC2CreateNatGatewayCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateNatGatewayResult {
+	return this.block.declare(AmazonEC2CreateNatGatewayCommand(allocationId, subnetId).apply(init)) as com.amazonaws.services.ec2.model.CreateNatGatewayResult
 }
 
 @Generated
-class AmazonEC2CreateNatGatewayCommand(val allocationId: String, val subnetId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateNatGatewayRequest> {
+class AmazonEC2CreateNatGatewayCommand(val allocationId: String, val subnetId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateNatGatewayRequest, com.amazonaws.services.ec2.model.CreateNatGatewayResult> {
 
 	var clientToken: String? = null
 
@@ -1493,8 +1673,12 @@ class AmazonEC2CreateNatGatewayCommand(val allocationId: String, val subnetId: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createNatGateway(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateNatGatewayResult {
+	  return com.amazonaws.services.ec2.model.CreateNatGatewayResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateNatGatewayResult {
+		return environment.ec2.createNatGateway(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1507,12 +1691,12 @@ class AmazonEC2CreateNatGatewayCommand(val allocationId: String, val subnetId: S
 }
 
 
-fun AmazonEC2Functions.createNetworkAcl(vpcId: String, init: AmazonEC2CreateNetworkAclCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateNetworkAclCommand(vpcId).apply(init))
+fun AmazonEC2Functions.createNetworkAcl(vpcId: String, init: AmazonEC2CreateNetworkAclCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateNetworkAclResult {
+	return this.block.declare(AmazonEC2CreateNetworkAclCommand(vpcId).apply(init)) as com.amazonaws.services.ec2.model.CreateNetworkAclResult
 }
 
 @Generated
-class AmazonEC2CreateNetworkAclCommand(val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateNetworkAclRequest> {
+class AmazonEC2CreateNetworkAclCommand(val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateNetworkAclRequest, com.amazonaws.services.ec2.model.CreateNetworkAclResult> {
 
 
 
@@ -1522,8 +1706,12 @@ class AmazonEC2CreateNetworkAclCommand(val vpcId: String) : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createNetworkAcl(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateNetworkAclResult {
+	  return com.amazonaws.services.ec2.model.CreateNetworkAclResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateNetworkAclResult {
+		return environment.ec2.createNetworkAcl(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1534,12 +1722,12 @@ class AmazonEC2CreateNetworkAclCommand(val vpcId: String) : AmazonWebServiceComm
 }
 
 
-fun AmazonEC2Functions.createNetworkAclEntry(egress: Boolean, networkAclId: String, protocol: String, ruleAction: RuleAction, ruleNumber: Int, init: AmazonEC2CreateNetworkAclEntryCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateNetworkAclEntryCommand(egress, networkAclId, protocol, ruleAction, ruleNumber).apply(init))
+fun AmazonEC2Functions.createNetworkAclEntry(egress: Boolean, networkAclId: String, protocol: String, ruleAction: RuleAction, ruleNumber: Int, init: AmazonEC2CreateNetworkAclEntryCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateNetworkAclEntryResult {
+	return this.block.declare(AmazonEC2CreateNetworkAclEntryCommand(egress, networkAclId, protocol, ruleAction, ruleNumber).apply(init)) as com.amazonaws.services.ec2.model.CreateNetworkAclEntryResult
 }
 
 @Generated
-class AmazonEC2CreateNetworkAclEntryCommand(val egress: Boolean, val networkAclId: String, val protocol: String, val ruleAction: RuleAction, val ruleNumber: Int) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateNetworkAclEntryRequest> {
+class AmazonEC2CreateNetworkAclEntryCommand(val egress: Boolean, val networkAclId: String, val protocol: String, val ruleAction: RuleAction, val ruleNumber: Int) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateNetworkAclEntryRequest, com.amazonaws.services.ec2.model.CreateNetworkAclEntryResult> {
 
 	var cidrBlock: String? = null
 	var icmpTypeCode: com.amazonaws.services.ec2.model.IcmpTypeCode? = null
@@ -1560,8 +1748,12 @@ class AmazonEC2CreateNetworkAclEntryCommand(val egress: Boolean, val networkAclI
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createNetworkAclEntry(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateNetworkAclEntryResult {
+	  return com.amazonaws.services.ec2.model.CreateNetworkAclEntryResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateNetworkAclEntryResult {
+		return environment.ec2.createNetworkAclEntry(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1580,12 +1772,12 @@ class AmazonEC2CreateNetworkAclEntryCommand(val egress: Boolean, val networkAclI
 }
 
 
-fun AmazonEC2Functions.createNetworkInterface(subnetId: String, init: AmazonEC2CreateNetworkInterfaceCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateNetworkInterfaceCommand(subnetId).apply(init))
+fun AmazonEC2Functions.createNetworkInterface(subnetId: String, init: AmazonEC2CreateNetworkInterfaceCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateNetworkInterfaceResult {
+	return this.block.declare(AmazonEC2CreateNetworkInterfaceCommand(subnetId).apply(init)) as com.amazonaws.services.ec2.model.CreateNetworkInterfaceResult
 }
 
 @Generated
-class AmazonEC2CreateNetworkInterfaceCommand(val subnetId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateNetworkInterfaceRequest> {
+class AmazonEC2CreateNetworkInterfaceCommand(val subnetId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateNetworkInterfaceRequest, com.amazonaws.services.ec2.model.CreateNetworkInterfaceResult> {
 
 	var description: String? = null
 	var groups: List<String>? = null
@@ -1608,8 +1800,12 @@ class AmazonEC2CreateNetworkInterfaceCommand(val subnetId: String) : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createNetworkInterface(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateNetworkInterfaceResult {
+	  return com.amazonaws.services.ec2.model.CreateNetworkInterfaceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateNetworkInterfaceResult {
+		return environment.ec2.createNetworkInterface(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1627,12 +1823,12 @@ class AmazonEC2CreateNetworkInterfaceCommand(val subnetId: String) : AmazonWebSe
 }
 
 
-fun AmazonEC2Functions.createNetworkInterfacePermission(networkInterfaceId: String, permission: InterfacePermissionType, init: AmazonEC2CreateNetworkInterfacePermissionCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateNetworkInterfacePermissionCommand(networkInterfaceId, permission).apply(init))
+fun AmazonEC2Functions.createNetworkInterfacePermission(networkInterfaceId: String, permission: InterfacePermissionType, init: AmazonEC2CreateNetworkInterfacePermissionCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateNetworkInterfacePermissionResult {
+	return this.block.declare(AmazonEC2CreateNetworkInterfacePermissionCommand(networkInterfaceId, permission).apply(init)) as com.amazonaws.services.ec2.model.CreateNetworkInterfacePermissionResult
 }
 
 @Generated
-class AmazonEC2CreateNetworkInterfacePermissionCommand(val networkInterfaceId: String, val permission: InterfacePermissionType) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateNetworkInterfacePermissionRequest> {
+class AmazonEC2CreateNetworkInterfacePermissionCommand(val networkInterfaceId: String, val permission: InterfacePermissionType) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateNetworkInterfacePermissionRequest, com.amazonaws.services.ec2.model.CreateNetworkInterfacePermissionResult> {
 
 	var awsAccountId: String? = null
 	var awsService: String? = null
@@ -1646,8 +1842,12 @@ class AmazonEC2CreateNetworkInterfacePermissionCommand(val networkInterfaceId: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createNetworkInterfacePermission(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateNetworkInterfacePermissionResult {
+	  return com.amazonaws.services.ec2.model.CreateNetworkInterfacePermissionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateNetworkInterfacePermissionResult {
+		return environment.ec2.createNetworkInterfacePermission(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1661,12 +1861,12 @@ class AmazonEC2CreateNetworkInterfacePermissionCommand(val networkInterfaceId: S
 }
 
 
-fun AmazonEC2Functions.createPlacementGroup(groupName: String, strategy: PlacementStrategy, init: AmazonEC2CreatePlacementGroupCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreatePlacementGroupCommand(groupName, strategy).apply(init))
+fun AmazonEC2Functions.createPlacementGroup(groupName: String, strategy: PlacementStrategy, init: AmazonEC2CreatePlacementGroupCommand.() -> Unit): com.amazonaws.services.ec2.model.CreatePlacementGroupResult {
+	return this.block.declare(AmazonEC2CreatePlacementGroupCommand(groupName, strategy).apply(init)) as com.amazonaws.services.ec2.model.CreatePlacementGroupResult
 }
 
 @Generated
-class AmazonEC2CreatePlacementGroupCommand(val groupName: String, val strategy: PlacementStrategy) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreatePlacementGroupRequest> {
+class AmazonEC2CreatePlacementGroupCommand(val groupName: String, val strategy: PlacementStrategy) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreatePlacementGroupRequest, com.amazonaws.services.ec2.model.CreatePlacementGroupResult> {
 
 
 
@@ -1677,8 +1877,12 @@ class AmazonEC2CreatePlacementGroupCommand(val groupName: String, val strategy: 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createPlacementGroup(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreatePlacementGroupResult {
+	  return com.amazonaws.services.ec2.model.CreatePlacementGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreatePlacementGroupResult {
+		return environment.ec2.createPlacementGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1690,12 +1894,12 @@ class AmazonEC2CreatePlacementGroupCommand(val groupName: String, val strategy: 
 }
 
 
-fun AmazonEC2Functions.createReservedInstancesListing(clientToken: String, instanceCount: Int, priceSchedules: List<com.amazonaws.services.ec2.model.PriceScheduleSpecification>, reservedInstancesId: String, init: AmazonEC2CreateReservedInstancesListingCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateReservedInstancesListingCommand(clientToken, instanceCount, priceSchedules, reservedInstancesId).apply(init))
+fun AmazonEC2Functions.createReservedInstancesListing(clientToken: String, instanceCount: Int, priceSchedules: List<com.amazonaws.services.ec2.model.PriceScheduleSpecification>, reservedInstancesId: String, init: AmazonEC2CreateReservedInstancesListingCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateReservedInstancesListingResult {
+	return this.block.declare(AmazonEC2CreateReservedInstancesListingCommand(clientToken, instanceCount, priceSchedules, reservedInstancesId).apply(init)) as com.amazonaws.services.ec2.model.CreateReservedInstancesListingResult
 }
 
 @Generated
-class AmazonEC2CreateReservedInstancesListingCommand(val clientToken: String, val instanceCount: Int, val priceSchedules: List<com.amazonaws.services.ec2.model.PriceScheduleSpecification>, val reservedInstancesId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateReservedInstancesListingRequest> {
+class AmazonEC2CreateReservedInstancesListingCommand(val clientToken: String, val instanceCount: Int, val priceSchedules: List<com.amazonaws.services.ec2.model.PriceScheduleSpecification>, val reservedInstancesId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateReservedInstancesListingRequest, com.amazonaws.services.ec2.model.CreateReservedInstancesListingResult> {
 
 
 
@@ -1708,8 +1912,12 @@ class AmazonEC2CreateReservedInstancesListingCommand(val clientToken: String, va
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createReservedInstancesListing(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateReservedInstancesListingResult {
+	  return com.amazonaws.services.ec2.model.CreateReservedInstancesListingResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateReservedInstancesListingResult {
+		return environment.ec2.createReservedInstancesListing(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1723,12 +1931,12 @@ class AmazonEC2CreateReservedInstancesListingCommand(val clientToken: String, va
 }
 
 
-fun AmazonEC2Functions.createRoute(routeTableId: String, init: AmazonEC2CreateRouteCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateRouteCommand(routeTableId).apply(init))
+fun AmazonEC2Functions.createRoute(routeTableId: String, init: AmazonEC2CreateRouteCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateRouteResult {
+	return this.block.declare(AmazonEC2CreateRouteCommand(routeTableId).apply(init)) as com.amazonaws.services.ec2.model.CreateRouteResult
 }
 
 @Generated
-class AmazonEC2CreateRouteCommand(val routeTableId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateRouteRequest> {
+class AmazonEC2CreateRouteCommand(val routeTableId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateRouteRequest, com.amazonaws.services.ec2.model.CreateRouteResult> {
 
 	var destinationCidrBlock: String? = null
 	var destinationIpv6CidrBlock: String? = null
@@ -1753,8 +1961,12 @@ class AmazonEC2CreateRouteCommand(val routeTableId: String) : AmazonWebServiceCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createRoute(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateRouteResult {
+	  return com.amazonaws.services.ec2.model.CreateRouteResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateRouteResult {
+		return environment.ec2.createRoute(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1773,12 +1985,12 @@ class AmazonEC2CreateRouteCommand(val routeTableId: String) : AmazonWebServiceCo
 }
 
 
-fun AmazonEC2Functions.createRouteTable(vpcId: String, init: AmazonEC2CreateRouteTableCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateRouteTableCommand(vpcId).apply(init))
+fun AmazonEC2Functions.createRouteTable(vpcId: String, init: AmazonEC2CreateRouteTableCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateRouteTableResult {
+	return this.block.declare(AmazonEC2CreateRouteTableCommand(vpcId).apply(init)) as com.amazonaws.services.ec2.model.CreateRouteTableResult
 }
 
 @Generated
-class AmazonEC2CreateRouteTableCommand(val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateRouteTableRequest> {
+class AmazonEC2CreateRouteTableCommand(val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateRouteTableRequest, com.amazonaws.services.ec2.model.CreateRouteTableResult> {
 
 
 
@@ -1788,8 +2000,12 @@ class AmazonEC2CreateRouteTableCommand(val vpcId: String) : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createRouteTable(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateRouteTableResult {
+	  return com.amazonaws.services.ec2.model.CreateRouteTableResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateRouteTableResult {
+		return environment.ec2.createRouteTable(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1800,12 +2016,12 @@ class AmazonEC2CreateRouteTableCommand(val vpcId: String) : AmazonWebServiceComm
 }
 
 
-fun AmazonEC2Functions.createSecurityGroup(description: String, groupName: String, init: AmazonEC2CreateSecurityGroupCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateSecurityGroupCommand(description, groupName).apply(init))
+fun AmazonEC2Functions.createSecurityGroup(description: String, groupName: String, init: AmazonEC2CreateSecurityGroupCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateSecurityGroupResult {
+	return this.block.declare(AmazonEC2CreateSecurityGroupCommand(description, groupName).apply(init)) as com.amazonaws.services.ec2.model.CreateSecurityGroupResult
 }
 
 @Generated
-class AmazonEC2CreateSecurityGroupCommand(val description: String, val groupName: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateSecurityGroupRequest> {
+class AmazonEC2CreateSecurityGroupCommand(val description: String, val groupName: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateSecurityGroupRequest, com.amazonaws.services.ec2.model.CreateSecurityGroupResult> {
 
 	var vpcId: String? = null
 
@@ -1817,8 +2033,12 @@ class AmazonEC2CreateSecurityGroupCommand(val description: String, val groupName
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createSecurityGroup(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateSecurityGroupResult {
+	  return com.amazonaws.services.ec2.model.CreateSecurityGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateSecurityGroupResult {
+		return environment.ec2.createSecurityGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1831,12 +2051,12 @@ class AmazonEC2CreateSecurityGroupCommand(val description: String, val groupName
 }
 
 
-fun AmazonEC2Functions.createSnapshot(volumeId: String, init: AmazonEC2CreateSnapshotCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateSnapshotCommand(volumeId).apply(init))
+fun AmazonEC2Functions.createSnapshot(volumeId: String, init: AmazonEC2CreateSnapshotCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateSnapshotResult {
+	return this.block.declare(AmazonEC2CreateSnapshotCommand(volumeId).apply(init)) as com.amazonaws.services.ec2.model.CreateSnapshotResult
 }
 
 @Generated
-class AmazonEC2CreateSnapshotCommand(val volumeId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateSnapshotRequest> {
+class AmazonEC2CreateSnapshotCommand(val volumeId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateSnapshotRequest, com.amazonaws.services.ec2.model.CreateSnapshotResult> {
 
 	var description: String? = null
 	var tagSpecifications: List<com.amazonaws.services.ec2.model.TagSpecification>? = null
@@ -1849,8 +2069,12 @@ class AmazonEC2CreateSnapshotCommand(val volumeId: String) : AmazonWebServiceCom
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createSnapshot(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateSnapshotResult {
+	  return com.amazonaws.services.ec2.model.CreateSnapshotResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateSnapshotResult {
+		return environment.ec2.createSnapshot(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1863,12 +2087,12 @@ class AmazonEC2CreateSnapshotCommand(val volumeId: String) : AmazonWebServiceCom
 }
 
 
-fun AmazonEC2Functions.createSpotDatafeedSubscription(bucket: String, init: AmazonEC2CreateSpotDatafeedSubscriptionCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateSpotDatafeedSubscriptionCommand(bucket).apply(init))
+fun AmazonEC2Functions.createSpotDatafeedSubscription(bucket: String, init: AmazonEC2CreateSpotDatafeedSubscriptionCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateSpotDatafeedSubscriptionResult {
+	return this.block.declare(AmazonEC2CreateSpotDatafeedSubscriptionCommand(bucket).apply(init)) as com.amazonaws.services.ec2.model.CreateSpotDatafeedSubscriptionResult
 }
 
 @Generated
-class AmazonEC2CreateSpotDatafeedSubscriptionCommand(val bucket: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateSpotDatafeedSubscriptionRequest> {
+class AmazonEC2CreateSpotDatafeedSubscriptionCommand(val bucket: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateSpotDatafeedSubscriptionRequest, com.amazonaws.services.ec2.model.CreateSpotDatafeedSubscriptionResult> {
 
 	var prefix: String? = null
 
@@ -1879,8 +2103,12 @@ class AmazonEC2CreateSpotDatafeedSubscriptionCommand(val bucket: String) : Amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createSpotDatafeedSubscription(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateSpotDatafeedSubscriptionResult {
+	  return com.amazonaws.services.ec2.model.CreateSpotDatafeedSubscriptionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateSpotDatafeedSubscriptionResult {
+		return environment.ec2.createSpotDatafeedSubscription(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1892,12 +2120,12 @@ class AmazonEC2CreateSpotDatafeedSubscriptionCommand(val bucket: String) : Amazo
 }
 
 
-fun AmazonEC2Functions.createSubnet(cidrBlock: String, vpcId: String, init: AmazonEC2CreateSubnetCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateSubnetCommand(cidrBlock, vpcId).apply(init))
+fun AmazonEC2Functions.createSubnet(cidrBlock: String, vpcId: String, init: AmazonEC2CreateSubnetCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateSubnetResult {
+	return this.block.declare(AmazonEC2CreateSubnetCommand(cidrBlock, vpcId).apply(init)) as com.amazonaws.services.ec2.model.CreateSubnetResult
 }
 
 @Generated
-class AmazonEC2CreateSubnetCommand(val cidrBlock: String, val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateSubnetRequest> {
+class AmazonEC2CreateSubnetCommand(val cidrBlock: String, val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateSubnetRequest, com.amazonaws.services.ec2.model.CreateSubnetResult> {
 
 	var availabilityZone: String? = null
 	var ipv6CidrBlock: String? = null
@@ -1911,8 +2139,12 @@ class AmazonEC2CreateSubnetCommand(val cidrBlock: String, val vpcId: String) : A
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createSubnet(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateSubnetResult {
+	  return com.amazonaws.services.ec2.model.CreateSubnetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateSubnetResult {
+		return environment.ec2.createSubnet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1926,12 +2158,12 @@ class AmazonEC2CreateSubnetCommand(val cidrBlock: String, val vpcId: String) : A
 }
 
 
-fun AmazonEC2Functions.createTags(resources: List<String>, tags: List<com.amazonaws.services.ec2.model.Tag>, init: AmazonEC2CreateTagsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateTagsCommand(resources, tags).apply(init))
+fun AmazonEC2Functions.createTags(resources: List<String>, tags: List<com.amazonaws.services.ec2.model.Tag>, init: AmazonEC2CreateTagsCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateTagsResult {
+	return this.block.declare(AmazonEC2CreateTagsCommand(resources, tags).apply(init)) as com.amazonaws.services.ec2.model.CreateTagsResult
 }
 
 @Generated
-class AmazonEC2CreateTagsCommand(val resources: List<String>, val tags: List<com.amazonaws.services.ec2.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateTagsRequest> {
+class AmazonEC2CreateTagsCommand(val resources: List<String>, val tags: List<com.amazonaws.services.ec2.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateTagsRequest, com.amazonaws.services.ec2.model.CreateTagsResult> {
 
 
 
@@ -1942,8 +2174,12 @@ class AmazonEC2CreateTagsCommand(val resources: List<String>, val tags: List<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createTags(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateTagsResult {
+	  return com.amazonaws.services.ec2.model.CreateTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateTagsResult {
+		return environment.ec2.createTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1955,12 +2191,12 @@ class AmazonEC2CreateTagsCommand(val resources: List<String>, val tags: List<com
 }
 
 
-fun AmazonEC2Functions.createVolume(availabilityZone: String, init: AmazonEC2CreateVolumeCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateVolumeCommand(availabilityZone).apply(init))
+fun AmazonEC2Functions.createVolume(availabilityZone: String, init: AmazonEC2CreateVolumeCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateVolumeResult {
+	return this.block.declare(AmazonEC2CreateVolumeCommand(availabilityZone).apply(init)) as com.amazonaws.services.ec2.model.CreateVolumeResult
 }
 
 @Generated
-class AmazonEC2CreateVolumeCommand(val availabilityZone: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateVolumeRequest> {
+class AmazonEC2CreateVolumeCommand(val availabilityZone: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateVolumeRequest, com.amazonaws.services.ec2.model.CreateVolumeResult> {
 
 	var encrypted: Boolean? = false
 	var iops: Int? = 0
@@ -1983,8 +2219,12 @@ class AmazonEC2CreateVolumeCommand(val availabilityZone: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createVolume(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateVolumeResult {
+	  return com.amazonaws.services.ec2.model.CreateVolumeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateVolumeResult {
+		return environment.ec2.createVolume(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2002,12 +2242,12 @@ class AmazonEC2CreateVolumeCommand(val availabilityZone: String) : AmazonWebServ
 }
 
 
-fun AmazonEC2Functions.createVpc(cidrBlock: String, init: AmazonEC2CreateVpcCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateVpcCommand(cidrBlock).apply(init))
+fun AmazonEC2Functions.createVpc(cidrBlock: String, init: AmazonEC2CreateVpcCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateVpcResult {
+	return this.block.declare(AmazonEC2CreateVpcCommand(cidrBlock).apply(init)) as com.amazonaws.services.ec2.model.CreateVpcResult
 }
 
 @Generated
-class AmazonEC2CreateVpcCommand(val cidrBlock: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateVpcRequest> {
+class AmazonEC2CreateVpcCommand(val cidrBlock: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateVpcRequest, com.amazonaws.services.ec2.model.CreateVpcResult> {
 
 	var amazonProvidedIpv6CidrBlock: Boolean? = false
 	var instanceTenancy: Tenancy? = null
@@ -2020,8 +2260,12 @@ class AmazonEC2CreateVpcCommand(val cidrBlock: String) : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createVpc(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateVpcResult {
+	  return com.amazonaws.services.ec2.model.CreateVpcResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateVpcResult {
+		return environment.ec2.createVpc(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2034,12 +2278,12 @@ class AmazonEC2CreateVpcCommand(val cidrBlock: String) : AmazonWebServiceCommand
 }
 
 
-fun AmazonEC2Functions.createVpcEndpoint(vpcId: String, serviceName: String, init: AmazonEC2CreateVpcEndpointCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateVpcEndpointCommand(vpcId, serviceName).apply(init))
+fun AmazonEC2Functions.createVpcEndpoint(vpcId: String, serviceName: String, init: AmazonEC2CreateVpcEndpointCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateVpcEndpointResult {
+	return this.block.declare(AmazonEC2CreateVpcEndpointCommand(vpcId, serviceName).apply(init)) as com.amazonaws.services.ec2.model.CreateVpcEndpointResult
 }
 
 @Generated
-class AmazonEC2CreateVpcEndpointCommand(val vpcId: String, val serviceName: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateVpcEndpointRequest> {
+class AmazonEC2CreateVpcEndpointCommand(val vpcId: String, val serviceName: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateVpcEndpointRequest, com.amazonaws.services.ec2.model.CreateVpcEndpointResult> {
 
 	var vpcEndpointType: VpcEndpointType? = null
 	var policyDocument: String? = null
@@ -2063,8 +2307,12 @@ class AmazonEC2CreateVpcEndpointCommand(val vpcId: String, val serviceName: Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createVpcEndpoint(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateVpcEndpointResult {
+	  return com.amazonaws.services.ec2.model.CreateVpcEndpointResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateVpcEndpointResult {
+		return environment.ec2.createVpcEndpoint(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2083,12 +2331,12 @@ class AmazonEC2CreateVpcEndpointCommand(val vpcId: String, val serviceName: Stri
 }
 
 
-fun AmazonEC2Functions.createVpcEndpointConnectionNotification(connectionNotificationArn: String, connectionEvents: List<String>, init: AmazonEC2CreateVpcEndpointConnectionNotificationCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateVpcEndpointConnectionNotificationCommand(connectionNotificationArn, connectionEvents).apply(init))
+fun AmazonEC2Functions.createVpcEndpointConnectionNotification(connectionNotificationArn: String, connectionEvents: List<String>, init: AmazonEC2CreateVpcEndpointConnectionNotificationCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateVpcEndpointConnectionNotificationResult {
+	return this.block.declare(AmazonEC2CreateVpcEndpointConnectionNotificationCommand(connectionNotificationArn, connectionEvents).apply(init)) as com.amazonaws.services.ec2.model.CreateVpcEndpointConnectionNotificationResult
 }
 
 @Generated
-class AmazonEC2CreateVpcEndpointConnectionNotificationCommand(val connectionNotificationArn: String, val connectionEvents: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateVpcEndpointConnectionNotificationRequest> {
+class AmazonEC2CreateVpcEndpointConnectionNotificationCommand(val connectionNotificationArn: String, val connectionEvents: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateVpcEndpointConnectionNotificationRequest, com.amazonaws.services.ec2.model.CreateVpcEndpointConnectionNotificationResult> {
 
 	var serviceId: String? = null
 	var vpcEndpointId: String? = null
@@ -2104,8 +2352,12 @@ class AmazonEC2CreateVpcEndpointConnectionNotificationCommand(val connectionNoti
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createVpcEndpointConnectionNotification(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateVpcEndpointConnectionNotificationResult {
+	  return com.amazonaws.services.ec2.model.CreateVpcEndpointConnectionNotificationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateVpcEndpointConnectionNotificationResult {
+		return environment.ec2.createVpcEndpointConnectionNotification(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2120,12 +2372,12 @@ class AmazonEC2CreateVpcEndpointConnectionNotificationCommand(val connectionNoti
 }
 
 
-fun AmazonEC2Functions.createVpcEndpointServiceConfiguration(networkLoadBalancerArns: List<String>, init: AmazonEC2CreateVpcEndpointServiceConfigurationCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateVpcEndpointServiceConfigurationCommand(networkLoadBalancerArns).apply(init))
+fun AmazonEC2Functions.createVpcEndpointServiceConfiguration(networkLoadBalancerArns: List<String>, init: AmazonEC2CreateVpcEndpointServiceConfigurationCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateVpcEndpointServiceConfigurationResult {
+	return this.block.declare(AmazonEC2CreateVpcEndpointServiceConfigurationCommand(networkLoadBalancerArns).apply(init)) as com.amazonaws.services.ec2.model.CreateVpcEndpointServiceConfigurationResult
 }
 
 @Generated
-class AmazonEC2CreateVpcEndpointServiceConfigurationCommand(val networkLoadBalancerArns: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateVpcEndpointServiceConfigurationRequest> {
+class AmazonEC2CreateVpcEndpointServiceConfigurationCommand(val networkLoadBalancerArns: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateVpcEndpointServiceConfigurationRequest, com.amazonaws.services.ec2.model.CreateVpcEndpointServiceConfigurationResult> {
 
 	var acceptanceRequired: Boolean? = false
 	var clientToken: String? = null
@@ -2138,8 +2390,12 @@ class AmazonEC2CreateVpcEndpointServiceConfigurationCommand(val networkLoadBalan
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createVpcEndpointServiceConfiguration(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateVpcEndpointServiceConfigurationResult {
+	  return com.amazonaws.services.ec2.model.CreateVpcEndpointServiceConfigurationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateVpcEndpointServiceConfigurationResult {
+		return environment.ec2.createVpcEndpointServiceConfiguration(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2152,12 +2408,12 @@ class AmazonEC2CreateVpcEndpointServiceConfigurationCommand(val networkLoadBalan
 }
 
 
-fun AmazonEC2Functions.createVpcPeeringConnection(init: AmazonEC2CreateVpcPeeringConnectionCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateVpcPeeringConnectionCommand().apply(init))
+fun AmazonEC2Functions.createVpcPeeringConnection(init: AmazonEC2CreateVpcPeeringConnectionCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateVpcPeeringConnectionResult {
+	return this.block.declare(AmazonEC2CreateVpcPeeringConnectionCommand().apply(init)) as com.amazonaws.services.ec2.model.CreateVpcPeeringConnectionResult
 }
 
 @Generated
-class AmazonEC2CreateVpcPeeringConnectionCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateVpcPeeringConnectionRequest> {
+class AmazonEC2CreateVpcPeeringConnectionCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateVpcPeeringConnectionRequest, com.amazonaws.services.ec2.model.CreateVpcPeeringConnectionResult> {
 
 	var peerOwnerId: String? = null
 	var peerVpcId: String? = null
@@ -2173,8 +2429,12 @@ class AmazonEC2CreateVpcPeeringConnectionCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createVpcPeeringConnection(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateVpcPeeringConnectionResult {
+	  return com.amazonaws.services.ec2.model.CreateVpcPeeringConnectionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateVpcPeeringConnectionResult {
+		return environment.ec2.createVpcPeeringConnection(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2188,12 +2448,12 @@ class AmazonEC2CreateVpcPeeringConnectionCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AmazonEC2Functions.createVpnConnection(customerGatewayId: String, type: String, vpnGatewayId: String, init: AmazonEC2CreateVpnConnectionCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateVpnConnectionCommand(customerGatewayId, type, vpnGatewayId).apply(init))
+fun AmazonEC2Functions.createVpnConnection(customerGatewayId: String, type: String, vpnGatewayId: String, init: AmazonEC2CreateVpnConnectionCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateVpnConnectionResult {
+	return this.block.declare(AmazonEC2CreateVpnConnectionCommand(customerGatewayId, type, vpnGatewayId).apply(init)) as com.amazonaws.services.ec2.model.CreateVpnConnectionResult
 }
 
 @Generated
-class AmazonEC2CreateVpnConnectionCommand(val customerGatewayId: String, val type: String, val vpnGatewayId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateVpnConnectionRequest> {
+class AmazonEC2CreateVpnConnectionCommand(val customerGatewayId: String, val type: String, val vpnGatewayId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateVpnConnectionRequest, com.amazonaws.services.ec2.model.CreateVpnConnectionResult> {
 
 	var options: com.amazonaws.services.ec2.model.VpnConnectionOptionsSpecification? = null
 
@@ -2206,8 +2466,12 @@ class AmazonEC2CreateVpnConnectionCommand(val customerGatewayId: String, val typ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createVpnConnection(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateVpnConnectionResult {
+	  return com.amazonaws.services.ec2.model.CreateVpnConnectionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateVpnConnectionResult {
+		return environment.ec2.createVpnConnection(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2221,12 +2485,12 @@ class AmazonEC2CreateVpnConnectionCommand(val customerGatewayId: String, val typ
 }
 
 
-fun AmazonEC2Functions.createVpnConnectionRoute(destinationCidrBlock: String, vpnConnectionId: String, init: AmazonEC2CreateVpnConnectionRouteCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateVpnConnectionRouteCommand(destinationCidrBlock, vpnConnectionId).apply(init))
+fun AmazonEC2Functions.createVpnConnectionRoute(destinationCidrBlock: String, vpnConnectionId: String, init: AmazonEC2CreateVpnConnectionRouteCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateVpnConnectionRouteResult {
+	return this.block.declare(AmazonEC2CreateVpnConnectionRouteCommand(destinationCidrBlock, vpnConnectionId).apply(init)) as com.amazonaws.services.ec2.model.CreateVpnConnectionRouteResult
 }
 
 @Generated
-class AmazonEC2CreateVpnConnectionRouteCommand(val destinationCidrBlock: String, val vpnConnectionId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateVpnConnectionRouteRequest> {
+class AmazonEC2CreateVpnConnectionRouteCommand(val destinationCidrBlock: String, val vpnConnectionId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateVpnConnectionRouteRequest, com.amazonaws.services.ec2.model.CreateVpnConnectionRouteResult> {
 
 
 
@@ -2237,8 +2501,12 @@ class AmazonEC2CreateVpnConnectionRouteCommand(val destinationCidrBlock: String,
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createVpnConnectionRoute(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateVpnConnectionRouteResult {
+	  return com.amazonaws.services.ec2.model.CreateVpnConnectionRouteResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateVpnConnectionRouteResult {
+		return environment.ec2.createVpnConnectionRoute(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2250,12 +2518,12 @@ class AmazonEC2CreateVpnConnectionRouteCommand(val destinationCidrBlock: String,
 }
 
 
-fun AmazonEC2Functions.createVpnGateway(type: GatewayType, init: AmazonEC2CreateVpnGatewayCommand.() -> Unit) {
-	this.block.declare(AmazonEC2CreateVpnGatewayCommand(type).apply(init))
+fun AmazonEC2Functions.createVpnGateway(type: GatewayType, init: AmazonEC2CreateVpnGatewayCommand.() -> Unit): com.amazonaws.services.ec2.model.CreateVpnGatewayResult {
+	return this.block.declare(AmazonEC2CreateVpnGatewayCommand(type).apply(init)) as com.amazonaws.services.ec2.model.CreateVpnGatewayResult
 }
 
 @Generated
-class AmazonEC2CreateVpnGatewayCommand(val type: GatewayType) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateVpnGatewayRequest> {
+class AmazonEC2CreateVpnGatewayCommand(val type: GatewayType) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.CreateVpnGatewayRequest, com.amazonaws.services.ec2.model.CreateVpnGatewayResult> {
 
 	var availabilityZone: String? = null
 	var amazonSideAsn: Long? = 0L
@@ -2268,8 +2536,12 @@ class AmazonEC2CreateVpnGatewayCommand(val type: GatewayType) : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.createVpnGateway(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.CreateVpnGatewayResult {
+	  return com.amazonaws.services.ec2.model.CreateVpnGatewayResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.CreateVpnGatewayResult {
+		return environment.ec2.createVpnGateway(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2282,12 +2554,12 @@ class AmazonEC2CreateVpnGatewayCommand(val type: GatewayType) : AmazonWebService
 }
 
 
-fun AmazonEC2Functions.deleteCustomerGateway(customerGatewayId: String, init: AmazonEC2DeleteCustomerGatewayCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeleteCustomerGatewayCommand(customerGatewayId).apply(init))
+fun AmazonEC2Functions.deleteCustomerGateway(customerGatewayId: String, init: AmazonEC2DeleteCustomerGatewayCommand.() -> Unit): com.amazonaws.services.ec2.model.DeleteCustomerGatewayResult {
+	return this.block.declare(AmazonEC2DeleteCustomerGatewayCommand(customerGatewayId).apply(init)) as com.amazonaws.services.ec2.model.DeleteCustomerGatewayResult
 }
 
 @Generated
-class AmazonEC2DeleteCustomerGatewayCommand(val customerGatewayId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteCustomerGatewayRequest> {
+class AmazonEC2DeleteCustomerGatewayCommand(val customerGatewayId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteCustomerGatewayRequest, com.amazonaws.services.ec2.model.DeleteCustomerGatewayResult> {
 
 
 
@@ -2297,8 +2569,12 @@ class AmazonEC2DeleteCustomerGatewayCommand(val customerGatewayId: String) : Ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deleteCustomerGateway(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteCustomerGatewayResult {
+	  return com.amazonaws.services.ec2.model.DeleteCustomerGatewayResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteCustomerGatewayResult {
+		return environment.ec2.deleteCustomerGateway(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2309,12 +2585,12 @@ class AmazonEC2DeleteCustomerGatewayCommand(val customerGatewayId: String) : Ama
 }
 
 
-fun AmazonEC2Functions.deleteDhcpOptions(dhcpOptionsId: String, init: AmazonEC2DeleteDhcpOptionsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeleteDhcpOptionsCommand(dhcpOptionsId).apply(init))
+fun AmazonEC2Functions.deleteDhcpOptions(dhcpOptionsId: String, init: AmazonEC2DeleteDhcpOptionsCommand.() -> Unit): com.amazonaws.services.ec2.model.DeleteDhcpOptionsResult {
+	return this.block.declare(AmazonEC2DeleteDhcpOptionsCommand(dhcpOptionsId).apply(init)) as com.amazonaws.services.ec2.model.DeleteDhcpOptionsResult
 }
 
 @Generated
-class AmazonEC2DeleteDhcpOptionsCommand(val dhcpOptionsId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteDhcpOptionsRequest> {
+class AmazonEC2DeleteDhcpOptionsCommand(val dhcpOptionsId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteDhcpOptionsRequest, com.amazonaws.services.ec2.model.DeleteDhcpOptionsResult> {
 
 
 
@@ -2324,8 +2600,12 @@ class AmazonEC2DeleteDhcpOptionsCommand(val dhcpOptionsId: String) : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deleteDhcpOptions(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteDhcpOptionsResult {
+	  return com.amazonaws.services.ec2.model.DeleteDhcpOptionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteDhcpOptionsResult {
+		return environment.ec2.deleteDhcpOptions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2336,12 +2616,12 @@ class AmazonEC2DeleteDhcpOptionsCommand(val dhcpOptionsId: String) : AmazonWebSe
 }
 
 
-fun AmazonEC2Functions.deleteEgressOnlyInternetGateway(egressOnlyInternetGatewayId: String, init: AmazonEC2DeleteEgressOnlyInternetGatewayCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeleteEgressOnlyInternetGatewayCommand(egressOnlyInternetGatewayId).apply(init))
+fun AmazonEC2Functions.deleteEgressOnlyInternetGateway(egressOnlyInternetGatewayId: String, init: AmazonEC2DeleteEgressOnlyInternetGatewayCommand.() -> Unit): com.amazonaws.services.ec2.model.DeleteEgressOnlyInternetGatewayResult {
+	return this.block.declare(AmazonEC2DeleteEgressOnlyInternetGatewayCommand(egressOnlyInternetGatewayId).apply(init)) as com.amazonaws.services.ec2.model.DeleteEgressOnlyInternetGatewayResult
 }
 
 @Generated
-class AmazonEC2DeleteEgressOnlyInternetGatewayCommand(val egressOnlyInternetGatewayId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteEgressOnlyInternetGatewayRequest> {
+class AmazonEC2DeleteEgressOnlyInternetGatewayCommand(val egressOnlyInternetGatewayId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteEgressOnlyInternetGatewayRequest, com.amazonaws.services.ec2.model.DeleteEgressOnlyInternetGatewayResult> {
 
 
 
@@ -2351,8 +2631,12 @@ class AmazonEC2DeleteEgressOnlyInternetGatewayCommand(val egressOnlyInternetGate
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deleteEgressOnlyInternetGateway(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteEgressOnlyInternetGatewayResult {
+	  return com.amazonaws.services.ec2.model.DeleteEgressOnlyInternetGatewayResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteEgressOnlyInternetGatewayResult {
+		return environment.ec2.deleteEgressOnlyInternetGateway(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2363,12 +2647,12 @@ class AmazonEC2DeleteEgressOnlyInternetGatewayCommand(val egressOnlyInternetGate
 }
 
 
-fun AmazonEC2Functions.deleteFlowLogs(flowLogIds: List<String>, init: AmazonEC2DeleteFlowLogsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeleteFlowLogsCommand(flowLogIds).apply(init))
+fun AmazonEC2Functions.deleteFlowLogs(flowLogIds: List<String>, init: AmazonEC2DeleteFlowLogsCommand.() -> Unit): com.amazonaws.services.ec2.model.DeleteFlowLogsResult {
+	return this.block.declare(AmazonEC2DeleteFlowLogsCommand(flowLogIds).apply(init)) as com.amazonaws.services.ec2.model.DeleteFlowLogsResult
 }
 
 @Generated
-class AmazonEC2DeleteFlowLogsCommand(val flowLogIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteFlowLogsRequest> {
+class AmazonEC2DeleteFlowLogsCommand(val flowLogIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteFlowLogsRequest, com.amazonaws.services.ec2.model.DeleteFlowLogsResult> {
 
 
 
@@ -2378,8 +2662,12 @@ class AmazonEC2DeleteFlowLogsCommand(val flowLogIds: List<String>) : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deleteFlowLogs(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteFlowLogsResult {
+	  return com.amazonaws.services.ec2.model.DeleteFlowLogsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteFlowLogsResult {
+		return environment.ec2.deleteFlowLogs(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2390,12 +2678,12 @@ class AmazonEC2DeleteFlowLogsCommand(val flowLogIds: List<String>) : AmazonWebSe
 }
 
 
-fun AmazonEC2Functions.deleteFpgaImage(fpgaImageId: String, init: AmazonEC2DeleteFpgaImageCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeleteFpgaImageCommand(fpgaImageId).apply(init))
+fun AmazonEC2Functions.deleteFpgaImage(fpgaImageId: String, init: AmazonEC2DeleteFpgaImageCommand.() -> Unit): com.amazonaws.services.ec2.model.DeleteFpgaImageResult {
+	return this.block.declare(AmazonEC2DeleteFpgaImageCommand(fpgaImageId).apply(init)) as com.amazonaws.services.ec2.model.DeleteFpgaImageResult
 }
 
 @Generated
-class AmazonEC2DeleteFpgaImageCommand(val fpgaImageId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteFpgaImageRequest> {
+class AmazonEC2DeleteFpgaImageCommand(val fpgaImageId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteFpgaImageRequest, com.amazonaws.services.ec2.model.DeleteFpgaImageResult> {
 
 
 
@@ -2405,8 +2693,12 @@ class AmazonEC2DeleteFpgaImageCommand(val fpgaImageId: String) : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deleteFpgaImage(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteFpgaImageResult {
+	  return com.amazonaws.services.ec2.model.DeleteFpgaImageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteFpgaImageResult {
+		return environment.ec2.deleteFpgaImage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2417,12 +2709,12 @@ class AmazonEC2DeleteFpgaImageCommand(val fpgaImageId: String) : AmazonWebServic
 }
 
 
-fun AmazonEC2Functions.deleteInternetGateway(internetGatewayId: String, init: AmazonEC2DeleteInternetGatewayCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeleteInternetGatewayCommand(internetGatewayId).apply(init))
+fun AmazonEC2Functions.deleteInternetGateway(internetGatewayId: String, init: AmazonEC2DeleteInternetGatewayCommand.() -> Unit): com.amazonaws.services.ec2.model.DeleteInternetGatewayResult {
+	return this.block.declare(AmazonEC2DeleteInternetGatewayCommand(internetGatewayId).apply(init)) as com.amazonaws.services.ec2.model.DeleteInternetGatewayResult
 }
 
 @Generated
-class AmazonEC2DeleteInternetGatewayCommand(val internetGatewayId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteInternetGatewayRequest> {
+class AmazonEC2DeleteInternetGatewayCommand(val internetGatewayId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteInternetGatewayRequest, com.amazonaws.services.ec2.model.DeleteInternetGatewayResult> {
 
 
 
@@ -2432,8 +2724,12 @@ class AmazonEC2DeleteInternetGatewayCommand(val internetGatewayId: String) : Ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deleteInternetGateway(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteInternetGatewayResult {
+	  return com.amazonaws.services.ec2.model.DeleteInternetGatewayResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteInternetGatewayResult {
+		return environment.ec2.deleteInternetGateway(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2444,12 +2740,12 @@ class AmazonEC2DeleteInternetGatewayCommand(val internetGatewayId: String) : Ama
 }
 
 
-fun AmazonEC2Functions.deleteKeyPair(keyName: String, init: AmazonEC2DeleteKeyPairCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeleteKeyPairCommand(keyName).apply(init))
+fun AmazonEC2Functions.deleteKeyPair(keyName: String, init: AmazonEC2DeleteKeyPairCommand.() -> Unit): com.amazonaws.services.ec2.model.DeleteKeyPairResult {
+	return this.block.declare(AmazonEC2DeleteKeyPairCommand(keyName).apply(init)) as com.amazonaws.services.ec2.model.DeleteKeyPairResult
 }
 
 @Generated
-class AmazonEC2DeleteKeyPairCommand(val keyName: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteKeyPairRequest> {
+class AmazonEC2DeleteKeyPairCommand(val keyName: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteKeyPairRequest, com.amazonaws.services.ec2.model.DeleteKeyPairResult> {
 
 
 
@@ -2459,8 +2755,12 @@ class AmazonEC2DeleteKeyPairCommand(val keyName: String) : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deleteKeyPair(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteKeyPairResult {
+	  return com.amazonaws.services.ec2.model.DeleteKeyPairResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteKeyPairResult {
+		return environment.ec2.deleteKeyPair(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2471,12 +2771,12 @@ class AmazonEC2DeleteKeyPairCommand(val keyName: String) : AmazonWebServiceComma
 }
 
 
-fun AmazonEC2Functions.deleteLaunchTemplate(init: AmazonEC2DeleteLaunchTemplateCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeleteLaunchTemplateCommand().apply(init))
+fun AmazonEC2Functions.deleteLaunchTemplate(init: AmazonEC2DeleteLaunchTemplateCommand.() -> Unit): com.amazonaws.services.ec2.model.DeleteLaunchTemplateResult {
+	return this.block.declare(AmazonEC2DeleteLaunchTemplateCommand().apply(init)) as com.amazonaws.services.ec2.model.DeleteLaunchTemplateResult
 }
 
 @Generated
-class AmazonEC2DeleteLaunchTemplateCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteLaunchTemplateRequest> {
+class AmazonEC2DeleteLaunchTemplateCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteLaunchTemplateRequest, com.amazonaws.services.ec2.model.DeleteLaunchTemplateResult> {
 
 	var launchTemplateId: String? = null
 	var launchTemplateName: String? = null
@@ -2488,8 +2788,12 @@ class AmazonEC2DeleteLaunchTemplateCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deleteLaunchTemplate(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteLaunchTemplateResult {
+	  return com.amazonaws.services.ec2.model.DeleteLaunchTemplateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteLaunchTemplateResult {
+		return environment.ec2.deleteLaunchTemplate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2501,12 +2805,12 @@ class AmazonEC2DeleteLaunchTemplateCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AmazonEC2Functions.deleteLaunchTemplateVersions(versions: List<String>, init: AmazonEC2DeleteLaunchTemplateVersionsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeleteLaunchTemplateVersionsCommand(versions).apply(init))
+fun AmazonEC2Functions.deleteLaunchTemplateVersions(versions: List<String>, init: AmazonEC2DeleteLaunchTemplateVersionsCommand.() -> Unit): com.amazonaws.services.ec2.model.DeleteLaunchTemplateVersionsResult {
+	return this.block.declare(AmazonEC2DeleteLaunchTemplateVersionsCommand(versions).apply(init)) as com.amazonaws.services.ec2.model.DeleteLaunchTemplateVersionsResult
 }
 
 @Generated
-class AmazonEC2DeleteLaunchTemplateVersionsCommand(val versions: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteLaunchTemplateVersionsRequest> {
+class AmazonEC2DeleteLaunchTemplateVersionsCommand(val versions: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteLaunchTemplateVersionsRequest, com.amazonaws.services.ec2.model.DeleteLaunchTemplateVersionsResult> {
 
 	var launchTemplateId: String? = null
 	var launchTemplateName: String? = null
@@ -2519,8 +2823,12 @@ class AmazonEC2DeleteLaunchTemplateVersionsCommand(val versions: List<String>) :
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deleteLaunchTemplateVersions(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteLaunchTemplateVersionsResult {
+	  return com.amazonaws.services.ec2.model.DeleteLaunchTemplateVersionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteLaunchTemplateVersionsResult {
+		return environment.ec2.deleteLaunchTemplateVersions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2533,12 +2841,12 @@ class AmazonEC2DeleteLaunchTemplateVersionsCommand(val versions: List<String>) :
 }
 
 
-fun AmazonEC2Functions.deleteNatGateway(natGatewayId: String, init: AmazonEC2DeleteNatGatewayCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeleteNatGatewayCommand(natGatewayId).apply(init))
+fun AmazonEC2Functions.deleteNatGateway(natGatewayId: String, init: AmazonEC2DeleteNatGatewayCommand.() -> Unit): com.amazonaws.services.ec2.model.DeleteNatGatewayResult {
+	return this.block.declare(AmazonEC2DeleteNatGatewayCommand(natGatewayId).apply(init)) as com.amazonaws.services.ec2.model.DeleteNatGatewayResult
 }
 
 @Generated
-class AmazonEC2DeleteNatGatewayCommand(val natGatewayId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteNatGatewayRequest> {
+class AmazonEC2DeleteNatGatewayCommand(val natGatewayId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteNatGatewayRequest, com.amazonaws.services.ec2.model.DeleteNatGatewayResult> {
 
 
 
@@ -2548,8 +2856,12 @@ class AmazonEC2DeleteNatGatewayCommand(val natGatewayId: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deleteNatGateway(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteNatGatewayResult {
+	  return com.amazonaws.services.ec2.model.DeleteNatGatewayResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteNatGatewayResult {
+		return environment.ec2.deleteNatGateway(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2560,12 +2872,12 @@ class AmazonEC2DeleteNatGatewayCommand(val natGatewayId: String) : AmazonWebServ
 }
 
 
-fun AmazonEC2Functions.deleteNetworkAcl(networkAclId: String, init: AmazonEC2DeleteNetworkAclCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeleteNetworkAclCommand(networkAclId).apply(init))
+fun AmazonEC2Functions.deleteNetworkAcl(networkAclId: String, init: AmazonEC2DeleteNetworkAclCommand.() -> Unit): com.amazonaws.services.ec2.model.DeleteNetworkAclResult {
+	return this.block.declare(AmazonEC2DeleteNetworkAclCommand(networkAclId).apply(init)) as com.amazonaws.services.ec2.model.DeleteNetworkAclResult
 }
 
 @Generated
-class AmazonEC2DeleteNetworkAclCommand(val networkAclId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteNetworkAclRequest> {
+class AmazonEC2DeleteNetworkAclCommand(val networkAclId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteNetworkAclRequest, com.amazonaws.services.ec2.model.DeleteNetworkAclResult> {
 
 
 
@@ -2575,8 +2887,12 @@ class AmazonEC2DeleteNetworkAclCommand(val networkAclId: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deleteNetworkAcl(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteNetworkAclResult {
+	  return com.amazonaws.services.ec2.model.DeleteNetworkAclResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteNetworkAclResult {
+		return environment.ec2.deleteNetworkAcl(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2587,12 +2903,12 @@ class AmazonEC2DeleteNetworkAclCommand(val networkAclId: String) : AmazonWebServ
 }
 
 
-fun AmazonEC2Functions.deleteNetworkAclEntry(egress: Boolean, networkAclId: String, ruleNumber: Int, init: AmazonEC2DeleteNetworkAclEntryCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeleteNetworkAclEntryCommand(egress, networkAclId, ruleNumber).apply(init))
+fun AmazonEC2Functions.deleteNetworkAclEntry(egress: Boolean, networkAclId: String, ruleNumber: Int, init: AmazonEC2DeleteNetworkAclEntryCommand.() -> Unit): com.amazonaws.services.ec2.model.DeleteNetworkAclEntryResult {
+	return this.block.declare(AmazonEC2DeleteNetworkAclEntryCommand(egress, networkAclId, ruleNumber).apply(init)) as com.amazonaws.services.ec2.model.DeleteNetworkAclEntryResult
 }
 
 @Generated
-class AmazonEC2DeleteNetworkAclEntryCommand(val egress: Boolean, val networkAclId: String, val ruleNumber: Int) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteNetworkAclEntryRequest> {
+class AmazonEC2DeleteNetworkAclEntryCommand(val egress: Boolean, val networkAclId: String, val ruleNumber: Int) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteNetworkAclEntryRequest, com.amazonaws.services.ec2.model.DeleteNetworkAclEntryResult> {
 
 
 
@@ -2604,8 +2920,12 @@ class AmazonEC2DeleteNetworkAclEntryCommand(val egress: Boolean, val networkAclI
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deleteNetworkAclEntry(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteNetworkAclEntryResult {
+	  return com.amazonaws.services.ec2.model.DeleteNetworkAclEntryResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteNetworkAclEntryResult {
+		return environment.ec2.deleteNetworkAclEntry(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2618,12 +2938,12 @@ class AmazonEC2DeleteNetworkAclEntryCommand(val egress: Boolean, val networkAclI
 }
 
 
-fun AmazonEC2Functions.deleteNetworkInterface(networkInterfaceId: String, init: AmazonEC2DeleteNetworkInterfaceCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeleteNetworkInterfaceCommand(networkInterfaceId).apply(init))
+fun AmazonEC2Functions.deleteNetworkInterface(networkInterfaceId: String, init: AmazonEC2DeleteNetworkInterfaceCommand.() -> Unit): com.amazonaws.services.ec2.model.DeleteNetworkInterfaceResult {
+	return this.block.declare(AmazonEC2DeleteNetworkInterfaceCommand(networkInterfaceId).apply(init)) as com.amazonaws.services.ec2.model.DeleteNetworkInterfaceResult
 }
 
 @Generated
-class AmazonEC2DeleteNetworkInterfaceCommand(val networkInterfaceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteNetworkInterfaceRequest> {
+class AmazonEC2DeleteNetworkInterfaceCommand(val networkInterfaceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteNetworkInterfaceRequest, com.amazonaws.services.ec2.model.DeleteNetworkInterfaceResult> {
 
 
 
@@ -2633,8 +2953,12 @@ class AmazonEC2DeleteNetworkInterfaceCommand(val networkInterfaceId: String) : A
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deleteNetworkInterface(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteNetworkInterfaceResult {
+	  return com.amazonaws.services.ec2.model.DeleteNetworkInterfaceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteNetworkInterfaceResult {
+		return environment.ec2.deleteNetworkInterface(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2645,12 +2969,12 @@ class AmazonEC2DeleteNetworkInterfaceCommand(val networkInterfaceId: String) : A
 }
 
 
-fun AmazonEC2Functions.deleteNetworkInterfacePermission(networkInterfacePermissionId: String, init: AmazonEC2DeleteNetworkInterfacePermissionCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeleteNetworkInterfacePermissionCommand(networkInterfacePermissionId).apply(init))
+fun AmazonEC2Functions.deleteNetworkInterfacePermission(networkInterfacePermissionId: String, init: AmazonEC2DeleteNetworkInterfacePermissionCommand.() -> Unit): com.amazonaws.services.ec2.model.DeleteNetworkInterfacePermissionResult {
+	return this.block.declare(AmazonEC2DeleteNetworkInterfacePermissionCommand(networkInterfacePermissionId).apply(init)) as com.amazonaws.services.ec2.model.DeleteNetworkInterfacePermissionResult
 }
 
 @Generated
-class AmazonEC2DeleteNetworkInterfacePermissionCommand(val networkInterfacePermissionId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteNetworkInterfacePermissionRequest> {
+class AmazonEC2DeleteNetworkInterfacePermissionCommand(val networkInterfacePermissionId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteNetworkInterfacePermissionRequest, com.amazonaws.services.ec2.model.DeleteNetworkInterfacePermissionResult> {
 
 	var force: Boolean? = false
 
@@ -2661,8 +2985,12 @@ class AmazonEC2DeleteNetworkInterfacePermissionCommand(val networkInterfacePermi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deleteNetworkInterfacePermission(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteNetworkInterfacePermissionResult {
+	  return com.amazonaws.services.ec2.model.DeleteNetworkInterfacePermissionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteNetworkInterfacePermissionResult {
+		return environment.ec2.deleteNetworkInterfacePermission(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2674,12 +3002,12 @@ class AmazonEC2DeleteNetworkInterfacePermissionCommand(val networkInterfacePermi
 }
 
 
-fun AmazonEC2Functions.deletePlacementGroup(groupName: String, init: AmazonEC2DeletePlacementGroupCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeletePlacementGroupCommand(groupName).apply(init))
+fun AmazonEC2Functions.deletePlacementGroup(groupName: String, init: AmazonEC2DeletePlacementGroupCommand.() -> Unit): com.amazonaws.services.ec2.model.DeletePlacementGroupResult {
+	return this.block.declare(AmazonEC2DeletePlacementGroupCommand(groupName).apply(init)) as com.amazonaws.services.ec2.model.DeletePlacementGroupResult
 }
 
 @Generated
-class AmazonEC2DeletePlacementGroupCommand(val groupName: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeletePlacementGroupRequest> {
+class AmazonEC2DeletePlacementGroupCommand(val groupName: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeletePlacementGroupRequest, com.amazonaws.services.ec2.model.DeletePlacementGroupResult> {
 
 
 
@@ -2689,8 +3017,12 @@ class AmazonEC2DeletePlacementGroupCommand(val groupName: String) : AmazonWebSer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deletePlacementGroup(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeletePlacementGroupResult {
+	  return com.amazonaws.services.ec2.model.DeletePlacementGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeletePlacementGroupResult {
+		return environment.ec2.deletePlacementGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2701,12 +3033,12 @@ class AmazonEC2DeletePlacementGroupCommand(val groupName: String) : AmazonWebSer
 }
 
 
-fun AmazonEC2Functions.deleteRoute(routeTableId: String, init: AmazonEC2DeleteRouteCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeleteRouteCommand(routeTableId).apply(init))
+fun AmazonEC2Functions.deleteRoute(routeTableId: String, init: AmazonEC2DeleteRouteCommand.() -> Unit): com.amazonaws.services.ec2.model.DeleteRouteResult {
+	return this.block.declare(AmazonEC2DeleteRouteCommand(routeTableId).apply(init)) as com.amazonaws.services.ec2.model.DeleteRouteResult
 }
 
 @Generated
-class AmazonEC2DeleteRouteCommand(val routeTableId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteRouteRequest> {
+class AmazonEC2DeleteRouteCommand(val routeTableId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteRouteRequest, com.amazonaws.services.ec2.model.DeleteRouteResult> {
 
 	var destinationCidrBlock: String? = null
 	var destinationIpv6CidrBlock: String? = null
@@ -2719,8 +3051,12 @@ class AmazonEC2DeleteRouteCommand(val routeTableId: String) : AmazonWebServiceCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deleteRoute(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteRouteResult {
+	  return com.amazonaws.services.ec2.model.DeleteRouteResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteRouteResult {
+		return environment.ec2.deleteRoute(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2733,12 +3069,12 @@ class AmazonEC2DeleteRouteCommand(val routeTableId: String) : AmazonWebServiceCo
 }
 
 
-fun AmazonEC2Functions.deleteRouteTable(routeTableId: String, init: AmazonEC2DeleteRouteTableCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeleteRouteTableCommand(routeTableId).apply(init))
+fun AmazonEC2Functions.deleteRouteTable(routeTableId: String, init: AmazonEC2DeleteRouteTableCommand.() -> Unit): com.amazonaws.services.ec2.model.DeleteRouteTableResult {
+	return this.block.declare(AmazonEC2DeleteRouteTableCommand(routeTableId).apply(init)) as com.amazonaws.services.ec2.model.DeleteRouteTableResult
 }
 
 @Generated
-class AmazonEC2DeleteRouteTableCommand(val routeTableId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteRouteTableRequest> {
+class AmazonEC2DeleteRouteTableCommand(val routeTableId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteRouteTableRequest, com.amazonaws.services.ec2.model.DeleteRouteTableResult> {
 
 
 
@@ -2748,8 +3084,12 @@ class AmazonEC2DeleteRouteTableCommand(val routeTableId: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deleteRouteTable(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteRouteTableResult {
+	  return com.amazonaws.services.ec2.model.DeleteRouteTableResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteRouteTableResult {
+		return environment.ec2.deleteRouteTable(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2760,12 +3100,12 @@ class AmazonEC2DeleteRouteTableCommand(val routeTableId: String) : AmazonWebServ
 }
 
 
-fun AmazonEC2Functions.deleteSecurityGroup(init: AmazonEC2DeleteSecurityGroupCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeleteSecurityGroupCommand().apply(init))
+fun AmazonEC2Functions.deleteSecurityGroup(init: AmazonEC2DeleteSecurityGroupCommand.() -> Unit): com.amazonaws.services.ec2.model.DeleteSecurityGroupResult {
+	return this.block.declare(AmazonEC2DeleteSecurityGroupCommand().apply(init)) as com.amazonaws.services.ec2.model.DeleteSecurityGroupResult
 }
 
 @Generated
-class AmazonEC2DeleteSecurityGroupCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteSecurityGroupRequest> {
+class AmazonEC2DeleteSecurityGroupCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteSecurityGroupRequest, com.amazonaws.services.ec2.model.DeleteSecurityGroupResult> {
 
 	var groupId: String? = null
 	var groupName: String? = null
@@ -2777,8 +3117,12 @@ class AmazonEC2DeleteSecurityGroupCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deleteSecurityGroup(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteSecurityGroupResult {
+	  return com.amazonaws.services.ec2.model.DeleteSecurityGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteSecurityGroupResult {
+		return environment.ec2.deleteSecurityGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2790,12 +3134,12 @@ class AmazonEC2DeleteSecurityGroupCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonEC2Functions.deleteSnapshot(snapshotId: String, init: AmazonEC2DeleteSnapshotCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeleteSnapshotCommand(snapshotId).apply(init))
+fun AmazonEC2Functions.deleteSnapshot(snapshotId: String, init: AmazonEC2DeleteSnapshotCommand.() -> Unit): com.amazonaws.services.ec2.model.DeleteSnapshotResult {
+	return this.block.declare(AmazonEC2DeleteSnapshotCommand(snapshotId).apply(init)) as com.amazonaws.services.ec2.model.DeleteSnapshotResult
 }
 
 @Generated
-class AmazonEC2DeleteSnapshotCommand(val snapshotId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteSnapshotRequest> {
+class AmazonEC2DeleteSnapshotCommand(val snapshotId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteSnapshotRequest, com.amazonaws.services.ec2.model.DeleteSnapshotResult> {
 
 
 
@@ -2805,8 +3149,12 @@ class AmazonEC2DeleteSnapshotCommand(val snapshotId: String) : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deleteSnapshot(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteSnapshotResult {
+	  return com.amazonaws.services.ec2.model.DeleteSnapshotResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteSnapshotResult {
+		return environment.ec2.deleteSnapshot(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2817,12 +3165,12 @@ class AmazonEC2DeleteSnapshotCommand(val snapshotId: String) : AmazonWebServiceC
 }
 
 
-fun AmazonEC2Functions.deleteSpotDatafeedSubscription(init: AmazonEC2DeleteSpotDatafeedSubscriptionCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeleteSpotDatafeedSubscriptionCommand().apply(init))
+fun AmazonEC2Functions.deleteSpotDatafeedSubscription(init: AmazonEC2DeleteSpotDatafeedSubscriptionCommand.() -> Unit): com.amazonaws.services.ec2.model.DeleteSpotDatafeedSubscriptionResult {
+	return this.block.declare(AmazonEC2DeleteSpotDatafeedSubscriptionCommand().apply(init)) as com.amazonaws.services.ec2.model.DeleteSpotDatafeedSubscriptionResult
 }
 
 @Generated
-class AmazonEC2DeleteSpotDatafeedSubscriptionCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteSpotDatafeedSubscriptionRequest> {
+class AmazonEC2DeleteSpotDatafeedSubscriptionCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteSpotDatafeedSubscriptionRequest, com.amazonaws.services.ec2.model.DeleteSpotDatafeedSubscriptionResult> {
 
 
 
@@ -2832,8 +3180,12 @@ class AmazonEC2DeleteSpotDatafeedSubscriptionCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deleteSpotDatafeedSubscription(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteSpotDatafeedSubscriptionResult {
+	  return com.amazonaws.services.ec2.model.DeleteSpotDatafeedSubscriptionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteSpotDatafeedSubscriptionResult {
+		return environment.ec2.deleteSpotDatafeedSubscription(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2844,12 +3196,12 @@ class AmazonEC2DeleteSpotDatafeedSubscriptionCommand() : AmazonWebServiceCommand
 }
 
 
-fun AmazonEC2Functions.deleteSubnet(subnetId: String, init: AmazonEC2DeleteSubnetCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeleteSubnetCommand(subnetId).apply(init))
+fun AmazonEC2Functions.deleteSubnet(subnetId: String, init: AmazonEC2DeleteSubnetCommand.() -> Unit): com.amazonaws.services.ec2.model.DeleteSubnetResult {
+	return this.block.declare(AmazonEC2DeleteSubnetCommand(subnetId).apply(init)) as com.amazonaws.services.ec2.model.DeleteSubnetResult
 }
 
 @Generated
-class AmazonEC2DeleteSubnetCommand(val subnetId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteSubnetRequest> {
+class AmazonEC2DeleteSubnetCommand(val subnetId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteSubnetRequest, com.amazonaws.services.ec2.model.DeleteSubnetResult> {
 
 
 
@@ -2859,8 +3211,12 @@ class AmazonEC2DeleteSubnetCommand(val subnetId: String) : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deleteSubnet(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteSubnetResult {
+	  return com.amazonaws.services.ec2.model.DeleteSubnetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteSubnetResult {
+		return environment.ec2.deleteSubnet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2871,12 +3227,12 @@ class AmazonEC2DeleteSubnetCommand(val subnetId: String) : AmazonWebServiceComma
 }
 
 
-fun AmazonEC2Functions.deleteTags(resources: List<String>, init: AmazonEC2DeleteTagsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeleteTagsCommand(resources).apply(init))
+fun AmazonEC2Functions.deleteTags(resources: List<String>, init: AmazonEC2DeleteTagsCommand.() -> Unit): com.amazonaws.services.ec2.model.DeleteTagsResult {
+	return this.block.declare(AmazonEC2DeleteTagsCommand(resources).apply(init)) as com.amazonaws.services.ec2.model.DeleteTagsResult
 }
 
 @Generated
-class AmazonEC2DeleteTagsCommand(val resources: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteTagsRequest> {
+class AmazonEC2DeleteTagsCommand(val resources: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteTagsRequest, com.amazonaws.services.ec2.model.DeleteTagsResult> {
 
 	var tags: List<com.amazonaws.services.ec2.model.Tag>? = null
 
@@ -2887,8 +3243,12 @@ class AmazonEC2DeleteTagsCommand(val resources: List<String>) : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deleteTags(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteTagsResult {
+	  return com.amazonaws.services.ec2.model.DeleteTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteTagsResult {
+		return environment.ec2.deleteTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2900,12 +3260,12 @@ class AmazonEC2DeleteTagsCommand(val resources: List<String>) : AmazonWebService
 }
 
 
-fun AmazonEC2Functions.deleteVolume(volumeId: String, init: AmazonEC2DeleteVolumeCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeleteVolumeCommand(volumeId).apply(init))
+fun AmazonEC2Functions.deleteVolume(volumeId: String, init: AmazonEC2DeleteVolumeCommand.() -> Unit): com.amazonaws.services.ec2.model.DeleteVolumeResult {
+	return this.block.declare(AmazonEC2DeleteVolumeCommand(volumeId).apply(init)) as com.amazonaws.services.ec2.model.DeleteVolumeResult
 }
 
 @Generated
-class AmazonEC2DeleteVolumeCommand(val volumeId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteVolumeRequest> {
+class AmazonEC2DeleteVolumeCommand(val volumeId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteVolumeRequest, com.amazonaws.services.ec2.model.DeleteVolumeResult> {
 
 
 
@@ -2915,8 +3275,12 @@ class AmazonEC2DeleteVolumeCommand(val volumeId: String) : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deleteVolume(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteVolumeResult {
+	  return com.amazonaws.services.ec2.model.DeleteVolumeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteVolumeResult {
+		return environment.ec2.deleteVolume(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2927,12 +3291,12 @@ class AmazonEC2DeleteVolumeCommand(val volumeId: String) : AmazonWebServiceComma
 }
 
 
-fun AmazonEC2Functions.deleteVpc(vpcId: String, init: AmazonEC2DeleteVpcCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeleteVpcCommand(vpcId).apply(init))
+fun AmazonEC2Functions.deleteVpc(vpcId: String, init: AmazonEC2DeleteVpcCommand.() -> Unit): com.amazonaws.services.ec2.model.DeleteVpcResult {
+	return this.block.declare(AmazonEC2DeleteVpcCommand(vpcId).apply(init)) as com.amazonaws.services.ec2.model.DeleteVpcResult
 }
 
 @Generated
-class AmazonEC2DeleteVpcCommand(val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteVpcRequest> {
+class AmazonEC2DeleteVpcCommand(val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteVpcRequest, com.amazonaws.services.ec2.model.DeleteVpcResult> {
 
 
 
@@ -2942,8 +3306,12 @@ class AmazonEC2DeleteVpcCommand(val vpcId: String) : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deleteVpc(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteVpcResult {
+	  return com.amazonaws.services.ec2.model.DeleteVpcResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteVpcResult {
+		return environment.ec2.deleteVpc(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2954,12 +3322,12 @@ class AmazonEC2DeleteVpcCommand(val vpcId: String) : AmazonWebServiceCommand<com
 }
 
 
-fun AmazonEC2Functions.deleteVpcEndpointConnectionNotifications(connectionNotificationIds: List<String>, init: AmazonEC2DeleteVpcEndpointConnectionNotificationsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeleteVpcEndpointConnectionNotificationsCommand(connectionNotificationIds).apply(init))
+fun AmazonEC2Functions.deleteVpcEndpointConnectionNotifications(connectionNotificationIds: List<String>, init: AmazonEC2DeleteVpcEndpointConnectionNotificationsCommand.() -> Unit): com.amazonaws.services.ec2.model.DeleteVpcEndpointConnectionNotificationsResult {
+	return this.block.declare(AmazonEC2DeleteVpcEndpointConnectionNotificationsCommand(connectionNotificationIds).apply(init)) as com.amazonaws.services.ec2.model.DeleteVpcEndpointConnectionNotificationsResult
 }
 
 @Generated
-class AmazonEC2DeleteVpcEndpointConnectionNotificationsCommand(val connectionNotificationIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteVpcEndpointConnectionNotificationsRequest> {
+class AmazonEC2DeleteVpcEndpointConnectionNotificationsCommand(val connectionNotificationIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteVpcEndpointConnectionNotificationsRequest, com.amazonaws.services.ec2.model.DeleteVpcEndpointConnectionNotificationsResult> {
 
 
 
@@ -2969,8 +3337,12 @@ class AmazonEC2DeleteVpcEndpointConnectionNotificationsCommand(val connectionNot
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deleteVpcEndpointConnectionNotifications(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteVpcEndpointConnectionNotificationsResult {
+	  return com.amazonaws.services.ec2.model.DeleteVpcEndpointConnectionNotificationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteVpcEndpointConnectionNotificationsResult {
+		return environment.ec2.deleteVpcEndpointConnectionNotifications(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2981,12 +3353,12 @@ class AmazonEC2DeleteVpcEndpointConnectionNotificationsCommand(val connectionNot
 }
 
 
-fun AmazonEC2Functions.deleteVpcEndpointServiceConfigurations(serviceIds: List<String>, init: AmazonEC2DeleteVpcEndpointServiceConfigurationsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeleteVpcEndpointServiceConfigurationsCommand(serviceIds).apply(init))
+fun AmazonEC2Functions.deleteVpcEndpointServiceConfigurations(serviceIds: List<String>, init: AmazonEC2DeleteVpcEndpointServiceConfigurationsCommand.() -> Unit): com.amazonaws.services.ec2.model.DeleteVpcEndpointServiceConfigurationsResult {
+	return this.block.declare(AmazonEC2DeleteVpcEndpointServiceConfigurationsCommand(serviceIds).apply(init)) as com.amazonaws.services.ec2.model.DeleteVpcEndpointServiceConfigurationsResult
 }
 
 @Generated
-class AmazonEC2DeleteVpcEndpointServiceConfigurationsCommand(val serviceIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteVpcEndpointServiceConfigurationsRequest> {
+class AmazonEC2DeleteVpcEndpointServiceConfigurationsCommand(val serviceIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteVpcEndpointServiceConfigurationsRequest, com.amazonaws.services.ec2.model.DeleteVpcEndpointServiceConfigurationsResult> {
 
 
 
@@ -2996,8 +3368,12 @@ class AmazonEC2DeleteVpcEndpointServiceConfigurationsCommand(val serviceIds: Lis
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deleteVpcEndpointServiceConfigurations(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteVpcEndpointServiceConfigurationsResult {
+	  return com.amazonaws.services.ec2.model.DeleteVpcEndpointServiceConfigurationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteVpcEndpointServiceConfigurationsResult {
+		return environment.ec2.deleteVpcEndpointServiceConfigurations(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3008,12 +3384,12 @@ class AmazonEC2DeleteVpcEndpointServiceConfigurationsCommand(val serviceIds: Lis
 }
 
 
-fun AmazonEC2Functions.deleteVpcEndpoints(vpcEndpointIds: List<String>, init: AmazonEC2DeleteVpcEndpointsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeleteVpcEndpointsCommand(vpcEndpointIds).apply(init))
+fun AmazonEC2Functions.deleteVpcEndpoints(vpcEndpointIds: List<String>, init: AmazonEC2DeleteVpcEndpointsCommand.() -> Unit): com.amazonaws.services.ec2.model.DeleteVpcEndpointsResult {
+	return this.block.declare(AmazonEC2DeleteVpcEndpointsCommand(vpcEndpointIds).apply(init)) as com.amazonaws.services.ec2.model.DeleteVpcEndpointsResult
 }
 
 @Generated
-class AmazonEC2DeleteVpcEndpointsCommand(val vpcEndpointIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteVpcEndpointsRequest> {
+class AmazonEC2DeleteVpcEndpointsCommand(val vpcEndpointIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteVpcEndpointsRequest, com.amazonaws.services.ec2.model.DeleteVpcEndpointsResult> {
 
 
 
@@ -3023,8 +3399,12 @@ class AmazonEC2DeleteVpcEndpointsCommand(val vpcEndpointIds: List<String>) : Ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deleteVpcEndpoints(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteVpcEndpointsResult {
+	  return com.amazonaws.services.ec2.model.DeleteVpcEndpointsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteVpcEndpointsResult {
+		return environment.ec2.deleteVpcEndpoints(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3035,12 +3415,12 @@ class AmazonEC2DeleteVpcEndpointsCommand(val vpcEndpointIds: List<String>) : Ama
 }
 
 
-fun AmazonEC2Functions.deleteVpcPeeringConnection(vpcPeeringConnectionId: String, init: AmazonEC2DeleteVpcPeeringConnectionCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeleteVpcPeeringConnectionCommand(vpcPeeringConnectionId).apply(init))
+fun AmazonEC2Functions.deleteVpcPeeringConnection(vpcPeeringConnectionId: String, init: AmazonEC2DeleteVpcPeeringConnectionCommand.() -> Unit): com.amazonaws.services.ec2.model.DeleteVpcPeeringConnectionResult {
+	return this.block.declare(AmazonEC2DeleteVpcPeeringConnectionCommand(vpcPeeringConnectionId).apply(init)) as com.amazonaws.services.ec2.model.DeleteVpcPeeringConnectionResult
 }
 
 @Generated
-class AmazonEC2DeleteVpcPeeringConnectionCommand(val vpcPeeringConnectionId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteVpcPeeringConnectionRequest> {
+class AmazonEC2DeleteVpcPeeringConnectionCommand(val vpcPeeringConnectionId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteVpcPeeringConnectionRequest, com.amazonaws.services.ec2.model.DeleteVpcPeeringConnectionResult> {
 
 
 
@@ -3050,8 +3430,12 @@ class AmazonEC2DeleteVpcPeeringConnectionCommand(val vpcPeeringConnectionId: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deleteVpcPeeringConnection(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteVpcPeeringConnectionResult {
+	  return com.amazonaws.services.ec2.model.DeleteVpcPeeringConnectionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteVpcPeeringConnectionResult {
+		return environment.ec2.deleteVpcPeeringConnection(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3062,12 +3446,12 @@ class AmazonEC2DeleteVpcPeeringConnectionCommand(val vpcPeeringConnectionId: Str
 }
 
 
-fun AmazonEC2Functions.deleteVpnConnection(vpnConnectionId: String, init: AmazonEC2DeleteVpnConnectionCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeleteVpnConnectionCommand(vpnConnectionId).apply(init))
+fun AmazonEC2Functions.deleteVpnConnection(vpnConnectionId: String, init: AmazonEC2DeleteVpnConnectionCommand.() -> Unit): com.amazonaws.services.ec2.model.DeleteVpnConnectionResult {
+	return this.block.declare(AmazonEC2DeleteVpnConnectionCommand(vpnConnectionId).apply(init)) as com.amazonaws.services.ec2.model.DeleteVpnConnectionResult
 }
 
 @Generated
-class AmazonEC2DeleteVpnConnectionCommand(val vpnConnectionId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteVpnConnectionRequest> {
+class AmazonEC2DeleteVpnConnectionCommand(val vpnConnectionId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteVpnConnectionRequest, com.amazonaws.services.ec2.model.DeleteVpnConnectionResult> {
 
 
 
@@ -3077,8 +3461,12 @@ class AmazonEC2DeleteVpnConnectionCommand(val vpnConnectionId: String) : AmazonW
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deleteVpnConnection(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteVpnConnectionResult {
+	  return com.amazonaws.services.ec2.model.DeleteVpnConnectionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteVpnConnectionResult {
+		return environment.ec2.deleteVpnConnection(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3089,12 +3477,12 @@ class AmazonEC2DeleteVpnConnectionCommand(val vpnConnectionId: String) : AmazonW
 }
 
 
-fun AmazonEC2Functions.deleteVpnConnectionRoute(destinationCidrBlock: String, vpnConnectionId: String, init: AmazonEC2DeleteVpnConnectionRouteCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeleteVpnConnectionRouteCommand(destinationCidrBlock, vpnConnectionId).apply(init))
+fun AmazonEC2Functions.deleteVpnConnectionRoute(destinationCidrBlock: String, vpnConnectionId: String, init: AmazonEC2DeleteVpnConnectionRouteCommand.() -> Unit): com.amazonaws.services.ec2.model.DeleteVpnConnectionRouteResult {
+	return this.block.declare(AmazonEC2DeleteVpnConnectionRouteCommand(destinationCidrBlock, vpnConnectionId).apply(init)) as com.amazonaws.services.ec2.model.DeleteVpnConnectionRouteResult
 }
 
 @Generated
-class AmazonEC2DeleteVpnConnectionRouteCommand(val destinationCidrBlock: String, val vpnConnectionId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteVpnConnectionRouteRequest> {
+class AmazonEC2DeleteVpnConnectionRouteCommand(val destinationCidrBlock: String, val vpnConnectionId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteVpnConnectionRouteRequest, com.amazonaws.services.ec2.model.DeleteVpnConnectionRouteResult> {
 
 
 
@@ -3105,8 +3493,12 @@ class AmazonEC2DeleteVpnConnectionRouteCommand(val destinationCidrBlock: String,
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deleteVpnConnectionRoute(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteVpnConnectionRouteResult {
+	  return com.amazonaws.services.ec2.model.DeleteVpnConnectionRouteResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteVpnConnectionRouteResult {
+		return environment.ec2.deleteVpnConnectionRoute(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3118,12 +3510,12 @@ class AmazonEC2DeleteVpnConnectionRouteCommand(val destinationCidrBlock: String,
 }
 
 
-fun AmazonEC2Functions.deleteVpnGateway(vpnGatewayId: String, init: AmazonEC2DeleteVpnGatewayCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeleteVpnGatewayCommand(vpnGatewayId).apply(init))
+fun AmazonEC2Functions.deleteVpnGateway(vpnGatewayId: String, init: AmazonEC2DeleteVpnGatewayCommand.() -> Unit): com.amazonaws.services.ec2.model.DeleteVpnGatewayResult {
+	return this.block.declare(AmazonEC2DeleteVpnGatewayCommand(vpnGatewayId).apply(init)) as com.amazonaws.services.ec2.model.DeleteVpnGatewayResult
 }
 
 @Generated
-class AmazonEC2DeleteVpnGatewayCommand(val vpnGatewayId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteVpnGatewayRequest> {
+class AmazonEC2DeleteVpnGatewayCommand(val vpnGatewayId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeleteVpnGatewayRequest, com.amazonaws.services.ec2.model.DeleteVpnGatewayResult> {
 
 
 
@@ -3133,8 +3525,12 @@ class AmazonEC2DeleteVpnGatewayCommand(val vpnGatewayId: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deleteVpnGateway(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeleteVpnGatewayResult {
+	  return com.amazonaws.services.ec2.model.DeleteVpnGatewayResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeleteVpnGatewayResult {
+		return environment.ec2.deleteVpnGateway(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3145,12 +3541,12 @@ class AmazonEC2DeleteVpnGatewayCommand(val vpnGatewayId: String) : AmazonWebServ
 }
 
 
-fun AmazonEC2Functions.deregisterImage(imageId: String, init: AmazonEC2DeregisterImageCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DeregisterImageCommand(imageId).apply(init))
+fun AmazonEC2Functions.deregisterImage(imageId: String, init: AmazonEC2DeregisterImageCommand.() -> Unit): com.amazonaws.services.ec2.model.DeregisterImageResult {
+	return this.block.declare(AmazonEC2DeregisterImageCommand(imageId).apply(init)) as com.amazonaws.services.ec2.model.DeregisterImageResult
 }
 
 @Generated
-class AmazonEC2DeregisterImageCommand(val imageId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeregisterImageRequest> {
+class AmazonEC2DeregisterImageCommand(val imageId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DeregisterImageRequest, com.amazonaws.services.ec2.model.DeregisterImageResult> {
 
 
 
@@ -3160,8 +3556,12 @@ class AmazonEC2DeregisterImageCommand(val imageId: String) : AmazonWebServiceCom
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.deregisterImage(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DeregisterImageResult {
+	  return com.amazonaws.services.ec2.model.DeregisterImageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DeregisterImageResult {
+		return environment.ec2.deregisterImage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3172,12 +3572,12 @@ class AmazonEC2DeregisterImageCommand(val imageId: String) : AmazonWebServiceCom
 }
 
 
-fun AmazonEC2Functions.describeAccountAttributes(init: AmazonEC2DescribeAccountAttributesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeAccountAttributesCommand().apply(init))
+fun AmazonEC2Functions.describeAccountAttributes(init: AmazonEC2DescribeAccountAttributesCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeAccountAttributesResult {
+	return this.block.declare(AmazonEC2DescribeAccountAttributesCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeAccountAttributesResult
 }
 
 @Generated
-class AmazonEC2DescribeAccountAttributesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeAccountAttributesRequest> {
+class AmazonEC2DescribeAccountAttributesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeAccountAttributesRequest, com.amazonaws.services.ec2.model.DescribeAccountAttributesResult> {
 
 	var attributeNames: List<AccountAttributeName>? = null
 
@@ -3187,8 +3587,12 @@ class AmazonEC2DescribeAccountAttributesCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeAccountAttributes(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeAccountAttributesResult {
+	  return com.amazonaws.services.ec2.model.DescribeAccountAttributesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeAccountAttributesResult {
+		return environment.ec2.describeAccountAttributes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3199,12 +3603,12 @@ class AmazonEC2DescribeAccountAttributesCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonEC2Functions.describeAddresses(init: AmazonEC2DescribeAddressesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeAddressesCommand().apply(init))
+fun AmazonEC2Functions.describeAddresses(init: AmazonEC2DescribeAddressesCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeAddressesResult {
+	return this.block.declare(AmazonEC2DescribeAddressesCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeAddressesResult
 }
 
 @Generated
-class AmazonEC2DescribeAddressesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeAddressesRequest> {
+class AmazonEC2DescribeAddressesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeAddressesRequest, com.amazonaws.services.ec2.model.DescribeAddressesResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var publicIps: List<String>? = null
@@ -3218,8 +3622,12 @@ class AmazonEC2DescribeAddressesCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeAddresses(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeAddressesResult {
+	  return com.amazonaws.services.ec2.model.DescribeAddressesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeAddressesResult {
+		return environment.ec2.describeAddresses(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3232,12 +3640,12 @@ class AmazonEC2DescribeAddressesCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AmazonEC2Functions.describeAggregateIdFormat(init: AmazonEC2DescribeAggregateIdFormatCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeAggregateIdFormatCommand().apply(init))
+fun AmazonEC2Functions.describeAggregateIdFormat(init: AmazonEC2DescribeAggregateIdFormatCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeAggregateIdFormatResult {
+	return this.block.declare(AmazonEC2DescribeAggregateIdFormatCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeAggregateIdFormatResult
 }
 
 @Generated
-class AmazonEC2DescribeAggregateIdFormatCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeAggregateIdFormatRequest> {
+class AmazonEC2DescribeAggregateIdFormatCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeAggregateIdFormatRequest, com.amazonaws.services.ec2.model.DescribeAggregateIdFormatResult> {
 
 
 
@@ -3247,8 +3655,12 @@ class AmazonEC2DescribeAggregateIdFormatCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeAggregateIdFormat(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeAggregateIdFormatResult {
+	  return com.amazonaws.services.ec2.model.DescribeAggregateIdFormatResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeAggregateIdFormatResult {
+		return environment.ec2.describeAggregateIdFormat(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3259,12 +3671,12 @@ class AmazonEC2DescribeAggregateIdFormatCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonEC2Functions.describeAvailabilityZones(init: AmazonEC2DescribeAvailabilityZonesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeAvailabilityZonesCommand().apply(init))
+fun AmazonEC2Functions.describeAvailabilityZones(init: AmazonEC2DescribeAvailabilityZonesCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeAvailabilityZonesResult {
+	return this.block.declare(AmazonEC2DescribeAvailabilityZonesCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeAvailabilityZonesResult
 }
 
 @Generated
-class AmazonEC2DescribeAvailabilityZonesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeAvailabilityZonesRequest> {
+class AmazonEC2DescribeAvailabilityZonesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeAvailabilityZonesRequest, com.amazonaws.services.ec2.model.DescribeAvailabilityZonesResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var zoneNames: List<String>? = null
@@ -3276,8 +3688,12 @@ class AmazonEC2DescribeAvailabilityZonesCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeAvailabilityZones(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeAvailabilityZonesResult {
+	  return com.amazonaws.services.ec2.model.DescribeAvailabilityZonesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeAvailabilityZonesResult {
+		return environment.ec2.describeAvailabilityZones(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3289,12 +3705,12 @@ class AmazonEC2DescribeAvailabilityZonesCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonEC2Functions.describeBundleTasks(init: AmazonEC2DescribeBundleTasksCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeBundleTasksCommand().apply(init))
+fun AmazonEC2Functions.describeBundleTasks(init: AmazonEC2DescribeBundleTasksCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeBundleTasksResult {
+	return this.block.declare(AmazonEC2DescribeBundleTasksCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeBundleTasksResult
 }
 
 @Generated
-class AmazonEC2DescribeBundleTasksCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeBundleTasksRequest> {
+class AmazonEC2DescribeBundleTasksCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeBundleTasksRequest, com.amazonaws.services.ec2.model.DescribeBundleTasksResult> {
 
 	var bundleIds: List<String>? = null
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
@@ -3306,8 +3722,12 @@ class AmazonEC2DescribeBundleTasksCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeBundleTasks(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeBundleTasksResult {
+	  return com.amazonaws.services.ec2.model.DescribeBundleTasksResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeBundleTasksResult {
+		return environment.ec2.describeBundleTasks(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3319,12 +3739,12 @@ class AmazonEC2DescribeBundleTasksCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonEC2Functions.describeClassicLinkInstances(init: AmazonEC2DescribeClassicLinkInstancesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeClassicLinkInstancesCommand().apply(init))
+fun AmazonEC2Functions.describeClassicLinkInstances(init: AmazonEC2DescribeClassicLinkInstancesCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeClassicLinkInstancesResult {
+	return this.block.declare(AmazonEC2DescribeClassicLinkInstancesCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeClassicLinkInstancesResult
 }
 
 @Generated
-class AmazonEC2DescribeClassicLinkInstancesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeClassicLinkInstancesRequest> {
+class AmazonEC2DescribeClassicLinkInstancesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeClassicLinkInstancesRequest, com.amazonaws.services.ec2.model.DescribeClassicLinkInstancesResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var instanceIds: List<String>? = null
@@ -3340,8 +3760,12 @@ class AmazonEC2DescribeClassicLinkInstancesCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeClassicLinkInstances(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeClassicLinkInstancesResult {
+	  return com.amazonaws.services.ec2.model.DescribeClassicLinkInstancesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeClassicLinkInstancesResult {
+		return environment.ec2.describeClassicLinkInstances(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3355,12 +3779,12 @@ class AmazonEC2DescribeClassicLinkInstancesCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AmazonEC2Functions.describeConversionTasks(init: AmazonEC2DescribeConversionTasksCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeConversionTasksCommand().apply(init))
+fun AmazonEC2Functions.describeConversionTasks(init: AmazonEC2DescribeConversionTasksCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeConversionTasksResult {
+	return this.block.declare(AmazonEC2DescribeConversionTasksCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeConversionTasksResult
 }
 
 @Generated
-class AmazonEC2DescribeConversionTasksCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeConversionTasksRequest> {
+class AmazonEC2DescribeConversionTasksCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeConversionTasksRequest, com.amazonaws.services.ec2.model.DescribeConversionTasksResult> {
 
 	var conversionTaskIds: List<String>? = null
 
@@ -3370,8 +3794,12 @@ class AmazonEC2DescribeConversionTasksCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeConversionTasks(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeConversionTasksResult {
+	  return com.amazonaws.services.ec2.model.DescribeConversionTasksResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeConversionTasksResult {
+		return environment.ec2.describeConversionTasks(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3382,12 +3810,12 @@ class AmazonEC2DescribeConversionTasksCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonEC2Functions.describeCustomerGateways(init: AmazonEC2DescribeCustomerGatewaysCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeCustomerGatewaysCommand().apply(init))
+fun AmazonEC2Functions.describeCustomerGateways(init: AmazonEC2DescribeCustomerGatewaysCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeCustomerGatewaysResult {
+	return this.block.declare(AmazonEC2DescribeCustomerGatewaysCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeCustomerGatewaysResult
 }
 
 @Generated
-class AmazonEC2DescribeCustomerGatewaysCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeCustomerGatewaysRequest> {
+class AmazonEC2DescribeCustomerGatewaysCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeCustomerGatewaysRequest, com.amazonaws.services.ec2.model.DescribeCustomerGatewaysResult> {
 
 	var customerGatewayIds: List<String>? = null
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
@@ -3399,8 +3827,12 @@ class AmazonEC2DescribeCustomerGatewaysCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeCustomerGateways(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeCustomerGatewaysResult {
+	  return com.amazonaws.services.ec2.model.DescribeCustomerGatewaysResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeCustomerGatewaysResult {
+		return environment.ec2.describeCustomerGateways(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3412,12 +3844,12 @@ class AmazonEC2DescribeCustomerGatewaysCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AmazonEC2Functions.describeDhcpOptions(init: AmazonEC2DescribeDhcpOptionsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeDhcpOptionsCommand().apply(init))
+fun AmazonEC2Functions.describeDhcpOptions(init: AmazonEC2DescribeDhcpOptionsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeDhcpOptionsResult {
+	return this.block.declare(AmazonEC2DescribeDhcpOptionsCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeDhcpOptionsResult
 }
 
 @Generated
-class AmazonEC2DescribeDhcpOptionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeDhcpOptionsRequest> {
+class AmazonEC2DescribeDhcpOptionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeDhcpOptionsRequest, com.amazonaws.services.ec2.model.DescribeDhcpOptionsResult> {
 
 	var dhcpOptionsIds: List<String>? = null
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
@@ -3429,8 +3861,12 @@ class AmazonEC2DescribeDhcpOptionsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeDhcpOptions(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeDhcpOptionsResult {
+	  return com.amazonaws.services.ec2.model.DescribeDhcpOptionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeDhcpOptionsResult {
+		return environment.ec2.describeDhcpOptions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3442,12 +3878,12 @@ class AmazonEC2DescribeDhcpOptionsCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonEC2Functions.describeEgressOnlyInternetGateways(init: AmazonEC2DescribeEgressOnlyInternetGatewaysCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeEgressOnlyInternetGatewaysCommand().apply(init))
+fun AmazonEC2Functions.describeEgressOnlyInternetGateways(init: AmazonEC2DescribeEgressOnlyInternetGatewaysCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeEgressOnlyInternetGatewaysResult {
+	return this.block.declare(AmazonEC2DescribeEgressOnlyInternetGatewaysCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeEgressOnlyInternetGatewaysResult
 }
 
 @Generated
-class AmazonEC2DescribeEgressOnlyInternetGatewaysCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeEgressOnlyInternetGatewaysRequest> {
+class AmazonEC2DescribeEgressOnlyInternetGatewaysCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeEgressOnlyInternetGatewaysRequest, com.amazonaws.services.ec2.model.DescribeEgressOnlyInternetGatewaysResult> {
 
 	var egressOnlyInternetGatewayIds: List<String>? = null
 	var maxResults: Int? = 0
@@ -3461,8 +3897,12 @@ class AmazonEC2DescribeEgressOnlyInternetGatewaysCommand() : AmazonWebServiceCom
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeEgressOnlyInternetGateways(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeEgressOnlyInternetGatewaysResult {
+	  return com.amazonaws.services.ec2.model.DescribeEgressOnlyInternetGatewaysResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeEgressOnlyInternetGatewaysResult {
+		return environment.ec2.describeEgressOnlyInternetGateways(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3475,12 +3915,12 @@ class AmazonEC2DescribeEgressOnlyInternetGatewaysCommand() : AmazonWebServiceCom
 }
 
 
-fun AmazonEC2Functions.describeElasticGpus(init: AmazonEC2DescribeElasticGpusCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeElasticGpusCommand().apply(init))
+fun AmazonEC2Functions.describeElasticGpus(init: AmazonEC2DescribeElasticGpusCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeElasticGpusResult {
+	return this.block.declare(AmazonEC2DescribeElasticGpusCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeElasticGpusResult
 }
 
 @Generated
-class AmazonEC2DescribeElasticGpusCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeElasticGpusRequest> {
+class AmazonEC2DescribeElasticGpusCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeElasticGpusRequest, com.amazonaws.services.ec2.model.DescribeElasticGpusResult> {
 
 	var elasticGpuIds: List<String>? = null
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
@@ -3496,8 +3936,12 @@ class AmazonEC2DescribeElasticGpusCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeElasticGpus(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeElasticGpusResult {
+	  return com.amazonaws.services.ec2.model.DescribeElasticGpusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeElasticGpusResult {
+		return environment.ec2.describeElasticGpus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3511,12 +3955,12 @@ class AmazonEC2DescribeElasticGpusCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonEC2Functions.describeExportTasks(init: AmazonEC2DescribeExportTasksCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeExportTasksCommand().apply(init))
+fun AmazonEC2Functions.describeExportTasks(init: AmazonEC2DescribeExportTasksCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeExportTasksResult {
+	return this.block.declare(AmazonEC2DescribeExportTasksCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeExportTasksResult
 }
 
 @Generated
-class AmazonEC2DescribeExportTasksCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeExportTasksRequest> {
+class AmazonEC2DescribeExportTasksCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeExportTasksRequest, com.amazonaws.services.ec2.model.DescribeExportTasksResult> {
 
 	var exportTaskIds: List<String>? = null
 
@@ -3526,8 +3970,12 @@ class AmazonEC2DescribeExportTasksCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeExportTasks(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeExportTasksResult {
+	  return com.amazonaws.services.ec2.model.DescribeExportTasksResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeExportTasksResult {
+		return environment.ec2.describeExportTasks(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3538,12 +3986,12 @@ class AmazonEC2DescribeExportTasksCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonEC2Functions.describeFlowLogs(init: AmazonEC2DescribeFlowLogsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeFlowLogsCommand().apply(init))
+fun AmazonEC2Functions.describeFlowLogs(init: AmazonEC2DescribeFlowLogsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeFlowLogsResult {
+	return this.block.declare(AmazonEC2DescribeFlowLogsCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeFlowLogsResult
 }
 
 @Generated
-class AmazonEC2DescribeFlowLogsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeFlowLogsRequest> {
+class AmazonEC2DescribeFlowLogsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeFlowLogsRequest, com.amazonaws.services.ec2.model.DescribeFlowLogsResult> {
 
 	var filter: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var flowLogIds: List<String>? = null
@@ -3559,8 +4007,12 @@ class AmazonEC2DescribeFlowLogsCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeFlowLogs(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeFlowLogsResult {
+	  return com.amazonaws.services.ec2.model.DescribeFlowLogsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeFlowLogsResult {
+		return environment.ec2.describeFlowLogs(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3574,12 +4026,12 @@ class AmazonEC2DescribeFlowLogsCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AmazonEC2Functions.describeFpgaImageAttribute(fpgaImageId: String, attribute: FpgaImageAttributeName, init: AmazonEC2DescribeFpgaImageAttributeCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeFpgaImageAttributeCommand(fpgaImageId, attribute).apply(init))
+fun AmazonEC2Functions.describeFpgaImageAttribute(fpgaImageId: String, attribute: FpgaImageAttributeName, init: AmazonEC2DescribeFpgaImageAttributeCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeFpgaImageAttributeResult {
+	return this.block.declare(AmazonEC2DescribeFpgaImageAttributeCommand(fpgaImageId, attribute).apply(init)) as com.amazonaws.services.ec2.model.DescribeFpgaImageAttributeResult
 }
 
 @Generated
-class AmazonEC2DescribeFpgaImageAttributeCommand(val fpgaImageId: String, val attribute: FpgaImageAttributeName) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeFpgaImageAttributeRequest> {
+class AmazonEC2DescribeFpgaImageAttributeCommand(val fpgaImageId: String, val attribute: FpgaImageAttributeName) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeFpgaImageAttributeRequest, com.amazonaws.services.ec2.model.DescribeFpgaImageAttributeResult> {
 
 
 
@@ -3590,8 +4042,12 @@ class AmazonEC2DescribeFpgaImageAttributeCommand(val fpgaImageId: String, val at
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeFpgaImageAttribute(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeFpgaImageAttributeResult {
+	  return com.amazonaws.services.ec2.model.DescribeFpgaImageAttributeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeFpgaImageAttributeResult {
+		return environment.ec2.describeFpgaImageAttribute(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3603,12 +4059,12 @@ class AmazonEC2DescribeFpgaImageAttributeCommand(val fpgaImageId: String, val at
 }
 
 
-fun AmazonEC2Functions.describeFpgaImages(init: AmazonEC2DescribeFpgaImagesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeFpgaImagesCommand().apply(init))
+fun AmazonEC2Functions.describeFpgaImages(init: AmazonEC2DescribeFpgaImagesCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeFpgaImagesResult {
+	return this.block.declare(AmazonEC2DescribeFpgaImagesCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeFpgaImagesResult
 }
 
 @Generated
-class AmazonEC2DescribeFpgaImagesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeFpgaImagesRequest> {
+class AmazonEC2DescribeFpgaImagesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeFpgaImagesRequest, com.amazonaws.services.ec2.model.DescribeFpgaImagesResult> {
 
 	var fpgaImageIds: List<String>? = null
 	var owners: List<String>? = null
@@ -3626,8 +4082,12 @@ class AmazonEC2DescribeFpgaImagesCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeFpgaImages(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeFpgaImagesResult {
+	  return com.amazonaws.services.ec2.model.DescribeFpgaImagesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeFpgaImagesResult {
+		return environment.ec2.describeFpgaImages(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3642,12 +4102,12 @@ class AmazonEC2DescribeFpgaImagesCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AmazonEC2Functions.describeHostReservationOfferings(init: AmazonEC2DescribeHostReservationOfferingsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeHostReservationOfferingsCommand().apply(init))
+fun AmazonEC2Functions.describeHostReservationOfferings(init: AmazonEC2DescribeHostReservationOfferingsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeHostReservationOfferingsResult {
+	return this.block.declare(AmazonEC2DescribeHostReservationOfferingsCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeHostReservationOfferingsResult
 }
 
 @Generated
-class AmazonEC2DescribeHostReservationOfferingsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeHostReservationOfferingsRequest> {
+class AmazonEC2DescribeHostReservationOfferingsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeHostReservationOfferingsRequest, com.amazonaws.services.ec2.model.DescribeHostReservationOfferingsResult> {
 
 	var filter: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var maxDuration: Int? = 0
@@ -3667,8 +4127,12 @@ class AmazonEC2DescribeHostReservationOfferingsCommand() : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeHostReservationOfferings(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeHostReservationOfferingsResult {
+	  return com.amazonaws.services.ec2.model.DescribeHostReservationOfferingsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeHostReservationOfferingsResult {
+		return environment.ec2.describeHostReservationOfferings(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3684,12 +4148,12 @@ class AmazonEC2DescribeHostReservationOfferingsCommand() : AmazonWebServiceComma
 }
 
 
-fun AmazonEC2Functions.describeHostReservations(init: AmazonEC2DescribeHostReservationsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeHostReservationsCommand().apply(init))
+fun AmazonEC2Functions.describeHostReservations(init: AmazonEC2DescribeHostReservationsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeHostReservationsResult {
+	return this.block.declare(AmazonEC2DescribeHostReservationsCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeHostReservationsResult
 }
 
 @Generated
-class AmazonEC2DescribeHostReservationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeHostReservationsRequest> {
+class AmazonEC2DescribeHostReservationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeHostReservationsRequest, com.amazonaws.services.ec2.model.DescribeHostReservationsResult> {
 
 	var filter: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var hostReservationIdSet: List<String>? = null
@@ -3705,8 +4169,12 @@ class AmazonEC2DescribeHostReservationsCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeHostReservations(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeHostReservationsResult {
+	  return com.amazonaws.services.ec2.model.DescribeHostReservationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeHostReservationsResult {
+		return environment.ec2.describeHostReservations(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3720,12 +4188,12 @@ class AmazonEC2DescribeHostReservationsCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AmazonEC2Functions.describeHosts(init: AmazonEC2DescribeHostsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeHostsCommand().apply(init))
+fun AmazonEC2Functions.describeHosts(init: AmazonEC2DescribeHostsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeHostsResult {
+	return this.block.declare(AmazonEC2DescribeHostsCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeHostsResult
 }
 
 @Generated
-class AmazonEC2DescribeHostsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeHostsRequest> {
+class AmazonEC2DescribeHostsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeHostsRequest, com.amazonaws.services.ec2.model.DescribeHostsResult> {
 
 	var filter: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var hostIds: List<String>? = null
@@ -3741,8 +4209,12 @@ class AmazonEC2DescribeHostsCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeHosts(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeHostsResult {
+	  return com.amazonaws.services.ec2.model.DescribeHostsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeHostsResult {
+		return environment.ec2.describeHosts(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3756,12 +4228,12 @@ class AmazonEC2DescribeHostsCommand() : AmazonWebServiceCommand<com.amazonaws.se
 }
 
 
-fun AmazonEC2Functions.describeIamInstanceProfileAssociations(init: AmazonEC2DescribeIamInstanceProfileAssociationsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeIamInstanceProfileAssociationsCommand().apply(init))
+fun AmazonEC2Functions.describeIamInstanceProfileAssociations(init: AmazonEC2DescribeIamInstanceProfileAssociationsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeIamInstanceProfileAssociationsResult {
+	return this.block.declare(AmazonEC2DescribeIamInstanceProfileAssociationsCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeIamInstanceProfileAssociationsResult
 }
 
 @Generated
-class AmazonEC2DescribeIamInstanceProfileAssociationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeIamInstanceProfileAssociationsRequest> {
+class AmazonEC2DescribeIamInstanceProfileAssociationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeIamInstanceProfileAssociationsRequest, com.amazonaws.services.ec2.model.DescribeIamInstanceProfileAssociationsResult> {
 
 	var associationIds: List<String>? = null
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
@@ -3777,8 +4249,12 @@ class AmazonEC2DescribeIamInstanceProfileAssociationsCommand() : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeIamInstanceProfileAssociations(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeIamInstanceProfileAssociationsResult {
+	  return com.amazonaws.services.ec2.model.DescribeIamInstanceProfileAssociationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeIamInstanceProfileAssociationsResult {
+		return environment.ec2.describeIamInstanceProfileAssociations(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3792,12 +4268,12 @@ class AmazonEC2DescribeIamInstanceProfileAssociationsCommand() : AmazonWebServic
 }
 
 
-fun AmazonEC2Functions.describeIdFormat(init: AmazonEC2DescribeIdFormatCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeIdFormatCommand().apply(init))
+fun AmazonEC2Functions.describeIdFormat(init: AmazonEC2DescribeIdFormatCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeIdFormatResult {
+	return this.block.declare(AmazonEC2DescribeIdFormatCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeIdFormatResult
 }
 
 @Generated
-class AmazonEC2DescribeIdFormatCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeIdFormatRequest> {
+class AmazonEC2DescribeIdFormatCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeIdFormatRequest, com.amazonaws.services.ec2.model.DescribeIdFormatResult> {
 
 	var resource: String? = null
 
@@ -3807,8 +4283,12 @@ class AmazonEC2DescribeIdFormatCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeIdFormat(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeIdFormatResult {
+	  return com.amazonaws.services.ec2.model.DescribeIdFormatResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeIdFormatResult {
+		return environment.ec2.describeIdFormat(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3819,12 +4299,12 @@ class AmazonEC2DescribeIdFormatCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AmazonEC2Functions.describeIdentityIdFormat(principalArn: String, init: AmazonEC2DescribeIdentityIdFormatCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeIdentityIdFormatCommand(principalArn).apply(init))
+fun AmazonEC2Functions.describeIdentityIdFormat(principalArn: String, init: AmazonEC2DescribeIdentityIdFormatCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeIdentityIdFormatResult {
+	return this.block.declare(AmazonEC2DescribeIdentityIdFormatCommand(principalArn).apply(init)) as com.amazonaws.services.ec2.model.DescribeIdentityIdFormatResult
 }
 
 @Generated
-class AmazonEC2DescribeIdentityIdFormatCommand(val principalArn: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeIdentityIdFormatRequest> {
+class AmazonEC2DescribeIdentityIdFormatCommand(val principalArn: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeIdentityIdFormatRequest, com.amazonaws.services.ec2.model.DescribeIdentityIdFormatResult> {
 
 	var resource: String? = null
 
@@ -3835,8 +4315,12 @@ class AmazonEC2DescribeIdentityIdFormatCommand(val principalArn: String) : Amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeIdentityIdFormat(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeIdentityIdFormatResult {
+	  return com.amazonaws.services.ec2.model.DescribeIdentityIdFormatResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeIdentityIdFormatResult {
+		return environment.ec2.describeIdentityIdFormat(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3848,12 +4332,12 @@ class AmazonEC2DescribeIdentityIdFormatCommand(val principalArn: String) : Amazo
 }
 
 
-fun AmazonEC2Functions.describeImageAttribute(attribute: ImageAttributeName, imageId: String, init: AmazonEC2DescribeImageAttributeCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeImageAttributeCommand(attribute, imageId).apply(init))
+fun AmazonEC2Functions.describeImageAttribute(attribute: ImageAttributeName, imageId: String, init: AmazonEC2DescribeImageAttributeCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeImageAttributeResult {
+	return this.block.declare(AmazonEC2DescribeImageAttributeCommand(attribute, imageId).apply(init)) as com.amazonaws.services.ec2.model.DescribeImageAttributeResult
 }
 
 @Generated
-class AmazonEC2DescribeImageAttributeCommand(val attribute: ImageAttributeName, val imageId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeImageAttributeRequest> {
+class AmazonEC2DescribeImageAttributeCommand(val attribute: ImageAttributeName, val imageId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeImageAttributeRequest, com.amazonaws.services.ec2.model.DescribeImageAttributeResult> {
 
 
 
@@ -3864,8 +4348,12 @@ class AmazonEC2DescribeImageAttributeCommand(val attribute: ImageAttributeName, 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeImageAttribute(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeImageAttributeResult {
+	  return com.amazonaws.services.ec2.model.DescribeImageAttributeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeImageAttributeResult {
+		return environment.ec2.describeImageAttribute(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3877,12 +4365,12 @@ class AmazonEC2DescribeImageAttributeCommand(val attribute: ImageAttributeName, 
 }
 
 
-fun AmazonEC2Functions.describeImages(init: AmazonEC2DescribeImagesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeImagesCommand().apply(init))
+fun AmazonEC2Functions.describeImages(init: AmazonEC2DescribeImagesCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeImagesResult {
+	return this.block.declare(AmazonEC2DescribeImagesCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeImagesResult
 }
 
 @Generated
-class AmazonEC2DescribeImagesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeImagesRequest> {
+class AmazonEC2DescribeImagesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeImagesRequest, com.amazonaws.services.ec2.model.DescribeImagesResult> {
 
 	var executableUsers: List<String>? = null
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
@@ -3898,8 +4386,12 @@ class AmazonEC2DescribeImagesCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeImages(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeImagesResult {
+	  return com.amazonaws.services.ec2.model.DescribeImagesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeImagesResult {
+		return environment.ec2.describeImages(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3913,12 +4405,12 @@ class AmazonEC2DescribeImagesCommand() : AmazonWebServiceCommand<com.amazonaws.s
 }
 
 
-fun AmazonEC2Functions.describeImportImageTasks(init: AmazonEC2DescribeImportImageTasksCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeImportImageTasksCommand().apply(init))
+fun AmazonEC2Functions.describeImportImageTasks(init: AmazonEC2DescribeImportImageTasksCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeImportImageTasksResult {
+	return this.block.declare(AmazonEC2DescribeImportImageTasksCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeImportImageTasksResult
 }
 
 @Generated
-class AmazonEC2DescribeImportImageTasksCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeImportImageTasksRequest> {
+class AmazonEC2DescribeImportImageTasksCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeImportImageTasksRequest, com.amazonaws.services.ec2.model.DescribeImportImageTasksResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var importTaskIds: List<String>? = null
@@ -3934,8 +4426,12 @@ class AmazonEC2DescribeImportImageTasksCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeImportImageTasks(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeImportImageTasksResult {
+	  return com.amazonaws.services.ec2.model.DescribeImportImageTasksResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeImportImageTasksResult {
+		return environment.ec2.describeImportImageTasks(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3949,12 +4445,12 @@ class AmazonEC2DescribeImportImageTasksCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AmazonEC2Functions.describeImportSnapshotTasks(init: AmazonEC2DescribeImportSnapshotTasksCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeImportSnapshotTasksCommand().apply(init))
+fun AmazonEC2Functions.describeImportSnapshotTasks(init: AmazonEC2DescribeImportSnapshotTasksCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeImportSnapshotTasksResult {
+	return this.block.declare(AmazonEC2DescribeImportSnapshotTasksCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeImportSnapshotTasksResult
 }
 
 @Generated
-class AmazonEC2DescribeImportSnapshotTasksCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeImportSnapshotTasksRequest> {
+class AmazonEC2DescribeImportSnapshotTasksCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeImportSnapshotTasksRequest, com.amazonaws.services.ec2.model.DescribeImportSnapshotTasksResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var importTaskIds: List<String>? = null
@@ -3970,8 +4466,12 @@ class AmazonEC2DescribeImportSnapshotTasksCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeImportSnapshotTasks(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeImportSnapshotTasksResult {
+	  return com.amazonaws.services.ec2.model.DescribeImportSnapshotTasksResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeImportSnapshotTasksResult {
+		return environment.ec2.describeImportSnapshotTasks(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3985,12 +4485,12 @@ class AmazonEC2DescribeImportSnapshotTasksCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonEC2Functions.describeInstanceAttribute(attribute: InstanceAttributeName, instanceId: String, init: AmazonEC2DescribeInstanceAttributeCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeInstanceAttributeCommand(attribute, instanceId).apply(init))
+fun AmazonEC2Functions.describeInstanceAttribute(attribute: InstanceAttributeName, instanceId: String, init: AmazonEC2DescribeInstanceAttributeCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeInstanceAttributeResult {
+	return this.block.declare(AmazonEC2DescribeInstanceAttributeCommand(attribute, instanceId).apply(init)) as com.amazonaws.services.ec2.model.DescribeInstanceAttributeResult
 }
 
 @Generated
-class AmazonEC2DescribeInstanceAttributeCommand(val attribute: InstanceAttributeName, val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeInstanceAttributeRequest> {
+class AmazonEC2DescribeInstanceAttributeCommand(val attribute: InstanceAttributeName, val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeInstanceAttributeRequest, com.amazonaws.services.ec2.model.DescribeInstanceAttributeResult> {
 
 
 
@@ -4001,8 +4501,12 @@ class AmazonEC2DescribeInstanceAttributeCommand(val attribute: InstanceAttribute
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeInstanceAttribute(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeInstanceAttributeResult {
+	  return com.amazonaws.services.ec2.model.DescribeInstanceAttributeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeInstanceAttributeResult {
+		return environment.ec2.describeInstanceAttribute(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -4014,12 +4518,12 @@ class AmazonEC2DescribeInstanceAttributeCommand(val attribute: InstanceAttribute
 }
 
 
-fun AmazonEC2Functions.describeInstanceCreditSpecifications(init: AmazonEC2DescribeInstanceCreditSpecificationsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeInstanceCreditSpecificationsCommand().apply(init))
+fun AmazonEC2Functions.describeInstanceCreditSpecifications(init: AmazonEC2DescribeInstanceCreditSpecificationsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeInstanceCreditSpecificationsResult {
+	return this.block.declare(AmazonEC2DescribeInstanceCreditSpecificationsCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeInstanceCreditSpecificationsResult
 }
 
 @Generated
-class AmazonEC2DescribeInstanceCreditSpecificationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeInstanceCreditSpecificationsRequest> {
+class AmazonEC2DescribeInstanceCreditSpecificationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeInstanceCreditSpecificationsRequest, com.amazonaws.services.ec2.model.DescribeInstanceCreditSpecificationsResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var instanceIds: List<String>? = null
@@ -4035,8 +4539,12 @@ class AmazonEC2DescribeInstanceCreditSpecificationsCommand() : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeInstanceCreditSpecifications(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeInstanceCreditSpecificationsResult {
+	  return com.amazonaws.services.ec2.model.DescribeInstanceCreditSpecificationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeInstanceCreditSpecificationsResult {
+		return environment.ec2.describeInstanceCreditSpecifications(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -4050,12 +4558,12 @@ class AmazonEC2DescribeInstanceCreditSpecificationsCommand() : AmazonWebServiceC
 }
 
 
-fun AmazonEC2Functions.describeInstanceStatus(init: AmazonEC2DescribeInstanceStatusCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeInstanceStatusCommand().apply(init))
+fun AmazonEC2Functions.describeInstanceStatus(init: AmazonEC2DescribeInstanceStatusCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeInstanceStatusResult {
+	return this.block.declare(AmazonEC2DescribeInstanceStatusCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeInstanceStatusResult
 }
 
 @Generated
-class AmazonEC2DescribeInstanceStatusCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeInstanceStatusRequest> {
+class AmazonEC2DescribeInstanceStatusCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeInstanceStatusRequest, com.amazonaws.services.ec2.model.DescribeInstanceStatusResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var instanceIds: List<String>? = null
@@ -4073,8 +4581,12 @@ class AmazonEC2DescribeInstanceStatusCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeInstanceStatus(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeInstanceStatusResult {
+	  return com.amazonaws.services.ec2.model.DescribeInstanceStatusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeInstanceStatusResult {
+		return environment.ec2.describeInstanceStatus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -4089,12 +4601,12 @@ class AmazonEC2DescribeInstanceStatusCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AmazonEC2Functions.describeInstances(init: AmazonEC2DescribeInstancesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeInstancesCommand().apply(init))
+fun AmazonEC2Functions.describeInstances(init: AmazonEC2DescribeInstancesCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeInstancesResult {
+	return this.block.declare(AmazonEC2DescribeInstancesCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeInstancesResult
 }
 
 @Generated
-class AmazonEC2DescribeInstancesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeInstancesRequest> {
+class AmazonEC2DescribeInstancesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeInstancesRequest, com.amazonaws.services.ec2.model.DescribeInstancesResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var instanceIds: List<String>? = null
@@ -4110,8 +4622,12 @@ class AmazonEC2DescribeInstancesCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeInstances(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeInstancesResult {
+	  return com.amazonaws.services.ec2.model.DescribeInstancesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeInstancesResult {
+		return environment.ec2.describeInstances(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -4125,12 +4641,12 @@ class AmazonEC2DescribeInstancesCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AmazonEC2Functions.describeInternetGateways(init: AmazonEC2DescribeInternetGatewaysCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeInternetGatewaysCommand().apply(init))
+fun AmazonEC2Functions.describeInternetGateways(init: AmazonEC2DescribeInternetGatewaysCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeInternetGatewaysResult {
+	return this.block.declare(AmazonEC2DescribeInternetGatewaysCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeInternetGatewaysResult
 }
 
 @Generated
-class AmazonEC2DescribeInternetGatewaysCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeInternetGatewaysRequest> {
+class AmazonEC2DescribeInternetGatewaysCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeInternetGatewaysRequest, com.amazonaws.services.ec2.model.DescribeInternetGatewaysResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var internetGatewayIds: List<String>? = null
@@ -4142,8 +4658,12 @@ class AmazonEC2DescribeInternetGatewaysCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeInternetGateways(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeInternetGatewaysResult {
+	  return com.amazonaws.services.ec2.model.DescribeInternetGatewaysResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeInternetGatewaysResult {
+		return environment.ec2.describeInternetGateways(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -4155,12 +4675,12 @@ class AmazonEC2DescribeInternetGatewaysCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AmazonEC2Functions.describeKeyPairs(init: AmazonEC2DescribeKeyPairsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeKeyPairsCommand().apply(init))
+fun AmazonEC2Functions.describeKeyPairs(init: AmazonEC2DescribeKeyPairsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeKeyPairsResult {
+	return this.block.declare(AmazonEC2DescribeKeyPairsCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeKeyPairsResult
 }
 
 @Generated
-class AmazonEC2DescribeKeyPairsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeKeyPairsRequest> {
+class AmazonEC2DescribeKeyPairsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeKeyPairsRequest, com.amazonaws.services.ec2.model.DescribeKeyPairsResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var keyNames: List<String>? = null
@@ -4172,8 +4692,12 @@ class AmazonEC2DescribeKeyPairsCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeKeyPairs(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeKeyPairsResult {
+	  return com.amazonaws.services.ec2.model.DescribeKeyPairsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeKeyPairsResult {
+		return environment.ec2.describeKeyPairs(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -4185,12 +4709,12 @@ class AmazonEC2DescribeKeyPairsCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AmazonEC2Functions.describeLaunchTemplateVersions(init: AmazonEC2DescribeLaunchTemplateVersionsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeLaunchTemplateVersionsCommand().apply(init))
+fun AmazonEC2Functions.describeLaunchTemplateVersions(init: AmazonEC2DescribeLaunchTemplateVersionsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeLaunchTemplateVersionsResult {
+	return this.block.declare(AmazonEC2DescribeLaunchTemplateVersionsCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeLaunchTemplateVersionsResult
 }
 
 @Generated
-class AmazonEC2DescribeLaunchTemplateVersionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeLaunchTemplateVersionsRequest> {
+class AmazonEC2DescribeLaunchTemplateVersionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeLaunchTemplateVersionsRequest, com.amazonaws.services.ec2.model.DescribeLaunchTemplateVersionsResult> {
 
 	var launchTemplateId: String? = null
 	var launchTemplateName: String? = null
@@ -4214,8 +4738,12 @@ class AmazonEC2DescribeLaunchTemplateVersionsCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeLaunchTemplateVersions(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeLaunchTemplateVersionsResult {
+	  return com.amazonaws.services.ec2.model.DescribeLaunchTemplateVersionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeLaunchTemplateVersionsResult {
+		return environment.ec2.describeLaunchTemplateVersions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -4233,12 +4761,12 @@ class AmazonEC2DescribeLaunchTemplateVersionsCommand() : AmazonWebServiceCommand
 }
 
 
-fun AmazonEC2Functions.describeLaunchTemplates(init: AmazonEC2DescribeLaunchTemplatesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeLaunchTemplatesCommand().apply(init))
+fun AmazonEC2Functions.describeLaunchTemplates(init: AmazonEC2DescribeLaunchTemplatesCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeLaunchTemplatesResult {
+	return this.block.declare(AmazonEC2DescribeLaunchTemplatesCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeLaunchTemplatesResult
 }
 
 @Generated
-class AmazonEC2DescribeLaunchTemplatesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeLaunchTemplatesRequest> {
+class AmazonEC2DescribeLaunchTemplatesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeLaunchTemplatesRequest, com.amazonaws.services.ec2.model.DescribeLaunchTemplatesResult> {
 
 	var launchTemplateIds: List<String>? = null
 	var launchTemplateNames: List<String>? = null
@@ -4256,8 +4784,12 @@ class AmazonEC2DescribeLaunchTemplatesCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeLaunchTemplates(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeLaunchTemplatesResult {
+	  return com.amazonaws.services.ec2.model.DescribeLaunchTemplatesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeLaunchTemplatesResult {
+		return environment.ec2.describeLaunchTemplates(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -4272,12 +4804,12 @@ class AmazonEC2DescribeLaunchTemplatesCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonEC2Functions.describeMovingAddresses(init: AmazonEC2DescribeMovingAddressesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeMovingAddressesCommand().apply(init))
+fun AmazonEC2Functions.describeMovingAddresses(init: AmazonEC2DescribeMovingAddressesCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeMovingAddressesResult {
+	return this.block.declare(AmazonEC2DescribeMovingAddressesCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeMovingAddressesResult
 }
 
 @Generated
-class AmazonEC2DescribeMovingAddressesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeMovingAddressesRequest> {
+class AmazonEC2DescribeMovingAddressesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeMovingAddressesRequest, com.amazonaws.services.ec2.model.DescribeMovingAddressesResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var maxResults: Int? = 0
@@ -4293,8 +4825,12 @@ class AmazonEC2DescribeMovingAddressesCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeMovingAddresses(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeMovingAddressesResult {
+	  return com.amazonaws.services.ec2.model.DescribeMovingAddressesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeMovingAddressesResult {
+		return environment.ec2.describeMovingAddresses(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -4308,12 +4844,12 @@ class AmazonEC2DescribeMovingAddressesCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonEC2Functions.describeNatGateways(init: AmazonEC2DescribeNatGatewaysCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeNatGatewaysCommand().apply(init))
+fun AmazonEC2Functions.describeNatGateways(init: AmazonEC2DescribeNatGatewaysCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeNatGatewaysResult {
+	return this.block.declare(AmazonEC2DescribeNatGatewaysCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeNatGatewaysResult
 }
 
 @Generated
-class AmazonEC2DescribeNatGatewaysCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeNatGatewaysRequest> {
+class AmazonEC2DescribeNatGatewaysCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeNatGatewaysRequest, com.amazonaws.services.ec2.model.DescribeNatGatewaysResult> {
 
 	var filter: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var maxResults: Int? = 0
@@ -4329,8 +4865,12 @@ class AmazonEC2DescribeNatGatewaysCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeNatGateways(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeNatGatewaysResult {
+	  return com.amazonaws.services.ec2.model.DescribeNatGatewaysResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeNatGatewaysResult {
+		return environment.ec2.describeNatGateways(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -4344,12 +4884,12 @@ class AmazonEC2DescribeNatGatewaysCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonEC2Functions.describeNetworkAcls(init: AmazonEC2DescribeNetworkAclsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeNetworkAclsCommand().apply(init))
+fun AmazonEC2Functions.describeNetworkAcls(init: AmazonEC2DescribeNetworkAclsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeNetworkAclsResult {
+	return this.block.declare(AmazonEC2DescribeNetworkAclsCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeNetworkAclsResult
 }
 
 @Generated
-class AmazonEC2DescribeNetworkAclsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeNetworkAclsRequest> {
+class AmazonEC2DescribeNetworkAclsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeNetworkAclsRequest, com.amazonaws.services.ec2.model.DescribeNetworkAclsResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var networkAclIds: List<String>? = null
@@ -4361,8 +4901,12 @@ class AmazonEC2DescribeNetworkAclsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeNetworkAcls(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeNetworkAclsResult {
+	  return com.amazonaws.services.ec2.model.DescribeNetworkAclsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeNetworkAclsResult {
+		return environment.ec2.describeNetworkAcls(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -4374,12 +4918,12 @@ class AmazonEC2DescribeNetworkAclsCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonEC2Functions.describeNetworkInterfaceAttribute(networkInterfaceId: String, init: AmazonEC2DescribeNetworkInterfaceAttributeCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeNetworkInterfaceAttributeCommand(networkInterfaceId).apply(init))
+fun AmazonEC2Functions.describeNetworkInterfaceAttribute(networkInterfaceId: String, init: AmazonEC2DescribeNetworkInterfaceAttributeCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeNetworkInterfaceAttributeResult {
+	return this.block.declare(AmazonEC2DescribeNetworkInterfaceAttributeCommand(networkInterfaceId).apply(init)) as com.amazonaws.services.ec2.model.DescribeNetworkInterfaceAttributeResult
 }
 
 @Generated
-class AmazonEC2DescribeNetworkInterfaceAttributeCommand(val networkInterfaceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeNetworkInterfaceAttributeRequest> {
+class AmazonEC2DescribeNetworkInterfaceAttributeCommand(val networkInterfaceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeNetworkInterfaceAttributeRequest, com.amazonaws.services.ec2.model.DescribeNetworkInterfaceAttributeResult> {
 
 	var attribute: NetworkInterfaceAttribute? = null
 
@@ -4390,8 +4934,12 @@ class AmazonEC2DescribeNetworkInterfaceAttributeCommand(val networkInterfaceId: 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeNetworkInterfaceAttribute(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeNetworkInterfaceAttributeResult {
+	  return com.amazonaws.services.ec2.model.DescribeNetworkInterfaceAttributeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeNetworkInterfaceAttributeResult {
+		return environment.ec2.describeNetworkInterfaceAttribute(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -4403,12 +4951,12 @@ class AmazonEC2DescribeNetworkInterfaceAttributeCommand(val networkInterfaceId: 
 }
 
 
-fun AmazonEC2Functions.describeNetworkInterfacePermissions(init: AmazonEC2DescribeNetworkInterfacePermissionsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeNetworkInterfacePermissionsCommand().apply(init))
+fun AmazonEC2Functions.describeNetworkInterfacePermissions(init: AmazonEC2DescribeNetworkInterfacePermissionsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeNetworkInterfacePermissionsResult {
+	return this.block.declare(AmazonEC2DescribeNetworkInterfacePermissionsCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeNetworkInterfacePermissionsResult
 }
 
 @Generated
-class AmazonEC2DescribeNetworkInterfacePermissionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeNetworkInterfacePermissionsRequest> {
+class AmazonEC2DescribeNetworkInterfacePermissionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeNetworkInterfacePermissionsRequest, com.amazonaws.services.ec2.model.DescribeNetworkInterfacePermissionsResult> {
 
 	var networkInterfacePermissionIds: List<String>? = null
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
@@ -4424,8 +4972,12 @@ class AmazonEC2DescribeNetworkInterfacePermissionsCommand() : AmazonWebServiceCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeNetworkInterfacePermissions(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeNetworkInterfacePermissionsResult {
+	  return com.amazonaws.services.ec2.model.DescribeNetworkInterfacePermissionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeNetworkInterfacePermissionsResult {
+		return environment.ec2.describeNetworkInterfacePermissions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -4439,12 +4991,12 @@ class AmazonEC2DescribeNetworkInterfacePermissionsCommand() : AmazonWebServiceCo
 }
 
 
-fun AmazonEC2Functions.describeNetworkInterfaces(init: AmazonEC2DescribeNetworkInterfacesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeNetworkInterfacesCommand().apply(init))
+fun AmazonEC2Functions.describeNetworkInterfaces(init: AmazonEC2DescribeNetworkInterfacesCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeNetworkInterfacesResult {
+	return this.block.declare(AmazonEC2DescribeNetworkInterfacesCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeNetworkInterfacesResult
 }
 
 @Generated
-class AmazonEC2DescribeNetworkInterfacesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeNetworkInterfacesRequest> {
+class AmazonEC2DescribeNetworkInterfacesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeNetworkInterfacesRequest, com.amazonaws.services.ec2.model.DescribeNetworkInterfacesResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var networkInterfaceIds: List<String>? = null
@@ -4456,8 +5008,12 @@ class AmazonEC2DescribeNetworkInterfacesCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeNetworkInterfaces(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeNetworkInterfacesResult {
+	  return com.amazonaws.services.ec2.model.DescribeNetworkInterfacesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeNetworkInterfacesResult {
+		return environment.ec2.describeNetworkInterfaces(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -4469,12 +5025,12 @@ class AmazonEC2DescribeNetworkInterfacesCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonEC2Functions.describePlacementGroups(init: AmazonEC2DescribePlacementGroupsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribePlacementGroupsCommand().apply(init))
+fun AmazonEC2Functions.describePlacementGroups(init: AmazonEC2DescribePlacementGroupsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribePlacementGroupsResult {
+	return this.block.declare(AmazonEC2DescribePlacementGroupsCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribePlacementGroupsResult
 }
 
 @Generated
-class AmazonEC2DescribePlacementGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribePlacementGroupsRequest> {
+class AmazonEC2DescribePlacementGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribePlacementGroupsRequest, com.amazonaws.services.ec2.model.DescribePlacementGroupsResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var groupNames: List<String>? = null
@@ -4486,8 +5042,12 @@ class AmazonEC2DescribePlacementGroupsCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describePlacementGroups(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribePlacementGroupsResult {
+	  return com.amazonaws.services.ec2.model.DescribePlacementGroupsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribePlacementGroupsResult {
+		return environment.ec2.describePlacementGroups(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -4499,12 +5059,12 @@ class AmazonEC2DescribePlacementGroupsCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonEC2Functions.describePrefixLists(init: AmazonEC2DescribePrefixListsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribePrefixListsCommand().apply(init))
+fun AmazonEC2Functions.describePrefixLists(init: AmazonEC2DescribePrefixListsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribePrefixListsResult {
+	return this.block.declare(AmazonEC2DescribePrefixListsCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribePrefixListsResult
 }
 
 @Generated
-class AmazonEC2DescribePrefixListsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribePrefixListsRequest> {
+class AmazonEC2DescribePrefixListsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribePrefixListsRequest, com.amazonaws.services.ec2.model.DescribePrefixListsResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var maxResults: Int? = 0
@@ -4520,8 +5080,12 @@ class AmazonEC2DescribePrefixListsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describePrefixLists(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribePrefixListsResult {
+	  return com.amazonaws.services.ec2.model.DescribePrefixListsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribePrefixListsResult {
+		return environment.ec2.describePrefixLists(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -4535,12 +5099,12 @@ class AmazonEC2DescribePrefixListsCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonEC2Functions.describePrincipalIdFormat(init: AmazonEC2DescribePrincipalIdFormatCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribePrincipalIdFormatCommand().apply(init))
+fun AmazonEC2Functions.describePrincipalIdFormat(init: AmazonEC2DescribePrincipalIdFormatCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribePrincipalIdFormatResult {
+	return this.block.declare(AmazonEC2DescribePrincipalIdFormatCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribePrincipalIdFormatResult
 }
 
 @Generated
-class AmazonEC2DescribePrincipalIdFormatCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribePrincipalIdFormatRequest> {
+class AmazonEC2DescribePrincipalIdFormatCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribePrincipalIdFormatRequest, com.amazonaws.services.ec2.model.DescribePrincipalIdFormatResult> {
 
 	var resources: List<String>? = null
 	var maxResults: Int? = 0
@@ -4554,8 +5118,12 @@ class AmazonEC2DescribePrincipalIdFormatCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describePrincipalIdFormat(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribePrincipalIdFormatResult {
+	  return com.amazonaws.services.ec2.model.DescribePrincipalIdFormatResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribePrincipalIdFormatResult {
+		return environment.ec2.describePrincipalIdFormat(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -4568,12 +5136,12 @@ class AmazonEC2DescribePrincipalIdFormatCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonEC2Functions.describeRegions(init: AmazonEC2DescribeRegionsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeRegionsCommand().apply(init))
+fun AmazonEC2Functions.describeRegions(init: AmazonEC2DescribeRegionsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeRegionsResult {
+	return this.block.declare(AmazonEC2DescribeRegionsCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeRegionsResult
 }
 
 @Generated
-class AmazonEC2DescribeRegionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeRegionsRequest> {
+class AmazonEC2DescribeRegionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeRegionsRequest, com.amazonaws.services.ec2.model.DescribeRegionsResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var regionNames: List<String>? = null
@@ -4585,8 +5153,12 @@ class AmazonEC2DescribeRegionsCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeRegions(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeRegionsResult {
+	  return com.amazonaws.services.ec2.model.DescribeRegionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeRegionsResult {
+		return environment.ec2.describeRegions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -4598,12 +5170,12 @@ class AmazonEC2DescribeRegionsCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AmazonEC2Functions.describeReservedInstances(init: AmazonEC2DescribeReservedInstancesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeReservedInstancesCommand().apply(init))
+fun AmazonEC2Functions.describeReservedInstances(init: AmazonEC2DescribeReservedInstancesCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeReservedInstancesResult {
+	return this.block.declare(AmazonEC2DescribeReservedInstancesCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeReservedInstancesResult
 }
 
 @Generated
-class AmazonEC2DescribeReservedInstancesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeReservedInstancesRequest> {
+class AmazonEC2DescribeReservedInstancesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeReservedInstancesRequest, com.amazonaws.services.ec2.model.DescribeReservedInstancesResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var offeringClass: OfferingClassType? = null
@@ -4619,8 +5191,12 @@ class AmazonEC2DescribeReservedInstancesCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeReservedInstances(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeReservedInstancesResult {
+	  return com.amazonaws.services.ec2.model.DescribeReservedInstancesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeReservedInstancesResult {
+		return environment.ec2.describeReservedInstances(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -4634,12 +5210,12 @@ class AmazonEC2DescribeReservedInstancesCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonEC2Functions.describeReservedInstancesListings(init: AmazonEC2DescribeReservedInstancesListingsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeReservedInstancesListingsCommand().apply(init))
+fun AmazonEC2Functions.describeReservedInstancesListings(init: AmazonEC2DescribeReservedInstancesListingsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeReservedInstancesListingsResult {
+	return this.block.declare(AmazonEC2DescribeReservedInstancesListingsCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeReservedInstancesListingsResult
 }
 
 @Generated
-class AmazonEC2DescribeReservedInstancesListingsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeReservedInstancesListingsRequest> {
+class AmazonEC2DescribeReservedInstancesListingsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeReservedInstancesListingsRequest, com.amazonaws.services.ec2.model.DescribeReservedInstancesListingsResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var reservedInstancesId: String? = null
@@ -4653,8 +5229,12 @@ class AmazonEC2DescribeReservedInstancesListingsCommand() : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeReservedInstancesListings(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeReservedInstancesListingsResult {
+	  return com.amazonaws.services.ec2.model.DescribeReservedInstancesListingsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeReservedInstancesListingsResult {
+		return environment.ec2.describeReservedInstancesListings(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -4667,12 +5247,12 @@ class AmazonEC2DescribeReservedInstancesListingsCommand() : AmazonWebServiceComm
 }
 
 
-fun AmazonEC2Functions.describeReservedInstancesModifications(init: AmazonEC2DescribeReservedInstancesModificationsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeReservedInstancesModificationsCommand().apply(init))
+fun AmazonEC2Functions.describeReservedInstancesModifications(init: AmazonEC2DescribeReservedInstancesModificationsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeReservedInstancesModificationsResult {
+	return this.block.declare(AmazonEC2DescribeReservedInstancesModificationsCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeReservedInstancesModificationsResult
 }
 
 @Generated
-class AmazonEC2DescribeReservedInstancesModificationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeReservedInstancesModificationsRequest> {
+class AmazonEC2DescribeReservedInstancesModificationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeReservedInstancesModificationsRequest, com.amazonaws.services.ec2.model.DescribeReservedInstancesModificationsResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var reservedInstancesModificationIds: List<String>? = null
@@ -4686,8 +5266,12 @@ class AmazonEC2DescribeReservedInstancesModificationsCommand() : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeReservedInstancesModifications(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeReservedInstancesModificationsResult {
+	  return com.amazonaws.services.ec2.model.DescribeReservedInstancesModificationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeReservedInstancesModificationsResult {
+		return environment.ec2.describeReservedInstancesModifications(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -4700,12 +5284,12 @@ class AmazonEC2DescribeReservedInstancesModificationsCommand() : AmazonWebServic
 }
 
 
-fun AmazonEC2Functions.describeReservedInstancesOfferings(init: AmazonEC2DescribeReservedInstancesOfferingsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeReservedInstancesOfferingsCommand().apply(init))
+fun AmazonEC2Functions.describeReservedInstancesOfferings(init: AmazonEC2DescribeReservedInstancesOfferingsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeReservedInstancesOfferingsResult {
+	return this.block.declare(AmazonEC2DescribeReservedInstancesOfferingsCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeReservedInstancesOfferingsResult
 }
 
 @Generated
-class AmazonEC2DescribeReservedInstancesOfferingsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeReservedInstancesOfferingsRequest> {
+class AmazonEC2DescribeReservedInstancesOfferingsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeReservedInstancesOfferingsRequest, com.amazonaws.services.ec2.model.DescribeReservedInstancesOfferingsResult> {
 
 	var availabilityZone: String? = null
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
@@ -4741,8 +5325,12 @@ class AmazonEC2DescribeReservedInstancesOfferingsCommand() : AmazonWebServiceCom
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeReservedInstancesOfferings(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeReservedInstancesOfferingsResult {
+	  return com.amazonaws.services.ec2.model.DescribeReservedInstancesOfferingsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeReservedInstancesOfferingsResult {
+		return environment.ec2.describeReservedInstancesOfferings(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -4766,12 +5354,12 @@ class AmazonEC2DescribeReservedInstancesOfferingsCommand() : AmazonWebServiceCom
 }
 
 
-fun AmazonEC2Functions.describeRouteTables(init: AmazonEC2DescribeRouteTablesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeRouteTablesCommand().apply(init))
+fun AmazonEC2Functions.describeRouteTables(init: AmazonEC2DescribeRouteTablesCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeRouteTablesResult {
+	return this.block.declare(AmazonEC2DescribeRouteTablesCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeRouteTablesResult
 }
 
 @Generated
-class AmazonEC2DescribeRouteTablesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeRouteTablesRequest> {
+class AmazonEC2DescribeRouteTablesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeRouteTablesRequest, com.amazonaws.services.ec2.model.DescribeRouteTablesResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var routeTableIds: List<String>? = null
@@ -4783,8 +5371,12 @@ class AmazonEC2DescribeRouteTablesCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeRouteTables(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeRouteTablesResult {
+	  return com.amazonaws.services.ec2.model.DescribeRouteTablesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeRouteTablesResult {
+		return environment.ec2.describeRouteTables(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -4796,12 +5388,12 @@ class AmazonEC2DescribeRouteTablesCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonEC2Functions.describeScheduledInstanceAvailability(firstSlotStartTimeRange: com.amazonaws.services.ec2.model.SlotDateTimeRangeRequest, recurrence: com.amazonaws.services.ec2.model.ScheduledInstanceRecurrenceRequest, init: AmazonEC2DescribeScheduledInstanceAvailabilityCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeScheduledInstanceAvailabilityCommand(firstSlotStartTimeRange, recurrence).apply(init))
+fun AmazonEC2Functions.describeScheduledInstanceAvailability(firstSlotStartTimeRange: com.amazonaws.services.ec2.model.SlotDateTimeRangeRequest, recurrence: com.amazonaws.services.ec2.model.ScheduledInstanceRecurrenceRequest, init: AmazonEC2DescribeScheduledInstanceAvailabilityCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeScheduledInstanceAvailabilityResult {
+	return this.block.declare(AmazonEC2DescribeScheduledInstanceAvailabilityCommand(firstSlotStartTimeRange, recurrence).apply(init)) as com.amazonaws.services.ec2.model.DescribeScheduledInstanceAvailabilityResult
 }
 
 @Generated
-class AmazonEC2DescribeScheduledInstanceAvailabilityCommand(val firstSlotStartTimeRange: com.amazonaws.services.ec2.model.SlotDateTimeRangeRequest, val recurrence: com.amazonaws.services.ec2.model.ScheduledInstanceRecurrenceRequest) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeScheduledInstanceAvailabilityRequest> {
+class AmazonEC2DescribeScheduledInstanceAvailabilityCommand(val firstSlotStartTimeRange: com.amazonaws.services.ec2.model.SlotDateTimeRangeRequest, val recurrence: com.amazonaws.services.ec2.model.ScheduledInstanceRecurrenceRequest) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeScheduledInstanceAvailabilityRequest, com.amazonaws.services.ec2.model.DescribeScheduledInstanceAvailabilityResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var maxResults: Int? = 0
@@ -4821,8 +5413,12 @@ class AmazonEC2DescribeScheduledInstanceAvailabilityCommand(val firstSlotStartTi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeScheduledInstanceAvailability(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeScheduledInstanceAvailabilityResult {
+	  return com.amazonaws.services.ec2.model.DescribeScheduledInstanceAvailabilityResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeScheduledInstanceAvailabilityResult {
+		return environment.ec2.describeScheduledInstanceAvailability(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -4839,12 +5435,12 @@ class AmazonEC2DescribeScheduledInstanceAvailabilityCommand(val firstSlotStartTi
 }
 
 
-fun AmazonEC2Functions.describeScheduledInstances(init: AmazonEC2DescribeScheduledInstancesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeScheduledInstancesCommand().apply(init))
+fun AmazonEC2Functions.describeScheduledInstances(init: AmazonEC2DescribeScheduledInstancesCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeScheduledInstancesResult {
+	return this.block.declare(AmazonEC2DescribeScheduledInstancesCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeScheduledInstancesResult
 }
 
 @Generated
-class AmazonEC2DescribeScheduledInstancesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeScheduledInstancesRequest> {
+class AmazonEC2DescribeScheduledInstancesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeScheduledInstancesRequest, com.amazonaws.services.ec2.model.DescribeScheduledInstancesResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var maxResults: Int? = 0
@@ -4862,8 +5458,12 @@ class AmazonEC2DescribeScheduledInstancesCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeScheduledInstances(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeScheduledInstancesResult {
+	  return com.amazonaws.services.ec2.model.DescribeScheduledInstancesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeScheduledInstancesResult {
+		return environment.ec2.describeScheduledInstances(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -4878,12 +5478,12 @@ class AmazonEC2DescribeScheduledInstancesCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AmazonEC2Functions.describeSecurityGroupReferences(groupId: List<String>, init: AmazonEC2DescribeSecurityGroupReferencesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeSecurityGroupReferencesCommand(groupId).apply(init))
+fun AmazonEC2Functions.describeSecurityGroupReferences(groupId: List<String>, init: AmazonEC2DescribeSecurityGroupReferencesCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeSecurityGroupReferencesResult {
+	return this.block.declare(AmazonEC2DescribeSecurityGroupReferencesCommand(groupId).apply(init)) as com.amazonaws.services.ec2.model.DescribeSecurityGroupReferencesResult
 }
 
 @Generated
-class AmazonEC2DescribeSecurityGroupReferencesCommand(val groupId: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeSecurityGroupReferencesRequest> {
+class AmazonEC2DescribeSecurityGroupReferencesCommand(val groupId: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeSecurityGroupReferencesRequest, com.amazonaws.services.ec2.model.DescribeSecurityGroupReferencesResult> {
 
 
 
@@ -4893,8 +5493,12 @@ class AmazonEC2DescribeSecurityGroupReferencesCommand(val groupId: List<String>)
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeSecurityGroupReferences(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeSecurityGroupReferencesResult {
+	  return com.amazonaws.services.ec2.model.DescribeSecurityGroupReferencesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeSecurityGroupReferencesResult {
+		return environment.ec2.describeSecurityGroupReferences(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -4905,12 +5509,12 @@ class AmazonEC2DescribeSecurityGroupReferencesCommand(val groupId: List<String>)
 }
 
 
-fun AmazonEC2Functions.describeSecurityGroups(init: AmazonEC2DescribeSecurityGroupsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeSecurityGroupsCommand().apply(init))
+fun AmazonEC2Functions.describeSecurityGroups(init: AmazonEC2DescribeSecurityGroupsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeSecurityGroupsResult {
+	return this.block.declare(AmazonEC2DescribeSecurityGroupsCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeSecurityGroupsResult
 }
 
 @Generated
-class AmazonEC2DescribeSecurityGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeSecurityGroupsRequest> {
+class AmazonEC2DescribeSecurityGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeSecurityGroupsRequest, com.amazonaws.services.ec2.model.DescribeSecurityGroupsResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var groupIds: List<String>? = null
@@ -4928,8 +5532,12 @@ class AmazonEC2DescribeSecurityGroupsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeSecurityGroups(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeSecurityGroupsResult {
+	  return com.amazonaws.services.ec2.model.DescribeSecurityGroupsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeSecurityGroupsResult {
+		return environment.ec2.describeSecurityGroups(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -4944,12 +5552,12 @@ class AmazonEC2DescribeSecurityGroupsCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AmazonEC2Functions.describeSnapshotAttribute(attribute: SnapshotAttributeName, snapshotId: String, init: AmazonEC2DescribeSnapshotAttributeCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeSnapshotAttributeCommand(attribute, snapshotId).apply(init))
+fun AmazonEC2Functions.describeSnapshotAttribute(attribute: SnapshotAttributeName, snapshotId: String, init: AmazonEC2DescribeSnapshotAttributeCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeSnapshotAttributeResult {
+	return this.block.declare(AmazonEC2DescribeSnapshotAttributeCommand(attribute, snapshotId).apply(init)) as com.amazonaws.services.ec2.model.DescribeSnapshotAttributeResult
 }
 
 @Generated
-class AmazonEC2DescribeSnapshotAttributeCommand(val attribute: SnapshotAttributeName, val snapshotId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeSnapshotAttributeRequest> {
+class AmazonEC2DescribeSnapshotAttributeCommand(val attribute: SnapshotAttributeName, val snapshotId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeSnapshotAttributeRequest, com.amazonaws.services.ec2.model.DescribeSnapshotAttributeResult> {
 
 
 
@@ -4960,8 +5568,12 @@ class AmazonEC2DescribeSnapshotAttributeCommand(val attribute: SnapshotAttribute
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeSnapshotAttribute(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeSnapshotAttributeResult {
+	  return com.amazonaws.services.ec2.model.DescribeSnapshotAttributeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeSnapshotAttributeResult {
+		return environment.ec2.describeSnapshotAttribute(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -4973,12 +5585,12 @@ class AmazonEC2DescribeSnapshotAttributeCommand(val attribute: SnapshotAttribute
 }
 
 
-fun AmazonEC2Functions.describeSnapshots(init: AmazonEC2DescribeSnapshotsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeSnapshotsCommand().apply(init))
+fun AmazonEC2Functions.describeSnapshots(init: AmazonEC2DescribeSnapshotsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeSnapshotsResult {
+	return this.block.declare(AmazonEC2DescribeSnapshotsCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeSnapshotsResult
 }
 
 @Generated
-class AmazonEC2DescribeSnapshotsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeSnapshotsRequest> {
+class AmazonEC2DescribeSnapshotsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeSnapshotsRequest, com.amazonaws.services.ec2.model.DescribeSnapshotsResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var maxResults: Int? = 0
@@ -4998,8 +5610,12 @@ class AmazonEC2DescribeSnapshotsCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeSnapshots(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeSnapshotsResult {
+	  return com.amazonaws.services.ec2.model.DescribeSnapshotsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeSnapshotsResult {
+		return environment.ec2.describeSnapshots(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -5015,12 +5631,12 @@ class AmazonEC2DescribeSnapshotsCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AmazonEC2Functions.describeSpotDatafeedSubscription(init: AmazonEC2DescribeSpotDatafeedSubscriptionCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeSpotDatafeedSubscriptionCommand().apply(init))
+fun AmazonEC2Functions.describeSpotDatafeedSubscription(init: AmazonEC2DescribeSpotDatafeedSubscriptionCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeSpotDatafeedSubscriptionResult {
+	return this.block.declare(AmazonEC2DescribeSpotDatafeedSubscriptionCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeSpotDatafeedSubscriptionResult
 }
 
 @Generated
-class AmazonEC2DescribeSpotDatafeedSubscriptionCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeSpotDatafeedSubscriptionRequest> {
+class AmazonEC2DescribeSpotDatafeedSubscriptionCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeSpotDatafeedSubscriptionRequest, com.amazonaws.services.ec2.model.DescribeSpotDatafeedSubscriptionResult> {
 
 
 
@@ -5030,8 +5646,12 @@ class AmazonEC2DescribeSpotDatafeedSubscriptionCommand() : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeSpotDatafeedSubscription(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeSpotDatafeedSubscriptionResult {
+	  return com.amazonaws.services.ec2.model.DescribeSpotDatafeedSubscriptionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeSpotDatafeedSubscriptionResult {
+		return environment.ec2.describeSpotDatafeedSubscription(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -5042,12 +5662,12 @@ class AmazonEC2DescribeSpotDatafeedSubscriptionCommand() : AmazonWebServiceComma
 }
 
 
-fun AmazonEC2Functions.describeSpotFleetInstances(spotFleetRequestId: String, init: AmazonEC2DescribeSpotFleetInstancesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeSpotFleetInstancesCommand(spotFleetRequestId).apply(init))
+fun AmazonEC2Functions.describeSpotFleetInstances(spotFleetRequestId: String, init: AmazonEC2DescribeSpotFleetInstancesCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeSpotFleetInstancesResult {
+	return this.block.declare(AmazonEC2DescribeSpotFleetInstancesCommand(spotFleetRequestId).apply(init)) as com.amazonaws.services.ec2.model.DescribeSpotFleetInstancesResult
 }
 
 @Generated
-class AmazonEC2DescribeSpotFleetInstancesCommand(val spotFleetRequestId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeSpotFleetInstancesRequest> {
+class AmazonEC2DescribeSpotFleetInstancesCommand(val spotFleetRequestId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeSpotFleetInstancesRequest, com.amazonaws.services.ec2.model.DescribeSpotFleetInstancesResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -5060,8 +5680,12 @@ class AmazonEC2DescribeSpotFleetInstancesCommand(val spotFleetRequestId: String)
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeSpotFleetInstances(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeSpotFleetInstancesResult {
+	  return com.amazonaws.services.ec2.model.DescribeSpotFleetInstancesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeSpotFleetInstancesResult {
+		return environment.ec2.describeSpotFleetInstances(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -5074,12 +5698,12 @@ class AmazonEC2DescribeSpotFleetInstancesCommand(val spotFleetRequestId: String)
 }
 
 
-fun AmazonEC2Functions.describeSpotFleetRequestHistory(spotFleetRequestId: String, startTime: java.util.Date, init: AmazonEC2DescribeSpotFleetRequestHistoryCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeSpotFleetRequestHistoryCommand(spotFleetRequestId, startTime).apply(init))
+fun AmazonEC2Functions.describeSpotFleetRequestHistory(spotFleetRequestId: String, startTime: java.util.Date, init: AmazonEC2DescribeSpotFleetRequestHistoryCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeSpotFleetRequestHistoryResult {
+	return this.block.declare(AmazonEC2DescribeSpotFleetRequestHistoryCommand(spotFleetRequestId, startTime).apply(init)) as com.amazonaws.services.ec2.model.DescribeSpotFleetRequestHistoryResult
 }
 
 @Generated
-class AmazonEC2DescribeSpotFleetRequestHistoryCommand(val spotFleetRequestId: String, val startTime: java.util.Date) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeSpotFleetRequestHistoryRequest> {
+class AmazonEC2DescribeSpotFleetRequestHistoryCommand(val spotFleetRequestId: String, val startTime: java.util.Date) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeSpotFleetRequestHistoryRequest, com.amazonaws.services.ec2.model.DescribeSpotFleetRequestHistoryResult> {
 
 	var eventType: EventType? = null
 	var maxResults: Int? = 0
@@ -5095,8 +5719,12 @@ class AmazonEC2DescribeSpotFleetRequestHistoryCommand(val spotFleetRequestId: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeSpotFleetRequestHistory(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeSpotFleetRequestHistoryResult {
+	  return com.amazonaws.services.ec2.model.DescribeSpotFleetRequestHistoryResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeSpotFleetRequestHistoryResult {
+		return environment.ec2.describeSpotFleetRequestHistory(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -5111,12 +5739,12 @@ class AmazonEC2DescribeSpotFleetRequestHistoryCommand(val spotFleetRequestId: St
 }
 
 
-fun AmazonEC2Functions.describeSpotFleetRequests(init: AmazonEC2DescribeSpotFleetRequestsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeSpotFleetRequestsCommand().apply(init))
+fun AmazonEC2Functions.describeSpotFleetRequests(init: AmazonEC2DescribeSpotFleetRequestsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeSpotFleetRequestsResult {
+	return this.block.declare(AmazonEC2DescribeSpotFleetRequestsCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeSpotFleetRequestsResult
 }
 
 @Generated
-class AmazonEC2DescribeSpotFleetRequestsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeSpotFleetRequestsRequest> {
+class AmazonEC2DescribeSpotFleetRequestsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeSpotFleetRequestsRequest, com.amazonaws.services.ec2.model.DescribeSpotFleetRequestsResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -5130,8 +5758,12 @@ class AmazonEC2DescribeSpotFleetRequestsCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeSpotFleetRequests(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeSpotFleetRequestsResult {
+	  return com.amazonaws.services.ec2.model.DescribeSpotFleetRequestsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeSpotFleetRequestsResult {
+		return environment.ec2.describeSpotFleetRequests(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -5144,12 +5776,12 @@ class AmazonEC2DescribeSpotFleetRequestsCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonEC2Functions.describeSpotInstanceRequests(init: AmazonEC2DescribeSpotInstanceRequestsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeSpotInstanceRequestsCommand().apply(init))
+fun AmazonEC2Functions.describeSpotInstanceRequests(init: AmazonEC2DescribeSpotInstanceRequestsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeSpotInstanceRequestsResult {
+	return this.block.declare(AmazonEC2DescribeSpotInstanceRequestsCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeSpotInstanceRequestsResult
 }
 
 @Generated
-class AmazonEC2DescribeSpotInstanceRequestsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeSpotInstanceRequestsRequest> {
+class AmazonEC2DescribeSpotInstanceRequestsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeSpotInstanceRequestsRequest, com.amazonaws.services.ec2.model.DescribeSpotInstanceRequestsResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var spotInstanceRequestIds: List<String>? = null
@@ -5161,8 +5793,12 @@ class AmazonEC2DescribeSpotInstanceRequestsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeSpotInstanceRequests(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeSpotInstanceRequestsResult {
+	  return com.amazonaws.services.ec2.model.DescribeSpotInstanceRequestsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeSpotInstanceRequestsResult {
+		return environment.ec2.describeSpotInstanceRequests(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -5174,12 +5810,12 @@ class AmazonEC2DescribeSpotInstanceRequestsCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AmazonEC2Functions.describeSpotPriceHistory(init: AmazonEC2DescribeSpotPriceHistoryCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeSpotPriceHistoryCommand().apply(init))
+fun AmazonEC2Functions.describeSpotPriceHistory(init: AmazonEC2DescribeSpotPriceHistoryCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeSpotPriceHistoryResult {
+	return this.block.declare(AmazonEC2DescribeSpotPriceHistoryCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeSpotPriceHistoryResult
 }
 
 @Generated
-class AmazonEC2DescribeSpotPriceHistoryCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeSpotPriceHistoryRequest> {
+class AmazonEC2DescribeSpotPriceHistoryCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeSpotPriceHistoryRequest, com.amazonaws.services.ec2.model.DescribeSpotPriceHistoryResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var availabilityZone: String? = null
@@ -5203,8 +5839,12 @@ class AmazonEC2DescribeSpotPriceHistoryCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeSpotPriceHistory(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeSpotPriceHistoryResult {
+	  return com.amazonaws.services.ec2.model.DescribeSpotPriceHistoryResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeSpotPriceHistoryResult {
+		return environment.ec2.describeSpotPriceHistory(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -5222,12 +5862,12 @@ class AmazonEC2DescribeSpotPriceHistoryCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AmazonEC2Functions.describeStaleSecurityGroups(vpcId: String, init: AmazonEC2DescribeStaleSecurityGroupsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeStaleSecurityGroupsCommand(vpcId).apply(init))
+fun AmazonEC2Functions.describeStaleSecurityGroups(vpcId: String, init: AmazonEC2DescribeStaleSecurityGroupsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeStaleSecurityGroupsResult {
+	return this.block.declare(AmazonEC2DescribeStaleSecurityGroupsCommand(vpcId).apply(init)) as com.amazonaws.services.ec2.model.DescribeStaleSecurityGroupsResult
 }
 
 @Generated
-class AmazonEC2DescribeStaleSecurityGroupsCommand(val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeStaleSecurityGroupsRequest> {
+class AmazonEC2DescribeStaleSecurityGroupsCommand(val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeStaleSecurityGroupsRequest, com.amazonaws.services.ec2.model.DescribeStaleSecurityGroupsResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -5240,8 +5880,12 @@ class AmazonEC2DescribeStaleSecurityGroupsCommand(val vpcId: String) : AmazonWeb
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeStaleSecurityGroups(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeStaleSecurityGroupsResult {
+	  return com.amazonaws.services.ec2.model.DescribeStaleSecurityGroupsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeStaleSecurityGroupsResult {
+		return environment.ec2.describeStaleSecurityGroups(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -5254,12 +5898,12 @@ class AmazonEC2DescribeStaleSecurityGroupsCommand(val vpcId: String) : AmazonWeb
 }
 
 
-fun AmazonEC2Functions.describeSubnets(init: AmazonEC2DescribeSubnetsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeSubnetsCommand().apply(init))
+fun AmazonEC2Functions.describeSubnets(init: AmazonEC2DescribeSubnetsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeSubnetsResult {
+	return this.block.declare(AmazonEC2DescribeSubnetsCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeSubnetsResult
 }
 
 @Generated
-class AmazonEC2DescribeSubnetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeSubnetsRequest> {
+class AmazonEC2DescribeSubnetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeSubnetsRequest, com.amazonaws.services.ec2.model.DescribeSubnetsResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var subnetIds: List<String>? = null
@@ -5271,8 +5915,12 @@ class AmazonEC2DescribeSubnetsCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeSubnets(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeSubnetsResult {
+	  return com.amazonaws.services.ec2.model.DescribeSubnetsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeSubnetsResult {
+		return environment.ec2.describeSubnets(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -5284,12 +5932,12 @@ class AmazonEC2DescribeSubnetsCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AmazonEC2Functions.describeTags(init: AmazonEC2DescribeTagsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeTagsCommand().apply(init))
+fun AmazonEC2Functions.describeTags(init: AmazonEC2DescribeTagsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeTagsResult {
+	return this.block.declare(AmazonEC2DescribeTagsCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeTagsResult
 }
 
 @Generated
-class AmazonEC2DescribeTagsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeTagsRequest> {
+class AmazonEC2DescribeTagsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeTagsRequest, com.amazonaws.services.ec2.model.DescribeTagsResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var maxResults: Int? = 0
@@ -5303,8 +5951,12 @@ class AmazonEC2DescribeTagsCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeTags(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeTagsResult {
+	  return com.amazonaws.services.ec2.model.DescribeTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeTagsResult {
+		return environment.ec2.describeTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -5317,12 +5969,12 @@ class AmazonEC2DescribeTagsCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 }
 
 
-fun AmazonEC2Functions.describeVolumeAttribute(volumeId: String, init: AmazonEC2DescribeVolumeAttributeCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeVolumeAttributeCommand(volumeId).apply(init))
+fun AmazonEC2Functions.describeVolumeAttribute(volumeId: String, init: AmazonEC2DescribeVolumeAttributeCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeVolumeAttributeResult {
+	return this.block.declare(AmazonEC2DescribeVolumeAttributeCommand(volumeId).apply(init)) as com.amazonaws.services.ec2.model.DescribeVolumeAttributeResult
 }
 
 @Generated
-class AmazonEC2DescribeVolumeAttributeCommand(val volumeId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVolumeAttributeRequest> {
+class AmazonEC2DescribeVolumeAttributeCommand(val volumeId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVolumeAttributeRequest, com.amazonaws.services.ec2.model.DescribeVolumeAttributeResult> {
 
 	var attribute: VolumeAttributeName? = null
 
@@ -5333,8 +5985,12 @@ class AmazonEC2DescribeVolumeAttributeCommand(val volumeId: String) : AmazonWebS
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeVolumeAttribute(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVolumeAttributeResult {
+	  return com.amazonaws.services.ec2.model.DescribeVolumeAttributeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVolumeAttributeResult {
+		return environment.ec2.describeVolumeAttribute(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -5346,12 +6002,12 @@ class AmazonEC2DescribeVolumeAttributeCommand(val volumeId: String) : AmazonWebS
 }
 
 
-fun AmazonEC2Functions.describeVolumeStatus(init: AmazonEC2DescribeVolumeStatusCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeVolumeStatusCommand().apply(init))
+fun AmazonEC2Functions.describeVolumeStatus(init: AmazonEC2DescribeVolumeStatusCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeVolumeStatusResult {
+	return this.block.declare(AmazonEC2DescribeVolumeStatusCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeVolumeStatusResult
 }
 
 @Generated
-class AmazonEC2DescribeVolumeStatusCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVolumeStatusRequest> {
+class AmazonEC2DescribeVolumeStatusCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVolumeStatusRequest, com.amazonaws.services.ec2.model.DescribeVolumeStatusResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var maxResults: Int? = 0
@@ -5367,8 +6023,12 @@ class AmazonEC2DescribeVolumeStatusCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeVolumeStatus(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVolumeStatusResult {
+	  return com.amazonaws.services.ec2.model.DescribeVolumeStatusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVolumeStatusResult {
+		return environment.ec2.describeVolumeStatus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -5382,12 +6042,12 @@ class AmazonEC2DescribeVolumeStatusCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AmazonEC2Functions.describeVolumes(init: AmazonEC2DescribeVolumesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeVolumesCommand().apply(init))
+fun AmazonEC2Functions.describeVolumes(init: AmazonEC2DescribeVolumesCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeVolumesResult {
+	return this.block.declare(AmazonEC2DescribeVolumesCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeVolumesResult
 }
 
 @Generated
-class AmazonEC2DescribeVolumesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVolumesRequest> {
+class AmazonEC2DescribeVolumesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVolumesRequest, com.amazonaws.services.ec2.model.DescribeVolumesResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var volumeIds: List<String>? = null
@@ -5403,8 +6063,12 @@ class AmazonEC2DescribeVolumesCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeVolumes(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVolumesResult {
+	  return com.amazonaws.services.ec2.model.DescribeVolumesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVolumesResult {
+		return environment.ec2.describeVolumes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -5418,12 +6082,12 @@ class AmazonEC2DescribeVolumesCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AmazonEC2Functions.describeVolumesModifications(init: AmazonEC2DescribeVolumesModificationsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeVolumesModificationsCommand().apply(init))
+fun AmazonEC2Functions.describeVolumesModifications(init: AmazonEC2DescribeVolumesModificationsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeVolumesModificationsResult {
+	return this.block.declare(AmazonEC2DescribeVolumesModificationsCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeVolumesModificationsResult
 }
 
 @Generated
-class AmazonEC2DescribeVolumesModificationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVolumesModificationsRequest> {
+class AmazonEC2DescribeVolumesModificationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVolumesModificationsRequest, com.amazonaws.services.ec2.model.DescribeVolumesModificationsResult> {
 
 	var volumeIds: List<String>? = null
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
@@ -5439,8 +6103,12 @@ class AmazonEC2DescribeVolumesModificationsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeVolumesModifications(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVolumesModificationsResult {
+	  return com.amazonaws.services.ec2.model.DescribeVolumesModificationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVolumesModificationsResult {
+		return environment.ec2.describeVolumesModifications(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -5454,12 +6122,12 @@ class AmazonEC2DescribeVolumesModificationsCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AmazonEC2Functions.describeVpcAttribute(attribute: VpcAttributeName, vpcId: String, init: AmazonEC2DescribeVpcAttributeCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeVpcAttributeCommand(attribute, vpcId).apply(init))
+fun AmazonEC2Functions.describeVpcAttribute(attribute: VpcAttributeName, vpcId: String, init: AmazonEC2DescribeVpcAttributeCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeVpcAttributeResult {
+	return this.block.declare(AmazonEC2DescribeVpcAttributeCommand(attribute, vpcId).apply(init)) as com.amazonaws.services.ec2.model.DescribeVpcAttributeResult
 }
 
 @Generated
-class AmazonEC2DescribeVpcAttributeCommand(val attribute: VpcAttributeName, val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVpcAttributeRequest> {
+class AmazonEC2DescribeVpcAttributeCommand(val attribute: VpcAttributeName, val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVpcAttributeRequest, com.amazonaws.services.ec2.model.DescribeVpcAttributeResult> {
 
 
 
@@ -5470,8 +6138,12 @@ class AmazonEC2DescribeVpcAttributeCommand(val attribute: VpcAttributeName, val 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeVpcAttribute(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVpcAttributeResult {
+	  return com.amazonaws.services.ec2.model.DescribeVpcAttributeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVpcAttributeResult {
+		return environment.ec2.describeVpcAttribute(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -5483,12 +6155,12 @@ class AmazonEC2DescribeVpcAttributeCommand(val attribute: VpcAttributeName, val 
 }
 
 
-fun AmazonEC2Functions.describeVpcClassicLink(init: AmazonEC2DescribeVpcClassicLinkCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeVpcClassicLinkCommand().apply(init))
+fun AmazonEC2Functions.describeVpcClassicLink(init: AmazonEC2DescribeVpcClassicLinkCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeVpcClassicLinkResult {
+	return this.block.declare(AmazonEC2DescribeVpcClassicLinkCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeVpcClassicLinkResult
 }
 
 @Generated
-class AmazonEC2DescribeVpcClassicLinkCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVpcClassicLinkRequest> {
+class AmazonEC2DescribeVpcClassicLinkCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVpcClassicLinkRequest, com.amazonaws.services.ec2.model.DescribeVpcClassicLinkResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var vpcIds: List<String>? = null
@@ -5500,8 +6172,12 @@ class AmazonEC2DescribeVpcClassicLinkCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeVpcClassicLink(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVpcClassicLinkResult {
+	  return com.amazonaws.services.ec2.model.DescribeVpcClassicLinkResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVpcClassicLinkResult {
+		return environment.ec2.describeVpcClassicLink(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -5513,12 +6189,12 @@ class AmazonEC2DescribeVpcClassicLinkCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AmazonEC2Functions.describeVpcClassicLinkDnsSupport(init: AmazonEC2DescribeVpcClassicLinkDnsSupportCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeVpcClassicLinkDnsSupportCommand().apply(init))
+fun AmazonEC2Functions.describeVpcClassicLinkDnsSupport(init: AmazonEC2DescribeVpcClassicLinkDnsSupportCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeVpcClassicLinkDnsSupportResult {
+	return this.block.declare(AmazonEC2DescribeVpcClassicLinkDnsSupportCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeVpcClassicLinkDnsSupportResult
 }
 
 @Generated
-class AmazonEC2DescribeVpcClassicLinkDnsSupportCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVpcClassicLinkDnsSupportRequest> {
+class AmazonEC2DescribeVpcClassicLinkDnsSupportCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVpcClassicLinkDnsSupportRequest, com.amazonaws.services.ec2.model.DescribeVpcClassicLinkDnsSupportResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -5532,8 +6208,12 @@ class AmazonEC2DescribeVpcClassicLinkDnsSupportCommand() : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeVpcClassicLinkDnsSupport(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVpcClassicLinkDnsSupportResult {
+	  return com.amazonaws.services.ec2.model.DescribeVpcClassicLinkDnsSupportResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVpcClassicLinkDnsSupportResult {
+		return environment.ec2.describeVpcClassicLinkDnsSupport(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -5546,12 +6226,12 @@ class AmazonEC2DescribeVpcClassicLinkDnsSupportCommand() : AmazonWebServiceComma
 }
 
 
-fun AmazonEC2Functions.describeVpcEndpointConnectionNotifications(init: AmazonEC2DescribeVpcEndpointConnectionNotificationsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeVpcEndpointConnectionNotificationsCommand().apply(init))
+fun AmazonEC2Functions.describeVpcEndpointConnectionNotifications(init: AmazonEC2DescribeVpcEndpointConnectionNotificationsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeVpcEndpointConnectionNotificationsResult {
+	return this.block.declare(AmazonEC2DescribeVpcEndpointConnectionNotificationsCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeVpcEndpointConnectionNotificationsResult
 }
 
 @Generated
-class AmazonEC2DescribeVpcEndpointConnectionNotificationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVpcEndpointConnectionNotificationsRequest> {
+class AmazonEC2DescribeVpcEndpointConnectionNotificationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVpcEndpointConnectionNotificationsRequest, com.amazonaws.services.ec2.model.DescribeVpcEndpointConnectionNotificationsResult> {
 
 	var connectionNotificationId: String? = null
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
@@ -5567,8 +6247,12 @@ class AmazonEC2DescribeVpcEndpointConnectionNotificationsCommand() : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeVpcEndpointConnectionNotifications(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVpcEndpointConnectionNotificationsResult {
+	  return com.amazonaws.services.ec2.model.DescribeVpcEndpointConnectionNotificationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVpcEndpointConnectionNotificationsResult {
+		return environment.ec2.describeVpcEndpointConnectionNotifications(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -5582,12 +6266,12 @@ class AmazonEC2DescribeVpcEndpointConnectionNotificationsCommand() : AmazonWebSe
 }
 
 
-fun AmazonEC2Functions.describeVpcEndpointConnections(init: AmazonEC2DescribeVpcEndpointConnectionsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeVpcEndpointConnectionsCommand().apply(init))
+fun AmazonEC2Functions.describeVpcEndpointConnections(init: AmazonEC2DescribeVpcEndpointConnectionsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeVpcEndpointConnectionsResult {
+	return this.block.declare(AmazonEC2DescribeVpcEndpointConnectionsCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeVpcEndpointConnectionsResult
 }
 
 @Generated
-class AmazonEC2DescribeVpcEndpointConnectionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVpcEndpointConnectionsRequest> {
+class AmazonEC2DescribeVpcEndpointConnectionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVpcEndpointConnectionsRequest, com.amazonaws.services.ec2.model.DescribeVpcEndpointConnectionsResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var maxResults: Int? = 0
@@ -5601,8 +6285,12 @@ class AmazonEC2DescribeVpcEndpointConnectionsCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeVpcEndpointConnections(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVpcEndpointConnectionsResult {
+	  return com.amazonaws.services.ec2.model.DescribeVpcEndpointConnectionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVpcEndpointConnectionsResult {
+		return environment.ec2.describeVpcEndpointConnections(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -5615,12 +6303,12 @@ class AmazonEC2DescribeVpcEndpointConnectionsCommand() : AmazonWebServiceCommand
 }
 
 
-fun AmazonEC2Functions.describeVpcEndpointServiceConfigurations(init: AmazonEC2DescribeVpcEndpointServiceConfigurationsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeVpcEndpointServiceConfigurationsCommand().apply(init))
+fun AmazonEC2Functions.describeVpcEndpointServiceConfigurations(init: AmazonEC2DescribeVpcEndpointServiceConfigurationsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeVpcEndpointServiceConfigurationsResult {
+	return this.block.declare(AmazonEC2DescribeVpcEndpointServiceConfigurationsCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeVpcEndpointServiceConfigurationsResult
 }
 
 @Generated
-class AmazonEC2DescribeVpcEndpointServiceConfigurationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVpcEndpointServiceConfigurationsRequest> {
+class AmazonEC2DescribeVpcEndpointServiceConfigurationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVpcEndpointServiceConfigurationsRequest, com.amazonaws.services.ec2.model.DescribeVpcEndpointServiceConfigurationsResult> {
 
 	var serviceIds: List<String>? = null
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
@@ -5636,8 +6324,12 @@ class AmazonEC2DescribeVpcEndpointServiceConfigurationsCommand() : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeVpcEndpointServiceConfigurations(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVpcEndpointServiceConfigurationsResult {
+	  return com.amazonaws.services.ec2.model.DescribeVpcEndpointServiceConfigurationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVpcEndpointServiceConfigurationsResult {
+		return environment.ec2.describeVpcEndpointServiceConfigurations(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -5651,12 +6343,12 @@ class AmazonEC2DescribeVpcEndpointServiceConfigurationsCommand() : AmazonWebServ
 }
 
 
-fun AmazonEC2Functions.describeVpcEndpointServicePermissions(serviceId: String, init: AmazonEC2DescribeVpcEndpointServicePermissionsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeVpcEndpointServicePermissionsCommand(serviceId).apply(init))
+fun AmazonEC2Functions.describeVpcEndpointServicePermissions(serviceId: String, init: AmazonEC2DescribeVpcEndpointServicePermissionsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeVpcEndpointServicePermissionsResult {
+	return this.block.declare(AmazonEC2DescribeVpcEndpointServicePermissionsCommand(serviceId).apply(init)) as com.amazonaws.services.ec2.model.DescribeVpcEndpointServicePermissionsResult
 }
 
 @Generated
-class AmazonEC2DescribeVpcEndpointServicePermissionsCommand(val serviceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVpcEndpointServicePermissionsRequest> {
+class AmazonEC2DescribeVpcEndpointServicePermissionsCommand(val serviceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVpcEndpointServicePermissionsRequest, com.amazonaws.services.ec2.model.DescribeVpcEndpointServicePermissionsResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var maxResults: Int? = 0
@@ -5671,8 +6363,12 @@ class AmazonEC2DescribeVpcEndpointServicePermissionsCommand(val serviceId: Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeVpcEndpointServicePermissions(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVpcEndpointServicePermissionsResult {
+	  return com.amazonaws.services.ec2.model.DescribeVpcEndpointServicePermissionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVpcEndpointServicePermissionsResult {
+		return environment.ec2.describeVpcEndpointServicePermissions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -5686,12 +6382,12 @@ class AmazonEC2DescribeVpcEndpointServicePermissionsCommand(val serviceId: Strin
 }
 
 
-fun AmazonEC2Functions.describeVpcEndpointServices(init: AmazonEC2DescribeVpcEndpointServicesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeVpcEndpointServicesCommand().apply(init))
+fun AmazonEC2Functions.describeVpcEndpointServices(init: AmazonEC2DescribeVpcEndpointServicesCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeVpcEndpointServicesResult {
+	return this.block.declare(AmazonEC2DescribeVpcEndpointServicesCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeVpcEndpointServicesResult
 }
 
 @Generated
-class AmazonEC2DescribeVpcEndpointServicesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVpcEndpointServicesRequest> {
+class AmazonEC2DescribeVpcEndpointServicesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVpcEndpointServicesRequest, com.amazonaws.services.ec2.model.DescribeVpcEndpointServicesResult> {
 
 	var serviceNames: List<String>? = null
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
@@ -5707,8 +6403,12 @@ class AmazonEC2DescribeVpcEndpointServicesCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeVpcEndpointServices(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVpcEndpointServicesResult {
+	  return com.amazonaws.services.ec2.model.DescribeVpcEndpointServicesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVpcEndpointServicesResult {
+		return environment.ec2.describeVpcEndpointServices(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -5722,12 +6422,12 @@ class AmazonEC2DescribeVpcEndpointServicesCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonEC2Functions.describeVpcEndpoints(init: AmazonEC2DescribeVpcEndpointsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeVpcEndpointsCommand().apply(init))
+fun AmazonEC2Functions.describeVpcEndpoints(init: AmazonEC2DescribeVpcEndpointsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeVpcEndpointsResult {
+	return this.block.declare(AmazonEC2DescribeVpcEndpointsCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeVpcEndpointsResult
 }
 
 @Generated
-class AmazonEC2DescribeVpcEndpointsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVpcEndpointsRequest> {
+class AmazonEC2DescribeVpcEndpointsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVpcEndpointsRequest, com.amazonaws.services.ec2.model.DescribeVpcEndpointsResult> {
 
 	var vpcEndpointIds: List<String>? = null
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
@@ -5743,8 +6443,12 @@ class AmazonEC2DescribeVpcEndpointsCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeVpcEndpoints(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVpcEndpointsResult {
+	  return com.amazonaws.services.ec2.model.DescribeVpcEndpointsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVpcEndpointsResult {
+		return environment.ec2.describeVpcEndpoints(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -5758,12 +6462,12 @@ class AmazonEC2DescribeVpcEndpointsCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AmazonEC2Functions.describeVpcPeeringConnections(init: AmazonEC2DescribeVpcPeeringConnectionsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeVpcPeeringConnectionsCommand().apply(init))
+fun AmazonEC2Functions.describeVpcPeeringConnections(init: AmazonEC2DescribeVpcPeeringConnectionsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeVpcPeeringConnectionsResult {
+	return this.block.declare(AmazonEC2DescribeVpcPeeringConnectionsCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeVpcPeeringConnectionsResult
 }
 
 @Generated
-class AmazonEC2DescribeVpcPeeringConnectionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVpcPeeringConnectionsRequest> {
+class AmazonEC2DescribeVpcPeeringConnectionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVpcPeeringConnectionsRequest, com.amazonaws.services.ec2.model.DescribeVpcPeeringConnectionsResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var vpcPeeringConnectionIds: List<String>? = null
@@ -5775,8 +6479,12 @@ class AmazonEC2DescribeVpcPeeringConnectionsCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeVpcPeeringConnections(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVpcPeeringConnectionsResult {
+	  return com.amazonaws.services.ec2.model.DescribeVpcPeeringConnectionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVpcPeeringConnectionsResult {
+		return environment.ec2.describeVpcPeeringConnections(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -5788,12 +6496,12 @@ class AmazonEC2DescribeVpcPeeringConnectionsCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AmazonEC2Functions.describeVpcs(init: AmazonEC2DescribeVpcsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeVpcsCommand().apply(init))
+fun AmazonEC2Functions.describeVpcs(init: AmazonEC2DescribeVpcsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeVpcsResult {
+	return this.block.declare(AmazonEC2DescribeVpcsCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeVpcsResult
 }
 
 @Generated
-class AmazonEC2DescribeVpcsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVpcsRequest> {
+class AmazonEC2DescribeVpcsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVpcsRequest, com.amazonaws.services.ec2.model.DescribeVpcsResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var vpcIds: List<String>? = null
@@ -5805,8 +6513,12 @@ class AmazonEC2DescribeVpcsCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeVpcs(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVpcsResult {
+	  return com.amazonaws.services.ec2.model.DescribeVpcsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVpcsResult {
+		return environment.ec2.describeVpcs(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -5818,12 +6530,12 @@ class AmazonEC2DescribeVpcsCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 }
 
 
-fun AmazonEC2Functions.describeVpnConnections(init: AmazonEC2DescribeVpnConnectionsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeVpnConnectionsCommand().apply(init))
+fun AmazonEC2Functions.describeVpnConnections(init: AmazonEC2DescribeVpnConnectionsCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeVpnConnectionsResult {
+	return this.block.declare(AmazonEC2DescribeVpnConnectionsCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeVpnConnectionsResult
 }
 
 @Generated
-class AmazonEC2DescribeVpnConnectionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVpnConnectionsRequest> {
+class AmazonEC2DescribeVpnConnectionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVpnConnectionsRequest, com.amazonaws.services.ec2.model.DescribeVpnConnectionsResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var vpnConnectionIds: List<String>? = null
@@ -5835,8 +6547,12 @@ class AmazonEC2DescribeVpnConnectionsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeVpnConnections(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVpnConnectionsResult {
+	  return com.amazonaws.services.ec2.model.DescribeVpnConnectionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVpnConnectionsResult {
+		return environment.ec2.describeVpnConnections(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -5848,12 +6564,12 @@ class AmazonEC2DescribeVpnConnectionsCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AmazonEC2Functions.describeVpnGateways(init: AmazonEC2DescribeVpnGatewaysCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DescribeVpnGatewaysCommand().apply(init))
+fun AmazonEC2Functions.describeVpnGateways(init: AmazonEC2DescribeVpnGatewaysCommand.() -> Unit): com.amazonaws.services.ec2.model.DescribeVpnGatewaysResult {
+	return this.block.declare(AmazonEC2DescribeVpnGatewaysCommand().apply(init)) as com.amazonaws.services.ec2.model.DescribeVpnGatewaysResult
 }
 
 @Generated
-class AmazonEC2DescribeVpnGatewaysCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVpnGatewaysRequest> {
+class AmazonEC2DescribeVpnGatewaysCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DescribeVpnGatewaysRequest, com.amazonaws.services.ec2.model.DescribeVpnGatewaysResult> {
 
 	var filters: List<com.amazonaws.services.ec2.model.Filter>? = null
 	var vpnGatewayIds: List<String>? = null
@@ -5865,8 +6581,12 @@ class AmazonEC2DescribeVpnGatewaysCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.describeVpnGateways(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DescribeVpnGatewaysResult {
+	  return com.amazonaws.services.ec2.model.DescribeVpnGatewaysResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DescribeVpnGatewaysResult {
+		return environment.ec2.describeVpnGateways(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -5878,12 +6598,12 @@ class AmazonEC2DescribeVpnGatewaysCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonEC2Functions.detachClassicLinkVpc(instanceId: String, vpcId: String, init: AmazonEC2DetachClassicLinkVpcCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DetachClassicLinkVpcCommand(instanceId, vpcId).apply(init))
+fun AmazonEC2Functions.detachClassicLinkVpc(instanceId: String, vpcId: String, init: AmazonEC2DetachClassicLinkVpcCommand.() -> Unit): com.amazonaws.services.ec2.model.DetachClassicLinkVpcResult {
+	return this.block.declare(AmazonEC2DetachClassicLinkVpcCommand(instanceId, vpcId).apply(init)) as com.amazonaws.services.ec2.model.DetachClassicLinkVpcResult
 }
 
 @Generated
-class AmazonEC2DetachClassicLinkVpcCommand(val instanceId: String, val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DetachClassicLinkVpcRequest> {
+class AmazonEC2DetachClassicLinkVpcCommand(val instanceId: String, val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DetachClassicLinkVpcRequest, com.amazonaws.services.ec2.model.DetachClassicLinkVpcResult> {
 
 
 
@@ -5894,8 +6614,12 @@ class AmazonEC2DetachClassicLinkVpcCommand(val instanceId: String, val vpcId: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.detachClassicLinkVpc(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DetachClassicLinkVpcResult {
+	  return com.amazonaws.services.ec2.model.DetachClassicLinkVpcResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DetachClassicLinkVpcResult {
+		return environment.ec2.detachClassicLinkVpc(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -5907,12 +6631,12 @@ class AmazonEC2DetachClassicLinkVpcCommand(val instanceId: String, val vpcId: St
 }
 
 
-fun AmazonEC2Functions.detachInternetGateway(internetGatewayId: String, vpcId: String, init: AmazonEC2DetachInternetGatewayCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DetachInternetGatewayCommand(internetGatewayId, vpcId).apply(init))
+fun AmazonEC2Functions.detachInternetGateway(internetGatewayId: String, vpcId: String, init: AmazonEC2DetachInternetGatewayCommand.() -> Unit): com.amazonaws.services.ec2.model.DetachInternetGatewayResult {
+	return this.block.declare(AmazonEC2DetachInternetGatewayCommand(internetGatewayId, vpcId).apply(init)) as com.amazonaws.services.ec2.model.DetachInternetGatewayResult
 }
 
 @Generated
-class AmazonEC2DetachInternetGatewayCommand(val internetGatewayId: String, val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DetachInternetGatewayRequest> {
+class AmazonEC2DetachInternetGatewayCommand(val internetGatewayId: String, val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DetachInternetGatewayRequest, com.amazonaws.services.ec2.model.DetachInternetGatewayResult> {
 
 
 
@@ -5923,8 +6647,12 @@ class AmazonEC2DetachInternetGatewayCommand(val internetGatewayId: String, val v
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.detachInternetGateway(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DetachInternetGatewayResult {
+	  return com.amazonaws.services.ec2.model.DetachInternetGatewayResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DetachInternetGatewayResult {
+		return environment.ec2.detachInternetGateway(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -5936,12 +6664,12 @@ class AmazonEC2DetachInternetGatewayCommand(val internetGatewayId: String, val v
 }
 
 
-fun AmazonEC2Functions.detachNetworkInterface(attachmentId: String, init: AmazonEC2DetachNetworkInterfaceCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DetachNetworkInterfaceCommand(attachmentId).apply(init))
+fun AmazonEC2Functions.detachNetworkInterface(attachmentId: String, init: AmazonEC2DetachNetworkInterfaceCommand.() -> Unit): com.amazonaws.services.ec2.model.DetachNetworkInterfaceResult {
+	return this.block.declare(AmazonEC2DetachNetworkInterfaceCommand(attachmentId).apply(init)) as com.amazonaws.services.ec2.model.DetachNetworkInterfaceResult
 }
 
 @Generated
-class AmazonEC2DetachNetworkInterfaceCommand(val attachmentId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DetachNetworkInterfaceRequest> {
+class AmazonEC2DetachNetworkInterfaceCommand(val attachmentId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DetachNetworkInterfaceRequest, com.amazonaws.services.ec2.model.DetachNetworkInterfaceResult> {
 
 	var force: Boolean? = false
 
@@ -5952,8 +6680,12 @@ class AmazonEC2DetachNetworkInterfaceCommand(val attachmentId: String) : AmazonW
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.detachNetworkInterface(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DetachNetworkInterfaceResult {
+	  return com.amazonaws.services.ec2.model.DetachNetworkInterfaceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DetachNetworkInterfaceResult {
+		return environment.ec2.detachNetworkInterface(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -5965,12 +6697,12 @@ class AmazonEC2DetachNetworkInterfaceCommand(val attachmentId: String) : AmazonW
 }
 
 
-fun AmazonEC2Functions.detachVolume(volumeId: String, init: AmazonEC2DetachVolumeCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DetachVolumeCommand(volumeId).apply(init))
+fun AmazonEC2Functions.detachVolume(volumeId: String, init: AmazonEC2DetachVolumeCommand.() -> Unit): com.amazonaws.services.ec2.model.DetachVolumeResult {
+	return this.block.declare(AmazonEC2DetachVolumeCommand(volumeId).apply(init)) as com.amazonaws.services.ec2.model.DetachVolumeResult
 }
 
 @Generated
-class AmazonEC2DetachVolumeCommand(val volumeId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DetachVolumeRequest> {
+class AmazonEC2DetachVolumeCommand(val volumeId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DetachVolumeRequest, com.amazonaws.services.ec2.model.DetachVolumeResult> {
 
 	var device: String? = null
 	var force: Boolean? = false
@@ -5985,8 +6717,12 @@ class AmazonEC2DetachVolumeCommand(val volumeId: String) : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.detachVolume(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DetachVolumeResult {
+	  return com.amazonaws.services.ec2.model.DetachVolumeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DetachVolumeResult {
+		return environment.ec2.detachVolume(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -6000,12 +6736,12 @@ class AmazonEC2DetachVolumeCommand(val volumeId: String) : AmazonWebServiceComma
 }
 
 
-fun AmazonEC2Functions.detachVpnGateway(vpcId: String, vpnGatewayId: String, init: AmazonEC2DetachVpnGatewayCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DetachVpnGatewayCommand(vpcId, vpnGatewayId).apply(init))
+fun AmazonEC2Functions.detachVpnGateway(vpcId: String, vpnGatewayId: String, init: AmazonEC2DetachVpnGatewayCommand.() -> Unit): com.amazonaws.services.ec2.model.DetachVpnGatewayResult {
+	return this.block.declare(AmazonEC2DetachVpnGatewayCommand(vpcId, vpnGatewayId).apply(init)) as com.amazonaws.services.ec2.model.DetachVpnGatewayResult
 }
 
 @Generated
-class AmazonEC2DetachVpnGatewayCommand(val vpcId: String, val vpnGatewayId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DetachVpnGatewayRequest> {
+class AmazonEC2DetachVpnGatewayCommand(val vpcId: String, val vpnGatewayId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DetachVpnGatewayRequest, com.amazonaws.services.ec2.model.DetachVpnGatewayResult> {
 
 
 
@@ -6016,8 +6752,12 @@ class AmazonEC2DetachVpnGatewayCommand(val vpcId: String, val vpnGatewayId: Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.detachVpnGateway(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DetachVpnGatewayResult {
+	  return com.amazonaws.services.ec2.model.DetachVpnGatewayResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DetachVpnGatewayResult {
+		return environment.ec2.detachVpnGateway(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -6029,12 +6769,12 @@ class AmazonEC2DetachVpnGatewayCommand(val vpcId: String, val vpnGatewayId: Stri
 }
 
 
-fun AmazonEC2Functions.disableVgwRoutePropagation(gatewayId: String, routeTableId: String, init: AmazonEC2DisableVgwRoutePropagationCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DisableVgwRoutePropagationCommand(gatewayId, routeTableId).apply(init))
+fun AmazonEC2Functions.disableVgwRoutePropagation(gatewayId: String, routeTableId: String, init: AmazonEC2DisableVgwRoutePropagationCommand.() -> Unit): com.amazonaws.services.ec2.model.DisableVgwRoutePropagationResult {
+	return this.block.declare(AmazonEC2DisableVgwRoutePropagationCommand(gatewayId, routeTableId).apply(init)) as com.amazonaws.services.ec2.model.DisableVgwRoutePropagationResult
 }
 
 @Generated
-class AmazonEC2DisableVgwRoutePropagationCommand(val gatewayId: String, val routeTableId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DisableVgwRoutePropagationRequest> {
+class AmazonEC2DisableVgwRoutePropagationCommand(val gatewayId: String, val routeTableId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DisableVgwRoutePropagationRequest, com.amazonaws.services.ec2.model.DisableVgwRoutePropagationResult> {
 
 
 
@@ -6045,8 +6785,12 @@ class AmazonEC2DisableVgwRoutePropagationCommand(val gatewayId: String, val rout
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.disableVgwRoutePropagation(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DisableVgwRoutePropagationResult {
+	  return com.amazonaws.services.ec2.model.DisableVgwRoutePropagationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DisableVgwRoutePropagationResult {
+		return environment.ec2.disableVgwRoutePropagation(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -6058,12 +6802,12 @@ class AmazonEC2DisableVgwRoutePropagationCommand(val gatewayId: String, val rout
 }
 
 
-fun AmazonEC2Functions.disableVpcClassicLink(vpcId: String, init: AmazonEC2DisableVpcClassicLinkCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DisableVpcClassicLinkCommand(vpcId).apply(init))
+fun AmazonEC2Functions.disableVpcClassicLink(vpcId: String, init: AmazonEC2DisableVpcClassicLinkCommand.() -> Unit): com.amazonaws.services.ec2.model.DisableVpcClassicLinkResult {
+	return this.block.declare(AmazonEC2DisableVpcClassicLinkCommand(vpcId).apply(init)) as com.amazonaws.services.ec2.model.DisableVpcClassicLinkResult
 }
 
 @Generated
-class AmazonEC2DisableVpcClassicLinkCommand(val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DisableVpcClassicLinkRequest> {
+class AmazonEC2DisableVpcClassicLinkCommand(val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DisableVpcClassicLinkRequest, com.amazonaws.services.ec2.model.DisableVpcClassicLinkResult> {
 
 
 
@@ -6073,8 +6817,12 @@ class AmazonEC2DisableVpcClassicLinkCommand(val vpcId: String) : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.disableVpcClassicLink(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DisableVpcClassicLinkResult {
+	  return com.amazonaws.services.ec2.model.DisableVpcClassicLinkResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DisableVpcClassicLinkResult {
+		return environment.ec2.disableVpcClassicLink(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -6085,12 +6833,12 @@ class AmazonEC2DisableVpcClassicLinkCommand(val vpcId: String) : AmazonWebServic
 }
 
 
-fun AmazonEC2Functions.disableVpcClassicLinkDnsSupport(init: AmazonEC2DisableVpcClassicLinkDnsSupportCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DisableVpcClassicLinkDnsSupportCommand().apply(init))
+fun AmazonEC2Functions.disableVpcClassicLinkDnsSupport(init: AmazonEC2DisableVpcClassicLinkDnsSupportCommand.() -> Unit): com.amazonaws.services.ec2.model.DisableVpcClassicLinkDnsSupportResult {
+	return this.block.declare(AmazonEC2DisableVpcClassicLinkDnsSupportCommand().apply(init)) as com.amazonaws.services.ec2.model.DisableVpcClassicLinkDnsSupportResult
 }
 
 @Generated
-class AmazonEC2DisableVpcClassicLinkDnsSupportCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DisableVpcClassicLinkDnsSupportRequest> {
+class AmazonEC2DisableVpcClassicLinkDnsSupportCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DisableVpcClassicLinkDnsSupportRequest, com.amazonaws.services.ec2.model.DisableVpcClassicLinkDnsSupportResult> {
 
 	var vpcId: String? = null
 
@@ -6100,8 +6848,12 @@ class AmazonEC2DisableVpcClassicLinkDnsSupportCommand() : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.disableVpcClassicLinkDnsSupport(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DisableVpcClassicLinkDnsSupportResult {
+	  return com.amazonaws.services.ec2.model.DisableVpcClassicLinkDnsSupportResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DisableVpcClassicLinkDnsSupportResult {
+		return environment.ec2.disableVpcClassicLinkDnsSupport(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -6112,12 +6864,12 @@ class AmazonEC2DisableVpcClassicLinkDnsSupportCommand() : AmazonWebServiceComman
 }
 
 
-fun AmazonEC2Functions.disassociateAddress(init: AmazonEC2DisassociateAddressCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DisassociateAddressCommand().apply(init))
+fun AmazonEC2Functions.disassociateAddress(init: AmazonEC2DisassociateAddressCommand.() -> Unit): com.amazonaws.services.ec2.model.DisassociateAddressResult {
+	return this.block.declare(AmazonEC2DisassociateAddressCommand().apply(init)) as com.amazonaws.services.ec2.model.DisassociateAddressResult
 }
 
 @Generated
-class AmazonEC2DisassociateAddressCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DisassociateAddressRequest> {
+class AmazonEC2DisassociateAddressCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DisassociateAddressRequest, com.amazonaws.services.ec2.model.DisassociateAddressResult> {
 
 	var associationId: String? = null
 	var publicIp: String? = null
@@ -6129,8 +6881,12 @@ class AmazonEC2DisassociateAddressCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.disassociateAddress(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DisassociateAddressResult {
+	  return com.amazonaws.services.ec2.model.DisassociateAddressResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DisassociateAddressResult {
+		return environment.ec2.disassociateAddress(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -6142,12 +6898,12 @@ class AmazonEC2DisassociateAddressCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonEC2Functions.disassociateIamInstanceProfile(associationId: String, init: AmazonEC2DisassociateIamInstanceProfileCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DisassociateIamInstanceProfileCommand(associationId).apply(init))
+fun AmazonEC2Functions.disassociateIamInstanceProfile(associationId: String, init: AmazonEC2DisassociateIamInstanceProfileCommand.() -> Unit): com.amazonaws.services.ec2.model.DisassociateIamInstanceProfileResult {
+	return this.block.declare(AmazonEC2DisassociateIamInstanceProfileCommand(associationId).apply(init)) as com.amazonaws.services.ec2.model.DisassociateIamInstanceProfileResult
 }
 
 @Generated
-class AmazonEC2DisassociateIamInstanceProfileCommand(val associationId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DisassociateIamInstanceProfileRequest> {
+class AmazonEC2DisassociateIamInstanceProfileCommand(val associationId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DisassociateIamInstanceProfileRequest, com.amazonaws.services.ec2.model.DisassociateIamInstanceProfileResult> {
 
 
 
@@ -6157,8 +6913,12 @@ class AmazonEC2DisassociateIamInstanceProfileCommand(val associationId: String) 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.disassociateIamInstanceProfile(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DisassociateIamInstanceProfileResult {
+	  return com.amazonaws.services.ec2.model.DisassociateIamInstanceProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DisassociateIamInstanceProfileResult {
+		return environment.ec2.disassociateIamInstanceProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -6169,12 +6929,12 @@ class AmazonEC2DisassociateIamInstanceProfileCommand(val associationId: String) 
 }
 
 
-fun AmazonEC2Functions.disassociateRouteTable(associationId: String, init: AmazonEC2DisassociateRouteTableCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DisassociateRouteTableCommand(associationId).apply(init))
+fun AmazonEC2Functions.disassociateRouteTable(associationId: String, init: AmazonEC2DisassociateRouteTableCommand.() -> Unit): com.amazonaws.services.ec2.model.DisassociateRouteTableResult {
+	return this.block.declare(AmazonEC2DisassociateRouteTableCommand(associationId).apply(init)) as com.amazonaws.services.ec2.model.DisassociateRouteTableResult
 }
 
 @Generated
-class AmazonEC2DisassociateRouteTableCommand(val associationId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DisassociateRouteTableRequest> {
+class AmazonEC2DisassociateRouteTableCommand(val associationId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DisassociateRouteTableRequest, com.amazonaws.services.ec2.model.DisassociateRouteTableResult> {
 
 
 
@@ -6184,8 +6944,12 @@ class AmazonEC2DisassociateRouteTableCommand(val associationId: String) : Amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.disassociateRouteTable(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DisassociateRouteTableResult {
+	  return com.amazonaws.services.ec2.model.DisassociateRouteTableResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DisassociateRouteTableResult {
+		return environment.ec2.disassociateRouteTable(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -6196,12 +6960,12 @@ class AmazonEC2DisassociateRouteTableCommand(val associationId: String) : Amazon
 }
 
 
-fun AmazonEC2Functions.disassociateSubnetCidrBlock(associationId: String, init: AmazonEC2DisassociateSubnetCidrBlockCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DisassociateSubnetCidrBlockCommand(associationId).apply(init))
+fun AmazonEC2Functions.disassociateSubnetCidrBlock(associationId: String, init: AmazonEC2DisassociateSubnetCidrBlockCommand.() -> Unit): com.amazonaws.services.ec2.model.DisassociateSubnetCidrBlockResult {
+	return this.block.declare(AmazonEC2DisassociateSubnetCidrBlockCommand(associationId).apply(init)) as com.amazonaws.services.ec2.model.DisassociateSubnetCidrBlockResult
 }
 
 @Generated
-class AmazonEC2DisassociateSubnetCidrBlockCommand(val associationId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DisassociateSubnetCidrBlockRequest> {
+class AmazonEC2DisassociateSubnetCidrBlockCommand(val associationId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DisassociateSubnetCidrBlockRequest, com.amazonaws.services.ec2.model.DisassociateSubnetCidrBlockResult> {
 
 
 
@@ -6211,8 +6975,12 @@ class AmazonEC2DisassociateSubnetCidrBlockCommand(val associationId: String) : A
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.disassociateSubnetCidrBlock(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DisassociateSubnetCidrBlockResult {
+	  return com.amazonaws.services.ec2.model.DisassociateSubnetCidrBlockResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DisassociateSubnetCidrBlockResult {
+		return environment.ec2.disassociateSubnetCidrBlock(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -6223,12 +6991,12 @@ class AmazonEC2DisassociateSubnetCidrBlockCommand(val associationId: String) : A
 }
 
 
-fun AmazonEC2Functions.disassociateVpcCidrBlock(associationId: String, init: AmazonEC2DisassociateVpcCidrBlockCommand.() -> Unit) {
-	this.block.declare(AmazonEC2DisassociateVpcCidrBlockCommand(associationId).apply(init))
+fun AmazonEC2Functions.disassociateVpcCidrBlock(associationId: String, init: AmazonEC2DisassociateVpcCidrBlockCommand.() -> Unit): com.amazonaws.services.ec2.model.DisassociateVpcCidrBlockResult {
+	return this.block.declare(AmazonEC2DisassociateVpcCidrBlockCommand(associationId).apply(init)) as com.amazonaws.services.ec2.model.DisassociateVpcCidrBlockResult
 }
 
 @Generated
-class AmazonEC2DisassociateVpcCidrBlockCommand(val associationId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DisassociateVpcCidrBlockRequest> {
+class AmazonEC2DisassociateVpcCidrBlockCommand(val associationId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.DisassociateVpcCidrBlockRequest, com.amazonaws.services.ec2.model.DisassociateVpcCidrBlockResult> {
 
 
 
@@ -6238,8 +7006,12 @@ class AmazonEC2DisassociateVpcCidrBlockCommand(val associationId: String) : Amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.disassociateVpcCidrBlock(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.DisassociateVpcCidrBlockResult {
+	  return com.amazonaws.services.ec2.model.DisassociateVpcCidrBlockResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.DisassociateVpcCidrBlockResult {
+		return environment.ec2.disassociateVpcCidrBlock(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -6250,12 +7022,12 @@ class AmazonEC2DisassociateVpcCidrBlockCommand(val associationId: String) : Amaz
 }
 
 
-fun AmazonEC2Functions.enableVgwRoutePropagation(gatewayId: String, routeTableId: String, init: AmazonEC2EnableVgwRoutePropagationCommand.() -> Unit) {
-	this.block.declare(AmazonEC2EnableVgwRoutePropagationCommand(gatewayId, routeTableId).apply(init))
+fun AmazonEC2Functions.enableVgwRoutePropagation(gatewayId: String, routeTableId: String, init: AmazonEC2EnableVgwRoutePropagationCommand.() -> Unit): com.amazonaws.services.ec2.model.EnableVgwRoutePropagationResult {
+	return this.block.declare(AmazonEC2EnableVgwRoutePropagationCommand(gatewayId, routeTableId).apply(init)) as com.amazonaws.services.ec2.model.EnableVgwRoutePropagationResult
 }
 
 @Generated
-class AmazonEC2EnableVgwRoutePropagationCommand(val gatewayId: String, val routeTableId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.EnableVgwRoutePropagationRequest> {
+class AmazonEC2EnableVgwRoutePropagationCommand(val gatewayId: String, val routeTableId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.EnableVgwRoutePropagationRequest, com.amazonaws.services.ec2.model.EnableVgwRoutePropagationResult> {
 
 
 
@@ -6266,8 +7038,12 @@ class AmazonEC2EnableVgwRoutePropagationCommand(val gatewayId: String, val route
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.enableVgwRoutePropagation(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.EnableVgwRoutePropagationResult {
+	  return com.amazonaws.services.ec2.model.EnableVgwRoutePropagationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.EnableVgwRoutePropagationResult {
+		return environment.ec2.enableVgwRoutePropagation(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -6279,12 +7055,12 @@ class AmazonEC2EnableVgwRoutePropagationCommand(val gatewayId: String, val route
 }
 
 
-fun AmazonEC2Functions.enableVolumeIO(volumeId: String, init: AmazonEC2EnableVolumeIOCommand.() -> Unit) {
-	this.block.declare(AmazonEC2EnableVolumeIOCommand(volumeId).apply(init))
+fun AmazonEC2Functions.enableVolumeIO(volumeId: String, init: AmazonEC2EnableVolumeIOCommand.() -> Unit): com.amazonaws.services.ec2.model.EnableVolumeIOResult {
+	return this.block.declare(AmazonEC2EnableVolumeIOCommand(volumeId).apply(init)) as com.amazonaws.services.ec2.model.EnableVolumeIOResult
 }
 
 @Generated
-class AmazonEC2EnableVolumeIOCommand(val volumeId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.EnableVolumeIORequest> {
+class AmazonEC2EnableVolumeIOCommand(val volumeId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.EnableVolumeIORequest, com.amazonaws.services.ec2.model.EnableVolumeIOResult> {
 
 
 
@@ -6294,8 +7070,12 @@ class AmazonEC2EnableVolumeIOCommand(val volumeId: String) : AmazonWebServiceCom
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.enableVolumeIO(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.EnableVolumeIOResult {
+	  return com.amazonaws.services.ec2.model.EnableVolumeIOResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.EnableVolumeIOResult {
+		return environment.ec2.enableVolumeIO(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -6306,12 +7086,12 @@ class AmazonEC2EnableVolumeIOCommand(val volumeId: String) : AmazonWebServiceCom
 }
 
 
-fun AmazonEC2Functions.enableVpcClassicLink(vpcId: String, init: AmazonEC2EnableVpcClassicLinkCommand.() -> Unit) {
-	this.block.declare(AmazonEC2EnableVpcClassicLinkCommand(vpcId).apply(init))
+fun AmazonEC2Functions.enableVpcClassicLink(vpcId: String, init: AmazonEC2EnableVpcClassicLinkCommand.() -> Unit): com.amazonaws.services.ec2.model.EnableVpcClassicLinkResult {
+	return this.block.declare(AmazonEC2EnableVpcClassicLinkCommand(vpcId).apply(init)) as com.amazonaws.services.ec2.model.EnableVpcClassicLinkResult
 }
 
 @Generated
-class AmazonEC2EnableVpcClassicLinkCommand(val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.EnableVpcClassicLinkRequest> {
+class AmazonEC2EnableVpcClassicLinkCommand(val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.EnableVpcClassicLinkRequest, com.amazonaws.services.ec2.model.EnableVpcClassicLinkResult> {
 
 
 
@@ -6321,8 +7101,12 @@ class AmazonEC2EnableVpcClassicLinkCommand(val vpcId: String) : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.enableVpcClassicLink(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.EnableVpcClassicLinkResult {
+	  return com.amazonaws.services.ec2.model.EnableVpcClassicLinkResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.EnableVpcClassicLinkResult {
+		return environment.ec2.enableVpcClassicLink(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -6333,12 +7117,12 @@ class AmazonEC2EnableVpcClassicLinkCommand(val vpcId: String) : AmazonWebService
 }
 
 
-fun AmazonEC2Functions.enableVpcClassicLinkDnsSupport(init: AmazonEC2EnableVpcClassicLinkDnsSupportCommand.() -> Unit) {
-	this.block.declare(AmazonEC2EnableVpcClassicLinkDnsSupportCommand().apply(init))
+fun AmazonEC2Functions.enableVpcClassicLinkDnsSupport(init: AmazonEC2EnableVpcClassicLinkDnsSupportCommand.() -> Unit): com.amazonaws.services.ec2.model.EnableVpcClassicLinkDnsSupportResult {
+	return this.block.declare(AmazonEC2EnableVpcClassicLinkDnsSupportCommand().apply(init)) as com.amazonaws.services.ec2.model.EnableVpcClassicLinkDnsSupportResult
 }
 
 @Generated
-class AmazonEC2EnableVpcClassicLinkDnsSupportCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.EnableVpcClassicLinkDnsSupportRequest> {
+class AmazonEC2EnableVpcClassicLinkDnsSupportCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.EnableVpcClassicLinkDnsSupportRequest, com.amazonaws.services.ec2.model.EnableVpcClassicLinkDnsSupportResult> {
 
 	var vpcId: String? = null
 
@@ -6348,8 +7132,12 @@ class AmazonEC2EnableVpcClassicLinkDnsSupportCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.enableVpcClassicLinkDnsSupport(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.EnableVpcClassicLinkDnsSupportResult {
+	  return com.amazonaws.services.ec2.model.EnableVpcClassicLinkDnsSupportResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.EnableVpcClassicLinkDnsSupportResult {
+		return environment.ec2.enableVpcClassicLinkDnsSupport(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -6360,12 +7148,12 @@ class AmazonEC2EnableVpcClassicLinkDnsSupportCommand() : AmazonWebServiceCommand
 }
 
 
-fun AmazonEC2Functions.getConsoleOutput(instanceId: String, init: AmazonEC2GetConsoleOutputCommand.() -> Unit) {
-	this.block.declare(AmazonEC2GetConsoleOutputCommand(instanceId).apply(init))
+fun AmazonEC2Functions.getConsoleOutput(instanceId: String, init: AmazonEC2GetConsoleOutputCommand.() -> Unit): com.amazonaws.services.ec2.model.GetConsoleOutputResult {
+	return this.block.declare(AmazonEC2GetConsoleOutputCommand(instanceId).apply(init)) as com.amazonaws.services.ec2.model.GetConsoleOutputResult
 }
 
 @Generated
-class AmazonEC2GetConsoleOutputCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.GetConsoleOutputRequest> {
+class AmazonEC2GetConsoleOutputCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.GetConsoleOutputRequest, com.amazonaws.services.ec2.model.GetConsoleOutputResult> {
 
 
 
@@ -6375,8 +7163,12 @@ class AmazonEC2GetConsoleOutputCommand(val instanceId: String) : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.getConsoleOutput(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.GetConsoleOutputResult {
+	  return com.amazonaws.services.ec2.model.GetConsoleOutputResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.GetConsoleOutputResult {
+		return environment.ec2.getConsoleOutput(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -6387,12 +7179,12 @@ class AmazonEC2GetConsoleOutputCommand(val instanceId: String) : AmazonWebServic
 }
 
 
-fun AmazonEC2Functions.getConsoleScreenshot(instanceId: String, init: AmazonEC2GetConsoleScreenshotCommand.() -> Unit) {
-	this.block.declare(AmazonEC2GetConsoleScreenshotCommand(instanceId).apply(init))
+fun AmazonEC2Functions.getConsoleScreenshot(instanceId: String, init: AmazonEC2GetConsoleScreenshotCommand.() -> Unit): com.amazonaws.services.ec2.model.GetConsoleScreenshotResult {
+	return this.block.declare(AmazonEC2GetConsoleScreenshotCommand(instanceId).apply(init)) as com.amazonaws.services.ec2.model.GetConsoleScreenshotResult
 }
 
 @Generated
-class AmazonEC2GetConsoleScreenshotCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.GetConsoleScreenshotRequest> {
+class AmazonEC2GetConsoleScreenshotCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.GetConsoleScreenshotRequest, com.amazonaws.services.ec2.model.GetConsoleScreenshotResult> {
 
 	var wakeUp: Boolean? = false
 
@@ -6403,8 +7195,12 @@ class AmazonEC2GetConsoleScreenshotCommand(val instanceId: String) : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.getConsoleScreenshot(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.GetConsoleScreenshotResult {
+	  return com.amazonaws.services.ec2.model.GetConsoleScreenshotResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.GetConsoleScreenshotResult {
+		return environment.ec2.getConsoleScreenshot(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -6416,12 +7212,12 @@ class AmazonEC2GetConsoleScreenshotCommand(val instanceId: String) : AmazonWebSe
 }
 
 
-fun AmazonEC2Functions.getHostReservationPurchasePreview(hostIdSet: List<String>, offeringId: String, init: AmazonEC2GetHostReservationPurchasePreviewCommand.() -> Unit) {
-	this.block.declare(AmazonEC2GetHostReservationPurchasePreviewCommand(hostIdSet, offeringId).apply(init))
+fun AmazonEC2Functions.getHostReservationPurchasePreview(hostIdSet: List<String>, offeringId: String, init: AmazonEC2GetHostReservationPurchasePreviewCommand.() -> Unit): com.amazonaws.services.ec2.model.GetHostReservationPurchasePreviewResult {
+	return this.block.declare(AmazonEC2GetHostReservationPurchasePreviewCommand(hostIdSet, offeringId).apply(init)) as com.amazonaws.services.ec2.model.GetHostReservationPurchasePreviewResult
 }
 
 @Generated
-class AmazonEC2GetHostReservationPurchasePreviewCommand(val hostIdSet: List<String>, val offeringId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.GetHostReservationPurchasePreviewRequest> {
+class AmazonEC2GetHostReservationPurchasePreviewCommand(val hostIdSet: List<String>, val offeringId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.GetHostReservationPurchasePreviewRequest, com.amazonaws.services.ec2.model.GetHostReservationPurchasePreviewResult> {
 
 
 
@@ -6432,8 +7228,12 @@ class AmazonEC2GetHostReservationPurchasePreviewCommand(val hostIdSet: List<Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.getHostReservationPurchasePreview(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.GetHostReservationPurchasePreviewResult {
+	  return com.amazonaws.services.ec2.model.GetHostReservationPurchasePreviewResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.GetHostReservationPurchasePreviewResult {
+		return environment.ec2.getHostReservationPurchasePreview(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -6445,12 +7245,12 @@ class AmazonEC2GetHostReservationPurchasePreviewCommand(val hostIdSet: List<Stri
 }
 
 
-fun AmazonEC2Functions.getLaunchTemplateData(instanceId: String, init: AmazonEC2GetLaunchTemplateDataCommand.() -> Unit) {
-	this.block.declare(AmazonEC2GetLaunchTemplateDataCommand(instanceId).apply(init))
+fun AmazonEC2Functions.getLaunchTemplateData(instanceId: String, init: AmazonEC2GetLaunchTemplateDataCommand.() -> Unit): com.amazonaws.services.ec2.model.GetLaunchTemplateDataResult {
+	return this.block.declare(AmazonEC2GetLaunchTemplateDataCommand(instanceId).apply(init)) as com.amazonaws.services.ec2.model.GetLaunchTemplateDataResult
 }
 
 @Generated
-class AmazonEC2GetLaunchTemplateDataCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.GetLaunchTemplateDataRequest> {
+class AmazonEC2GetLaunchTemplateDataCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.GetLaunchTemplateDataRequest, com.amazonaws.services.ec2.model.GetLaunchTemplateDataResult> {
 
 
 
@@ -6460,8 +7260,12 @@ class AmazonEC2GetLaunchTemplateDataCommand(val instanceId: String) : AmazonWebS
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.getLaunchTemplateData(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.GetLaunchTemplateDataResult {
+	  return com.amazonaws.services.ec2.model.GetLaunchTemplateDataResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.GetLaunchTemplateDataResult {
+		return environment.ec2.getLaunchTemplateData(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -6472,12 +7276,12 @@ class AmazonEC2GetLaunchTemplateDataCommand(val instanceId: String) : AmazonWebS
 }
 
 
-fun AmazonEC2Functions.getPasswordData(instanceId: String, init: AmazonEC2GetPasswordDataCommand.() -> Unit) {
-	this.block.declare(AmazonEC2GetPasswordDataCommand(instanceId).apply(init))
+fun AmazonEC2Functions.getPasswordData(instanceId: String, init: AmazonEC2GetPasswordDataCommand.() -> Unit): com.amazonaws.services.ec2.model.GetPasswordDataResult {
+	return this.block.declare(AmazonEC2GetPasswordDataCommand(instanceId).apply(init)) as com.amazonaws.services.ec2.model.GetPasswordDataResult
 }
 
 @Generated
-class AmazonEC2GetPasswordDataCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.GetPasswordDataRequest> {
+class AmazonEC2GetPasswordDataCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.GetPasswordDataRequest, com.amazonaws.services.ec2.model.GetPasswordDataResult> {
 
 
 
@@ -6487,8 +7291,12 @@ class AmazonEC2GetPasswordDataCommand(val instanceId: String) : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.getPasswordData(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.GetPasswordDataResult {
+	  return com.amazonaws.services.ec2.model.GetPasswordDataResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.GetPasswordDataResult {
+		return environment.ec2.getPasswordData(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -6499,12 +7307,12 @@ class AmazonEC2GetPasswordDataCommand(val instanceId: String) : AmazonWebService
 }
 
 
-fun AmazonEC2Functions.getReservedInstancesExchangeQuote(reservedInstanceIds: List<String>, init: AmazonEC2GetReservedInstancesExchangeQuoteCommand.() -> Unit) {
-	this.block.declare(AmazonEC2GetReservedInstancesExchangeQuoteCommand(reservedInstanceIds).apply(init))
+fun AmazonEC2Functions.getReservedInstancesExchangeQuote(reservedInstanceIds: List<String>, init: AmazonEC2GetReservedInstancesExchangeQuoteCommand.() -> Unit): com.amazonaws.services.ec2.model.GetReservedInstancesExchangeQuoteResult {
+	return this.block.declare(AmazonEC2GetReservedInstancesExchangeQuoteCommand(reservedInstanceIds).apply(init)) as com.amazonaws.services.ec2.model.GetReservedInstancesExchangeQuoteResult
 }
 
 @Generated
-class AmazonEC2GetReservedInstancesExchangeQuoteCommand(val reservedInstanceIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.GetReservedInstancesExchangeQuoteRequest> {
+class AmazonEC2GetReservedInstancesExchangeQuoteCommand(val reservedInstanceIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.GetReservedInstancesExchangeQuoteRequest, com.amazonaws.services.ec2.model.GetReservedInstancesExchangeQuoteResult> {
 
 	var targetConfigurations: List<com.amazonaws.services.ec2.model.TargetConfigurationRequest>? = null
 
@@ -6515,8 +7323,12 @@ class AmazonEC2GetReservedInstancesExchangeQuoteCommand(val reservedInstanceIds:
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.getReservedInstancesExchangeQuote(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.GetReservedInstancesExchangeQuoteResult {
+	  return com.amazonaws.services.ec2.model.GetReservedInstancesExchangeQuoteResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.GetReservedInstancesExchangeQuoteResult {
+		return environment.ec2.getReservedInstancesExchangeQuote(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -6528,12 +7340,12 @@ class AmazonEC2GetReservedInstancesExchangeQuoteCommand(val reservedInstanceIds:
 }
 
 
-fun AmazonEC2Functions.importImage(init: AmazonEC2ImportImageCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ImportImageCommand().apply(init))
+fun AmazonEC2Functions.importImage(init: AmazonEC2ImportImageCommand.() -> Unit): com.amazonaws.services.ec2.model.ImportImageResult {
+	return this.block.declare(AmazonEC2ImportImageCommand().apply(init)) as com.amazonaws.services.ec2.model.ImportImageResult
 }
 
 @Generated
-class AmazonEC2ImportImageCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ImportImageRequest> {
+class AmazonEC2ImportImageCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ImportImageRequest, com.amazonaws.services.ec2.model.ImportImageResult> {
 
 	var architecture: String? = null
 	var clientData: com.amazonaws.services.ec2.model.ClientData? = null
@@ -6559,8 +7371,12 @@ class AmazonEC2ImportImageCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.importImage(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ImportImageResult {
+	  return com.amazonaws.services.ec2.model.ImportImageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ImportImageResult {
+		return environment.ec2.importImage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -6579,12 +7395,12 @@ class AmazonEC2ImportImageCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 }
 
 
-fun AmazonEC2Functions.importInstance(platform: PlatformValues, init: AmazonEC2ImportInstanceCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ImportInstanceCommand(platform).apply(init))
+fun AmazonEC2Functions.importInstance(platform: PlatformValues, init: AmazonEC2ImportInstanceCommand.() -> Unit): com.amazonaws.services.ec2.model.ImportInstanceResult {
+	return this.block.declare(AmazonEC2ImportInstanceCommand(platform).apply(init)) as com.amazonaws.services.ec2.model.ImportInstanceResult
 }
 
 @Generated
-class AmazonEC2ImportInstanceCommand(val platform: PlatformValues) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ImportInstanceRequest> {
+class AmazonEC2ImportInstanceCommand(val platform: PlatformValues) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ImportInstanceRequest, com.amazonaws.services.ec2.model.ImportInstanceResult> {
 
 	var description: String? = null
 	var diskImages: List<com.amazonaws.services.ec2.model.DiskImage>? = null
@@ -6599,8 +7415,12 @@ class AmazonEC2ImportInstanceCommand(val platform: PlatformValues) : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.importInstance(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ImportInstanceResult {
+	  return com.amazonaws.services.ec2.model.ImportInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ImportInstanceResult {
+		return environment.ec2.importInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -6614,12 +7434,12 @@ class AmazonEC2ImportInstanceCommand(val platform: PlatformValues) : AmazonWebSe
 }
 
 
-fun AmazonEC2Functions.importKeyPair(keyName: String, publicKeyMaterial: String, init: AmazonEC2ImportKeyPairCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ImportKeyPairCommand(keyName, publicKeyMaterial).apply(init))
+fun AmazonEC2Functions.importKeyPair(keyName: String, publicKeyMaterial: String, init: AmazonEC2ImportKeyPairCommand.() -> Unit): com.amazonaws.services.ec2.model.ImportKeyPairResult {
+	return this.block.declare(AmazonEC2ImportKeyPairCommand(keyName, publicKeyMaterial).apply(init)) as com.amazonaws.services.ec2.model.ImportKeyPairResult
 }
 
 @Generated
-class AmazonEC2ImportKeyPairCommand(val keyName: String, val publicKeyMaterial: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ImportKeyPairRequest> {
+class AmazonEC2ImportKeyPairCommand(val keyName: String, val publicKeyMaterial: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ImportKeyPairRequest, com.amazonaws.services.ec2.model.ImportKeyPairResult> {
 
 
 
@@ -6630,8 +7450,12 @@ class AmazonEC2ImportKeyPairCommand(val keyName: String, val publicKeyMaterial: 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.importKeyPair(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ImportKeyPairResult {
+	  return com.amazonaws.services.ec2.model.ImportKeyPairResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ImportKeyPairResult {
+		return environment.ec2.importKeyPair(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -6643,12 +7467,12 @@ class AmazonEC2ImportKeyPairCommand(val keyName: String, val publicKeyMaterial: 
 }
 
 
-fun AmazonEC2Functions.importSnapshot(init: AmazonEC2ImportSnapshotCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ImportSnapshotCommand().apply(init))
+fun AmazonEC2Functions.importSnapshot(init: AmazonEC2ImportSnapshotCommand.() -> Unit): com.amazonaws.services.ec2.model.ImportSnapshotResult {
+	return this.block.declare(AmazonEC2ImportSnapshotCommand().apply(init)) as com.amazonaws.services.ec2.model.ImportSnapshotResult
 }
 
 @Generated
-class AmazonEC2ImportSnapshotCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ImportSnapshotRequest> {
+class AmazonEC2ImportSnapshotCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ImportSnapshotRequest, com.amazonaws.services.ec2.model.ImportSnapshotResult> {
 
 	var clientData: com.amazonaws.services.ec2.model.ClientData? = null
 	var clientToken: String? = null
@@ -6666,8 +7490,12 @@ class AmazonEC2ImportSnapshotCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.importSnapshot(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ImportSnapshotResult {
+	  return com.amazonaws.services.ec2.model.ImportSnapshotResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ImportSnapshotResult {
+		return environment.ec2.importSnapshot(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -6682,12 +7510,12 @@ class AmazonEC2ImportSnapshotCommand() : AmazonWebServiceCommand<com.amazonaws.s
 }
 
 
-fun AmazonEC2Functions.importVolume(availabilityZone: String, image: com.amazonaws.services.ec2.model.DiskImageDetail, volume: com.amazonaws.services.ec2.model.VolumeDetail, init: AmazonEC2ImportVolumeCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ImportVolumeCommand(availabilityZone, image, volume).apply(init))
+fun AmazonEC2Functions.importVolume(availabilityZone: String, image: com.amazonaws.services.ec2.model.DiskImageDetail, volume: com.amazonaws.services.ec2.model.VolumeDetail, init: AmazonEC2ImportVolumeCommand.() -> Unit): com.amazonaws.services.ec2.model.ImportVolumeResult {
+	return this.block.declare(AmazonEC2ImportVolumeCommand(availabilityZone, image, volume).apply(init)) as com.amazonaws.services.ec2.model.ImportVolumeResult
 }
 
 @Generated
-class AmazonEC2ImportVolumeCommand(val availabilityZone: String, val image: com.amazonaws.services.ec2.model.DiskImageDetail, val volume: com.amazonaws.services.ec2.model.VolumeDetail) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ImportVolumeRequest> {
+class AmazonEC2ImportVolumeCommand(val availabilityZone: String, val image: com.amazonaws.services.ec2.model.DiskImageDetail, val volume: com.amazonaws.services.ec2.model.VolumeDetail) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ImportVolumeRequest, com.amazonaws.services.ec2.model.ImportVolumeResult> {
 
 	var description: String? = null
 
@@ -6700,8 +7528,12 @@ class AmazonEC2ImportVolumeCommand(val availabilityZone: String, val image: com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.importVolume(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ImportVolumeResult {
+	  return com.amazonaws.services.ec2.model.ImportVolumeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ImportVolumeResult {
+		return environment.ec2.importVolume(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -6715,12 +7547,12 @@ class AmazonEC2ImportVolumeCommand(val availabilityZone: String, val image: com.
 }
 
 
-fun AmazonEC2Functions.modifyFpgaImageAttribute(fpgaImageId: String, init: AmazonEC2ModifyFpgaImageAttributeCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ModifyFpgaImageAttributeCommand(fpgaImageId).apply(init))
+fun AmazonEC2Functions.modifyFpgaImageAttribute(fpgaImageId: String, init: AmazonEC2ModifyFpgaImageAttributeCommand.() -> Unit): com.amazonaws.services.ec2.model.ModifyFpgaImageAttributeResult {
+	return this.block.declare(AmazonEC2ModifyFpgaImageAttributeCommand(fpgaImageId).apply(init)) as com.amazonaws.services.ec2.model.ModifyFpgaImageAttributeResult
 }
 
 @Generated
-class AmazonEC2ModifyFpgaImageAttributeCommand(val fpgaImageId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyFpgaImageAttributeRequest> {
+class AmazonEC2ModifyFpgaImageAttributeCommand(val fpgaImageId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyFpgaImageAttributeRequest, com.amazonaws.services.ec2.model.ModifyFpgaImageAttributeResult> {
 
 	var attribute: FpgaImageAttributeName? = null
 	var operationType: OperationType? = null
@@ -6745,8 +7577,12 @@ class AmazonEC2ModifyFpgaImageAttributeCommand(val fpgaImageId: String) : Amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.modifyFpgaImageAttribute(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyFpgaImageAttributeResult {
+	  return com.amazonaws.services.ec2.model.ModifyFpgaImageAttributeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyFpgaImageAttributeResult {
+		return environment.ec2.modifyFpgaImageAttribute(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -6765,12 +7601,12 @@ class AmazonEC2ModifyFpgaImageAttributeCommand(val fpgaImageId: String) : Amazon
 }
 
 
-fun AmazonEC2Functions.modifyHosts(autoPlacement: AutoPlacement, hostIds: List<String>, init: AmazonEC2ModifyHostsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ModifyHostsCommand(autoPlacement, hostIds).apply(init))
+fun AmazonEC2Functions.modifyHosts(autoPlacement: AutoPlacement, hostIds: List<String>, init: AmazonEC2ModifyHostsCommand.() -> Unit): com.amazonaws.services.ec2.model.ModifyHostsResult {
+	return this.block.declare(AmazonEC2ModifyHostsCommand(autoPlacement, hostIds).apply(init)) as com.amazonaws.services.ec2.model.ModifyHostsResult
 }
 
 @Generated
-class AmazonEC2ModifyHostsCommand(val autoPlacement: AutoPlacement, val hostIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyHostsRequest> {
+class AmazonEC2ModifyHostsCommand(val autoPlacement: AutoPlacement, val hostIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyHostsRequest, com.amazonaws.services.ec2.model.ModifyHostsResult> {
 
 
 
@@ -6781,8 +7617,12 @@ class AmazonEC2ModifyHostsCommand(val autoPlacement: AutoPlacement, val hostIds:
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.modifyHosts(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyHostsResult {
+	  return com.amazonaws.services.ec2.model.ModifyHostsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyHostsResult {
+		return environment.ec2.modifyHosts(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -6794,12 +7634,12 @@ class AmazonEC2ModifyHostsCommand(val autoPlacement: AutoPlacement, val hostIds:
 }
 
 
-fun AmazonEC2Functions.modifyIdFormat(resource: String, useLongIds: Boolean, init: AmazonEC2ModifyIdFormatCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ModifyIdFormatCommand(resource, useLongIds).apply(init))
+fun AmazonEC2Functions.modifyIdFormat(resource: String, useLongIds: Boolean, init: AmazonEC2ModifyIdFormatCommand.() -> Unit): com.amazonaws.services.ec2.model.ModifyIdFormatResult {
+	return this.block.declare(AmazonEC2ModifyIdFormatCommand(resource, useLongIds).apply(init)) as com.amazonaws.services.ec2.model.ModifyIdFormatResult
 }
 
 @Generated
-class AmazonEC2ModifyIdFormatCommand(val resource: String, val useLongIds: Boolean) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyIdFormatRequest> {
+class AmazonEC2ModifyIdFormatCommand(val resource: String, val useLongIds: Boolean) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyIdFormatRequest, com.amazonaws.services.ec2.model.ModifyIdFormatResult> {
 
 
 
@@ -6810,8 +7650,12 @@ class AmazonEC2ModifyIdFormatCommand(val resource: String, val useLongIds: Boole
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.modifyIdFormat(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyIdFormatResult {
+	  return com.amazonaws.services.ec2.model.ModifyIdFormatResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyIdFormatResult {
+		return environment.ec2.modifyIdFormat(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -6823,12 +7667,12 @@ class AmazonEC2ModifyIdFormatCommand(val resource: String, val useLongIds: Boole
 }
 
 
-fun AmazonEC2Functions.modifyIdentityIdFormat(principalArn: String, resource: String, useLongIds: Boolean, init: AmazonEC2ModifyIdentityIdFormatCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ModifyIdentityIdFormatCommand(principalArn, resource, useLongIds).apply(init))
+fun AmazonEC2Functions.modifyIdentityIdFormat(principalArn: String, resource: String, useLongIds: Boolean, init: AmazonEC2ModifyIdentityIdFormatCommand.() -> Unit): com.amazonaws.services.ec2.model.ModifyIdentityIdFormatResult {
+	return this.block.declare(AmazonEC2ModifyIdentityIdFormatCommand(principalArn, resource, useLongIds).apply(init)) as com.amazonaws.services.ec2.model.ModifyIdentityIdFormatResult
 }
 
 @Generated
-class AmazonEC2ModifyIdentityIdFormatCommand(val principalArn: String, val resource: String, val useLongIds: Boolean) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyIdentityIdFormatRequest> {
+class AmazonEC2ModifyIdentityIdFormatCommand(val principalArn: String, val resource: String, val useLongIds: Boolean) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyIdentityIdFormatRequest, com.amazonaws.services.ec2.model.ModifyIdentityIdFormatResult> {
 
 
 
@@ -6840,8 +7684,12 @@ class AmazonEC2ModifyIdentityIdFormatCommand(val principalArn: String, val resou
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.modifyIdentityIdFormat(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyIdentityIdFormatResult {
+	  return com.amazonaws.services.ec2.model.ModifyIdentityIdFormatResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyIdentityIdFormatResult {
+		return environment.ec2.modifyIdentityIdFormat(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -6854,12 +7702,12 @@ class AmazonEC2ModifyIdentityIdFormatCommand(val principalArn: String, val resou
 }
 
 
-fun AmazonEC2Functions.modifyImageAttribute(imageId: String, init: AmazonEC2ModifyImageAttributeCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ModifyImageAttributeCommand(imageId).apply(init))
+fun AmazonEC2Functions.modifyImageAttribute(imageId: String, init: AmazonEC2ModifyImageAttributeCommand.() -> Unit): com.amazonaws.services.ec2.model.ModifyImageAttributeResult {
+	return this.block.declare(AmazonEC2ModifyImageAttributeCommand(imageId).apply(init)) as com.amazonaws.services.ec2.model.ModifyImageAttributeResult
 }
 
 @Generated
-class AmazonEC2ModifyImageAttributeCommand(val imageId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyImageAttributeRequest> {
+class AmazonEC2ModifyImageAttributeCommand(val imageId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyImageAttributeRequest, com.amazonaws.services.ec2.model.ModifyImageAttributeResult> {
 
 	var attribute: String? = null
 	var description: String? = null
@@ -6884,8 +7732,12 @@ class AmazonEC2ModifyImageAttributeCommand(val imageId: String) : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.modifyImageAttribute(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyImageAttributeResult {
+	  return com.amazonaws.services.ec2.model.ModifyImageAttributeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyImageAttributeResult {
+		return environment.ec2.modifyImageAttribute(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -6904,12 +7756,12 @@ class AmazonEC2ModifyImageAttributeCommand(val imageId: String) : AmazonWebServi
 }
 
 
-fun AmazonEC2Functions.modifyInstanceAttribute(instanceId: String, init: AmazonEC2ModifyInstanceAttributeCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ModifyInstanceAttributeCommand(instanceId).apply(init))
+fun AmazonEC2Functions.modifyInstanceAttribute(instanceId: String, init: AmazonEC2ModifyInstanceAttributeCommand.() -> Unit): com.amazonaws.services.ec2.model.ModifyInstanceAttributeResult {
+	return this.block.declare(AmazonEC2ModifyInstanceAttributeCommand(instanceId).apply(init)) as com.amazonaws.services.ec2.model.ModifyInstanceAttributeResult
 }
 
 @Generated
-class AmazonEC2ModifyInstanceAttributeCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyInstanceAttributeRequest> {
+class AmazonEC2ModifyInstanceAttributeCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyInstanceAttributeRequest, com.amazonaws.services.ec2.model.ModifyInstanceAttributeResult> {
 
 	var sourceDestCheck: Boolean? = false
 	var attribute: InstanceAttributeName? = null
@@ -6946,8 +7798,12 @@ class AmazonEC2ModifyInstanceAttributeCommand(val instanceId: String) : AmazonWe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.modifyInstanceAttribute(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyInstanceAttributeResult {
+	  return com.amazonaws.services.ec2.model.ModifyInstanceAttributeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyInstanceAttributeResult {
+		return environment.ec2.modifyInstanceAttribute(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -6972,12 +7828,12 @@ class AmazonEC2ModifyInstanceAttributeCommand(val instanceId: String) : AmazonWe
 }
 
 
-fun AmazonEC2Functions.modifyInstanceCreditSpecification(instanceCreditSpecifications: List<com.amazonaws.services.ec2.model.InstanceCreditSpecificationRequest>, init: AmazonEC2ModifyInstanceCreditSpecificationCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ModifyInstanceCreditSpecificationCommand(instanceCreditSpecifications).apply(init))
+fun AmazonEC2Functions.modifyInstanceCreditSpecification(instanceCreditSpecifications: List<com.amazonaws.services.ec2.model.InstanceCreditSpecificationRequest>, init: AmazonEC2ModifyInstanceCreditSpecificationCommand.() -> Unit): com.amazonaws.services.ec2.model.ModifyInstanceCreditSpecificationResult {
+	return this.block.declare(AmazonEC2ModifyInstanceCreditSpecificationCommand(instanceCreditSpecifications).apply(init)) as com.amazonaws.services.ec2.model.ModifyInstanceCreditSpecificationResult
 }
 
 @Generated
-class AmazonEC2ModifyInstanceCreditSpecificationCommand(val instanceCreditSpecifications: List<com.amazonaws.services.ec2.model.InstanceCreditSpecificationRequest>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyInstanceCreditSpecificationRequest> {
+class AmazonEC2ModifyInstanceCreditSpecificationCommand(val instanceCreditSpecifications: List<com.amazonaws.services.ec2.model.InstanceCreditSpecificationRequest>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyInstanceCreditSpecificationRequest, com.amazonaws.services.ec2.model.ModifyInstanceCreditSpecificationResult> {
 
 	var clientToken: String? = null
 
@@ -6988,8 +7844,12 @@ class AmazonEC2ModifyInstanceCreditSpecificationCommand(val instanceCreditSpecif
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.modifyInstanceCreditSpecification(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyInstanceCreditSpecificationResult {
+	  return com.amazonaws.services.ec2.model.ModifyInstanceCreditSpecificationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyInstanceCreditSpecificationResult {
+		return environment.ec2.modifyInstanceCreditSpecification(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -7001,12 +7861,12 @@ class AmazonEC2ModifyInstanceCreditSpecificationCommand(val instanceCreditSpecif
 }
 
 
-fun AmazonEC2Functions.modifyInstancePlacement(instanceId: String, init: AmazonEC2ModifyInstancePlacementCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ModifyInstancePlacementCommand(instanceId).apply(init))
+fun AmazonEC2Functions.modifyInstancePlacement(instanceId: String, init: AmazonEC2ModifyInstancePlacementCommand.() -> Unit): com.amazonaws.services.ec2.model.ModifyInstancePlacementResult {
+	return this.block.declare(AmazonEC2ModifyInstancePlacementCommand(instanceId).apply(init)) as com.amazonaws.services.ec2.model.ModifyInstancePlacementResult
 }
 
 @Generated
-class AmazonEC2ModifyInstancePlacementCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyInstancePlacementRequest> {
+class AmazonEC2ModifyInstancePlacementCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyInstancePlacementRequest, com.amazonaws.services.ec2.model.ModifyInstancePlacementResult> {
 
 	var affinity: Affinity? = null
 	var groupName: String? = null
@@ -7023,8 +7883,12 @@ class AmazonEC2ModifyInstancePlacementCommand(val instanceId: String) : AmazonWe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.modifyInstancePlacement(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyInstancePlacementResult {
+	  return com.amazonaws.services.ec2.model.ModifyInstancePlacementResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyInstancePlacementResult {
+		return environment.ec2.modifyInstancePlacement(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -7039,12 +7903,12 @@ class AmazonEC2ModifyInstancePlacementCommand(val instanceId: String) : AmazonWe
 }
 
 
-fun AmazonEC2Functions.modifyLaunchTemplate(init: AmazonEC2ModifyLaunchTemplateCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ModifyLaunchTemplateCommand().apply(init))
+fun AmazonEC2Functions.modifyLaunchTemplate(init: AmazonEC2ModifyLaunchTemplateCommand.() -> Unit): com.amazonaws.services.ec2.model.ModifyLaunchTemplateResult {
+	return this.block.declare(AmazonEC2ModifyLaunchTemplateCommand().apply(init)) as com.amazonaws.services.ec2.model.ModifyLaunchTemplateResult
 }
 
 @Generated
-class AmazonEC2ModifyLaunchTemplateCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyLaunchTemplateRequest> {
+class AmazonEC2ModifyLaunchTemplateCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyLaunchTemplateRequest, com.amazonaws.services.ec2.model.ModifyLaunchTemplateResult> {
 
 	var clientToken: String? = null
 	var launchTemplateId: String? = null
@@ -7060,8 +7924,12 @@ class AmazonEC2ModifyLaunchTemplateCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.modifyLaunchTemplate(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyLaunchTemplateResult {
+	  return com.amazonaws.services.ec2.model.ModifyLaunchTemplateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyLaunchTemplateResult {
+		return environment.ec2.modifyLaunchTemplate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -7075,12 +7943,12 @@ class AmazonEC2ModifyLaunchTemplateCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AmazonEC2Functions.modifyNetworkInterfaceAttribute(networkInterfaceId: String, init: AmazonEC2ModifyNetworkInterfaceAttributeCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ModifyNetworkInterfaceAttributeCommand(networkInterfaceId).apply(init))
+fun AmazonEC2Functions.modifyNetworkInterfaceAttribute(networkInterfaceId: String, init: AmazonEC2ModifyNetworkInterfaceAttributeCommand.() -> Unit): com.amazonaws.services.ec2.model.ModifyNetworkInterfaceAttributeResult {
+	return this.block.declare(AmazonEC2ModifyNetworkInterfaceAttributeCommand(networkInterfaceId).apply(init)) as com.amazonaws.services.ec2.model.ModifyNetworkInterfaceAttributeResult
 }
 
 @Generated
-class AmazonEC2ModifyNetworkInterfaceAttributeCommand(val networkInterfaceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyNetworkInterfaceAttributeRequest> {
+class AmazonEC2ModifyNetworkInterfaceAttributeCommand(val networkInterfaceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyNetworkInterfaceAttributeRequest, com.amazonaws.services.ec2.model.ModifyNetworkInterfaceAttributeResult> {
 
 	var attachment: com.amazonaws.services.ec2.model.NetworkInterfaceAttachmentChanges? = null
 	var description: String? = null
@@ -7097,8 +7965,12 @@ class AmazonEC2ModifyNetworkInterfaceAttributeCommand(val networkInterfaceId: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.modifyNetworkInterfaceAttribute(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyNetworkInterfaceAttributeResult {
+	  return com.amazonaws.services.ec2.model.ModifyNetworkInterfaceAttributeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyNetworkInterfaceAttributeResult {
+		return environment.ec2.modifyNetworkInterfaceAttribute(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -7113,12 +7985,12 @@ class AmazonEC2ModifyNetworkInterfaceAttributeCommand(val networkInterfaceId: St
 }
 
 
-fun AmazonEC2Functions.modifyReservedInstances(reservedInstancesIds: List<String>, targetConfigurations: List<com.amazonaws.services.ec2.model.ReservedInstancesConfiguration>, init: AmazonEC2ModifyReservedInstancesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ModifyReservedInstancesCommand(reservedInstancesIds, targetConfigurations).apply(init))
+fun AmazonEC2Functions.modifyReservedInstances(reservedInstancesIds: List<String>, targetConfigurations: List<com.amazonaws.services.ec2.model.ReservedInstancesConfiguration>, init: AmazonEC2ModifyReservedInstancesCommand.() -> Unit): com.amazonaws.services.ec2.model.ModifyReservedInstancesResult {
+	return this.block.declare(AmazonEC2ModifyReservedInstancesCommand(reservedInstancesIds, targetConfigurations).apply(init)) as com.amazonaws.services.ec2.model.ModifyReservedInstancesResult
 }
 
 @Generated
-class AmazonEC2ModifyReservedInstancesCommand(val reservedInstancesIds: List<String>, val targetConfigurations: List<com.amazonaws.services.ec2.model.ReservedInstancesConfiguration>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyReservedInstancesRequest> {
+class AmazonEC2ModifyReservedInstancesCommand(val reservedInstancesIds: List<String>, val targetConfigurations: List<com.amazonaws.services.ec2.model.ReservedInstancesConfiguration>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyReservedInstancesRequest, com.amazonaws.services.ec2.model.ModifyReservedInstancesResult> {
 
 	var clientToken: String? = null
 
@@ -7130,8 +8002,12 @@ class AmazonEC2ModifyReservedInstancesCommand(val reservedInstancesIds: List<Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.modifyReservedInstances(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyReservedInstancesResult {
+	  return com.amazonaws.services.ec2.model.ModifyReservedInstancesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyReservedInstancesResult {
+		return environment.ec2.modifyReservedInstances(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -7144,12 +8020,12 @@ class AmazonEC2ModifyReservedInstancesCommand(val reservedInstancesIds: List<Str
 }
 
 
-fun AmazonEC2Functions.modifySnapshotAttribute(snapshotId: String, init: AmazonEC2ModifySnapshotAttributeCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ModifySnapshotAttributeCommand(snapshotId).apply(init))
+fun AmazonEC2Functions.modifySnapshotAttribute(snapshotId: String, init: AmazonEC2ModifySnapshotAttributeCommand.() -> Unit): com.amazonaws.services.ec2.model.ModifySnapshotAttributeResult {
+	return this.block.declare(AmazonEC2ModifySnapshotAttributeCommand(snapshotId).apply(init)) as com.amazonaws.services.ec2.model.ModifySnapshotAttributeResult
 }
 
 @Generated
-class AmazonEC2ModifySnapshotAttributeCommand(val snapshotId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifySnapshotAttributeRequest> {
+class AmazonEC2ModifySnapshotAttributeCommand(val snapshotId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifySnapshotAttributeRequest, com.amazonaws.services.ec2.model.ModifySnapshotAttributeResult> {
 
 	var attribute: SnapshotAttributeName? = null
 	var createVolumePermission: com.amazonaws.services.ec2.model.CreateVolumePermissionModifications? = null
@@ -7168,8 +8044,12 @@ class AmazonEC2ModifySnapshotAttributeCommand(val snapshotId: String) : AmazonWe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.modifySnapshotAttribute(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ModifySnapshotAttributeResult {
+	  return com.amazonaws.services.ec2.model.ModifySnapshotAttributeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifySnapshotAttributeResult {
+		return environment.ec2.modifySnapshotAttribute(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -7185,12 +8065,12 @@ class AmazonEC2ModifySnapshotAttributeCommand(val snapshotId: String) : AmazonWe
 }
 
 
-fun AmazonEC2Functions.modifySpotFleetRequest(spotFleetRequestId: String, init: AmazonEC2ModifySpotFleetRequestCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ModifySpotFleetRequestCommand(spotFleetRequestId).apply(init))
+fun AmazonEC2Functions.modifySpotFleetRequest(spotFleetRequestId: String, init: AmazonEC2ModifySpotFleetRequestCommand.() -> Unit): com.amazonaws.services.ec2.model.ModifySpotFleetRequestResult {
+	return this.block.declare(AmazonEC2ModifySpotFleetRequestCommand(spotFleetRequestId).apply(init)) as com.amazonaws.services.ec2.model.ModifySpotFleetRequestResult
 }
 
 @Generated
-class AmazonEC2ModifySpotFleetRequestCommand(val spotFleetRequestId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifySpotFleetRequestRequest> {
+class AmazonEC2ModifySpotFleetRequestCommand(val spotFleetRequestId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifySpotFleetRequestRequest, com.amazonaws.services.ec2.model.ModifySpotFleetRequestResult> {
 
 	var excessCapacityTerminationPolicy: ExcessCapacityTerminationPolicy? = null
 	var targetCapacity: Int? = 0
@@ -7203,8 +8083,12 @@ class AmazonEC2ModifySpotFleetRequestCommand(val spotFleetRequestId: String) : A
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.modifySpotFleetRequest(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ModifySpotFleetRequestResult {
+	  return com.amazonaws.services.ec2.model.ModifySpotFleetRequestResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifySpotFleetRequestResult {
+		return environment.ec2.modifySpotFleetRequest(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -7217,12 +8101,12 @@ class AmazonEC2ModifySpotFleetRequestCommand(val spotFleetRequestId: String) : A
 }
 
 
-fun AmazonEC2Functions.modifySubnetAttribute(subnetId: String, init: AmazonEC2ModifySubnetAttributeCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ModifySubnetAttributeCommand(subnetId).apply(init))
+fun AmazonEC2Functions.modifySubnetAttribute(subnetId: String, init: AmazonEC2ModifySubnetAttributeCommand.() -> Unit): com.amazonaws.services.ec2.model.ModifySubnetAttributeResult {
+	return this.block.declare(AmazonEC2ModifySubnetAttributeCommand(subnetId).apply(init)) as com.amazonaws.services.ec2.model.ModifySubnetAttributeResult
 }
 
 @Generated
-class AmazonEC2ModifySubnetAttributeCommand(val subnetId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifySubnetAttributeRequest> {
+class AmazonEC2ModifySubnetAttributeCommand(val subnetId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifySubnetAttributeRequest, com.amazonaws.services.ec2.model.ModifySubnetAttributeResult> {
 
 	var assignIpv6AddressOnCreation: Boolean? = false
 	var mapPublicIpOnLaunch: Boolean? = false
@@ -7235,8 +8119,12 @@ class AmazonEC2ModifySubnetAttributeCommand(val subnetId: String) : AmazonWebSer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.modifySubnetAttribute(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ModifySubnetAttributeResult {
+	  return com.amazonaws.services.ec2.model.ModifySubnetAttributeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifySubnetAttributeResult {
+		return environment.ec2.modifySubnetAttribute(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -7249,12 +8137,12 @@ class AmazonEC2ModifySubnetAttributeCommand(val subnetId: String) : AmazonWebSer
 }
 
 
-fun AmazonEC2Functions.modifyVolume(volumeId: String, init: AmazonEC2ModifyVolumeCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ModifyVolumeCommand(volumeId).apply(init))
+fun AmazonEC2Functions.modifyVolume(volumeId: String, init: AmazonEC2ModifyVolumeCommand.() -> Unit): com.amazonaws.services.ec2.model.ModifyVolumeResult {
+	return this.block.declare(AmazonEC2ModifyVolumeCommand(volumeId).apply(init)) as com.amazonaws.services.ec2.model.ModifyVolumeResult
 }
 
 @Generated
-class AmazonEC2ModifyVolumeCommand(val volumeId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyVolumeRequest> {
+class AmazonEC2ModifyVolumeCommand(val volumeId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyVolumeRequest, com.amazonaws.services.ec2.model.ModifyVolumeResult> {
 
 	var size: Int? = 0
 	var volumeType: VolumeType? = null
@@ -7269,8 +8157,12 @@ class AmazonEC2ModifyVolumeCommand(val volumeId: String) : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.modifyVolume(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyVolumeResult {
+	  return com.amazonaws.services.ec2.model.ModifyVolumeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyVolumeResult {
+		return environment.ec2.modifyVolume(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -7284,12 +8176,12 @@ class AmazonEC2ModifyVolumeCommand(val volumeId: String) : AmazonWebServiceComma
 }
 
 
-fun AmazonEC2Functions.modifyVolumeAttribute(volumeId: String, init: AmazonEC2ModifyVolumeAttributeCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ModifyVolumeAttributeCommand(volumeId).apply(init))
+fun AmazonEC2Functions.modifyVolumeAttribute(volumeId: String, init: AmazonEC2ModifyVolumeAttributeCommand.() -> Unit): com.amazonaws.services.ec2.model.ModifyVolumeAttributeResult {
+	return this.block.declare(AmazonEC2ModifyVolumeAttributeCommand(volumeId).apply(init)) as com.amazonaws.services.ec2.model.ModifyVolumeAttributeResult
 }
 
 @Generated
-class AmazonEC2ModifyVolumeAttributeCommand(val volumeId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyVolumeAttributeRequest> {
+class AmazonEC2ModifyVolumeAttributeCommand(val volumeId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyVolumeAttributeRequest, com.amazonaws.services.ec2.model.ModifyVolumeAttributeResult> {
 
 	var autoEnableIO: Boolean? = false
 
@@ -7300,8 +8192,12 @@ class AmazonEC2ModifyVolumeAttributeCommand(val volumeId: String) : AmazonWebSer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.modifyVolumeAttribute(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyVolumeAttributeResult {
+	  return com.amazonaws.services.ec2.model.ModifyVolumeAttributeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyVolumeAttributeResult {
+		return environment.ec2.modifyVolumeAttribute(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -7313,12 +8209,12 @@ class AmazonEC2ModifyVolumeAttributeCommand(val volumeId: String) : AmazonWebSer
 }
 
 
-fun AmazonEC2Functions.modifyVpcAttribute(vpcId: String, init: AmazonEC2ModifyVpcAttributeCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ModifyVpcAttributeCommand(vpcId).apply(init))
+fun AmazonEC2Functions.modifyVpcAttribute(vpcId: String, init: AmazonEC2ModifyVpcAttributeCommand.() -> Unit): com.amazonaws.services.ec2.model.ModifyVpcAttributeResult {
+	return this.block.declare(AmazonEC2ModifyVpcAttributeCommand(vpcId).apply(init)) as com.amazonaws.services.ec2.model.ModifyVpcAttributeResult
 }
 
 @Generated
-class AmazonEC2ModifyVpcAttributeCommand(val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyVpcAttributeRequest> {
+class AmazonEC2ModifyVpcAttributeCommand(val vpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyVpcAttributeRequest, com.amazonaws.services.ec2.model.ModifyVpcAttributeResult> {
 
 	var enableDnsHostnames: Boolean? = false
 	var enableDnsSupport: Boolean? = false
@@ -7331,8 +8227,12 @@ class AmazonEC2ModifyVpcAttributeCommand(val vpcId: String) : AmazonWebServiceCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.modifyVpcAttribute(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyVpcAttributeResult {
+	  return com.amazonaws.services.ec2.model.ModifyVpcAttributeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyVpcAttributeResult {
+		return environment.ec2.modifyVpcAttribute(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -7345,12 +8245,12 @@ class AmazonEC2ModifyVpcAttributeCommand(val vpcId: String) : AmazonWebServiceCo
 }
 
 
-fun AmazonEC2Functions.modifyVpcEndpoint(vpcEndpointId: String, init: AmazonEC2ModifyVpcEndpointCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ModifyVpcEndpointCommand(vpcEndpointId).apply(init))
+fun AmazonEC2Functions.modifyVpcEndpoint(vpcEndpointId: String, init: AmazonEC2ModifyVpcEndpointCommand.() -> Unit): com.amazonaws.services.ec2.model.ModifyVpcEndpointResult {
+	return this.block.declare(AmazonEC2ModifyVpcEndpointCommand(vpcEndpointId).apply(init)) as com.amazonaws.services.ec2.model.ModifyVpcEndpointResult
 }
 
 @Generated
-class AmazonEC2ModifyVpcEndpointCommand(val vpcEndpointId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyVpcEndpointRequest> {
+class AmazonEC2ModifyVpcEndpointCommand(val vpcEndpointId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyVpcEndpointRequest, com.amazonaws.services.ec2.model.ModifyVpcEndpointResult> {
 
 	var resetPolicy: Boolean? = false
 	var policyDocument: String? = null
@@ -7377,8 +8277,12 @@ class AmazonEC2ModifyVpcEndpointCommand(val vpcEndpointId: String) : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.modifyVpcEndpoint(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyVpcEndpointResult {
+	  return com.amazonaws.services.ec2.model.ModifyVpcEndpointResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyVpcEndpointResult {
+		return environment.ec2.modifyVpcEndpoint(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -7398,12 +8302,12 @@ class AmazonEC2ModifyVpcEndpointCommand(val vpcEndpointId: String) : AmazonWebSe
 }
 
 
-fun AmazonEC2Functions.modifyVpcEndpointConnectionNotification(connectionNotificationId: String, init: AmazonEC2ModifyVpcEndpointConnectionNotificationCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ModifyVpcEndpointConnectionNotificationCommand(connectionNotificationId).apply(init))
+fun AmazonEC2Functions.modifyVpcEndpointConnectionNotification(connectionNotificationId: String, init: AmazonEC2ModifyVpcEndpointConnectionNotificationCommand.() -> Unit): com.amazonaws.services.ec2.model.ModifyVpcEndpointConnectionNotificationResult {
+	return this.block.declare(AmazonEC2ModifyVpcEndpointConnectionNotificationCommand(connectionNotificationId).apply(init)) as com.amazonaws.services.ec2.model.ModifyVpcEndpointConnectionNotificationResult
 }
 
 @Generated
-class AmazonEC2ModifyVpcEndpointConnectionNotificationCommand(val connectionNotificationId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyVpcEndpointConnectionNotificationRequest> {
+class AmazonEC2ModifyVpcEndpointConnectionNotificationCommand(val connectionNotificationId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyVpcEndpointConnectionNotificationRequest, com.amazonaws.services.ec2.model.ModifyVpcEndpointConnectionNotificationResult> {
 
 	var connectionNotificationArn: String? = null
 	var connectionEvents: List<String>? = null
@@ -7416,8 +8320,12 @@ class AmazonEC2ModifyVpcEndpointConnectionNotificationCommand(val connectionNoti
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.modifyVpcEndpointConnectionNotification(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyVpcEndpointConnectionNotificationResult {
+	  return com.amazonaws.services.ec2.model.ModifyVpcEndpointConnectionNotificationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyVpcEndpointConnectionNotificationResult {
+		return environment.ec2.modifyVpcEndpointConnectionNotification(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -7430,12 +8338,12 @@ class AmazonEC2ModifyVpcEndpointConnectionNotificationCommand(val connectionNoti
 }
 
 
-fun AmazonEC2Functions.modifyVpcEndpointServiceConfiguration(serviceId: String, init: AmazonEC2ModifyVpcEndpointServiceConfigurationCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ModifyVpcEndpointServiceConfigurationCommand(serviceId).apply(init))
+fun AmazonEC2Functions.modifyVpcEndpointServiceConfiguration(serviceId: String, init: AmazonEC2ModifyVpcEndpointServiceConfigurationCommand.() -> Unit): com.amazonaws.services.ec2.model.ModifyVpcEndpointServiceConfigurationResult {
+	return this.block.declare(AmazonEC2ModifyVpcEndpointServiceConfigurationCommand(serviceId).apply(init)) as com.amazonaws.services.ec2.model.ModifyVpcEndpointServiceConfigurationResult
 }
 
 @Generated
-class AmazonEC2ModifyVpcEndpointServiceConfigurationCommand(val serviceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyVpcEndpointServiceConfigurationRequest> {
+class AmazonEC2ModifyVpcEndpointServiceConfigurationCommand(val serviceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyVpcEndpointServiceConfigurationRequest, com.amazonaws.services.ec2.model.ModifyVpcEndpointServiceConfigurationResult> {
 
 	var acceptanceRequired: Boolean? = false
 	var addNetworkLoadBalancerArns: List<String>? = null
@@ -7450,8 +8358,12 @@ class AmazonEC2ModifyVpcEndpointServiceConfigurationCommand(val serviceId: Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.modifyVpcEndpointServiceConfiguration(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyVpcEndpointServiceConfigurationResult {
+	  return com.amazonaws.services.ec2.model.ModifyVpcEndpointServiceConfigurationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyVpcEndpointServiceConfigurationResult {
+		return environment.ec2.modifyVpcEndpointServiceConfiguration(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -7465,12 +8377,12 @@ class AmazonEC2ModifyVpcEndpointServiceConfigurationCommand(val serviceId: Strin
 }
 
 
-fun AmazonEC2Functions.modifyVpcEndpointServicePermissions(serviceId: String, init: AmazonEC2ModifyVpcEndpointServicePermissionsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ModifyVpcEndpointServicePermissionsCommand(serviceId).apply(init))
+fun AmazonEC2Functions.modifyVpcEndpointServicePermissions(serviceId: String, init: AmazonEC2ModifyVpcEndpointServicePermissionsCommand.() -> Unit): com.amazonaws.services.ec2.model.ModifyVpcEndpointServicePermissionsResult {
+	return this.block.declare(AmazonEC2ModifyVpcEndpointServicePermissionsCommand(serviceId).apply(init)) as com.amazonaws.services.ec2.model.ModifyVpcEndpointServicePermissionsResult
 }
 
 @Generated
-class AmazonEC2ModifyVpcEndpointServicePermissionsCommand(val serviceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyVpcEndpointServicePermissionsRequest> {
+class AmazonEC2ModifyVpcEndpointServicePermissionsCommand(val serviceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyVpcEndpointServicePermissionsRequest, com.amazonaws.services.ec2.model.ModifyVpcEndpointServicePermissionsResult> {
 
 	var addAllowedPrincipals: List<String>? = null
 	var removeAllowedPrincipals: List<String>? = null
@@ -7483,8 +8395,12 @@ class AmazonEC2ModifyVpcEndpointServicePermissionsCommand(val serviceId: String)
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.modifyVpcEndpointServicePermissions(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyVpcEndpointServicePermissionsResult {
+	  return com.amazonaws.services.ec2.model.ModifyVpcEndpointServicePermissionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyVpcEndpointServicePermissionsResult {
+		return environment.ec2.modifyVpcEndpointServicePermissions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -7497,12 +8413,12 @@ class AmazonEC2ModifyVpcEndpointServicePermissionsCommand(val serviceId: String)
 }
 
 
-fun AmazonEC2Functions.modifyVpcPeeringConnectionOptions(vpcPeeringConnectionId: String, init: AmazonEC2ModifyVpcPeeringConnectionOptionsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ModifyVpcPeeringConnectionOptionsCommand(vpcPeeringConnectionId).apply(init))
+fun AmazonEC2Functions.modifyVpcPeeringConnectionOptions(vpcPeeringConnectionId: String, init: AmazonEC2ModifyVpcPeeringConnectionOptionsCommand.() -> Unit): com.amazonaws.services.ec2.model.ModifyVpcPeeringConnectionOptionsResult {
+	return this.block.declare(AmazonEC2ModifyVpcPeeringConnectionOptionsCommand(vpcPeeringConnectionId).apply(init)) as com.amazonaws.services.ec2.model.ModifyVpcPeeringConnectionOptionsResult
 }
 
 @Generated
-class AmazonEC2ModifyVpcPeeringConnectionOptionsCommand(val vpcPeeringConnectionId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyVpcPeeringConnectionOptionsRequest> {
+class AmazonEC2ModifyVpcPeeringConnectionOptionsCommand(val vpcPeeringConnectionId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyVpcPeeringConnectionOptionsRequest, com.amazonaws.services.ec2.model.ModifyVpcPeeringConnectionOptionsResult> {
 
 	var accepterPeeringConnectionOptions: com.amazonaws.services.ec2.model.PeeringConnectionOptionsRequest? = null
 	var requesterPeeringConnectionOptions: com.amazonaws.services.ec2.model.PeeringConnectionOptionsRequest? = null
@@ -7515,8 +8431,12 @@ class AmazonEC2ModifyVpcPeeringConnectionOptionsCommand(val vpcPeeringConnection
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.modifyVpcPeeringConnectionOptions(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyVpcPeeringConnectionOptionsResult {
+	  return com.amazonaws.services.ec2.model.ModifyVpcPeeringConnectionOptionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyVpcPeeringConnectionOptionsResult {
+		return environment.ec2.modifyVpcPeeringConnectionOptions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -7529,12 +8449,12 @@ class AmazonEC2ModifyVpcPeeringConnectionOptionsCommand(val vpcPeeringConnection
 }
 
 
-fun AmazonEC2Functions.modifyVpcTenancy(vpcId: String, instanceTenancy: VpcTenancy, init: AmazonEC2ModifyVpcTenancyCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ModifyVpcTenancyCommand(vpcId, instanceTenancy).apply(init))
+fun AmazonEC2Functions.modifyVpcTenancy(vpcId: String, instanceTenancy: VpcTenancy, init: AmazonEC2ModifyVpcTenancyCommand.() -> Unit): com.amazonaws.services.ec2.model.ModifyVpcTenancyResult {
+	return this.block.declare(AmazonEC2ModifyVpcTenancyCommand(vpcId, instanceTenancy).apply(init)) as com.amazonaws.services.ec2.model.ModifyVpcTenancyResult
 }
 
 @Generated
-class AmazonEC2ModifyVpcTenancyCommand(val vpcId: String, val instanceTenancy: VpcTenancy) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyVpcTenancyRequest> {
+class AmazonEC2ModifyVpcTenancyCommand(val vpcId: String, val instanceTenancy: VpcTenancy) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ModifyVpcTenancyRequest, com.amazonaws.services.ec2.model.ModifyVpcTenancyResult> {
 
 
 
@@ -7545,8 +8465,12 @@ class AmazonEC2ModifyVpcTenancyCommand(val vpcId: String, val instanceTenancy: V
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.modifyVpcTenancy(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ModifyVpcTenancyResult {
+	  return com.amazonaws.services.ec2.model.ModifyVpcTenancyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ModifyVpcTenancyResult {
+		return environment.ec2.modifyVpcTenancy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -7558,12 +8482,12 @@ class AmazonEC2ModifyVpcTenancyCommand(val vpcId: String, val instanceTenancy: V
 }
 
 
-fun AmazonEC2Functions.monitorInstances(instanceIds: List<String>, init: AmazonEC2MonitorInstancesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2MonitorInstancesCommand(instanceIds).apply(init))
+fun AmazonEC2Functions.monitorInstances(instanceIds: List<String>, init: AmazonEC2MonitorInstancesCommand.() -> Unit): com.amazonaws.services.ec2.model.MonitorInstancesResult {
+	return this.block.declare(AmazonEC2MonitorInstancesCommand(instanceIds).apply(init)) as com.amazonaws.services.ec2.model.MonitorInstancesResult
 }
 
 @Generated
-class AmazonEC2MonitorInstancesCommand(val instanceIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.MonitorInstancesRequest> {
+class AmazonEC2MonitorInstancesCommand(val instanceIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.MonitorInstancesRequest, com.amazonaws.services.ec2.model.MonitorInstancesResult> {
 
 
 
@@ -7573,8 +8497,12 @@ class AmazonEC2MonitorInstancesCommand(val instanceIds: List<String>) : AmazonWe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.monitorInstances(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.MonitorInstancesResult {
+	  return com.amazonaws.services.ec2.model.MonitorInstancesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.MonitorInstancesResult {
+		return environment.ec2.monitorInstances(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -7585,12 +8513,12 @@ class AmazonEC2MonitorInstancesCommand(val instanceIds: List<String>) : AmazonWe
 }
 
 
-fun AmazonEC2Functions.moveAddressToVpc(publicIp: String, init: AmazonEC2MoveAddressToVpcCommand.() -> Unit) {
-	this.block.declare(AmazonEC2MoveAddressToVpcCommand(publicIp).apply(init))
+fun AmazonEC2Functions.moveAddressToVpc(publicIp: String, init: AmazonEC2MoveAddressToVpcCommand.() -> Unit): com.amazonaws.services.ec2.model.MoveAddressToVpcResult {
+	return this.block.declare(AmazonEC2MoveAddressToVpcCommand(publicIp).apply(init)) as com.amazonaws.services.ec2.model.MoveAddressToVpcResult
 }
 
 @Generated
-class AmazonEC2MoveAddressToVpcCommand(val publicIp: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.MoveAddressToVpcRequest> {
+class AmazonEC2MoveAddressToVpcCommand(val publicIp: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.MoveAddressToVpcRequest, com.amazonaws.services.ec2.model.MoveAddressToVpcResult> {
 
 
 
@@ -7600,8 +8528,12 @@ class AmazonEC2MoveAddressToVpcCommand(val publicIp: String) : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.moveAddressToVpc(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.MoveAddressToVpcResult {
+	  return com.amazonaws.services.ec2.model.MoveAddressToVpcResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.MoveAddressToVpcResult {
+		return environment.ec2.moveAddressToVpc(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -7612,12 +8544,12 @@ class AmazonEC2MoveAddressToVpcCommand(val publicIp: String) : AmazonWebServiceC
 }
 
 
-fun AmazonEC2Functions.purchaseHostReservation(hostIdSet: List<String>, offeringId: String, init: AmazonEC2PurchaseHostReservationCommand.() -> Unit) {
-	this.block.declare(AmazonEC2PurchaseHostReservationCommand(hostIdSet, offeringId).apply(init))
+fun AmazonEC2Functions.purchaseHostReservation(hostIdSet: List<String>, offeringId: String, init: AmazonEC2PurchaseHostReservationCommand.() -> Unit): com.amazonaws.services.ec2.model.PurchaseHostReservationResult {
+	return this.block.declare(AmazonEC2PurchaseHostReservationCommand(hostIdSet, offeringId).apply(init)) as com.amazonaws.services.ec2.model.PurchaseHostReservationResult
 }
 
 @Generated
-class AmazonEC2PurchaseHostReservationCommand(val hostIdSet: List<String>, val offeringId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.PurchaseHostReservationRequest> {
+class AmazonEC2PurchaseHostReservationCommand(val hostIdSet: List<String>, val offeringId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.PurchaseHostReservationRequest, com.amazonaws.services.ec2.model.PurchaseHostReservationResult> {
 
 	var clientToken: String? = null
 	var currencyCode: CurrencyCodeValues? = null
@@ -7633,8 +8565,12 @@ class AmazonEC2PurchaseHostReservationCommand(val hostIdSet: List<String>, val o
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.purchaseHostReservation(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.PurchaseHostReservationResult {
+	  return com.amazonaws.services.ec2.model.PurchaseHostReservationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.PurchaseHostReservationResult {
+		return environment.ec2.purchaseHostReservation(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -7649,12 +8585,12 @@ class AmazonEC2PurchaseHostReservationCommand(val hostIdSet: List<String>, val o
 }
 
 
-fun AmazonEC2Functions.purchaseReservedInstancesOffering(instanceCount: Int, reservedInstancesOfferingId: String, init: AmazonEC2PurchaseReservedInstancesOfferingCommand.() -> Unit) {
-	this.block.declare(AmazonEC2PurchaseReservedInstancesOfferingCommand(instanceCount, reservedInstancesOfferingId).apply(init))
+fun AmazonEC2Functions.purchaseReservedInstancesOffering(instanceCount: Int, reservedInstancesOfferingId: String, init: AmazonEC2PurchaseReservedInstancesOfferingCommand.() -> Unit): com.amazonaws.services.ec2.model.PurchaseReservedInstancesOfferingResult {
+	return this.block.declare(AmazonEC2PurchaseReservedInstancesOfferingCommand(instanceCount, reservedInstancesOfferingId).apply(init)) as com.amazonaws.services.ec2.model.PurchaseReservedInstancesOfferingResult
 }
 
 @Generated
-class AmazonEC2PurchaseReservedInstancesOfferingCommand(val instanceCount: Int, val reservedInstancesOfferingId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.PurchaseReservedInstancesOfferingRequest> {
+class AmazonEC2PurchaseReservedInstancesOfferingCommand(val instanceCount: Int, val reservedInstancesOfferingId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.PurchaseReservedInstancesOfferingRequest, com.amazonaws.services.ec2.model.PurchaseReservedInstancesOfferingResult> {
 
 	var limitPrice: com.amazonaws.services.ec2.model.ReservedInstanceLimitPrice? = null
 
@@ -7666,8 +8602,12 @@ class AmazonEC2PurchaseReservedInstancesOfferingCommand(val instanceCount: Int, 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.purchaseReservedInstancesOffering(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.PurchaseReservedInstancesOfferingResult {
+	  return com.amazonaws.services.ec2.model.PurchaseReservedInstancesOfferingResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.PurchaseReservedInstancesOfferingResult {
+		return environment.ec2.purchaseReservedInstancesOffering(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -7680,12 +8620,12 @@ class AmazonEC2PurchaseReservedInstancesOfferingCommand(val instanceCount: Int, 
 }
 
 
-fun AmazonEC2Functions.purchaseScheduledInstances(purchaseRequests: List<com.amazonaws.services.ec2.model.PurchaseRequest>, init: AmazonEC2PurchaseScheduledInstancesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2PurchaseScheduledInstancesCommand(purchaseRequests).apply(init))
+fun AmazonEC2Functions.purchaseScheduledInstances(purchaseRequests: List<com.amazonaws.services.ec2.model.PurchaseRequest>, init: AmazonEC2PurchaseScheduledInstancesCommand.() -> Unit): com.amazonaws.services.ec2.model.PurchaseScheduledInstancesResult {
+	return this.block.declare(AmazonEC2PurchaseScheduledInstancesCommand(purchaseRequests).apply(init)) as com.amazonaws.services.ec2.model.PurchaseScheduledInstancesResult
 }
 
 @Generated
-class AmazonEC2PurchaseScheduledInstancesCommand(val purchaseRequests: List<com.amazonaws.services.ec2.model.PurchaseRequest>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.PurchaseScheduledInstancesRequest> {
+class AmazonEC2PurchaseScheduledInstancesCommand(val purchaseRequests: List<com.amazonaws.services.ec2.model.PurchaseRequest>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.PurchaseScheduledInstancesRequest, com.amazonaws.services.ec2.model.PurchaseScheduledInstancesResult> {
 
 	var clientToken: String? = null
 
@@ -7696,8 +8636,12 @@ class AmazonEC2PurchaseScheduledInstancesCommand(val purchaseRequests: List<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.purchaseScheduledInstances(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.PurchaseScheduledInstancesResult {
+	  return com.amazonaws.services.ec2.model.PurchaseScheduledInstancesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.PurchaseScheduledInstancesResult {
+		return environment.ec2.purchaseScheduledInstances(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -7709,12 +8653,12 @@ class AmazonEC2PurchaseScheduledInstancesCommand(val purchaseRequests: List<com.
 }
 
 
-fun AmazonEC2Functions.rebootInstances(instanceIds: List<String>, init: AmazonEC2RebootInstancesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2RebootInstancesCommand(instanceIds).apply(init))
+fun AmazonEC2Functions.rebootInstances(instanceIds: List<String>, init: AmazonEC2RebootInstancesCommand.() -> Unit): com.amazonaws.services.ec2.model.RebootInstancesResult {
+	return this.block.declare(AmazonEC2RebootInstancesCommand(instanceIds).apply(init)) as com.amazonaws.services.ec2.model.RebootInstancesResult
 }
 
 @Generated
-class AmazonEC2RebootInstancesCommand(val instanceIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.RebootInstancesRequest> {
+class AmazonEC2RebootInstancesCommand(val instanceIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.RebootInstancesRequest, com.amazonaws.services.ec2.model.RebootInstancesResult> {
 
 
 
@@ -7724,8 +8668,12 @@ class AmazonEC2RebootInstancesCommand(val instanceIds: List<String>) : AmazonWeb
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.rebootInstances(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.RebootInstancesResult {
+	  return com.amazonaws.services.ec2.model.RebootInstancesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.RebootInstancesResult {
+		return environment.ec2.rebootInstances(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -7736,12 +8684,12 @@ class AmazonEC2RebootInstancesCommand(val instanceIds: List<String>) : AmazonWeb
 }
 
 
-fun AmazonEC2Functions.registerImage(name: String, init: AmazonEC2RegisterImageCommand.() -> Unit) {
-	this.block.declare(AmazonEC2RegisterImageCommand(name).apply(init))
+fun AmazonEC2Functions.registerImage(name: String, init: AmazonEC2RegisterImageCommand.() -> Unit): com.amazonaws.services.ec2.model.RegisterImageResult {
+	return this.block.declare(AmazonEC2RegisterImageCommand(name).apply(init)) as com.amazonaws.services.ec2.model.RegisterImageResult
 }
 
 @Generated
-class AmazonEC2RegisterImageCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.RegisterImageRequest> {
+class AmazonEC2RegisterImageCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.RegisterImageRequest, com.amazonaws.services.ec2.model.RegisterImageResult> {
 
 	var imageLocation: String? = null
 	var architecture: ArchitectureValues? = null
@@ -7772,8 +8720,12 @@ class AmazonEC2RegisterImageCommand(val name: String) : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.registerImage(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.RegisterImageResult {
+	  return com.amazonaws.services.ec2.model.RegisterImageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.RegisterImageResult {
+		return environment.ec2.registerImage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -7795,12 +8747,12 @@ class AmazonEC2RegisterImageCommand(val name: String) : AmazonWebServiceCommand<
 }
 
 
-fun AmazonEC2Functions.rejectVpcEndpointConnections(serviceId: String, vpcEndpointIds: List<String>, init: AmazonEC2RejectVpcEndpointConnectionsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2RejectVpcEndpointConnectionsCommand(serviceId, vpcEndpointIds).apply(init))
+fun AmazonEC2Functions.rejectVpcEndpointConnections(serviceId: String, vpcEndpointIds: List<String>, init: AmazonEC2RejectVpcEndpointConnectionsCommand.() -> Unit): com.amazonaws.services.ec2.model.RejectVpcEndpointConnectionsResult {
+	return this.block.declare(AmazonEC2RejectVpcEndpointConnectionsCommand(serviceId, vpcEndpointIds).apply(init)) as com.amazonaws.services.ec2.model.RejectVpcEndpointConnectionsResult
 }
 
 @Generated
-class AmazonEC2RejectVpcEndpointConnectionsCommand(val serviceId: String, val vpcEndpointIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.RejectVpcEndpointConnectionsRequest> {
+class AmazonEC2RejectVpcEndpointConnectionsCommand(val serviceId: String, val vpcEndpointIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.RejectVpcEndpointConnectionsRequest, com.amazonaws.services.ec2.model.RejectVpcEndpointConnectionsResult> {
 
 
 
@@ -7811,8 +8763,12 @@ class AmazonEC2RejectVpcEndpointConnectionsCommand(val serviceId: String, val vp
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.rejectVpcEndpointConnections(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.RejectVpcEndpointConnectionsResult {
+	  return com.amazonaws.services.ec2.model.RejectVpcEndpointConnectionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.RejectVpcEndpointConnectionsResult {
+		return environment.ec2.rejectVpcEndpointConnections(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -7824,12 +8780,12 @@ class AmazonEC2RejectVpcEndpointConnectionsCommand(val serviceId: String, val vp
 }
 
 
-fun AmazonEC2Functions.rejectVpcPeeringConnection(vpcPeeringConnectionId: String, init: AmazonEC2RejectVpcPeeringConnectionCommand.() -> Unit) {
-	this.block.declare(AmazonEC2RejectVpcPeeringConnectionCommand(vpcPeeringConnectionId).apply(init))
+fun AmazonEC2Functions.rejectVpcPeeringConnection(vpcPeeringConnectionId: String, init: AmazonEC2RejectVpcPeeringConnectionCommand.() -> Unit): com.amazonaws.services.ec2.model.RejectVpcPeeringConnectionResult {
+	return this.block.declare(AmazonEC2RejectVpcPeeringConnectionCommand(vpcPeeringConnectionId).apply(init)) as com.amazonaws.services.ec2.model.RejectVpcPeeringConnectionResult
 }
 
 @Generated
-class AmazonEC2RejectVpcPeeringConnectionCommand(val vpcPeeringConnectionId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.RejectVpcPeeringConnectionRequest> {
+class AmazonEC2RejectVpcPeeringConnectionCommand(val vpcPeeringConnectionId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.RejectVpcPeeringConnectionRequest, com.amazonaws.services.ec2.model.RejectVpcPeeringConnectionResult> {
 
 
 
@@ -7839,8 +8795,12 @@ class AmazonEC2RejectVpcPeeringConnectionCommand(val vpcPeeringConnectionId: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.rejectVpcPeeringConnection(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.RejectVpcPeeringConnectionResult {
+	  return com.amazonaws.services.ec2.model.RejectVpcPeeringConnectionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.RejectVpcPeeringConnectionResult {
+		return environment.ec2.rejectVpcPeeringConnection(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -7851,12 +8811,12 @@ class AmazonEC2RejectVpcPeeringConnectionCommand(val vpcPeeringConnectionId: Str
 }
 
 
-fun AmazonEC2Functions.releaseAddress(init: AmazonEC2ReleaseAddressCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ReleaseAddressCommand().apply(init))
+fun AmazonEC2Functions.releaseAddress(init: AmazonEC2ReleaseAddressCommand.() -> Unit): com.amazonaws.services.ec2.model.ReleaseAddressResult {
+	return this.block.declare(AmazonEC2ReleaseAddressCommand().apply(init)) as com.amazonaws.services.ec2.model.ReleaseAddressResult
 }
 
 @Generated
-class AmazonEC2ReleaseAddressCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ReleaseAddressRequest> {
+class AmazonEC2ReleaseAddressCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ReleaseAddressRequest, com.amazonaws.services.ec2.model.ReleaseAddressResult> {
 
 	var allocationId: String? = null
 	var publicIp: String? = null
@@ -7868,8 +8828,12 @@ class AmazonEC2ReleaseAddressCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.releaseAddress(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ReleaseAddressResult {
+	  return com.amazonaws.services.ec2.model.ReleaseAddressResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ReleaseAddressResult {
+		return environment.ec2.releaseAddress(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -7881,12 +8845,12 @@ class AmazonEC2ReleaseAddressCommand() : AmazonWebServiceCommand<com.amazonaws.s
 }
 
 
-fun AmazonEC2Functions.releaseHosts(hostIds: List<String>, init: AmazonEC2ReleaseHostsCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ReleaseHostsCommand(hostIds).apply(init))
+fun AmazonEC2Functions.releaseHosts(hostIds: List<String>, init: AmazonEC2ReleaseHostsCommand.() -> Unit): com.amazonaws.services.ec2.model.ReleaseHostsResult {
+	return this.block.declare(AmazonEC2ReleaseHostsCommand(hostIds).apply(init)) as com.amazonaws.services.ec2.model.ReleaseHostsResult
 }
 
 @Generated
-class AmazonEC2ReleaseHostsCommand(val hostIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ReleaseHostsRequest> {
+class AmazonEC2ReleaseHostsCommand(val hostIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ReleaseHostsRequest, com.amazonaws.services.ec2.model.ReleaseHostsResult> {
 
 
 
@@ -7896,8 +8860,12 @@ class AmazonEC2ReleaseHostsCommand(val hostIds: List<String>) : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.releaseHosts(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ReleaseHostsResult {
+	  return com.amazonaws.services.ec2.model.ReleaseHostsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ReleaseHostsResult {
+		return environment.ec2.releaseHosts(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -7908,12 +8876,12 @@ class AmazonEC2ReleaseHostsCommand(val hostIds: List<String>) : AmazonWebService
 }
 
 
-fun AmazonEC2Functions.replaceIamInstanceProfileAssociation(iamInstanceProfile: com.amazonaws.services.ec2.model.IamInstanceProfileSpecification, associationId: String, init: AmazonEC2ReplaceIamInstanceProfileAssociationCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ReplaceIamInstanceProfileAssociationCommand(iamInstanceProfile, associationId).apply(init))
+fun AmazonEC2Functions.replaceIamInstanceProfileAssociation(iamInstanceProfile: com.amazonaws.services.ec2.model.IamInstanceProfileSpecification, associationId: String, init: AmazonEC2ReplaceIamInstanceProfileAssociationCommand.() -> Unit): com.amazonaws.services.ec2.model.ReplaceIamInstanceProfileAssociationResult {
+	return this.block.declare(AmazonEC2ReplaceIamInstanceProfileAssociationCommand(iamInstanceProfile, associationId).apply(init)) as com.amazonaws.services.ec2.model.ReplaceIamInstanceProfileAssociationResult
 }
 
 @Generated
-class AmazonEC2ReplaceIamInstanceProfileAssociationCommand(val iamInstanceProfile: com.amazonaws.services.ec2.model.IamInstanceProfileSpecification, val associationId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ReplaceIamInstanceProfileAssociationRequest> {
+class AmazonEC2ReplaceIamInstanceProfileAssociationCommand(val iamInstanceProfile: com.amazonaws.services.ec2.model.IamInstanceProfileSpecification, val associationId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ReplaceIamInstanceProfileAssociationRequest, com.amazonaws.services.ec2.model.ReplaceIamInstanceProfileAssociationResult> {
 
 
 
@@ -7924,8 +8892,12 @@ class AmazonEC2ReplaceIamInstanceProfileAssociationCommand(val iamInstanceProfil
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.replaceIamInstanceProfileAssociation(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ReplaceIamInstanceProfileAssociationResult {
+	  return com.amazonaws.services.ec2.model.ReplaceIamInstanceProfileAssociationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ReplaceIamInstanceProfileAssociationResult {
+		return environment.ec2.replaceIamInstanceProfileAssociation(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -7937,12 +8909,12 @@ class AmazonEC2ReplaceIamInstanceProfileAssociationCommand(val iamInstanceProfil
 }
 
 
-fun AmazonEC2Functions.replaceNetworkAclAssociation(associationId: String, networkAclId: String, init: AmazonEC2ReplaceNetworkAclAssociationCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ReplaceNetworkAclAssociationCommand(associationId, networkAclId).apply(init))
+fun AmazonEC2Functions.replaceNetworkAclAssociation(associationId: String, networkAclId: String, init: AmazonEC2ReplaceNetworkAclAssociationCommand.() -> Unit): com.amazonaws.services.ec2.model.ReplaceNetworkAclAssociationResult {
+	return this.block.declare(AmazonEC2ReplaceNetworkAclAssociationCommand(associationId, networkAclId).apply(init)) as com.amazonaws.services.ec2.model.ReplaceNetworkAclAssociationResult
 }
 
 @Generated
-class AmazonEC2ReplaceNetworkAclAssociationCommand(val associationId: String, val networkAclId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ReplaceNetworkAclAssociationRequest> {
+class AmazonEC2ReplaceNetworkAclAssociationCommand(val associationId: String, val networkAclId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ReplaceNetworkAclAssociationRequest, com.amazonaws.services.ec2.model.ReplaceNetworkAclAssociationResult> {
 
 
 
@@ -7953,8 +8925,12 @@ class AmazonEC2ReplaceNetworkAclAssociationCommand(val associationId: String, va
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.replaceNetworkAclAssociation(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ReplaceNetworkAclAssociationResult {
+	  return com.amazonaws.services.ec2.model.ReplaceNetworkAclAssociationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ReplaceNetworkAclAssociationResult {
+		return environment.ec2.replaceNetworkAclAssociation(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -7966,12 +8942,12 @@ class AmazonEC2ReplaceNetworkAclAssociationCommand(val associationId: String, va
 }
 
 
-fun AmazonEC2Functions.replaceNetworkAclEntry(egress: Boolean, networkAclId: String, protocol: String, ruleAction: RuleAction, ruleNumber: Int, init: AmazonEC2ReplaceNetworkAclEntryCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ReplaceNetworkAclEntryCommand(egress, networkAclId, protocol, ruleAction, ruleNumber).apply(init))
+fun AmazonEC2Functions.replaceNetworkAclEntry(egress: Boolean, networkAclId: String, protocol: String, ruleAction: RuleAction, ruleNumber: Int, init: AmazonEC2ReplaceNetworkAclEntryCommand.() -> Unit): com.amazonaws.services.ec2.model.ReplaceNetworkAclEntryResult {
+	return this.block.declare(AmazonEC2ReplaceNetworkAclEntryCommand(egress, networkAclId, protocol, ruleAction, ruleNumber).apply(init)) as com.amazonaws.services.ec2.model.ReplaceNetworkAclEntryResult
 }
 
 @Generated
-class AmazonEC2ReplaceNetworkAclEntryCommand(val egress: Boolean, val networkAclId: String, val protocol: String, val ruleAction: RuleAction, val ruleNumber: Int) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ReplaceNetworkAclEntryRequest> {
+class AmazonEC2ReplaceNetworkAclEntryCommand(val egress: Boolean, val networkAclId: String, val protocol: String, val ruleAction: RuleAction, val ruleNumber: Int) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ReplaceNetworkAclEntryRequest, com.amazonaws.services.ec2.model.ReplaceNetworkAclEntryResult> {
 
 	var cidrBlock: String? = null
 	var icmpTypeCode: com.amazonaws.services.ec2.model.IcmpTypeCode? = null
@@ -7992,8 +8968,12 @@ class AmazonEC2ReplaceNetworkAclEntryCommand(val egress: Boolean, val networkAcl
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.replaceNetworkAclEntry(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ReplaceNetworkAclEntryResult {
+	  return com.amazonaws.services.ec2.model.ReplaceNetworkAclEntryResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ReplaceNetworkAclEntryResult {
+		return environment.ec2.replaceNetworkAclEntry(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -8012,12 +8992,12 @@ class AmazonEC2ReplaceNetworkAclEntryCommand(val egress: Boolean, val networkAcl
 }
 
 
-fun AmazonEC2Functions.replaceRoute(routeTableId: String, init: AmazonEC2ReplaceRouteCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ReplaceRouteCommand(routeTableId).apply(init))
+fun AmazonEC2Functions.replaceRoute(routeTableId: String, init: AmazonEC2ReplaceRouteCommand.() -> Unit): com.amazonaws.services.ec2.model.ReplaceRouteResult {
+	return this.block.declare(AmazonEC2ReplaceRouteCommand(routeTableId).apply(init)) as com.amazonaws.services.ec2.model.ReplaceRouteResult
 }
 
 @Generated
-class AmazonEC2ReplaceRouteCommand(val routeTableId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ReplaceRouteRequest> {
+class AmazonEC2ReplaceRouteCommand(val routeTableId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ReplaceRouteRequest, com.amazonaws.services.ec2.model.ReplaceRouteResult> {
 
 	var destinationCidrBlock: String? = null
 	var destinationIpv6CidrBlock: String? = null
@@ -8042,8 +9022,12 @@ class AmazonEC2ReplaceRouteCommand(val routeTableId: String) : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.replaceRoute(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ReplaceRouteResult {
+	  return com.amazonaws.services.ec2.model.ReplaceRouteResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ReplaceRouteResult {
+		return environment.ec2.replaceRoute(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -8062,12 +9046,12 @@ class AmazonEC2ReplaceRouteCommand(val routeTableId: String) : AmazonWebServiceC
 }
 
 
-fun AmazonEC2Functions.replaceRouteTableAssociation(associationId: String, routeTableId: String, init: AmazonEC2ReplaceRouteTableAssociationCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ReplaceRouteTableAssociationCommand(associationId, routeTableId).apply(init))
+fun AmazonEC2Functions.replaceRouteTableAssociation(associationId: String, routeTableId: String, init: AmazonEC2ReplaceRouteTableAssociationCommand.() -> Unit): com.amazonaws.services.ec2.model.ReplaceRouteTableAssociationResult {
+	return this.block.declare(AmazonEC2ReplaceRouteTableAssociationCommand(associationId, routeTableId).apply(init)) as com.amazonaws.services.ec2.model.ReplaceRouteTableAssociationResult
 }
 
 @Generated
-class AmazonEC2ReplaceRouteTableAssociationCommand(val associationId: String, val routeTableId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ReplaceRouteTableAssociationRequest> {
+class AmazonEC2ReplaceRouteTableAssociationCommand(val associationId: String, val routeTableId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ReplaceRouteTableAssociationRequest, com.amazonaws.services.ec2.model.ReplaceRouteTableAssociationResult> {
 
 
 
@@ -8078,8 +9062,12 @@ class AmazonEC2ReplaceRouteTableAssociationCommand(val associationId: String, va
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.replaceRouteTableAssociation(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ReplaceRouteTableAssociationResult {
+	  return com.amazonaws.services.ec2.model.ReplaceRouteTableAssociationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ReplaceRouteTableAssociationResult {
+		return environment.ec2.replaceRouteTableAssociation(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -8091,12 +9079,12 @@ class AmazonEC2ReplaceRouteTableAssociationCommand(val associationId: String, va
 }
 
 
-fun AmazonEC2Functions.reportInstanceStatus(instances: List<String>, reasonCodes: List<ReportInstanceReasonCodes>, status: ReportStatusType, init: AmazonEC2ReportInstanceStatusCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ReportInstanceStatusCommand(instances, reasonCodes, status).apply(init))
+fun AmazonEC2Functions.reportInstanceStatus(instances: List<String>, reasonCodes: List<ReportInstanceReasonCodes>, status: ReportStatusType, init: AmazonEC2ReportInstanceStatusCommand.() -> Unit): com.amazonaws.services.ec2.model.ReportInstanceStatusResult {
+	return this.block.declare(AmazonEC2ReportInstanceStatusCommand(instances, reasonCodes, status).apply(init)) as com.amazonaws.services.ec2.model.ReportInstanceStatusResult
 }
 
 @Generated
-class AmazonEC2ReportInstanceStatusCommand(val instances: List<String>, val reasonCodes: List<ReportInstanceReasonCodes>, val status: ReportStatusType) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ReportInstanceStatusRequest> {
+class AmazonEC2ReportInstanceStatusCommand(val instances: List<String>, val reasonCodes: List<ReportInstanceReasonCodes>, val status: ReportStatusType) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ReportInstanceStatusRequest, com.amazonaws.services.ec2.model.ReportInstanceStatusResult> {
 
 	var description: String? = null
 	var endTime: java.util.Date? = null
@@ -8113,8 +9101,12 @@ class AmazonEC2ReportInstanceStatusCommand(val instances: List<String>, val reas
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.reportInstanceStatus(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ReportInstanceStatusResult {
+	  return com.amazonaws.services.ec2.model.ReportInstanceStatusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ReportInstanceStatusResult {
+		return environment.ec2.reportInstanceStatus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -8130,12 +9122,12 @@ class AmazonEC2ReportInstanceStatusCommand(val instances: List<String>, val reas
 }
 
 
-fun AmazonEC2Functions.requestSpotFleet(spotFleetRequestConfig: com.amazonaws.services.ec2.model.SpotFleetRequestConfigData, init: AmazonEC2RequestSpotFleetCommand.() -> Unit) {
-	this.block.declare(AmazonEC2RequestSpotFleetCommand(spotFleetRequestConfig).apply(init))
+fun AmazonEC2Functions.requestSpotFleet(spotFleetRequestConfig: com.amazonaws.services.ec2.model.SpotFleetRequestConfigData, init: AmazonEC2RequestSpotFleetCommand.() -> Unit): com.amazonaws.services.ec2.model.RequestSpotFleetResult {
+	return this.block.declare(AmazonEC2RequestSpotFleetCommand(spotFleetRequestConfig).apply(init)) as com.amazonaws.services.ec2.model.RequestSpotFleetResult
 }
 
 @Generated
-class AmazonEC2RequestSpotFleetCommand(val spotFleetRequestConfig: com.amazonaws.services.ec2.model.SpotFleetRequestConfigData) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.RequestSpotFleetRequest> {
+class AmazonEC2RequestSpotFleetCommand(val spotFleetRequestConfig: com.amazonaws.services.ec2.model.SpotFleetRequestConfigData) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.RequestSpotFleetRequest, com.amazonaws.services.ec2.model.RequestSpotFleetResult> {
 
 
 
@@ -8145,8 +9137,12 @@ class AmazonEC2RequestSpotFleetCommand(val spotFleetRequestConfig: com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.requestSpotFleet(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.RequestSpotFleetResult {
+	  return com.amazonaws.services.ec2.model.RequestSpotFleetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.RequestSpotFleetResult {
+		return environment.ec2.requestSpotFleet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -8157,12 +9153,12 @@ class AmazonEC2RequestSpotFleetCommand(val spotFleetRequestConfig: com.amazonaws
 }
 
 
-fun AmazonEC2Functions.requestSpotInstances(init: AmazonEC2RequestSpotInstancesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2RequestSpotInstancesCommand().apply(init))
+fun AmazonEC2Functions.requestSpotInstances(init: AmazonEC2RequestSpotInstancesCommand.() -> Unit): com.amazonaws.services.ec2.model.RequestSpotInstancesResult {
+	return this.block.declare(AmazonEC2RequestSpotInstancesCommand().apply(init)) as com.amazonaws.services.ec2.model.RequestSpotInstancesResult
 }
 
 @Generated
-class AmazonEC2RequestSpotInstancesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.RequestSpotInstancesRequest> {
+class AmazonEC2RequestSpotInstancesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.RequestSpotInstancesRequest, com.amazonaws.services.ec2.model.RequestSpotInstancesResult> {
 
 	var availabilityZoneGroup: String? = null
 	var blockDurationMinutes: Int? = 0
@@ -8192,8 +9188,12 @@ class AmazonEC2RequestSpotInstancesCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.requestSpotInstances(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.RequestSpotInstancesResult {
+	  return com.amazonaws.services.ec2.model.RequestSpotInstancesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.RequestSpotInstancesResult {
+		return environment.ec2.requestSpotInstances(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -8214,12 +9214,12 @@ class AmazonEC2RequestSpotInstancesCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AmazonEC2Functions.resetFpgaImageAttribute(fpgaImageId: String, init: AmazonEC2ResetFpgaImageAttributeCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ResetFpgaImageAttributeCommand(fpgaImageId).apply(init))
+fun AmazonEC2Functions.resetFpgaImageAttribute(fpgaImageId: String, init: AmazonEC2ResetFpgaImageAttributeCommand.() -> Unit): com.amazonaws.services.ec2.model.ResetFpgaImageAttributeResult {
+	return this.block.declare(AmazonEC2ResetFpgaImageAttributeCommand(fpgaImageId).apply(init)) as com.amazonaws.services.ec2.model.ResetFpgaImageAttributeResult
 }
 
 @Generated
-class AmazonEC2ResetFpgaImageAttributeCommand(val fpgaImageId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ResetFpgaImageAttributeRequest> {
+class AmazonEC2ResetFpgaImageAttributeCommand(val fpgaImageId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ResetFpgaImageAttributeRequest, com.amazonaws.services.ec2.model.ResetFpgaImageAttributeResult> {
 
 	var attribute: ResetFpgaImageAttributeName? = null
 
@@ -8230,8 +9230,12 @@ class AmazonEC2ResetFpgaImageAttributeCommand(val fpgaImageId: String) : AmazonW
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.resetFpgaImageAttribute(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ResetFpgaImageAttributeResult {
+	  return com.amazonaws.services.ec2.model.ResetFpgaImageAttributeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ResetFpgaImageAttributeResult {
+		return environment.ec2.resetFpgaImageAttribute(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -8243,12 +9247,12 @@ class AmazonEC2ResetFpgaImageAttributeCommand(val fpgaImageId: String) : AmazonW
 }
 
 
-fun AmazonEC2Functions.resetImageAttribute(attribute: ResetImageAttributeName, imageId: String, init: AmazonEC2ResetImageAttributeCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ResetImageAttributeCommand(attribute, imageId).apply(init))
+fun AmazonEC2Functions.resetImageAttribute(attribute: ResetImageAttributeName, imageId: String, init: AmazonEC2ResetImageAttributeCommand.() -> Unit): com.amazonaws.services.ec2.model.ResetImageAttributeResult {
+	return this.block.declare(AmazonEC2ResetImageAttributeCommand(attribute, imageId).apply(init)) as com.amazonaws.services.ec2.model.ResetImageAttributeResult
 }
 
 @Generated
-class AmazonEC2ResetImageAttributeCommand(val attribute: ResetImageAttributeName, val imageId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ResetImageAttributeRequest> {
+class AmazonEC2ResetImageAttributeCommand(val attribute: ResetImageAttributeName, val imageId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ResetImageAttributeRequest, com.amazonaws.services.ec2.model.ResetImageAttributeResult> {
 
 
 
@@ -8259,8 +9263,12 @@ class AmazonEC2ResetImageAttributeCommand(val attribute: ResetImageAttributeName
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.resetImageAttribute(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ResetImageAttributeResult {
+	  return com.amazonaws.services.ec2.model.ResetImageAttributeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ResetImageAttributeResult {
+		return environment.ec2.resetImageAttribute(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -8272,12 +9280,12 @@ class AmazonEC2ResetImageAttributeCommand(val attribute: ResetImageAttributeName
 }
 
 
-fun AmazonEC2Functions.resetInstanceAttribute(attribute: InstanceAttributeName, instanceId: String, init: AmazonEC2ResetInstanceAttributeCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ResetInstanceAttributeCommand(attribute, instanceId).apply(init))
+fun AmazonEC2Functions.resetInstanceAttribute(attribute: InstanceAttributeName, instanceId: String, init: AmazonEC2ResetInstanceAttributeCommand.() -> Unit): com.amazonaws.services.ec2.model.ResetInstanceAttributeResult {
+	return this.block.declare(AmazonEC2ResetInstanceAttributeCommand(attribute, instanceId).apply(init)) as com.amazonaws.services.ec2.model.ResetInstanceAttributeResult
 }
 
 @Generated
-class AmazonEC2ResetInstanceAttributeCommand(val attribute: InstanceAttributeName, val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ResetInstanceAttributeRequest> {
+class AmazonEC2ResetInstanceAttributeCommand(val attribute: InstanceAttributeName, val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ResetInstanceAttributeRequest, com.amazonaws.services.ec2.model.ResetInstanceAttributeResult> {
 
 
 
@@ -8288,8 +9296,12 @@ class AmazonEC2ResetInstanceAttributeCommand(val attribute: InstanceAttributeNam
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.resetInstanceAttribute(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ResetInstanceAttributeResult {
+	  return com.amazonaws.services.ec2.model.ResetInstanceAttributeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ResetInstanceAttributeResult {
+		return environment.ec2.resetInstanceAttribute(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -8301,12 +9313,12 @@ class AmazonEC2ResetInstanceAttributeCommand(val attribute: InstanceAttributeNam
 }
 
 
-fun AmazonEC2Functions.resetNetworkInterfaceAttribute(networkInterfaceId: String, init: AmazonEC2ResetNetworkInterfaceAttributeCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ResetNetworkInterfaceAttributeCommand(networkInterfaceId).apply(init))
+fun AmazonEC2Functions.resetNetworkInterfaceAttribute(networkInterfaceId: String, init: AmazonEC2ResetNetworkInterfaceAttributeCommand.() -> Unit): com.amazonaws.services.ec2.model.ResetNetworkInterfaceAttributeResult {
+	return this.block.declare(AmazonEC2ResetNetworkInterfaceAttributeCommand(networkInterfaceId).apply(init)) as com.amazonaws.services.ec2.model.ResetNetworkInterfaceAttributeResult
 }
 
 @Generated
-class AmazonEC2ResetNetworkInterfaceAttributeCommand(val networkInterfaceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ResetNetworkInterfaceAttributeRequest> {
+class AmazonEC2ResetNetworkInterfaceAttributeCommand(val networkInterfaceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ResetNetworkInterfaceAttributeRequest, com.amazonaws.services.ec2.model.ResetNetworkInterfaceAttributeResult> {
 
 	var sourceDestCheck: String? = null
 
@@ -8317,8 +9329,12 @@ class AmazonEC2ResetNetworkInterfaceAttributeCommand(val networkInterfaceId: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.resetNetworkInterfaceAttribute(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ResetNetworkInterfaceAttributeResult {
+	  return com.amazonaws.services.ec2.model.ResetNetworkInterfaceAttributeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ResetNetworkInterfaceAttributeResult {
+		return environment.ec2.resetNetworkInterfaceAttribute(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -8330,12 +9346,12 @@ class AmazonEC2ResetNetworkInterfaceAttributeCommand(val networkInterfaceId: Str
 }
 
 
-fun AmazonEC2Functions.resetSnapshotAttribute(attribute: SnapshotAttributeName, snapshotId: String, init: AmazonEC2ResetSnapshotAttributeCommand.() -> Unit) {
-	this.block.declare(AmazonEC2ResetSnapshotAttributeCommand(attribute, snapshotId).apply(init))
+fun AmazonEC2Functions.resetSnapshotAttribute(attribute: SnapshotAttributeName, snapshotId: String, init: AmazonEC2ResetSnapshotAttributeCommand.() -> Unit): com.amazonaws.services.ec2.model.ResetSnapshotAttributeResult {
+	return this.block.declare(AmazonEC2ResetSnapshotAttributeCommand(attribute, snapshotId).apply(init)) as com.amazonaws.services.ec2.model.ResetSnapshotAttributeResult
 }
 
 @Generated
-class AmazonEC2ResetSnapshotAttributeCommand(val attribute: SnapshotAttributeName, val snapshotId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ResetSnapshotAttributeRequest> {
+class AmazonEC2ResetSnapshotAttributeCommand(val attribute: SnapshotAttributeName, val snapshotId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.ResetSnapshotAttributeRequest, com.amazonaws.services.ec2.model.ResetSnapshotAttributeResult> {
 
 
 
@@ -8346,8 +9362,12 @@ class AmazonEC2ResetSnapshotAttributeCommand(val attribute: SnapshotAttributeNam
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.resetSnapshotAttribute(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.ResetSnapshotAttributeResult {
+	  return com.amazonaws.services.ec2.model.ResetSnapshotAttributeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.ResetSnapshotAttributeResult {
+		return environment.ec2.resetSnapshotAttribute(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -8359,12 +9379,12 @@ class AmazonEC2ResetSnapshotAttributeCommand(val attribute: SnapshotAttributeNam
 }
 
 
-fun AmazonEC2Functions.restoreAddressToClassic(publicIp: String, init: AmazonEC2RestoreAddressToClassicCommand.() -> Unit) {
-	this.block.declare(AmazonEC2RestoreAddressToClassicCommand(publicIp).apply(init))
+fun AmazonEC2Functions.restoreAddressToClassic(publicIp: String, init: AmazonEC2RestoreAddressToClassicCommand.() -> Unit): com.amazonaws.services.ec2.model.RestoreAddressToClassicResult {
+	return this.block.declare(AmazonEC2RestoreAddressToClassicCommand(publicIp).apply(init)) as com.amazonaws.services.ec2.model.RestoreAddressToClassicResult
 }
 
 @Generated
-class AmazonEC2RestoreAddressToClassicCommand(val publicIp: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.RestoreAddressToClassicRequest> {
+class AmazonEC2RestoreAddressToClassicCommand(val publicIp: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.RestoreAddressToClassicRequest, com.amazonaws.services.ec2.model.RestoreAddressToClassicResult> {
 
 
 
@@ -8374,8 +9394,12 @@ class AmazonEC2RestoreAddressToClassicCommand(val publicIp: String) : AmazonWebS
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.restoreAddressToClassic(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.RestoreAddressToClassicResult {
+	  return com.amazonaws.services.ec2.model.RestoreAddressToClassicResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.RestoreAddressToClassicResult {
+		return environment.ec2.restoreAddressToClassic(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -8386,12 +9410,12 @@ class AmazonEC2RestoreAddressToClassicCommand(val publicIp: String) : AmazonWebS
 }
 
 
-fun AmazonEC2Functions.revokeSecurityGroupEgress(groupId: String, init: AmazonEC2RevokeSecurityGroupEgressCommand.() -> Unit) {
-	this.block.declare(AmazonEC2RevokeSecurityGroupEgressCommand(groupId).apply(init))
+fun AmazonEC2Functions.revokeSecurityGroupEgress(groupId: String, init: AmazonEC2RevokeSecurityGroupEgressCommand.() -> Unit): com.amazonaws.services.ec2.model.RevokeSecurityGroupEgressResult {
+	return this.block.declare(AmazonEC2RevokeSecurityGroupEgressCommand(groupId).apply(init)) as com.amazonaws.services.ec2.model.RevokeSecurityGroupEgressResult
 }
 
 @Generated
-class AmazonEC2RevokeSecurityGroupEgressCommand(val groupId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.RevokeSecurityGroupEgressRequest> {
+class AmazonEC2RevokeSecurityGroupEgressCommand(val groupId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.RevokeSecurityGroupEgressRequest, com.amazonaws.services.ec2.model.RevokeSecurityGroupEgressResult> {
 
 	var ipPermissions: List<com.amazonaws.services.ec2.model.IpPermission>? = null
 	var cidrIp: String? = null
@@ -8414,8 +9438,12 @@ class AmazonEC2RevokeSecurityGroupEgressCommand(val groupId: String) : AmazonWeb
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.revokeSecurityGroupEgress(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.RevokeSecurityGroupEgressResult {
+	  return com.amazonaws.services.ec2.model.RevokeSecurityGroupEgressResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.RevokeSecurityGroupEgressResult {
+		return environment.ec2.revokeSecurityGroupEgress(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -8433,12 +9461,12 @@ class AmazonEC2RevokeSecurityGroupEgressCommand(val groupId: String) : AmazonWeb
 }
 
 
-fun AmazonEC2Functions.revokeSecurityGroupIngress(init: AmazonEC2RevokeSecurityGroupIngressCommand.() -> Unit) {
-	this.block.declare(AmazonEC2RevokeSecurityGroupIngressCommand().apply(init))
+fun AmazonEC2Functions.revokeSecurityGroupIngress(init: AmazonEC2RevokeSecurityGroupIngressCommand.() -> Unit): com.amazonaws.services.ec2.model.RevokeSecurityGroupIngressResult {
+	return this.block.declare(AmazonEC2RevokeSecurityGroupIngressCommand().apply(init)) as com.amazonaws.services.ec2.model.RevokeSecurityGroupIngressResult
 }
 
 @Generated
-class AmazonEC2RevokeSecurityGroupIngressCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.RevokeSecurityGroupIngressRequest> {
+class AmazonEC2RevokeSecurityGroupIngressCommand() : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.RevokeSecurityGroupIngressRequest, com.amazonaws.services.ec2.model.RevokeSecurityGroupIngressResult> {
 
 	var cidrIp: String? = null
 	var fromPort: Int? = 0
@@ -8464,8 +9492,12 @@ class AmazonEC2RevokeSecurityGroupIngressCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.revokeSecurityGroupIngress(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.RevokeSecurityGroupIngressResult {
+	  return com.amazonaws.services.ec2.model.RevokeSecurityGroupIngressResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.RevokeSecurityGroupIngressResult {
+		return environment.ec2.revokeSecurityGroupIngress(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -8484,12 +9516,12 @@ class AmazonEC2RevokeSecurityGroupIngressCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AmazonEC2Functions.runInstances(maxCount: Int, minCount: Int, init: AmazonEC2RunInstancesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2RunInstancesCommand(maxCount, minCount).apply(init))
+fun AmazonEC2Functions.runInstances(maxCount: Int, minCount: Int, init: AmazonEC2RunInstancesCommand.() -> Unit): com.amazonaws.services.ec2.model.RunInstancesResult {
+	return this.block.declare(AmazonEC2RunInstancesCommand(maxCount, minCount).apply(init)) as com.amazonaws.services.ec2.model.RunInstancesResult
 }
 
 @Generated
-class AmazonEC2RunInstancesCommand(val maxCount: Int, val minCount: Int) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.RunInstancesRequest> {
+class AmazonEC2RunInstancesCommand(val maxCount: Int, val minCount: Int) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.RunInstancesRequest, com.amazonaws.services.ec2.model.RunInstancesResult> {
 
 	var blockDeviceMappings: List<com.amazonaws.services.ec2.model.BlockDeviceMapping>? = null
 	var imageId: String? = null
@@ -8553,8 +9585,12 @@ class AmazonEC2RunInstancesCommand(val maxCount: Int, val minCount: Int) : Amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.runInstances(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.RunInstancesResult {
+	  return com.amazonaws.services.ec2.model.RunInstancesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.RunInstancesResult {
+		return environment.ec2.runInstances(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -8593,12 +9629,12 @@ class AmazonEC2RunInstancesCommand(val maxCount: Int, val minCount: Int) : Amazo
 }
 
 
-fun AmazonEC2Functions.runScheduledInstances(launchSpecification: com.amazonaws.services.ec2.model.ScheduledInstancesLaunchSpecification, scheduledInstanceId: String, init: AmazonEC2RunScheduledInstancesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2RunScheduledInstancesCommand(launchSpecification, scheduledInstanceId).apply(init))
+fun AmazonEC2Functions.runScheduledInstances(launchSpecification: com.amazonaws.services.ec2.model.ScheduledInstancesLaunchSpecification, scheduledInstanceId: String, init: AmazonEC2RunScheduledInstancesCommand.() -> Unit): com.amazonaws.services.ec2.model.RunScheduledInstancesResult {
+	return this.block.declare(AmazonEC2RunScheduledInstancesCommand(launchSpecification, scheduledInstanceId).apply(init)) as com.amazonaws.services.ec2.model.RunScheduledInstancesResult
 }
 
 @Generated
-class AmazonEC2RunScheduledInstancesCommand(val launchSpecification: com.amazonaws.services.ec2.model.ScheduledInstancesLaunchSpecification, val scheduledInstanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.RunScheduledInstancesRequest> {
+class AmazonEC2RunScheduledInstancesCommand(val launchSpecification: com.amazonaws.services.ec2.model.ScheduledInstancesLaunchSpecification, val scheduledInstanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.RunScheduledInstancesRequest, com.amazonaws.services.ec2.model.RunScheduledInstancesResult> {
 
 	var clientToken: String? = null
 	var instanceCount: Int? = 0
@@ -8612,8 +9648,12 @@ class AmazonEC2RunScheduledInstancesCommand(val launchSpecification: com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.runScheduledInstances(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.RunScheduledInstancesResult {
+	  return com.amazonaws.services.ec2.model.RunScheduledInstancesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.RunScheduledInstancesResult {
+		return environment.ec2.runScheduledInstances(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -8627,12 +9667,12 @@ class AmazonEC2RunScheduledInstancesCommand(val launchSpecification: com.amazona
 }
 
 
-fun AmazonEC2Functions.startInstances(instanceIds: List<String>, init: AmazonEC2StartInstancesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2StartInstancesCommand(instanceIds).apply(init))
+fun AmazonEC2Functions.startInstances(instanceIds: List<String>, init: AmazonEC2StartInstancesCommand.() -> Unit): com.amazonaws.services.ec2.model.StartInstancesResult {
+	return this.block.declare(AmazonEC2StartInstancesCommand(instanceIds).apply(init)) as com.amazonaws.services.ec2.model.StartInstancesResult
 }
 
 @Generated
-class AmazonEC2StartInstancesCommand(val instanceIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.StartInstancesRequest> {
+class AmazonEC2StartInstancesCommand(val instanceIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.StartInstancesRequest, com.amazonaws.services.ec2.model.StartInstancesResult> {
 
 	var additionalInfo: String? = null
 
@@ -8643,8 +9683,12 @@ class AmazonEC2StartInstancesCommand(val instanceIds: List<String>) : AmazonWebS
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.startInstances(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.StartInstancesResult {
+	  return com.amazonaws.services.ec2.model.StartInstancesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.StartInstancesResult {
+		return environment.ec2.startInstances(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -8656,12 +9700,12 @@ class AmazonEC2StartInstancesCommand(val instanceIds: List<String>) : AmazonWebS
 }
 
 
-fun AmazonEC2Functions.stopInstances(instanceIds: List<String>, init: AmazonEC2StopInstancesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2StopInstancesCommand(instanceIds).apply(init))
+fun AmazonEC2Functions.stopInstances(instanceIds: List<String>, init: AmazonEC2StopInstancesCommand.() -> Unit): com.amazonaws.services.ec2.model.StopInstancesResult {
+	return this.block.declare(AmazonEC2StopInstancesCommand(instanceIds).apply(init)) as com.amazonaws.services.ec2.model.StopInstancesResult
 }
 
 @Generated
-class AmazonEC2StopInstancesCommand(val instanceIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.StopInstancesRequest> {
+class AmazonEC2StopInstancesCommand(val instanceIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.StopInstancesRequest, com.amazonaws.services.ec2.model.StopInstancesResult> {
 
 	var force: Boolean? = false
 
@@ -8672,8 +9716,12 @@ class AmazonEC2StopInstancesCommand(val instanceIds: List<String>) : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.stopInstances(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.StopInstancesResult {
+	  return com.amazonaws.services.ec2.model.StopInstancesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.StopInstancesResult {
+		return environment.ec2.stopInstances(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -8685,12 +9733,12 @@ class AmazonEC2StopInstancesCommand(val instanceIds: List<String>) : AmazonWebSe
 }
 
 
-fun AmazonEC2Functions.terminateInstances(instanceIds: List<String>, init: AmazonEC2TerminateInstancesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2TerminateInstancesCommand(instanceIds).apply(init))
+fun AmazonEC2Functions.terminateInstances(instanceIds: List<String>, init: AmazonEC2TerminateInstancesCommand.() -> Unit): com.amazonaws.services.ec2.model.TerminateInstancesResult {
+	return this.block.declare(AmazonEC2TerminateInstancesCommand(instanceIds).apply(init)) as com.amazonaws.services.ec2.model.TerminateInstancesResult
 }
 
 @Generated
-class AmazonEC2TerminateInstancesCommand(val instanceIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.TerminateInstancesRequest> {
+class AmazonEC2TerminateInstancesCommand(val instanceIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.TerminateInstancesRequest, com.amazonaws.services.ec2.model.TerminateInstancesResult> {
 
 
 
@@ -8700,8 +9748,12 @@ class AmazonEC2TerminateInstancesCommand(val instanceIds: List<String>) : Amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.terminateInstances(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.TerminateInstancesResult {
+	  return com.amazonaws.services.ec2.model.TerminateInstancesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.TerminateInstancesResult {
+		return environment.ec2.terminateInstances(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -8712,12 +9764,12 @@ class AmazonEC2TerminateInstancesCommand(val instanceIds: List<String>) : Amazon
 }
 
 
-fun AmazonEC2Functions.unassignIpv6Addresses(ipv6Addresses: List<String>, networkInterfaceId: String, init: AmazonEC2UnassignIpv6AddressesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2UnassignIpv6AddressesCommand(ipv6Addresses, networkInterfaceId).apply(init))
+fun AmazonEC2Functions.unassignIpv6Addresses(ipv6Addresses: List<String>, networkInterfaceId: String, init: AmazonEC2UnassignIpv6AddressesCommand.() -> Unit): com.amazonaws.services.ec2.model.UnassignIpv6AddressesResult {
+	return this.block.declare(AmazonEC2UnassignIpv6AddressesCommand(ipv6Addresses, networkInterfaceId).apply(init)) as com.amazonaws.services.ec2.model.UnassignIpv6AddressesResult
 }
 
 @Generated
-class AmazonEC2UnassignIpv6AddressesCommand(val ipv6Addresses: List<String>, val networkInterfaceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.UnassignIpv6AddressesRequest> {
+class AmazonEC2UnassignIpv6AddressesCommand(val ipv6Addresses: List<String>, val networkInterfaceId: String) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.UnassignIpv6AddressesRequest, com.amazonaws.services.ec2.model.UnassignIpv6AddressesResult> {
 
 
 
@@ -8728,8 +9780,12 @@ class AmazonEC2UnassignIpv6AddressesCommand(val ipv6Addresses: List<String>, val
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.unassignIpv6Addresses(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.UnassignIpv6AddressesResult {
+	  return com.amazonaws.services.ec2.model.UnassignIpv6AddressesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.UnassignIpv6AddressesResult {
+		return environment.ec2.unassignIpv6Addresses(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -8741,12 +9797,12 @@ class AmazonEC2UnassignIpv6AddressesCommand(val ipv6Addresses: List<String>, val
 }
 
 
-fun AmazonEC2Functions.unassignPrivateIpAddresses(networkInterfaceId: String, privateIpAddresses: List<String>, init: AmazonEC2UnassignPrivateIpAddressesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2UnassignPrivateIpAddressesCommand(networkInterfaceId, privateIpAddresses).apply(init))
+fun AmazonEC2Functions.unassignPrivateIpAddresses(networkInterfaceId: String, privateIpAddresses: List<String>, init: AmazonEC2UnassignPrivateIpAddressesCommand.() -> Unit): com.amazonaws.services.ec2.model.UnassignPrivateIpAddressesResult {
+	return this.block.declare(AmazonEC2UnassignPrivateIpAddressesCommand(networkInterfaceId, privateIpAddresses).apply(init)) as com.amazonaws.services.ec2.model.UnassignPrivateIpAddressesResult
 }
 
 @Generated
-class AmazonEC2UnassignPrivateIpAddressesCommand(val networkInterfaceId: String, val privateIpAddresses: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.UnassignPrivateIpAddressesRequest> {
+class AmazonEC2UnassignPrivateIpAddressesCommand(val networkInterfaceId: String, val privateIpAddresses: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.UnassignPrivateIpAddressesRequest, com.amazonaws.services.ec2.model.UnassignPrivateIpAddressesResult> {
 
 
 
@@ -8757,8 +9813,12 @@ class AmazonEC2UnassignPrivateIpAddressesCommand(val networkInterfaceId: String,
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.unassignPrivateIpAddresses(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.UnassignPrivateIpAddressesResult {
+	  return com.amazonaws.services.ec2.model.UnassignPrivateIpAddressesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.UnassignPrivateIpAddressesResult {
+		return environment.ec2.unassignPrivateIpAddresses(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -8770,12 +9830,12 @@ class AmazonEC2UnassignPrivateIpAddressesCommand(val networkInterfaceId: String,
 }
 
 
-fun AmazonEC2Functions.unmonitorInstances(instanceIds: List<String>, init: AmazonEC2UnmonitorInstancesCommand.() -> Unit) {
-	this.block.declare(AmazonEC2UnmonitorInstancesCommand(instanceIds).apply(init))
+fun AmazonEC2Functions.unmonitorInstances(instanceIds: List<String>, init: AmazonEC2UnmonitorInstancesCommand.() -> Unit): com.amazonaws.services.ec2.model.UnmonitorInstancesResult {
+	return this.block.declare(AmazonEC2UnmonitorInstancesCommand(instanceIds).apply(init)) as com.amazonaws.services.ec2.model.UnmonitorInstancesResult
 }
 
 @Generated
-class AmazonEC2UnmonitorInstancesCommand(val instanceIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.UnmonitorInstancesRequest> {
+class AmazonEC2UnmonitorInstancesCommand(val instanceIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.UnmonitorInstancesRequest, com.amazonaws.services.ec2.model.UnmonitorInstancesResult> {
 
 
 
@@ -8785,8 +9845,12 @@ class AmazonEC2UnmonitorInstancesCommand(val instanceIds: List<String>) : Amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.unmonitorInstances(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.UnmonitorInstancesResult {
+	  return com.amazonaws.services.ec2.model.UnmonitorInstancesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.UnmonitorInstancesResult {
+		return environment.ec2.unmonitorInstances(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -8797,12 +9861,12 @@ class AmazonEC2UnmonitorInstancesCommand(val instanceIds: List<String>) : Amazon
 }
 
 
-fun AmazonEC2Functions.updateSecurityGroupRuleDescriptionsEgress(ipPermissions: List<com.amazonaws.services.ec2.model.IpPermission>, init: AmazonEC2UpdateSecurityGroupRuleDescriptionsEgressCommand.() -> Unit) {
-	this.block.declare(AmazonEC2UpdateSecurityGroupRuleDescriptionsEgressCommand(ipPermissions).apply(init))
+fun AmazonEC2Functions.updateSecurityGroupRuleDescriptionsEgress(ipPermissions: List<com.amazonaws.services.ec2.model.IpPermission>, init: AmazonEC2UpdateSecurityGroupRuleDescriptionsEgressCommand.() -> Unit): com.amazonaws.services.ec2.model.UpdateSecurityGroupRuleDescriptionsEgressResult {
+	return this.block.declare(AmazonEC2UpdateSecurityGroupRuleDescriptionsEgressCommand(ipPermissions).apply(init)) as com.amazonaws.services.ec2.model.UpdateSecurityGroupRuleDescriptionsEgressResult
 }
 
 @Generated
-class AmazonEC2UpdateSecurityGroupRuleDescriptionsEgressCommand(val ipPermissions: List<com.amazonaws.services.ec2.model.IpPermission>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.UpdateSecurityGroupRuleDescriptionsEgressRequest> {
+class AmazonEC2UpdateSecurityGroupRuleDescriptionsEgressCommand(val ipPermissions: List<com.amazonaws.services.ec2.model.IpPermission>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.UpdateSecurityGroupRuleDescriptionsEgressRequest, com.amazonaws.services.ec2.model.UpdateSecurityGroupRuleDescriptionsEgressResult> {
 
 	var groupId: String? = null
 	var groupName: String? = null
@@ -8815,8 +9879,12 @@ class AmazonEC2UpdateSecurityGroupRuleDescriptionsEgressCommand(val ipPermission
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.updateSecurityGroupRuleDescriptionsEgress(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.UpdateSecurityGroupRuleDescriptionsEgressResult {
+	  return com.amazonaws.services.ec2.model.UpdateSecurityGroupRuleDescriptionsEgressResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.UpdateSecurityGroupRuleDescriptionsEgressResult {
+		return environment.ec2.updateSecurityGroupRuleDescriptionsEgress(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -8829,12 +9897,12 @@ class AmazonEC2UpdateSecurityGroupRuleDescriptionsEgressCommand(val ipPermission
 }
 
 
-fun AmazonEC2Functions.updateSecurityGroupRuleDescriptionsIngress(ipPermissions: List<com.amazonaws.services.ec2.model.IpPermission>, init: AmazonEC2UpdateSecurityGroupRuleDescriptionsIngressCommand.() -> Unit) {
-	this.block.declare(AmazonEC2UpdateSecurityGroupRuleDescriptionsIngressCommand(ipPermissions).apply(init))
+fun AmazonEC2Functions.updateSecurityGroupRuleDescriptionsIngress(ipPermissions: List<com.amazonaws.services.ec2.model.IpPermission>, init: AmazonEC2UpdateSecurityGroupRuleDescriptionsIngressCommand.() -> Unit): com.amazonaws.services.ec2.model.UpdateSecurityGroupRuleDescriptionsIngressResult {
+	return this.block.declare(AmazonEC2UpdateSecurityGroupRuleDescriptionsIngressCommand(ipPermissions).apply(init)) as com.amazonaws.services.ec2.model.UpdateSecurityGroupRuleDescriptionsIngressResult
 }
 
 @Generated
-class AmazonEC2UpdateSecurityGroupRuleDescriptionsIngressCommand(val ipPermissions: List<com.amazonaws.services.ec2.model.IpPermission>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.UpdateSecurityGroupRuleDescriptionsIngressRequest> {
+class AmazonEC2UpdateSecurityGroupRuleDescriptionsIngressCommand(val ipPermissions: List<com.amazonaws.services.ec2.model.IpPermission>) : AmazonWebServiceCommand<com.amazonaws.services.ec2.model.UpdateSecurityGroupRuleDescriptionsIngressRequest, com.amazonaws.services.ec2.model.UpdateSecurityGroupRuleDescriptionsIngressResult> {
 
 	var groupId: String? = null
 	var groupName: String? = null
@@ -8847,8 +9915,12 @@ class AmazonEC2UpdateSecurityGroupRuleDescriptionsIngressCommand(val ipPermissio
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ec2.updateSecurityGroupRuleDescriptionsIngress(build())
+	override fun dryResult(): com.amazonaws.services.ec2.model.UpdateSecurityGroupRuleDescriptionsIngressResult {
+	  return com.amazonaws.services.ec2.model.UpdateSecurityGroupRuleDescriptionsIngressResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ec2.model.UpdateSecurityGroupRuleDescriptionsIngressResult {
+		return environment.ec2.updateSecurityGroupRuleDescriptionsIngress(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

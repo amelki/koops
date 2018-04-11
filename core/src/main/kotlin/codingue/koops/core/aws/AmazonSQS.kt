@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.sqs: AmazonSQS
 @Generated
 class AmazonSQSFunctions(val block: Block)
 
-infix fun AwsContinuation.sqs(init: AmazonSQSFunctions.() -> Unit) {
-	AmazonSQSFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.sqs(init: AmazonSQSFunctions.() -> T): T {
+	return AmazonSQSFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonSQSFunctions.addPermission(queueUrl: String, label: String, aWSAccountIds: List<String>, actions: List<String>, init: AmazonSQSAddPermissionCommand.() -> Unit) {
-	this.block.declare(AmazonSQSAddPermissionCommand(queueUrl, label, aWSAccountIds, actions).apply(init))
+fun AmazonSQSFunctions.addPermission(queueUrl: String, label: String, aWSAccountIds: List<String>, actions: List<String>, init: AmazonSQSAddPermissionCommand.() -> Unit): com.amazonaws.services.sqs.model.AddPermissionResult {
+	return this.block.declare(AmazonSQSAddPermissionCommand(queueUrl, label, aWSAccountIds, actions).apply(init)) as com.amazonaws.services.sqs.model.AddPermissionResult
 }
 
 @Generated
-class AmazonSQSAddPermissionCommand(val queueUrl: String, val label: String, val aWSAccountIds: List<String>, val actions: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.AddPermissionRequest> {
+class AmazonSQSAddPermissionCommand(val queueUrl: String, val label: String, val aWSAccountIds: List<String>, val actions: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.AddPermissionRequest, com.amazonaws.services.sqs.model.AddPermissionResult> {
 
 
 
@@ -44,8 +44,12 @@ class AmazonSQSAddPermissionCommand(val queueUrl: String, val label: String, val
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sqs.addPermission(build())
+	override fun dryResult(): com.amazonaws.services.sqs.model.AddPermissionResult {
+	  return com.amazonaws.services.sqs.model.AddPermissionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.AddPermissionResult {
+		return environment.sqs.addPermission(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -59,12 +63,12 @@ class AmazonSQSAddPermissionCommand(val queueUrl: String, val label: String, val
 }
 
 
-fun AmazonSQSFunctions.changeMessageVisibility(queueUrl: String, receiptHandle: String, visibilityTimeout: Int, init: AmazonSQSChangeMessageVisibilityCommand.() -> Unit) {
-	this.block.declare(AmazonSQSChangeMessageVisibilityCommand(queueUrl, receiptHandle, visibilityTimeout).apply(init))
+fun AmazonSQSFunctions.changeMessageVisibility(queueUrl: String, receiptHandle: String, visibilityTimeout: Int, init: AmazonSQSChangeMessageVisibilityCommand.() -> Unit): com.amazonaws.services.sqs.model.ChangeMessageVisibilityResult {
+	return this.block.declare(AmazonSQSChangeMessageVisibilityCommand(queueUrl, receiptHandle, visibilityTimeout).apply(init)) as com.amazonaws.services.sqs.model.ChangeMessageVisibilityResult
 }
 
 @Generated
-class AmazonSQSChangeMessageVisibilityCommand(val queueUrl: String, val receiptHandle: String, val visibilityTimeout: Int) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.ChangeMessageVisibilityRequest> {
+class AmazonSQSChangeMessageVisibilityCommand(val queueUrl: String, val receiptHandle: String, val visibilityTimeout: Int) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.ChangeMessageVisibilityRequest, com.amazonaws.services.sqs.model.ChangeMessageVisibilityResult> {
 
 
 
@@ -76,8 +80,12 @@ class AmazonSQSChangeMessageVisibilityCommand(val queueUrl: String, val receiptH
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sqs.changeMessageVisibility(build())
+	override fun dryResult(): com.amazonaws.services.sqs.model.ChangeMessageVisibilityResult {
+	  return com.amazonaws.services.sqs.model.ChangeMessageVisibilityResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.ChangeMessageVisibilityResult {
+		return environment.sqs.changeMessageVisibility(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -90,12 +98,12 @@ class AmazonSQSChangeMessageVisibilityCommand(val queueUrl: String, val receiptH
 }
 
 
-fun AmazonSQSFunctions.changeMessageVisibilityBatch(queueUrl: String, entries: List<com.amazonaws.services.sqs.model.ChangeMessageVisibilityBatchRequestEntry>, init: AmazonSQSChangeMessageVisibilityBatchCommand.() -> Unit) {
-	this.block.declare(AmazonSQSChangeMessageVisibilityBatchCommand(queueUrl, entries).apply(init))
+fun AmazonSQSFunctions.changeMessageVisibilityBatch(queueUrl: String, entries: List<com.amazonaws.services.sqs.model.ChangeMessageVisibilityBatchRequestEntry>, init: AmazonSQSChangeMessageVisibilityBatchCommand.() -> Unit): com.amazonaws.services.sqs.model.ChangeMessageVisibilityBatchResult {
+	return this.block.declare(AmazonSQSChangeMessageVisibilityBatchCommand(queueUrl, entries).apply(init)) as com.amazonaws.services.sqs.model.ChangeMessageVisibilityBatchResult
 }
 
 @Generated
-class AmazonSQSChangeMessageVisibilityBatchCommand(val queueUrl: String, val entries: List<com.amazonaws.services.sqs.model.ChangeMessageVisibilityBatchRequestEntry>) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.ChangeMessageVisibilityBatchRequest> {
+class AmazonSQSChangeMessageVisibilityBatchCommand(val queueUrl: String, val entries: List<com.amazonaws.services.sqs.model.ChangeMessageVisibilityBatchRequestEntry>) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.ChangeMessageVisibilityBatchRequest, com.amazonaws.services.sqs.model.ChangeMessageVisibilityBatchResult> {
 
 
 
@@ -106,8 +114,12 @@ class AmazonSQSChangeMessageVisibilityBatchCommand(val queueUrl: String, val ent
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sqs.changeMessageVisibilityBatch(build())
+	override fun dryResult(): com.amazonaws.services.sqs.model.ChangeMessageVisibilityBatchResult {
+	  return com.amazonaws.services.sqs.model.ChangeMessageVisibilityBatchResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.ChangeMessageVisibilityBatchResult {
+		return environment.sqs.changeMessageVisibilityBatch(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -119,12 +131,12 @@ class AmazonSQSChangeMessageVisibilityBatchCommand(val queueUrl: String, val ent
 }
 
 
-fun AmazonSQSFunctions.createQueue(queueName: String, init: AmazonSQSCreateQueueCommand.() -> Unit) {
-	this.block.declare(AmazonSQSCreateQueueCommand(queueName).apply(init))
+fun AmazonSQSFunctions.createQueue(queueName: String, init: AmazonSQSCreateQueueCommand.() -> Unit): com.amazonaws.services.sqs.model.CreateQueueResult {
+	return this.block.declare(AmazonSQSCreateQueueCommand(queueName).apply(init)) as com.amazonaws.services.sqs.model.CreateQueueResult
 }
 
 @Generated
-class AmazonSQSCreateQueueCommand(val queueName: String) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.CreateQueueRequest> {
+class AmazonSQSCreateQueueCommand(val queueName: String) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.CreateQueueRequest, com.amazonaws.services.sqs.model.CreateQueueResult> {
 
 	var attributes: Map<QueueAttributeName, String>? = null
 
@@ -135,8 +147,12 @@ class AmazonSQSCreateQueueCommand(val queueName: String) : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sqs.createQueue(build())
+	override fun dryResult(): com.amazonaws.services.sqs.model.CreateQueueResult {
+	  return com.amazonaws.services.sqs.model.CreateQueueResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.CreateQueueResult {
+		return environment.sqs.createQueue(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -148,12 +164,12 @@ class AmazonSQSCreateQueueCommand(val queueName: String) : AmazonWebServiceComma
 }
 
 
-fun AmazonSQSFunctions.deleteMessage(queueUrl: String, receiptHandle: String, init: AmazonSQSDeleteMessageCommand.() -> Unit) {
-	this.block.declare(AmazonSQSDeleteMessageCommand(queueUrl, receiptHandle).apply(init))
+fun AmazonSQSFunctions.deleteMessage(queueUrl: String, receiptHandle: String, init: AmazonSQSDeleteMessageCommand.() -> Unit): com.amazonaws.services.sqs.model.DeleteMessageResult {
+	return this.block.declare(AmazonSQSDeleteMessageCommand(queueUrl, receiptHandle).apply(init)) as com.amazonaws.services.sqs.model.DeleteMessageResult
 }
 
 @Generated
-class AmazonSQSDeleteMessageCommand(val queueUrl: String, val receiptHandle: String) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.DeleteMessageRequest> {
+class AmazonSQSDeleteMessageCommand(val queueUrl: String, val receiptHandle: String) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.DeleteMessageRequest, com.amazonaws.services.sqs.model.DeleteMessageResult> {
 
 
 
@@ -164,8 +180,12 @@ class AmazonSQSDeleteMessageCommand(val queueUrl: String, val receiptHandle: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sqs.deleteMessage(build())
+	override fun dryResult(): com.amazonaws.services.sqs.model.DeleteMessageResult {
+	  return com.amazonaws.services.sqs.model.DeleteMessageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.DeleteMessageResult {
+		return environment.sqs.deleteMessage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -177,12 +197,12 @@ class AmazonSQSDeleteMessageCommand(val queueUrl: String, val receiptHandle: Str
 }
 
 
-fun AmazonSQSFunctions.deleteMessageBatch(queueUrl: String, entries: List<com.amazonaws.services.sqs.model.DeleteMessageBatchRequestEntry>, init: AmazonSQSDeleteMessageBatchCommand.() -> Unit) {
-	this.block.declare(AmazonSQSDeleteMessageBatchCommand(queueUrl, entries).apply(init))
+fun AmazonSQSFunctions.deleteMessageBatch(queueUrl: String, entries: List<com.amazonaws.services.sqs.model.DeleteMessageBatchRequestEntry>, init: AmazonSQSDeleteMessageBatchCommand.() -> Unit): com.amazonaws.services.sqs.model.DeleteMessageBatchResult {
+	return this.block.declare(AmazonSQSDeleteMessageBatchCommand(queueUrl, entries).apply(init)) as com.amazonaws.services.sqs.model.DeleteMessageBatchResult
 }
 
 @Generated
-class AmazonSQSDeleteMessageBatchCommand(val queueUrl: String, val entries: List<com.amazonaws.services.sqs.model.DeleteMessageBatchRequestEntry>) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.DeleteMessageBatchRequest> {
+class AmazonSQSDeleteMessageBatchCommand(val queueUrl: String, val entries: List<com.amazonaws.services.sqs.model.DeleteMessageBatchRequestEntry>) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.DeleteMessageBatchRequest, com.amazonaws.services.sqs.model.DeleteMessageBatchResult> {
 
 
 
@@ -193,8 +213,12 @@ class AmazonSQSDeleteMessageBatchCommand(val queueUrl: String, val entries: List
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sqs.deleteMessageBatch(build())
+	override fun dryResult(): com.amazonaws.services.sqs.model.DeleteMessageBatchResult {
+	  return com.amazonaws.services.sqs.model.DeleteMessageBatchResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.DeleteMessageBatchResult {
+		return environment.sqs.deleteMessageBatch(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -206,12 +230,12 @@ class AmazonSQSDeleteMessageBatchCommand(val queueUrl: String, val entries: List
 }
 
 
-fun AmazonSQSFunctions.deleteQueue(queueUrl: String, init: AmazonSQSDeleteQueueCommand.() -> Unit) {
-	this.block.declare(AmazonSQSDeleteQueueCommand(queueUrl).apply(init))
+fun AmazonSQSFunctions.deleteQueue(queueUrl: String, init: AmazonSQSDeleteQueueCommand.() -> Unit): com.amazonaws.services.sqs.model.DeleteQueueResult {
+	return this.block.declare(AmazonSQSDeleteQueueCommand(queueUrl).apply(init)) as com.amazonaws.services.sqs.model.DeleteQueueResult
 }
 
 @Generated
-class AmazonSQSDeleteQueueCommand(val queueUrl: String) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.DeleteQueueRequest> {
+class AmazonSQSDeleteQueueCommand(val queueUrl: String) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.DeleteQueueRequest, com.amazonaws.services.sqs.model.DeleteQueueResult> {
 
 
 
@@ -221,8 +245,12 @@ class AmazonSQSDeleteQueueCommand(val queueUrl: String) : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sqs.deleteQueue(build())
+	override fun dryResult(): com.amazonaws.services.sqs.model.DeleteQueueResult {
+	  return com.amazonaws.services.sqs.model.DeleteQueueResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.DeleteQueueResult {
+		return environment.sqs.deleteQueue(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -233,12 +261,12 @@ class AmazonSQSDeleteQueueCommand(val queueUrl: String) : AmazonWebServiceComman
 }
 
 
-fun AmazonSQSFunctions.getQueueAttributes(queueUrl: String, init: AmazonSQSGetQueueAttributesCommand.() -> Unit) {
-	this.block.declare(AmazonSQSGetQueueAttributesCommand(queueUrl).apply(init))
+fun AmazonSQSFunctions.getQueueAttributes(queueUrl: String, init: AmazonSQSGetQueueAttributesCommand.() -> Unit): com.amazonaws.services.sqs.model.GetQueueAttributesResult {
+	return this.block.declare(AmazonSQSGetQueueAttributesCommand(queueUrl).apply(init)) as com.amazonaws.services.sqs.model.GetQueueAttributesResult
 }
 
 @Generated
-class AmazonSQSGetQueueAttributesCommand(val queueUrl: String) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.GetQueueAttributesRequest> {
+class AmazonSQSGetQueueAttributesCommand(val queueUrl: String) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.GetQueueAttributesRequest, com.amazonaws.services.sqs.model.GetQueueAttributesResult> {
 
 	var attributeNames: List<QueueAttributeName>? = null
 
@@ -249,8 +277,12 @@ class AmazonSQSGetQueueAttributesCommand(val queueUrl: String) : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sqs.getQueueAttributes(build())
+	override fun dryResult(): com.amazonaws.services.sqs.model.GetQueueAttributesResult {
+	  return com.amazonaws.services.sqs.model.GetQueueAttributesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.GetQueueAttributesResult {
+		return environment.sqs.getQueueAttributes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -262,12 +294,12 @@ class AmazonSQSGetQueueAttributesCommand(val queueUrl: String) : AmazonWebServic
 }
 
 
-fun AmazonSQSFunctions.getQueueUrl(queueName: String, init: AmazonSQSGetQueueUrlCommand.() -> Unit) {
-	this.block.declare(AmazonSQSGetQueueUrlCommand(queueName).apply(init))
+fun AmazonSQSFunctions.getQueueUrl(queueName: String, init: AmazonSQSGetQueueUrlCommand.() -> Unit): com.amazonaws.services.sqs.model.GetQueueUrlResult {
+	return this.block.declare(AmazonSQSGetQueueUrlCommand(queueName).apply(init)) as com.amazonaws.services.sqs.model.GetQueueUrlResult
 }
 
 @Generated
-class AmazonSQSGetQueueUrlCommand(val queueName: String) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.GetQueueUrlRequest> {
+class AmazonSQSGetQueueUrlCommand(val queueName: String) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.GetQueueUrlRequest, com.amazonaws.services.sqs.model.GetQueueUrlResult> {
 
 	var queueOwnerAWSAccountId: String? = null
 
@@ -278,8 +310,12 @@ class AmazonSQSGetQueueUrlCommand(val queueName: String) : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sqs.getQueueUrl(build())
+	override fun dryResult(): com.amazonaws.services.sqs.model.GetQueueUrlResult {
+	  return com.amazonaws.services.sqs.model.GetQueueUrlResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.GetQueueUrlResult {
+		return environment.sqs.getQueueUrl(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -291,12 +327,12 @@ class AmazonSQSGetQueueUrlCommand(val queueName: String) : AmazonWebServiceComma
 }
 
 
-fun AmazonSQSFunctions.listDeadLetterSourceQueues(queueUrl: String, init: AmazonSQSListDeadLetterSourceQueuesCommand.() -> Unit) {
-	this.block.declare(AmazonSQSListDeadLetterSourceQueuesCommand(queueUrl).apply(init))
+fun AmazonSQSFunctions.listDeadLetterSourceQueues(queueUrl: String, init: AmazonSQSListDeadLetterSourceQueuesCommand.() -> Unit): com.amazonaws.services.sqs.model.ListDeadLetterSourceQueuesResult {
+	return this.block.declare(AmazonSQSListDeadLetterSourceQueuesCommand(queueUrl).apply(init)) as com.amazonaws.services.sqs.model.ListDeadLetterSourceQueuesResult
 }
 
 @Generated
-class AmazonSQSListDeadLetterSourceQueuesCommand(val queueUrl: String) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.ListDeadLetterSourceQueuesRequest> {
+class AmazonSQSListDeadLetterSourceQueuesCommand(val queueUrl: String) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.ListDeadLetterSourceQueuesRequest, com.amazonaws.services.sqs.model.ListDeadLetterSourceQueuesResult> {
 
 
 
@@ -306,8 +342,12 @@ class AmazonSQSListDeadLetterSourceQueuesCommand(val queueUrl: String) : AmazonW
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sqs.listDeadLetterSourceQueues(build())
+	override fun dryResult(): com.amazonaws.services.sqs.model.ListDeadLetterSourceQueuesResult {
+	  return com.amazonaws.services.sqs.model.ListDeadLetterSourceQueuesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.ListDeadLetterSourceQueuesResult {
+		return environment.sqs.listDeadLetterSourceQueues(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -318,12 +358,12 @@ class AmazonSQSListDeadLetterSourceQueuesCommand(val queueUrl: String) : AmazonW
 }
 
 
-fun AmazonSQSFunctions.listQueueTags(queueUrl: String, init: AmazonSQSListQueueTagsCommand.() -> Unit) {
-	this.block.declare(AmazonSQSListQueueTagsCommand(queueUrl).apply(init))
+fun AmazonSQSFunctions.listQueueTags(queueUrl: String, init: AmazonSQSListQueueTagsCommand.() -> Unit): com.amazonaws.services.sqs.model.ListQueueTagsResult {
+	return this.block.declare(AmazonSQSListQueueTagsCommand(queueUrl).apply(init)) as com.amazonaws.services.sqs.model.ListQueueTagsResult
 }
 
 @Generated
-class AmazonSQSListQueueTagsCommand(val queueUrl: String) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.ListQueueTagsRequest> {
+class AmazonSQSListQueueTagsCommand(val queueUrl: String) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.ListQueueTagsRequest, com.amazonaws.services.sqs.model.ListQueueTagsResult> {
 
 
 
@@ -333,8 +373,12 @@ class AmazonSQSListQueueTagsCommand(val queueUrl: String) : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sqs.listQueueTags(build())
+	override fun dryResult(): com.amazonaws.services.sqs.model.ListQueueTagsResult {
+	  return com.amazonaws.services.sqs.model.ListQueueTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.ListQueueTagsResult {
+		return environment.sqs.listQueueTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -345,12 +389,12 @@ class AmazonSQSListQueueTagsCommand(val queueUrl: String) : AmazonWebServiceComm
 }
 
 
-fun AmazonSQSFunctions.listQueues(init: AmazonSQSListQueuesCommand.() -> Unit) {
-	this.block.declare(AmazonSQSListQueuesCommand().apply(init))
+fun AmazonSQSFunctions.listQueues(init: AmazonSQSListQueuesCommand.() -> Unit): com.amazonaws.services.sqs.model.ListQueuesResult {
+	return this.block.declare(AmazonSQSListQueuesCommand().apply(init)) as com.amazonaws.services.sqs.model.ListQueuesResult
 }
 
 @Generated
-class AmazonSQSListQueuesCommand() : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.ListQueuesRequest> {
+class AmazonSQSListQueuesCommand() : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.ListQueuesRequest, com.amazonaws.services.sqs.model.ListQueuesResult> {
 
 	var queueNamePrefix: String? = null
 
@@ -360,8 +404,12 @@ class AmazonSQSListQueuesCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sqs.listQueues(build())
+	override fun dryResult(): com.amazonaws.services.sqs.model.ListQueuesResult {
+	  return com.amazonaws.services.sqs.model.ListQueuesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.ListQueuesResult {
+		return environment.sqs.listQueues(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -372,12 +420,12 @@ class AmazonSQSListQueuesCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 }
 
 
-fun AmazonSQSFunctions.purgeQueue(queueUrl: String, init: AmazonSQSPurgeQueueCommand.() -> Unit) {
-	this.block.declare(AmazonSQSPurgeQueueCommand(queueUrl).apply(init))
+fun AmazonSQSFunctions.purgeQueue(queueUrl: String, init: AmazonSQSPurgeQueueCommand.() -> Unit): com.amazonaws.services.sqs.model.PurgeQueueResult {
+	return this.block.declare(AmazonSQSPurgeQueueCommand(queueUrl).apply(init)) as com.amazonaws.services.sqs.model.PurgeQueueResult
 }
 
 @Generated
-class AmazonSQSPurgeQueueCommand(val queueUrl: String) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.PurgeQueueRequest> {
+class AmazonSQSPurgeQueueCommand(val queueUrl: String) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.PurgeQueueRequest, com.amazonaws.services.sqs.model.PurgeQueueResult> {
 
 
 
@@ -387,8 +435,12 @@ class AmazonSQSPurgeQueueCommand(val queueUrl: String) : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sqs.purgeQueue(build())
+	override fun dryResult(): com.amazonaws.services.sqs.model.PurgeQueueResult {
+	  return com.amazonaws.services.sqs.model.PurgeQueueResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.PurgeQueueResult {
+		return environment.sqs.purgeQueue(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -399,12 +451,12 @@ class AmazonSQSPurgeQueueCommand(val queueUrl: String) : AmazonWebServiceCommand
 }
 
 
-fun AmazonSQSFunctions.receiveMessage(queueUrl: String, init: AmazonSQSReceiveMessageCommand.() -> Unit) {
-	this.block.declare(AmazonSQSReceiveMessageCommand(queueUrl).apply(init))
+fun AmazonSQSFunctions.receiveMessage(queueUrl: String, init: AmazonSQSReceiveMessageCommand.() -> Unit): com.amazonaws.services.sqs.model.ReceiveMessageResult {
+	return this.block.declare(AmazonSQSReceiveMessageCommand(queueUrl).apply(init)) as com.amazonaws.services.sqs.model.ReceiveMessageResult
 }
 
 @Generated
-class AmazonSQSReceiveMessageCommand(val queueUrl: String) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.ReceiveMessageRequest> {
+class AmazonSQSReceiveMessageCommand(val queueUrl: String) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.ReceiveMessageRequest, com.amazonaws.services.sqs.model.ReceiveMessageResult> {
 
 	var attributeNames: List<QueueAttributeName>? = null
 	var messageAttributeNames: List<String>? = null
@@ -425,8 +477,12 @@ class AmazonSQSReceiveMessageCommand(val queueUrl: String) : AmazonWebServiceCom
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sqs.receiveMessage(build())
+	override fun dryResult(): com.amazonaws.services.sqs.model.ReceiveMessageResult {
+	  return com.amazonaws.services.sqs.model.ReceiveMessageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.ReceiveMessageResult {
+		return environment.sqs.receiveMessage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -443,12 +499,12 @@ class AmazonSQSReceiveMessageCommand(val queueUrl: String) : AmazonWebServiceCom
 }
 
 
-fun AmazonSQSFunctions.removePermission(queueUrl: String, label: String, init: AmazonSQSRemovePermissionCommand.() -> Unit) {
-	this.block.declare(AmazonSQSRemovePermissionCommand(queueUrl, label).apply(init))
+fun AmazonSQSFunctions.removePermission(queueUrl: String, label: String, init: AmazonSQSRemovePermissionCommand.() -> Unit): com.amazonaws.services.sqs.model.RemovePermissionResult {
+	return this.block.declare(AmazonSQSRemovePermissionCommand(queueUrl, label).apply(init)) as com.amazonaws.services.sqs.model.RemovePermissionResult
 }
 
 @Generated
-class AmazonSQSRemovePermissionCommand(val queueUrl: String, val label: String) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.RemovePermissionRequest> {
+class AmazonSQSRemovePermissionCommand(val queueUrl: String, val label: String) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.RemovePermissionRequest, com.amazonaws.services.sqs.model.RemovePermissionResult> {
 
 
 
@@ -459,8 +515,12 @@ class AmazonSQSRemovePermissionCommand(val queueUrl: String, val label: String) 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sqs.removePermission(build())
+	override fun dryResult(): com.amazonaws.services.sqs.model.RemovePermissionResult {
+	  return com.amazonaws.services.sqs.model.RemovePermissionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.RemovePermissionResult {
+		return environment.sqs.removePermission(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -472,12 +532,12 @@ class AmazonSQSRemovePermissionCommand(val queueUrl: String, val label: String) 
 }
 
 
-fun AmazonSQSFunctions.sendMessage(queueUrl: String, messageBody: String, init: AmazonSQSSendMessageCommand.() -> Unit) {
-	this.block.declare(AmazonSQSSendMessageCommand(queueUrl, messageBody).apply(init))
+fun AmazonSQSFunctions.sendMessage(queueUrl: String, messageBody: String, init: AmazonSQSSendMessageCommand.() -> Unit): com.amazonaws.services.sqs.model.SendMessageResult {
+	return this.block.declare(AmazonSQSSendMessageCommand(queueUrl, messageBody).apply(init)) as com.amazonaws.services.sqs.model.SendMessageResult
 }
 
 @Generated
-class AmazonSQSSendMessageCommand(val queueUrl: String, val messageBody: String) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.SendMessageRequest> {
+class AmazonSQSSendMessageCommand(val queueUrl: String, val messageBody: String) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.SendMessageRequest, com.amazonaws.services.sqs.model.SendMessageResult> {
 
 	var delaySeconds: Int? = 0
 	var messageAttributes: Map<String, com.amazonaws.services.sqs.model.MessageAttributeValue>? = null
@@ -495,8 +555,12 @@ class AmazonSQSSendMessageCommand(val queueUrl: String, val messageBody: String)
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sqs.sendMessage(build())
+	override fun dryResult(): com.amazonaws.services.sqs.model.SendMessageResult {
+	  return com.amazonaws.services.sqs.model.SendMessageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.SendMessageResult {
+		return environment.sqs.sendMessage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -512,12 +576,12 @@ class AmazonSQSSendMessageCommand(val queueUrl: String, val messageBody: String)
 }
 
 
-fun AmazonSQSFunctions.sendMessageBatch(queueUrl: String, entries: List<com.amazonaws.services.sqs.model.SendMessageBatchRequestEntry>, init: AmazonSQSSendMessageBatchCommand.() -> Unit) {
-	this.block.declare(AmazonSQSSendMessageBatchCommand(queueUrl, entries).apply(init))
+fun AmazonSQSFunctions.sendMessageBatch(queueUrl: String, entries: List<com.amazonaws.services.sqs.model.SendMessageBatchRequestEntry>, init: AmazonSQSSendMessageBatchCommand.() -> Unit): com.amazonaws.services.sqs.model.SendMessageBatchResult {
+	return this.block.declare(AmazonSQSSendMessageBatchCommand(queueUrl, entries).apply(init)) as com.amazonaws.services.sqs.model.SendMessageBatchResult
 }
 
 @Generated
-class AmazonSQSSendMessageBatchCommand(val queueUrl: String, val entries: List<com.amazonaws.services.sqs.model.SendMessageBatchRequestEntry>) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.SendMessageBatchRequest> {
+class AmazonSQSSendMessageBatchCommand(val queueUrl: String, val entries: List<com.amazonaws.services.sqs.model.SendMessageBatchRequestEntry>) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.SendMessageBatchRequest, com.amazonaws.services.sqs.model.SendMessageBatchResult> {
 
 
 
@@ -528,8 +592,12 @@ class AmazonSQSSendMessageBatchCommand(val queueUrl: String, val entries: List<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sqs.sendMessageBatch(build())
+	override fun dryResult(): com.amazonaws.services.sqs.model.SendMessageBatchResult {
+	  return com.amazonaws.services.sqs.model.SendMessageBatchResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.SendMessageBatchResult {
+		return environment.sqs.sendMessageBatch(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -541,12 +609,12 @@ class AmazonSQSSendMessageBatchCommand(val queueUrl: String, val entries: List<c
 }
 
 
-fun AmazonSQSFunctions.setQueueAttributes(queueUrl: String, attributes: Map<QueueAttributeName, String>, init: AmazonSQSSetQueueAttributesCommand.() -> Unit) {
-	this.block.declare(AmazonSQSSetQueueAttributesCommand(queueUrl, attributes).apply(init))
+fun AmazonSQSFunctions.setQueueAttributes(queueUrl: String, attributes: Map<QueueAttributeName, String>, init: AmazonSQSSetQueueAttributesCommand.() -> Unit): com.amazonaws.services.sqs.model.SetQueueAttributesResult {
+	return this.block.declare(AmazonSQSSetQueueAttributesCommand(queueUrl, attributes).apply(init)) as com.amazonaws.services.sqs.model.SetQueueAttributesResult
 }
 
 @Generated
-class AmazonSQSSetQueueAttributesCommand(val queueUrl: String, val attributes: Map<QueueAttributeName, String>) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.SetQueueAttributesRequest> {
+class AmazonSQSSetQueueAttributesCommand(val queueUrl: String, val attributes: Map<QueueAttributeName, String>) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.SetQueueAttributesRequest, com.amazonaws.services.sqs.model.SetQueueAttributesResult> {
 
 
 
@@ -557,8 +625,12 @@ class AmazonSQSSetQueueAttributesCommand(val queueUrl: String, val attributes: M
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sqs.setQueueAttributes(build())
+	override fun dryResult(): com.amazonaws.services.sqs.model.SetQueueAttributesResult {
+	  return com.amazonaws.services.sqs.model.SetQueueAttributesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.SetQueueAttributesResult {
+		return environment.sqs.setQueueAttributes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -570,12 +642,12 @@ class AmazonSQSSetQueueAttributesCommand(val queueUrl: String, val attributes: M
 }
 
 
-fun AmazonSQSFunctions.tagQueue(queueUrl: String, tags: Map<String, String>, init: AmazonSQSTagQueueCommand.() -> Unit) {
-	this.block.declare(AmazonSQSTagQueueCommand(queueUrl, tags).apply(init))
+fun AmazonSQSFunctions.tagQueue(queueUrl: String, tags: Map<String, String>, init: AmazonSQSTagQueueCommand.() -> Unit): com.amazonaws.services.sqs.model.TagQueueResult {
+	return this.block.declare(AmazonSQSTagQueueCommand(queueUrl, tags).apply(init)) as com.amazonaws.services.sqs.model.TagQueueResult
 }
 
 @Generated
-class AmazonSQSTagQueueCommand(val queueUrl: String, val tags: Map<String, String>) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.TagQueueRequest> {
+class AmazonSQSTagQueueCommand(val queueUrl: String, val tags: Map<String, String>) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.TagQueueRequest, com.amazonaws.services.sqs.model.TagQueueResult> {
 
 
 
@@ -586,8 +658,12 @@ class AmazonSQSTagQueueCommand(val queueUrl: String, val tags: Map<String, Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sqs.tagQueue(build())
+	override fun dryResult(): com.amazonaws.services.sqs.model.TagQueueResult {
+	  return com.amazonaws.services.sqs.model.TagQueueResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.TagQueueResult {
+		return environment.sqs.tagQueue(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -599,12 +675,12 @@ class AmazonSQSTagQueueCommand(val queueUrl: String, val tags: Map<String, Strin
 }
 
 
-fun AmazonSQSFunctions.untagQueue(queueUrl: String, tagKeys: List<String>, init: AmazonSQSUntagQueueCommand.() -> Unit) {
-	this.block.declare(AmazonSQSUntagQueueCommand(queueUrl, tagKeys).apply(init))
+fun AmazonSQSFunctions.untagQueue(queueUrl: String, tagKeys: List<String>, init: AmazonSQSUntagQueueCommand.() -> Unit): com.amazonaws.services.sqs.model.UntagQueueResult {
+	return this.block.declare(AmazonSQSUntagQueueCommand(queueUrl, tagKeys).apply(init)) as com.amazonaws.services.sqs.model.UntagQueueResult
 }
 
 @Generated
-class AmazonSQSUntagQueueCommand(val queueUrl: String, val tagKeys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.UntagQueueRequest> {
+class AmazonSQSUntagQueueCommand(val queueUrl: String, val tagKeys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.sqs.model.UntagQueueRequest, com.amazonaws.services.sqs.model.UntagQueueResult> {
 
 
 
@@ -615,8 +691,12 @@ class AmazonSQSUntagQueueCommand(val queueUrl: String, val tagKeys: List<String>
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sqs.untagQueue(build())
+	override fun dryResult(): com.amazonaws.services.sqs.model.UntagQueueResult {
+	  return com.amazonaws.services.sqs.model.UntagQueueResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sqs.model.UntagQueueResult {
+		return environment.sqs.untagQueue(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

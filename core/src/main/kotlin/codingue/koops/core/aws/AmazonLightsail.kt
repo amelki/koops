@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.lightsail: AmazonLightsail
 @Generated
 class AmazonLightsailFunctions(val block: Block)
 
-infix fun AwsContinuation.lightsail(init: AmazonLightsailFunctions.() -> Unit) {
-	AmazonLightsailFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.lightsail(init: AmazonLightsailFunctions.() -> T): T {
+	return AmazonLightsailFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonLightsailFunctions.allocateStaticIp(init: AmazonLightsailAllocateStaticIpCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailAllocateStaticIpCommand().apply(init))
+fun AmazonLightsailFunctions.allocateStaticIp(init: AmazonLightsailAllocateStaticIpCommand.() -> Unit): com.amazonaws.services.lightsail.model.AllocateStaticIpResult {
+	return this.block.declare(AmazonLightsailAllocateStaticIpCommand().apply(init)) as com.amazonaws.services.lightsail.model.AllocateStaticIpResult
 }
 
 @Generated
-class AmazonLightsailAllocateStaticIpCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.AllocateStaticIpRequest> {
+class AmazonLightsailAllocateStaticIpCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.AllocateStaticIpRequest, com.amazonaws.services.lightsail.model.AllocateStaticIpResult> {
 
 	var staticIpName: String? = null
 
@@ -41,8 +41,12 @@ class AmazonLightsailAllocateStaticIpCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.allocateStaticIp(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.AllocateStaticIpResult {
+	  return com.amazonaws.services.lightsail.model.AllocateStaticIpResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.AllocateStaticIpResult {
+		return environment.lightsail.allocateStaticIp(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -53,12 +57,12 @@ class AmazonLightsailAllocateStaticIpCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AmazonLightsailFunctions.attachDisk(init: AmazonLightsailAttachDiskCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailAttachDiskCommand().apply(init))
+fun AmazonLightsailFunctions.attachDisk(init: AmazonLightsailAttachDiskCommand.() -> Unit): com.amazonaws.services.lightsail.model.AttachDiskResult {
+	return this.block.declare(AmazonLightsailAttachDiskCommand().apply(init)) as com.amazonaws.services.lightsail.model.AttachDiskResult
 }
 
 @Generated
-class AmazonLightsailAttachDiskCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.AttachDiskRequest> {
+class AmazonLightsailAttachDiskCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.AttachDiskRequest, com.amazonaws.services.lightsail.model.AttachDiskResult> {
 
 	var diskName: String? = null
 	var instanceName: String? = null
@@ -72,8 +76,12 @@ class AmazonLightsailAttachDiskCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.attachDisk(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.AttachDiskResult {
+	  return com.amazonaws.services.lightsail.model.AttachDiskResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.AttachDiskResult {
+		return environment.lightsail.attachDisk(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -86,12 +94,12 @@ class AmazonLightsailAttachDiskCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AmazonLightsailFunctions.attachInstancesToLoadBalancer(init: AmazonLightsailAttachInstancesToLoadBalancerCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailAttachInstancesToLoadBalancerCommand().apply(init))
+fun AmazonLightsailFunctions.attachInstancesToLoadBalancer(init: AmazonLightsailAttachInstancesToLoadBalancerCommand.() -> Unit): com.amazonaws.services.lightsail.model.AttachInstancesToLoadBalancerResult {
+	return this.block.declare(AmazonLightsailAttachInstancesToLoadBalancerCommand().apply(init)) as com.amazonaws.services.lightsail.model.AttachInstancesToLoadBalancerResult
 }
 
 @Generated
-class AmazonLightsailAttachInstancesToLoadBalancerCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.AttachInstancesToLoadBalancerRequest> {
+class AmazonLightsailAttachInstancesToLoadBalancerCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.AttachInstancesToLoadBalancerRequest, com.amazonaws.services.lightsail.model.AttachInstancesToLoadBalancerResult> {
 
 	var loadBalancerName: String? = null
 	var instanceNames: List<String>? = null
@@ -103,8 +111,12 @@ class AmazonLightsailAttachInstancesToLoadBalancerCommand() : AmazonWebServiceCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.attachInstancesToLoadBalancer(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.AttachInstancesToLoadBalancerResult {
+	  return com.amazonaws.services.lightsail.model.AttachInstancesToLoadBalancerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.AttachInstancesToLoadBalancerResult {
+		return environment.lightsail.attachInstancesToLoadBalancer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -116,12 +128,12 @@ class AmazonLightsailAttachInstancesToLoadBalancerCommand() : AmazonWebServiceCo
 }
 
 
-fun AmazonLightsailFunctions.attachLoadBalancerTlsCertificate(init: AmazonLightsailAttachLoadBalancerTlsCertificateCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailAttachLoadBalancerTlsCertificateCommand().apply(init))
+fun AmazonLightsailFunctions.attachLoadBalancerTlsCertificate(init: AmazonLightsailAttachLoadBalancerTlsCertificateCommand.() -> Unit): com.amazonaws.services.lightsail.model.AttachLoadBalancerTlsCertificateResult {
+	return this.block.declare(AmazonLightsailAttachLoadBalancerTlsCertificateCommand().apply(init)) as com.amazonaws.services.lightsail.model.AttachLoadBalancerTlsCertificateResult
 }
 
 @Generated
-class AmazonLightsailAttachLoadBalancerTlsCertificateCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.AttachLoadBalancerTlsCertificateRequest> {
+class AmazonLightsailAttachLoadBalancerTlsCertificateCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.AttachLoadBalancerTlsCertificateRequest, com.amazonaws.services.lightsail.model.AttachLoadBalancerTlsCertificateResult> {
 
 	var loadBalancerName: String? = null
 	var certificateName: String? = null
@@ -133,8 +145,12 @@ class AmazonLightsailAttachLoadBalancerTlsCertificateCommand() : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.attachLoadBalancerTlsCertificate(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.AttachLoadBalancerTlsCertificateResult {
+	  return com.amazonaws.services.lightsail.model.AttachLoadBalancerTlsCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.AttachLoadBalancerTlsCertificateResult {
+		return environment.lightsail.attachLoadBalancerTlsCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -146,12 +162,12 @@ class AmazonLightsailAttachLoadBalancerTlsCertificateCommand() : AmazonWebServic
 }
 
 
-fun AmazonLightsailFunctions.attachStaticIp(init: AmazonLightsailAttachStaticIpCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailAttachStaticIpCommand().apply(init))
+fun AmazonLightsailFunctions.attachStaticIp(init: AmazonLightsailAttachStaticIpCommand.() -> Unit): com.amazonaws.services.lightsail.model.AttachStaticIpResult {
+	return this.block.declare(AmazonLightsailAttachStaticIpCommand().apply(init)) as com.amazonaws.services.lightsail.model.AttachStaticIpResult
 }
 
 @Generated
-class AmazonLightsailAttachStaticIpCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.AttachStaticIpRequest> {
+class AmazonLightsailAttachStaticIpCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.AttachStaticIpRequest, com.amazonaws.services.lightsail.model.AttachStaticIpResult> {
 
 	var staticIpName: String? = null
 	var instanceName: String? = null
@@ -163,8 +179,12 @@ class AmazonLightsailAttachStaticIpCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.attachStaticIp(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.AttachStaticIpResult {
+	  return com.amazonaws.services.lightsail.model.AttachStaticIpResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.AttachStaticIpResult {
+		return environment.lightsail.attachStaticIp(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -176,12 +196,12 @@ class AmazonLightsailAttachStaticIpCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AmazonLightsailFunctions.closeInstancePublicPorts(init: AmazonLightsailCloseInstancePublicPortsCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailCloseInstancePublicPortsCommand().apply(init))
+fun AmazonLightsailFunctions.closeInstancePublicPorts(init: AmazonLightsailCloseInstancePublicPortsCommand.() -> Unit): com.amazonaws.services.lightsail.model.CloseInstancePublicPortsResult {
+	return this.block.declare(AmazonLightsailCloseInstancePublicPortsCommand().apply(init)) as com.amazonaws.services.lightsail.model.CloseInstancePublicPortsResult
 }
 
 @Generated
-class AmazonLightsailCloseInstancePublicPortsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.CloseInstancePublicPortsRequest> {
+class AmazonLightsailCloseInstancePublicPortsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.CloseInstancePublicPortsRequest, com.amazonaws.services.lightsail.model.CloseInstancePublicPortsResult> {
 
 	var portInfo: com.amazonaws.services.lightsail.model.PortInfo? = null
 	var instanceName: String? = null
@@ -193,8 +213,12 @@ class AmazonLightsailCloseInstancePublicPortsCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.closeInstancePublicPorts(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.CloseInstancePublicPortsResult {
+	  return com.amazonaws.services.lightsail.model.CloseInstancePublicPortsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.CloseInstancePublicPortsResult {
+		return environment.lightsail.closeInstancePublicPorts(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -206,12 +230,12 @@ class AmazonLightsailCloseInstancePublicPortsCommand() : AmazonWebServiceCommand
 }
 
 
-fun AmazonLightsailFunctions.createDisk(init: AmazonLightsailCreateDiskCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailCreateDiskCommand().apply(init))
+fun AmazonLightsailFunctions.createDisk(init: AmazonLightsailCreateDiskCommand.() -> Unit): com.amazonaws.services.lightsail.model.CreateDiskResult {
+	return this.block.declare(AmazonLightsailCreateDiskCommand().apply(init)) as com.amazonaws.services.lightsail.model.CreateDiskResult
 }
 
 @Generated
-class AmazonLightsailCreateDiskCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.CreateDiskRequest> {
+class AmazonLightsailCreateDiskCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.CreateDiskRequest, com.amazonaws.services.lightsail.model.CreateDiskResult> {
 
 	var diskName: String? = null
 	var availabilityZone: String? = null
@@ -225,8 +249,12 @@ class AmazonLightsailCreateDiskCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.createDisk(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.CreateDiskResult {
+	  return com.amazonaws.services.lightsail.model.CreateDiskResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.CreateDiskResult {
+		return environment.lightsail.createDisk(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -239,12 +267,12 @@ class AmazonLightsailCreateDiskCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AmazonLightsailFunctions.createDiskFromSnapshot(init: AmazonLightsailCreateDiskFromSnapshotCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailCreateDiskFromSnapshotCommand().apply(init))
+fun AmazonLightsailFunctions.createDiskFromSnapshot(init: AmazonLightsailCreateDiskFromSnapshotCommand.() -> Unit): com.amazonaws.services.lightsail.model.CreateDiskFromSnapshotResult {
+	return this.block.declare(AmazonLightsailCreateDiskFromSnapshotCommand().apply(init)) as com.amazonaws.services.lightsail.model.CreateDiskFromSnapshotResult
 }
 
 @Generated
-class AmazonLightsailCreateDiskFromSnapshotCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.CreateDiskFromSnapshotRequest> {
+class AmazonLightsailCreateDiskFromSnapshotCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.CreateDiskFromSnapshotRequest, com.amazonaws.services.lightsail.model.CreateDiskFromSnapshotResult> {
 
 	var diskName: String? = null
 	var diskSnapshotName: String? = null
@@ -260,8 +288,12 @@ class AmazonLightsailCreateDiskFromSnapshotCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.createDiskFromSnapshot(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.CreateDiskFromSnapshotResult {
+	  return com.amazonaws.services.lightsail.model.CreateDiskFromSnapshotResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.CreateDiskFromSnapshotResult {
+		return environment.lightsail.createDiskFromSnapshot(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -275,12 +307,12 @@ class AmazonLightsailCreateDiskFromSnapshotCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AmazonLightsailFunctions.createDiskSnapshot(init: AmazonLightsailCreateDiskSnapshotCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailCreateDiskSnapshotCommand().apply(init))
+fun AmazonLightsailFunctions.createDiskSnapshot(init: AmazonLightsailCreateDiskSnapshotCommand.() -> Unit): com.amazonaws.services.lightsail.model.CreateDiskSnapshotResult {
+	return this.block.declare(AmazonLightsailCreateDiskSnapshotCommand().apply(init)) as com.amazonaws.services.lightsail.model.CreateDiskSnapshotResult
 }
 
 @Generated
-class AmazonLightsailCreateDiskSnapshotCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.CreateDiskSnapshotRequest> {
+class AmazonLightsailCreateDiskSnapshotCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.CreateDiskSnapshotRequest, com.amazonaws.services.lightsail.model.CreateDiskSnapshotResult> {
 
 	var diskName: String? = null
 	var diskSnapshotName: String? = null
@@ -292,8 +324,12 @@ class AmazonLightsailCreateDiskSnapshotCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.createDiskSnapshot(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.CreateDiskSnapshotResult {
+	  return com.amazonaws.services.lightsail.model.CreateDiskSnapshotResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.CreateDiskSnapshotResult {
+		return environment.lightsail.createDiskSnapshot(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -305,12 +341,12 @@ class AmazonLightsailCreateDiskSnapshotCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AmazonLightsailFunctions.createDomain(init: AmazonLightsailCreateDomainCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailCreateDomainCommand().apply(init))
+fun AmazonLightsailFunctions.createDomain(init: AmazonLightsailCreateDomainCommand.() -> Unit): com.amazonaws.services.lightsail.model.CreateDomainResult {
+	return this.block.declare(AmazonLightsailCreateDomainCommand().apply(init)) as com.amazonaws.services.lightsail.model.CreateDomainResult
 }
 
 @Generated
-class AmazonLightsailCreateDomainCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.CreateDomainRequest> {
+class AmazonLightsailCreateDomainCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.CreateDomainRequest, com.amazonaws.services.lightsail.model.CreateDomainResult> {
 
 	var domainName: String? = null
 
@@ -320,8 +356,12 @@ class AmazonLightsailCreateDomainCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.createDomain(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.CreateDomainResult {
+	  return com.amazonaws.services.lightsail.model.CreateDomainResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.CreateDomainResult {
+		return environment.lightsail.createDomain(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -332,12 +372,12 @@ class AmazonLightsailCreateDomainCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AmazonLightsailFunctions.createDomainEntry(init: AmazonLightsailCreateDomainEntryCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailCreateDomainEntryCommand().apply(init))
+fun AmazonLightsailFunctions.createDomainEntry(init: AmazonLightsailCreateDomainEntryCommand.() -> Unit): com.amazonaws.services.lightsail.model.CreateDomainEntryResult {
+	return this.block.declare(AmazonLightsailCreateDomainEntryCommand().apply(init)) as com.amazonaws.services.lightsail.model.CreateDomainEntryResult
 }
 
 @Generated
-class AmazonLightsailCreateDomainEntryCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.CreateDomainEntryRequest> {
+class AmazonLightsailCreateDomainEntryCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.CreateDomainEntryRequest, com.amazonaws.services.lightsail.model.CreateDomainEntryResult> {
 
 	var domainName: String? = null
 	var domainEntry: com.amazonaws.services.lightsail.model.DomainEntry? = null
@@ -349,8 +389,12 @@ class AmazonLightsailCreateDomainEntryCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.createDomainEntry(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.CreateDomainEntryResult {
+	  return com.amazonaws.services.lightsail.model.CreateDomainEntryResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.CreateDomainEntryResult {
+		return environment.lightsail.createDomainEntry(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -362,12 +406,12 @@ class AmazonLightsailCreateDomainEntryCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonLightsailFunctions.createInstanceSnapshot(init: AmazonLightsailCreateInstanceSnapshotCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailCreateInstanceSnapshotCommand().apply(init))
+fun AmazonLightsailFunctions.createInstanceSnapshot(init: AmazonLightsailCreateInstanceSnapshotCommand.() -> Unit): com.amazonaws.services.lightsail.model.CreateInstanceSnapshotResult {
+	return this.block.declare(AmazonLightsailCreateInstanceSnapshotCommand().apply(init)) as com.amazonaws.services.lightsail.model.CreateInstanceSnapshotResult
 }
 
 @Generated
-class AmazonLightsailCreateInstanceSnapshotCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.CreateInstanceSnapshotRequest> {
+class AmazonLightsailCreateInstanceSnapshotCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.CreateInstanceSnapshotRequest, com.amazonaws.services.lightsail.model.CreateInstanceSnapshotResult> {
 
 	var instanceSnapshotName: String? = null
 	var instanceName: String? = null
@@ -379,8 +423,12 @@ class AmazonLightsailCreateInstanceSnapshotCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.createInstanceSnapshot(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.CreateInstanceSnapshotResult {
+	  return com.amazonaws.services.lightsail.model.CreateInstanceSnapshotResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.CreateInstanceSnapshotResult {
+		return environment.lightsail.createInstanceSnapshot(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -392,12 +440,12 @@ class AmazonLightsailCreateInstanceSnapshotCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AmazonLightsailFunctions.createInstances(init: AmazonLightsailCreateInstancesCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailCreateInstancesCommand().apply(init))
+fun AmazonLightsailFunctions.createInstances(init: AmazonLightsailCreateInstancesCommand.() -> Unit): com.amazonaws.services.lightsail.model.CreateInstancesResult {
+	return this.block.declare(AmazonLightsailCreateInstancesCommand().apply(init)) as com.amazonaws.services.lightsail.model.CreateInstancesResult
 }
 
 @Generated
-class AmazonLightsailCreateInstancesCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.CreateInstancesRequest> {
+class AmazonLightsailCreateInstancesCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.CreateInstancesRequest, com.amazonaws.services.lightsail.model.CreateInstancesResult> {
 
 	var instanceNames: List<String>? = null
 	var availabilityZone: String? = null
@@ -419,8 +467,12 @@ class AmazonLightsailCreateInstancesCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.createInstances(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.CreateInstancesResult {
+	  return com.amazonaws.services.lightsail.model.CreateInstancesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.CreateInstancesResult {
+		return environment.lightsail.createInstances(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -437,12 +489,12 @@ class AmazonLightsailCreateInstancesCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AmazonLightsailFunctions.createInstancesFromSnapshot(init: AmazonLightsailCreateInstancesFromSnapshotCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailCreateInstancesFromSnapshotCommand().apply(init))
+fun AmazonLightsailFunctions.createInstancesFromSnapshot(init: AmazonLightsailCreateInstancesFromSnapshotCommand.() -> Unit): com.amazonaws.services.lightsail.model.CreateInstancesFromSnapshotResult {
+	return this.block.declare(AmazonLightsailCreateInstancesFromSnapshotCommand().apply(init)) as com.amazonaws.services.lightsail.model.CreateInstancesFromSnapshotResult
 }
 
 @Generated
-class AmazonLightsailCreateInstancesFromSnapshotCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.CreateInstancesFromSnapshotRequest> {
+class AmazonLightsailCreateInstancesFromSnapshotCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.CreateInstancesFromSnapshotRequest, com.amazonaws.services.lightsail.model.CreateInstancesFromSnapshotResult> {
 
 	var instanceNames: List<String>? = null
 	var attachedDiskMapping: Map<String, List<com.amazonaws.services.lightsail.model.DiskMap>>? = null
@@ -464,8 +516,12 @@ class AmazonLightsailCreateInstancesFromSnapshotCommand() : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.createInstancesFromSnapshot(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.CreateInstancesFromSnapshotResult {
+	  return com.amazonaws.services.lightsail.model.CreateInstancesFromSnapshotResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.CreateInstancesFromSnapshotResult {
+		return environment.lightsail.createInstancesFromSnapshot(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -482,12 +538,12 @@ class AmazonLightsailCreateInstancesFromSnapshotCommand() : AmazonWebServiceComm
 }
 
 
-fun AmazonLightsailFunctions.createKeyPair(init: AmazonLightsailCreateKeyPairCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailCreateKeyPairCommand().apply(init))
+fun AmazonLightsailFunctions.createKeyPair(init: AmazonLightsailCreateKeyPairCommand.() -> Unit): com.amazonaws.services.lightsail.model.CreateKeyPairResult {
+	return this.block.declare(AmazonLightsailCreateKeyPairCommand().apply(init)) as com.amazonaws.services.lightsail.model.CreateKeyPairResult
 }
 
 @Generated
-class AmazonLightsailCreateKeyPairCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.CreateKeyPairRequest> {
+class AmazonLightsailCreateKeyPairCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.CreateKeyPairRequest, com.amazonaws.services.lightsail.model.CreateKeyPairResult> {
 
 	var keyPairName: String? = null
 
@@ -497,8 +553,12 @@ class AmazonLightsailCreateKeyPairCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.createKeyPair(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.CreateKeyPairResult {
+	  return com.amazonaws.services.lightsail.model.CreateKeyPairResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.CreateKeyPairResult {
+		return environment.lightsail.createKeyPair(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -509,12 +569,12 @@ class AmazonLightsailCreateKeyPairCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonLightsailFunctions.createLoadBalancer(init: AmazonLightsailCreateLoadBalancerCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailCreateLoadBalancerCommand().apply(init))
+fun AmazonLightsailFunctions.createLoadBalancer(init: AmazonLightsailCreateLoadBalancerCommand.() -> Unit): com.amazonaws.services.lightsail.model.CreateLoadBalancerResult {
+	return this.block.declare(AmazonLightsailCreateLoadBalancerCommand().apply(init)) as com.amazonaws.services.lightsail.model.CreateLoadBalancerResult
 }
 
 @Generated
-class AmazonLightsailCreateLoadBalancerCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.CreateLoadBalancerRequest> {
+class AmazonLightsailCreateLoadBalancerCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.CreateLoadBalancerRequest, com.amazonaws.services.lightsail.model.CreateLoadBalancerResult> {
 
 	var loadBalancerName: String? = null
 	var instancePort: Int? = 0
@@ -534,8 +594,12 @@ class AmazonLightsailCreateLoadBalancerCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.createLoadBalancer(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.CreateLoadBalancerResult {
+	  return com.amazonaws.services.lightsail.model.CreateLoadBalancerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.CreateLoadBalancerResult {
+		return environment.lightsail.createLoadBalancer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -551,12 +615,12 @@ class AmazonLightsailCreateLoadBalancerCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AmazonLightsailFunctions.createLoadBalancerTlsCertificate(init: AmazonLightsailCreateLoadBalancerTlsCertificateCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailCreateLoadBalancerTlsCertificateCommand().apply(init))
+fun AmazonLightsailFunctions.createLoadBalancerTlsCertificate(init: AmazonLightsailCreateLoadBalancerTlsCertificateCommand.() -> Unit): com.amazonaws.services.lightsail.model.CreateLoadBalancerTlsCertificateResult {
+	return this.block.declare(AmazonLightsailCreateLoadBalancerTlsCertificateCommand().apply(init)) as com.amazonaws.services.lightsail.model.CreateLoadBalancerTlsCertificateResult
 }
 
 @Generated
-class AmazonLightsailCreateLoadBalancerTlsCertificateCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.CreateLoadBalancerTlsCertificateRequest> {
+class AmazonLightsailCreateLoadBalancerTlsCertificateCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.CreateLoadBalancerTlsCertificateRequest, com.amazonaws.services.lightsail.model.CreateLoadBalancerTlsCertificateResult> {
 
 	var loadBalancerName: String? = null
 	var certificateName: String? = null
@@ -572,8 +636,12 @@ class AmazonLightsailCreateLoadBalancerTlsCertificateCommand() : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.createLoadBalancerTlsCertificate(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.CreateLoadBalancerTlsCertificateResult {
+	  return com.amazonaws.services.lightsail.model.CreateLoadBalancerTlsCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.CreateLoadBalancerTlsCertificateResult {
+		return environment.lightsail.createLoadBalancerTlsCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -587,12 +655,12 @@ class AmazonLightsailCreateLoadBalancerTlsCertificateCommand() : AmazonWebServic
 }
 
 
-fun AmazonLightsailFunctions.deleteDisk(init: AmazonLightsailDeleteDiskCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailDeleteDiskCommand().apply(init))
+fun AmazonLightsailFunctions.deleteDisk(init: AmazonLightsailDeleteDiskCommand.() -> Unit): com.amazonaws.services.lightsail.model.DeleteDiskResult {
+	return this.block.declare(AmazonLightsailDeleteDiskCommand().apply(init)) as com.amazonaws.services.lightsail.model.DeleteDiskResult
 }
 
 @Generated
-class AmazonLightsailDeleteDiskCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.DeleteDiskRequest> {
+class AmazonLightsailDeleteDiskCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.DeleteDiskRequest, com.amazonaws.services.lightsail.model.DeleteDiskResult> {
 
 	var diskName: String? = null
 
@@ -602,8 +670,12 @@ class AmazonLightsailDeleteDiskCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.deleteDisk(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.DeleteDiskResult {
+	  return com.amazonaws.services.lightsail.model.DeleteDiskResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.DeleteDiskResult {
+		return environment.lightsail.deleteDisk(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -614,12 +686,12 @@ class AmazonLightsailDeleteDiskCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AmazonLightsailFunctions.deleteDiskSnapshot(init: AmazonLightsailDeleteDiskSnapshotCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailDeleteDiskSnapshotCommand().apply(init))
+fun AmazonLightsailFunctions.deleteDiskSnapshot(init: AmazonLightsailDeleteDiskSnapshotCommand.() -> Unit): com.amazonaws.services.lightsail.model.DeleteDiskSnapshotResult {
+	return this.block.declare(AmazonLightsailDeleteDiskSnapshotCommand().apply(init)) as com.amazonaws.services.lightsail.model.DeleteDiskSnapshotResult
 }
 
 @Generated
-class AmazonLightsailDeleteDiskSnapshotCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.DeleteDiskSnapshotRequest> {
+class AmazonLightsailDeleteDiskSnapshotCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.DeleteDiskSnapshotRequest, com.amazonaws.services.lightsail.model.DeleteDiskSnapshotResult> {
 
 	var diskSnapshotName: String? = null
 
@@ -629,8 +701,12 @@ class AmazonLightsailDeleteDiskSnapshotCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.deleteDiskSnapshot(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.DeleteDiskSnapshotResult {
+	  return com.amazonaws.services.lightsail.model.DeleteDiskSnapshotResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.DeleteDiskSnapshotResult {
+		return environment.lightsail.deleteDiskSnapshot(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -641,12 +717,12 @@ class AmazonLightsailDeleteDiskSnapshotCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AmazonLightsailFunctions.deleteDomain(init: AmazonLightsailDeleteDomainCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailDeleteDomainCommand().apply(init))
+fun AmazonLightsailFunctions.deleteDomain(init: AmazonLightsailDeleteDomainCommand.() -> Unit): com.amazonaws.services.lightsail.model.DeleteDomainResult {
+	return this.block.declare(AmazonLightsailDeleteDomainCommand().apply(init)) as com.amazonaws.services.lightsail.model.DeleteDomainResult
 }
 
 @Generated
-class AmazonLightsailDeleteDomainCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.DeleteDomainRequest> {
+class AmazonLightsailDeleteDomainCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.DeleteDomainRequest, com.amazonaws.services.lightsail.model.DeleteDomainResult> {
 
 	var domainName: String? = null
 
@@ -656,8 +732,12 @@ class AmazonLightsailDeleteDomainCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.deleteDomain(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.DeleteDomainResult {
+	  return com.amazonaws.services.lightsail.model.DeleteDomainResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.DeleteDomainResult {
+		return environment.lightsail.deleteDomain(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -668,12 +748,12 @@ class AmazonLightsailDeleteDomainCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AmazonLightsailFunctions.deleteDomainEntry(init: AmazonLightsailDeleteDomainEntryCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailDeleteDomainEntryCommand().apply(init))
+fun AmazonLightsailFunctions.deleteDomainEntry(init: AmazonLightsailDeleteDomainEntryCommand.() -> Unit): com.amazonaws.services.lightsail.model.DeleteDomainEntryResult {
+	return this.block.declare(AmazonLightsailDeleteDomainEntryCommand().apply(init)) as com.amazonaws.services.lightsail.model.DeleteDomainEntryResult
 }
 
 @Generated
-class AmazonLightsailDeleteDomainEntryCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.DeleteDomainEntryRequest> {
+class AmazonLightsailDeleteDomainEntryCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.DeleteDomainEntryRequest, com.amazonaws.services.lightsail.model.DeleteDomainEntryResult> {
 
 	var domainName: String? = null
 	var domainEntry: com.amazonaws.services.lightsail.model.DomainEntry? = null
@@ -685,8 +765,12 @@ class AmazonLightsailDeleteDomainEntryCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.deleteDomainEntry(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.DeleteDomainEntryResult {
+	  return com.amazonaws.services.lightsail.model.DeleteDomainEntryResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.DeleteDomainEntryResult {
+		return environment.lightsail.deleteDomainEntry(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -698,12 +782,12 @@ class AmazonLightsailDeleteDomainEntryCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonLightsailFunctions.deleteInstance(init: AmazonLightsailDeleteInstanceCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailDeleteInstanceCommand().apply(init))
+fun AmazonLightsailFunctions.deleteInstance(init: AmazonLightsailDeleteInstanceCommand.() -> Unit): com.amazonaws.services.lightsail.model.DeleteInstanceResult {
+	return this.block.declare(AmazonLightsailDeleteInstanceCommand().apply(init)) as com.amazonaws.services.lightsail.model.DeleteInstanceResult
 }
 
 @Generated
-class AmazonLightsailDeleteInstanceCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.DeleteInstanceRequest> {
+class AmazonLightsailDeleteInstanceCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.DeleteInstanceRequest, com.amazonaws.services.lightsail.model.DeleteInstanceResult> {
 
 	var instanceName: String? = null
 
@@ -713,8 +797,12 @@ class AmazonLightsailDeleteInstanceCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.deleteInstance(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.DeleteInstanceResult {
+	  return com.amazonaws.services.lightsail.model.DeleteInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.DeleteInstanceResult {
+		return environment.lightsail.deleteInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -725,12 +813,12 @@ class AmazonLightsailDeleteInstanceCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AmazonLightsailFunctions.deleteInstanceSnapshot(init: AmazonLightsailDeleteInstanceSnapshotCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailDeleteInstanceSnapshotCommand().apply(init))
+fun AmazonLightsailFunctions.deleteInstanceSnapshot(init: AmazonLightsailDeleteInstanceSnapshotCommand.() -> Unit): com.amazonaws.services.lightsail.model.DeleteInstanceSnapshotResult {
+	return this.block.declare(AmazonLightsailDeleteInstanceSnapshotCommand().apply(init)) as com.amazonaws.services.lightsail.model.DeleteInstanceSnapshotResult
 }
 
 @Generated
-class AmazonLightsailDeleteInstanceSnapshotCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.DeleteInstanceSnapshotRequest> {
+class AmazonLightsailDeleteInstanceSnapshotCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.DeleteInstanceSnapshotRequest, com.amazonaws.services.lightsail.model.DeleteInstanceSnapshotResult> {
 
 	var instanceSnapshotName: String? = null
 
@@ -740,8 +828,12 @@ class AmazonLightsailDeleteInstanceSnapshotCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.deleteInstanceSnapshot(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.DeleteInstanceSnapshotResult {
+	  return com.amazonaws.services.lightsail.model.DeleteInstanceSnapshotResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.DeleteInstanceSnapshotResult {
+		return environment.lightsail.deleteInstanceSnapshot(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -752,12 +844,12 @@ class AmazonLightsailDeleteInstanceSnapshotCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AmazonLightsailFunctions.deleteKeyPair(init: AmazonLightsailDeleteKeyPairCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailDeleteKeyPairCommand().apply(init))
+fun AmazonLightsailFunctions.deleteKeyPair(init: AmazonLightsailDeleteKeyPairCommand.() -> Unit): com.amazonaws.services.lightsail.model.DeleteKeyPairResult {
+	return this.block.declare(AmazonLightsailDeleteKeyPairCommand().apply(init)) as com.amazonaws.services.lightsail.model.DeleteKeyPairResult
 }
 
 @Generated
-class AmazonLightsailDeleteKeyPairCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.DeleteKeyPairRequest> {
+class AmazonLightsailDeleteKeyPairCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.DeleteKeyPairRequest, com.amazonaws.services.lightsail.model.DeleteKeyPairResult> {
 
 	var keyPairName: String? = null
 
@@ -767,8 +859,12 @@ class AmazonLightsailDeleteKeyPairCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.deleteKeyPair(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.DeleteKeyPairResult {
+	  return com.amazonaws.services.lightsail.model.DeleteKeyPairResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.DeleteKeyPairResult {
+		return environment.lightsail.deleteKeyPair(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -779,12 +875,12 @@ class AmazonLightsailDeleteKeyPairCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonLightsailFunctions.deleteLoadBalancer(init: AmazonLightsailDeleteLoadBalancerCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailDeleteLoadBalancerCommand().apply(init))
+fun AmazonLightsailFunctions.deleteLoadBalancer(init: AmazonLightsailDeleteLoadBalancerCommand.() -> Unit): com.amazonaws.services.lightsail.model.DeleteLoadBalancerResult {
+	return this.block.declare(AmazonLightsailDeleteLoadBalancerCommand().apply(init)) as com.amazonaws.services.lightsail.model.DeleteLoadBalancerResult
 }
 
 @Generated
-class AmazonLightsailDeleteLoadBalancerCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.DeleteLoadBalancerRequest> {
+class AmazonLightsailDeleteLoadBalancerCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.DeleteLoadBalancerRequest, com.amazonaws.services.lightsail.model.DeleteLoadBalancerResult> {
 
 	var loadBalancerName: String? = null
 
@@ -794,8 +890,12 @@ class AmazonLightsailDeleteLoadBalancerCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.deleteLoadBalancer(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.DeleteLoadBalancerResult {
+	  return com.amazonaws.services.lightsail.model.DeleteLoadBalancerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.DeleteLoadBalancerResult {
+		return environment.lightsail.deleteLoadBalancer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -806,12 +906,12 @@ class AmazonLightsailDeleteLoadBalancerCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AmazonLightsailFunctions.deleteLoadBalancerTlsCertificate(init: AmazonLightsailDeleteLoadBalancerTlsCertificateCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailDeleteLoadBalancerTlsCertificateCommand().apply(init))
+fun AmazonLightsailFunctions.deleteLoadBalancerTlsCertificate(init: AmazonLightsailDeleteLoadBalancerTlsCertificateCommand.() -> Unit): com.amazonaws.services.lightsail.model.DeleteLoadBalancerTlsCertificateResult {
+	return this.block.declare(AmazonLightsailDeleteLoadBalancerTlsCertificateCommand().apply(init)) as com.amazonaws.services.lightsail.model.DeleteLoadBalancerTlsCertificateResult
 }
 
 @Generated
-class AmazonLightsailDeleteLoadBalancerTlsCertificateCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.DeleteLoadBalancerTlsCertificateRequest> {
+class AmazonLightsailDeleteLoadBalancerTlsCertificateCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.DeleteLoadBalancerTlsCertificateRequest, com.amazonaws.services.lightsail.model.DeleteLoadBalancerTlsCertificateResult> {
 
 	var loadBalancerName: String? = null
 	var certificateName: String? = null
@@ -825,8 +925,12 @@ class AmazonLightsailDeleteLoadBalancerTlsCertificateCommand() : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.deleteLoadBalancerTlsCertificate(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.DeleteLoadBalancerTlsCertificateResult {
+	  return com.amazonaws.services.lightsail.model.DeleteLoadBalancerTlsCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.DeleteLoadBalancerTlsCertificateResult {
+		return environment.lightsail.deleteLoadBalancerTlsCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -839,12 +943,12 @@ class AmazonLightsailDeleteLoadBalancerTlsCertificateCommand() : AmazonWebServic
 }
 
 
-fun AmazonLightsailFunctions.detachDisk(init: AmazonLightsailDetachDiskCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailDetachDiskCommand().apply(init))
+fun AmazonLightsailFunctions.detachDisk(init: AmazonLightsailDetachDiskCommand.() -> Unit): com.amazonaws.services.lightsail.model.DetachDiskResult {
+	return this.block.declare(AmazonLightsailDetachDiskCommand().apply(init)) as com.amazonaws.services.lightsail.model.DetachDiskResult
 }
 
 @Generated
-class AmazonLightsailDetachDiskCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.DetachDiskRequest> {
+class AmazonLightsailDetachDiskCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.DetachDiskRequest, com.amazonaws.services.lightsail.model.DetachDiskResult> {
 
 	var diskName: String? = null
 
@@ -854,8 +958,12 @@ class AmazonLightsailDetachDiskCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.detachDisk(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.DetachDiskResult {
+	  return com.amazonaws.services.lightsail.model.DetachDiskResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.DetachDiskResult {
+		return environment.lightsail.detachDisk(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -866,12 +974,12 @@ class AmazonLightsailDetachDiskCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AmazonLightsailFunctions.detachInstancesFromLoadBalancer(init: AmazonLightsailDetachInstancesFromLoadBalancerCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailDetachInstancesFromLoadBalancerCommand().apply(init))
+fun AmazonLightsailFunctions.detachInstancesFromLoadBalancer(init: AmazonLightsailDetachInstancesFromLoadBalancerCommand.() -> Unit): com.amazonaws.services.lightsail.model.DetachInstancesFromLoadBalancerResult {
+	return this.block.declare(AmazonLightsailDetachInstancesFromLoadBalancerCommand().apply(init)) as com.amazonaws.services.lightsail.model.DetachInstancesFromLoadBalancerResult
 }
 
 @Generated
-class AmazonLightsailDetachInstancesFromLoadBalancerCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.DetachInstancesFromLoadBalancerRequest> {
+class AmazonLightsailDetachInstancesFromLoadBalancerCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.DetachInstancesFromLoadBalancerRequest, com.amazonaws.services.lightsail.model.DetachInstancesFromLoadBalancerResult> {
 
 	var loadBalancerName: String? = null
 	var instanceNames: List<String>? = null
@@ -883,8 +991,12 @@ class AmazonLightsailDetachInstancesFromLoadBalancerCommand() : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.detachInstancesFromLoadBalancer(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.DetachInstancesFromLoadBalancerResult {
+	  return com.amazonaws.services.lightsail.model.DetachInstancesFromLoadBalancerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.DetachInstancesFromLoadBalancerResult {
+		return environment.lightsail.detachInstancesFromLoadBalancer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -896,12 +1008,12 @@ class AmazonLightsailDetachInstancesFromLoadBalancerCommand() : AmazonWebService
 }
 
 
-fun AmazonLightsailFunctions.detachStaticIp(init: AmazonLightsailDetachStaticIpCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailDetachStaticIpCommand().apply(init))
+fun AmazonLightsailFunctions.detachStaticIp(init: AmazonLightsailDetachStaticIpCommand.() -> Unit): com.amazonaws.services.lightsail.model.DetachStaticIpResult {
+	return this.block.declare(AmazonLightsailDetachStaticIpCommand().apply(init)) as com.amazonaws.services.lightsail.model.DetachStaticIpResult
 }
 
 @Generated
-class AmazonLightsailDetachStaticIpCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.DetachStaticIpRequest> {
+class AmazonLightsailDetachStaticIpCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.DetachStaticIpRequest, com.amazonaws.services.lightsail.model.DetachStaticIpResult> {
 
 	var staticIpName: String? = null
 
@@ -911,8 +1023,12 @@ class AmazonLightsailDetachStaticIpCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.detachStaticIp(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.DetachStaticIpResult {
+	  return com.amazonaws.services.lightsail.model.DetachStaticIpResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.DetachStaticIpResult {
+		return environment.lightsail.detachStaticIp(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -923,12 +1039,12 @@ class AmazonLightsailDetachStaticIpCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AmazonLightsailFunctions.downloadDefaultKeyPair(init: AmazonLightsailDownloadDefaultKeyPairCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailDownloadDefaultKeyPairCommand().apply(init))
+fun AmazonLightsailFunctions.downloadDefaultKeyPair(init: AmazonLightsailDownloadDefaultKeyPairCommand.() -> Unit): com.amazonaws.services.lightsail.model.DownloadDefaultKeyPairResult {
+	return this.block.declare(AmazonLightsailDownloadDefaultKeyPairCommand().apply(init)) as com.amazonaws.services.lightsail.model.DownloadDefaultKeyPairResult
 }
 
 @Generated
-class AmazonLightsailDownloadDefaultKeyPairCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.DownloadDefaultKeyPairRequest> {
+class AmazonLightsailDownloadDefaultKeyPairCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.DownloadDefaultKeyPairRequest, com.amazonaws.services.lightsail.model.DownloadDefaultKeyPairResult> {
 
 
 
@@ -938,8 +1054,12 @@ class AmazonLightsailDownloadDefaultKeyPairCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.downloadDefaultKeyPair(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.DownloadDefaultKeyPairResult {
+	  return com.amazonaws.services.lightsail.model.DownloadDefaultKeyPairResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.DownloadDefaultKeyPairResult {
+		return environment.lightsail.downloadDefaultKeyPair(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -950,12 +1070,12 @@ class AmazonLightsailDownloadDefaultKeyPairCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AmazonLightsailFunctions.getActiveNames(init: AmazonLightsailGetActiveNamesCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailGetActiveNamesCommand().apply(init))
+fun AmazonLightsailFunctions.getActiveNames(init: AmazonLightsailGetActiveNamesCommand.() -> Unit): com.amazonaws.services.lightsail.model.GetActiveNamesResult {
+	return this.block.declare(AmazonLightsailGetActiveNamesCommand().apply(init)) as com.amazonaws.services.lightsail.model.GetActiveNamesResult
 }
 
 @Generated
-class AmazonLightsailGetActiveNamesCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetActiveNamesRequest> {
+class AmazonLightsailGetActiveNamesCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetActiveNamesRequest, com.amazonaws.services.lightsail.model.GetActiveNamesResult> {
 
 	var pageToken: String? = null
 
@@ -965,8 +1085,12 @@ class AmazonLightsailGetActiveNamesCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.getActiveNames(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.GetActiveNamesResult {
+	  return com.amazonaws.services.lightsail.model.GetActiveNamesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetActiveNamesResult {
+		return environment.lightsail.getActiveNames(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -977,12 +1101,12 @@ class AmazonLightsailGetActiveNamesCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AmazonLightsailFunctions.getBlueprints(init: AmazonLightsailGetBlueprintsCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailGetBlueprintsCommand().apply(init))
+fun AmazonLightsailFunctions.getBlueprints(init: AmazonLightsailGetBlueprintsCommand.() -> Unit): com.amazonaws.services.lightsail.model.GetBlueprintsResult {
+	return this.block.declare(AmazonLightsailGetBlueprintsCommand().apply(init)) as com.amazonaws.services.lightsail.model.GetBlueprintsResult
 }
 
 @Generated
-class AmazonLightsailGetBlueprintsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetBlueprintsRequest> {
+class AmazonLightsailGetBlueprintsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetBlueprintsRequest, com.amazonaws.services.lightsail.model.GetBlueprintsResult> {
 
 	var includeInactive: Boolean? = false
 	var pageToken: String? = null
@@ -994,8 +1118,12 @@ class AmazonLightsailGetBlueprintsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.getBlueprints(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.GetBlueprintsResult {
+	  return com.amazonaws.services.lightsail.model.GetBlueprintsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetBlueprintsResult {
+		return environment.lightsail.getBlueprints(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1007,12 +1135,12 @@ class AmazonLightsailGetBlueprintsCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonLightsailFunctions.getBundles(init: AmazonLightsailGetBundlesCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailGetBundlesCommand().apply(init))
+fun AmazonLightsailFunctions.getBundles(init: AmazonLightsailGetBundlesCommand.() -> Unit): com.amazonaws.services.lightsail.model.GetBundlesResult {
+	return this.block.declare(AmazonLightsailGetBundlesCommand().apply(init)) as com.amazonaws.services.lightsail.model.GetBundlesResult
 }
 
 @Generated
-class AmazonLightsailGetBundlesCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetBundlesRequest> {
+class AmazonLightsailGetBundlesCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetBundlesRequest, com.amazonaws.services.lightsail.model.GetBundlesResult> {
 
 	var includeInactive: Boolean? = false
 	var pageToken: String? = null
@@ -1024,8 +1152,12 @@ class AmazonLightsailGetBundlesCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.getBundles(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.GetBundlesResult {
+	  return com.amazonaws.services.lightsail.model.GetBundlesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetBundlesResult {
+		return environment.lightsail.getBundles(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1037,12 +1169,12 @@ class AmazonLightsailGetBundlesCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AmazonLightsailFunctions.getDisk(init: AmazonLightsailGetDiskCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailGetDiskCommand().apply(init))
+fun AmazonLightsailFunctions.getDisk(init: AmazonLightsailGetDiskCommand.() -> Unit): com.amazonaws.services.lightsail.model.GetDiskResult {
+	return this.block.declare(AmazonLightsailGetDiskCommand().apply(init)) as com.amazonaws.services.lightsail.model.GetDiskResult
 }
 
 @Generated
-class AmazonLightsailGetDiskCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetDiskRequest> {
+class AmazonLightsailGetDiskCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetDiskRequest, com.amazonaws.services.lightsail.model.GetDiskResult> {
 
 	var diskName: String? = null
 
@@ -1052,8 +1184,12 @@ class AmazonLightsailGetDiskCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.getDisk(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.GetDiskResult {
+	  return com.amazonaws.services.lightsail.model.GetDiskResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetDiskResult {
+		return environment.lightsail.getDisk(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1064,12 +1200,12 @@ class AmazonLightsailGetDiskCommand() : AmazonWebServiceCommand<com.amazonaws.se
 }
 
 
-fun AmazonLightsailFunctions.getDiskSnapshot(init: AmazonLightsailGetDiskSnapshotCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailGetDiskSnapshotCommand().apply(init))
+fun AmazonLightsailFunctions.getDiskSnapshot(init: AmazonLightsailGetDiskSnapshotCommand.() -> Unit): com.amazonaws.services.lightsail.model.GetDiskSnapshotResult {
+	return this.block.declare(AmazonLightsailGetDiskSnapshotCommand().apply(init)) as com.amazonaws.services.lightsail.model.GetDiskSnapshotResult
 }
 
 @Generated
-class AmazonLightsailGetDiskSnapshotCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetDiskSnapshotRequest> {
+class AmazonLightsailGetDiskSnapshotCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetDiskSnapshotRequest, com.amazonaws.services.lightsail.model.GetDiskSnapshotResult> {
 
 	var diskSnapshotName: String? = null
 
@@ -1079,8 +1215,12 @@ class AmazonLightsailGetDiskSnapshotCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.getDiskSnapshot(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.GetDiskSnapshotResult {
+	  return com.amazonaws.services.lightsail.model.GetDiskSnapshotResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetDiskSnapshotResult {
+		return environment.lightsail.getDiskSnapshot(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1091,12 +1231,12 @@ class AmazonLightsailGetDiskSnapshotCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AmazonLightsailFunctions.getDiskSnapshots(init: AmazonLightsailGetDiskSnapshotsCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailGetDiskSnapshotsCommand().apply(init))
+fun AmazonLightsailFunctions.getDiskSnapshots(init: AmazonLightsailGetDiskSnapshotsCommand.() -> Unit): com.amazonaws.services.lightsail.model.GetDiskSnapshotsResult {
+	return this.block.declare(AmazonLightsailGetDiskSnapshotsCommand().apply(init)) as com.amazonaws.services.lightsail.model.GetDiskSnapshotsResult
 }
 
 @Generated
-class AmazonLightsailGetDiskSnapshotsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetDiskSnapshotsRequest> {
+class AmazonLightsailGetDiskSnapshotsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetDiskSnapshotsRequest, com.amazonaws.services.lightsail.model.GetDiskSnapshotsResult> {
 
 	var pageToken: String? = null
 
@@ -1106,8 +1246,12 @@ class AmazonLightsailGetDiskSnapshotsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.getDiskSnapshots(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.GetDiskSnapshotsResult {
+	  return com.amazonaws.services.lightsail.model.GetDiskSnapshotsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetDiskSnapshotsResult {
+		return environment.lightsail.getDiskSnapshots(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1118,12 +1262,12 @@ class AmazonLightsailGetDiskSnapshotsCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AmazonLightsailFunctions.getDisks(init: AmazonLightsailGetDisksCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailGetDisksCommand().apply(init))
+fun AmazonLightsailFunctions.getDisks(init: AmazonLightsailGetDisksCommand.() -> Unit): com.amazonaws.services.lightsail.model.GetDisksResult {
+	return this.block.declare(AmazonLightsailGetDisksCommand().apply(init)) as com.amazonaws.services.lightsail.model.GetDisksResult
 }
 
 @Generated
-class AmazonLightsailGetDisksCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetDisksRequest> {
+class AmazonLightsailGetDisksCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetDisksRequest, com.amazonaws.services.lightsail.model.GetDisksResult> {
 
 	var pageToken: String? = null
 
@@ -1133,8 +1277,12 @@ class AmazonLightsailGetDisksCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.getDisks(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.GetDisksResult {
+	  return com.amazonaws.services.lightsail.model.GetDisksResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetDisksResult {
+		return environment.lightsail.getDisks(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1145,12 +1293,12 @@ class AmazonLightsailGetDisksCommand() : AmazonWebServiceCommand<com.amazonaws.s
 }
 
 
-fun AmazonLightsailFunctions.getDomain(init: AmazonLightsailGetDomainCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailGetDomainCommand().apply(init))
+fun AmazonLightsailFunctions.getDomain(init: AmazonLightsailGetDomainCommand.() -> Unit): com.amazonaws.services.lightsail.model.GetDomainResult {
+	return this.block.declare(AmazonLightsailGetDomainCommand().apply(init)) as com.amazonaws.services.lightsail.model.GetDomainResult
 }
 
 @Generated
-class AmazonLightsailGetDomainCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetDomainRequest> {
+class AmazonLightsailGetDomainCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetDomainRequest, com.amazonaws.services.lightsail.model.GetDomainResult> {
 
 	var domainName: String? = null
 
@@ -1160,8 +1308,12 @@ class AmazonLightsailGetDomainCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.getDomain(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.GetDomainResult {
+	  return com.amazonaws.services.lightsail.model.GetDomainResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetDomainResult {
+		return environment.lightsail.getDomain(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1172,12 +1324,12 @@ class AmazonLightsailGetDomainCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AmazonLightsailFunctions.getDomains(init: AmazonLightsailGetDomainsCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailGetDomainsCommand().apply(init))
+fun AmazonLightsailFunctions.getDomains(init: AmazonLightsailGetDomainsCommand.() -> Unit): com.amazonaws.services.lightsail.model.GetDomainsResult {
+	return this.block.declare(AmazonLightsailGetDomainsCommand().apply(init)) as com.amazonaws.services.lightsail.model.GetDomainsResult
 }
 
 @Generated
-class AmazonLightsailGetDomainsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetDomainsRequest> {
+class AmazonLightsailGetDomainsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetDomainsRequest, com.amazonaws.services.lightsail.model.GetDomainsResult> {
 
 	var pageToken: String? = null
 
@@ -1187,8 +1339,12 @@ class AmazonLightsailGetDomainsCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.getDomains(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.GetDomainsResult {
+	  return com.amazonaws.services.lightsail.model.GetDomainsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetDomainsResult {
+		return environment.lightsail.getDomains(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1199,12 +1355,12 @@ class AmazonLightsailGetDomainsCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AmazonLightsailFunctions.getInstance(init: AmazonLightsailGetInstanceCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailGetInstanceCommand().apply(init))
+fun AmazonLightsailFunctions.getInstance(init: AmazonLightsailGetInstanceCommand.() -> Unit): com.amazonaws.services.lightsail.model.GetInstanceResult {
+	return this.block.declare(AmazonLightsailGetInstanceCommand().apply(init)) as com.amazonaws.services.lightsail.model.GetInstanceResult
 }
 
 @Generated
-class AmazonLightsailGetInstanceCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetInstanceRequest> {
+class AmazonLightsailGetInstanceCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetInstanceRequest, com.amazonaws.services.lightsail.model.GetInstanceResult> {
 
 	var instanceName: String? = null
 
@@ -1214,8 +1370,12 @@ class AmazonLightsailGetInstanceCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.getInstance(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.GetInstanceResult {
+	  return com.amazonaws.services.lightsail.model.GetInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetInstanceResult {
+		return environment.lightsail.getInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1226,12 +1386,12 @@ class AmazonLightsailGetInstanceCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AmazonLightsailFunctions.getInstanceAccessDetails(init: AmazonLightsailGetInstanceAccessDetailsCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailGetInstanceAccessDetailsCommand().apply(init))
+fun AmazonLightsailFunctions.getInstanceAccessDetails(init: AmazonLightsailGetInstanceAccessDetailsCommand.() -> Unit): com.amazonaws.services.lightsail.model.GetInstanceAccessDetailsResult {
+	return this.block.declare(AmazonLightsailGetInstanceAccessDetailsCommand().apply(init)) as com.amazonaws.services.lightsail.model.GetInstanceAccessDetailsResult
 }
 
 @Generated
-class AmazonLightsailGetInstanceAccessDetailsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetInstanceAccessDetailsRequest> {
+class AmazonLightsailGetInstanceAccessDetailsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetInstanceAccessDetailsRequest, com.amazonaws.services.lightsail.model.GetInstanceAccessDetailsResult> {
 
 	var instanceName: String? = null
 	var protocol: InstanceAccessProtocol? = null
@@ -1243,8 +1403,12 @@ class AmazonLightsailGetInstanceAccessDetailsCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.getInstanceAccessDetails(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.GetInstanceAccessDetailsResult {
+	  return com.amazonaws.services.lightsail.model.GetInstanceAccessDetailsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetInstanceAccessDetailsResult {
+		return environment.lightsail.getInstanceAccessDetails(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1256,12 +1420,12 @@ class AmazonLightsailGetInstanceAccessDetailsCommand() : AmazonWebServiceCommand
 }
 
 
-fun AmazonLightsailFunctions.getInstanceMetricData(init: AmazonLightsailGetInstanceMetricDataCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailGetInstanceMetricDataCommand().apply(init))
+fun AmazonLightsailFunctions.getInstanceMetricData(init: AmazonLightsailGetInstanceMetricDataCommand.() -> Unit): com.amazonaws.services.lightsail.model.GetInstanceMetricDataResult {
+	return this.block.declare(AmazonLightsailGetInstanceMetricDataCommand().apply(init)) as com.amazonaws.services.lightsail.model.GetInstanceMetricDataResult
 }
 
 @Generated
-class AmazonLightsailGetInstanceMetricDataCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetInstanceMetricDataRequest> {
+class AmazonLightsailGetInstanceMetricDataCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetInstanceMetricDataRequest, com.amazonaws.services.lightsail.model.GetInstanceMetricDataResult> {
 
 	var instanceName: String? = null
 	var metricName: InstanceMetricName? = null
@@ -1283,8 +1447,12 @@ class AmazonLightsailGetInstanceMetricDataCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.getInstanceMetricData(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.GetInstanceMetricDataResult {
+	  return com.amazonaws.services.lightsail.model.GetInstanceMetricDataResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetInstanceMetricDataResult {
+		return environment.lightsail.getInstanceMetricData(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1301,12 +1469,12 @@ class AmazonLightsailGetInstanceMetricDataCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonLightsailFunctions.getInstancePortStates(init: AmazonLightsailGetInstancePortStatesCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailGetInstancePortStatesCommand().apply(init))
+fun AmazonLightsailFunctions.getInstancePortStates(init: AmazonLightsailGetInstancePortStatesCommand.() -> Unit): com.amazonaws.services.lightsail.model.GetInstancePortStatesResult {
+	return this.block.declare(AmazonLightsailGetInstancePortStatesCommand().apply(init)) as com.amazonaws.services.lightsail.model.GetInstancePortStatesResult
 }
 
 @Generated
-class AmazonLightsailGetInstancePortStatesCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetInstancePortStatesRequest> {
+class AmazonLightsailGetInstancePortStatesCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetInstancePortStatesRequest, com.amazonaws.services.lightsail.model.GetInstancePortStatesResult> {
 
 	var instanceName: String? = null
 
@@ -1316,8 +1484,12 @@ class AmazonLightsailGetInstancePortStatesCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.getInstancePortStates(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.GetInstancePortStatesResult {
+	  return com.amazonaws.services.lightsail.model.GetInstancePortStatesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetInstancePortStatesResult {
+		return environment.lightsail.getInstancePortStates(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1328,12 +1500,12 @@ class AmazonLightsailGetInstancePortStatesCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonLightsailFunctions.getInstanceSnapshot(init: AmazonLightsailGetInstanceSnapshotCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailGetInstanceSnapshotCommand().apply(init))
+fun AmazonLightsailFunctions.getInstanceSnapshot(init: AmazonLightsailGetInstanceSnapshotCommand.() -> Unit): com.amazonaws.services.lightsail.model.GetInstanceSnapshotResult {
+	return this.block.declare(AmazonLightsailGetInstanceSnapshotCommand().apply(init)) as com.amazonaws.services.lightsail.model.GetInstanceSnapshotResult
 }
 
 @Generated
-class AmazonLightsailGetInstanceSnapshotCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetInstanceSnapshotRequest> {
+class AmazonLightsailGetInstanceSnapshotCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetInstanceSnapshotRequest, com.amazonaws.services.lightsail.model.GetInstanceSnapshotResult> {
 
 	var instanceSnapshotName: String? = null
 
@@ -1343,8 +1515,12 @@ class AmazonLightsailGetInstanceSnapshotCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.getInstanceSnapshot(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.GetInstanceSnapshotResult {
+	  return com.amazonaws.services.lightsail.model.GetInstanceSnapshotResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetInstanceSnapshotResult {
+		return environment.lightsail.getInstanceSnapshot(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1355,12 +1531,12 @@ class AmazonLightsailGetInstanceSnapshotCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonLightsailFunctions.getInstanceSnapshots(init: AmazonLightsailGetInstanceSnapshotsCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailGetInstanceSnapshotsCommand().apply(init))
+fun AmazonLightsailFunctions.getInstanceSnapshots(init: AmazonLightsailGetInstanceSnapshotsCommand.() -> Unit): com.amazonaws.services.lightsail.model.GetInstanceSnapshotsResult {
+	return this.block.declare(AmazonLightsailGetInstanceSnapshotsCommand().apply(init)) as com.amazonaws.services.lightsail.model.GetInstanceSnapshotsResult
 }
 
 @Generated
-class AmazonLightsailGetInstanceSnapshotsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetInstanceSnapshotsRequest> {
+class AmazonLightsailGetInstanceSnapshotsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetInstanceSnapshotsRequest, com.amazonaws.services.lightsail.model.GetInstanceSnapshotsResult> {
 
 	var pageToken: String? = null
 
@@ -1370,8 +1546,12 @@ class AmazonLightsailGetInstanceSnapshotsCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.getInstanceSnapshots(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.GetInstanceSnapshotsResult {
+	  return com.amazonaws.services.lightsail.model.GetInstanceSnapshotsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetInstanceSnapshotsResult {
+		return environment.lightsail.getInstanceSnapshots(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1382,12 +1562,12 @@ class AmazonLightsailGetInstanceSnapshotsCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AmazonLightsailFunctions.getInstanceState(init: AmazonLightsailGetInstanceStateCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailGetInstanceStateCommand().apply(init))
+fun AmazonLightsailFunctions.getInstanceState(init: AmazonLightsailGetInstanceStateCommand.() -> Unit): com.amazonaws.services.lightsail.model.GetInstanceStateResult {
+	return this.block.declare(AmazonLightsailGetInstanceStateCommand().apply(init)) as com.amazonaws.services.lightsail.model.GetInstanceStateResult
 }
 
 @Generated
-class AmazonLightsailGetInstanceStateCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetInstanceStateRequest> {
+class AmazonLightsailGetInstanceStateCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetInstanceStateRequest, com.amazonaws.services.lightsail.model.GetInstanceStateResult> {
 
 	var instanceName: String? = null
 
@@ -1397,8 +1577,12 @@ class AmazonLightsailGetInstanceStateCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.getInstanceState(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.GetInstanceStateResult {
+	  return com.amazonaws.services.lightsail.model.GetInstanceStateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetInstanceStateResult {
+		return environment.lightsail.getInstanceState(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1409,12 +1593,12 @@ class AmazonLightsailGetInstanceStateCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AmazonLightsailFunctions.getInstances(init: AmazonLightsailGetInstancesCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailGetInstancesCommand().apply(init))
+fun AmazonLightsailFunctions.getInstances(init: AmazonLightsailGetInstancesCommand.() -> Unit): com.amazonaws.services.lightsail.model.GetInstancesResult {
+	return this.block.declare(AmazonLightsailGetInstancesCommand().apply(init)) as com.amazonaws.services.lightsail.model.GetInstancesResult
 }
 
 @Generated
-class AmazonLightsailGetInstancesCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetInstancesRequest> {
+class AmazonLightsailGetInstancesCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetInstancesRequest, com.amazonaws.services.lightsail.model.GetInstancesResult> {
 
 	var pageToken: String? = null
 
@@ -1424,8 +1608,12 @@ class AmazonLightsailGetInstancesCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.getInstances(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.GetInstancesResult {
+	  return com.amazonaws.services.lightsail.model.GetInstancesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetInstancesResult {
+		return environment.lightsail.getInstances(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1436,12 +1624,12 @@ class AmazonLightsailGetInstancesCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AmazonLightsailFunctions.getKeyPair(init: AmazonLightsailGetKeyPairCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailGetKeyPairCommand().apply(init))
+fun AmazonLightsailFunctions.getKeyPair(init: AmazonLightsailGetKeyPairCommand.() -> Unit): com.amazonaws.services.lightsail.model.GetKeyPairResult {
+	return this.block.declare(AmazonLightsailGetKeyPairCommand().apply(init)) as com.amazonaws.services.lightsail.model.GetKeyPairResult
 }
 
 @Generated
-class AmazonLightsailGetKeyPairCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetKeyPairRequest> {
+class AmazonLightsailGetKeyPairCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetKeyPairRequest, com.amazonaws.services.lightsail.model.GetKeyPairResult> {
 
 	var keyPairName: String? = null
 
@@ -1451,8 +1639,12 @@ class AmazonLightsailGetKeyPairCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.getKeyPair(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.GetKeyPairResult {
+	  return com.amazonaws.services.lightsail.model.GetKeyPairResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetKeyPairResult {
+		return environment.lightsail.getKeyPair(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1463,12 +1655,12 @@ class AmazonLightsailGetKeyPairCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AmazonLightsailFunctions.getKeyPairs(init: AmazonLightsailGetKeyPairsCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailGetKeyPairsCommand().apply(init))
+fun AmazonLightsailFunctions.getKeyPairs(init: AmazonLightsailGetKeyPairsCommand.() -> Unit): com.amazonaws.services.lightsail.model.GetKeyPairsResult {
+	return this.block.declare(AmazonLightsailGetKeyPairsCommand().apply(init)) as com.amazonaws.services.lightsail.model.GetKeyPairsResult
 }
 
 @Generated
-class AmazonLightsailGetKeyPairsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetKeyPairsRequest> {
+class AmazonLightsailGetKeyPairsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetKeyPairsRequest, com.amazonaws.services.lightsail.model.GetKeyPairsResult> {
 
 	var pageToken: String? = null
 
@@ -1478,8 +1670,12 @@ class AmazonLightsailGetKeyPairsCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.getKeyPairs(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.GetKeyPairsResult {
+	  return com.amazonaws.services.lightsail.model.GetKeyPairsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetKeyPairsResult {
+		return environment.lightsail.getKeyPairs(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1490,12 +1686,12 @@ class AmazonLightsailGetKeyPairsCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AmazonLightsailFunctions.getLoadBalancer(init: AmazonLightsailGetLoadBalancerCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailGetLoadBalancerCommand().apply(init))
+fun AmazonLightsailFunctions.getLoadBalancer(init: AmazonLightsailGetLoadBalancerCommand.() -> Unit): com.amazonaws.services.lightsail.model.GetLoadBalancerResult {
+	return this.block.declare(AmazonLightsailGetLoadBalancerCommand().apply(init)) as com.amazonaws.services.lightsail.model.GetLoadBalancerResult
 }
 
 @Generated
-class AmazonLightsailGetLoadBalancerCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetLoadBalancerRequest> {
+class AmazonLightsailGetLoadBalancerCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetLoadBalancerRequest, com.amazonaws.services.lightsail.model.GetLoadBalancerResult> {
 
 	var loadBalancerName: String? = null
 
@@ -1505,8 +1701,12 @@ class AmazonLightsailGetLoadBalancerCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.getLoadBalancer(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.GetLoadBalancerResult {
+	  return com.amazonaws.services.lightsail.model.GetLoadBalancerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetLoadBalancerResult {
+		return environment.lightsail.getLoadBalancer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1517,12 +1717,12 @@ class AmazonLightsailGetLoadBalancerCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AmazonLightsailFunctions.getLoadBalancerMetricData(init: AmazonLightsailGetLoadBalancerMetricDataCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailGetLoadBalancerMetricDataCommand().apply(init))
+fun AmazonLightsailFunctions.getLoadBalancerMetricData(init: AmazonLightsailGetLoadBalancerMetricDataCommand.() -> Unit): com.amazonaws.services.lightsail.model.GetLoadBalancerMetricDataResult {
+	return this.block.declare(AmazonLightsailGetLoadBalancerMetricDataCommand().apply(init)) as com.amazonaws.services.lightsail.model.GetLoadBalancerMetricDataResult
 }
 
 @Generated
-class AmazonLightsailGetLoadBalancerMetricDataCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetLoadBalancerMetricDataRequest> {
+class AmazonLightsailGetLoadBalancerMetricDataCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetLoadBalancerMetricDataRequest, com.amazonaws.services.lightsail.model.GetLoadBalancerMetricDataResult> {
 
 	var loadBalancerName: String? = null
 	var metricName: LoadBalancerMetricName? = null
@@ -1544,8 +1744,12 @@ class AmazonLightsailGetLoadBalancerMetricDataCommand() : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.getLoadBalancerMetricData(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.GetLoadBalancerMetricDataResult {
+	  return com.amazonaws.services.lightsail.model.GetLoadBalancerMetricDataResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetLoadBalancerMetricDataResult {
+		return environment.lightsail.getLoadBalancerMetricData(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1562,12 +1766,12 @@ class AmazonLightsailGetLoadBalancerMetricDataCommand() : AmazonWebServiceComman
 }
 
 
-fun AmazonLightsailFunctions.getLoadBalancerTlsCertificates(init: AmazonLightsailGetLoadBalancerTlsCertificatesCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailGetLoadBalancerTlsCertificatesCommand().apply(init))
+fun AmazonLightsailFunctions.getLoadBalancerTlsCertificates(init: AmazonLightsailGetLoadBalancerTlsCertificatesCommand.() -> Unit): com.amazonaws.services.lightsail.model.GetLoadBalancerTlsCertificatesResult {
+	return this.block.declare(AmazonLightsailGetLoadBalancerTlsCertificatesCommand().apply(init)) as com.amazonaws.services.lightsail.model.GetLoadBalancerTlsCertificatesResult
 }
 
 @Generated
-class AmazonLightsailGetLoadBalancerTlsCertificatesCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetLoadBalancerTlsCertificatesRequest> {
+class AmazonLightsailGetLoadBalancerTlsCertificatesCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetLoadBalancerTlsCertificatesRequest, com.amazonaws.services.lightsail.model.GetLoadBalancerTlsCertificatesResult> {
 
 	var loadBalancerName: String? = null
 
@@ -1577,8 +1781,12 @@ class AmazonLightsailGetLoadBalancerTlsCertificatesCommand() : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.getLoadBalancerTlsCertificates(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.GetLoadBalancerTlsCertificatesResult {
+	  return com.amazonaws.services.lightsail.model.GetLoadBalancerTlsCertificatesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetLoadBalancerTlsCertificatesResult {
+		return environment.lightsail.getLoadBalancerTlsCertificates(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1589,12 +1797,12 @@ class AmazonLightsailGetLoadBalancerTlsCertificatesCommand() : AmazonWebServiceC
 }
 
 
-fun AmazonLightsailFunctions.getLoadBalancers(init: AmazonLightsailGetLoadBalancersCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailGetLoadBalancersCommand().apply(init))
+fun AmazonLightsailFunctions.getLoadBalancers(init: AmazonLightsailGetLoadBalancersCommand.() -> Unit): com.amazonaws.services.lightsail.model.GetLoadBalancersResult {
+	return this.block.declare(AmazonLightsailGetLoadBalancersCommand().apply(init)) as com.amazonaws.services.lightsail.model.GetLoadBalancersResult
 }
 
 @Generated
-class AmazonLightsailGetLoadBalancersCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetLoadBalancersRequest> {
+class AmazonLightsailGetLoadBalancersCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetLoadBalancersRequest, com.amazonaws.services.lightsail.model.GetLoadBalancersResult> {
 
 	var pageToken: String? = null
 
@@ -1604,8 +1812,12 @@ class AmazonLightsailGetLoadBalancersCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.getLoadBalancers(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.GetLoadBalancersResult {
+	  return com.amazonaws.services.lightsail.model.GetLoadBalancersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetLoadBalancersResult {
+		return environment.lightsail.getLoadBalancers(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1616,12 +1828,12 @@ class AmazonLightsailGetLoadBalancersCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AmazonLightsailFunctions.getOperation(init: AmazonLightsailGetOperationCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailGetOperationCommand().apply(init))
+fun AmazonLightsailFunctions.getOperation(init: AmazonLightsailGetOperationCommand.() -> Unit): com.amazonaws.services.lightsail.model.GetOperationResult {
+	return this.block.declare(AmazonLightsailGetOperationCommand().apply(init)) as com.amazonaws.services.lightsail.model.GetOperationResult
 }
 
 @Generated
-class AmazonLightsailGetOperationCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetOperationRequest> {
+class AmazonLightsailGetOperationCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetOperationRequest, com.amazonaws.services.lightsail.model.GetOperationResult> {
 
 	var operationId: String? = null
 
@@ -1631,8 +1843,12 @@ class AmazonLightsailGetOperationCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.getOperation(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.GetOperationResult {
+	  return com.amazonaws.services.lightsail.model.GetOperationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetOperationResult {
+		return environment.lightsail.getOperation(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1643,12 +1859,12 @@ class AmazonLightsailGetOperationCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AmazonLightsailFunctions.getOperations(init: AmazonLightsailGetOperationsCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailGetOperationsCommand().apply(init))
+fun AmazonLightsailFunctions.getOperations(init: AmazonLightsailGetOperationsCommand.() -> Unit): com.amazonaws.services.lightsail.model.GetOperationsResult {
+	return this.block.declare(AmazonLightsailGetOperationsCommand().apply(init)) as com.amazonaws.services.lightsail.model.GetOperationsResult
 }
 
 @Generated
-class AmazonLightsailGetOperationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetOperationsRequest> {
+class AmazonLightsailGetOperationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetOperationsRequest, com.amazonaws.services.lightsail.model.GetOperationsResult> {
 
 	var pageToken: String? = null
 
@@ -1658,8 +1874,12 @@ class AmazonLightsailGetOperationsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.getOperations(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.GetOperationsResult {
+	  return com.amazonaws.services.lightsail.model.GetOperationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetOperationsResult {
+		return environment.lightsail.getOperations(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1670,12 +1890,12 @@ class AmazonLightsailGetOperationsCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonLightsailFunctions.getOperationsForResource(init: AmazonLightsailGetOperationsForResourceCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailGetOperationsForResourceCommand().apply(init))
+fun AmazonLightsailFunctions.getOperationsForResource(init: AmazonLightsailGetOperationsForResourceCommand.() -> Unit): com.amazonaws.services.lightsail.model.GetOperationsForResourceResult {
+	return this.block.declare(AmazonLightsailGetOperationsForResourceCommand().apply(init)) as com.amazonaws.services.lightsail.model.GetOperationsForResourceResult
 }
 
 @Generated
-class AmazonLightsailGetOperationsForResourceCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetOperationsForResourceRequest> {
+class AmazonLightsailGetOperationsForResourceCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetOperationsForResourceRequest, com.amazonaws.services.lightsail.model.GetOperationsForResourceResult> {
 
 	var resourceName: String? = null
 	var pageToken: String? = null
@@ -1687,8 +1907,12 @@ class AmazonLightsailGetOperationsForResourceCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.getOperationsForResource(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.GetOperationsForResourceResult {
+	  return com.amazonaws.services.lightsail.model.GetOperationsForResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetOperationsForResourceResult {
+		return environment.lightsail.getOperationsForResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1700,12 +1924,12 @@ class AmazonLightsailGetOperationsForResourceCommand() : AmazonWebServiceCommand
 }
 
 
-fun AmazonLightsailFunctions.getRegions(init: AmazonLightsailGetRegionsCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailGetRegionsCommand().apply(init))
+fun AmazonLightsailFunctions.getRegions(init: AmazonLightsailGetRegionsCommand.() -> Unit): com.amazonaws.services.lightsail.model.GetRegionsResult {
+	return this.block.declare(AmazonLightsailGetRegionsCommand().apply(init)) as com.amazonaws.services.lightsail.model.GetRegionsResult
 }
 
 @Generated
-class AmazonLightsailGetRegionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetRegionsRequest> {
+class AmazonLightsailGetRegionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetRegionsRequest, com.amazonaws.services.lightsail.model.GetRegionsResult> {
 
 	var includeAvailabilityZones: Boolean? = false
 
@@ -1715,8 +1939,12 @@ class AmazonLightsailGetRegionsCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.getRegions(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.GetRegionsResult {
+	  return com.amazonaws.services.lightsail.model.GetRegionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetRegionsResult {
+		return environment.lightsail.getRegions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1727,12 +1955,12 @@ class AmazonLightsailGetRegionsCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AmazonLightsailFunctions.getStaticIp(init: AmazonLightsailGetStaticIpCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailGetStaticIpCommand().apply(init))
+fun AmazonLightsailFunctions.getStaticIp(init: AmazonLightsailGetStaticIpCommand.() -> Unit): com.amazonaws.services.lightsail.model.GetStaticIpResult {
+	return this.block.declare(AmazonLightsailGetStaticIpCommand().apply(init)) as com.amazonaws.services.lightsail.model.GetStaticIpResult
 }
 
 @Generated
-class AmazonLightsailGetStaticIpCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetStaticIpRequest> {
+class AmazonLightsailGetStaticIpCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetStaticIpRequest, com.amazonaws.services.lightsail.model.GetStaticIpResult> {
 
 	var staticIpName: String? = null
 
@@ -1742,8 +1970,12 @@ class AmazonLightsailGetStaticIpCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.getStaticIp(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.GetStaticIpResult {
+	  return com.amazonaws.services.lightsail.model.GetStaticIpResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetStaticIpResult {
+		return environment.lightsail.getStaticIp(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1754,12 +1986,12 @@ class AmazonLightsailGetStaticIpCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AmazonLightsailFunctions.getStaticIps(init: AmazonLightsailGetStaticIpsCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailGetStaticIpsCommand().apply(init))
+fun AmazonLightsailFunctions.getStaticIps(init: AmazonLightsailGetStaticIpsCommand.() -> Unit): com.amazonaws.services.lightsail.model.GetStaticIpsResult {
+	return this.block.declare(AmazonLightsailGetStaticIpsCommand().apply(init)) as com.amazonaws.services.lightsail.model.GetStaticIpsResult
 }
 
 @Generated
-class AmazonLightsailGetStaticIpsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetStaticIpsRequest> {
+class AmazonLightsailGetStaticIpsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.GetStaticIpsRequest, com.amazonaws.services.lightsail.model.GetStaticIpsResult> {
 
 	var pageToken: String? = null
 
@@ -1769,8 +2001,12 @@ class AmazonLightsailGetStaticIpsCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.getStaticIps(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.GetStaticIpsResult {
+	  return com.amazonaws.services.lightsail.model.GetStaticIpsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.GetStaticIpsResult {
+		return environment.lightsail.getStaticIps(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1781,12 +2017,12 @@ class AmazonLightsailGetStaticIpsCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AmazonLightsailFunctions.importKeyPair(init: AmazonLightsailImportKeyPairCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailImportKeyPairCommand().apply(init))
+fun AmazonLightsailFunctions.importKeyPair(init: AmazonLightsailImportKeyPairCommand.() -> Unit): com.amazonaws.services.lightsail.model.ImportKeyPairResult {
+	return this.block.declare(AmazonLightsailImportKeyPairCommand().apply(init)) as com.amazonaws.services.lightsail.model.ImportKeyPairResult
 }
 
 @Generated
-class AmazonLightsailImportKeyPairCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.ImportKeyPairRequest> {
+class AmazonLightsailImportKeyPairCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.ImportKeyPairRequest, com.amazonaws.services.lightsail.model.ImportKeyPairResult> {
 
 	var keyPairName: String? = null
 	var publicKeyBase64: String? = null
@@ -1798,8 +2034,12 @@ class AmazonLightsailImportKeyPairCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.importKeyPair(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.ImportKeyPairResult {
+	  return com.amazonaws.services.lightsail.model.ImportKeyPairResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.ImportKeyPairResult {
+		return environment.lightsail.importKeyPair(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1811,12 +2051,12 @@ class AmazonLightsailImportKeyPairCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonLightsailFunctions.isVpcPeered(init: AmazonLightsailIsVpcPeeredCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailIsVpcPeeredCommand().apply(init))
+fun AmazonLightsailFunctions.isVpcPeered(init: AmazonLightsailIsVpcPeeredCommand.() -> Unit): com.amazonaws.services.lightsail.model.IsVpcPeeredResult {
+	return this.block.declare(AmazonLightsailIsVpcPeeredCommand().apply(init)) as com.amazonaws.services.lightsail.model.IsVpcPeeredResult
 }
 
 @Generated
-class AmazonLightsailIsVpcPeeredCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.IsVpcPeeredRequest> {
+class AmazonLightsailIsVpcPeeredCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.IsVpcPeeredRequest, com.amazonaws.services.lightsail.model.IsVpcPeeredResult> {
 
 
 
@@ -1826,8 +2066,12 @@ class AmazonLightsailIsVpcPeeredCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.isVpcPeered(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.IsVpcPeeredResult {
+	  return com.amazonaws.services.lightsail.model.IsVpcPeeredResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.IsVpcPeeredResult {
+		return environment.lightsail.isVpcPeered(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1838,12 +2082,12 @@ class AmazonLightsailIsVpcPeeredCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AmazonLightsailFunctions.openInstancePublicPorts(init: AmazonLightsailOpenInstancePublicPortsCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailOpenInstancePublicPortsCommand().apply(init))
+fun AmazonLightsailFunctions.openInstancePublicPorts(init: AmazonLightsailOpenInstancePublicPortsCommand.() -> Unit): com.amazonaws.services.lightsail.model.OpenInstancePublicPortsResult {
+	return this.block.declare(AmazonLightsailOpenInstancePublicPortsCommand().apply(init)) as com.amazonaws.services.lightsail.model.OpenInstancePublicPortsResult
 }
 
 @Generated
-class AmazonLightsailOpenInstancePublicPortsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.OpenInstancePublicPortsRequest> {
+class AmazonLightsailOpenInstancePublicPortsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.OpenInstancePublicPortsRequest, com.amazonaws.services.lightsail.model.OpenInstancePublicPortsResult> {
 
 	var portInfo: com.amazonaws.services.lightsail.model.PortInfo? = null
 	var instanceName: String? = null
@@ -1855,8 +2099,12 @@ class AmazonLightsailOpenInstancePublicPortsCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.openInstancePublicPorts(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.OpenInstancePublicPortsResult {
+	  return com.amazonaws.services.lightsail.model.OpenInstancePublicPortsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.OpenInstancePublicPortsResult {
+		return environment.lightsail.openInstancePublicPorts(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1868,12 +2116,12 @@ class AmazonLightsailOpenInstancePublicPortsCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AmazonLightsailFunctions.peerVpc(init: AmazonLightsailPeerVpcCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailPeerVpcCommand().apply(init))
+fun AmazonLightsailFunctions.peerVpc(init: AmazonLightsailPeerVpcCommand.() -> Unit): com.amazonaws.services.lightsail.model.PeerVpcResult {
+	return this.block.declare(AmazonLightsailPeerVpcCommand().apply(init)) as com.amazonaws.services.lightsail.model.PeerVpcResult
 }
 
 @Generated
-class AmazonLightsailPeerVpcCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.PeerVpcRequest> {
+class AmazonLightsailPeerVpcCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.PeerVpcRequest, com.amazonaws.services.lightsail.model.PeerVpcResult> {
 
 
 
@@ -1883,8 +2131,12 @@ class AmazonLightsailPeerVpcCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.peerVpc(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.PeerVpcResult {
+	  return com.amazonaws.services.lightsail.model.PeerVpcResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.PeerVpcResult {
+		return environment.lightsail.peerVpc(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1895,12 +2147,12 @@ class AmazonLightsailPeerVpcCommand() : AmazonWebServiceCommand<com.amazonaws.se
 }
 
 
-fun AmazonLightsailFunctions.putInstancePublicPorts(init: AmazonLightsailPutInstancePublicPortsCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailPutInstancePublicPortsCommand().apply(init))
+fun AmazonLightsailFunctions.putInstancePublicPorts(init: AmazonLightsailPutInstancePublicPortsCommand.() -> Unit): com.amazonaws.services.lightsail.model.PutInstancePublicPortsResult {
+	return this.block.declare(AmazonLightsailPutInstancePublicPortsCommand().apply(init)) as com.amazonaws.services.lightsail.model.PutInstancePublicPortsResult
 }
 
 @Generated
-class AmazonLightsailPutInstancePublicPortsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.PutInstancePublicPortsRequest> {
+class AmazonLightsailPutInstancePublicPortsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.PutInstancePublicPortsRequest, com.amazonaws.services.lightsail.model.PutInstancePublicPortsResult> {
 
 	var portInfos: List<com.amazonaws.services.lightsail.model.PortInfo>? = null
 	var instanceName: String? = null
@@ -1912,8 +2164,12 @@ class AmazonLightsailPutInstancePublicPortsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.putInstancePublicPorts(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.PutInstancePublicPortsResult {
+	  return com.amazonaws.services.lightsail.model.PutInstancePublicPortsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.PutInstancePublicPortsResult {
+		return environment.lightsail.putInstancePublicPorts(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1925,12 +2181,12 @@ class AmazonLightsailPutInstancePublicPortsCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AmazonLightsailFunctions.rebootInstance(init: AmazonLightsailRebootInstanceCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailRebootInstanceCommand().apply(init))
+fun AmazonLightsailFunctions.rebootInstance(init: AmazonLightsailRebootInstanceCommand.() -> Unit): com.amazonaws.services.lightsail.model.RebootInstanceResult {
+	return this.block.declare(AmazonLightsailRebootInstanceCommand().apply(init)) as com.amazonaws.services.lightsail.model.RebootInstanceResult
 }
 
 @Generated
-class AmazonLightsailRebootInstanceCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.RebootInstanceRequest> {
+class AmazonLightsailRebootInstanceCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.RebootInstanceRequest, com.amazonaws.services.lightsail.model.RebootInstanceResult> {
 
 	var instanceName: String? = null
 
@@ -1940,8 +2196,12 @@ class AmazonLightsailRebootInstanceCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.rebootInstance(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.RebootInstanceResult {
+	  return com.amazonaws.services.lightsail.model.RebootInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.RebootInstanceResult {
+		return environment.lightsail.rebootInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1952,12 +2212,12 @@ class AmazonLightsailRebootInstanceCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AmazonLightsailFunctions.releaseStaticIp(init: AmazonLightsailReleaseStaticIpCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailReleaseStaticIpCommand().apply(init))
+fun AmazonLightsailFunctions.releaseStaticIp(init: AmazonLightsailReleaseStaticIpCommand.() -> Unit): com.amazonaws.services.lightsail.model.ReleaseStaticIpResult {
+	return this.block.declare(AmazonLightsailReleaseStaticIpCommand().apply(init)) as com.amazonaws.services.lightsail.model.ReleaseStaticIpResult
 }
 
 @Generated
-class AmazonLightsailReleaseStaticIpCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.ReleaseStaticIpRequest> {
+class AmazonLightsailReleaseStaticIpCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.ReleaseStaticIpRequest, com.amazonaws.services.lightsail.model.ReleaseStaticIpResult> {
 
 	var staticIpName: String? = null
 
@@ -1967,8 +2227,12 @@ class AmazonLightsailReleaseStaticIpCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.releaseStaticIp(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.ReleaseStaticIpResult {
+	  return com.amazonaws.services.lightsail.model.ReleaseStaticIpResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.ReleaseStaticIpResult {
+		return environment.lightsail.releaseStaticIp(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1979,12 +2243,12 @@ class AmazonLightsailReleaseStaticIpCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AmazonLightsailFunctions.startInstance(init: AmazonLightsailStartInstanceCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailStartInstanceCommand().apply(init))
+fun AmazonLightsailFunctions.startInstance(init: AmazonLightsailStartInstanceCommand.() -> Unit): com.amazonaws.services.lightsail.model.StartInstanceResult {
+	return this.block.declare(AmazonLightsailStartInstanceCommand().apply(init)) as com.amazonaws.services.lightsail.model.StartInstanceResult
 }
 
 @Generated
-class AmazonLightsailStartInstanceCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.StartInstanceRequest> {
+class AmazonLightsailStartInstanceCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.StartInstanceRequest, com.amazonaws.services.lightsail.model.StartInstanceResult> {
 
 	var instanceName: String? = null
 
@@ -1994,8 +2258,12 @@ class AmazonLightsailStartInstanceCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.startInstance(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.StartInstanceResult {
+	  return com.amazonaws.services.lightsail.model.StartInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.StartInstanceResult {
+		return environment.lightsail.startInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2006,12 +2274,12 @@ class AmazonLightsailStartInstanceCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonLightsailFunctions.stopInstance(init: AmazonLightsailStopInstanceCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailStopInstanceCommand().apply(init))
+fun AmazonLightsailFunctions.stopInstance(init: AmazonLightsailStopInstanceCommand.() -> Unit): com.amazonaws.services.lightsail.model.StopInstanceResult {
+	return this.block.declare(AmazonLightsailStopInstanceCommand().apply(init)) as com.amazonaws.services.lightsail.model.StopInstanceResult
 }
 
 @Generated
-class AmazonLightsailStopInstanceCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.StopInstanceRequest> {
+class AmazonLightsailStopInstanceCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.StopInstanceRequest, com.amazonaws.services.lightsail.model.StopInstanceResult> {
 
 	var instanceName: String? = null
 	var force: Boolean? = false
@@ -2023,8 +2291,12 @@ class AmazonLightsailStopInstanceCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.stopInstance(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.StopInstanceResult {
+	  return com.amazonaws.services.lightsail.model.StopInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.StopInstanceResult {
+		return environment.lightsail.stopInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2036,12 +2308,12 @@ class AmazonLightsailStopInstanceCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AmazonLightsailFunctions.unpeerVpc(init: AmazonLightsailUnpeerVpcCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailUnpeerVpcCommand().apply(init))
+fun AmazonLightsailFunctions.unpeerVpc(init: AmazonLightsailUnpeerVpcCommand.() -> Unit): com.amazonaws.services.lightsail.model.UnpeerVpcResult {
+	return this.block.declare(AmazonLightsailUnpeerVpcCommand().apply(init)) as com.amazonaws.services.lightsail.model.UnpeerVpcResult
 }
 
 @Generated
-class AmazonLightsailUnpeerVpcCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.UnpeerVpcRequest> {
+class AmazonLightsailUnpeerVpcCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.UnpeerVpcRequest, com.amazonaws.services.lightsail.model.UnpeerVpcResult> {
 
 
 
@@ -2051,8 +2323,12 @@ class AmazonLightsailUnpeerVpcCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.unpeerVpc(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.UnpeerVpcResult {
+	  return com.amazonaws.services.lightsail.model.UnpeerVpcResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.UnpeerVpcResult {
+		return environment.lightsail.unpeerVpc(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2063,12 +2339,12 @@ class AmazonLightsailUnpeerVpcCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AmazonLightsailFunctions.updateDomainEntry(init: AmazonLightsailUpdateDomainEntryCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailUpdateDomainEntryCommand().apply(init))
+fun AmazonLightsailFunctions.updateDomainEntry(init: AmazonLightsailUpdateDomainEntryCommand.() -> Unit): com.amazonaws.services.lightsail.model.UpdateDomainEntryResult {
+	return this.block.declare(AmazonLightsailUpdateDomainEntryCommand().apply(init)) as com.amazonaws.services.lightsail.model.UpdateDomainEntryResult
 }
 
 @Generated
-class AmazonLightsailUpdateDomainEntryCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.UpdateDomainEntryRequest> {
+class AmazonLightsailUpdateDomainEntryCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.UpdateDomainEntryRequest, com.amazonaws.services.lightsail.model.UpdateDomainEntryResult> {
 
 	var domainName: String? = null
 	var domainEntry: com.amazonaws.services.lightsail.model.DomainEntry? = null
@@ -2080,8 +2356,12 @@ class AmazonLightsailUpdateDomainEntryCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.updateDomainEntry(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.UpdateDomainEntryResult {
+	  return com.amazonaws.services.lightsail.model.UpdateDomainEntryResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.UpdateDomainEntryResult {
+		return environment.lightsail.updateDomainEntry(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2093,12 +2373,12 @@ class AmazonLightsailUpdateDomainEntryCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonLightsailFunctions.updateLoadBalancerAttribute(init: AmazonLightsailUpdateLoadBalancerAttributeCommand.() -> Unit) {
-	this.block.declare(AmazonLightsailUpdateLoadBalancerAttributeCommand().apply(init))
+fun AmazonLightsailFunctions.updateLoadBalancerAttribute(init: AmazonLightsailUpdateLoadBalancerAttributeCommand.() -> Unit): com.amazonaws.services.lightsail.model.UpdateLoadBalancerAttributeResult {
+	return this.block.declare(AmazonLightsailUpdateLoadBalancerAttributeCommand().apply(init)) as com.amazonaws.services.lightsail.model.UpdateLoadBalancerAttributeResult
 }
 
 @Generated
-class AmazonLightsailUpdateLoadBalancerAttributeCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.UpdateLoadBalancerAttributeRequest> {
+class AmazonLightsailUpdateLoadBalancerAttributeCommand() : AmazonWebServiceCommand<com.amazonaws.services.lightsail.model.UpdateLoadBalancerAttributeRequest, com.amazonaws.services.lightsail.model.UpdateLoadBalancerAttributeResult> {
 
 	var loadBalancerName: String? = null
 	var attributeName: LoadBalancerAttributeName? = null
@@ -2112,8 +2392,12 @@ class AmazonLightsailUpdateLoadBalancerAttributeCommand() : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lightsail.updateLoadBalancerAttribute(build())
+	override fun dryResult(): com.amazonaws.services.lightsail.model.UpdateLoadBalancerAttributeResult {
+	  return com.amazonaws.services.lightsail.model.UpdateLoadBalancerAttributeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lightsail.model.UpdateLoadBalancerAttributeResult {
+		return environment.lightsail.updateLoadBalancerAttribute(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

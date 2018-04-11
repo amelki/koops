@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.states: AWSStepFunctions
 @Generated
 class AWSStepFunctionsFunctions(val block: Block)
 
-infix fun AwsContinuation.states(init: AWSStepFunctionsFunctions.() -> Unit) {
-	AWSStepFunctionsFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.states(init: AWSStepFunctionsFunctions.() -> T): T {
+	return AWSStepFunctionsFunctions(shell).run(init)
 }
 
 			
 
-fun AWSStepFunctionsFunctions.createActivity(init: AWSStepFunctionsCreateActivityCommand.() -> Unit) {
-	this.block.declare(AWSStepFunctionsCreateActivityCommand().apply(init))
+fun AWSStepFunctionsFunctions.createActivity(init: AWSStepFunctionsCreateActivityCommand.() -> Unit): com.amazonaws.services.stepfunctions.model.CreateActivityResult {
+	return this.block.declare(AWSStepFunctionsCreateActivityCommand().apply(init)) as com.amazonaws.services.stepfunctions.model.CreateActivityResult
 }
 
 @Generated
-class AWSStepFunctionsCreateActivityCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.CreateActivityRequest> {
+class AWSStepFunctionsCreateActivityCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.CreateActivityRequest, com.amazonaws.services.stepfunctions.model.CreateActivityResult> {
 
 	var name: String? = null
 
@@ -41,8 +41,12 @@ class AWSStepFunctionsCreateActivityCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.states.createActivity(build())
+	override fun dryResult(): com.amazonaws.services.stepfunctions.model.CreateActivityResult {
+	  return com.amazonaws.services.stepfunctions.model.CreateActivityResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.stepfunctions.model.CreateActivityResult {
+		return environment.states.createActivity(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -53,12 +57,12 @@ class AWSStepFunctionsCreateActivityCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AWSStepFunctionsFunctions.createStateMachine(init: AWSStepFunctionsCreateStateMachineCommand.() -> Unit) {
-	this.block.declare(AWSStepFunctionsCreateStateMachineCommand().apply(init))
+fun AWSStepFunctionsFunctions.createStateMachine(init: AWSStepFunctionsCreateStateMachineCommand.() -> Unit): com.amazonaws.services.stepfunctions.model.CreateStateMachineResult {
+	return this.block.declare(AWSStepFunctionsCreateStateMachineCommand().apply(init)) as com.amazonaws.services.stepfunctions.model.CreateStateMachineResult
 }
 
 @Generated
-class AWSStepFunctionsCreateStateMachineCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.CreateStateMachineRequest> {
+class AWSStepFunctionsCreateStateMachineCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.CreateStateMachineRequest, com.amazonaws.services.stepfunctions.model.CreateStateMachineResult> {
 
 	var name: String? = null
 	var definition: String? = null
@@ -72,8 +76,12 @@ class AWSStepFunctionsCreateStateMachineCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.states.createStateMachine(build())
+	override fun dryResult(): com.amazonaws.services.stepfunctions.model.CreateStateMachineResult {
+	  return com.amazonaws.services.stepfunctions.model.CreateStateMachineResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.stepfunctions.model.CreateStateMachineResult {
+		return environment.states.createStateMachine(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -86,12 +94,12 @@ class AWSStepFunctionsCreateStateMachineCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AWSStepFunctionsFunctions.deleteActivity(init: AWSStepFunctionsDeleteActivityCommand.() -> Unit) {
-	this.block.declare(AWSStepFunctionsDeleteActivityCommand().apply(init))
+fun AWSStepFunctionsFunctions.deleteActivity(init: AWSStepFunctionsDeleteActivityCommand.() -> Unit): com.amazonaws.services.stepfunctions.model.DeleteActivityResult {
+	return this.block.declare(AWSStepFunctionsDeleteActivityCommand().apply(init)) as com.amazonaws.services.stepfunctions.model.DeleteActivityResult
 }
 
 @Generated
-class AWSStepFunctionsDeleteActivityCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.DeleteActivityRequest> {
+class AWSStepFunctionsDeleteActivityCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.DeleteActivityRequest, com.amazonaws.services.stepfunctions.model.DeleteActivityResult> {
 
 	var activityArn: String? = null
 
@@ -101,8 +109,12 @@ class AWSStepFunctionsDeleteActivityCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.states.deleteActivity(build())
+	override fun dryResult(): com.amazonaws.services.stepfunctions.model.DeleteActivityResult {
+	  return com.amazonaws.services.stepfunctions.model.DeleteActivityResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.stepfunctions.model.DeleteActivityResult {
+		return environment.states.deleteActivity(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -113,12 +125,12 @@ class AWSStepFunctionsDeleteActivityCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AWSStepFunctionsFunctions.deleteStateMachine(init: AWSStepFunctionsDeleteStateMachineCommand.() -> Unit) {
-	this.block.declare(AWSStepFunctionsDeleteStateMachineCommand().apply(init))
+fun AWSStepFunctionsFunctions.deleteStateMachine(init: AWSStepFunctionsDeleteStateMachineCommand.() -> Unit): com.amazonaws.services.stepfunctions.model.DeleteStateMachineResult {
+	return this.block.declare(AWSStepFunctionsDeleteStateMachineCommand().apply(init)) as com.amazonaws.services.stepfunctions.model.DeleteStateMachineResult
 }
 
 @Generated
-class AWSStepFunctionsDeleteStateMachineCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.DeleteStateMachineRequest> {
+class AWSStepFunctionsDeleteStateMachineCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.DeleteStateMachineRequest, com.amazonaws.services.stepfunctions.model.DeleteStateMachineResult> {
 
 	var stateMachineArn: String? = null
 
@@ -128,8 +140,12 @@ class AWSStepFunctionsDeleteStateMachineCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.states.deleteStateMachine(build())
+	override fun dryResult(): com.amazonaws.services.stepfunctions.model.DeleteStateMachineResult {
+	  return com.amazonaws.services.stepfunctions.model.DeleteStateMachineResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.stepfunctions.model.DeleteStateMachineResult {
+		return environment.states.deleteStateMachine(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -140,12 +156,12 @@ class AWSStepFunctionsDeleteStateMachineCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AWSStepFunctionsFunctions.describeActivity(init: AWSStepFunctionsDescribeActivityCommand.() -> Unit) {
-	this.block.declare(AWSStepFunctionsDescribeActivityCommand().apply(init))
+fun AWSStepFunctionsFunctions.describeActivity(init: AWSStepFunctionsDescribeActivityCommand.() -> Unit): com.amazonaws.services.stepfunctions.model.DescribeActivityResult {
+	return this.block.declare(AWSStepFunctionsDescribeActivityCommand().apply(init)) as com.amazonaws.services.stepfunctions.model.DescribeActivityResult
 }
 
 @Generated
-class AWSStepFunctionsDescribeActivityCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.DescribeActivityRequest> {
+class AWSStepFunctionsDescribeActivityCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.DescribeActivityRequest, com.amazonaws.services.stepfunctions.model.DescribeActivityResult> {
 
 	var activityArn: String? = null
 
@@ -155,8 +171,12 @@ class AWSStepFunctionsDescribeActivityCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.states.describeActivity(build())
+	override fun dryResult(): com.amazonaws.services.stepfunctions.model.DescribeActivityResult {
+	  return com.amazonaws.services.stepfunctions.model.DescribeActivityResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.stepfunctions.model.DescribeActivityResult {
+		return environment.states.describeActivity(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -167,12 +187,12 @@ class AWSStepFunctionsDescribeActivityCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AWSStepFunctionsFunctions.describeExecution(init: AWSStepFunctionsDescribeExecutionCommand.() -> Unit) {
-	this.block.declare(AWSStepFunctionsDescribeExecutionCommand().apply(init))
+fun AWSStepFunctionsFunctions.describeExecution(init: AWSStepFunctionsDescribeExecutionCommand.() -> Unit): com.amazonaws.services.stepfunctions.model.DescribeExecutionResult {
+	return this.block.declare(AWSStepFunctionsDescribeExecutionCommand().apply(init)) as com.amazonaws.services.stepfunctions.model.DescribeExecutionResult
 }
 
 @Generated
-class AWSStepFunctionsDescribeExecutionCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.DescribeExecutionRequest> {
+class AWSStepFunctionsDescribeExecutionCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.DescribeExecutionRequest, com.amazonaws.services.stepfunctions.model.DescribeExecutionResult> {
 
 	var executionArn: String? = null
 
@@ -182,8 +202,12 @@ class AWSStepFunctionsDescribeExecutionCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.states.describeExecution(build())
+	override fun dryResult(): com.amazonaws.services.stepfunctions.model.DescribeExecutionResult {
+	  return com.amazonaws.services.stepfunctions.model.DescribeExecutionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.stepfunctions.model.DescribeExecutionResult {
+		return environment.states.describeExecution(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -194,12 +218,12 @@ class AWSStepFunctionsDescribeExecutionCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AWSStepFunctionsFunctions.describeStateMachine(init: AWSStepFunctionsDescribeStateMachineCommand.() -> Unit) {
-	this.block.declare(AWSStepFunctionsDescribeStateMachineCommand().apply(init))
+fun AWSStepFunctionsFunctions.describeStateMachine(init: AWSStepFunctionsDescribeStateMachineCommand.() -> Unit): com.amazonaws.services.stepfunctions.model.DescribeStateMachineResult {
+	return this.block.declare(AWSStepFunctionsDescribeStateMachineCommand().apply(init)) as com.amazonaws.services.stepfunctions.model.DescribeStateMachineResult
 }
 
 @Generated
-class AWSStepFunctionsDescribeStateMachineCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.DescribeStateMachineRequest> {
+class AWSStepFunctionsDescribeStateMachineCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.DescribeStateMachineRequest, com.amazonaws.services.stepfunctions.model.DescribeStateMachineResult> {
 
 	var stateMachineArn: String? = null
 
@@ -209,8 +233,12 @@ class AWSStepFunctionsDescribeStateMachineCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.states.describeStateMachine(build())
+	override fun dryResult(): com.amazonaws.services.stepfunctions.model.DescribeStateMachineResult {
+	  return com.amazonaws.services.stepfunctions.model.DescribeStateMachineResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.stepfunctions.model.DescribeStateMachineResult {
+		return environment.states.describeStateMachine(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -221,12 +249,12 @@ class AWSStepFunctionsDescribeStateMachineCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AWSStepFunctionsFunctions.describeStateMachineForExecution(init: AWSStepFunctionsDescribeStateMachineForExecutionCommand.() -> Unit) {
-	this.block.declare(AWSStepFunctionsDescribeStateMachineForExecutionCommand().apply(init))
+fun AWSStepFunctionsFunctions.describeStateMachineForExecution(init: AWSStepFunctionsDescribeStateMachineForExecutionCommand.() -> Unit): com.amazonaws.services.stepfunctions.model.DescribeStateMachineForExecutionResult {
+	return this.block.declare(AWSStepFunctionsDescribeStateMachineForExecutionCommand().apply(init)) as com.amazonaws.services.stepfunctions.model.DescribeStateMachineForExecutionResult
 }
 
 @Generated
-class AWSStepFunctionsDescribeStateMachineForExecutionCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.DescribeStateMachineForExecutionRequest> {
+class AWSStepFunctionsDescribeStateMachineForExecutionCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.DescribeStateMachineForExecutionRequest, com.amazonaws.services.stepfunctions.model.DescribeStateMachineForExecutionResult> {
 
 	var executionArn: String? = null
 
@@ -236,8 +264,12 @@ class AWSStepFunctionsDescribeStateMachineForExecutionCommand() : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.states.describeStateMachineForExecution(build())
+	override fun dryResult(): com.amazonaws.services.stepfunctions.model.DescribeStateMachineForExecutionResult {
+	  return com.amazonaws.services.stepfunctions.model.DescribeStateMachineForExecutionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.stepfunctions.model.DescribeStateMachineForExecutionResult {
+		return environment.states.describeStateMachineForExecution(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -248,12 +280,12 @@ class AWSStepFunctionsDescribeStateMachineForExecutionCommand() : AmazonWebServi
 }
 
 
-fun AWSStepFunctionsFunctions.getActivityTask(init: AWSStepFunctionsGetActivityTaskCommand.() -> Unit) {
-	this.block.declare(AWSStepFunctionsGetActivityTaskCommand().apply(init))
+fun AWSStepFunctionsFunctions.getActivityTask(init: AWSStepFunctionsGetActivityTaskCommand.() -> Unit): com.amazonaws.services.stepfunctions.model.GetActivityTaskResult {
+	return this.block.declare(AWSStepFunctionsGetActivityTaskCommand().apply(init)) as com.amazonaws.services.stepfunctions.model.GetActivityTaskResult
 }
 
 @Generated
-class AWSStepFunctionsGetActivityTaskCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.GetActivityTaskRequest> {
+class AWSStepFunctionsGetActivityTaskCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.GetActivityTaskRequest, com.amazonaws.services.stepfunctions.model.GetActivityTaskResult> {
 
 	var activityArn: String? = null
 	var workerName: String? = null
@@ -265,8 +297,12 @@ class AWSStepFunctionsGetActivityTaskCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.states.getActivityTask(build())
+	override fun dryResult(): com.amazonaws.services.stepfunctions.model.GetActivityTaskResult {
+	  return com.amazonaws.services.stepfunctions.model.GetActivityTaskResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.stepfunctions.model.GetActivityTaskResult {
+		return environment.states.getActivityTask(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -278,12 +314,12 @@ class AWSStepFunctionsGetActivityTaskCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AWSStepFunctionsFunctions.getExecutionHistory(init: AWSStepFunctionsGetExecutionHistoryCommand.() -> Unit) {
-	this.block.declare(AWSStepFunctionsGetExecutionHistoryCommand().apply(init))
+fun AWSStepFunctionsFunctions.getExecutionHistory(init: AWSStepFunctionsGetExecutionHistoryCommand.() -> Unit): com.amazonaws.services.stepfunctions.model.GetExecutionHistoryResult {
+	return this.block.declare(AWSStepFunctionsGetExecutionHistoryCommand().apply(init)) as com.amazonaws.services.stepfunctions.model.GetExecutionHistoryResult
 }
 
 @Generated
-class AWSStepFunctionsGetExecutionHistoryCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.GetExecutionHistoryRequest> {
+class AWSStepFunctionsGetExecutionHistoryCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.GetExecutionHistoryRequest, com.amazonaws.services.stepfunctions.model.GetExecutionHistoryResult> {
 
 	var executionArn: String? = null
 	var maxResults: Int? = 0
@@ -299,8 +335,12 @@ class AWSStepFunctionsGetExecutionHistoryCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.states.getExecutionHistory(build())
+	override fun dryResult(): com.amazonaws.services.stepfunctions.model.GetExecutionHistoryResult {
+	  return com.amazonaws.services.stepfunctions.model.GetExecutionHistoryResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.stepfunctions.model.GetExecutionHistoryResult {
+		return environment.states.getExecutionHistory(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -314,12 +354,12 @@ class AWSStepFunctionsGetExecutionHistoryCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AWSStepFunctionsFunctions.listActivities(init: AWSStepFunctionsListActivitiesCommand.() -> Unit) {
-	this.block.declare(AWSStepFunctionsListActivitiesCommand().apply(init))
+fun AWSStepFunctionsFunctions.listActivities(init: AWSStepFunctionsListActivitiesCommand.() -> Unit): com.amazonaws.services.stepfunctions.model.ListActivitiesResult {
+	return this.block.declare(AWSStepFunctionsListActivitiesCommand().apply(init)) as com.amazonaws.services.stepfunctions.model.ListActivitiesResult
 }
 
 @Generated
-class AWSStepFunctionsListActivitiesCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.ListActivitiesRequest> {
+class AWSStepFunctionsListActivitiesCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.ListActivitiesRequest, com.amazonaws.services.stepfunctions.model.ListActivitiesResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -331,8 +371,12 @@ class AWSStepFunctionsListActivitiesCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.states.listActivities(build())
+	override fun dryResult(): com.amazonaws.services.stepfunctions.model.ListActivitiesResult {
+	  return com.amazonaws.services.stepfunctions.model.ListActivitiesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.stepfunctions.model.ListActivitiesResult {
+		return environment.states.listActivities(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -344,12 +388,12 @@ class AWSStepFunctionsListActivitiesCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AWSStepFunctionsFunctions.listExecutions(init: AWSStepFunctionsListExecutionsCommand.() -> Unit) {
-	this.block.declare(AWSStepFunctionsListExecutionsCommand().apply(init))
+fun AWSStepFunctionsFunctions.listExecutions(init: AWSStepFunctionsListExecutionsCommand.() -> Unit): com.amazonaws.services.stepfunctions.model.ListExecutionsResult {
+	return this.block.declare(AWSStepFunctionsListExecutionsCommand().apply(init)) as com.amazonaws.services.stepfunctions.model.ListExecutionsResult
 }
 
 @Generated
-class AWSStepFunctionsListExecutionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.ListExecutionsRequest> {
+class AWSStepFunctionsListExecutionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.ListExecutionsRequest, com.amazonaws.services.stepfunctions.model.ListExecutionsResult> {
 
 	var stateMachineArn: String? = null
 	var statusFilter: ExecutionStatus? = null
@@ -365,8 +409,12 @@ class AWSStepFunctionsListExecutionsCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.states.listExecutions(build())
+	override fun dryResult(): com.amazonaws.services.stepfunctions.model.ListExecutionsResult {
+	  return com.amazonaws.services.stepfunctions.model.ListExecutionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.stepfunctions.model.ListExecutionsResult {
+		return environment.states.listExecutions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -380,12 +428,12 @@ class AWSStepFunctionsListExecutionsCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AWSStepFunctionsFunctions.listStateMachines(init: AWSStepFunctionsListStateMachinesCommand.() -> Unit) {
-	this.block.declare(AWSStepFunctionsListStateMachinesCommand().apply(init))
+fun AWSStepFunctionsFunctions.listStateMachines(init: AWSStepFunctionsListStateMachinesCommand.() -> Unit): com.amazonaws.services.stepfunctions.model.ListStateMachinesResult {
+	return this.block.declare(AWSStepFunctionsListStateMachinesCommand().apply(init)) as com.amazonaws.services.stepfunctions.model.ListStateMachinesResult
 }
 
 @Generated
-class AWSStepFunctionsListStateMachinesCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.ListStateMachinesRequest> {
+class AWSStepFunctionsListStateMachinesCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.ListStateMachinesRequest, com.amazonaws.services.stepfunctions.model.ListStateMachinesResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -397,8 +445,12 @@ class AWSStepFunctionsListStateMachinesCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.states.listStateMachines(build())
+	override fun dryResult(): com.amazonaws.services.stepfunctions.model.ListStateMachinesResult {
+	  return com.amazonaws.services.stepfunctions.model.ListStateMachinesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.stepfunctions.model.ListStateMachinesResult {
+		return environment.states.listStateMachines(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -410,12 +462,12 @@ class AWSStepFunctionsListStateMachinesCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AWSStepFunctionsFunctions.sendTaskFailure(init: AWSStepFunctionsSendTaskFailureCommand.() -> Unit) {
-	this.block.declare(AWSStepFunctionsSendTaskFailureCommand().apply(init))
+fun AWSStepFunctionsFunctions.sendTaskFailure(init: AWSStepFunctionsSendTaskFailureCommand.() -> Unit): com.amazonaws.services.stepfunctions.model.SendTaskFailureResult {
+	return this.block.declare(AWSStepFunctionsSendTaskFailureCommand().apply(init)) as com.amazonaws.services.stepfunctions.model.SendTaskFailureResult
 }
 
 @Generated
-class AWSStepFunctionsSendTaskFailureCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.SendTaskFailureRequest> {
+class AWSStepFunctionsSendTaskFailureCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.SendTaskFailureRequest, com.amazonaws.services.stepfunctions.model.SendTaskFailureResult> {
 
 	var taskToken: String? = null
 	var error: String? = null
@@ -429,8 +481,12 @@ class AWSStepFunctionsSendTaskFailureCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.states.sendTaskFailure(build())
+	override fun dryResult(): com.amazonaws.services.stepfunctions.model.SendTaskFailureResult {
+	  return com.amazonaws.services.stepfunctions.model.SendTaskFailureResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.stepfunctions.model.SendTaskFailureResult {
+		return environment.states.sendTaskFailure(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -443,12 +499,12 @@ class AWSStepFunctionsSendTaskFailureCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AWSStepFunctionsFunctions.sendTaskHeartbeat(init: AWSStepFunctionsSendTaskHeartbeatCommand.() -> Unit) {
-	this.block.declare(AWSStepFunctionsSendTaskHeartbeatCommand().apply(init))
+fun AWSStepFunctionsFunctions.sendTaskHeartbeat(init: AWSStepFunctionsSendTaskHeartbeatCommand.() -> Unit): com.amazonaws.services.stepfunctions.model.SendTaskHeartbeatResult {
+	return this.block.declare(AWSStepFunctionsSendTaskHeartbeatCommand().apply(init)) as com.amazonaws.services.stepfunctions.model.SendTaskHeartbeatResult
 }
 
 @Generated
-class AWSStepFunctionsSendTaskHeartbeatCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.SendTaskHeartbeatRequest> {
+class AWSStepFunctionsSendTaskHeartbeatCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.SendTaskHeartbeatRequest, com.amazonaws.services.stepfunctions.model.SendTaskHeartbeatResult> {
 
 	var taskToken: String? = null
 
@@ -458,8 +514,12 @@ class AWSStepFunctionsSendTaskHeartbeatCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.states.sendTaskHeartbeat(build())
+	override fun dryResult(): com.amazonaws.services.stepfunctions.model.SendTaskHeartbeatResult {
+	  return com.amazonaws.services.stepfunctions.model.SendTaskHeartbeatResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.stepfunctions.model.SendTaskHeartbeatResult {
+		return environment.states.sendTaskHeartbeat(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -470,12 +530,12 @@ class AWSStepFunctionsSendTaskHeartbeatCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AWSStepFunctionsFunctions.sendTaskSuccess(init: AWSStepFunctionsSendTaskSuccessCommand.() -> Unit) {
-	this.block.declare(AWSStepFunctionsSendTaskSuccessCommand().apply(init))
+fun AWSStepFunctionsFunctions.sendTaskSuccess(init: AWSStepFunctionsSendTaskSuccessCommand.() -> Unit): com.amazonaws.services.stepfunctions.model.SendTaskSuccessResult {
+	return this.block.declare(AWSStepFunctionsSendTaskSuccessCommand().apply(init)) as com.amazonaws.services.stepfunctions.model.SendTaskSuccessResult
 }
 
 @Generated
-class AWSStepFunctionsSendTaskSuccessCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.SendTaskSuccessRequest> {
+class AWSStepFunctionsSendTaskSuccessCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.SendTaskSuccessRequest, com.amazonaws.services.stepfunctions.model.SendTaskSuccessResult> {
 
 	var taskToken: String? = null
 	var output: String? = null
@@ -487,8 +547,12 @@ class AWSStepFunctionsSendTaskSuccessCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.states.sendTaskSuccess(build())
+	override fun dryResult(): com.amazonaws.services.stepfunctions.model.SendTaskSuccessResult {
+	  return com.amazonaws.services.stepfunctions.model.SendTaskSuccessResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.stepfunctions.model.SendTaskSuccessResult {
+		return environment.states.sendTaskSuccess(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -500,12 +564,12 @@ class AWSStepFunctionsSendTaskSuccessCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AWSStepFunctionsFunctions.startExecution(init: AWSStepFunctionsStartExecutionCommand.() -> Unit) {
-	this.block.declare(AWSStepFunctionsStartExecutionCommand().apply(init))
+fun AWSStepFunctionsFunctions.startExecution(init: AWSStepFunctionsStartExecutionCommand.() -> Unit): com.amazonaws.services.stepfunctions.model.StartExecutionResult {
+	return this.block.declare(AWSStepFunctionsStartExecutionCommand().apply(init)) as com.amazonaws.services.stepfunctions.model.StartExecutionResult
 }
 
 @Generated
-class AWSStepFunctionsStartExecutionCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.StartExecutionRequest> {
+class AWSStepFunctionsStartExecutionCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.StartExecutionRequest, com.amazonaws.services.stepfunctions.model.StartExecutionResult> {
 
 	var stateMachineArn: String? = null
 	var name: String? = null
@@ -519,8 +583,12 @@ class AWSStepFunctionsStartExecutionCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.states.startExecution(build())
+	override fun dryResult(): com.amazonaws.services.stepfunctions.model.StartExecutionResult {
+	  return com.amazonaws.services.stepfunctions.model.StartExecutionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.stepfunctions.model.StartExecutionResult {
+		return environment.states.startExecution(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -533,12 +601,12 @@ class AWSStepFunctionsStartExecutionCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AWSStepFunctionsFunctions.stopExecution(init: AWSStepFunctionsStopExecutionCommand.() -> Unit) {
-	this.block.declare(AWSStepFunctionsStopExecutionCommand().apply(init))
+fun AWSStepFunctionsFunctions.stopExecution(init: AWSStepFunctionsStopExecutionCommand.() -> Unit): com.amazonaws.services.stepfunctions.model.StopExecutionResult {
+	return this.block.declare(AWSStepFunctionsStopExecutionCommand().apply(init)) as com.amazonaws.services.stepfunctions.model.StopExecutionResult
 }
 
 @Generated
-class AWSStepFunctionsStopExecutionCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.StopExecutionRequest> {
+class AWSStepFunctionsStopExecutionCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.StopExecutionRequest, com.amazonaws.services.stepfunctions.model.StopExecutionResult> {
 
 	var executionArn: String? = null
 	var error: String? = null
@@ -552,8 +620,12 @@ class AWSStepFunctionsStopExecutionCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.states.stopExecution(build())
+	override fun dryResult(): com.amazonaws.services.stepfunctions.model.StopExecutionResult {
+	  return com.amazonaws.services.stepfunctions.model.StopExecutionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.stepfunctions.model.StopExecutionResult {
+		return environment.states.stopExecution(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -566,12 +638,12 @@ class AWSStepFunctionsStopExecutionCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AWSStepFunctionsFunctions.updateStateMachine(init: AWSStepFunctionsUpdateStateMachineCommand.() -> Unit) {
-	this.block.declare(AWSStepFunctionsUpdateStateMachineCommand().apply(init))
+fun AWSStepFunctionsFunctions.updateStateMachine(init: AWSStepFunctionsUpdateStateMachineCommand.() -> Unit): com.amazonaws.services.stepfunctions.model.UpdateStateMachineResult {
+	return this.block.declare(AWSStepFunctionsUpdateStateMachineCommand().apply(init)) as com.amazonaws.services.stepfunctions.model.UpdateStateMachineResult
 }
 
 @Generated
-class AWSStepFunctionsUpdateStateMachineCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.UpdateStateMachineRequest> {
+class AWSStepFunctionsUpdateStateMachineCommand() : AmazonWebServiceCommand<com.amazonaws.services.stepfunctions.model.UpdateStateMachineRequest, com.amazonaws.services.stepfunctions.model.UpdateStateMachineResult> {
 
 	var stateMachineArn: String? = null
 	var definition: String? = null
@@ -585,8 +657,12 @@ class AWSStepFunctionsUpdateStateMachineCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.states.updateStateMachine(build())
+	override fun dryResult(): com.amazonaws.services.stepfunctions.model.UpdateStateMachineResult {
+	  return com.amazonaws.services.stepfunctions.model.UpdateStateMachineResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.stepfunctions.model.UpdateStateMachineResult {
+		return environment.states.updateStateMachine(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

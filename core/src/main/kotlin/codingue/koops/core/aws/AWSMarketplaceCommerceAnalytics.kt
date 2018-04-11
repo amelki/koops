@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.marketplacecommerceanalytics: AWSMarketplace
 @Generated
 class AWSMarketplaceCommerceAnalyticsFunctions(val block: Block)
 
-infix fun AwsContinuation.marketplacecommerceanalytics(init: AWSMarketplaceCommerceAnalyticsFunctions.() -> Unit) {
-	AWSMarketplaceCommerceAnalyticsFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.marketplacecommerceanalytics(init: AWSMarketplaceCommerceAnalyticsFunctions.() -> T): T {
+	return AWSMarketplaceCommerceAnalyticsFunctions(shell).run(init)
 }
 
 			
 
-fun AWSMarketplaceCommerceAnalyticsFunctions.generateDataSet(init: AWSMarketplaceCommerceAnalyticsGenerateDataSetCommand.() -> Unit) {
-	this.block.declare(AWSMarketplaceCommerceAnalyticsGenerateDataSetCommand().apply(init))
+fun AWSMarketplaceCommerceAnalyticsFunctions.generateDataSet(init: AWSMarketplaceCommerceAnalyticsGenerateDataSetCommand.() -> Unit): com.amazonaws.services.marketplacecommerceanalytics.model.GenerateDataSetResult {
+	return this.block.declare(AWSMarketplaceCommerceAnalyticsGenerateDataSetCommand().apply(init)) as com.amazonaws.services.marketplacecommerceanalytics.model.GenerateDataSetResult
 }
 
 @Generated
-class AWSMarketplaceCommerceAnalyticsGenerateDataSetCommand() : AmazonWebServiceCommand<com.amazonaws.services.marketplacecommerceanalytics.model.GenerateDataSetRequest> {
+class AWSMarketplaceCommerceAnalyticsGenerateDataSetCommand() : AmazonWebServiceCommand<com.amazonaws.services.marketplacecommerceanalytics.model.GenerateDataSetRequest, com.amazonaws.services.marketplacecommerceanalytics.model.GenerateDataSetResult> {
 
 	var dataSetType: DataSetType? = null
 	var dataSetPublicationDate: java.util.Date? = null
@@ -53,8 +53,12 @@ class AWSMarketplaceCommerceAnalyticsGenerateDataSetCommand() : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.marketplacecommerceanalytics.generateDataSet(build())
+	override fun dryResult(): com.amazonaws.services.marketplacecommerceanalytics.model.GenerateDataSetResult {
+	  return com.amazonaws.services.marketplacecommerceanalytics.model.GenerateDataSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.marketplacecommerceanalytics.model.GenerateDataSetResult {
+		return environment.marketplacecommerceanalytics.generateDataSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -71,12 +75,12 @@ class AWSMarketplaceCommerceAnalyticsGenerateDataSetCommand() : AmazonWebService
 }
 
 
-fun AWSMarketplaceCommerceAnalyticsFunctions.startSupportDataExport(init: AWSMarketplaceCommerceAnalyticsStartSupportDataExportCommand.() -> Unit) {
-	this.block.declare(AWSMarketplaceCommerceAnalyticsStartSupportDataExportCommand().apply(init))
+fun AWSMarketplaceCommerceAnalyticsFunctions.startSupportDataExport(init: AWSMarketplaceCommerceAnalyticsStartSupportDataExportCommand.() -> Unit): com.amazonaws.services.marketplacecommerceanalytics.model.StartSupportDataExportResult {
+	return this.block.declare(AWSMarketplaceCommerceAnalyticsStartSupportDataExportCommand().apply(init)) as com.amazonaws.services.marketplacecommerceanalytics.model.StartSupportDataExportResult
 }
 
 @Generated
-class AWSMarketplaceCommerceAnalyticsStartSupportDataExportCommand() : AmazonWebServiceCommand<com.amazonaws.services.marketplacecommerceanalytics.model.StartSupportDataExportRequest> {
+class AWSMarketplaceCommerceAnalyticsStartSupportDataExportCommand() : AmazonWebServiceCommand<com.amazonaws.services.marketplacecommerceanalytics.model.StartSupportDataExportRequest, com.amazonaws.services.marketplacecommerceanalytics.model.StartSupportDataExportResult> {
 
 	var dataSetType: SupportDataSetType? = null
 	var fromDate: java.util.Date? = null
@@ -98,8 +102,12 @@ class AWSMarketplaceCommerceAnalyticsStartSupportDataExportCommand() : AmazonWeb
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.marketplacecommerceanalytics.startSupportDataExport(build())
+	override fun dryResult(): com.amazonaws.services.marketplacecommerceanalytics.model.StartSupportDataExportResult {
+	  return com.amazonaws.services.marketplacecommerceanalytics.model.StartSupportDataExportResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.marketplacecommerceanalytics.model.StartSupportDataExportResult {
+		return environment.marketplacecommerceanalytics.startSupportDataExport(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

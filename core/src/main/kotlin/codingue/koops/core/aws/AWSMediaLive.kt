@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.medialive: AWSMediaLive
 @Generated
 class AWSMediaLiveFunctions(val block: Block)
 
-infix fun AwsContinuation.medialive(init: AWSMediaLiveFunctions.() -> Unit) {
-	AWSMediaLiveFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.medialive(init: AWSMediaLiveFunctions.() -> T): T {
+	return AWSMediaLiveFunctions(shell).run(init)
 }
 
 			
 
-fun AWSMediaLiveFunctions.createChannel(init: AWSMediaLiveCreateChannelCommand.() -> Unit) {
-	this.block.declare(AWSMediaLiveCreateChannelCommand().apply(init))
+fun AWSMediaLiveFunctions.createChannel(init: AWSMediaLiveCreateChannelCommand.() -> Unit): com.amazonaws.services.medialive.model.CreateChannelResult {
+	return this.block.declare(AWSMediaLiveCreateChannelCommand().apply(init)) as com.amazonaws.services.medialive.model.CreateChannelResult
 }
 
 @Generated
-class AWSMediaLiveCreateChannelCommand() : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.CreateChannelRequest> {
+class AWSMediaLiveCreateChannelCommand() : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.CreateChannelRequest, com.amazonaws.services.medialive.model.CreateChannelResult> {
 
 	var destinations: List<com.amazonaws.services.medialive.model.OutputDestination>? = null
 	var encoderSettings: com.amazonaws.services.medialive.model.EncoderSettings? = null
@@ -55,8 +55,12 @@ class AWSMediaLiveCreateChannelCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.medialive.createChannel(build())
+	override fun dryResult(): com.amazonaws.services.medialive.model.CreateChannelResult {
+	  return com.amazonaws.services.medialive.model.CreateChannelResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.medialive.model.CreateChannelResult {
+		return environment.medialive.createChannel(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -74,12 +78,12 @@ class AWSMediaLiveCreateChannelCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AWSMediaLiveFunctions.createInput(init: AWSMediaLiveCreateInputCommand.() -> Unit) {
-	this.block.declare(AWSMediaLiveCreateInputCommand().apply(init))
+fun AWSMediaLiveFunctions.createInput(init: AWSMediaLiveCreateInputCommand.() -> Unit): com.amazonaws.services.medialive.model.CreateInputResult {
+	return this.block.declare(AWSMediaLiveCreateInputCommand().apply(init)) as com.amazonaws.services.medialive.model.CreateInputResult
 }
 
 @Generated
-class AWSMediaLiveCreateInputCommand() : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.CreateInputRequest> {
+class AWSMediaLiveCreateInputCommand() : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.CreateInputRequest, com.amazonaws.services.medialive.model.CreateInputResult> {
 
 	var destinations: List<com.amazonaws.services.medialive.model.InputDestinationRequest>? = null
 	var inputSecurityGroups: List<String>? = null
@@ -99,8 +103,12 @@ class AWSMediaLiveCreateInputCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.medialive.createInput(build())
+	override fun dryResult(): com.amazonaws.services.medialive.model.CreateInputResult {
+	  return com.amazonaws.services.medialive.model.CreateInputResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.medialive.model.CreateInputResult {
+		return environment.medialive.createInput(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -116,12 +124,12 @@ class AWSMediaLiveCreateInputCommand() : AmazonWebServiceCommand<com.amazonaws.s
 }
 
 
-fun AWSMediaLiveFunctions.createInputSecurityGroup(init: AWSMediaLiveCreateInputSecurityGroupCommand.() -> Unit) {
-	this.block.declare(AWSMediaLiveCreateInputSecurityGroupCommand().apply(init))
+fun AWSMediaLiveFunctions.createInputSecurityGroup(init: AWSMediaLiveCreateInputSecurityGroupCommand.() -> Unit): com.amazonaws.services.medialive.model.CreateInputSecurityGroupResult {
+	return this.block.declare(AWSMediaLiveCreateInputSecurityGroupCommand().apply(init)) as com.amazonaws.services.medialive.model.CreateInputSecurityGroupResult
 }
 
 @Generated
-class AWSMediaLiveCreateInputSecurityGroupCommand() : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.CreateInputSecurityGroupRequest> {
+class AWSMediaLiveCreateInputSecurityGroupCommand() : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.CreateInputSecurityGroupRequest, com.amazonaws.services.medialive.model.CreateInputSecurityGroupResult> {
 
 	var whitelistRules: List<com.amazonaws.services.medialive.model.InputWhitelistRuleCidr>? = null
 
@@ -131,8 +139,12 @@ class AWSMediaLiveCreateInputSecurityGroupCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.medialive.createInputSecurityGroup(build())
+	override fun dryResult(): com.amazonaws.services.medialive.model.CreateInputSecurityGroupResult {
+	  return com.amazonaws.services.medialive.model.CreateInputSecurityGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.medialive.model.CreateInputSecurityGroupResult {
+		return environment.medialive.createInputSecurityGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -143,12 +155,12 @@ class AWSMediaLiveCreateInputSecurityGroupCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AWSMediaLiveFunctions.deleteChannel(channelId: String, init: AWSMediaLiveDeleteChannelCommand.() -> Unit) {
-	this.block.declare(AWSMediaLiveDeleteChannelCommand(channelId).apply(init))
+fun AWSMediaLiveFunctions.deleteChannel(channelId: String, init: AWSMediaLiveDeleteChannelCommand.() -> Unit): com.amazonaws.services.medialive.model.DeleteChannelResult {
+	return this.block.declare(AWSMediaLiveDeleteChannelCommand(channelId).apply(init)) as com.amazonaws.services.medialive.model.DeleteChannelResult
 }
 
 @Generated
-class AWSMediaLiveDeleteChannelCommand(val channelId: String) : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.DeleteChannelRequest> {
+class AWSMediaLiveDeleteChannelCommand(val channelId: String) : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.DeleteChannelRequest, com.amazonaws.services.medialive.model.DeleteChannelResult> {
 
 
 
@@ -158,8 +170,12 @@ class AWSMediaLiveDeleteChannelCommand(val channelId: String) : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.medialive.deleteChannel(build())
+	override fun dryResult(): com.amazonaws.services.medialive.model.DeleteChannelResult {
+	  return com.amazonaws.services.medialive.model.DeleteChannelResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.medialive.model.DeleteChannelResult {
+		return environment.medialive.deleteChannel(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -170,12 +186,12 @@ class AWSMediaLiveDeleteChannelCommand(val channelId: String) : AmazonWebService
 }
 
 
-fun AWSMediaLiveFunctions.deleteInput(inputId: String, init: AWSMediaLiveDeleteInputCommand.() -> Unit) {
-	this.block.declare(AWSMediaLiveDeleteInputCommand(inputId).apply(init))
+fun AWSMediaLiveFunctions.deleteInput(inputId: String, init: AWSMediaLiveDeleteInputCommand.() -> Unit): com.amazonaws.services.medialive.model.DeleteInputResult {
+	return this.block.declare(AWSMediaLiveDeleteInputCommand(inputId).apply(init)) as com.amazonaws.services.medialive.model.DeleteInputResult
 }
 
 @Generated
-class AWSMediaLiveDeleteInputCommand(val inputId: String) : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.DeleteInputRequest> {
+class AWSMediaLiveDeleteInputCommand(val inputId: String) : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.DeleteInputRequest, com.amazonaws.services.medialive.model.DeleteInputResult> {
 
 
 
@@ -185,8 +201,12 @@ class AWSMediaLiveDeleteInputCommand(val inputId: String) : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.medialive.deleteInput(build())
+	override fun dryResult(): com.amazonaws.services.medialive.model.DeleteInputResult {
+	  return com.amazonaws.services.medialive.model.DeleteInputResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.medialive.model.DeleteInputResult {
+		return environment.medialive.deleteInput(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -197,12 +217,12 @@ class AWSMediaLiveDeleteInputCommand(val inputId: String) : AmazonWebServiceComm
 }
 
 
-fun AWSMediaLiveFunctions.deleteInputSecurityGroup(inputSecurityGroupId: String, init: AWSMediaLiveDeleteInputSecurityGroupCommand.() -> Unit) {
-	this.block.declare(AWSMediaLiveDeleteInputSecurityGroupCommand(inputSecurityGroupId).apply(init))
+fun AWSMediaLiveFunctions.deleteInputSecurityGroup(inputSecurityGroupId: String, init: AWSMediaLiveDeleteInputSecurityGroupCommand.() -> Unit): com.amazonaws.services.medialive.model.DeleteInputSecurityGroupResult {
+	return this.block.declare(AWSMediaLiveDeleteInputSecurityGroupCommand(inputSecurityGroupId).apply(init)) as com.amazonaws.services.medialive.model.DeleteInputSecurityGroupResult
 }
 
 @Generated
-class AWSMediaLiveDeleteInputSecurityGroupCommand(val inputSecurityGroupId: String) : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.DeleteInputSecurityGroupRequest> {
+class AWSMediaLiveDeleteInputSecurityGroupCommand(val inputSecurityGroupId: String) : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.DeleteInputSecurityGroupRequest, com.amazonaws.services.medialive.model.DeleteInputSecurityGroupResult> {
 
 
 
@@ -212,8 +232,12 @@ class AWSMediaLiveDeleteInputSecurityGroupCommand(val inputSecurityGroupId: Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.medialive.deleteInputSecurityGroup(build())
+	override fun dryResult(): com.amazonaws.services.medialive.model.DeleteInputSecurityGroupResult {
+	  return com.amazonaws.services.medialive.model.DeleteInputSecurityGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.medialive.model.DeleteInputSecurityGroupResult {
+		return environment.medialive.deleteInputSecurityGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -224,12 +248,12 @@ class AWSMediaLiveDeleteInputSecurityGroupCommand(val inputSecurityGroupId: Stri
 }
 
 
-fun AWSMediaLiveFunctions.describeChannel(channelId: String, init: AWSMediaLiveDescribeChannelCommand.() -> Unit) {
-	this.block.declare(AWSMediaLiveDescribeChannelCommand(channelId).apply(init))
+fun AWSMediaLiveFunctions.describeChannel(channelId: String, init: AWSMediaLiveDescribeChannelCommand.() -> Unit): com.amazonaws.services.medialive.model.DescribeChannelResult {
+	return this.block.declare(AWSMediaLiveDescribeChannelCommand(channelId).apply(init)) as com.amazonaws.services.medialive.model.DescribeChannelResult
 }
 
 @Generated
-class AWSMediaLiveDescribeChannelCommand(val channelId: String) : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.DescribeChannelRequest> {
+class AWSMediaLiveDescribeChannelCommand(val channelId: String) : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.DescribeChannelRequest, com.amazonaws.services.medialive.model.DescribeChannelResult> {
 
 
 
@@ -239,8 +263,12 @@ class AWSMediaLiveDescribeChannelCommand(val channelId: String) : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.medialive.describeChannel(build())
+	override fun dryResult(): com.amazonaws.services.medialive.model.DescribeChannelResult {
+	  return com.amazonaws.services.medialive.model.DescribeChannelResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.medialive.model.DescribeChannelResult {
+		return environment.medialive.describeChannel(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -251,12 +279,12 @@ class AWSMediaLiveDescribeChannelCommand(val channelId: String) : AmazonWebServi
 }
 
 
-fun AWSMediaLiveFunctions.describeInput(inputId: String, init: AWSMediaLiveDescribeInputCommand.() -> Unit) {
-	this.block.declare(AWSMediaLiveDescribeInputCommand(inputId).apply(init))
+fun AWSMediaLiveFunctions.describeInput(inputId: String, init: AWSMediaLiveDescribeInputCommand.() -> Unit): com.amazonaws.services.medialive.model.DescribeInputResult {
+	return this.block.declare(AWSMediaLiveDescribeInputCommand(inputId).apply(init)) as com.amazonaws.services.medialive.model.DescribeInputResult
 }
 
 @Generated
-class AWSMediaLiveDescribeInputCommand(val inputId: String) : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.DescribeInputRequest> {
+class AWSMediaLiveDescribeInputCommand(val inputId: String) : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.DescribeInputRequest, com.amazonaws.services.medialive.model.DescribeInputResult> {
 
 
 
@@ -266,8 +294,12 @@ class AWSMediaLiveDescribeInputCommand(val inputId: String) : AmazonWebServiceCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.medialive.describeInput(build())
+	override fun dryResult(): com.amazonaws.services.medialive.model.DescribeInputResult {
+	  return com.amazonaws.services.medialive.model.DescribeInputResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.medialive.model.DescribeInputResult {
+		return environment.medialive.describeInput(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -278,12 +310,12 @@ class AWSMediaLiveDescribeInputCommand(val inputId: String) : AmazonWebServiceCo
 }
 
 
-fun AWSMediaLiveFunctions.describeInputSecurityGroup(inputSecurityGroupId: String, init: AWSMediaLiveDescribeInputSecurityGroupCommand.() -> Unit) {
-	this.block.declare(AWSMediaLiveDescribeInputSecurityGroupCommand(inputSecurityGroupId).apply(init))
+fun AWSMediaLiveFunctions.describeInputSecurityGroup(inputSecurityGroupId: String, init: AWSMediaLiveDescribeInputSecurityGroupCommand.() -> Unit): com.amazonaws.services.medialive.model.DescribeInputSecurityGroupResult {
+	return this.block.declare(AWSMediaLiveDescribeInputSecurityGroupCommand(inputSecurityGroupId).apply(init)) as com.amazonaws.services.medialive.model.DescribeInputSecurityGroupResult
 }
 
 @Generated
-class AWSMediaLiveDescribeInputSecurityGroupCommand(val inputSecurityGroupId: String) : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.DescribeInputSecurityGroupRequest> {
+class AWSMediaLiveDescribeInputSecurityGroupCommand(val inputSecurityGroupId: String) : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.DescribeInputSecurityGroupRequest, com.amazonaws.services.medialive.model.DescribeInputSecurityGroupResult> {
 
 
 
@@ -293,8 +325,12 @@ class AWSMediaLiveDescribeInputSecurityGroupCommand(val inputSecurityGroupId: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.medialive.describeInputSecurityGroup(build())
+	override fun dryResult(): com.amazonaws.services.medialive.model.DescribeInputSecurityGroupResult {
+	  return com.amazonaws.services.medialive.model.DescribeInputSecurityGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.medialive.model.DescribeInputSecurityGroupResult {
+		return environment.medialive.describeInputSecurityGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -305,12 +341,12 @@ class AWSMediaLiveDescribeInputSecurityGroupCommand(val inputSecurityGroupId: St
 }
 
 
-fun AWSMediaLiveFunctions.listChannels(init: AWSMediaLiveListChannelsCommand.() -> Unit) {
-	this.block.declare(AWSMediaLiveListChannelsCommand().apply(init))
+fun AWSMediaLiveFunctions.listChannels(init: AWSMediaLiveListChannelsCommand.() -> Unit): com.amazonaws.services.medialive.model.ListChannelsResult {
+	return this.block.declare(AWSMediaLiveListChannelsCommand().apply(init)) as com.amazonaws.services.medialive.model.ListChannelsResult
 }
 
 @Generated
-class AWSMediaLiveListChannelsCommand() : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.ListChannelsRequest> {
+class AWSMediaLiveListChannelsCommand() : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.ListChannelsRequest, com.amazonaws.services.medialive.model.ListChannelsResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -322,8 +358,12 @@ class AWSMediaLiveListChannelsCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.medialive.listChannels(build())
+	override fun dryResult(): com.amazonaws.services.medialive.model.ListChannelsResult {
+	  return com.amazonaws.services.medialive.model.ListChannelsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.medialive.model.ListChannelsResult {
+		return environment.medialive.listChannels(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -335,12 +375,12 @@ class AWSMediaLiveListChannelsCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AWSMediaLiveFunctions.listInputSecurityGroups(init: AWSMediaLiveListInputSecurityGroupsCommand.() -> Unit) {
-	this.block.declare(AWSMediaLiveListInputSecurityGroupsCommand().apply(init))
+fun AWSMediaLiveFunctions.listInputSecurityGroups(init: AWSMediaLiveListInputSecurityGroupsCommand.() -> Unit): com.amazonaws.services.medialive.model.ListInputSecurityGroupsResult {
+	return this.block.declare(AWSMediaLiveListInputSecurityGroupsCommand().apply(init)) as com.amazonaws.services.medialive.model.ListInputSecurityGroupsResult
 }
 
 @Generated
-class AWSMediaLiveListInputSecurityGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.ListInputSecurityGroupsRequest> {
+class AWSMediaLiveListInputSecurityGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.ListInputSecurityGroupsRequest, com.amazonaws.services.medialive.model.ListInputSecurityGroupsResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -352,8 +392,12 @@ class AWSMediaLiveListInputSecurityGroupsCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.medialive.listInputSecurityGroups(build())
+	override fun dryResult(): com.amazonaws.services.medialive.model.ListInputSecurityGroupsResult {
+	  return com.amazonaws.services.medialive.model.ListInputSecurityGroupsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.medialive.model.ListInputSecurityGroupsResult {
+		return environment.medialive.listInputSecurityGroups(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -365,12 +409,12 @@ class AWSMediaLiveListInputSecurityGroupsCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AWSMediaLiveFunctions.listInputs(init: AWSMediaLiveListInputsCommand.() -> Unit) {
-	this.block.declare(AWSMediaLiveListInputsCommand().apply(init))
+fun AWSMediaLiveFunctions.listInputs(init: AWSMediaLiveListInputsCommand.() -> Unit): com.amazonaws.services.medialive.model.ListInputsResult {
+	return this.block.declare(AWSMediaLiveListInputsCommand().apply(init)) as com.amazonaws.services.medialive.model.ListInputsResult
 }
 
 @Generated
-class AWSMediaLiveListInputsCommand() : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.ListInputsRequest> {
+class AWSMediaLiveListInputsCommand() : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.ListInputsRequest, com.amazonaws.services.medialive.model.ListInputsResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -382,8 +426,12 @@ class AWSMediaLiveListInputsCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.medialive.listInputs(build())
+	override fun dryResult(): com.amazonaws.services.medialive.model.ListInputsResult {
+	  return com.amazonaws.services.medialive.model.ListInputsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.medialive.model.ListInputsResult {
+		return environment.medialive.listInputs(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -395,12 +443,12 @@ class AWSMediaLiveListInputsCommand() : AmazonWebServiceCommand<com.amazonaws.se
 }
 
 
-fun AWSMediaLiveFunctions.startChannel(channelId: String, init: AWSMediaLiveStartChannelCommand.() -> Unit) {
-	this.block.declare(AWSMediaLiveStartChannelCommand(channelId).apply(init))
+fun AWSMediaLiveFunctions.startChannel(channelId: String, init: AWSMediaLiveStartChannelCommand.() -> Unit): com.amazonaws.services.medialive.model.StartChannelResult {
+	return this.block.declare(AWSMediaLiveStartChannelCommand(channelId).apply(init)) as com.amazonaws.services.medialive.model.StartChannelResult
 }
 
 @Generated
-class AWSMediaLiveStartChannelCommand(val channelId: String) : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.StartChannelRequest> {
+class AWSMediaLiveStartChannelCommand(val channelId: String) : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.StartChannelRequest, com.amazonaws.services.medialive.model.StartChannelResult> {
 
 
 
@@ -410,8 +458,12 @@ class AWSMediaLiveStartChannelCommand(val channelId: String) : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.medialive.startChannel(build())
+	override fun dryResult(): com.amazonaws.services.medialive.model.StartChannelResult {
+	  return com.amazonaws.services.medialive.model.StartChannelResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.medialive.model.StartChannelResult {
+		return environment.medialive.startChannel(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -422,12 +474,12 @@ class AWSMediaLiveStartChannelCommand(val channelId: String) : AmazonWebServiceC
 }
 
 
-fun AWSMediaLiveFunctions.stopChannel(channelId: String, init: AWSMediaLiveStopChannelCommand.() -> Unit) {
-	this.block.declare(AWSMediaLiveStopChannelCommand(channelId).apply(init))
+fun AWSMediaLiveFunctions.stopChannel(channelId: String, init: AWSMediaLiveStopChannelCommand.() -> Unit): com.amazonaws.services.medialive.model.StopChannelResult {
+	return this.block.declare(AWSMediaLiveStopChannelCommand(channelId).apply(init)) as com.amazonaws.services.medialive.model.StopChannelResult
 }
 
 @Generated
-class AWSMediaLiveStopChannelCommand(val channelId: String) : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.StopChannelRequest> {
+class AWSMediaLiveStopChannelCommand(val channelId: String) : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.StopChannelRequest, com.amazonaws.services.medialive.model.StopChannelResult> {
 
 
 
@@ -437,8 +489,12 @@ class AWSMediaLiveStopChannelCommand(val channelId: String) : AmazonWebServiceCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.medialive.stopChannel(build())
+	override fun dryResult(): com.amazonaws.services.medialive.model.StopChannelResult {
+	  return com.amazonaws.services.medialive.model.StopChannelResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.medialive.model.StopChannelResult {
+		return environment.medialive.stopChannel(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -449,12 +505,12 @@ class AWSMediaLiveStopChannelCommand(val channelId: String) : AmazonWebServiceCo
 }
 
 
-fun AWSMediaLiveFunctions.updateChannel(channelId: String, init: AWSMediaLiveUpdateChannelCommand.() -> Unit) {
-	this.block.declare(AWSMediaLiveUpdateChannelCommand(channelId).apply(init))
+fun AWSMediaLiveFunctions.updateChannel(channelId: String, init: AWSMediaLiveUpdateChannelCommand.() -> Unit): com.amazonaws.services.medialive.model.UpdateChannelResult {
+	return this.block.declare(AWSMediaLiveUpdateChannelCommand(channelId).apply(init)) as com.amazonaws.services.medialive.model.UpdateChannelResult
 }
 
 @Generated
-class AWSMediaLiveUpdateChannelCommand(val channelId: String) : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.UpdateChannelRequest> {
+class AWSMediaLiveUpdateChannelCommand(val channelId: String) : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.UpdateChannelRequest, com.amazonaws.services.medialive.model.UpdateChannelResult> {
 
 	var destinations: List<com.amazonaws.services.medialive.model.OutputDestination>? = null
 	var encoderSettings: com.amazonaws.services.medialive.model.EncoderSettings? = null
@@ -475,8 +531,12 @@ class AWSMediaLiveUpdateChannelCommand(val channelId: String) : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.medialive.updateChannel(build())
+	override fun dryResult(): com.amazonaws.services.medialive.model.UpdateChannelResult {
+	  return com.amazonaws.services.medialive.model.UpdateChannelResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.medialive.model.UpdateChannelResult {
+		return environment.medialive.updateChannel(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -493,12 +553,12 @@ class AWSMediaLiveUpdateChannelCommand(val channelId: String) : AmazonWebService
 }
 
 
-fun AWSMediaLiveFunctions.updateInput(inputId: String, init: AWSMediaLiveUpdateInputCommand.() -> Unit) {
-	this.block.declare(AWSMediaLiveUpdateInputCommand(inputId).apply(init))
+fun AWSMediaLiveFunctions.updateInput(inputId: String, init: AWSMediaLiveUpdateInputCommand.() -> Unit): com.amazonaws.services.medialive.model.UpdateInputResult {
+	return this.block.declare(AWSMediaLiveUpdateInputCommand(inputId).apply(init)) as com.amazonaws.services.medialive.model.UpdateInputResult
 }
 
 @Generated
-class AWSMediaLiveUpdateInputCommand(val inputId: String) : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.UpdateInputRequest> {
+class AWSMediaLiveUpdateInputCommand(val inputId: String) : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.UpdateInputRequest, com.amazonaws.services.medialive.model.UpdateInputResult> {
 
 	var destinations: List<com.amazonaws.services.medialive.model.InputDestinationRequest>? = null
 	var inputSecurityGroups: List<String>? = null
@@ -515,8 +575,12 @@ class AWSMediaLiveUpdateInputCommand(val inputId: String) : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.medialive.updateInput(build())
+	override fun dryResult(): com.amazonaws.services.medialive.model.UpdateInputResult {
+	  return com.amazonaws.services.medialive.model.UpdateInputResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.medialive.model.UpdateInputResult {
+		return environment.medialive.updateInput(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -531,12 +595,12 @@ class AWSMediaLiveUpdateInputCommand(val inputId: String) : AmazonWebServiceComm
 }
 
 
-fun AWSMediaLiveFunctions.updateInputSecurityGroup(inputSecurityGroupId: String, init: AWSMediaLiveUpdateInputSecurityGroupCommand.() -> Unit) {
-	this.block.declare(AWSMediaLiveUpdateInputSecurityGroupCommand(inputSecurityGroupId).apply(init))
+fun AWSMediaLiveFunctions.updateInputSecurityGroup(inputSecurityGroupId: String, init: AWSMediaLiveUpdateInputSecurityGroupCommand.() -> Unit): com.amazonaws.services.medialive.model.UpdateInputSecurityGroupResult {
+	return this.block.declare(AWSMediaLiveUpdateInputSecurityGroupCommand(inputSecurityGroupId).apply(init)) as com.amazonaws.services.medialive.model.UpdateInputSecurityGroupResult
 }
 
 @Generated
-class AWSMediaLiveUpdateInputSecurityGroupCommand(val inputSecurityGroupId: String) : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.UpdateInputSecurityGroupRequest> {
+class AWSMediaLiveUpdateInputSecurityGroupCommand(val inputSecurityGroupId: String) : AmazonWebServiceCommand<com.amazonaws.services.medialive.model.UpdateInputSecurityGroupRequest, com.amazonaws.services.medialive.model.UpdateInputSecurityGroupResult> {
 
 	var whitelistRules: List<com.amazonaws.services.medialive.model.InputWhitelistRuleCidr>? = null
 
@@ -547,8 +611,12 @@ class AWSMediaLiveUpdateInputSecurityGroupCommand(val inputSecurityGroupId: Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.medialive.updateInputSecurityGroup(build())
+	override fun dryResult(): com.amazonaws.services.medialive.model.UpdateInputSecurityGroupResult {
+	  return com.amazonaws.services.medialive.model.UpdateInputSecurityGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.medialive.model.UpdateInputSecurityGroupResult {
+		return environment.medialive.updateInputSecurityGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

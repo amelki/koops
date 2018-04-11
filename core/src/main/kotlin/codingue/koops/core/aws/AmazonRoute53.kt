@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.route53: AmazonRoute53
 @Generated
 class AmazonRoute53Functions(val block: Block)
 
-infix fun AwsContinuation.route53(init: AmazonRoute53Functions.() -> Unit) {
-	AmazonRoute53Functions(shell).apply(init)
+infix fun <T> AwsContinuation.route53(init: AmazonRoute53Functions.() -> T): T {
+	return AmazonRoute53Functions(shell).run(init)
 }
 
 			
 
-fun AmazonRoute53Functions.associateVPCWithHostedZone(hostedZoneId: String, vPC: com.amazonaws.services.route53.model.VPC, init: AmazonRoute53AssociateVPCWithHostedZoneCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53AssociateVPCWithHostedZoneCommand(hostedZoneId, vPC).apply(init))
+fun AmazonRoute53Functions.associateVPCWithHostedZone(hostedZoneId: String, vPC: com.amazonaws.services.route53.model.VPC, init: AmazonRoute53AssociateVPCWithHostedZoneCommand.() -> Unit): com.amazonaws.services.route53.model.AssociateVPCWithHostedZoneResult {
+	return this.block.declare(AmazonRoute53AssociateVPCWithHostedZoneCommand(hostedZoneId, vPC).apply(init)) as com.amazonaws.services.route53.model.AssociateVPCWithHostedZoneResult
 }
 
 @Generated
-class AmazonRoute53AssociateVPCWithHostedZoneCommand(val hostedZoneId: String, val vPC: com.amazonaws.services.route53.model.VPC) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.AssociateVPCWithHostedZoneRequest> {
+class AmazonRoute53AssociateVPCWithHostedZoneCommand(val hostedZoneId: String, val vPC: com.amazonaws.services.route53.model.VPC) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.AssociateVPCWithHostedZoneRequest, com.amazonaws.services.route53.model.AssociateVPCWithHostedZoneResult> {
 
 	var comment: String? = null
 
@@ -43,8 +43,12 @@ class AmazonRoute53AssociateVPCWithHostedZoneCommand(val hostedZoneId: String, v
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.associateVPCWithHostedZone(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.AssociateVPCWithHostedZoneResult {
+	  return com.amazonaws.services.route53.model.AssociateVPCWithHostedZoneResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.AssociateVPCWithHostedZoneResult {
+		return environment.route53.associateVPCWithHostedZone(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -57,12 +61,12 @@ class AmazonRoute53AssociateVPCWithHostedZoneCommand(val hostedZoneId: String, v
 }
 
 
-fun AmazonRoute53Functions.changeResourceRecordSets(hostedZoneId: String, changeBatch: com.amazonaws.services.route53.model.ChangeBatch, init: AmazonRoute53ChangeResourceRecordSetsCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53ChangeResourceRecordSetsCommand(hostedZoneId, changeBatch).apply(init))
+fun AmazonRoute53Functions.changeResourceRecordSets(hostedZoneId: String, changeBatch: com.amazonaws.services.route53.model.ChangeBatch, init: AmazonRoute53ChangeResourceRecordSetsCommand.() -> Unit): com.amazonaws.services.route53.model.ChangeResourceRecordSetsResult {
+	return this.block.declare(AmazonRoute53ChangeResourceRecordSetsCommand(hostedZoneId, changeBatch).apply(init)) as com.amazonaws.services.route53.model.ChangeResourceRecordSetsResult
 }
 
 @Generated
-class AmazonRoute53ChangeResourceRecordSetsCommand(val hostedZoneId: String, val changeBatch: com.amazonaws.services.route53.model.ChangeBatch) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ChangeResourceRecordSetsRequest> {
+class AmazonRoute53ChangeResourceRecordSetsCommand(val hostedZoneId: String, val changeBatch: com.amazonaws.services.route53.model.ChangeBatch) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ChangeResourceRecordSetsRequest, com.amazonaws.services.route53.model.ChangeResourceRecordSetsResult> {
 
 
 
@@ -73,8 +77,12 @@ class AmazonRoute53ChangeResourceRecordSetsCommand(val hostedZoneId: String, val
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.changeResourceRecordSets(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.ChangeResourceRecordSetsResult {
+	  return com.amazonaws.services.route53.model.ChangeResourceRecordSetsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.ChangeResourceRecordSetsResult {
+		return environment.route53.changeResourceRecordSets(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -86,12 +94,12 @@ class AmazonRoute53ChangeResourceRecordSetsCommand(val hostedZoneId: String, val
 }
 
 
-fun AmazonRoute53Functions.changeTagsForResource(resourceType: TagResourceType, resourceId: String, init: AmazonRoute53ChangeTagsForResourceCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53ChangeTagsForResourceCommand(resourceType, resourceId).apply(init))
+fun AmazonRoute53Functions.changeTagsForResource(resourceType: TagResourceType, resourceId: String, init: AmazonRoute53ChangeTagsForResourceCommand.() -> Unit): com.amazonaws.services.route53.model.ChangeTagsForResourceResult {
+	return this.block.declare(AmazonRoute53ChangeTagsForResourceCommand(resourceType, resourceId).apply(init)) as com.amazonaws.services.route53.model.ChangeTagsForResourceResult
 }
 
 @Generated
-class AmazonRoute53ChangeTagsForResourceCommand(val resourceType: TagResourceType, val resourceId: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ChangeTagsForResourceRequest> {
+class AmazonRoute53ChangeTagsForResourceCommand(val resourceType: TagResourceType, val resourceId: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ChangeTagsForResourceRequest, com.amazonaws.services.route53.model.ChangeTagsForResourceResult> {
 
 	var addTags: List<com.amazonaws.services.route53.model.Tag>? = null
 	var removeTagKeys: List<String>? = null
@@ -105,8 +113,12 @@ class AmazonRoute53ChangeTagsForResourceCommand(val resourceType: TagResourceTyp
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.changeTagsForResource(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.ChangeTagsForResourceResult {
+	  return com.amazonaws.services.route53.model.ChangeTagsForResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.ChangeTagsForResourceResult {
+		return environment.route53.changeTagsForResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -120,12 +132,12 @@ class AmazonRoute53ChangeTagsForResourceCommand(val resourceType: TagResourceTyp
 }
 
 
-fun AmazonRoute53Functions.createHealthCheck(callerReference: String, healthCheckConfig: com.amazonaws.services.route53.model.HealthCheckConfig, init: AmazonRoute53CreateHealthCheckCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53CreateHealthCheckCommand(callerReference, healthCheckConfig).apply(init))
+fun AmazonRoute53Functions.createHealthCheck(callerReference: String, healthCheckConfig: com.amazonaws.services.route53.model.HealthCheckConfig, init: AmazonRoute53CreateHealthCheckCommand.() -> Unit): com.amazonaws.services.route53.model.CreateHealthCheckResult {
+	return this.block.declare(AmazonRoute53CreateHealthCheckCommand(callerReference, healthCheckConfig).apply(init)) as com.amazonaws.services.route53.model.CreateHealthCheckResult
 }
 
 @Generated
-class AmazonRoute53CreateHealthCheckCommand(val callerReference: String, val healthCheckConfig: com.amazonaws.services.route53.model.HealthCheckConfig) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.CreateHealthCheckRequest> {
+class AmazonRoute53CreateHealthCheckCommand(val callerReference: String, val healthCheckConfig: com.amazonaws.services.route53.model.HealthCheckConfig) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.CreateHealthCheckRequest, com.amazonaws.services.route53.model.CreateHealthCheckResult> {
 
 
 
@@ -136,8 +148,12 @@ class AmazonRoute53CreateHealthCheckCommand(val callerReference: String, val hea
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.createHealthCheck(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.CreateHealthCheckResult {
+	  return com.amazonaws.services.route53.model.CreateHealthCheckResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.CreateHealthCheckResult {
+		return environment.route53.createHealthCheck(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -149,12 +165,12 @@ class AmazonRoute53CreateHealthCheckCommand(val callerReference: String, val hea
 }
 
 
-fun AmazonRoute53Functions.createHostedZone(name: String, callerReference: String, init: AmazonRoute53CreateHostedZoneCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53CreateHostedZoneCommand(name, callerReference).apply(init))
+fun AmazonRoute53Functions.createHostedZone(name: String, callerReference: String, init: AmazonRoute53CreateHostedZoneCommand.() -> Unit): com.amazonaws.services.route53.model.CreateHostedZoneResult {
+	return this.block.declare(AmazonRoute53CreateHostedZoneCommand(name, callerReference).apply(init)) as com.amazonaws.services.route53.model.CreateHostedZoneResult
 }
 
 @Generated
-class AmazonRoute53CreateHostedZoneCommand(val name: String, val callerReference: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.CreateHostedZoneRequest> {
+class AmazonRoute53CreateHostedZoneCommand(val name: String, val callerReference: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.CreateHostedZoneRequest, com.amazonaws.services.route53.model.CreateHostedZoneResult> {
 
 	var vPC: com.amazonaws.services.route53.model.VPC? = null
 	var hostedZoneConfig: com.amazonaws.services.route53.model.HostedZoneConfig? = null
@@ -170,8 +186,12 @@ class AmazonRoute53CreateHostedZoneCommand(val name: String, val callerReference
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.createHostedZone(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.CreateHostedZoneResult {
+	  return com.amazonaws.services.route53.model.CreateHostedZoneResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.CreateHostedZoneResult {
+		return environment.route53.createHostedZone(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -186,12 +206,12 @@ class AmazonRoute53CreateHostedZoneCommand(val name: String, val callerReference
 }
 
 
-fun AmazonRoute53Functions.createQueryLoggingConfig(hostedZoneId: String, cloudWatchLogsLogGroupArn: String, init: AmazonRoute53CreateQueryLoggingConfigCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53CreateQueryLoggingConfigCommand(hostedZoneId, cloudWatchLogsLogGroupArn).apply(init))
+fun AmazonRoute53Functions.createQueryLoggingConfig(hostedZoneId: String, cloudWatchLogsLogGroupArn: String, init: AmazonRoute53CreateQueryLoggingConfigCommand.() -> Unit): com.amazonaws.services.route53.model.CreateQueryLoggingConfigResult {
+	return this.block.declare(AmazonRoute53CreateQueryLoggingConfigCommand(hostedZoneId, cloudWatchLogsLogGroupArn).apply(init)) as com.amazonaws.services.route53.model.CreateQueryLoggingConfigResult
 }
 
 @Generated
-class AmazonRoute53CreateQueryLoggingConfigCommand(val hostedZoneId: String, val cloudWatchLogsLogGroupArn: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.CreateQueryLoggingConfigRequest> {
+class AmazonRoute53CreateQueryLoggingConfigCommand(val hostedZoneId: String, val cloudWatchLogsLogGroupArn: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.CreateQueryLoggingConfigRequest, com.amazonaws.services.route53.model.CreateQueryLoggingConfigResult> {
 
 
 
@@ -202,8 +222,12 @@ class AmazonRoute53CreateQueryLoggingConfigCommand(val hostedZoneId: String, val
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.createQueryLoggingConfig(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.CreateQueryLoggingConfigResult {
+	  return com.amazonaws.services.route53.model.CreateQueryLoggingConfigResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.CreateQueryLoggingConfigResult {
+		return environment.route53.createQueryLoggingConfig(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -215,12 +239,12 @@ class AmazonRoute53CreateQueryLoggingConfigCommand(val hostedZoneId: String, val
 }
 
 
-fun AmazonRoute53Functions.createReusableDelegationSet(callerReference: String, init: AmazonRoute53CreateReusableDelegationSetCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53CreateReusableDelegationSetCommand(callerReference).apply(init))
+fun AmazonRoute53Functions.createReusableDelegationSet(callerReference: String, init: AmazonRoute53CreateReusableDelegationSetCommand.() -> Unit): com.amazonaws.services.route53.model.CreateReusableDelegationSetResult {
+	return this.block.declare(AmazonRoute53CreateReusableDelegationSetCommand(callerReference).apply(init)) as com.amazonaws.services.route53.model.CreateReusableDelegationSetResult
 }
 
 @Generated
-class AmazonRoute53CreateReusableDelegationSetCommand(val callerReference: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.CreateReusableDelegationSetRequest> {
+class AmazonRoute53CreateReusableDelegationSetCommand(val callerReference: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.CreateReusableDelegationSetRequest, com.amazonaws.services.route53.model.CreateReusableDelegationSetResult> {
 
 	var hostedZoneId: String? = null
 
@@ -231,8 +255,12 @@ class AmazonRoute53CreateReusableDelegationSetCommand(val callerReference: Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.createReusableDelegationSet(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.CreateReusableDelegationSetResult {
+	  return com.amazonaws.services.route53.model.CreateReusableDelegationSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.CreateReusableDelegationSetResult {
+		return environment.route53.createReusableDelegationSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -244,12 +272,12 @@ class AmazonRoute53CreateReusableDelegationSetCommand(val callerReference: Strin
 }
 
 
-fun AmazonRoute53Functions.createTrafficPolicy(name: String, document: String, init: AmazonRoute53CreateTrafficPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53CreateTrafficPolicyCommand(name, document).apply(init))
+fun AmazonRoute53Functions.createTrafficPolicy(name: String, document: String, init: AmazonRoute53CreateTrafficPolicyCommand.() -> Unit): com.amazonaws.services.route53.model.CreateTrafficPolicyResult {
+	return this.block.declare(AmazonRoute53CreateTrafficPolicyCommand(name, document).apply(init)) as com.amazonaws.services.route53.model.CreateTrafficPolicyResult
 }
 
 @Generated
-class AmazonRoute53CreateTrafficPolicyCommand(val name: String, val document: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.CreateTrafficPolicyRequest> {
+class AmazonRoute53CreateTrafficPolicyCommand(val name: String, val document: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.CreateTrafficPolicyRequest, com.amazonaws.services.route53.model.CreateTrafficPolicyResult> {
 
 	var comment: String? = null
 
@@ -261,8 +289,12 @@ class AmazonRoute53CreateTrafficPolicyCommand(val name: String, val document: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.createTrafficPolicy(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.CreateTrafficPolicyResult {
+	  return com.amazonaws.services.route53.model.CreateTrafficPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.CreateTrafficPolicyResult {
+		return environment.route53.createTrafficPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -275,12 +307,12 @@ class AmazonRoute53CreateTrafficPolicyCommand(val name: String, val document: St
 }
 
 
-fun AmazonRoute53Functions.createTrafficPolicyInstance(hostedZoneId: String, name: String, tTL: Long, trafficPolicyId: String, trafficPolicyVersion: Int, init: AmazonRoute53CreateTrafficPolicyInstanceCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53CreateTrafficPolicyInstanceCommand(hostedZoneId, name, tTL, trafficPolicyId, trafficPolicyVersion).apply(init))
+fun AmazonRoute53Functions.createTrafficPolicyInstance(hostedZoneId: String, name: String, tTL: Long, trafficPolicyId: String, trafficPolicyVersion: Int, init: AmazonRoute53CreateTrafficPolicyInstanceCommand.() -> Unit): com.amazonaws.services.route53.model.CreateTrafficPolicyInstanceResult {
+	return this.block.declare(AmazonRoute53CreateTrafficPolicyInstanceCommand(hostedZoneId, name, tTL, trafficPolicyId, trafficPolicyVersion).apply(init)) as com.amazonaws.services.route53.model.CreateTrafficPolicyInstanceResult
 }
 
 @Generated
-class AmazonRoute53CreateTrafficPolicyInstanceCommand(val hostedZoneId: String, val name: String, val tTL: Long, val trafficPolicyId: String, val trafficPolicyVersion: Int) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.CreateTrafficPolicyInstanceRequest> {
+class AmazonRoute53CreateTrafficPolicyInstanceCommand(val hostedZoneId: String, val name: String, val tTL: Long, val trafficPolicyId: String, val trafficPolicyVersion: Int) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.CreateTrafficPolicyInstanceRequest, com.amazonaws.services.route53.model.CreateTrafficPolicyInstanceResult> {
 
 
 
@@ -294,8 +326,12 @@ class AmazonRoute53CreateTrafficPolicyInstanceCommand(val hostedZoneId: String, 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.createTrafficPolicyInstance(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.CreateTrafficPolicyInstanceResult {
+	  return com.amazonaws.services.route53.model.CreateTrafficPolicyInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.CreateTrafficPolicyInstanceResult {
+		return environment.route53.createTrafficPolicyInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -310,12 +346,12 @@ class AmazonRoute53CreateTrafficPolicyInstanceCommand(val hostedZoneId: String, 
 }
 
 
-fun AmazonRoute53Functions.createTrafficPolicyVersion(id: String, document: String, init: AmazonRoute53CreateTrafficPolicyVersionCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53CreateTrafficPolicyVersionCommand(id, document).apply(init))
+fun AmazonRoute53Functions.createTrafficPolicyVersion(id: String, document: String, init: AmazonRoute53CreateTrafficPolicyVersionCommand.() -> Unit): com.amazonaws.services.route53.model.CreateTrafficPolicyVersionResult {
+	return this.block.declare(AmazonRoute53CreateTrafficPolicyVersionCommand(id, document).apply(init)) as com.amazonaws.services.route53.model.CreateTrafficPolicyVersionResult
 }
 
 @Generated
-class AmazonRoute53CreateTrafficPolicyVersionCommand(val id: String, val document: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.CreateTrafficPolicyVersionRequest> {
+class AmazonRoute53CreateTrafficPolicyVersionCommand(val id: String, val document: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.CreateTrafficPolicyVersionRequest, com.amazonaws.services.route53.model.CreateTrafficPolicyVersionResult> {
 
 	var comment: String? = null
 
@@ -327,8 +363,12 @@ class AmazonRoute53CreateTrafficPolicyVersionCommand(val id: String, val documen
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.createTrafficPolicyVersion(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.CreateTrafficPolicyVersionResult {
+	  return com.amazonaws.services.route53.model.CreateTrafficPolicyVersionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.CreateTrafficPolicyVersionResult {
+		return environment.route53.createTrafficPolicyVersion(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -341,12 +381,12 @@ class AmazonRoute53CreateTrafficPolicyVersionCommand(val id: String, val documen
 }
 
 
-fun AmazonRoute53Functions.createVPCAssociationAuthorization(hostedZoneId: String, vPC: com.amazonaws.services.route53.model.VPC, init: AmazonRoute53CreateVPCAssociationAuthorizationCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53CreateVPCAssociationAuthorizationCommand(hostedZoneId, vPC).apply(init))
+fun AmazonRoute53Functions.createVPCAssociationAuthorization(hostedZoneId: String, vPC: com.amazonaws.services.route53.model.VPC, init: AmazonRoute53CreateVPCAssociationAuthorizationCommand.() -> Unit): com.amazonaws.services.route53.model.CreateVPCAssociationAuthorizationResult {
+	return this.block.declare(AmazonRoute53CreateVPCAssociationAuthorizationCommand(hostedZoneId, vPC).apply(init)) as com.amazonaws.services.route53.model.CreateVPCAssociationAuthorizationResult
 }
 
 @Generated
-class AmazonRoute53CreateVPCAssociationAuthorizationCommand(val hostedZoneId: String, val vPC: com.amazonaws.services.route53.model.VPC) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.CreateVPCAssociationAuthorizationRequest> {
+class AmazonRoute53CreateVPCAssociationAuthorizationCommand(val hostedZoneId: String, val vPC: com.amazonaws.services.route53.model.VPC) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.CreateVPCAssociationAuthorizationRequest, com.amazonaws.services.route53.model.CreateVPCAssociationAuthorizationResult> {
 
 
 
@@ -357,8 +397,12 @@ class AmazonRoute53CreateVPCAssociationAuthorizationCommand(val hostedZoneId: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.createVPCAssociationAuthorization(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.CreateVPCAssociationAuthorizationResult {
+	  return com.amazonaws.services.route53.model.CreateVPCAssociationAuthorizationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.CreateVPCAssociationAuthorizationResult {
+		return environment.route53.createVPCAssociationAuthorization(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -370,12 +414,12 @@ class AmazonRoute53CreateVPCAssociationAuthorizationCommand(val hostedZoneId: St
 }
 
 
-fun AmazonRoute53Functions.deleteHealthCheck(healthCheckId: String, init: AmazonRoute53DeleteHealthCheckCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53DeleteHealthCheckCommand(healthCheckId).apply(init))
+fun AmazonRoute53Functions.deleteHealthCheck(healthCheckId: String, init: AmazonRoute53DeleteHealthCheckCommand.() -> Unit): com.amazonaws.services.route53.model.DeleteHealthCheckResult {
+	return this.block.declare(AmazonRoute53DeleteHealthCheckCommand(healthCheckId).apply(init)) as com.amazonaws.services.route53.model.DeleteHealthCheckResult
 }
 
 @Generated
-class AmazonRoute53DeleteHealthCheckCommand(val healthCheckId: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.DeleteHealthCheckRequest> {
+class AmazonRoute53DeleteHealthCheckCommand(val healthCheckId: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.DeleteHealthCheckRequest, com.amazonaws.services.route53.model.DeleteHealthCheckResult> {
 
 
 
@@ -385,8 +429,12 @@ class AmazonRoute53DeleteHealthCheckCommand(val healthCheckId: String) : AmazonW
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.deleteHealthCheck(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.DeleteHealthCheckResult {
+	  return com.amazonaws.services.route53.model.DeleteHealthCheckResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.DeleteHealthCheckResult {
+		return environment.route53.deleteHealthCheck(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -397,12 +445,12 @@ class AmazonRoute53DeleteHealthCheckCommand(val healthCheckId: String) : AmazonW
 }
 
 
-fun AmazonRoute53Functions.deleteHostedZone(id: String, init: AmazonRoute53DeleteHostedZoneCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53DeleteHostedZoneCommand(id).apply(init))
+fun AmazonRoute53Functions.deleteHostedZone(id: String, init: AmazonRoute53DeleteHostedZoneCommand.() -> Unit): com.amazonaws.services.route53.model.DeleteHostedZoneResult {
+	return this.block.declare(AmazonRoute53DeleteHostedZoneCommand(id).apply(init)) as com.amazonaws.services.route53.model.DeleteHostedZoneResult
 }
 
 @Generated
-class AmazonRoute53DeleteHostedZoneCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.DeleteHostedZoneRequest> {
+class AmazonRoute53DeleteHostedZoneCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.DeleteHostedZoneRequest, com.amazonaws.services.route53.model.DeleteHostedZoneResult> {
 
 
 
@@ -412,8 +460,12 @@ class AmazonRoute53DeleteHostedZoneCommand(val id: String) : AmazonWebServiceCom
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.deleteHostedZone(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.DeleteHostedZoneResult {
+	  return com.amazonaws.services.route53.model.DeleteHostedZoneResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.DeleteHostedZoneResult {
+		return environment.route53.deleteHostedZone(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -424,12 +476,12 @@ class AmazonRoute53DeleteHostedZoneCommand(val id: String) : AmazonWebServiceCom
 }
 
 
-fun AmazonRoute53Functions.deleteQueryLoggingConfig(id: String, init: AmazonRoute53DeleteQueryLoggingConfigCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53DeleteQueryLoggingConfigCommand(id).apply(init))
+fun AmazonRoute53Functions.deleteQueryLoggingConfig(id: String, init: AmazonRoute53DeleteQueryLoggingConfigCommand.() -> Unit): com.amazonaws.services.route53.model.DeleteQueryLoggingConfigResult {
+	return this.block.declare(AmazonRoute53DeleteQueryLoggingConfigCommand(id).apply(init)) as com.amazonaws.services.route53.model.DeleteQueryLoggingConfigResult
 }
 
 @Generated
-class AmazonRoute53DeleteQueryLoggingConfigCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.DeleteQueryLoggingConfigRequest> {
+class AmazonRoute53DeleteQueryLoggingConfigCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.DeleteQueryLoggingConfigRequest, com.amazonaws.services.route53.model.DeleteQueryLoggingConfigResult> {
 
 
 
@@ -439,8 +491,12 @@ class AmazonRoute53DeleteQueryLoggingConfigCommand(val id: String) : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.deleteQueryLoggingConfig(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.DeleteQueryLoggingConfigResult {
+	  return com.amazonaws.services.route53.model.DeleteQueryLoggingConfigResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.DeleteQueryLoggingConfigResult {
+		return environment.route53.deleteQueryLoggingConfig(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -451,12 +507,12 @@ class AmazonRoute53DeleteQueryLoggingConfigCommand(val id: String) : AmazonWebSe
 }
 
 
-fun AmazonRoute53Functions.deleteReusableDelegationSet(id: String, init: AmazonRoute53DeleteReusableDelegationSetCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53DeleteReusableDelegationSetCommand(id).apply(init))
+fun AmazonRoute53Functions.deleteReusableDelegationSet(id: String, init: AmazonRoute53DeleteReusableDelegationSetCommand.() -> Unit): com.amazonaws.services.route53.model.DeleteReusableDelegationSetResult {
+	return this.block.declare(AmazonRoute53DeleteReusableDelegationSetCommand(id).apply(init)) as com.amazonaws.services.route53.model.DeleteReusableDelegationSetResult
 }
 
 @Generated
-class AmazonRoute53DeleteReusableDelegationSetCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.DeleteReusableDelegationSetRequest> {
+class AmazonRoute53DeleteReusableDelegationSetCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.DeleteReusableDelegationSetRequest, com.amazonaws.services.route53.model.DeleteReusableDelegationSetResult> {
 
 
 
@@ -466,8 +522,12 @@ class AmazonRoute53DeleteReusableDelegationSetCommand(val id: String) : AmazonWe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.deleteReusableDelegationSet(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.DeleteReusableDelegationSetResult {
+	  return com.amazonaws.services.route53.model.DeleteReusableDelegationSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.DeleteReusableDelegationSetResult {
+		return environment.route53.deleteReusableDelegationSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -478,12 +538,12 @@ class AmazonRoute53DeleteReusableDelegationSetCommand(val id: String) : AmazonWe
 }
 
 
-fun AmazonRoute53Functions.deleteTrafficPolicy(id: String, version: Int, init: AmazonRoute53DeleteTrafficPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53DeleteTrafficPolicyCommand(id, version).apply(init))
+fun AmazonRoute53Functions.deleteTrafficPolicy(id: String, version: Int, init: AmazonRoute53DeleteTrafficPolicyCommand.() -> Unit): com.amazonaws.services.route53.model.DeleteTrafficPolicyResult {
+	return this.block.declare(AmazonRoute53DeleteTrafficPolicyCommand(id, version).apply(init)) as com.amazonaws.services.route53.model.DeleteTrafficPolicyResult
 }
 
 @Generated
-class AmazonRoute53DeleteTrafficPolicyCommand(val id: String, val version: Int) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.DeleteTrafficPolicyRequest> {
+class AmazonRoute53DeleteTrafficPolicyCommand(val id: String, val version: Int) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.DeleteTrafficPolicyRequest, com.amazonaws.services.route53.model.DeleteTrafficPolicyResult> {
 
 
 
@@ -494,8 +554,12 @@ class AmazonRoute53DeleteTrafficPolicyCommand(val id: String, val version: Int) 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.deleteTrafficPolicy(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.DeleteTrafficPolicyResult {
+	  return com.amazonaws.services.route53.model.DeleteTrafficPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.DeleteTrafficPolicyResult {
+		return environment.route53.deleteTrafficPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -507,12 +571,12 @@ class AmazonRoute53DeleteTrafficPolicyCommand(val id: String, val version: Int) 
 }
 
 
-fun AmazonRoute53Functions.deleteTrafficPolicyInstance(id: String, init: AmazonRoute53DeleteTrafficPolicyInstanceCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53DeleteTrafficPolicyInstanceCommand(id).apply(init))
+fun AmazonRoute53Functions.deleteTrafficPolicyInstance(id: String, init: AmazonRoute53DeleteTrafficPolicyInstanceCommand.() -> Unit): com.amazonaws.services.route53.model.DeleteTrafficPolicyInstanceResult {
+	return this.block.declare(AmazonRoute53DeleteTrafficPolicyInstanceCommand(id).apply(init)) as com.amazonaws.services.route53.model.DeleteTrafficPolicyInstanceResult
 }
 
 @Generated
-class AmazonRoute53DeleteTrafficPolicyInstanceCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.DeleteTrafficPolicyInstanceRequest> {
+class AmazonRoute53DeleteTrafficPolicyInstanceCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.DeleteTrafficPolicyInstanceRequest, com.amazonaws.services.route53.model.DeleteTrafficPolicyInstanceResult> {
 
 
 
@@ -522,8 +586,12 @@ class AmazonRoute53DeleteTrafficPolicyInstanceCommand(val id: String) : AmazonWe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.deleteTrafficPolicyInstance(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.DeleteTrafficPolicyInstanceResult {
+	  return com.amazonaws.services.route53.model.DeleteTrafficPolicyInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.DeleteTrafficPolicyInstanceResult {
+		return environment.route53.deleteTrafficPolicyInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -534,12 +602,12 @@ class AmazonRoute53DeleteTrafficPolicyInstanceCommand(val id: String) : AmazonWe
 }
 
 
-fun AmazonRoute53Functions.deleteVPCAssociationAuthorization(hostedZoneId: String, vPC: com.amazonaws.services.route53.model.VPC, init: AmazonRoute53DeleteVPCAssociationAuthorizationCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53DeleteVPCAssociationAuthorizationCommand(hostedZoneId, vPC).apply(init))
+fun AmazonRoute53Functions.deleteVPCAssociationAuthorization(hostedZoneId: String, vPC: com.amazonaws.services.route53.model.VPC, init: AmazonRoute53DeleteVPCAssociationAuthorizationCommand.() -> Unit): com.amazonaws.services.route53.model.DeleteVPCAssociationAuthorizationResult {
+	return this.block.declare(AmazonRoute53DeleteVPCAssociationAuthorizationCommand(hostedZoneId, vPC).apply(init)) as com.amazonaws.services.route53.model.DeleteVPCAssociationAuthorizationResult
 }
 
 @Generated
-class AmazonRoute53DeleteVPCAssociationAuthorizationCommand(val hostedZoneId: String, val vPC: com.amazonaws.services.route53.model.VPC) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.DeleteVPCAssociationAuthorizationRequest> {
+class AmazonRoute53DeleteVPCAssociationAuthorizationCommand(val hostedZoneId: String, val vPC: com.amazonaws.services.route53.model.VPC) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.DeleteVPCAssociationAuthorizationRequest, com.amazonaws.services.route53.model.DeleteVPCAssociationAuthorizationResult> {
 
 
 
@@ -550,8 +618,12 @@ class AmazonRoute53DeleteVPCAssociationAuthorizationCommand(val hostedZoneId: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.deleteVPCAssociationAuthorization(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.DeleteVPCAssociationAuthorizationResult {
+	  return com.amazonaws.services.route53.model.DeleteVPCAssociationAuthorizationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.DeleteVPCAssociationAuthorizationResult {
+		return environment.route53.deleteVPCAssociationAuthorization(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -563,12 +635,12 @@ class AmazonRoute53DeleteVPCAssociationAuthorizationCommand(val hostedZoneId: St
 }
 
 
-fun AmazonRoute53Functions.disassociateVPCFromHostedZone(hostedZoneId: String, vPC: com.amazonaws.services.route53.model.VPC, init: AmazonRoute53DisassociateVPCFromHostedZoneCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53DisassociateVPCFromHostedZoneCommand(hostedZoneId, vPC).apply(init))
+fun AmazonRoute53Functions.disassociateVPCFromHostedZone(hostedZoneId: String, vPC: com.amazonaws.services.route53.model.VPC, init: AmazonRoute53DisassociateVPCFromHostedZoneCommand.() -> Unit): com.amazonaws.services.route53.model.DisassociateVPCFromHostedZoneResult {
+	return this.block.declare(AmazonRoute53DisassociateVPCFromHostedZoneCommand(hostedZoneId, vPC).apply(init)) as com.amazonaws.services.route53.model.DisassociateVPCFromHostedZoneResult
 }
 
 @Generated
-class AmazonRoute53DisassociateVPCFromHostedZoneCommand(val hostedZoneId: String, val vPC: com.amazonaws.services.route53.model.VPC) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.DisassociateVPCFromHostedZoneRequest> {
+class AmazonRoute53DisassociateVPCFromHostedZoneCommand(val hostedZoneId: String, val vPC: com.amazonaws.services.route53.model.VPC) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.DisassociateVPCFromHostedZoneRequest, com.amazonaws.services.route53.model.DisassociateVPCFromHostedZoneResult> {
 
 	var comment: String? = null
 
@@ -580,8 +652,12 @@ class AmazonRoute53DisassociateVPCFromHostedZoneCommand(val hostedZoneId: String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.disassociateVPCFromHostedZone(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.DisassociateVPCFromHostedZoneResult {
+	  return com.amazonaws.services.route53.model.DisassociateVPCFromHostedZoneResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.DisassociateVPCFromHostedZoneResult {
+		return environment.route53.disassociateVPCFromHostedZone(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -594,12 +670,12 @@ class AmazonRoute53DisassociateVPCFromHostedZoneCommand(val hostedZoneId: String
 }
 
 
-fun AmazonRoute53Functions.getAccountLimit(type: AccountLimitType, init: AmazonRoute53GetAccountLimitCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53GetAccountLimitCommand(type).apply(init))
+fun AmazonRoute53Functions.getAccountLimit(type: AccountLimitType, init: AmazonRoute53GetAccountLimitCommand.() -> Unit): com.amazonaws.services.route53.model.GetAccountLimitResult {
+	return this.block.declare(AmazonRoute53GetAccountLimitCommand(type).apply(init)) as com.amazonaws.services.route53.model.GetAccountLimitResult
 }
 
 @Generated
-class AmazonRoute53GetAccountLimitCommand(val type: AccountLimitType) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetAccountLimitRequest> {
+class AmazonRoute53GetAccountLimitCommand(val type: AccountLimitType) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetAccountLimitRequest, com.amazonaws.services.route53.model.GetAccountLimitResult> {
 
 
 
@@ -609,8 +685,12 @@ class AmazonRoute53GetAccountLimitCommand(val type: AccountLimitType) : AmazonWe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.getAccountLimit(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.GetAccountLimitResult {
+	  return com.amazonaws.services.route53.model.GetAccountLimitResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.GetAccountLimitResult {
+		return environment.route53.getAccountLimit(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -621,12 +701,12 @@ class AmazonRoute53GetAccountLimitCommand(val type: AccountLimitType) : AmazonWe
 }
 
 
-fun AmazonRoute53Functions.getChange(id: String, init: AmazonRoute53GetChangeCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53GetChangeCommand(id).apply(init))
+fun AmazonRoute53Functions.getChange(id: String, init: AmazonRoute53GetChangeCommand.() -> Unit): com.amazonaws.services.route53.model.GetChangeResult {
+	return this.block.declare(AmazonRoute53GetChangeCommand(id).apply(init)) as com.amazonaws.services.route53.model.GetChangeResult
 }
 
 @Generated
-class AmazonRoute53GetChangeCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetChangeRequest> {
+class AmazonRoute53GetChangeCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetChangeRequest, com.amazonaws.services.route53.model.GetChangeResult> {
 
 
 
@@ -636,8 +716,12 @@ class AmazonRoute53GetChangeCommand(val id: String) : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.getChange(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.GetChangeResult {
+	  return com.amazonaws.services.route53.model.GetChangeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.GetChangeResult {
+		return environment.route53.getChange(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -648,12 +732,12 @@ class AmazonRoute53GetChangeCommand(val id: String) : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonRoute53Functions.getCheckerIpRanges(init: AmazonRoute53GetCheckerIpRangesCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53GetCheckerIpRangesCommand().apply(init))
+fun AmazonRoute53Functions.getCheckerIpRanges(init: AmazonRoute53GetCheckerIpRangesCommand.() -> Unit): com.amazonaws.services.route53.model.GetCheckerIpRangesResult {
+	return this.block.declare(AmazonRoute53GetCheckerIpRangesCommand().apply(init)) as com.amazonaws.services.route53.model.GetCheckerIpRangesResult
 }
 
 @Generated
-class AmazonRoute53GetCheckerIpRangesCommand() : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetCheckerIpRangesRequest> {
+class AmazonRoute53GetCheckerIpRangesCommand() : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetCheckerIpRangesRequest, com.amazonaws.services.route53.model.GetCheckerIpRangesResult> {
 
 
 
@@ -663,8 +747,12 @@ class AmazonRoute53GetCheckerIpRangesCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.getCheckerIpRanges(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.GetCheckerIpRangesResult {
+	  return com.amazonaws.services.route53.model.GetCheckerIpRangesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.GetCheckerIpRangesResult {
+		return environment.route53.getCheckerIpRanges(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -675,12 +763,12 @@ class AmazonRoute53GetCheckerIpRangesCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AmazonRoute53Functions.getGeoLocation(init: AmazonRoute53GetGeoLocationCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53GetGeoLocationCommand().apply(init))
+fun AmazonRoute53Functions.getGeoLocation(init: AmazonRoute53GetGeoLocationCommand.() -> Unit): com.amazonaws.services.route53.model.GetGeoLocationResult {
+	return this.block.declare(AmazonRoute53GetGeoLocationCommand().apply(init)) as com.amazonaws.services.route53.model.GetGeoLocationResult
 }
 
 @Generated
-class AmazonRoute53GetGeoLocationCommand() : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetGeoLocationRequest> {
+class AmazonRoute53GetGeoLocationCommand() : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetGeoLocationRequest, com.amazonaws.services.route53.model.GetGeoLocationResult> {
 
 	var continentCode: String? = null
 	var countryCode: String? = null
@@ -694,8 +782,12 @@ class AmazonRoute53GetGeoLocationCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.getGeoLocation(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.GetGeoLocationResult {
+	  return com.amazonaws.services.route53.model.GetGeoLocationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.GetGeoLocationResult {
+		return environment.route53.getGeoLocation(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -708,12 +800,12 @@ class AmazonRoute53GetGeoLocationCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AmazonRoute53Functions.getHealthCheck(healthCheckId: String, init: AmazonRoute53GetHealthCheckCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53GetHealthCheckCommand(healthCheckId).apply(init))
+fun AmazonRoute53Functions.getHealthCheck(healthCheckId: String, init: AmazonRoute53GetHealthCheckCommand.() -> Unit): com.amazonaws.services.route53.model.GetHealthCheckResult {
+	return this.block.declare(AmazonRoute53GetHealthCheckCommand(healthCheckId).apply(init)) as com.amazonaws.services.route53.model.GetHealthCheckResult
 }
 
 @Generated
-class AmazonRoute53GetHealthCheckCommand(val healthCheckId: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetHealthCheckRequest> {
+class AmazonRoute53GetHealthCheckCommand(val healthCheckId: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetHealthCheckRequest, com.amazonaws.services.route53.model.GetHealthCheckResult> {
 
 
 
@@ -723,8 +815,12 @@ class AmazonRoute53GetHealthCheckCommand(val healthCheckId: String) : AmazonWebS
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.getHealthCheck(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.GetHealthCheckResult {
+	  return com.amazonaws.services.route53.model.GetHealthCheckResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.GetHealthCheckResult {
+		return environment.route53.getHealthCheck(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -735,12 +831,12 @@ class AmazonRoute53GetHealthCheckCommand(val healthCheckId: String) : AmazonWebS
 }
 
 
-fun AmazonRoute53Functions.getHealthCheckCount(init: AmazonRoute53GetHealthCheckCountCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53GetHealthCheckCountCommand().apply(init))
+fun AmazonRoute53Functions.getHealthCheckCount(init: AmazonRoute53GetHealthCheckCountCommand.() -> Unit): com.amazonaws.services.route53.model.GetHealthCheckCountResult {
+	return this.block.declare(AmazonRoute53GetHealthCheckCountCommand().apply(init)) as com.amazonaws.services.route53.model.GetHealthCheckCountResult
 }
 
 @Generated
-class AmazonRoute53GetHealthCheckCountCommand() : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetHealthCheckCountRequest> {
+class AmazonRoute53GetHealthCheckCountCommand() : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetHealthCheckCountRequest, com.amazonaws.services.route53.model.GetHealthCheckCountResult> {
 
 
 
@@ -750,8 +846,12 @@ class AmazonRoute53GetHealthCheckCountCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.getHealthCheckCount(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.GetHealthCheckCountResult {
+	  return com.amazonaws.services.route53.model.GetHealthCheckCountResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.GetHealthCheckCountResult {
+		return environment.route53.getHealthCheckCount(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -762,12 +862,12 @@ class AmazonRoute53GetHealthCheckCountCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonRoute53Functions.getHealthCheckLastFailureReason(healthCheckId: String, init: AmazonRoute53GetHealthCheckLastFailureReasonCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53GetHealthCheckLastFailureReasonCommand(healthCheckId).apply(init))
+fun AmazonRoute53Functions.getHealthCheckLastFailureReason(healthCheckId: String, init: AmazonRoute53GetHealthCheckLastFailureReasonCommand.() -> Unit): com.amazonaws.services.route53.model.GetHealthCheckLastFailureReasonResult {
+	return this.block.declare(AmazonRoute53GetHealthCheckLastFailureReasonCommand(healthCheckId).apply(init)) as com.amazonaws.services.route53.model.GetHealthCheckLastFailureReasonResult
 }
 
 @Generated
-class AmazonRoute53GetHealthCheckLastFailureReasonCommand(val healthCheckId: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetHealthCheckLastFailureReasonRequest> {
+class AmazonRoute53GetHealthCheckLastFailureReasonCommand(val healthCheckId: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetHealthCheckLastFailureReasonRequest, com.amazonaws.services.route53.model.GetHealthCheckLastFailureReasonResult> {
 
 
 
@@ -777,8 +877,12 @@ class AmazonRoute53GetHealthCheckLastFailureReasonCommand(val healthCheckId: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.getHealthCheckLastFailureReason(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.GetHealthCheckLastFailureReasonResult {
+	  return com.amazonaws.services.route53.model.GetHealthCheckLastFailureReasonResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.GetHealthCheckLastFailureReasonResult {
+		return environment.route53.getHealthCheckLastFailureReason(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -789,12 +893,12 @@ class AmazonRoute53GetHealthCheckLastFailureReasonCommand(val healthCheckId: Str
 }
 
 
-fun AmazonRoute53Functions.getHealthCheckStatus(healthCheckId: String, init: AmazonRoute53GetHealthCheckStatusCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53GetHealthCheckStatusCommand(healthCheckId).apply(init))
+fun AmazonRoute53Functions.getHealthCheckStatus(healthCheckId: String, init: AmazonRoute53GetHealthCheckStatusCommand.() -> Unit): com.amazonaws.services.route53.model.GetHealthCheckStatusResult {
+	return this.block.declare(AmazonRoute53GetHealthCheckStatusCommand(healthCheckId).apply(init)) as com.amazonaws.services.route53.model.GetHealthCheckStatusResult
 }
 
 @Generated
-class AmazonRoute53GetHealthCheckStatusCommand(val healthCheckId: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetHealthCheckStatusRequest> {
+class AmazonRoute53GetHealthCheckStatusCommand(val healthCheckId: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetHealthCheckStatusRequest, com.amazonaws.services.route53.model.GetHealthCheckStatusResult> {
 
 
 
@@ -804,8 +908,12 @@ class AmazonRoute53GetHealthCheckStatusCommand(val healthCheckId: String) : Amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.getHealthCheckStatus(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.GetHealthCheckStatusResult {
+	  return com.amazonaws.services.route53.model.GetHealthCheckStatusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.GetHealthCheckStatusResult {
+		return environment.route53.getHealthCheckStatus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -816,12 +924,12 @@ class AmazonRoute53GetHealthCheckStatusCommand(val healthCheckId: String) : Amaz
 }
 
 
-fun AmazonRoute53Functions.getHostedZone(id: String, init: AmazonRoute53GetHostedZoneCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53GetHostedZoneCommand(id).apply(init))
+fun AmazonRoute53Functions.getHostedZone(id: String, init: AmazonRoute53GetHostedZoneCommand.() -> Unit): com.amazonaws.services.route53.model.GetHostedZoneResult {
+	return this.block.declare(AmazonRoute53GetHostedZoneCommand(id).apply(init)) as com.amazonaws.services.route53.model.GetHostedZoneResult
 }
 
 @Generated
-class AmazonRoute53GetHostedZoneCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetHostedZoneRequest> {
+class AmazonRoute53GetHostedZoneCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetHostedZoneRequest, com.amazonaws.services.route53.model.GetHostedZoneResult> {
 
 
 
@@ -831,8 +939,12 @@ class AmazonRoute53GetHostedZoneCommand(val id: String) : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.getHostedZone(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.GetHostedZoneResult {
+	  return com.amazonaws.services.route53.model.GetHostedZoneResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.GetHostedZoneResult {
+		return environment.route53.getHostedZone(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -843,12 +955,12 @@ class AmazonRoute53GetHostedZoneCommand(val id: String) : AmazonWebServiceComman
 }
 
 
-fun AmazonRoute53Functions.getHostedZoneCount(init: AmazonRoute53GetHostedZoneCountCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53GetHostedZoneCountCommand().apply(init))
+fun AmazonRoute53Functions.getHostedZoneCount(init: AmazonRoute53GetHostedZoneCountCommand.() -> Unit): com.amazonaws.services.route53.model.GetHostedZoneCountResult {
+	return this.block.declare(AmazonRoute53GetHostedZoneCountCommand().apply(init)) as com.amazonaws.services.route53.model.GetHostedZoneCountResult
 }
 
 @Generated
-class AmazonRoute53GetHostedZoneCountCommand() : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetHostedZoneCountRequest> {
+class AmazonRoute53GetHostedZoneCountCommand() : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetHostedZoneCountRequest, com.amazonaws.services.route53.model.GetHostedZoneCountResult> {
 
 
 
@@ -858,8 +970,12 @@ class AmazonRoute53GetHostedZoneCountCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.getHostedZoneCount(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.GetHostedZoneCountResult {
+	  return com.amazonaws.services.route53.model.GetHostedZoneCountResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.GetHostedZoneCountResult {
+		return environment.route53.getHostedZoneCount(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -870,12 +986,12 @@ class AmazonRoute53GetHostedZoneCountCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AmazonRoute53Functions.getHostedZoneLimit(type: HostedZoneLimitType, hostedZoneId: String, init: AmazonRoute53GetHostedZoneLimitCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53GetHostedZoneLimitCommand(type, hostedZoneId).apply(init))
+fun AmazonRoute53Functions.getHostedZoneLimit(type: HostedZoneLimitType, hostedZoneId: String, init: AmazonRoute53GetHostedZoneLimitCommand.() -> Unit): com.amazonaws.services.route53.model.GetHostedZoneLimitResult {
+	return this.block.declare(AmazonRoute53GetHostedZoneLimitCommand(type, hostedZoneId).apply(init)) as com.amazonaws.services.route53.model.GetHostedZoneLimitResult
 }
 
 @Generated
-class AmazonRoute53GetHostedZoneLimitCommand(val type: HostedZoneLimitType, val hostedZoneId: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetHostedZoneLimitRequest> {
+class AmazonRoute53GetHostedZoneLimitCommand(val type: HostedZoneLimitType, val hostedZoneId: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetHostedZoneLimitRequest, com.amazonaws.services.route53.model.GetHostedZoneLimitResult> {
 
 
 
@@ -886,8 +1002,12 @@ class AmazonRoute53GetHostedZoneLimitCommand(val type: HostedZoneLimitType, val 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.getHostedZoneLimit(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.GetHostedZoneLimitResult {
+	  return com.amazonaws.services.route53.model.GetHostedZoneLimitResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.GetHostedZoneLimitResult {
+		return environment.route53.getHostedZoneLimit(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -899,12 +1019,12 @@ class AmazonRoute53GetHostedZoneLimitCommand(val type: HostedZoneLimitType, val 
 }
 
 
-fun AmazonRoute53Functions.getQueryLoggingConfig(id: String, init: AmazonRoute53GetQueryLoggingConfigCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53GetQueryLoggingConfigCommand(id).apply(init))
+fun AmazonRoute53Functions.getQueryLoggingConfig(id: String, init: AmazonRoute53GetQueryLoggingConfigCommand.() -> Unit): com.amazonaws.services.route53.model.GetQueryLoggingConfigResult {
+	return this.block.declare(AmazonRoute53GetQueryLoggingConfigCommand(id).apply(init)) as com.amazonaws.services.route53.model.GetQueryLoggingConfigResult
 }
 
 @Generated
-class AmazonRoute53GetQueryLoggingConfigCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetQueryLoggingConfigRequest> {
+class AmazonRoute53GetQueryLoggingConfigCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetQueryLoggingConfigRequest, com.amazonaws.services.route53.model.GetQueryLoggingConfigResult> {
 
 
 
@@ -914,8 +1034,12 @@ class AmazonRoute53GetQueryLoggingConfigCommand(val id: String) : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.getQueryLoggingConfig(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.GetQueryLoggingConfigResult {
+	  return com.amazonaws.services.route53.model.GetQueryLoggingConfigResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.GetQueryLoggingConfigResult {
+		return environment.route53.getQueryLoggingConfig(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -926,12 +1050,12 @@ class AmazonRoute53GetQueryLoggingConfigCommand(val id: String) : AmazonWebServi
 }
 
 
-fun AmazonRoute53Functions.getReusableDelegationSet(id: String, init: AmazonRoute53GetReusableDelegationSetCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53GetReusableDelegationSetCommand(id).apply(init))
+fun AmazonRoute53Functions.getReusableDelegationSet(id: String, init: AmazonRoute53GetReusableDelegationSetCommand.() -> Unit): com.amazonaws.services.route53.model.GetReusableDelegationSetResult {
+	return this.block.declare(AmazonRoute53GetReusableDelegationSetCommand(id).apply(init)) as com.amazonaws.services.route53.model.GetReusableDelegationSetResult
 }
 
 @Generated
-class AmazonRoute53GetReusableDelegationSetCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetReusableDelegationSetRequest> {
+class AmazonRoute53GetReusableDelegationSetCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetReusableDelegationSetRequest, com.amazonaws.services.route53.model.GetReusableDelegationSetResult> {
 
 
 
@@ -941,8 +1065,12 @@ class AmazonRoute53GetReusableDelegationSetCommand(val id: String) : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.getReusableDelegationSet(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.GetReusableDelegationSetResult {
+	  return com.amazonaws.services.route53.model.GetReusableDelegationSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.GetReusableDelegationSetResult {
+		return environment.route53.getReusableDelegationSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -953,12 +1081,12 @@ class AmazonRoute53GetReusableDelegationSetCommand(val id: String) : AmazonWebSe
 }
 
 
-fun AmazonRoute53Functions.getReusableDelegationSetLimit(type: ReusableDelegationSetLimitType, delegationSetId: String, init: AmazonRoute53GetReusableDelegationSetLimitCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53GetReusableDelegationSetLimitCommand(type, delegationSetId).apply(init))
+fun AmazonRoute53Functions.getReusableDelegationSetLimit(type: ReusableDelegationSetLimitType, delegationSetId: String, init: AmazonRoute53GetReusableDelegationSetLimitCommand.() -> Unit): com.amazonaws.services.route53.model.GetReusableDelegationSetLimitResult {
+	return this.block.declare(AmazonRoute53GetReusableDelegationSetLimitCommand(type, delegationSetId).apply(init)) as com.amazonaws.services.route53.model.GetReusableDelegationSetLimitResult
 }
 
 @Generated
-class AmazonRoute53GetReusableDelegationSetLimitCommand(val type: ReusableDelegationSetLimitType, val delegationSetId: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetReusableDelegationSetLimitRequest> {
+class AmazonRoute53GetReusableDelegationSetLimitCommand(val type: ReusableDelegationSetLimitType, val delegationSetId: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetReusableDelegationSetLimitRequest, com.amazonaws.services.route53.model.GetReusableDelegationSetLimitResult> {
 
 
 
@@ -969,8 +1097,12 @@ class AmazonRoute53GetReusableDelegationSetLimitCommand(val type: ReusableDelega
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.getReusableDelegationSetLimit(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.GetReusableDelegationSetLimitResult {
+	  return com.amazonaws.services.route53.model.GetReusableDelegationSetLimitResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.GetReusableDelegationSetLimitResult {
+		return environment.route53.getReusableDelegationSetLimit(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -982,12 +1114,12 @@ class AmazonRoute53GetReusableDelegationSetLimitCommand(val type: ReusableDelega
 }
 
 
-fun AmazonRoute53Functions.getTrafficPolicy(id: String, version: Int, init: AmazonRoute53GetTrafficPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53GetTrafficPolicyCommand(id, version).apply(init))
+fun AmazonRoute53Functions.getTrafficPolicy(id: String, version: Int, init: AmazonRoute53GetTrafficPolicyCommand.() -> Unit): com.amazonaws.services.route53.model.GetTrafficPolicyResult {
+	return this.block.declare(AmazonRoute53GetTrafficPolicyCommand(id, version).apply(init)) as com.amazonaws.services.route53.model.GetTrafficPolicyResult
 }
 
 @Generated
-class AmazonRoute53GetTrafficPolicyCommand(val id: String, val version: Int) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetTrafficPolicyRequest> {
+class AmazonRoute53GetTrafficPolicyCommand(val id: String, val version: Int) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetTrafficPolicyRequest, com.amazonaws.services.route53.model.GetTrafficPolicyResult> {
 
 
 
@@ -998,8 +1130,12 @@ class AmazonRoute53GetTrafficPolicyCommand(val id: String, val version: Int) : A
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.getTrafficPolicy(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.GetTrafficPolicyResult {
+	  return com.amazonaws.services.route53.model.GetTrafficPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.GetTrafficPolicyResult {
+		return environment.route53.getTrafficPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1011,12 +1147,12 @@ class AmazonRoute53GetTrafficPolicyCommand(val id: String, val version: Int) : A
 }
 
 
-fun AmazonRoute53Functions.getTrafficPolicyInstance(id: String, init: AmazonRoute53GetTrafficPolicyInstanceCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53GetTrafficPolicyInstanceCommand(id).apply(init))
+fun AmazonRoute53Functions.getTrafficPolicyInstance(id: String, init: AmazonRoute53GetTrafficPolicyInstanceCommand.() -> Unit): com.amazonaws.services.route53.model.GetTrafficPolicyInstanceResult {
+	return this.block.declare(AmazonRoute53GetTrafficPolicyInstanceCommand(id).apply(init)) as com.amazonaws.services.route53.model.GetTrafficPolicyInstanceResult
 }
 
 @Generated
-class AmazonRoute53GetTrafficPolicyInstanceCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetTrafficPolicyInstanceRequest> {
+class AmazonRoute53GetTrafficPolicyInstanceCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetTrafficPolicyInstanceRequest, com.amazonaws.services.route53.model.GetTrafficPolicyInstanceResult> {
 
 
 
@@ -1026,8 +1162,12 @@ class AmazonRoute53GetTrafficPolicyInstanceCommand(val id: String) : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.getTrafficPolicyInstance(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.GetTrafficPolicyInstanceResult {
+	  return com.amazonaws.services.route53.model.GetTrafficPolicyInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.GetTrafficPolicyInstanceResult {
+		return environment.route53.getTrafficPolicyInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1038,12 +1178,12 @@ class AmazonRoute53GetTrafficPolicyInstanceCommand(val id: String) : AmazonWebSe
 }
 
 
-fun AmazonRoute53Functions.getTrafficPolicyInstanceCount(init: AmazonRoute53GetTrafficPolicyInstanceCountCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53GetTrafficPolicyInstanceCountCommand().apply(init))
+fun AmazonRoute53Functions.getTrafficPolicyInstanceCount(init: AmazonRoute53GetTrafficPolicyInstanceCountCommand.() -> Unit): com.amazonaws.services.route53.model.GetTrafficPolicyInstanceCountResult {
+	return this.block.declare(AmazonRoute53GetTrafficPolicyInstanceCountCommand().apply(init)) as com.amazonaws.services.route53.model.GetTrafficPolicyInstanceCountResult
 }
 
 @Generated
-class AmazonRoute53GetTrafficPolicyInstanceCountCommand() : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetTrafficPolicyInstanceCountRequest> {
+class AmazonRoute53GetTrafficPolicyInstanceCountCommand() : AmazonWebServiceCommand<com.amazonaws.services.route53.model.GetTrafficPolicyInstanceCountRequest, com.amazonaws.services.route53.model.GetTrafficPolicyInstanceCountResult> {
 
 
 
@@ -1053,8 +1193,12 @@ class AmazonRoute53GetTrafficPolicyInstanceCountCommand() : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.getTrafficPolicyInstanceCount(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.GetTrafficPolicyInstanceCountResult {
+	  return com.amazonaws.services.route53.model.GetTrafficPolicyInstanceCountResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.GetTrafficPolicyInstanceCountResult {
+		return environment.route53.getTrafficPolicyInstanceCount(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1065,12 +1209,12 @@ class AmazonRoute53GetTrafficPolicyInstanceCountCommand() : AmazonWebServiceComm
 }
 
 
-fun AmazonRoute53Functions.listGeoLocations(init: AmazonRoute53ListGeoLocationsCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53ListGeoLocationsCommand().apply(init))
+fun AmazonRoute53Functions.listGeoLocations(init: AmazonRoute53ListGeoLocationsCommand.() -> Unit): com.amazonaws.services.route53.model.ListGeoLocationsResult {
+	return this.block.declare(AmazonRoute53ListGeoLocationsCommand().apply(init)) as com.amazonaws.services.route53.model.ListGeoLocationsResult
 }
 
 @Generated
-class AmazonRoute53ListGeoLocationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ListGeoLocationsRequest> {
+class AmazonRoute53ListGeoLocationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ListGeoLocationsRequest, com.amazonaws.services.route53.model.ListGeoLocationsResult> {
 
 	var startContinentCode: String? = null
 	var startCountryCode: String? = null
@@ -1086,8 +1230,12 @@ class AmazonRoute53ListGeoLocationsCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.listGeoLocations(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.ListGeoLocationsResult {
+	  return com.amazonaws.services.route53.model.ListGeoLocationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.ListGeoLocationsResult {
+		return environment.route53.listGeoLocations(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1101,12 +1249,12 @@ class AmazonRoute53ListGeoLocationsCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AmazonRoute53Functions.listHealthChecks(init: AmazonRoute53ListHealthChecksCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53ListHealthChecksCommand().apply(init))
+fun AmazonRoute53Functions.listHealthChecks(init: AmazonRoute53ListHealthChecksCommand.() -> Unit): com.amazonaws.services.route53.model.ListHealthChecksResult {
+	return this.block.declare(AmazonRoute53ListHealthChecksCommand().apply(init)) as com.amazonaws.services.route53.model.ListHealthChecksResult
 }
 
 @Generated
-class AmazonRoute53ListHealthChecksCommand() : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ListHealthChecksRequest> {
+class AmazonRoute53ListHealthChecksCommand() : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ListHealthChecksRequest, com.amazonaws.services.route53.model.ListHealthChecksResult> {
 
 	var marker: String? = null
 	var maxItems: String? = null
@@ -1118,8 +1266,12 @@ class AmazonRoute53ListHealthChecksCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.listHealthChecks(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.ListHealthChecksResult {
+	  return com.amazonaws.services.route53.model.ListHealthChecksResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.ListHealthChecksResult {
+		return environment.route53.listHealthChecks(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1131,12 +1283,12 @@ class AmazonRoute53ListHealthChecksCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AmazonRoute53Functions.listHostedZones(init: AmazonRoute53ListHostedZonesCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53ListHostedZonesCommand().apply(init))
+fun AmazonRoute53Functions.listHostedZones(init: AmazonRoute53ListHostedZonesCommand.() -> Unit): com.amazonaws.services.route53.model.ListHostedZonesResult {
+	return this.block.declare(AmazonRoute53ListHostedZonesCommand().apply(init)) as com.amazonaws.services.route53.model.ListHostedZonesResult
 }
 
 @Generated
-class AmazonRoute53ListHostedZonesCommand() : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ListHostedZonesRequest> {
+class AmazonRoute53ListHostedZonesCommand() : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ListHostedZonesRequest, com.amazonaws.services.route53.model.ListHostedZonesResult> {
 
 	var marker: String? = null
 	var maxItems: String? = null
@@ -1150,8 +1302,12 @@ class AmazonRoute53ListHostedZonesCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.listHostedZones(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.ListHostedZonesResult {
+	  return com.amazonaws.services.route53.model.ListHostedZonesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.ListHostedZonesResult {
+		return environment.route53.listHostedZones(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1164,12 +1320,12 @@ class AmazonRoute53ListHostedZonesCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonRoute53Functions.listHostedZonesByName(init: AmazonRoute53ListHostedZonesByNameCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53ListHostedZonesByNameCommand().apply(init))
+fun AmazonRoute53Functions.listHostedZonesByName(init: AmazonRoute53ListHostedZonesByNameCommand.() -> Unit): com.amazonaws.services.route53.model.ListHostedZonesByNameResult {
+	return this.block.declare(AmazonRoute53ListHostedZonesByNameCommand().apply(init)) as com.amazonaws.services.route53.model.ListHostedZonesByNameResult
 }
 
 @Generated
-class AmazonRoute53ListHostedZonesByNameCommand() : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ListHostedZonesByNameRequest> {
+class AmazonRoute53ListHostedZonesByNameCommand() : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ListHostedZonesByNameRequest, com.amazonaws.services.route53.model.ListHostedZonesByNameResult> {
 
 	var dNSName: String? = null
 	var hostedZoneId: String? = null
@@ -1183,8 +1339,12 @@ class AmazonRoute53ListHostedZonesByNameCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.listHostedZonesByName(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.ListHostedZonesByNameResult {
+	  return com.amazonaws.services.route53.model.ListHostedZonesByNameResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.ListHostedZonesByNameResult {
+		return environment.route53.listHostedZonesByName(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1197,12 +1357,12 @@ class AmazonRoute53ListHostedZonesByNameCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonRoute53Functions.listQueryLoggingConfigs(init: AmazonRoute53ListQueryLoggingConfigsCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53ListQueryLoggingConfigsCommand().apply(init))
+fun AmazonRoute53Functions.listQueryLoggingConfigs(init: AmazonRoute53ListQueryLoggingConfigsCommand.() -> Unit): com.amazonaws.services.route53.model.ListQueryLoggingConfigsResult {
+	return this.block.declare(AmazonRoute53ListQueryLoggingConfigsCommand().apply(init)) as com.amazonaws.services.route53.model.ListQueryLoggingConfigsResult
 }
 
 @Generated
-class AmazonRoute53ListQueryLoggingConfigsCommand() : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ListQueryLoggingConfigsRequest> {
+class AmazonRoute53ListQueryLoggingConfigsCommand() : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ListQueryLoggingConfigsRequest, com.amazonaws.services.route53.model.ListQueryLoggingConfigsResult> {
 
 	var hostedZoneId: String? = null
 	var nextToken: String? = null
@@ -1216,8 +1376,12 @@ class AmazonRoute53ListQueryLoggingConfigsCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.listQueryLoggingConfigs(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.ListQueryLoggingConfigsResult {
+	  return com.amazonaws.services.route53.model.ListQueryLoggingConfigsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.ListQueryLoggingConfigsResult {
+		return environment.route53.listQueryLoggingConfigs(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1230,12 +1394,12 @@ class AmazonRoute53ListQueryLoggingConfigsCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonRoute53Functions.listResourceRecordSets(hostedZoneId: String, init: AmazonRoute53ListResourceRecordSetsCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53ListResourceRecordSetsCommand(hostedZoneId).apply(init))
+fun AmazonRoute53Functions.listResourceRecordSets(hostedZoneId: String, init: AmazonRoute53ListResourceRecordSetsCommand.() -> Unit): com.amazonaws.services.route53.model.ListResourceRecordSetsResult {
+	return this.block.declare(AmazonRoute53ListResourceRecordSetsCommand(hostedZoneId).apply(init)) as com.amazonaws.services.route53.model.ListResourceRecordSetsResult
 }
 
 @Generated
-class AmazonRoute53ListResourceRecordSetsCommand(val hostedZoneId: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ListResourceRecordSetsRequest> {
+class AmazonRoute53ListResourceRecordSetsCommand(val hostedZoneId: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ListResourceRecordSetsRequest, com.amazonaws.services.route53.model.ListResourceRecordSetsResult> {
 
 	var startRecordName: String? = null
 	var startRecordType: RRType? = null
@@ -1252,8 +1416,12 @@ class AmazonRoute53ListResourceRecordSetsCommand(val hostedZoneId: String) : Ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.listResourceRecordSets(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.ListResourceRecordSetsResult {
+	  return com.amazonaws.services.route53.model.ListResourceRecordSetsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.ListResourceRecordSetsResult {
+		return environment.route53.listResourceRecordSets(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1268,12 +1436,12 @@ class AmazonRoute53ListResourceRecordSetsCommand(val hostedZoneId: String) : Ama
 }
 
 
-fun AmazonRoute53Functions.listReusableDelegationSets(init: AmazonRoute53ListReusableDelegationSetsCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53ListReusableDelegationSetsCommand().apply(init))
+fun AmazonRoute53Functions.listReusableDelegationSets(init: AmazonRoute53ListReusableDelegationSetsCommand.() -> Unit): com.amazonaws.services.route53.model.ListReusableDelegationSetsResult {
+	return this.block.declare(AmazonRoute53ListReusableDelegationSetsCommand().apply(init)) as com.amazonaws.services.route53.model.ListReusableDelegationSetsResult
 }
 
 @Generated
-class AmazonRoute53ListReusableDelegationSetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ListReusableDelegationSetsRequest> {
+class AmazonRoute53ListReusableDelegationSetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ListReusableDelegationSetsRequest, com.amazonaws.services.route53.model.ListReusableDelegationSetsResult> {
 
 	var marker: String? = null
 	var maxItems: String? = null
@@ -1285,8 +1453,12 @@ class AmazonRoute53ListReusableDelegationSetsCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.listReusableDelegationSets(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.ListReusableDelegationSetsResult {
+	  return com.amazonaws.services.route53.model.ListReusableDelegationSetsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.ListReusableDelegationSetsResult {
+		return environment.route53.listReusableDelegationSets(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1298,12 +1470,12 @@ class AmazonRoute53ListReusableDelegationSetsCommand() : AmazonWebServiceCommand
 }
 
 
-fun AmazonRoute53Functions.listTagsForResource(resourceType: TagResourceType, resourceId: String, init: AmazonRoute53ListTagsForResourceCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53ListTagsForResourceCommand(resourceType, resourceId).apply(init))
+fun AmazonRoute53Functions.listTagsForResource(resourceType: TagResourceType, resourceId: String, init: AmazonRoute53ListTagsForResourceCommand.() -> Unit): com.amazonaws.services.route53.model.ListTagsForResourceResult {
+	return this.block.declare(AmazonRoute53ListTagsForResourceCommand(resourceType, resourceId).apply(init)) as com.amazonaws.services.route53.model.ListTagsForResourceResult
 }
 
 @Generated
-class AmazonRoute53ListTagsForResourceCommand(val resourceType: TagResourceType, val resourceId: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ListTagsForResourceRequest> {
+class AmazonRoute53ListTagsForResourceCommand(val resourceType: TagResourceType, val resourceId: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ListTagsForResourceRequest, com.amazonaws.services.route53.model.ListTagsForResourceResult> {
 
 
 
@@ -1314,8 +1486,12 @@ class AmazonRoute53ListTagsForResourceCommand(val resourceType: TagResourceType,
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.listTagsForResource(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.ListTagsForResourceResult {
+	  return com.amazonaws.services.route53.model.ListTagsForResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.ListTagsForResourceResult {
+		return environment.route53.listTagsForResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1327,12 +1503,12 @@ class AmazonRoute53ListTagsForResourceCommand(val resourceType: TagResourceType,
 }
 
 
-fun AmazonRoute53Functions.listTagsForResources(resourceType: TagResourceType, resourceIds: List<String>, init: AmazonRoute53ListTagsForResourcesCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53ListTagsForResourcesCommand(resourceType, resourceIds).apply(init))
+fun AmazonRoute53Functions.listTagsForResources(resourceType: TagResourceType, resourceIds: List<String>, init: AmazonRoute53ListTagsForResourcesCommand.() -> Unit): com.amazonaws.services.route53.model.ListTagsForResourcesResult {
+	return this.block.declare(AmazonRoute53ListTagsForResourcesCommand(resourceType, resourceIds).apply(init)) as com.amazonaws.services.route53.model.ListTagsForResourcesResult
 }
 
 @Generated
-class AmazonRoute53ListTagsForResourcesCommand(val resourceType: TagResourceType, val resourceIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ListTagsForResourcesRequest> {
+class AmazonRoute53ListTagsForResourcesCommand(val resourceType: TagResourceType, val resourceIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ListTagsForResourcesRequest, com.amazonaws.services.route53.model.ListTagsForResourcesResult> {
 
 
 
@@ -1343,8 +1519,12 @@ class AmazonRoute53ListTagsForResourcesCommand(val resourceType: TagResourceType
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.listTagsForResources(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.ListTagsForResourcesResult {
+	  return com.amazonaws.services.route53.model.ListTagsForResourcesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.ListTagsForResourcesResult {
+		return environment.route53.listTagsForResources(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1356,12 +1536,12 @@ class AmazonRoute53ListTagsForResourcesCommand(val resourceType: TagResourceType
 }
 
 
-fun AmazonRoute53Functions.listTrafficPolicies(init: AmazonRoute53ListTrafficPoliciesCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53ListTrafficPoliciesCommand().apply(init))
+fun AmazonRoute53Functions.listTrafficPolicies(init: AmazonRoute53ListTrafficPoliciesCommand.() -> Unit): com.amazonaws.services.route53.model.ListTrafficPoliciesResult {
+	return this.block.declare(AmazonRoute53ListTrafficPoliciesCommand().apply(init)) as com.amazonaws.services.route53.model.ListTrafficPoliciesResult
 }
 
 @Generated
-class AmazonRoute53ListTrafficPoliciesCommand() : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ListTrafficPoliciesRequest> {
+class AmazonRoute53ListTrafficPoliciesCommand() : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ListTrafficPoliciesRequest, com.amazonaws.services.route53.model.ListTrafficPoliciesResult> {
 
 	var trafficPolicyIdMarker: String? = null
 	var maxItems: String? = null
@@ -1373,8 +1553,12 @@ class AmazonRoute53ListTrafficPoliciesCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.listTrafficPolicies(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.ListTrafficPoliciesResult {
+	  return com.amazonaws.services.route53.model.ListTrafficPoliciesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.ListTrafficPoliciesResult {
+		return environment.route53.listTrafficPolicies(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1386,12 +1570,12 @@ class AmazonRoute53ListTrafficPoliciesCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonRoute53Functions.listTrafficPolicyInstances(init: AmazonRoute53ListTrafficPolicyInstancesCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53ListTrafficPolicyInstancesCommand().apply(init))
+fun AmazonRoute53Functions.listTrafficPolicyInstances(init: AmazonRoute53ListTrafficPolicyInstancesCommand.() -> Unit): com.amazonaws.services.route53.model.ListTrafficPolicyInstancesResult {
+	return this.block.declare(AmazonRoute53ListTrafficPolicyInstancesCommand().apply(init)) as com.amazonaws.services.route53.model.ListTrafficPolicyInstancesResult
 }
 
 @Generated
-class AmazonRoute53ListTrafficPolicyInstancesCommand() : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ListTrafficPolicyInstancesRequest> {
+class AmazonRoute53ListTrafficPolicyInstancesCommand() : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ListTrafficPolicyInstancesRequest, com.amazonaws.services.route53.model.ListTrafficPolicyInstancesResult> {
 
 	var hostedZoneIdMarker: String? = null
 	var trafficPolicyInstanceNameMarker: String? = null
@@ -1407,8 +1591,12 @@ class AmazonRoute53ListTrafficPolicyInstancesCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.listTrafficPolicyInstances(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.ListTrafficPolicyInstancesResult {
+	  return com.amazonaws.services.route53.model.ListTrafficPolicyInstancesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.ListTrafficPolicyInstancesResult {
+		return environment.route53.listTrafficPolicyInstances(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1422,12 +1610,12 @@ class AmazonRoute53ListTrafficPolicyInstancesCommand() : AmazonWebServiceCommand
 }
 
 
-fun AmazonRoute53Functions.listTrafficPolicyInstancesByHostedZone(hostedZoneId: String, init: AmazonRoute53ListTrafficPolicyInstancesByHostedZoneCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53ListTrafficPolicyInstancesByHostedZoneCommand(hostedZoneId).apply(init))
+fun AmazonRoute53Functions.listTrafficPolicyInstancesByHostedZone(hostedZoneId: String, init: AmazonRoute53ListTrafficPolicyInstancesByHostedZoneCommand.() -> Unit): com.amazonaws.services.route53.model.ListTrafficPolicyInstancesByHostedZoneResult {
+	return this.block.declare(AmazonRoute53ListTrafficPolicyInstancesByHostedZoneCommand(hostedZoneId).apply(init)) as com.amazonaws.services.route53.model.ListTrafficPolicyInstancesByHostedZoneResult
 }
 
 @Generated
-class AmazonRoute53ListTrafficPolicyInstancesByHostedZoneCommand(val hostedZoneId: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ListTrafficPolicyInstancesByHostedZoneRequest> {
+class AmazonRoute53ListTrafficPolicyInstancesByHostedZoneCommand(val hostedZoneId: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ListTrafficPolicyInstancesByHostedZoneRequest, com.amazonaws.services.route53.model.ListTrafficPolicyInstancesByHostedZoneResult> {
 
 	var trafficPolicyInstanceNameMarker: String? = null
 	var trafficPolicyInstanceTypeMarker: RRType? = null
@@ -1442,8 +1630,12 @@ class AmazonRoute53ListTrafficPolicyInstancesByHostedZoneCommand(val hostedZoneI
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.listTrafficPolicyInstancesByHostedZone(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.ListTrafficPolicyInstancesByHostedZoneResult {
+	  return com.amazonaws.services.route53.model.ListTrafficPolicyInstancesByHostedZoneResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.ListTrafficPolicyInstancesByHostedZoneResult {
+		return environment.route53.listTrafficPolicyInstancesByHostedZone(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1457,12 +1649,12 @@ class AmazonRoute53ListTrafficPolicyInstancesByHostedZoneCommand(val hostedZoneI
 }
 
 
-fun AmazonRoute53Functions.listTrafficPolicyInstancesByPolicy(trafficPolicyId: String, trafficPolicyVersion: Int, init: AmazonRoute53ListTrafficPolicyInstancesByPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53ListTrafficPolicyInstancesByPolicyCommand(trafficPolicyId, trafficPolicyVersion).apply(init))
+fun AmazonRoute53Functions.listTrafficPolicyInstancesByPolicy(trafficPolicyId: String, trafficPolicyVersion: Int, init: AmazonRoute53ListTrafficPolicyInstancesByPolicyCommand.() -> Unit): com.amazonaws.services.route53.model.ListTrafficPolicyInstancesByPolicyResult {
+	return this.block.declare(AmazonRoute53ListTrafficPolicyInstancesByPolicyCommand(trafficPolicyId, trafficPolicyVersion).apply(init)) as com.amazonaws.services.route53.model.ListTrafficPolicyInstancesByPolicyResult
 }
 
 @Generated
-class AmazonRoute53ListTrafficPolicyInstancesByPolicyCommand(val trafficPolicyId: String, val trafficPolicyVersion: Int) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ListTrafficPolicyInstancesByPolicyRequest> {
+class AmazonRoute53ListTrafficPolicyInstancesByPolicyCommand(val trafficPolicyId: String, val trafficPolicyVersion: Int) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ListTrafficPolicyInstancesByPolicyRequest, com.amazonaws.services.route53.model.ListTrafficPolicyInstancesByPolicyResult> {
 
 	var hostedZoneIdMarker: String? = null
 	var trafficPolicyInstanceNameMarker: String? = null
@@ -1480,8 +1672,12 @@ class AmazonRoute53ListTrafficPolicyInstancesByPolicyCommand(val trafficPolicyId
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.listTrafficPolicyInstancesByPolicy(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.ListTrafficPolicyInstancesByPolicyResult {
+	  return com.amazonaws.services.route53.model.ListTrafficPolicyInstancesByPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.ListTrafficPolicyInstancesByPolicyResult {
+		return environment.route53.listTrafficPolicyInstancesByPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1497,12 +1693,12 @@ class AmazonRoute53ListTrafficPolicyInstancesByPolicyCommand(val trafficPolicyId
 }
 
 
-fun AmazonRoute53Functions.listTrafficPolicyVersions(id: String, init: AmazonRoute53ListTrafficPolicyVersionsCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53ListTrafficPolicyVersionsCommand(id).apply(init))
+fun AmazonRoute53Functions.listTrafficPolicyVersions(id: String, init: AmazonRoute53ListTrafficPolicyVersionsCommand.() -> Unit): com.amazonaws.services.route53.model.ListTrafficPolicyVersionsResult {
+	return this.block.declare(AmazonRoute53ListTrafficPolicyVersionsCommand(id).apply(init)) as com.amazonaws.services.route53.model.ListTrafficPolicyVersionsResult
 }
 
 @Generated
-class AmazonRoute53ListTrafficPolicyVersionsCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ListTrafficPolicyVersionsRequest> {
+class AmazonRoute53ListTrafficPolicyVersionsCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ListTrafficPolicyVersionsRequest, com.amazonaws.services.route53.model.ListTrafficPolicyVersionsResult> {
 
 	var trafficPolicyVersionMarker: String? = null
 	var maxItems: String? = null
@@ -1515,8 +1711,12 @@ class AmazonRoute53ListTrafficPolicyVersionsCommand(val id: String) : AmazonWebS
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.listTrafficPolicyVersions(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.ListTrafficPolicyVersionsResult {
+	  return com.amazonaws.services.route53.model.ListTrafficPolicyVersionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.ListTrafficPolicyVersionsResult {
+		return environment.route53.listTrafficPolicyVersions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1529,12 +1729,12 @@ class AmazonRoute53ListTrafficPolicyVersionsCommand(val id: String) : AmazonWebS
 }
 
 
-fun AmazonRoute53Functions.listVPCAssociationAuthorizations(hostedZoneId: String, init: AmazonRoute53ListVPCAssociationAuthorizationsCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53ListVPCAssociationAuthorizationsCommand(hostedZoneId).apply(init))
+fun AmazonRoute53Functions.listVPCAssociationAuthorizations(hostedZoneId: String, init: AmazonRoute53ListVPCAssociationAuthorizationsCommand.() -> Unit): com.amazonaws.services.route53.model.ListVPCAssociationAuthorizationsResult {
+	return this.block.declare(AmazonRoute53ListVPCAssociationAuthorizationsCommand(hostedZoneId).apply(init)) as com.amazonaws.services.route53.model.ListVPCAssociationAuthorizationsResult
 }
 
 @Generated
-class AmazonRoute53ListVPCAssociationAuthorizationsCommand(val hostedZoneId: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ListVPCAssociationAuthorizationsRequest> {
+class AmazonRoute53ListVPCAssociationAuthorizationsCommand(val hostedZoneId: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.ListVPCAssociationAuthorizationsRequest, com.amazonaws.services.route53.model.ListVPCAssociationAuthorizationsResult> {
 
 	var nextToken: String? = null
 	var maxResults: String? = null
@@ -1547,8 +1747,12 @@ class AmazonRoute53ListVPCAssociationAuthorizationsCommand(val hostedZoneId: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.listVPCAssociationAuthorizations(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.ListVPCAssociationAuthorizationsResult {
+	  return com.amazonaws.services.route53.model.ListVPCAssociationAuthorizationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.ListVPCAssociationAuthorizationsResult {
+		return environment.route53.listVPCAssociationAuthorizations(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1561,12 +1765,12 @@ class AmazonRoute53ListVPCAssociationAuthorizationsCommand(val hostedZoneId: Str
 }
 
 
-fun AmazonRoute53Functions.testDNSAnswer(hostedZoneId: String, recordName: String, recordType: RRType, init: AmazonRoute53TestDNSAnswerCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53TestDNSAnswerCommand(hostedZoneId, recordName, recordType).apply(init))
+fun AmazonRoute53Functions.testDNSAnswer(hostedZoneId: String, recordName: String, recordType: RRType, init: AmazonRoute53TestDNSAnswerCommand.() -> Unit): com.amazonaws.services.route53.model.TestDNSAnswerResult {
+	return this.block.declare(AmazonRoute53TestDNSAnswerCommand(hostedZoneId, recordName, recordType).apply(init)) as com.amazonaws.services.route53.model.TestDNSAnswerResult
 }
 
 @Generated
-class AmazonRoute53TestDNSAnswerCommand(val hostedZoneId: String, val recordName: String, val recordType: RRType) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.TestDNSAnswerRequest> {
+class AmazonRoute53TestDNSAnswerCommand(val hostedZoneId: String, val recordName: String, val recordType: RRType) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.TestDNSAnswerRequest, com.amazonaws.services.route53.model.TestDNSAnswerResult> {
 
 	var resolverIP: String? = null
 	var eDNS0ClientSubnetIP: String? = null
@@ -1583,8 +1787,12 @@ class AmazonRoute53TestDNSAnswerCommand(val hostedZoneId: String, val recordName
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.testDNSAnswer(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.TestDNSAnswerResult {
+	  return com.amazonaws.services.route53.model.TestDNSAnswerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.TestDNSAnswerResult {
+		return environment.route53.testDNSAnswer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1600,12 +1808,12 @@ class AmazonRoute53TestDNSAnswerCommand(val hostedZoneId: String, val recordName
 }
 
 
-fun AmazonRoute53Functions.updateHealthCheck(healthCheckId: String, init: AmazonRoute53UpdateHealthCheckCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53UpdateHealthCheckCommand(healthCheckId).apply(init))
+fun AmazonRoute53Functions.updateHealthCheck(healthCheckId: String, init: AmazonRoute53UpdateHealthCheckCommand.() -> Unit): com.amazonaws.services.route53.model.UpdateHealthCheckResult {
+	return this.block.declare(AmazonRoute53UpdateHealthCheckCommand(healthCheckId).apply(init)) as com.amazonaws.services.route53.model.UpdateHealthCheckResult
 }
 
 @Generated
-class AmazonRoute53UpdateHealthCheckCommand(val healthCheckId: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.UpdateHealthCheckRequest> {
+class AmazonRoute53UpdateHealthCheckCommand(val healthCheckId: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.UpdateHealthCheckRequest, com.amazonaws.services.route53.model.UpdateHealthCheckResult> {
 
 	var healthCheckVersion: Long? = 0L
 	var iPAddress: String? = null
@@ -1644,8 +1852,12 @@ class AmazonRoute53UpdateHealthCheckCommand(val healthCheckId: String) : AmazonW
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.updateHealthCheck(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.UpdateHealthCheckResult {
+	  return com.amazonaws.services.route53.model.UpdateHealthCheckResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.UpdateHealthCheckResult {
+		return environment.route53.updateHealthCheck(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1671,12 +1883,12 @@ class AmazonRoute53UpdateHealthCheckCommand(val healthCheckId: String) : AmazonW
 }
 
 
-fun AmazonRoute53Functions.updateHostedZoneComment(id: String, init: AmazonRoute53UpdateHostedZoneCommentCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53UpdateHostedZoneCommentCommand(id).apply(init))
+fun AmazonRoute53Functions.updateHostedZoneComment(id: String, init: AmazonRoute53UpdateHostedZoneCommentCommand.() -> Unit): com.amazonaws.services.route53.model.UpdateHostedZoneCommentResult {
+	return this.block.declare(AmazonRoute53UpdateHostedZoneCommentCommand(id).apply(init)) as com.amazonaws.services.route53.model.UpdateHostedZoneCommentResult
 }
 
 @Generated
-class AmazonRoute53UpdateHostedZoneCommentCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.UpdateHostedZoneCommentRequest> {
+class AmazonRoute53UpdateHostedZoneCommentCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.UpdateHostedZoneCommentRequest, com.amazonaws.services.route53.model.UpdateHostedZoneCommentResult> {
 
 	var comment: String? = null
 
@@ -1687,8 +1899,12 @@ class AmazonRoute53UpdateHostedZoneCommentCommand(val id: String) : AmazonWebSer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.updateHostedZoneComment(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.UpdateHostedZoneCommentResult {
+	  return com.amazonaws.services.route53.model.UpdateHostedZoneCommentResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.UpdateHostedZoneCommentResult {
+		return environment.route53.updateHostedZoneComment(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1700,12 +1916,12 @@ class AmazonRoute53UpdateHostedZoneCommentCommand(val id: String) : AmazonWebSer
 }
 
 
-fun AmazonRoute53Functions.updateTrafficPolicyComment(id: String, version: Int, comment: String, init: AmazonRoute53UpdateTrafficPolicyCommentCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53UpdateTrafficPolicyCommentCommand(id, version, comment).apply(init))
+fun AmazonRoute53Functions.updateTrafficPolicyComment(id: String, version: Int, comment: String, init: AmazonRoute53UpdateTrafficPolicyCommentCommand.() -> Unit): com.amazonaws.services.route53.model.UpdateTrafficPolicyCommentResult {
+	return this.block.declare(AmazonRoute53UpdateTrafficPolicyCommentCommand(id, version, comment).apply(init)) as com.amazonaws.services.route53.model.UpdateTrafficPolicyCommentResult
 }
 
 @Generated
-class AmazonRoute53UpdateTrafficPolicyCommentCommand(val id: String, val version: Int, val comment: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.UpdateTrafficPolicyCommentRequest> {
+class AmazonRoute53UpdateTrafficPolicyCommentCommand(val id: String, val version: Int, val comment: String) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.UpdateTrafficPolicyCommentRequest, com.amazonaws.services.route53.model.UpdateTrafficPolicyCommentResult> {
 
 
 
@@ -1717,8 +1933,12 @@ class AmazonRoute53UpdateTrafficPolicyCommentCommand(val id: String, val version
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.updateTrafficPolicyComment(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.UpdateTrafficPolicyCommentResult {
+	  return com.amazonaws.services.route53.model.UpdateTrafficPolicyCommentResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.UpdateTrafficPolicyCommentResult {
+		return environment.route53.updateTrafficPolicyComment(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1731,12 +1951,12 @@ class AmazonRoute53UpdateTrafficPolicyCommentCommand(val id: String, val version
 }
 
 
-fun AmazonRoute53Functions.updateTrafficPolicyInstance(id: String, tTL: Long, trafficPolicyId: String, trafficPolicyVersion: Int, init: AmazonRoute53UpdateTrafficPolicyInstanceCommand.() -> Unit) {
-	this.block.declare(AmazonRoute53UpdateTrafficPolicyInstanceCommand(id, tTL, trafficPolicyId, trafficPolicyVersion).apply(init))
+fun AmazonRoute53Functions.updateTrafficPolicyInstance(id: String, tTL: Long, trafficPolicyId: String, trafficPolicyVersion: Int, init: AmazonRoute53UpdateTrafficPolicyInstanceCommand.() -> Unit): com.amazonaws.services.route53.model.UpdateTrafficPolicyInstanceResult {
+	return this.block.declare(AmazonRoute53UpdateTrafficPolicyInstanceCommand(id, tTL, trafficPolicyId, trafficPolicyVersion).apply(init)) as com.amazonaws.services.route53.model.UpdateTrafficPolicyInstanceResult
 }
 
 @Generated
-class AmazonRoute53UpdateTrafficPolicyInstanceCommand(val id: String, val tTL: Long, val trafficPolicyId: String, val trafficPolicyVersion: Int) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.UpdateTrafficPolicyInstanceRequest> {
+class AmazonRoute53UpdateTrafficPolicyInstanceCommand(val id: String, val tTL: Long, val trafficPolicyId: String, val trafficPolicyVersion: Int) : AmazonWebServiceCommand<com.amazonaws.services.route53.model.UpdateTrafficPolicyInstanceRequest, com.amazonaws.services.route53.model.UpdateTrafficPolicyInstanceResult> {
 
 
 
@@ -1749,8 +1969,12 @@ class AmazonRoute53UpdateTrafficPolicyInstanceCommand(val id: String, val tTL: L
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.route53.updateTrafficPolicyInstance(build())
+	override fun dryResult(): com.amazonaws.services.route53.model.UpdateTrafficPolicyInstanceResult {
+	  return com.amazonaws.services.route53.model.UpdateTrafficPolicyInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.route53.model.UpdateTrafficPolicyInstanceResult {
+		return environment.route53.updateTrafficPolicyInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.lambda: AWSLambda
 @Generated
 class AWSLambdaFunctions(val block: Block)
 
-infix fun AwsContinuation.lambda(init: AWSLambdaFunctions.() -> Unit) {
-	AWSLambdaFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.lambda(init: AWSLambdaFunctions.() -> T): T {
+	return AWSLambdaFunctions(shell).run(init)
 }
 
 			
 
-fun AWSLambdaFunctions.addPermission(functionName: String, statementId: String, action: String, principal: String, init: AWSLambdaAddPermissionCommand.() -> Unit) {
-	this.block.declare(AWSLambdaAddPermissionCommand(functionName, statementId, action, principal).apply(init))
+fun AWSLambdaFunctions.addPermission(functionName: String, statementId: String, action: String, principal: String, init: AWSLambdaAddPermissionCommand.() -> Unit): com.amazonaws.services.lambda.model.AddPermissionResult {
+	return this.block.declare(AWSLambdaAddPermissionCommand(functionName, statementId, action, principal).apply(init)) as com.amazonaws.services.lambda.model.AddPermissionResult
 }
 
 @Generated
-class AWSLambdaAddPermissionCommand(val functionName: String, val statementId: String, val action: String, val principal: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.AddPermissionRequest> {
+class AWSLambdaAddPermissionCommand(val functionName: String, val statementId: String, val action: String, val principal: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.AddPermissionRequest, com.amazonaws.services.lambda.model.AddPermissionResult> {
 
 	var sourceArn: String? = null
 	var sourceAccount: String? = null
@@ -53,8 +53,12 @@ class AWSLambdaAddPermissionCommand(val functionName: String, val statementId: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lambda.addPermission(build())
+	override fun dryResult(): com.amazonaws.services.lambda.model.AddPermissionResult {
+	  return com.amazonaws.services.lambda.model.AddPermissionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lambda.model.AddPermissionResult {
+		return environment.lambda.addPermission(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -73,12 +77,12 @@ class AWSLambdaAddPermissionCommand(val functionName: String, val statementId: S
 }
 
 
-fun AWSLambdaFunctions.createAlias(functionName: String, name: String, functionVersion: String, init: AWSLambdaCreateAliasCommand.() -> Unit) {
-	this.block.declare(AWSLambdaCreateAliasCommand(functionName, name, functionVersion).apply(init))
+fun AWSLambdaFunctions.createAlias(functionName: String, name: String, functionVersion: String, init: AWSLambdaCreateAliasCommand.() -> Unit): com.amazonaws.services.lambda.model.CreateAliasResult {
+	return this.block.declare(AWSLambdaCreateAliasCommand(functionName, name, functionVersion).apply(init)) as com.amazonaws.services.lambda.model.CreateAliasResult
 }
 
 @Generated
-class AWSLambdaCreateAliasCommand(val functionName: String, val name: String, val functionVersion: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.CreateAliasRequest> {
+class AWSLambdaCreateAliasCommand(val functionName: String, val name: String, val functionVersion: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.CreateAliasRequest, com.amazonaws.services.lambda.model.CreateAliasResult> {
 
 	var description: String? = null
 	var routingConfig: com.amazonaws.services.lambda.model.AliasRoutingConfiguration? = null
@@ -93,8 +97,12 @@ class AWSLambdaCreateAliasCommand(val functionName: String, val name: String, va
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lambda.createAlias(build())
+	override fun dryResult(): com.amazonaws.services.lambda.model.CreateAliasResult {
+	  return com.amazonaws.services.lambda.model.CreateAliasResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lambda.model.CreateAliasResult {
+		return environment.lambda.createAlias(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -109,12 +117,12 @@ class AWSLambdaCreateAliasCommand(val functionName: String, val name: String, va
 }
 
 
-fun AWSLambdaFunctions.createEventSourceMapping(eventSourceArn: String, functionName: String, startingPosition: EventSourcePosition, init: AWSLambdaCreateEventSourceMappingCommand.() -> Unit) {
-	this.block.declare(AWSLambdaCreateEventSourceMappingCommand(eventSourceArn, functionName, startingPosition).apply(init))
+fun AWSLambdaFunctions.createEventSourceMapping(eventSourceArn: String, functionName: String, startingPosition: EventSourcePosition, init: AWSLambdaCreateEventSourceMappingCommand.() -> Unit): com.amazonaws.services.lambda.model.CreateEventSourceMappingResult {
+	return this.block.declare(AWSLambdaCreateEventSourceMappingCommand(eventSourceArn, functionName, startingPosition).apply(init)) as com.amazonaws.services.lambda.model.CreateEventSourceMappingResult
 }
 
 @Generated
-class AWSLambdaCreateEventSourceMappingCommand(val eventSourceArn: String, val functionName: String, val startingPosition: EventSourcePosition) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.CreateEventSourceMappingRequest> {
+class AWSLambdaCreateEventSourceMappingCommand(val eventSourceArn: String, val functionName: String, val startingPosition: EventSourcePosition) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.CreateEventSourceMappingRequest, com.amazonaws.services.lambda.model.CreateEventSourceMappingResult> {
 
 	var enabled: Boolean? = false
 	var batchSize: Int? = 0
@@ -131,8 +139,12 @@ class AWSLambdaCreateEventSourceMappingCommand(val eventSourceArn: String, val f
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lambda.createEventSourceMapping(build())
+	override fun dryResult(): com.amazonaws.services.lambda.model.CreateEventSourceMappingResult {
+	  return com.amazonaws.services.lambda.model.CreateEventSourceMappingResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lambda.model.CreateEventSourceMappingResult {
+		return environment.lambda.createEventSourceMapping(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -148,12 +160,12 @@ class AWSLambdaCreateEventSourceMappingCommand(val eventSourceArn: String, val f
 }
 
 
-fun AWSLambdaFunctions.createFunction(functionName: String, runtime: Runtime, role: String, handler: String, code: com.amazonaws.services.lambda.model.FunctionCode, init: AWSLambdaCreateFunctionCommand.() -> Unit) {
-	this.block.declare(AWSLambdaCreateFunctionCommand(functionName, runtime, role, handler, code).apply(init))
+fun AWSLambdaFunctions.createFunction(functionName: String, runtime: Runtime, role: String, handler: String, code: com.amazonaws.services.lambda.model.FunctionCode, init: AWSLambdaCreateFunctionCommand.() -> Unit): com.amazonaws.services.lambda.model.CreateFunctionResult {
+	return this.block.declare(AWSLambdaCreateFunctionCommand(functionName, runtime, role, handler, code).apply(init)) as com.amazonaws.services.lambda.model.CreateFunctionResult
 }
 
 @Generated
-class AWSLambdaCreateFunctionCommand(val functionName: String, val runtime: Runtime, val role: String, val handler: String, val code: com.amazonaws.services.lambda.model.FunctionCode) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.CreateFunctionRequest> {
+class AWSLambdaCreateFunctionCommand(val functionName: String, val runtime: Runtime, val role: String, val handler: String, val code: com.amazonaws.services.lambda.model.FunctionCode) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.CreateFunctionRequest, com.amazonaws.services.lambda.model.CreateFunctionResult> {
 
 	var description: String? = null
 	var timeout: Int? = 0
@@ -186,8 +198,12 @@ class AWSLambdaCreateFunctionCommand(val functionName: String, val runtime: Runt
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lambda.createFunction(build())
+	override fun dryResult(): com.amazonaws.services.lambda.model.CreateFunctionResult {
+	  return com.amazonaws.services.lambda.model.CreateFunctionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lambda.model.CreateFunctionResult {
+		return environment.lambda.createFunction(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -212,12 +228,12 @@ class AWSLambdaCreateFunctionCommand(val functionName: String, val runtime: Runt
 }
 
 
-fun AWSLambdaFunctions.deleteAlias(functionName: String, name: String, init: AWSLambdaDeleteAliasCommand.() -> Unit) {
-	this.block.declare(AWSLambdaDeleteAliasCommand(functionName, name).apply(init))
+fun AWSLambdaFunctions.deleteAlias(functionName: String, name: String, init: AWSLambdaDeleteAliasCommand.() -> Unit): com.amazonaws.services.lambda.model.DeleteAliasResult {
+	return this.block.declare(AWSLambdaDeleteAliasCommand(functionName, name).apply(init)) as com.amazonaws.services.lambda.model.DeleteAliasResult
 }
 
 @Generated
-class AWSLambdaDeleteAliasCommand(val functionName: String, val name: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.DeleteAliasRequest> {
+class AWSLambdaDeleteAliasCommand(val functionName: String, val name: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.DeleteAliasRequest, com.amazonaws.services.lambda.model.DeleteAliasResult> {
 
 
 
@@ -228,8 +244,12 @@ class AWSLambdaDeleteAliasCommand(val functionName: String, val name: String) : 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lambda.deleteAlias(build())
+	override fun dryResult(): com.amazonaws.services.lambda.model.DeleteAliasResult {
+	  return com.amazonaws.services.lambda.model.DeleteAliasResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lambda.model.DeleteAliasResult {
+		return environment.lambda.deleteAlias(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -241,12 +261,12 @@ class AWSLambdaDeleteAliasCommand(val functionName: String, val name: String) : 
 }
 
 
-fun AWSLambdaFunctions.deleteEventSourceMapping(uUID: String, init: AWSLambdaDeleteEventSourceMappingCommand.() -> Unit) {
-	this.block.declare(AWSLambdaDeleteEventSourceMappingCommand(uUID).apply(init))
+fun AWSLambdaFunctions.deleteEventSourceMapping(uUID: String, init: AWSLambdaDeleteEventSourceMappingCommand.() -> Unit): com.amazonaws.services.lambda.model.DeleteEventSourceMappingResult {
+	return this.block.declare(AWSLambdaDeleteEventSourceMappingCommand(uUID).apply(init)) as com.amazonaws.services.lambda.model.DeleteEventSourceMappingResult
 }
 
 @Generated
-class AWSLambdaDeleteEventSourceMappingCommand(val uUID: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.DeleteEventSourceMappingRequest> {
+class AWSLambdaDeleteEventSourceMappingCommand(val uUID: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.DeleteEventSourceMappingRequest, com.amazonaws.services.lambda.model.DeleteEventSourceMappingResult> {
 
 
 
@@ -256,8 +276,12 @@ class AWSLambdaDeleteEventSourceMappingCommand(val uUID: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lambda.deleteEventSourceMapping(build())
+	override fun dryResult(): com.amazonaws.services.lambda.model.DeleteEventSourceMappingResult {
+	  return com.amazonaws.services.lambda.model.DeleteEventSourceMappingResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lambda.model.DeleteEventSourceMappingResult {
+		return environment.lambda.deleteEventSourceMapping(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -268,12 +292,12 @@ class AWSLambdaDeleteEventSourceMappingCommand(val uUID: String) : AmazonWebServ
 }
 
 
-fun AWSLambdaFunctions.deleteFunction(functionName: String, init: AWSLambdaDeleteFunctionCommand.() -> Unit) {
-	this.block.declare(AWSLambdaDeleteFunctionCommand(functionName).apply(init))
+fun AWSLambdaFunctions.deleteFunction(functionName: String, init: AWSLambdaDeleteFunctionCommand.() -> Unit): com.amazonaws.services.lambda.model.DeleteFunctionResult {
+	return this.block.declare(AWSLambdaDeleteFunctionCommand(functionName).apply(init)) as com.amazonaws.services.lambda.model.DeleteFunctionResult
 }
 
 @Generated
-class AWSLambdaDeleteFunctionCommand(val functionName: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.DeleteFunctionRequest> {
+class AWSLambdaDeleteFunctionCommand(val functionName: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.DeleteFunctionRequest, com.amazonaws.services.lambda.model.DeleteFunctionResult> {
 
 	var qualifier: String? = null
 
@@ -284,8 +308,12 @@ class AWSLambdaDeleteFunctionCommand(val functionName: String) : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lambda.deleteFunction(build())
+	override fun dryResult(): com.amazonaws.services.lambda.model.DeleteFunctionResult {
+	  return com.amazonaws.services.lambda.model.DeleteFunctionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lambda.model.DeleteFunctionResult {
+		return environment.lambda.deleteFunction(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -297,12 +325,12 @@ class AWSLambdaDeleteFunctionCommand(val functionName: String) : AmazonWebServic
 }
 
 
-fun AWSLambdaFunctions.deleteFunctionConcurrency(functionName: String, init: AWSLambdaDeleteFunctionConcurrencyCommand.() -> Unit) {
-	this.block.declare(AWSLambdaDeleteFunctionConcurrencyCommand(functionName).apply(init))
+fun AWSLambdaFunctions.deleteFunctionConcurrency(functionName: String, init: AWSLambdaDeleteFunctionConcurrencyCommand.() -> Unit): com.amazonaws.services.lambda.model.DeleteFunctionConcurrencyResult {
+	return this.block.declare(AWSLambdaDeleteFunctionConcurrencyCommand(functionName).apply(init)) as com.amazonaws.services.lambda.model.DeleteFunctionConcurrencyResult
 }
 
 @Generated
-class AWSLambdaDeleteFunctionConcurrencyCommand(val functionName: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.DeleteFunctionConcurrencyRequest> {
+class AWSLambdaDeleteFunctionConcurrencyCommand(val functionName: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.DeleteFunctionConcurrencyRequest, com.amazonaws.services.lambda.model.DeleteFunctionConcurrencyResult> {
 
 
 
@@ -312,8 +340,12 @@ class AWSLambdaDeleteFunctionConcurrencyCommand(val functionName: String) : Amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lambda.deleteFunctionConcurrency(build())
+	override fun dryResult(): com.amazonaws.services.lambda.model.DeleteFunctionConcurrencyResult {
+	  return com.amazonaws.services.lambda.model.DeleteFunctionConcurrencyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lambda.model.DeleteFunctionConcurrencyResult {
+		return environment.lambda.deleteFunctionConcurrency(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -324,12 +356,12 @@ class AWSLambdaDeleteFunctionConcurrencyCommand(val functionName: String) : Amaz
 }
 
 
-fun AWSLambdaFunctions.getAccountSettings(init: AWSLambdaGetAccountSettingsCommand.() -> Unit) {
-	this.block.declare(AWSLambdaGetAccountSettingsCommand().apply(init))
+fun AWSLambdaFunctions.getAccountSettings(init: AWSLambdaGetAccountSettingsCommand.() -> Unit): com.amazonaws.services.lambda.model.GetAccountSettingsResult {
+	return this.block.declare(AWSLambdaGetAccountSettingsCommand().apply(init)) as com.amazonaws.services.lambda.model.GetAccountSettingsResult
 }
 
 @Generated
-class AWSLambdaGetAccountSettingsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.GetAccountSettingsRequest> {
+class AWSLambdaGetAccountSettingsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.GetAccountSettingsRequest, com.amazonaws.services.lambda.model.GetAccountSettingsResult> {
 
 
 
@@ -339,8 +371,12 @@ class AWSLambdaGetAccountSettingsCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lambda.getAccountSettings(build())
+	override fun dryResult(): com.amazonaws.services.lambda.model.GetAccountSettingsResult {
+	  return com.amazonaws.services.lambda.model.GetAccountSettingsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lambda.model.GetAccountSettingsResult {
+		return environment.lambda.getAccountSettings(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -351,12 +387,12 @@ class AWSLambdaGetAccountSettingsCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AWSLambdaFunctions.getAlias(functionName: String, name: String, init: AWSLambdaGetAliasCommand.() -> Unit) {
-	this.block.declare(AWSLambdaGetAliasCommand(functionName, name).apply(init))
+fun AWSLambdaFunctions.getAlias(functionName: String, name: String, init: AWSLambdaGetAliasCommand.() -> Unit): com.amazonaws.services.lambda.model.GetAliasResult {
+	return this.block.declare(AWSLambdaGetAliasCommand(functionName, name).apply(init)) as com.amazonaws.services.lambda.model.GetAliasResult
 }
 
 @Generated
-class AWSLambdaGetAliasCommand(val functionName: String, val name: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.GetAliasRequest> {
+class AWSLambdaGetAliasCommand(val functionName: String, val name: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.GetAliasRequest, com.amazonaws.services.lambda.model.GetAliasResult> {
 
 
 
@@ -367,8 +403,12 @@ class AWSLambdaGetAliasCommand(val functionName: String, val name: String) : Ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lambda.getAlias(build())
+	override fun dryResult(): com.amazonaws.services.lambda.model.GetAliasResult {
+	  return com.amazonaws.services.lambda.model.GetAliasResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lambda.model.GetAliasResult {
+		return environment.lambda.getAlias(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -380,12 +420,12 @@ class AWSLambdaGetAliasCommand(val functionName: String, val name: String) : Ama
 }
 
 
-fun AWSLambdaFunctions.getEventSourceMapping(uUID: String, init: AWSLambdaGetEventSourceMappingCommand.() -> Unit) {
-	this.block.declare(AWSLambdaGetEventSourceMappingCommand(uUID).apply(init))
+fun AWSLambdaFunctions.getEventSourceMapping(uUID: String, init: AWSLambdaGetEventSourceMappingCommand.() -> Unit): com.amazonaws.services.lambda.model.GetEventSourceMappingResult {
+	return this.block.declare(AWSLambdaGetEventSourceMappingCommand(uUID).apply(init)) as com.amazonaws.services.lambda.model.GetEventSourceMappingResult
 }
 
 @Generated
-class AWSLambdaGetEventSourceMappingCommand(val uUID: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.GetEventSourceMappingRequest> {
+class AWSLambdaGetEventSourceMappingCommand(val uUID: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.GetEventSourceMappingRequest, com.amazonaws.services.lambda.model.GetEventSourceMappingResult> {
 
 
 
@@ -395,8 +435,12 @@ class AWSLambdaGetEventSourceMappingCommand(val uUID: String) : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lambda.getEventSourceMapping(build())
+	override fun dryResult(): com.amazonaws.services.lambda.model.GetEventSourceMappingResult {
+	  return com.amazonaws.services.lambda.model.GetEventSourceMappingResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lambda.model.GetEventSourceMappingResult {
+		return environment.lambda.getEventSourceMapping(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -407,12 +451,12 @@ class AWSLambdaGetEventSourceMappingCommand(val uUID: String) : AmazonWebService
 }
 
 
-fun AWSLambdaFunctions.getFunction(functionName: String, init: AWSLambdaGetFunctionCommand.() -> Unit) {
-	this.block.declare(AWSLambdaGetFunctionCommand(functionName).apply(init))
+fun AWSLambdaFunctions.getFunction(functionName: String, init: AWSLambdaGetFunctionCommand.() -> Unit): com.amazonaws.services.lambda.model.GetFunctionResult {
+	return this.block.declare(AWSLambdaGetFunctionCommand(functionName).apply(init)) as com.amazonaws.services.lambda.model.GetFunctionResult
 }
 
 @Generated
-class AWSLambdaGetFunctionCommand(val functionName: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.GetFunctionRequest> {
+class AWSLambdaGetFunctionCommand(val functionName: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.GetFunctionRequest, com.amazonaws.services.lambda.model.GetFunctionResult> {
 
 	var qualifier: String? = null
 
@@ -423,8 +467,12 @@ class AWSLambdaGetFunctionCommand(val functionName: String) : AmazonWebServiceCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lambda.getFunction(build())
+	override fun dryResult(): com.amazonaws.services.lambda.model.GetFunctionResult {
+	  return com.amazonaws.services.lambda.model.GetFunctionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lambda.model.GetFunctionResult {
+		return environment.lambda.getFunction(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -436,12 +484,12 @@ class AWSLambdaGetFunctionCommand(val functionName: String) : AmazonWebServiceCo
 }
 
 
-fun AWSLambdaFunctions.getFunctionConfiguration(functionName: String, init: AWSLambdaGetFunctionConfigurationCommand.() -> Unit) {
-	this.block.declare(AWSLambdaGetFunctionConfigurationCommand(functionName).apply(init))
+fun AWSLambdaFunctions.getFunctionConfiguration(functionName: String, init: AWSLambdaGetFunctionConfigurationCommand.() -> Unit): com.amazonaws.services.lambda.model.GetFunctionConfigurationResult {
+	return this.block.declare(AWSLambdaGetFunctionConfigurationCommand(functionName).apply(init)) as com.amazonaws.services.lambda.model.GetFunctionConfigurationResult
 }
 
 @Generated
-class AWSLambdaGetFunctionConfigurationCommand(val functionName: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.GetFunctionConfigurationRequest> {
+class AWSLambdaGetFunctionConfigurationCommand(val functionName: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.GetFunctionConfigurationRequest, com.amazonaws.services.lambda.model.GetFunctionConfigurationResult> {
 
 	var qualifier: String? = null
 
@@ -452,8 +500,12 @@ class AWSLambdaGetFunctionConfigurationCommand(val functionName: String) : Amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lambda.getFunctionConfiguration(build())
+	override fun dryResult(): com.amazonaws.services.lambda.model.GetFunctionConfigurationResult {
+	  return com.amazonaws.services.lambda.model.GetFunctionConfigurationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lambda.model.GetFunctionConfigurationResult {
+		return environment.lambda.getFunctionConfiguration(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -465,12 +517,12 @@ class AWSLambdaGetFunctionConfigurationCommand(val functionName: String) : Amazo
 }
 
 
-fun AWSLambdaFunctions.getPolicy(functionName: String, init: AWSLambdaGetPolicyCommand.() -> Unit) {
-	this.block.declare(AWSLambdaGetPolicyCommand(functionName).apply(init))
+fun AWSLambdaFunctions.getPolicy(functionName: String, init: AWSLambdaGetPolicyCommand.() -> Unit): com.amazonaws.services.lambda.model.GetPolicyResult {
+	return this.block.declare(AWSLambdaGetPolicyCommand(functionName).apply(init)) as com.amazonaws.services.lambda.model.GetPolicyResult
 }
 
 @Generated
-class AWSLambdaGetPolicyCommand(val functionName: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.GetPolicyRequest> {
+class AWSLambdaGetPolicyCommand(val functionName: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.GetPolicyRequest, com.amazonaws.services.lambda.model.GetPolicyResult> {
 
 	var qualifier: String? = null
 
@@ -481,8 +533,12 @@ class AWSLambdaGetPolicyCommand(val functionName: String) : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lambda.getPolicy(build())
+	override fun dryResult(): com.amazonaws.services.lambda.model.GetPolicyResult {
+	  return com.amazonaws.services.lambda.model.GetPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lambda.model.GetPolicyResult {
+		return environment.lambda.getPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -494,12 +550,12 @@ class AWSLambdaGetPolicyCommand(val functionName: String) : AmazonWebServiceComm
 }
 
 
-fun AWSLambdaFunctions.invoke(functionName: String, init: AWSLambdaInvokeCommand.() -> Unit) {
-	this.block.declare(AWSLambdaInvokeCommand(functionName).apply(init))
+fun AWSLambdaFunctions.invoke(functionName: String, init: AWSLambdaInvokeCommand.() -> Unit): com.amazonaws.services.lambda.model.InvokeResult {
+	return this.block.declare(AWSLambdaInvokeCommand(functionName).apply(init)) as com.amazonaws.services.lambda.model.InvokeResult
 }
 
 @Generated
-class AWSLambdaInvokeCommand(val functionName: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.InvokeRequest> {
+class AWSLambdaInvokeCommand(val functionName: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.InvokeRequest, com.amazonaws.services.lambda.model.InvokeResult> {
 
 	var invocationType: InvocationType? = null
 	var logType: LogType? = null
@@ -518,8 +574,12 @@ class AWSLambdaInvokeCommand(val functionName: String) : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lambda.invoke(build())
+	override fun dryResult(): com.amazonaws.services.lambda.model.InvokeResult {
+	  return com.amazonaws.services.lambda.model.InvokeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lambda.model.InvokeResult {
+		return environment.lambda.invoke(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -535,12 +595,12 @@ class AWSLambdaInvokeCommand(val functionName: String) : AmazonWebServiceCommand
 }
 
 
-fun AWSLambdaFunctions.invokeAsync(functionName: String, invokeArgs: java.io.InputStream, init: AWSLambdaInvokeAsyncCommand.() -> Unit) {
-	this.block.declare(AWSLambdaInvokeAsyncCommand(functionName, invokeArgs).apply(init))
+fun AWSLambdaFunctions.invokeAsync(functionName: String, invokeArgs: java.io.InputStream, init: AWSLambdaInvokeAsyncCommand.() -> Unit): com.amazonaws.services.lambda.model.InvokeAsyncResult {
+	return this.block.declare(AWSLambdaInvokeAsyncCommand(functionName, invokeArgs).apply(init)) as com.amazonaws.services.lambda.model.InvokeAsyncResult
 }
 
 @Generated
-class AWSLambdaInvokeAsyncCommand(val functionName: String, val invokeArgs: java.io.InputStream) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.InvokeAsyncRequest> {
+class AWSLambdaInvokeAsyncCommand(val functionName: String, val invokeArgs: java.io.InputStream) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.InvokeAsyncRequest, com.amazonaws.services.lambda.model.InvokeAsyncResult> {
 
 
 
@@ -551,8 +611,12 @@ class AWSLambdaInvokeAsyncCommand(val functionName: String, val invokeArgs: java
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lambda.invokeAsync(build())
+	override fun dryResult(): com.amazonaws.services.lambda.model.InvokeAsyncResult {
+	  return com.amazonaws.services.lambda.model.InvokeAsyncResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lambda.model.InvokeAsyncResult {
+		return environment.lambda.invokeAsync(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -564,12 +628,12 @@ class AWSLambdaInvokeAsyncCommand(val functionName: String, val invokeArgs: java
 }
 
 
-fun AWSLambdaFunctions.listAliases(functionName: String, init: AWSLambdaListAliasesCommand.() -> Unit) {
-	this.block.declare(AWSLambdaListAliasesCommand(functionName).apply(init))
+fun AWSLambdaFunctions.listAliases(functionName: String, init: AWSLambdaListAliasesCommand.() -> Unit): com.amazonaws.services.lambda.model.ListAliasesResult {
+	return this.block.declare(AWSLambdaListAliasesCommand(functionName).apply(init)) as com.amazonaws.services.lambda.model.ListAliasesResult
 }
 
 @Generated
-class AWSLambdaListAliasesCommand(val functionName: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.ListAliasesRequest> {
+class AWSLambdaListAliasesCommand(val functionName: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.ListAliasesRequest, com.amazonaws.services.lambda.model.ListAliasesResult> {
 
 	var functionVersion: String? = null
 	var marker: String? = null
@@ -584,8 +648,12 @@ class AWSLambdaListAliasesCommand(val functionName: String) : AmazonWebServiceCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lambda.listAliases(build())
+	override fun dryResult(): com.amazonaws.services.lambda.model.ListAliasesResult {
+	  return com.amazonaws.services.lambda.model.ListAliasesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lambda.model.ListAliasesResult {
+		return environment.lambda.listAliases(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -599,12 +667,12 @@ class AWSLambdaListAliasesCommand(val functionName: String) : AmazonWebServiceCo
 }
 
 
-fun AWSLambdaFunctions.listEventSourceMappings(init: AWSLambdaListEventSourceMappingsCommand.() -> Unit) {
-	this.block.declare(AWSLambdaListEventSourceMappingsCommand().apply(init))
+fun AWSLambdaFunctions.listEventSourceMappings(init: AWSLambdaListEventSourceMappingsCommand.() -> Unit): com.amazonaws.services.lambda.model.ListEventSourceMappingsResult {
+	return this.block.declare(AWSLambdaListEventSourceMappingsCommand().apply(init)) as com.amazonaws.services.lambda.model.ListEventSourceMappingsResult
 }
 
 @Generated
-class AWSLambdaListEventSourceMappingsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.ListEventSourceMappingsRequest> {
+class AWSLambdaListEventSourceMappingsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.ListEventSourceMappingsRequest, com.amazonaws.services.lambda.model.ListEventSourceMappingsResult> {
 
 	var eventSourceArn: String? = null
 	var functionName: String? = null
@@ -620,8 +688,12 @@ class AWSLambdaListEventSourceMappingsCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lambda.listEventSourceMappings(build())
+	override fun dryResult(): com.amazonaws.services.lambda.model.ListEventSourceMappingsResult {
+	  return com.amazonaws.services.lambda.model.ListEventSourceMappingsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lambda.model.ListEventSourceMappingsResult {
+		return environment.lambda.listEventSourceMappings(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -635,12 +707,12 @@ class AWSLambdaListEventSourceMappingsCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AWSLambdaFunctions.listFunctions(init: AWSLambdaListFunctionsCommand.() -> Unit) {
-	this.block.declare(AWSLambdaListFunctionsCommand().apply(init))
+fun AWSLambdaFunctions.listFunctions(init: AWSLambdaListFunctionsCommand.() -> Unit): com.amazonaws.services.lambda.model.ListFunctionsResult {
+	return this.block.declare(AWSLambdaListFunctionsCommand().apply(init)) as com.amazonaws.services.lambda.model.ListFunctionsResult
 }
 
 @Generated
-class AWSLambdaListFunctionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.ListFunctionsRequest> {
+class AWSLambdaListFunctionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.ListFunctionsRequest, com.amazonaws.services.lambda.model.ListFunctionsResult> {
 
 	var masterRegion: String? = null
 	var functionVersion: FunctionVersion? = null
@@ -656,8 +728,12 @@ class AWSLambdaListFunctionsCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lambda.listFunctions(build())
+	override fun dryResult(): com.amazonaws.services.lambda.model.ListFunctionsResult {
+	  return com.amazonaws.services.lambda.model.ListFunctionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lambda.model.ListFunctionsResult {
+		return environment.lambda.listFunctions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -671,12 +747,12 @@ class AWSLambdaListFunctionsCommand() : AmazonWebServiceCommand<com.amazonaws.se
 }
 
 
-fun AWSLambdaFunctions.listTags(resource: String, init: AWSLambdaListTagsCommand.() -> Unit) {
-	this.block.declare(AWSLambdaListTagsCommand(resource).apply(init))
+fun AWSLambdaFunctions.listTags(resource: String, init: AWSLambdaListTagsCommand.() -> Unit): com.amazonaws.services.lambda.model.ListTagsResult {
+	return this.block.declare(AWSLambdaListTagsCommand(resource).apply(init)) as com.amazonaws.services.lambda.model.ListTagsResult
 }
 
 @Generated
-class AWSLambdaListTagsCommand(val resource: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.ListTagsRequest> {
+class AWSLambdaListTagsCommand(val resource: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.ListTagsRequest, com.amazonaws.services.lambda.model.ListTagsResult> {
 
 
 
@@ -686,8 +762,12 @@ class AWSLambdaListTagsCommand(val resource: String) : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lambda.listTags(build())
+	override fun dryResult(): com.amazonaws.services.lambda.model.ListTagsResult {
+	  return com.amazonaws.services.lambda.model.ListTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lambda.model.ListTagsResult {
+		return environment.lambda.listTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -698,12 +778,12 @@ class AWSLambdaListTagsCommand(val resource: String) : AmazonWebServiceCommand<c
 }
 
 
-fun AWSLambdaFunctions.listVersionsByFunction(functionName: String, init: AWSLambdaListVersionsByFunctionCommand.() -> Unit) {
-	this.block.declare(AWSLambdaListVersionsByFunctionCommand(functionName).apply(init))
+fun AWSLambdaFunctions.listVersionsByFunction(functionName: String, init: AWSLambdaListVersionsByFunctionCommand.() -> Unit): com.amazonaws.services.lambda.model.ListVersionsByFunctionResult {
+	return this.block.declare(AWSLambdaListVersionsByFunctionCommand(functionName).apply(init)) as com.amazonaws.services.lambda.model.ListVersionsByFunctionResult
 }
 
 @Generated
-class AWSLambdaListVersionsByFunctionCommand(val functionName: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.ListVersionsByFunctionRequest> {
+class AWSLambdaListVersionsByFunctionCommand(val functionName: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.ListVersionsByFunctionRequest, com.amazonaws.services.lambda.model.ListVersionsByFunctionResult> {
 
 	var marker: String? = null
 	var maxItems: Int? = 0
@@ -716,8 +796,12 @@ class AWSLambdaListVersionsByFunctionCommand(val functionName: String) : AmazonW
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lambda.listVersionsByFunction(build())
+	override fun dryResult(): com.amazonaws.services.lambda.model.ListVersionsByFunctionResult {
+	  return com.amazonaws.services.lambda.model.ListVersionsByFunctionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lambda.model.ListVersionsByFunctionResult {
+		return environment.lambda.listVersionsByFunction(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -730,12 +814,12 @@ class AWSLambdaListVersionsByFunctionCommand(val functionName: String) : AmazonW
 }
 
 
-fun AWSLambdaFunctions.publishVersion(functionName: String, init: AWSLambdaPublishVersionCommand.() -> Unit) {
-	this.block.declare(AWSLambdaPublishVersionCommand(functionName).apply(init))
+fun AWSLambdaFunctions.publishVersion(functionName: String, init: AWSLambdaPublishVersionCommand.() -> Unit): com.amazonaws.services.lambda.model.PublishVersionResult {
+	return this.block.declare(AWSLambdaPublishVersionCommand(functionName).apply(init)) as com.amazonaws.services.lambda.model.PublishVersionResult
 }
 
 @Generated
-class AWSLambdaPublishVersionCommand(val functionName: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.PublishVersionRequest> {
+class AWSLambdaPublishVersionCommand(val functionName: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.PublishVersionRequest, com.amazonaws.services.lambda.model.PublishVersionResult> {
 
 	var codeSha256: String? = null
 	var description: String? = null
@@ -750,8 +834,12 @@ class AWSLambdaPublishVersionCommand(val functionName: String) : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lambda.publishVersion(build())
+	override fun dryResult(): com.amazonaws.services.lambda.model.PublishVersionResult {
+	  return com.amazonaws.services.lambda.model.PublishVersionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lambda.model.PublishVersionResult {
+		return environment.lambda.publishVersion(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -765,12 +853,12 @@ class AWSLambdaPublishVersionCommand(val functionName: String) : AmazonWebServic
 }
 
 
-fun AWSLambdaFunctions.putFunctionConcurrency(functionName: String, reservedConcurrentExecutions: Int, init: AWSLambdaPutFunctionConcurrencyCommand.() -> Unit) {
-	this.block.declare(AWSLambdaPutFunctionConcurrencyCommand(functionName, reservedConcurrentExecutions).apply(init))
+fun AWSLambdaFunctions.putFunctionConcurrency(functionName: String, reservedConcurrentExecutions: Int, init: AWSLambdaPutFunctionConcurrencyCommand.() -> Unit): com.amazonaws.services.lambda.model.PutFunctionConcurrencyResult {
+	return this.block.declare(AWSLambdaPutFunctionConcurrencyCommand(functionName, reservedConcurrentExecutions).apply(init)) as com.amazonaws.services.lambda.model.PutFunctionConcurrencyResult
 }
 
 @Generated
-class AWSLambdaPutFunctionConcurrencyCommand(val functionName: String, val reservedConcurrentExecutions: Int) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.PutFunctionConcurrencyRequest> {
+class AWSLambdaPutFunctionConcurrencyCommand(val functionName: String, val reservedConcurrentExecutions: Int) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.PutFunctionConcurrencyRequest, com.amazonaws.services.lambda.model.PutFunctionConcurrencyResult> {
 
 
 
@@ -781,8 +869,12 @@ class AWSLambdaPutFunctionConcurrencyCommand(val functionName: String, val reser
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lambda.putFunctionConcurrency(build())
+	override fun dryResult(): com.amazonaws.services.lambda.model.PutFunctionConcurrencyResult {
+	  return com.amazonaws.services.lambda.model.PutFunctionConcurrencyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lambda.model.PutFunctionConcurrencyResult {
+		return environment.lambda.putFunctionConcurrency(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -794,12 +886,12 @@ class AWSLambdaPutFunctionConcurrencyCommand(val functionName: String, val reser
 }
 
 
-fun AWSLambdaFunctions.removePermission(functionName: String, statementId: String, init: AWSLambdaRemovePermissionCommand.() -> Unit) {
-	this.block.declare(AWSLambdaRemovePermissionCommand(functionName, statementId).apply(init))
+fun AWSLambdaFunctions.removePermission(functionName: String, statementId: String, init: AWSLambdaRemovePermissionCommand.() -> Unit): com.amazonaws.services.lambda.model.RemovePermissionResult {
+	return this.block.declare(AWSLambdaRemovePermissionCommand(functionName, statementId).apply(init)) as com.amazonaws.services.lambda.model.RemovePermissionResult
 }
 
 @Generated
-class AWSLambdaRemovePermissionCommand(val functionName: String, val statementId: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.RemovePermissionRequest> {
+class AWSLambdaRemovePermissionCommand(val functionName: String, val statementId: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.RemovePermissionRequest, com.amazonaws.services.lambda.model.RemovePermissionResult> {
 
 	var qualifier: String? = null
 	var revisionId: String? = null
@@ -813,8 +905,12 @@ class AWSLambdaRemovePermissionCommand(val functionName: String, val statementId
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lambda.removePermission(build())
+	override fun dryResult(): com.amazonaws.services.lambda.model.RemovePermissionResult {
+	  return com.amazonaws.services.lambda.model.RemovePermissionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lambda.model.RemovePermissionResult {
+		return environment.lambda.removePermission(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -828,12 +924,12 @@ class AWSLambdaRemovePermissionCommand(val functionName: String, val statementId
 }
 
 
-fun AWSLambdaFunctions.tagResource(resource: String, tags: Map<String, String>, init: AWSLambdaTagResourceCommand.() -> Unit) {
-	this.block.declare(AWSLambdaTagResourceCommand(resource, tags).apply(init))
+fun AWSLambdaFunctions.tagResource(resource: String, tags: Map<String, String>, init: AWSLambdaTagResourceCommand.() -> Unit): com.amazonaws.services.lambda.model.TagResourceResult {
+	return this.block.declare(AWSLambdaTagResourceCommand(resource, tags).apply(init)) as com.amazonaws.services.lambda.model.TagResourceResult
 }
 
 @Generated
-class AWSLambdaTagResourceCommand(val resource: String, val tags: Map<String, String>) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.TagResourceRequest> {
+class AWSLambdaTagResourceCommand(val resource: String, val tags: Map<String, String>) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.TagResourceRequest, com.amazonaws.services.lambda.model.TagResourceResult> {
 
 
 
@@ -844,8 +940,12 @@ class AWSLambdaTagResourceCommand(val resource: String, val tags: Map<String, St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lambda.tagResource(build())
+	override fun dryResult(): com.amazonaws.services.lambda.model.TagResourceResult {
+	  return com.amazonaws.services.lambda.model.TagResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lambda.model.TagResourceResult {
+		return environment.lambda.tagResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -857,12 +957,12 @@ class AWSLambdaTagResourceCommand(val resource: String, val tags: Map<String, St
 }
 
 
-fun AWSLambdaFunctions.untagResource(resource: String, tagKeys: List<String>, init: AWSLambdaUntagResourceCommand.() -> Unit) {
-	this.block.declare(AWSLambdaUntagResourceCommand(resource, tagKeys).apply(init))
+fun AWSLambdaFunctions.untagResource(resource: String, tagKeys: List<String>, init: AWSLambdaUntagResourceCommand.() -> Unit): com.amazonaws.services.lambda.model.UntagResourceResult {
+	return this.block.declare(AWSLambdaUntagResourceCommand(resource, tagKeys).apply(init)) as com.amazonaws.services.lambda.model.UntagResourceResult
 }
 
 @Generated
-class AWSLambdaUntagResourceCommand(val resource: String, val tagKeys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.UntagResourceRequest> {
+class AWSLambdaUntagResourceCommand(val resource: String, val tagKeys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.UntagResourceRequest, com.amazonaws.services.lambda.model.UntagResourceResult> {
 
 
 
@@ -873,8 +973,12 @@ class AWSLambdaUntagResourceCommand(val resource: String, val tagKeys: List<Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lambda.untagResource(build())
+	override fun dryResult(): com.amazonaws.services.lambda.model.UntagResourceResult {
+	  return com.amazonaws.services.lambda.model.UntagResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lambda.model.UntagResourceResult {
+		return environment.lambda.untagResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -886,12 +990,12 @@ class AWSLambdaUntagResourceCommand(val resource: String, val tagKeys: List<Stri
 }
 
 
-fun AWSLambdaFunctions.updateAlias(functionName: String, name: String, init: AWSLambdaUpdateAliasCommand.() -> Unit) {
-	this.block.declare(AWSLambdaUpdateAliasCommand(functionName, name).apply(init))
+fun AWSLambdaFunctions.updateAlias(functionName: String, name: String, init: AWSLambdaUpdateAliasCommand.() -> Unit): com.amazonaws.services.lambda.model.UpdateAliasResult {
+	return this.block.declare(AWSLambdaUpdateAliasCommand(functionName, name).apply(init)) as com.amazonaws.services.lambda.model.UpdateAliasResult
 }
 
 @Generated
-class AWSLambdaUpdateAliasCommand(val functionName: String, val name: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.UpdateAliasRequest> {
+class AWSLambdaUpdateAliasCommand(val functionName: String, val name: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.UpdateAliasRequest, com.amazonaws.services.lambda.model.UpdateAliasResult> {
 
 	var functionVersion: String? = null
 	var description: String? = null
@@ -909,8 +1013,12 @@ class AWSLambdaUpdateAliasCommand(val functionName: String, val name: String) : 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lambda.updateAlias(build())
+	override fun dryResult(): com.amazonaws.services.lambda.model.UpdateAliasResult {
+	  return com.amazonaws.services.lambda.model.UpdateAliasResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lambda.model.UpdateAliasResult {
+		return environment.lambda.updateAlias(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -926,12 +1034,12 @@ class AWSLambdaUpdateAliasCommand(val functionName: String, val name: String) : 
 }
 
 
-fun AWSLambdaFunctions.updateEventSourceMapping(uUID: String, init: AWSLambdaUpdateEventSourceMappingCommand.() -> Unit) {
-	this.block.declare(AWSLambdaUpdateEventSourceMappingCommand(uUID).apply(init))
+fun AWSLambdaFunctions.updateEventSourceMapping(uUID: String, init: AWSLambdaUpdateEventSourceMappingCommand.() -> Unit): com.amazonaws.services.lambda.model.UpdateEventSourceMappingResult {
+	return this.block.declare(AWSLambdaUpdateEventSourceMappingCommand(uUID).apply(init)) as com.amazonaws.services.lambda.model.UpdateEventSourceMappingResult
 }
 
 @Generated
-class AWSLambdaUpdateEventSourceMappingCommand(val uUID: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.UpdateEventSourceMappingRequest> {
+class AWSLambdaUpdateEventSourceMappingCommand(val uUID: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.UpdateEventSourceMappingRequest, com.amazonaws.services.lambda.model.UpdateEventSourceMappingResult> {
 
 	var functionName: String? = null
 	var enabled: Boolean? = false
@@ -946,8 +1054,12 @@ class AWSLambdaUpdateEventSourceMappingCommand(val uUID: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lambda.updateEventSourceMapping(build())
+	override fun dryResult(): com.amazonaws.services.lambda.model.UpdateEventSourceMappingResult {
+	  return com.amazonaws.services.lambda.model.UpdateEventSourceMappingResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lambda.model.UpdateEventSourceMappingResult {
+		return environment.lambda.updateEventSourceMapping(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -961,12 +1073,12 @@ class AWSLambdaUpdateEventSourceMappingCommand(val uUID: String) : AmazonWebServ
 }
 
 
-fun AWSLambdaFunctions.updateFunctionCode(functionName: String, init: AWSLambdaUpdateFunctionCodeCommand.() -> Unit) {
-	this.block.declare(AWSLambdaUpdateFunctionCodeCommand(functionName).apply(init))
+fun AWSLambdaFunctions.updateFunctionCode(functionName: String, init: AWSLambdaUpdateFunctionCodeCommand.() -> Unit): com.amazonaws.services.lambda.model.UpdateFunctionCodeResult {
+	return this.block.declare(AWSLambdaUpdateFunctionCodeCommand(functionName).apply(init)) as com.amazonaws.services.lambda.model.UpdateFunctionCodeResult
 }
 
 @Generated
-class AWSLambdaUpdateFunctionCodeCommand(val functionName: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.UpdateFunctionCodeRequest> {
+class AWSLambdaUpdateFunctionCodeCommand(val functionName: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.UpdateFunctionCodeRequest, com.amazonaws.services.lambda.model.UpdateFunctionCodeResult> {
 
 	var zipFile: java.nio.ByteBuffer? = null
 	var s3Bucket: String? = null
@@ -989,8 +1101,12 @@ class AWSLambdaUpdateFunctionCodeCommand(val functionName: String) : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lambda.updateFunctionCode(build())
+	override fun dryResult(): com.amazonaws.services.lambda.model.UpdateFunctionCodeResult {
+	  return com.amazonaws.services.lambda.model.UpdateFunctionCodeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lambda.model.UpdateFunctionCodeResult {
+		return environment.lambda.updateFunctionCode(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1008,12 +1124,12 @@ class AWSLambdaUpdateFunctionCodeCommand(val functionName: String) : AmazonWebSe
 }
 
 
-fun AWSLambdaFunctions.updateFunctionConfiguration(functionName: String, init: AWSLambdaUpdateFunctionConfigurationCommand.() -> Unit) {
-	this.block.declare(AWSLambdaUpdateFunctionConfigurationCommand(functionName).apply(init))
+fun AWSLambdaFunctions.updateFunctionConfiguration(functionName: String, init: AWSLambdaUpdateFunctionConfigurationCommand.() -> Unit): com.amazonaws.services.lambda.model.UpdateFunctionConfigurationResult {
+	return this.block.declare(AWSLambdaUpdateFunctionConfigurationCommand(functionName).apply(init)) as com.amazonaws.services.lambda.model.UpdateFunctionConfigurationResult
 }
 
 @Generated
-class AWSLambdaUpdateFunctionConfigurationCommand(val functionName: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.UpdateFunctionConfigurationRequest> {
+class AWSLambdaUpdateFunctionConfigurationCommand(val functionName: String) : AmazonWebServiceCommand<com.amazonaws.services.lambda.model.UpdateFunctionConfigurationRequest, com.amazonaws.services.lambda.model.UpdateFunctionConfigurationResult> {
 
 	var role: String? = null
 	var handler: String? = null
@@ -1046,8 +1162,12 @@ class AWSLambdaUpdateFunctionConfigurationCommand(val functionName: String) : Am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lambda.updateFunctionConfiguration(build())
+	override fun dryResult(): com.amazonaws.services.lambda.model.UpdateFunctionConfigurationResult {
+	  return com.amazonaws.services.lambda.model.UpdateFunctionConfigurationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lambda.model.UpdateFunctionConfigurationResult {
+		return environment.lambda.updateFunctionConfiguration(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

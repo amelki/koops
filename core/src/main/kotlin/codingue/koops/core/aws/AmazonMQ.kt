@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.mq: AmazonMQ
 @Generated
 class AmazonMQFunctions(val block: Block)
 
-infix fun AwsContinuation.mq(init: AmazonMQFunctions.() -> Unit) {
-	AmazonMQFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.mq(init: AmazonMQFunctions.() -> T): T {
+	return AmazonMQFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonMQFunctions.createBroker(init: AmazonMQCreateBrokerCommand.() -> Unit) {
-	this.block.declare(AmazonMQCreateBrokerCommand().apply(init))
+fun AmazonMQFunctions.createBroker(init: AmazonMQCreateBrokerCommand.() -> Unit): com.amazonaws.services.mq.model.CreateBrokerResult {
+	return this.block.declare(AmazonMQCreateBrokerCommand().apply(init)) as com.amazonaws.services.mq.model.CreateBrokerResult
 }
 
 @Generated
-class AmazonMQCreateBrokerCommand() : AmazonWebServiceCommand<com.amazonaws.services.mq.model.CreateBrokerRequest> {
+class AmazonMQCreateBrokerCommand() : AmazonWebServiceCommand<com.amazonaws.services.mq.model.CreateBrokerRequest, com.amazonaws.services.mq.model.CreateBrokerResult> {
 
 	var autoMinorVersionUpgrade: Boolean? = false
 	var brokerName: String? = null
@@ -65,8 +65,12 @@ class AmazonMQCreateBrokerCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mq.createBroker(build())
+	override fun dryResult(): com.amazonaws.services.mq.model.CreateBrokerResult {
+	  return com.amazonaws.services.mq.model.CreateBrokerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.CreateBrokerResult {
+		return environment.mq.createBroker(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -89,12 +93,12 @@ class AmazonMQCreateBrokerCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 }
 
 
-fun AmazonMQFunctions.createConfiguration(init: AmazonMQCreateConfigurationCommand.() -> Unit) {
-	this.block.declare(AmazonMQCreateConfigurationCommand().apply(init))
+fun AmazonMQFunctions.createConfiguration(init: AmazonMQCreateConfigurationCommand.() -> Unit): com.amazonaws.services.mq.model.CreateConfigurationResult {
+	return this.block.declare(AmazonMQCreateConfigurationCommand().apply(init)) as com.amazonaws.services.mq.model.CreateConfigurationResult
 }
 
 @Generated
-class AmazonMQCreateConfigurationCommand() : AmazonWebServiceCommand<com.amazonaws.services.mq.model.CreateConfigurationRequest> {
+class AmazonMQCreateConfigurationCommand() : AmazonWebServiceCommand<com.amazonaws.services.mq.model.CreateConfigurationRequest, com.amazonaws.services.mq.model.CreateConfigurationResult> {
 
 	var engineType: EngineType? = null
 	var engineVersion: String? = null
@@ -108,8 +112,12 @@ class AmazonMQCreateConfigurationCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mq.createConfiguration(build())
+	override fun dryResult(): com.amazonaws.services.mq.model.CreateConfigurationResult {
+	  return com.amazonaws.services.mq.model.CreateConfigurationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.CreateConfigurationResult {
+		return environment.mq.createConfiguration(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -122,12 +130,12 @@ class AmazonMQCreateConfigurationCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AmazonMQFunctions.createUser(brokerId: String, username: String, init: AmazonMQCreateUserCommand.() -> Unit) {
-	this.block.declare(AmazonMQCreateUserCommand(brokerId, username).apply(init))
+fun AmazonMQFunctions.createUser(brokerId: String, username: String, init: AmazonMQCreateUserCommand.() -> Unit): com.amazonaws.services.mq.model.CreateUserResult {
+	return this.block.declare(AmazonMQCreateUserCommand(brokerId, username).apply(init)) as com.amazonaws.services.mq.model.CreateUserResult
 }
 
 @Generated
-class AmazonMQCreateUserCommand(val brokerId: String, val username: String) : AmazonWebServiceCommand<com.amazonaws.services.mq.model.CreateUserRequest> {
+class AmazonMQCreateUserCommand(val brokerId: String, val username: String) : AmazonWebServiceCommand<com.amazonaws.services.mq.model.CreateUserRequest, com.amazonaws.services.mq.model.CreateUserResult> {
 
 	var consoleAccess: Boolean? = false
 	var groups: List<String>? = null
@@ -143,8 +151,12 @@ class AmazonMQCreateUserCommand(val brokerId: String, val username: String) : Am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mq.createUser(build())
+	override fun dryResult(): com.amazonaws.services.mq.model.CreateUserResult {
+	  return com.amazonaws.services.mq.model.CreateUserResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.CreateUserResult {
+		return environment.mq.createUser(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -159,12 +171,12 @@ class AmazonMQCreateUserCommand(val brokerId: String, val username: String) : Am
 }
 
 
-fun AmazonMQFunctions.deleteBroker(brokerId: String, init: AmazonMQDeleteBrokerCommand.() -> Unit) {
-	this.block.declare(AmazonMQDeleteBrokerCommand(brokerId).apply(init))
+fun AmazonMQFunctions.deleteBroker(brokerId: String, init: AmazonMQDeleteBrokerCommand.() -> Unit): com.amazonaws.services.mq.model.DeleteBrokerResult {
+	return this.block.declare(AmazonMQDeleteBrokerCommand(brokerId).apply(init)) as com.amazonaws.services.mq.model.DeleteBrokerResult
 }
 
 @Generated
-class AmazonMQDeleteBrokerCommand(val brokerId: String) : AmazonWebServiceCommand<com.amazonaws.services.mq.model.DeleteBrokerRequest> {
+class AmazonMQDeleteBrokerCommand(val brokerId: String) : AmazonWebServiceCommand<com.amazonaws.services.mq.model.DeleteBrokerRequest, com.amazonaws.services.mq.model.DeleteBrokerResult> {
 
 
 
@@ -174,8 +186,12 @@ class AmazonMQDeleteBrokerCommand(val brokerId: String) : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mq.deleteBroker(build())
+	override fun dryResult(): com.amazonaws.services.mq.model.DeleteBrokerResult {
+	  return com.amazonaws.services.mq.model.DeleteBrokerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.DeleteBrokerResult {
+		return environment.mq.deleteBroker(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -186,12 +202,12 @@ class AmazonMQDeleteBrokerCommand(val brokerId: String) : AmazonWebServiceComman
 }
 
 
-fun AmazonMQFunctions.deleteUser(brokerId: String, username: String, init: AmazonMQDeleteUserCommand.() -> Unit) {
-	this.block.declare(AmazonMQDeleteUserCommand(brokerId, username).apply(init))
+fun AmazonMQFunctions.deleteUser(brokerId: String, username: String, init: AmazonMQDeleteUserCommand.() -> Unit): com.amazonaws.services.mq.model.DeleteUserResult {
+	return this.block.declare(AmazonMQDeleteUserCommand(brokerId, username).apply(init)) as com.amazonaws.services.mq.model.DeleteUserResult
 }
 
 @Generated
-class AmazonMQDeleteUserCommand(val brokerId: String, val username: String) : AmazonWebServiceCommand<com.amazonaws.services.mq.model.DeleteUserRequest> {
+class AmazonMQDeleteUserCommand(val brokerId: String, val username: String) : AmazonWebServiceCommand<com.amazonaws.services.mq.model.DeleteUserRequest, com.amazonaws.services.mq.model.DeleteUserResult> {
 
 
 
@@ -202,8 +218,12 @@ class AmazonMQDeleteUserCommand(val brokerId: String, val username: String) : Am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mq.deleteUser(build())
+	override fun dryResult(): com.amazonaws.services.mq.model.DeleteUserResult {
+	  return com.amazonaws.services.mq.model.DeleteUserResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.DeleteUserResult {
+		return environment.mq.deleteUser(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -215,12 +235,12 @@ class AmazonMQDeleteUserCommand(val brokerId: String, val username: String) : Am
 }
 
 
-fun AmazonMQFunctions.describeBroker(brokerId: String, init: AmazonMQDescribeBrokerCommand.() -> Unit) {
-	this.block.declare(AmazonMQDescribeBrokerCommand(brokerId).apply(init))
+fun AmazonMQFunctions.describeBroker(brokerId: String, init: AmazonMQDescribeBrokerCommand.() -> Unit): com.amazonaws.services.mq.model.DescribeBrokerResult {
+	return this.block.declare(AmazonMQDescribeBrokerCommand(brokerId).apply(init)) as com.amazonaws.services.mq.model.DescribeBrokerResult
 }
 
 @Generated
-class AmazonMQDescribeBrokerCommand(val brokerId: String) : AmazonWebServiceCommand<com.amazonaws.services.mq.model.DescribeBrokerRequest> {
+class AmazonMQDescribeBrokerCommand(val brokerId: String) : AmazonWebServiceCommand<com.amazonaws.services.mq.model.DescribeBrokerRequest, com.amazonaws.services.mq.model.DescribeBrokerResult> {
 
 
 
@@ -230,8 +250,12 @@ class AmazonMQDescribeBrokerCommand(val brokerId: String) : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mq.describeBroker(build())
+	override fun dryResult(): com.amazonaws.services.mq.model.DescribeBrokerResult {
+	  return com.amazonaws.services.mq.model.DescribeBrokerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.DescribeBrokerResult {
+		return environment.mq.describeBroker(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -242,12 +266,12 @@ class AmazonMQDescribeBrokerCommand(val brokerId: String) : AmazonWebServiceComm
 }
 
 
-fun AmazonMQFunctions.describeConfiguration(configurationId: String, init: AmazonMQDescribeConfigurationCommand.() -> Unit) {
-	this.block.declare(AmazonMQDescribeConfigurationCommand(configurationId).apply(init))
+fun AmazonMQFunctions.describeConfiguration(configurationId: String, init: AmazonMQDescribeConfigurationCommand.() -> Unit): com.amazonaws.services.mq.model.DescribeConfigurationResult {
+	return this.block.declare(AmazonMQDescribeConfigurationCommand(configurationId).apply(init)) as com.amazonaws.services.mq.model.DescribeConfigurationResult
 }
 
 @Generated
-class AmazonMQDescribeConfigurationCommand(val configurationId: String) : AmazonWebServiceCommand<com.amazonaws.services.mq.model.DescribeConfigurationRequest> {
+class AmazonMQDescribeConfigurationCommand(val configurationId: String) : AmazonWebServiceCommand<com.amazonaws.services.mq.model.DescribeConfigurationRequest, com.amazonaws.services.mq.model.DescribeConfigurationResult> {
 
 
 
@@ -257,8 +281,12 @@ class AmazonMQDescribeConfigurationCommand(val configurationId: String) : Amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mq.describeConfiguration(build())
+	override fun dryResult(): com.amazonaws.services.mq.model.DescribeConfigurationResult {
+	  return com.amazonaws.services.mq.model.DescribeConfigurationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.DescribeConfigurationResult {
+		return environment.mq.describeConfiguration(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -269,12 +297,12 @@ class AmazonMQDescribeConfigurationCommand(val configurationId: String) : Amazon
 }
 
 
-fun AmazonMQFunctions.describeConfigurationRevision(configurationId: String, configurationRevision: String, init: AmazonMQDescribeConfigurationRevisionCommand.() -> Unit) {
-	this.block.declare(AmazonMQDescribeConfigurationRevisionCommand(configurationId, configurationRevision).apply(init))
+fun AmazonMQFunctions.describeConfigurationRevision(configurationId: String, configurationRevision: String, init: AmazonMQDescribeConfigurationRevisionCommand.() -> Unit): com.amazonaws.services.mq.model.DescribeConfigurationRevisionResult {
+	return this.block.declare(AmazonMQDescribeConfigurationRevisionCommand(configurationId, configurationRevision).apply(init)) as com.amazonaws.services.mq.model.DescribeConfigurationRevisionResult
 }
 
 @Generated
-class AmazonMQDescribeConfigurationRevisionCommand(val configurationId: String, val configurationRevision: String) : AmazonWebServiceCommand<com.amazonaws.services.mq.model.DescribeConfigurationRevisionRequest> {
+class AmazonMQDescribeConfigurationRevisionCommand(val configurationId: String, val configurationRevision: String) : AmazonWebServiceCommand<com.amazonaws.services.mq.model.DescribeConfigurationRevisionRequest, com.amazonaws.services.mq.model.DescribeConfigurationRevisionResult> {
 
 
 
@@ -285,8 +313,12 @@ class AmazonMQDescribeConfigurationRevisionCommand(val configurationId: String, 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mq.describeConfigurationRevision(build())
+	override fun dryResult(): com.amazonaws.services.mq.model.DescribeConfigurationRevisionResult {
+	  return com.amazonaws.services.mq.model.DescribeConfigurationRevisionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.DescribeConfigurationRevisionResult {
+		return environment.mq.describeConfigurationRevision(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -298,12 +330,12 @@ class AmazonMQDescribeConfigurationRevisionCommand(val configurationId: String, 
 }
 
 
-fun AmazonMQFunctions.describeUser(brokerId: String, username: String, init: AmazonMQDescribeUserCommand.() -> Unit) {
-	this.block.declare(AmazonMQDescribeUserCommand(brokerId, username).apply(init))
+fun AmazonMQFunctions.describeUser(brokerId: String, username: String, init: AmazonMQDescribeUserCommand.() -> Unit): com.amazonaws.services.mq.model.DescribeUserResult {
+	return this.block.declare(AmazonMQDescribeUserCommand(brokerId, username).apply(init)) as com.amazonaws.services.mq.model.DescribeUserResult
 }
 
 @Generated
-class AmazonMQDescribeUserCommand(val brokerId: String, val username: String) : AmazonWebServiceCommand<com.amazonaws.services.mq.model.DescribeUserRequest> {
+class AmazonMQDescribeUserCommand(val brokerId: String, val username: String) : AmazonWebServiceCommand<com.amazonaws.services.mq.model.DescribeUserRequest, com.amazonaws.services.mq.model.DescribeUserResult> {
 
 
 
@@ -314,8 +346,12 @@ class AmazonMQDescribeUserCommand(val brokerId: String, val username: String) : 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mq.describeUser(build())
+	override fun dryResult(): com.amazonaws.services.mq.model.DescribeUserResult {
+	  return com.amazonaws.services.mq.model.DescribeUserResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.DescribeUserResult {
+		return environment.mq.describeUser(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -327,12 +363,12 @@ class AmazonMQDescribeUserCommand(val brokerId: String, val username: String) : 
 }
 
 
-fun AmazonMQFunctions.listBrokers(init: AmazonMQListBrokersCommand.() -> Unit) {
-	this.block.declare(AmazonMQListBrokersCommand().apply(init))
+fun AmazonMQFunctions.listBrokers(init: AmazonMQListBrokersCommand.() -> Unit): com.amazonaws.services.mq.model.ListBrokersResult {
+	return this.block.declare(AmazonMQListBrokersCommand().apply(init)) as com.amazonaws.services.mq.model.ListBrokersResult
 }
 
 @Generated
-class AmazonMQListBrokersCommand() : AmazonWebServiceCommand<com.amazonaws.services.mq.model.ListBrokersRequest> {
+class AmazonMQListBrokersCommand() : AmazonWebServiceCommand<com.amazonaws.services.mq.model.ListBrokersRequest, com.amazonaws.services.mq.model.ListBrokersResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -344,8 +380,12 @@ class AmazonMQListBrokersCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mq.listBrokers(build())
+	override fun dryResult(): com.amazonaws.services.mq.model.ListBrokersResult {
+	  return com.amazonaws.services.mq.model.ListBrokersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.ListBrokersResult {
+		return environment.mq.listBrokers(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -357,12 +397,12 @@ class AmazonMQListBrokersCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 }
 
 
-fun AmazonMQFunctions.listConfigurationRevisions(configurationId: String, init: AmazonMQListConfigurationRevisionsCommand.() -> Unit) {
-	this.block.declare(AmazonMQListConfigurationRevisionsCommand(configurationId).apply(init))
+fun AmazonMQFunctions.listConfigurationRevisions(configurationId: String, init: AmazonMQListConfigurationRevisionsCommand.() -> Unit): com.amazonaws.services.mq.model.ListConfigurationRevisionsResult {
+	return this.block.declare(AmazonMQListConfigurationRevisionsCommand(configurationId).apply(init)) as com.amazonaws.services.mq.model.ListConfigurationRevisionsResult
 }
 
 @Generated
-class AmazonMQListConfigurationRevisionsCommand(val configurationId: String) : AmazonWebServiceCommand<com.amazonaws.services.mq.model.ListConfigurationRevisionsRequest> {
+class AmazonMQListConfigurationRevisionsCommand(val configurationId: String) : AmazonWebServiceCommand<com.amazonaws.services.mq.model.ListConfigurationRevisionsRequest, com.amazonaws.services.mq.model.ListConfigurationRevisionsResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -375,8 +415,12 @@ class AmazonMQListConfigurationRevisionsCommand(val configurationId: String) : A
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mq.listConfigurationRevisions(build())
+	override fun dryResult(): com.amazonaws.services.mq.model.ListConfigurationRevisionsResult {
+	  return com.amazonaws.services.mq.model.ListConfigurationRevisionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.ListConfigurationRevisionsResult {
+		return environment.mq.listConfigurationRevisions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -389,12 +433,12 @@ class AmazonMQListConfigurationRevisionsCommand(val configurationId: String) : A
 }
 
 
-fun AmazonMQFunctions.listConfigurations(init: AmazonMQListConfigurationsCommand.() -> Unit) {
-	this.block.declare(AmazonMQListConfigurationsCommand().apply(init))
+fun AmazonMQFunctions.listConfigurations(init: AmazonMQListConfigurationsCommand.() -> Unit): com.amazonaws.services.mq.model.ListConfigurationsResult {
+	return this.block.declare(AmazonMQListConfigurationsCommand().apply(init)) as com.amazonaws.services.mq.model.ListConfigurationsResult
 }
 
 @Generated
-class AmazonMQListConfigurationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.mq.model.ListConfigurationsRequest> {
+class AmazonMQListConfigurationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.mq.model.ListConfigurationsRequest, com.amazonaws.services.mq.model.ListConfigurationsResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -406,8 +450,12 @@ class AmazonMQListConfigurationsCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mq.listConfigurations(build())
+	override fun dryResult(): com.amazonaws.services.mq.model.ListConfigurationsResult {
+	  return com.amazonaws.services.mq.model.ListConfigurationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.ListConfigurationsResult {
+		return environment.mq.listConfigurations(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -419,12 +467,12 @@ class AmazonMQListConfigurationsCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AmazonMQFunctions.listUsers(brokerId: String, init: AmazonMQListUsersCommand.() -> Unit) {
-	this.block.declare(AmazonMQListUsersCommand(brokerId).apply(init))
+fun AmazonMQFunctions.listUsers(brokerId: String, init: AmazonMQListUsersCommand.() -> Unit): com.amazonaws.services.mq.model.ListUsersResult {
+	return this.block.declare(AmazonMQListUsersCommand(brokerId).apply(init)) as com.amazonaws.services.mq.model.ListUsersResult
 }
 
 @Generated
-class AmazonMQListUsersCommand(val brokerId: String) : AmazonWebServiceCommand<com.amazonaws.services.mq.model.ListUsersRequest> {
+class AmazonMQListUsersCommand(val brokerId: String) : AmazonWebServiceCommand<com.amazonaws.services.mq.model.ListUsersRequest, com.amazonaws.services.mq.model.ListUsersResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -437,8 +485,12 @@ class AmazonMQListUsersCommand(val brokerId: String) : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mq.listUsers(build())
+	override fun dryResult(): com.amazonaws.services.mq.model.ListUsersResult {
+	  return com.amazonaws.services.mq.model.ListUsersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.ListUsersResult {
+		return environment.mq.listUsers(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -451,12 +503,12 @@ class AmazonMQListUsersCommand(val brokerId: String) : AmazonWebServiceCommand<c
 }
 
 
-fun AmazonMQFunctions.rebootBroker(brokerId: String, init: AmazonMQRebootBrokerCommand.() -> Unit) {
-	this.block.declare(AmazonMQRebootBrokerCommand(brokerId).apply(init))
+fun AmazonMQFunctions.rebootBroker(brokerId: String, init: AmazonMQRebootBrokerCommand.() -> Unit): com.amazonaws.services.mq.model.RebootBrokerResult {
+	return this.block.declare(AmazonMQRebootBrokerCommand(brokerId).apply(init)) as com.amazonaws.services.mq.model.RebootBrokerResult
 }
 
 @Generated
-class AmazonMQRebootBrokerCommand(val brokerId: String) : AmazonWebServiceCommand<com.amazonaws.services.mq.model.RebootBrokerRequest> {
+class AmazonMQRebootBrokerCommand(val brokerId: String) : AmazonWebServiceCommand<com.amazonaws.services.mq.model.RebootBrokerRequest, com.amazonaws.services.mq.model.RebootBrokerResult> {
 
 
 
@@ -466,8 +518,12 @@ class AmazonMQRebootBrokerCommand(val brokerId: String) : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mq.rebootBroker(build())
+	override fun dryResult(): com.amazonaws.services.mq.model.RebootBrokerResult {
+	  return com.amazonaws.services.mq.model.RebootBrokerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.RebootBrokerResult {
+		return environment.mq.rebootBroker(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -478,12 +534,12 @@ class AmazonMQRebootBrokerCommand(val brokerId: String) : AmazonWebServiceComman
 }
 
 
-fun AmazonMQFunctions.updateBroker(brokerId: String, init: AmazonMQUpdateBrokerCommand.() -> Unit) {
-	this.block.declare(AmazonMQUpdateBrokerCommand(brokerId).apply(init))
+fun AmazonMQFunctions.updateBroker(brokerId: String, init: AmazonMQUpdateBrokerCommand.() -> Unit): com.amazonaws.services.mq.model.UpdateBrokerResult {
+	return this.block.declare(AmazonMQUpdateBrokerCommand(brokerId).apply(init)) as com.amazonaws.services.mq.model.UpdateBrokerResult
 }
 
 @Generated
-class AmazonMQUpdateBrokerCommand(val brokerId: String) : AmazonWebServiceCommand<com.amazonaws.services.mq.model.UpdateBrokerRequest> {
+class AmazonMQUpdateBrokerCommand(val brokerId: String) : AmazonWebServiceCommand<com.amazonaws.services.mq.model.UpdateBrokerRequest, com.amazonaws.services.mq.model.UpdateBrokerResult> {
 
 	var configuration: com.amazonaws.services.mq.model.ConfigurationId? = null
 
@@ -494,8 +550,12 @@ class AmazonMQUpdateBrokerCommand(val brokerId: String) : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mq.updateBroker(build())
+	override fun dryResult(): com.amazonaws.services.mq.model.UpdateBrokerResult {
+	  return com.amazonaws.services.mq.model.UpdateBrokerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.UpdateBrokerResult {
+		return environment.mq.updateBroker(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -507,12 +567,12 @@ class AmazonMQUpdateBrokerCommand(val brokerId: String) : AmazonWebServiceComman
 }
 
 
-fun AmazonMQFunctions.updateConfiguration(configurationId: String, init: AmazonMQUpdateConfigurationCommand.() -> Unit) {
-	this.block.declare(AmazonMQUpdateConfigurationCommand(configurationId).apply(init))
+fun AmazonMQFunctions.updateConfiguration(configurationId: String, init: AmazonMQUpdateConfigurationCommand.() -> Unit): com.amazonaws.services.mq.model.UpdateConfigurationResult {
+	return this.block.declare(AmazonMQUpdateConfigurationCommand(configurationId).apply(init)) as com.amazonaws.services.mq.model.UpdateConfigurationResult
 }
 
 @Generated
-class AmazonMQUpdateConfigurationCommand(val configurationId: String) : AmazonWebServiceCommand<com.amazonaws.services.mq.model.UpdateConfigurationRequest> {
+class AmazonMQUpdateConfigurationCommand(val configurationId: String) : AmazonWebServiceCommand<com.amazonaws.services.mq.model.UpdateConfigurationRequest, com.amazonaws.services.mq.model.UpdateConfigurationResult> {
 
 	var data: String? = null
 	var description: String? = null
@@ -525,8 +585,12 @@ class AmazonMQUpdateConfigurationCommand(val configurationId: String) : AmazonWe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mq.updateConfiguration(build())
+	override fun dryResult(): com.amazonaws.services.mq.model.UpdateConfigurationResult {
+	  return com.amazonaws.services.mq.model.UpdateConfigurationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.UpdateConfigurationResult {
+		return environment.mq.updateConfiguration(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -539,12 +603,12 @@ class AmazonMQUpdateConfigurationCommand(val configurationId: String) : AmazonWe
 }
 
 
-fun AmazonMQFunctions.updateUser(brokerId: String, username: String, init: AmazonMQUpdateUserCommand.() -> Unit) {
-	this.block.declare(AmazonMQUpdateUserCommand(brokerId, username).apply(init))
+fun AmazonMQFunctions.updateUser(brokerId: String, username: String, init: AmazonMQUpdateUserCommand.() -> Unit): com.amazonaws.services.mq.model.UpdateUserResult {
+	return this.block.declare(AmazonMQUpdateUserCommand(brokerId, username).apply(init)) as com.amazonaws.services.mq.model.UpdateUserResult
 }
 
 @Generated
-class AmazonMQUpdateUserCommand(val brokerId: String, val username: String) : AmazonWebServiceCommand<com.amazonaws.services.mq.model.UpdateUserRequest> {
+class AmazonMQUpdateUserCommand(val brokerId: String, val username: String) : AmazonWebServiceCommand<com.amazonaws.services.mq.model.UpdateUserRequest, com.amazonaws.services.mq.model.UpdateUserResult> {
 
 	var consoleAccess: Boolean? = false
 	var groups: List<String>? = null
@@ -560,8 +624,12 @@ class AmazonMQUpdateUserCommand(val brokerId: String, val username: String) : Am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mq.updateUser(build())
+	override fun dryResult(): com.amazonaws.services.mq.model.UpdateUserResult {
+	  return com.amazonaws.services.mq.model.UpdateUserResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mq.model.UpdateUserResult {
+		return environment.mq.updateUser(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

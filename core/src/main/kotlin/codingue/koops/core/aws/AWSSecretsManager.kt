@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.secretsmanager: AWSSecretsManager
 @Generated
 class AWSSecretsManagerFunctions(val block: Block)
 
-infix fun AwsContinuation.secretsmanager(init: AWSSecretsManagerFunctions.() -> Unit) {
-	AWSSecretsManagerFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.secretsmanager(init: AWSSecretsManagerFunctions.() -> T): T {
+	return AWSSecretsManagerFunctions(shell).run(init)
 }
 
 			
 
-fun AWSSecretsManagerFunctions.cancelRotateSecret(secretId: String, init: AWSSecretsManagerCancelRotateSecretCommand.() -> Unit) {
-	this.block.declare(AWSSecretsManagerCancelRotateSecretCommand(secretId).apply(init))
+fun AWSSecretsManagerFunctions.cancelRotateSecret(secretId: String, init: AWSSecretsManagerCancelRotateSecretCommand.() -> Unit): com.amazonaws.services.secretsmanager.model.CancelRotateSecretResult {
+	return this.block.declare(AWSSecretsManagerCancelRotateSecretCommand(secretId).apply(init)) as com.amazonaws.services.secretsmanager.model.CancelRotateSecretResult
 }
 
 @Generated
-class AWSSecretsManagerCancelRotateSecretCommand(val secretId: String) : AmazonWebServiceCommand<com.amazonaws.services.secretsmanager.model.CancelRotateSecretRequest> {
+class AWSSecretsManagerCancelRotateSecretCommand(val secretId: String) : AmazonWebServiceCommand<com.amazonaws.services.secretsmanager.model.CancelRotateSecretRequest, com.amazonaws.services.secretsmanager.model.CancelRotateSecretResult> {
 
 
 
@@ -41,8 +41,12 @@ class AWSSecretsManagerCancelRotateSecretCommand(val secretId: String) : AmazonW
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.secretsmanager.cancelRotateSecret(build())
+	override fun dryResult(): com.amazonaws.services.secretsmanager.model.CancelRotateSecretResult {
+	  return com.amazonaws.services.secretsmanager.model.CancelRotateSecretResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.secretsmanager.model.CancelRotateSecretResult {
+		return environment.secretsmanager.cancelRotateSecret(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -53,12 +57,12 @@ class AWSSecretsManagerCancelRotateSecretCommand(val secretId: String) : AmazonW
 }
 
 
-fun AWSSecretsManagerFunctions.createSecret(name: String, init: AWSSecretsManagerCreateSecretCommand.() -> Unit) {
-	this.block.declare(AWSSecretsManagerCreateSecretCommand(name).apply(init))
+fun AWSSecretsManagerFunctions.createSecret(name: String, init: AWSSecretsManagerCreateSecretCommand.() -> Unit): com.amazonaws.services.secretsmanager.model.CreateSecretResult {
+	return this.block.declare(AWSSecretsManagerCreateSecretCommand(name).apply(init)) as com.amazonaws.services.secretsmanager.model.CreateSecretResult
 }
 
 @Generated
-class AWSSecretsManagerCreateSecretCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.secretsmanager.model.CreateSecretRequest> {
+class AWSSecretsManagerCreateSecretCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.secretsmanager.model.CreateSecretRequest, com.amazonaws.services.secretsmanager.model.CreateSecretResult> {
 
 	var clientRequestToken: String? = null
 	var description: String? = null
@@ -79,8 +83,12 @@ class AWSSecretsManagerCreateSecretCommand(val name: String) : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.secretsmanager.createSecret(build())
+	override fun dryResult(): com.amazonaws.services.secretsmanager.model.CreateSecretResult {
+	  return com.amazonaws.services.secretsmanager.model.CreateSecretResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.secretsmanager.model.CreateSecretResult {
+		return environment.secretsmanager.createSecret(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -97,12 +105,12 @@ class AWSSecretsManagerCreateSecretCommand(val name: String) : AmazonWebServiceC
 }
 
 
-fun AWSSecretsManagerFunctions.deleteSecret(secretId: String, init: AWSSecretsManagerDeleteSecretCommand.() -> Unit) {
-	this.block.declare(AWSSecretsManagerDeleteSecretCommand(secretId).apply(init))
+fun AWSSecretsManagerFunctions.deleteSecret(secretId: String, init: AWSSecretsManagerDeleteSecretCommand.() -> Unit): com.amazonaws.services.secretsmanager.model.DeleteSecretResult {
+	return this.block.declare(AWSSecretsManagerDeleteSecretCommand(secretId).apply(init)) as com.amazonaws.services.secretsmanager.model.DeleteSecretResult
 }
 
 @Generated
-class AWSSecretsManagerDeleteSecretCommand(val secretId: String) : AmazonWebServiceCommand<com.amazonaws.services.secretsmanager.model.DeleteSecretRequest> {
+class AWSSecretsManagerDeleteSecretCommand(val secretId: String) : AmazonWebServiceCommand<com.amazonaws.services.secretsmanager.model.DeleteSecretRequest, com.amazonaws.services.secretsmanager.model.DeleteSecretResult> {
 
 	var recoveryWindowInDays: Long? = 0L
 
@@ -113,8 +121,12 @@ class AWSSecretsManagerDeleteSecretCommand(val secretId: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.secretsmanager.deleteSecret(build())
+	override fun dryResult(): com.amazonaws.services.secretsmanager.model.DeleteSecretResult {
+	  return com.amazonaws.services.secretsmanager.model.DeleteSecretResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.secretsmanager.model.DeleteSecretResult {
+		return environment.secretsmanager.deleteSecret(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -126,12 +138,12 @@ class AWSSecretsManagerDeleteSecretCommand(val secretId: String) : AmazonWebServ
 }
 
 
-fun AWSSecretsManagerFunctions.describeSecret(secretId: String, init: AWSSecretsManagerDescribeSecretCommand.() -> Unit) {
-	this.block.declare(AWSSecretsManagerDescribeSecretCommand(secretId).apply(init))
+fun AWSSecretsManagerFunctions.describeSecret(secretId: String, init: AWSSecretsManagerDescribeSecretCommand.() -> Unit): com.amazonaws.services.secretsmanager.model.DescribeSecretResult {
+	return this.block.declare(AWSSecretsManagerDescribeSecretCommand(secretId).apply(init)) as com.amazonaws.services.secretsmanager.model.DescribeSecretResult
 }
 
 @Generated
-class AWSSecretsManagerDescribeSecretCommand(val secretId: String) : AmazonWebServiceCommand<com.amazonaws.services.secretsmanager.model.DescribeSecretRequest> {
+class AWSSecretsManagerDescribeSecretCommand(val secretId: String) : AmazonWebServiceCommand<com.amazonaws.services.secretsmanager.model.DescribeSecretRequest, com.amazonaws.services.secretsmanager.model.DescribeSecretResult> {
 
 
 
@@ -141,8 +153,12 @@ class AWSSecretsManagerDescribeSecretCommand(val secretId: String) : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.secretsmanager.describeSecret(build())
+	override fun dryResult(): com.amazonaws.services.secretsmanager.model.DescribeSecretResult {
+	  return com.amazonaws.services.secretsmanager.model.DescribeSecretResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.secretsmanager.model.DescribeSecretResult {
+		return environment.secretsmanager.describeSecret(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -153,12 +169,12 @@ class AWSSecretsManagerDescribeSecretCommand(val secretId: String) : AmazonWebSe
 }
 
 
-fun AWSSecretsManagerFunctions.getRandomPassword(init: AWSSecretsManagerGetRandomPasswordCommand.() -> Unit) {
-	this.block.declare(AWSSecretsManagerGetRandomPasswordCommand().apply(init))
+fun AWSSecretsManagerFunctions.getRandomPassword(init: AWSSecretsManagerGetRandomPasswordCommand.() -> Unit): com.amazonaws.services.secretsmanager.model.GetRandomPasswordResult {
+	return this.block.declare(AWSSecretsManagerGetRandomPasswordCommand().apply(init)) as com.amazonaws.services.secretsmanager.model.GetRandomPasswordResult
 }
 
 @Generated
-class AWSSecretsManagerGetRandomPasswordCommand() : AmazonWebServiceCommand<com.amazonaws.services.secretsmanager.model.GetRandomPasswordRequest> {
+class AWSSecretsManagerGetRandomPasswordCommand() : AmazonWebServiceCommand<com.amazonaws.services.secretsmanager.model.GetRandomPasswordRequest, com.amazonaws.services.secretsmanager.model.GetRandomPasswordResult> {
 
 	var passwordLength: Long? = 0L
 	var excludeCharacters: String? = null
@@ -182,8 +198,12 @@ class AWSSecretsManagerGetRandomPasswordCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.secretsmanager.getRandomPassword(build())
+	override fun dryResult(): com.amazonaws.services.secretsmanager.model.GetRandomPasswordResult {
+	  return com.amazonaws.services.secretsmanager.model.GetRandomPasswordResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.secretsmanager.model.GetRandomPasswordResult {
+		return environment.secretsmanager.getRandomPassword(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -201,12 +221,12 @@ class AWSSecretsManagerGetRandomPasswordCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AWSSecretsManagerFunctions.getSecretValue(secretId: String, init: AWSSecretsManagerGetSecretValueCommand.() -> Unit) {
-	this.block.declare(AWSSecretsManagerGetSecretValueCommand(secretId).apply(init))
+fun AWSSecretsManagerFunctions.getSecretValue(secretId: String, init: AWSSecretsManagerGetSecretValueCommand.() -> Unit): com.amazonaws.services.secretsmanager.model.GetSecretValueResult {
+	return this.block.declare(AWSSecretsManagerGetSecretValueCommand(secretId).apply(init)) as com.amazonaws.services.secretsmanager.model.GetSecretValueResult
 }
 
 @Generated
-class AWSSecretsManagerGetSecretValueCommand(val secretId: String) : AmazonWebServiceCommand<com.amazonaws.services.secretsmanager.model.GetSecretValueRequest> {
+class AWSSecretsManagerGetSecretValueCommand(val secretId: String) : AmazonWebServiceCommand<com.amazonaws.services.secretsmanager.model.GetSecretValueRequest, com.amazonaws.services.secretsmanager.model.GetSecretValueResult> {
 
 	var versionId: String? = null
 	var versionStage: String? = null
@@ -219,8 +239,12 @@ class AWSSecretsManagerGetSecretValueCommand(val secretId: String) : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.secretsmanager.getSecretValue(build())
+	override fun dryResult(): com.amazonaws.services.secretsmanager.model.GetSecretValueResult {
+	  return com.amazonaws.services.secretsmanager.model.GetSecretValueResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.secretsmanager.model.GetSecretValueResult {
+		return environment.secretsmanager.getSecretValue(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -233,12 +257,12 @@ class AWSSecretsManagerGetSecretValueCommand(val secretId: String) : AmazonWebSe
 }
 
 
-fun AWSSecretsManagerFunctions.listSecretVersionIds(secretId: String, init: AWSSecretsManagerListSecretVersionIdsCommand.() -> Unit) {
-	this.block.declare(AWSSecretsManagerListSecretVersionIdsCommand(secretId).apply(init))
+fun AWSSecretsManagerFunctions.listSecretVersionIds(secretId: String, init: AWSSecretsManagerListSecretVersionIdsCommand.() -> Unit): com.amazonaws.services.secretsmanager.model.ListSecretVersionIdsResult {
+	return this.block.declare(AWSSecretsManagerListSecretVersionIdsCommand(secretId).apply(init)) as com.amazonaws.services.secretsmanager.model.ListSecretVersionIdsResult
 }
 
 @Generated
-class AWSSecretsManagerListSecretVersionIdsCommand(val secretId: String) : AmazonWebServiceCommand<com.amazonaws.services.secretsmanager.model.ListSecretVersionIdsRequest> {
+class AWSSecretsManagerListSecretVersionIdsCommand(val secretId: String) : AmazonWebServiceCommand<com.amazonaws.services.secretsmanager.model.ListSecretVersionIdsRequest, com.amazonaws.services.secretsmanager.model.ListSecretVersionIdsResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -253,8 +277,12 @@ class AWSSecretsManagerListSecretVersionIdsCommand(val secretId: String) : Amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.secretsmanager.listSecretVersionIds(build())
+	override fun dryResult(): com.amazonaws.services.secretsmanager.model.ListSecretVersionIdsResult {
+	  return com.amazonaws.services.secretsmanager.model.ListSecretVersionIdsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.secretsmanager.model.ListSecretVersionIdsResult {
+		return environment.secretsmanager.listSecretVersionIds(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -268,12 +296,12 @@ class AWSSecretsManagerListSecretVersionIdsCommand(val secretId: String) : Amazo
 }
 
 
-fun AWSSecretsManagerFunctions.listSecrets(init: AWSSecretsManagerListSecretsCommand.() -> Unit) {
-	this.block.declare(AWSSecretsManagerListSecretsCommand().apply(init))
+fun AWSSecretsManagerFunctions.listSecrets(init: AWSSecretsManagerListSecretsCommand.() -> Unit): com.amazonaws.services.secretsmanager.model.ListSecretsResult {
+	return this.block.declare(AWSSecretsManagerListSecretsCommand().apply(init)) as com.amazonaws.services.secretsmanager.model.ListSecretsResult
 }
 
 @Generated
-class AWSSecretsManagerListSecretsCommand() : AmazonWebServiceCommand<com.amazonaws.services.secretsmanager.model.ListSecretsRequest> {
+class AWSSecretsManagerListSecretsCommand() : AmazonWebServiceCommand<com.amazonaws.services.secretsmanager.model.ListSecretsRequest, com.amazonaws.services.secretsmanager.model.ListSecretsResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -285,8 +313,12 @@ class AWSSecretsManagerListSecretsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.secretsmanager.listSecrets(build())
+	override fun dryResult(): com.amazonaws.services.secretsmanager.model.ListSecretsResult {
+	  return com.amazonaws.services.secretsmanager.model.ListSecretsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.secretsmanager.model.ListSecretsResult {
+		return environment.secretsmanager.listSecrets(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -298,12 +330,12 @@ class AWSSecretsManagerListSecretsCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AWSSecretsManagerFunctions.putSecretValue(secretId: String, init: AWSSecretsManagerPutSecretValueCommand.() -> Unit) {
-	this.block.declare(AWSSecretsManagerPutSecretValueCommand(secretId).apply(init))
+fun AWSSecretsManagerFunctions.putSecretValue(secretId: String, init: AWSSecretsManagerPutSecretValueCommand.() -> Unit): com.amazonaws.services.secretsmanager.model.PutSecretValueResult {
+	return this.block.declare(AWSSecretsManagerPutSecretValueCommand(secretId).apply(init)) as com.amazonaws.services.secretsmanager.model.PutSecretValueResult
 }
 
 @Generated
-class AWSSecretsManagerPutSecretValueCommand(val secretId: String) : AmazonWebServiceCommand<com.amazonaws.services.secretsmanager.model.PutSecretValueRequest> {
+class AWSSecretsManagerPutSecretValueCommand(val secretId: String) : AmazonWebServiceCommand<com.amazonaws.services.secretsmanager.model.PutSecretValueRequest, com.amazonaws.services.secretsmanager.model.PutSecretValueResult> {
 
 	var clientRequestToken: String? = null
 	var secretBinary: java.nio.ByteBuffer? = null
@@ -320,8 +352,12 @@ class AWSSecretsManagerPutSecretValueCommand(val secretId: String) : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.secretsmanager.putSecretValue(build())
+	override fun dryResult(): com.amazonaws.services.secretsmanager.model.PutSecretValueResult {
+	  return com.amazonaws.services.secretsmanager.model.PutSecretValueResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.secretsmanager.model.PutSecretValueResult {
+		return environment.secretsmanager.putSecretValue(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -336,12 +372,12 @@ class AWSSecretsManagerPutSecretValueCommand(val secretId: String) : AmazonWebSe
 }
 
 
-fun AWSSecretsManagerFunctions.restoreSecret(secretId: String, init: AWSSecretsManagerRestoreSecretCommand.() -> Unit) {
-	this.block.declare(AWSSecretsManagerRestoreSecretCommand(secretId).apply(init))
+fun AWSSecretsManagerFunctions.restoreSecret(secretId: String, init: AWSSecretsManagerRestoreSecretCommand.() -> Unit): com.amazonaws.services.secretsmanager.model.RestoreSecretResult {
+	return this.block.declare(AWSSecretsManagerRestoreSecretCommand(secretId).apply(init)) as com.amazonaws.services.secretsmanager.model.RestoreSecretResult
 }
 
 @Generated
-class AWSSecretsManagerRestoreSecretCommand(val secretId: String) : AmazonWebServiceCommand<com.amazonaws.services.secretsmanager.model.RestoreSecretRequest> {
+class AWSSecretsManagerRestoreSecretCommand(val secretId: String) : AmazonWebServiceCommand<com.amazonaws.services.secretsmanager.model.RestoreSecretRequest, com.amazonaws.services.secretsmanager.model.RestoreSecretResult> {
 
 
 
@@ -351,8 +387,12 @@ class AWSSecretsManagerRestoreSecretCommand(val secretId: String) : AmazonWebSer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.secretsmanager.restoreSecret(build())
+	override fun dryResult(): com.amazonaws.services.secretsmanager.model.RestoreSecretResult {
+	  return com.amazonaws.services.secretsmanager.model.RestoreSecretResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.secretsmanager.model.RestoreSecretResult {
+		return environment.secretsmanager.restoreSecret(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -363,12 +403,12 @@ class AWSSecretsManagerRestoreSecretCommand(val secretId: String) : AmazonWebSer
 }
 
 
-fun AWSSecretsManagerFunctions.rotateSecret(secretId: String, init: AWSSecretsManagerRotateSecretCommand.() -> Unit) {
-	this.block.declare(AWSSecretsManagerRotateSecretCommand(secretId).apply(init))
+fun AWSSecretsManagerFunctions.rotateSecret(secretId: String, init: AWSSecretsManagerRotateSecretCommand.() -> Unit): com.amazonaws.services.secretsmanager.model.RotateSecretResult {
+	return this.block.declare(AWSSecretsManagerRotateSecretCommand(secretId).apply(init)) as com.amazonaws.services.secretsmanager.model.RotateSecretResult
 }
 
 @Generated
-class AWSSecretsManagerRotateSecretCommand(val secretId: String) : AmazonWebServiceCommand<com.amazonaws.services.secretsmanager.model.RotateSecretRequest> {
+class AWSSecretsManagerRotateSecretCommand(val secretId: String) : AmazonWebServiceCommand<com.amazonaws.services.secretsmanager.model.RotateSecretRequest, com.amazonaws.services.secretsmanager.model.RotateSecretResult> {
 
 	var clientRequestToken: String? = null
 	var rotationLambdaARN: String? = null
@@ -383,8 +423,12 @@ class AWSSecretsManagerRotateSecretCommand(val secretId: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.secretsmanager.rotateSecret(build())
+	override fun dryResult(): com.amazonaws.services.secretsmanager.model.RotateSecretResult {
+	  return com.amazonaws.services.secretsmanager.model.RotateSecretResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.secretsmanager.model.RotateSecretResult {
+		return environment.secretsmanager.rotateSecret(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -398,12 +442,12 @@ class AWSSecretsManagerRotateSecretCommand(val secretId: String) : AmazonWebServ
 }
 
 
-fun AWSSecretsManagerFunctions.tagResource(secretId: String, tags: List<com.amazonaws.services.secretsmanager.model.Tag>, init: AWSSecretsManagerTagResourceCommand.() -> Unit) {
-	this.block.declare(AWSSecretsManagerTagResourceCommand(secretId, tags).apply(init))
+fun AWSSecretsManagerFunctions.tagResource(secretId: String, tags: List<com.amazonaws.services.secretsmanager.model.Tag>, init: AWSSecretsManagerTagResourceCommand.() -> Unit): com.amazonaws.services.secretsmanager.model.TagResourceResult {
+	return this.block.declare(AWSSecretsManagerTagResourceCommand(secretId, tags).apply(init)) as com.amazonaws.services.secretsmanager.model.TagResourceResult
 }
 
 @Generated
-class AWSSecretsManagerTagResourceCommand(val secretId: String, val tags: List<com.amazonaws.services.secretsmanager.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.secretsmanager.model.TagResourceRequest> {
+class AWSSecretsManagerTagResourceCommand(val secretId: String, val tags: List<com.amazonaws.services.secretsmanager.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.secretsmanager.model.TagResourceRequest, com.amazonaws.services.secretsmanager.model.TagResourceResult> {
 
 
 
@@ -414,8 +458,12 @@ class AWSSecretsManagerTagResourceCommand(val secretId: String, val tags: List<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.secretsmanager.tagResource(build())
+	override fun dryResult(): com.amazonaws.services.secretsmanager.model.TagResourceResult {
+	  return com.amazonaws.services.secretsmanager.model.TagResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.secretsmanager.model.TagResourceResult {
+		return environment.secretsmanager.tagResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -427,12 +475,12 @@ class AWSSecretsManagerTagResourceCommand(val secretId: String, val tags: List<c
 }
 
 
-fun AWSSecretsManagerFunctions.untagResource(secretId: String, tagKeys: List<String>, init: AWSSecretsManagerUntagResourceCommand.() -> Unit) {
-	this.block.declare(AWSSecretsManagerUntagResourceCommand(secretId, tagKeys).apply(init))
+fun AWSSecretsManagerFunctions.untagResource(secretId: String, tagKeys: List<String>, init: AWSSecretsManagerUntagResourceCommand.() -> Unit): com.amazonaws.services.secretsmanager.model.UntagResourceResult {
+	return this.block.declare(AWSSecretsManagerUntagResourceCommand(secretId, tagKeys).apply(init)) as com.amazonaws.services.secretsmanager.model.UntagResourceResult
 }
 
 @Generated
-class AWSSecretsManagerUntagResourceCommand(val secretId: String, val tagKeys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.secretsmanager.model.UntagResourceRequest> {
+class AWSSecretsManagerUntagResourceCommand(val secretId: String, val tagKeys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.secretsmanager.model.UntagResourceRequest, com.amazonaws.services.secretsmanager.model.UntagResourceResult> {
 
 
 
@@ -443,8 +491,12 @@ class AWSSecretsManagerUntagResourceCommand(val secretId: String, val tagKeys: L
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.secretsmanager.untagResource(build())
+	override fun dryResult(): com.amazonaws.services.secretsmanager.model.UntagResourceResult {
+	  return com.amazonaws.services.secretsmanager.model.UntagResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.secretsmanager.model.UntagResourceResult {
+		return environment.secretsmanager.untagResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -456,12 +508,12 @@ class AWSSecretsManagerUntagResourceCommand(val secretId: String, val tagKeys: L
 }
 
 
-fun AWSSecretsManagerFunctions.updateSecret(secretId: String, init: AWSSecretsManagerUpdateSecretCommand.() -> Unit) {
-	this.block.declare(AWSSecretsManagerUpdateSecretCommand(secretId).apply(init))
+fun AWSSecretsManagerFunctions.updateSecret(secretId: String, init: AWSSecretsManagerUpdateSecretCommand.() -> Unit): com.amazonaws.services.secretsmanager.model.UpdateSecretResult {
+	return this.block.declare(AWSSecretsManagerUpdateSecretCommand(secretId).apply(init)) as com.amazonaws.services.secretsmanager.model.UpdateSecretResult
 }
 
 @Generated
-class AWSSecretsManagerUpdateSecretCommand(val secretId: String) : AmazonWebServiceCommand<com.amazonaws.services.secretsmanager.model.UpdateSecretRequest> {
+class AWSSecretsManagerUpdateSecretCommand(val secretId: String) : AmazonWebServiceCommand<com.amazonaws.services.secretsmanager.model.UpdateSecretRequest, com.amazonaws.services.secretsmanager.model.UpdateSecretResult> {
 
 	var clientRequestToken: String? = null
 	var description: String? = null
@@ -480,8 +532,12 @@ class AWSSecretsManagerUpdateSecretCommand(val secretId: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.secretsmanager.updateSecret(build())
+	override fun dryResult(): com.amazonaws.services.secretsmanager.model.UpdateSecretResult {
+	  return com.amazonaws.services.secretsmanager.model.UpdateSecretResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.secretsmanager.model.UpdateSecretResult {
+		return environment.secretsmanager.updateSecret(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -497,12 +553,12 @@ class AWSSecretsManagerUpdateSecretCommand(val secretId: String) : AmazonWebServ
 }
 
 
-fun AWSSecretsManagerFunctions.updateSecretVersionStage(secretId: String, versionStage: String, init: AWSSecretsManagerUpdateSecretVersionStageCommand.() -> Unit) {
-	this.block.declare(AWSSecretsManagerUpdateSecretVersionStageCommand(secretId, versionStage).apply(init))
+fun AWSSecretsManagerFunctions.updateSecretVersionStage(secretId: String, versionStage: String, init: AWSSecretsManagerUpdateSecretVersionStageCommand.() -> Unit): com.amazonaws.services.secretsmanager.model.UpdateSecretVersionStageResult {
+	return this.block.declare(AWSSecretsManagerUpdateSecretVersionStageCommand(secretId, versionStage).apply(init)) as com.amazonaws.services.secretsmanager.model.UpdateSecretVersionStageResult
 }
 
 @Generated
-class AWSSecretsManagerUpdateSecretVersionStageCommand(val secretId: String, val versionStage: String) : AmazonWebServiceCommand<com.amazonaws.services.secretsmanager.model.UpdateSecretVersionStageRequest> {
+class AWSSecretsManagerUpdateSecretVersionStageCommand(val secretId: String, val versionStage: String) : AmazonWebServiceCommand<com.amazonaws.services.secretsmanager.model.UpdateSecretVersionStageRequest, com.amazonaws.services.secretsmanager.model.UpdateSecretVersionStageResult> {
 
 	var removeFromVersionId: String? = null
 	var moveToVersionId: String? = null
@@ -516,8 +572,12 @@ class AWSSecretsManagerUpdateSecretVersionStageCommand(val secretId: String, val
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.secretsmanager.updateSecretVersionStage(build())
+	override fun dryResult(): com.amazonaws.services.secretsmanager.model.UpdateSecretVersionStageResult {
+	  return com.amazonaws.services.secretsmanager.model.UpdateSecretVersionStageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.secretsmanager.model.UpdateSecretVersionStageResult {
+		return environment.secretsmanager.updateSecretVersionStage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

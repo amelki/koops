@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.machinelearning: AmazonMachineLearning
 @Generated
 class AmazonMachineLearningFunctions(val block: Block)
 
-infix fun AwsContinuation.machinelearning(init: AmazonMachineLearningFunctions.() -> Unit) {
-	AmazonMachineLearningFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.machinelearning(init: AmazonMachineLearningFunctions.() -> T): T {
+	return AmazonMachineLearningFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonMachineLearningFunctions.addTags(tags: List<com.amazonaws.services.machinelearning.model.Tag>, resourceId: String, resourceType: TaggableResourceType, init: AmazonMachineLearningAddTagsCommand.() -> Unit) {
-	this.block.declare(AmazonMachineLearningAddTagsCommand(tags, resourceId, resourceType).apply(init))
+fun AmazonMachineLearningFunctions.addTags(tags: List<com.amazonaws.services.machinelearning.model.Tag>, resourceId: String, resourceType: TaggableResourceType, init: AmazonMachineLearningAddTagsCommand.() -> Unit): com.amazonaws.services.machinelearning.model.AddTagsResult {
+	return this.block.declare(AmazonMachineLearningAddTagsCommand(tags, resourceId, resourceType).apply(init)) as com.amazonaws.services.machinelearning.model.AddTagsResult
 }
 
 @Generated
-class AmazonMachineLearningAddTagsCommand(val tags: List<com.amazonaws.services.machinelearning.model.Tag>, val resourceId: String, val resourceType: TaggableResourceType) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.AddTagsRequest> {
+class AmazonMachineLearningAddTagsCommand(val tags: List<com.amazonaws.services.machinelearning.model.Tag>, val resourceId: String, val resourceType: TaggableResourceType) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.AddTagsRequest, com.amazonaws.services.machinelearning.model.AddTagsResult> {
 
 
 
@@ -43,8 +43,12 @@ class AmazonMachineLearningAddTagsCommand(val tags: List<com.amazonaws.services.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.machinelearning.addTags(build())
+	override fun dryResult(): com.amazonaws.services.machinelearning.model.AddTagsResult {
+	  return com.amazonaws.services.machinelearning.model.AddTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.AddTagsResult {
+		return environment.machinelearning.addTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -57,12 +61,12 @@ class AmazonMachineLearningAddTagsCommand(val tags: List<com.amazonaws.services.
 }
 
 
-fun AmazonMachineLearningFunctions.createBatchPrediction(batchPredictionId: String, mLModelId: String, batchPredictionDataSourceId: String, outputUri: String, init: AmazonMachineLearningCreateBatchPredictionCommand.() -> Unit) {
-	this.block.declare(AmazonMachineLearningCreateBatchPredictionCommand(batchPredictionId, mLModelId, batchPredictionDataSourceId, outputUri).apply(init))
+fun AmazonMachineLearningFunctions.createBatchPrediction(batchPredictionId: String, mLModelId: String, batchPredictionDataSourceId: String, outputUri: String, init: AmazonMachineLearningCreateBatchPredictionCommand.() -> Unit): com.amazonaws.services.machinelearning.model.CreateBatchPredictionResult {
+	return this.block.declare(AmazonMachineLearningCreateBatchPredictionCommand(batchPredictionId, mLModelId, batchPredictionDataSourceId, outputUri).apply(init)) as com.amazonaws.services.machinelearning.model.CreateBatchPredictionResult
 }
 
 @Generated
-class AmazonMachineLearningCreateBatchPredictionCommand(val batchPredictionId: String, val mLModelId: String, val batchPredictionDataSourceId: String, val outputUri: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.CreateBatchPredictionRequest> {
+class AmazonMachineLearningCreateBatchPredictionCommand(val batchPredictionId: String, val mLModelId: String, val batchPredictionDataSourceId: String, val outputUri: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.CreateBatchPredictionRequest, com.amazonaws.services.machinelearning.model.CreateBatchPredictionResult> {
 
 	var batchPredictionName: String? = null
 
@@ -76,8 +80,12 @@ class AmazonMachineLearningCreateBatchPredictionCommand(val batchPredictionId: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.machinelearning.createBatchPrediction(build())
+	override fun dryResult(): com.amazonaws.services.machinelearning.model.CreateBatchPredictionResult {
+	  return com.amazonaws.services.machinelearning.model.CreateBatchPredictionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.CreateBatchPredictionResult {
+		return environment.machinelearning.createBatchPrediction(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -92,12 +100,12 @@ class AmazonMachineLearningCreateBatchPredictionCommand(val batchPredictionId: S
 }
 
 
-fun AmazonMachineLearningFunctions.createDataSourceFromRDS(dataSourceId: String, rDSData: com.amazonaws.services.machinelearning.model.RDSDataSpec, roleARN: String, init: AmazonMachineLearningCreateDataSourceFromRDSCommand.() -> Unit) {
-	this.block.declare(AmazonMachineLearningCreateDataSourceFromRDSCommand(dataSourceId, rDSData, roleARN).apply(init))
+fun AmazonMachineLearningFunctions.createDataSourceFromRDS(dataSourceId: String, rDSData: com.amazonaws.services.machinelearning.model.RDSDataSpec, roleARN: String, init: AmazonMachineLearningCreateDataSourceFromRDSCommand.() -> Unit): com.amazonaws.services.machinelearning.model.CreateDataSourceFromRDSResult {
+	return this.block.declare(AmazonMachineLearningCreateDataSourceFromRDSCommand(dataSourceId, rDSData, roleARN).apply(init)) as com.amazonaws.services.machinelearning.model.CreateDataSourceFromRDSResult
 }
 
 @Generated
-class AmazonMachineLearningCreateDataSourceFromRDSCommand(val dataSourceId: String, val rDSData: com.amazonaws.services.machinelearning.model.RDSDataSpec, val roleARN: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.CreateDataSourceFromRDSRequest> {
+class AmazonMachineLearningCreateDataSourceFromRDSCommand(val dataSourceId: String, val rDSData: com.amazonaws.services.machinelearning.model.RDSDataSpec, val roleARN: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.CreateDataSourceFromRDSRequest, com.amazonaws.services.machinelearning.model.CreateDataSourceFromRDSResult> {
 
 	var dataSourceName: String? = null
 	var computeStatistics: Boolean? = false
@@ -112,8 +120,12 @@ class AmazonMachineLearningCreateDataSourceFromRDSCommand(val dataSourceId: Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.machinelearning.createDataSourceFromRDS(build())
+	override fun dryResult(): com.amazonaws.services.machinelearning.model.CreateDataSourceFromRDSResult {
+	  return com.amazonaws.services.machinelearning.model.CreateDataSourceFromRDSResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.CreateDataSourceFromRDSResult {
+		return environment.machinelearning.createDataSourceFromRDS(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -128,12 +140,12 @@ class AmazonMachineLearningCreateDataSourceFromRDSCommand(val dataSourceId: Stri
 }
 
 
-fun AmazonMachineLearningFunctions.createDataSourceFromRedshift(dataSourceId: String, dataSpec: com.amazonaws.services.machinelearning.model.RedshiftDataSpec, roleARN: String, init: AmazonMachineLearningCreateDataSourceFromRedshiftCommand.() -> Unit) {
-	this.block.declare(AmazonMachineLearningCreateDataSourceFromRedshiftCommand(dataSourceId, dataSpec, roleARN).apply(init))
+fun AmazonMachineLearningFunctions.createDataSourceFromRedshift(dataSourceId: String, dataSpec: com.amazonaws.services.machinelearning.model.RedshiftDataSpec, roleARN: String, init: AmazonMachineLearningCreateDataSourceFromRedshiftCommand.() -> Unit): com.amazonaws.services.machinelearning.model.CreateDataSourceFromRedshiftResult {
+	return this.block.declare(AmazonMachineLearningCreateDataSourceFromRedshiftCommand(dataSourceId, dataSpec, roleARN).apply(init)) as com.amazonaws.services.machinelearning.model.CreateDataSourceFromRedshiftResult
 }
 
 @Generated
-class AmazonMachineLearningCreateDataSourceFromRedshiftCommand(val dataSourceId: String, val dataSpec: com.amazonaws.services.machinelearning.model.RedshiftDataSpec, val roleARN: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.CreateDataSourceFromRedshiftRequest> {
+class AmazonMachineLearningCreateDataSourceFromRedshiftCommand(val dataSourceId: String, val dataSpec: com.amazonaws.services.machinelearning.model.RedshiftDataSpec, val roleARN: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.CreateDataSourceFromRedshiftRequest, com.amazonaws.services.machinelearning.model.CreateDataSourceFromRedshiftResult> {
 
 	var dataSourceName: String? = null
 	var computeStatistics: Boolean? = false
@@ -148,8 +160,12 @@ class AmazonMachineLearningCreateDataSourceFromRedshiftCommand(val dataSourceId:
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.machinelearning.createDataSourceFromRedshift(build())
+	override fun dryResult(): com.amazonaws.services.machinelearning.model.CreateDataSourceFromRedshiftResult {
+	  return com.amazonaws.services.machinelearning.model.CreateDataSourceFromRedshiftResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.CreateDataSourceFromRedshiftResult {
+		return environment.machinelearning.createDataSourceFromRedshift(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -164,12 +180,12 @@ class AmazonMachineLearningCreateDataSourceFromRedshiftCommand(val dataSourceId:
 }
 
 
-fun AmazonMachineLearningFunctions.createDataSourceFromS3(dataSourceId: String, dataSpec: com.amazonaws.services.machinelearning.model.S3DataSpec, init: AmazonMachineLearningCreateDataSourceFromS3Command.() -> Unit) {
-	this.block.declare(AmazonMachineLearningCreateDataSourceFromS3Command(dataSourceId, dataSpec).apply(init))
+fun AmazonMachineLearningFunctions.createDataSourceFromS3(dataSourceId: String, dataSpec: com.amazonaws.services.machinelearning.model.S3DataSpec, init: AmazonMachineLearningCreateDataSourceFromS3Command.() -> Unit): com.amazonaws.services.machinelearning.model.CreateDataSourceFromS3Result {
+	return this.block.declare(AmazonMachineLearningCreateDataSourceFromS3Command(dataSourceId, dataSpec).apply(init)) as com.amazonaws.services.machinelearning.model.CreateDataSourceFromS3Result
 }
 
 @Generated
-class AmazonMachineLearningCreateDataSourceFromS3Command(val dataSourceId: String, val dataSpec: com.amazonaws.services.machinelearning.model.S3DataSpec) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.CreateDataSourceFromS3Request> {
+class AmazonMachineLearningCreateDataSourceFromS3Command(val dataSourceId: String, val dataSpec: com.amazonaws.services.machinelearning.model.S3DataSpec) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.CreateDataSourceFromS3Request, com.amazonaws.services.machinelearning.model.CreateDataSourceFromS3Result> {
 
 	var dataSourceName: String? = null
 	var computeStatistics: Boolean? = false
@@ -183,8 +199,12 @@ class AmazonMachineLearningCreateDataSourceFromS3Command(val dataSourceId: Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.machinelearning.createDataSourceFromS3(build())
+	override fun dryResult(): com.amazonaws.services.machinelearning.model.CreateDataSourceFromS3Result {
+	  return com.amazonaws.services.machinelearning.model.CreateDataSourceFromS3Result()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.CreateDataSourceFromS3Result {
+		return environment.machinelearning.createDataSourceFromS3(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -198,12 +218,12 @@ class AmazonMachineLearningCreateDataSourceFromS3Command(val dataSourceId: Strin
 }
 
 
-fun AmazonMachineLearningFunctions.createEvaluation(evaluationId: String, mLModelId: String, evaluationDataSourceId: String, init: AmazonMachineLearningCreateEvaluationCommand.() -> Unit) {
-	this.block.declare(AmazonMachineLearningCreateEvaluationCommand(evaluationId, mLModelId, evaluationDataSourceId).apply(init))
+fun AmazonMachineLearningFunctions.createEvaluation(evaluationId: String, mLModelId: String, evaluationDataSourceId: String, init: AmazonMachineLearningCreateEvaluationCommand.() -> Unit): com.amazonaws.services.machinelearning.model.CreateEvaluationResult {
+	return this.block.declare(AmazonMachineLearningCreateEvaluationCommand(evaluationId, mLModelId, evaluationDataSourceId).apply(init)) as com.amazonaws.services.machinelearning.model.CreateEvaluationResult
 }
 
 @Generated
-class AmazonMachineLearningCreateEvaluationCommand(val evaluationId: String, val mLModelId: String, val evaluationDataSourceId: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.CreateEvaluationRequest> {
+class AmazonMachineLearningCreateEvaluationCommand(val evaluationId: String, val mLModelId: String, val evaluationDataSourceId: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.CreateEvaluationRequest, com.amazonaws.services.machinelearning.model.CreateEvaluationResult> {
 
 	var evaluationName: String? = null
 
@@ -216,8 +236,12 @@ class AmazonMachineLearningCreateEvaluationCommand(val evaluationId: String, val
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.machinelearning.createEvaluation(build())
+	override fun dryResult(): com.amazonaws.services.machinelearning.model.CreateEvaluationResult {
+	  return com.amazonaws.services.machinelearning.model.CreateEvaluationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.CreateEvaluationResult {
+		return environment.machinelearning.createEvaluation(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -231,12 +255,12 @@ class AmazonMachineLearningCreateEvaluationCommand(val evaluationId: String, val
 }
 
 
-fun AmazonMachineLearningFunctions.createMLModel(mLModelId: String, mLModelType: MLModelType, trainingDataSourceId: String, init: AmazonMachineLearningCreateMLModelCommand.() -> Unit) {
-	this.block.declare(AmazonMachineLearningCreateMLModelCommand(mLModelId, mLModelType, trainingDataSourceId).apply(init))
+fun AmazonMachineLearningFunctions.createMLModel(mLModelId: String, mLModelType: MLModelType, trainingDataSourceId: String, init: AmazonMachineLearningCreateMLModelCommand.() -> Unit): com.amazonaws.services.machinelearning.model.CreateMLModelResult {
+	return this.block.declare(AmazonMachineLearningCreateMLModelCommand(mLModelId, mLModelType, trainingDataSourceId).apply(init)) as com.amazonaws.services.machinelearning.model.CreateMLModelResult
 }
 
 @Generated
-class AmazonMachineLearningCreateMLModelCommand(val mLModelId: String, val mLModelType: MLModelType, val trainingDataSourceId: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.CreateMLModelRequest> {
+class AmazonMachineLearningCreateMLModelCommand(val mLModelId: String, val mLModelType: MLModelType, val trainingDataSourceId: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.CreateMLModelRequest, com.amazonaws.services.machinelearning.model.CreateMLModelResult> {
 
 	var mLModelName: String? = null
 	var parameters: Map<String, String>? = null
@@ -255,8 +279,12 @@ class AmazonMachineLearningCreateMLModelCommand(val mLModelId: String, val mLMod
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.machinelearning.createMLModel(build())
+	override fun dryResult(): com.amazonaws.services.machinelearning.model.CreateMLModelResult {
+	  return com.amazonaws.services.machinelearning.model.CreateMLModelResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.CreateMLModelResult {
+		return environment.machinelearning.createMLModel(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -273,12 +301,12 @@ class AmazonMachineLearningCreateMLModelCommand(val mLModelId: String, val mLMod
 }
 
 
-fun AmazonMachineLearningFunctions.createRealtimeEndpoint(mLModelId: String, init: AmazonMachineLearningCreateRealtimeEndpointCommand.() -> Unit) {
-	this.block.declare(AmazonMachineLearningCreateRealtimeEndpointCommand(mLModelId).apply(init))
+fun AmazonMachineLearningFunctions.createRealtimeEndpoint(mLModelId: String, init: AmazonMachineLearningCreateRealtimeEndpointCommand.() -> Unit): com.amazonaws.services.machinelearning.model.CreateRealtimeEndpointResult {
+	return this.block.declare(AmazonMachineLearningCreateRealtimeEndpointCommand(mLModelId).apply(init)) as com.amazonaws.services.machinelearning.model.CreateRealtimeEndpointResult
 }
 
 @Generated
-class AmazonMachineLearningCreateRealtimeEndpointCommand(val mLModelId: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.CreateRealtimeEndpointRequest> {
+class AmazonMachineLearningCreateRealtimeEndpointCommand(val mLModelId: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.CreateRealtimeEndpointRequest, com.amazonaws.services.machinelearning.model.CreateRealtimeEndpointResult> {
 
 
 
@@ -288,8 +316,12 @@ class AmazonMachineLearningCreateRealtimeEndpointCommand(val mLModelId: String) 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.machinelearning.createRealtimeEndpoint(build())
+	override fun dryResult(): com.amazonaws.services.machinelearning.model.CreateRealtimeEndpointResult {
+	  return com.amazonaws.services.machinelearning.model.CreateRealtimeEndpointResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.CreateRealtimeEndpointResult {
+		return environment.machinelearning.createRealtimeEndpoint(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -300,12 +332,12 @@ class AmazonMachineLearningCreateRealtimeEndpointCommand(val mLModelId: String) 
 }
 
 
-fun AmazonMachineLearningFunctions.deleteBatchPrediction(batchPredictionId: String, init: AmazonMachineLearningDeleteBatchPredictionCommand.() -> Unit) {
-	this.block.declare(AmazonMachineLearningDeleteBatchPredictionCommand(batchPredictionId).apply(init))
+fun AmazonMachineLearningFunctions.deleteBatchPrediction(batchPredictionId: String, init: AmazonMachineLearningDeleteBatchPredictionCommand.() -> Unit): com.amazonaws.services.machinelearning.model.DeleteBatchPredictionResult {
+	return this.block.declare(AmazonMachineLearningDeleteBatchPredictionCommand(batchPredictionId).apply(init)) as com.amazonaws.services.machinelearning.model.DeleteBatchPredictionResult
 }
 
 @Generated
-class AmazonMachineLearningDeleteBatchPredictionCommand(val batchPredictionId: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.DeleteBatchPredictionRequest> {
+class AmazonMachineLearningDeleteBatchPredictionCommand(val batchPredictionId: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.DeleteBatchPredictionRequest, com.amazonaws.services.machinelearning.model.DeleteBatchPredictionResult> {
 
 
 
@@ -315,8 +347,12 @@ class AmazonMachineLearningDeleteBatchPredictionCommand(val batchPredictionId: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.machinelearning.deleteBatchPrediction(build())
+	override fun dryResult(): com.amazonaws.services.machinelearning.model.DeleteBatchPredictionResult {
+	  return com.amazonaws.services.machinelearning.model.DeleteBatchPredictionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.DeleteBatchPredictionResult {
+		return environment.machinelearning.deleteBatchPrediction(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -327,12 +363,12 @@ class AmazonMachineLearningDeleteBatchPredictionCommand(val batchPredictionId: S
 }
 
 
-fun AmazonMachineLearningFunctions.deleteDataSource(dataSourceId: String, init: AmazonMachineLearningDeleteDataSourceCommand.() -> Unit) {
-	this.block.declare(AmazonMachineLearningDeleteDataSourceCommand(dataSourceId).apply(init))
+fun AmazonMachineLearningFunctions.deleteDataSource(dataSourceId: String, init: AmazonMachineLearningDeleteDataSourceCommand.() -> Unit): com.amazonaws.services.machinelearning.model.DeleteDataSourceResult {
+	return this.block.declare(AmazonMachineLearningDeleteDataSourceCommand(dataSourceId).apply(init)) as com.amazonaws.services.machinelearning.model.DeleteDataSourceResult
 }
 
 @Generated
-class AmazonMachineLearningDeleteDataSourceCommand(val dataSourceId: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.DeleteDataSourceRequest> {
+class AmazonMachineLearningDeleteDataSourceCommand(val dataSourceId: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.DeleteDataSourceRequest, com.amazonaws.services.machinelearning.model.DeleteDataSourceResult> {
 
 
 
@@ -342,8 +378,12 @@ class AmazonMachineLearningDeleteDataSourceCommand(val dataSourceId: String) : A
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.machinelearning.deleteDataSource(build())
+	override fun dryResult(): com.amazonaws.services.machinelearning.model.DeleteDataSourceResult {
+	  return com.amazonaws.services.machinelearning.model.DeleteDataSourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.DeleteDataSourceResult {
+		return environment.machinelearning.deleteDataSource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -354,12 +394,12 @@ class AmazonMachineLearningDeleteDataSourceCommand(val dataSourceId: String) : A
 }
 
 
-fun AmazonMachineLearningFunctions.deleteEvaluation(evaluationId: String, init: AmazonMachineLearningDeleteEvaluationCommand.() -> Unit) {
-	this.block.declare(AmazonMachineLearningDeleteEvaluationCommand(evaluationId).apply(init))
+fun AmazonMachineLearningFunctions.deleteEvaluation(evaluationId: String, init: AmazonMachineLearningDeleteEvaluationCommand.() -> Unit): com.amazonaws.services.machinelearning.model.DeleteEvaluationResult {
+	return this.block.declare(AmazonMachineLearningDeleteEvaluationCommand(evaluationId).apply(init)) as com.amazonaws.services.machinelearning.model.DeleteEvaluationResult
 }
 
 @Generated
-class AmazonMachineLearningDeleteEvaluationCommand(val evaluationId: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.DeleteEvaluationRequest> {
+class AmazonMachineLearningDeleteEvaluationCommand(val evaluationId: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.DeleteEvaluationRequest, com.amazonaws.services.machinelearning.model.DeleteEvaluationResult> {
 
 
 
@@ -369,8 +409,12 @@ class AmazonMachineLearningDeleteEvaluationCommand(val evaluationId: String) : A
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.machinelearning.deleteEvaluation(build())
+	override fun dryResult(): com.amazonaws.services.machinelearning.model.DeleteEvaluationResult {
+	  return com.amazonaws.services.machinelearning.model.DeleteEvaluationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.DeleteEvaluationResult {
+		return environment.machinelearning.deleteEvaluation(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -381,12 +425,12 @@ class AmazonMachineLearningDeleteEvaluationCommand(val evaluationId: String) : A
 }
 
 
-fun AmazonMachineLearningFunctions.deleteMLModel(mLModelId: String, init: AmazonMachineLearningDeleteMLModelCommand.() -> Unit) {
-	this.block.declare(AmazonMachineLearningDeleteMLModelCommand(mLModelId).apply(init))
+fun AmazonMachineLearningFunctions.deleteMLModel(mLModelId: String, init: AmazonMachineLearningDeleteMLModelCommand.() -> Unit): com.amazonaws.services.machinelearning.model.DeleteMLModelResult {
+	return this.block.declare(AmazonMachineLearningDeleteMLModelCommand(mLModelId).apply(init)) as com.amazonaws.services.machinelearning.model.DeleteMLModelResult
 }
 
 @Generated
-class AmazonMachineLearningDeleteMLModelCommand(val mLModelId: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.DeleteMLModelRequest> {
+class AmazonMachineLearningDeleteMLModelCommand(val mLModelId: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.DeleteMLModelRequest, com.amazonaws.services.machinelearning.model.DeleteMLModelResult> {
 
 
 
@@ -396,8 +440,12 @@ class AmazonMachineLearningDeleteMLModelCommand(val mLModelId: String) : AmazonW
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.machinelearning.deleteMLModel(build())
+	override fun dryResult(): com.amazonaws.services.machinelearning.model.DeleteMLModelResult {
+	  return com.amazonaws.services.machinelearning.model.DeleteMLModelResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.DeleteMLModelResult {
+		return environment.machinelearning.deleteMLModel(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -408,12 +456,12 @@ class AmazonMachineLearningDeleteMLModelCommand(val mLModelId: String) : AmazonW
 }
 
 
-fun AmazonMachineLearningFunctions.deleteRealtimeEndpoint(mLModelId: String, init: AmazonMachineLearningDeleteRealtimeEndpointCommand.() -> Unit) {
-	this.block.declare(AmazonMachineLearningDeleteRealtimeEndpointCommand(mLModelId).apply(init))
+fun AmazonMachineLearningFunctions.deleteRealtimeEndpoint(mLModelId: String, init: AmazonMachineLearningDeleteRealtimeEndpointCommand.() -> Unit): com.amazonaws.services.machinelearning.model.DeleteRealtimeEndpointResult {
+	return this.block.declare(AmazonMachineLearningDeleteRealtimeEndpointCommand(mLModelId).apply(init)) as com.amazonaws.services.machinelearning.model.DeleteRealtimeEndpointResult
 }
 
 @Generated
-class AmazonMachineLearningDeleteRealtimeEndpointCommand(val mLModelId: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.DeleteRealtimeEndpointRequest> {
+class AmazonMachineLearningDeleteRealtimeEndpointCommand(val mLModelId: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.DeleteRealtimeEndpointRequest, com.amazonaws.services.machinelearning.model.DeleteRealtimeEndpointResult> {
 
 
 
@@ -423,8 +471,12 @@ class AmazonMachineLearningDeleteRealtimeEndpointCommand(val mLModelId: String) 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.machinelearning.deleteRealtimeEndpoint(build())
+	override fun dryResult(): com.amazonaws.services.machinelearning.model.DeleteRealtimeEndpointResult {
+	  return com.amazonaws.services.machinelearning.model.DeleteRealtimeEndpointResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.DeleteRealtimeEndpointResult {
+		return environment.machinelearning.deleteRealtimeEndpoint(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -435,12 +487,12 @@ class AmazonMachineLearningDeleteRealtimeEndpointCommand(val mLModelId: String) 
 }
 
 
-fun AmazonMachineLearningFunctions.deleteTags(tagKeys: List<String>, resourceId: String, resourceType: TaggableResourceType, init: AmazonMachineLearningDeleteTagsCommand.() -> Unit) {
-	this.block.declare(AmazonMachineLearningDeleteTagsCommand(tagKeys, resourceId, resourceType).apply(init))
+fun AmazonMachineLearningFunctions.deleteTags(tagKeys: List<String>, resourceId: String, resourceType: TaggableResourceType, init: AmazonMachineLearningDeleteTagsCommand.() -> Unit): com.amazonaws.services.machinelearning.model.DeleteTagsResult {
+	return this.block.declare(AmazonMachineLearningDeleteTagsCommand(tagKeys, resourceId, resourceType).apply(init)) as com.amazonaws.services.machinelearning.model.DeleteTagsResult
 }
 
 @Generated
-class AmazonMachineLearningDeleteTagsCommand(val tagKeys: List<String>, val resourceId: String, val resourceType: TaggableResourceType) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.DeleteTagsRequest> {
+class AmazonMachineLearningDeleteTagsCommand(val tagKeys: List<String>, val resourceId: String, val resourceType: TaggableResourceType) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.DeleteTagsRequest, com.amazonaws.services.machinelearning.model.DeleteTagsResult> {
 
 
 
@@ -452,8 +504,12 @@ class AmazonMachineLearningDeleteTagsCommand(val tagKeys: List<String>, val reso
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.machinelearning.deleteTags(build())
+	override fun dryResult(): com.amazonaws.services.machinelearning.model.DeleteTagsResult {
+	  return com.amazonaws.services.machinelearning.model.DeleteTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.DeleteTagsResult {
+		return environment.machinelearning.deleteTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -466,12 +522,12 @@ class AmazonMachineLearningDeleteTagsCommand(val tagKeys: List<String>, val reso
 }
 
 
-fun AmazonMachineLearningFunctions.describeBatchPredictions(init: AmazonMachineLearningDescribeBatchPredictionsCommand.() -> Unit) {
-	this.block.declare(AmazonMachineLearningDescribeBatchPredictionsCommand().apply(init))
+fun AmazonMachineLearningFunctions.describeBatchPredictions(init: AmazonMachineLearningDescribeBatchPredictionsCommand.() -> Unit): com.amazonaws.services.machinelearning.model.DescribeBatchPredictionsResult {
+	return this.block.declare(AmazonMachineLearningDescribeBatchPredictionsCommand().apply(init)) as com.amazonaws.services.machinelearning.model.DescribeBatchPredictionsResult
 }
 
 @Generated
-class AmazonMachineLearningDescribeBatchPredictionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.DescribeBatchPredictionsRequest> {
+class AmazonMachineLearningDescribeBatchPredictionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.DescribeBatchPredictionsRequest, com.amazonaws.services.machinelearning.model.DescribeBatchPredictionsResult> {
 
 	var filterVariable: BatchPredictionFilterVariable? = null
 	var eQ: String? = null
@@ -501,8 +557,12 @@ class AmazonMachineLearningDescribeBatchPredictionsCommand() : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.machinelearning.describeBatchPredictions(build())
+	override fun dryResult(): com.amazonaws.services.machinelearning.model.DescribeBatchPredictionsResult {
+	  return com.amazonaws.services.machinelearning.model.DescribeBatchPredictionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.DescribeBatchPredictionsResult {
+		return environment.machinelearning.describeBatchPredictions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -523,12 +583,12 @@ class AmazonMachineLearningDescribeBatchPredictionsCommand() : AmazonWebServiceC
 }
 
 
-fun AmazonMachineLearningFunctions.describeDataSources(init: AmazonMachineLearningDescribeDataSourcesCommand.() -> Unit) {
-	this.block.declare(AmazonMachineLearningDescribeDataSourcesCommand().apply(init))
+fun AmazonMachineLearningFunctions.describeDataSources(init: AmazonMachineLearningDescribeDataSourcesCommand.() -> Unit): com.amazonaws.services.machinelearning.model.DescribeDataSourcesResult {
+	return this.block.declare(AmazonMachineLearningDescribeDataSourcesCommand().apply(init)) as com.amazonaws.services.machinelearning.model.DescribeDataSourcesResult
 }
 
 @Generated
-class AmazonMachineLearningDescribeDataSourcesCommand() : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.DescribeDataSourcesRequest> {
+class AmazonMachineLearningDescribeDataSourcesCommand() : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.DescribeDataSourcesRequest, com.amazonaws.services.machinelearning.model.DescribeDataSourcesResult> {
 
 	var filterVariable: DataSourceFilterVariable? = null
 	var eQ: String? = null
@@ -558,8 +618,12 @@ class AmazonMachineLearningDescribeDataSourcesCommand() : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.machinelearning.describeDataSources(build())
+	override fun dryResult(): com.amazonaws.services.machinelearning.model.DescribeDataSourcesResult {
+	  return com.amazonaws.services.machinelearning.model.DescribeDataSourcesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.DescribeDataSourcesResult {
+		return environment.machinelearning.describeDataSources(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -580,12 +644,12 @@ class AmazonMachineLearningDescribeDataSourcesCommand() : AmazonWebServiceComman
 }
 
 
-fun AmazonMachineLearningFunctions.describeEvaluations(init: AmazonMachineLearningDescribeEvaluationsCommand.() -> Unit) {
-	this.block.declare(AmazonMachineLearningDescribeEvaluationsCommand().apply(init))
+fun AmazonMachineLearningFunctions.describeEvaluations(init: AmazonMachineLearningDescribeEvaluationsCommand.() -> Unit): com.amazonaws.services.machinelearning.model.DescribeEvaluationsResult {
+	return this.block.declare(AmazonMachineLearningDescribeEvaluationsCommand().apply(init)) as com.amazonaws.services.machinelearning.model.DescribeEvaluationsResult
 }
 
 @Generated
-class AmazonMachineLearningDescribeEvaluationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.DescribeEvaluationsRequest> {
+class AmazonMachineLearningDescribeEvaluationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.DescribeEvaluationsRequest, com.amazonaws.services.machinelearning.model.DescribeEvaluationsResult> {
 
 	var filterVariable: EvaluationFilterVariable? = null
 	var eQ: String? = null
@@ -615,8 +679,12 @@ class AmazonMachineLearningDescribeEvaluationsCommand() : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.machinelearning.describeEvaluations(build())
+	override fun dryResult(): com.amazonaws.services.machinelearning.model.DescribeEvaluationsResult {
+	  return com.amazonaws.services.machinelearning.model.DescribeEvaluationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.DescribeEvaluationsResult {
+		return environment.machinelearning.describeEvaluations(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -637,12 +705,12 @@ class AmazonMachineLearningDescribeEvaluationsCommand() : AmazonWebServiceComman
 }
 
 
-fun AmazonMachineLearningFunctions.describeMLModels(init: AmazonMachineLearningDescribeMLModelsCommand.() -> Unit) {
-	this.block.declare(AmazonMachineLearningDescribeMLModelsCommand().apply(init))
+fun AmazonMachineLearningFunctions.describeMLModels(init: AmazonMachineLearningDescribeMLModelsCommand.() -> Unit): com.amazonaws.services.machinelearning.model.DescribeMLModelsResult {
+	return this.block.declare(AmazonMachineLearningDescribeMLModelsCommand().apply(init)) as com.amazonaws.services.machinelearning.model.DescribeMLModelsResult
 }
 
 @Generated
-class AmazonMachineLearningDescribeMLModelsCommand() : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.DescribeMLModelsRequest> {
+class AmazonMachineLearningDescribeMLModelsCommand() : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.DescribeMLModelsRequest, com.amazonaws.services.machinelearning.model.DescribeMLModelsResult> {
 
 	var filterVariable: MLModelFilterVariable? = null
 	var eQ: String? = null
@@ -672,8 +740,12 @@ class AmazonMachineLearningDescribeMLModelsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.machinelearning.describeMLModels(build())
+	override fun dryResult(): com.amazonaws.services.machinelearning.model.DescribeMLModelsResult {
+	  return com.amazonaws.services.machinelearning.model.DescribeMLModelsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.DescribeMLModelsResult {
+		return environment.machinelearning.describeMLModels(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -694,12 +766,12 @@ class AmazonMachineLearningDescribeMLModelsCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AmazonMachineLearningFunctions.describeTags(resourceId: String, resourceType: TaggableResourceType, init: AmazonMachineLearningDescribeTagsCommand.() -> Unit) {
-	this.block.declare(AmazonMachineLearningDescribeTagsCommand(resourceId, resourceType).apply(init))
+fun AmazonMachineLearningFunctions.describeTags(resourceId: String, resourceType: TaggableResourceType, init: AmazonMachineLearningDescribeTagsCommand.() -> Unit): com.amazonaws.services.machinelearning.model.DescribeTagsResult {
+	return this.block.declare(AmazonMachineLearningDescribeTagsCommand(resourceId, resourceType).apply(init)) as com.amazonaws.services.machinelearning.model.DescribeTagsResult
 }
 
 @Generated
-class AmazonMachineLearningDescribeTagsCommand(val resourceId: String, val resourceType: TaggableResourceType) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.DescribeTagsRequest> {
+class AmazonMachineLearningDescribeTagsCommand(val resourceId: String, val resourceType: TaggableResourceType) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.DescribeTagsRequest, com.amazonaws.services.machinelearning.model.DescribeTagsResult> {
 
 
 
@@ -710,8 +782,12 @@ class AmazonMachineLearningDescribeTagsCommand(val resourceId: String, val resou
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.machinelearning.describeTags(build())
+	override fun dryResult(): com.amazonaws.services.machinelearning.model.DescribeTagsResult {
+	  return com.amazonaws.services.machinelearning.model.DescribeTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.DescribeTagsResult {
+		return environment.machinelearning.describeTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -723,12 +799,12 @@ class AmazonMachineLearningDescribeTagsCommand(val resourceId: String, val resou
 }
 
 
-fun AmazonMachineLearningFunctions.getBatchPrediction(batchPredictionId: String, init: AmazonMachineLearningGetBatchPredictionCommand.() -> Unit) {
-	this.block.declare(AmazonMachineLearningGetBatchPredictionCommand(batchPredictionId).apply(init))
+fun AmazonMachineLearningFunctions.getBatchPrediction(batchPredictionId: String, init: AmazonMachineLearningGetBatchPredictionCommand.() -> Unit): com.amazonaws.services.machinelearning.model.GetBatchPredictionResult {
+	return this.block.declare(AmazonMachineLearningGetBatchPredictionCommand(batchPredictionId).apply(init)) as com.amazonaws.services.machinelearning.model.GetBatchPredictionResult
 }
 
 @Generated
-class AmazonMachineLearningGetBatchPredictionCommand(val batchPredictionId: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.GetBatchPredictionRequest> {
+class AmazonMachineLearningGetBatchPredictionCommand(val batchPredictionId: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.GetBatchPredictionRequest, com.amazonaws.services.machinelearning.model.GetBatchPredictionResult> {
 
 
 
@@ -738,8 +814,12 @@ class AmazonMachineLearningGetBatchPredictionCommand(val batchPredictionId: Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.machinelearning.getBatchPrediction(build())
+	override fun dryResult(): com.amazonaws.services.machinelearning.model.GetBatchPredictionResult {
+	  return com.amazonaws.services.machinelearning.model.GetBatchPredictionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.GetBatchPredictionResult {
+		return environment.machinelearning.getBatchPrediction(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -750,12 +830,12 @@ class AmazonMachineLearningGetBatchPredictionCommand(val batchPredictionId: Stri
 }
 
 
-fun AmazonMachineLearningFunctions.getDataSource(dataSourceId: String, init: AmazonMachineLearningGetDataSourceCommand.() -> Unit) {
-	this.block.declare(AmazonMachineLearningGetDataSourceCommand(dataSourceId).apply(init))
+fun AmazonMachineLearningFunctions.getDataSource(dataSourceId: String, init: AmazonMachineLearningGetDataSourceCommand.() -> Unit): com.amazonaws.services.machinelearning.model.GetDataSourceResult {
+	return this.block.declare(AmazonMachineLearningGetDataSourceCommand(dataSourceId).apply(init)) as com.amazonaws.services.machinelearning.model.GetDataSourceResult
 }
 
 @Generated
-class AmazonMachineLearningGetDataSourceCommand(val dataSourceId: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.GetDataSourceRequest> {
+class AmazonMachineLearningGetDataSourceCommand(val dataSourceId: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.GetDataSourceRequest, com.amazonaws.services.machinelearning.model.GetDataSourceResult> {
 
 	var verbose: Boolean? = false
 
@@ -766,8 +846,12 @@ class AmazonMachineLearningGetDataSourceCommand(val dataSourceId: String) : Amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.machinelearning.getDataSource(build())
+	override fun dryResult(): com.amazonaws.services.machinelearning.model.GetDataSourceResult {
+	  return com.amazonaws.services.machinelearning.model.GetDataSourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.GetDataSourceResult {
+		return environment.machinelearning.getDataSource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -779,12 +863,12 @@ class AmazonMachineLearningGetDataSourceCommand(val dataSourceId: String) : Amaz
 }
 
 
-fun AmazonMachineLearningFunctions.getEvaluation(evaluationId: String, init: AmazonMachineLearningGetEvaluationCommand.() -> Unit) {
-	this.block.declare(AmazonMachineLearningGetEvaluationCommand(evaluationId).apply(init))
+fun AmazonMachineLearningFunctions.getEvaluation(evaluationId: String, init: AmazonMachineLearningGetEvaluationCommand.() -> Unit): com.amazonaws.services.machinelearning.model.GetEvaluationResult {
+	return this.block.declare(AmazonMachineLearningGetEvaluationCommand(evaluationId).apply(init)) as com.amazonaws.services.machinelearning.model.GetEvaluationResult
 }
 
 @Generated
-class AmazonMachineLearningGetEvaluationCommand(val evaluationId: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.GetEvaluationRequest> {
+class AmazonMachineLearningGetEvaluationCommand(val evaluationId: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.GetEvaluationRequest, com.amazonaws.services.machinelearning.model.GetEvaluationResult> {
 
 
 
@@ -794,8 +878,12 @@ class AmazonMachineLearningGetEvaluationCommand(val evaluationId: String) : Amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.machinelearning.getEvaluation(build())
+	override fun dryResult(): com.amazonaws.services.machinelearning.model.GetEvaluationResult {
+	  return com.amazonaws.services.machinelearning.model.GetEvaluationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.GetEvaluationResult {
+		return environment.machinelearning.getEvaluation(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -806,12 +894,12 @@ class AmazonMachineLearningGetEvaluationCommand(val evaluationId: String) : Amaz
 }
 
 
-fun AmazonMachineLearningFunctions.getMLModel(mLModelId: String, init: AmazonMachineLearningGetMLModelCommand.() -> Unit) {
-	this.block.declare(AmazonMachineLearningGetMLModelCommand(mLModelId).apply(init))
+fun AmazonMachineLearningFunctions.getMLModel(mLModelId: String, init: AmazonMachineLearningGetMLModelCommand.() -> Unit): com.amazonaws.services.machinelearning.model.GetMLModelResult {
+	return this.block.declare(AmazonMachineLearningGetMLModelCommand(mLModelId).apply(init)) as com.amazonaws.services.machinelearning.model.GetMLModelResult
 }
 
 @Generated
-class AmazonMachineLearningGetMLModelCommand(val mLModelId: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.GetMLModelRequest> {
+class AmazonMachineLearningGetMLModelCommand(val mLModelId: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.GetMLModelRequest, com.amazonaws.services.machinelearning.model.GetMLModelResult> {
 
 	var verbose: Boolean? = false
 
@@ -822,8 +910,12 @@ class AmazonMachineLearningGetMLModelCommand(val mLModelId: String) : AmazonWebS
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.machinelearning.getMLModel(build())
+	override fun dryResult(): com.amazonaws.services.machinelearning.model.GetMLModelResult {
+	  return com.amazonaws.services.machinelearning.model.GetMLModelResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.GetMLModelResult {
+		return environment.machinelearning.getMLModel(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -835,12 +927,12 @@ class AmazonMachineLearningGetMLModelCommand(val mLModelId: String) : AmazonWebS
 }
 
 
-fun AmazonMachineLearningFunctions.predict(mLModelId: String, record: Map<String, String>, predictEndpoint: String, init: AmazonMachineLearningPredictCommand.() -> Unit) {
-	this.block.declare(AmazonMachineLearningPredictCommand(mLModelId, record, predictEndpoint).apply(init))
+fun AmazonMachineLearningFunctions.predict(mLModelId: String, record: Map<String, String>, predictEndpoint: String, init: AmazonMachineLearningPredictCommand.() -> Unit): com.amazonaws.services.machinelearning.model.PredictResult {
+	return this.block.declare(AmazonMachineLearningPredictCommand(mLModelId, record, predictEndpoint).apply(init)) as com.amazonaws.services.machinelearning.model.PredictResult
 }
 
 @Generated
-class AmazonMachineLearningPredictCommand(val mLModelId: String, val record: Map<String, String>, val predictEndpoint: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.PredictRequest> {
+class AmazonMachineLearningPredictCommand(val mLModelId: String, val record: Map<String, String>, val predictEndpoint: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.PredictRequest, com.amazonaws.services.machinelearning.model.PredictResult> {
 
 
 
@@ -852,8 +944,12 @@ class AmazonMachineLearningPredictCommand(val mLModelId: String, val record: Map
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.machinelearning.predict(build())
+	override fun dryResult(): com.amazonaws.services.machinelearning.model.PredictResult {
+	  return com.amazonaws.services.machinelearning.model.PredictResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.PredictResult {
+		return environment.machinelearning.predict(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -866,12 +962,12 @@ class AmazonMachineLearningPredictCommand(val mLModelId: String, val record: Map
 }
 
 
-fun AmazonMachineLearningFunctions.updateBatchPrediction(batchPredictionId: String, batchPredictionName: String, init: AmazonMachineLearningUpdateBatchPredictionCommand.() -> Unit) {
-	this.block.declare(AmazonMachineLearningUpdateBatchPredictionCommand(batchPredictionId, batchPredictionName).apply(init))
+fun AmazonMachineLearningFunctions.updateBatchPrediction(batchPredictionId: String, batchPredictionName: String, init: AmazonMachineLearningUpdateBatchPredictionCommand.() -> Unit): com.amazonaws.services.machinelearning.model.UpdateBatchPredictionResult {
+	return this.block.declare(AmazonMachineLearningUpdateBatchPredictionCommand(batchPredictionId, batchPredictionName).apply(init)) as com.amazonaws.services.machinelearning.model.UpdateBatchPredictionResult
 }
 
 @Generated
-class AmazonMachineLearningUpdateBatchPredictionCommand(val batchPredictionId: String, val batchPredictionName: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.UpdateBatchPredictionRequest> {
+class AmazonMachineLearningUpdateBatchPredictionCommand(val batchPredictionId: String, val batchPredictionName: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.UpdateBatchPredictionRequest, com.amazonaws.services.machinelearning.model.UpdateBatchPredictionResult> {
 
 
 
@@ -882,8 +978,12 @@ class AmazonMachineLearningUpdateBatchPredictionCommand(val batchPredictionId: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.machinelearning.updateBatchPrediction(build())
+	override fun dryResult(): com.amazonaws.services.machinelearning.model.UpdateBatchPredictionResult {
+	  return com.amazonaws.services.machinelearning.model.UpdateBatchPredictionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.UpdateBatchPredictionResult {
+		return environment.machinelearning.updateBatchPrediction(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -895,12 +995,12 @@ class AmazonMachineLearningUpdateBatchPredictionCommand(val batchPredictionId: S
 }
 
 
-fun AmazonMachineLearningFunctions.updateDataSource(dataSourceId: String, dataSourceName: String, init: AmazonMachineLearningUpdateDataSourceCommand.() -> Unit) {
-	this.block.declare(AmazonMachineLearningUpdateDataSourceCommand(dataSourceId, dataSourceName).apply(init))
+fun AmazonMachineLearningFunctions.updateDataSource(dataSourceId: String, dataSourceName: String, init: AmazonMachineLearningUpdateDataSourceCommand.() -> Unit): com.amazonaws.services.machinelearning.model.UpdateDataSourceResult {
+	return this.block.declare(AmazonMachineLearningUpdateDataSourceCommand(dataSourceId, dataSourceName).apply(init)) as com.amazonaws.services.machinelearning.model.UpdateDataSourceResult
 }
 
 @Generated
-class AmazonMachineLearningUpdateDataSourceCommand(val dataSourceId: String, val dataSourceName: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.UpdateDataSourceRequest> {
+class AmazonMachineLearningUpdateDataSourceCommand(val dataSourceId: String, val dataSourceName: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.UpdateDataSourceRequest, com.amazonaws.services.machinelearning.model.UpdateDataSourceResult> {
 
 
 
@@ -911,8 +1011,12 @@ class AmazonMachineLearningUpdateDataSourceCommand(val dataSourceId: String, val
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.machinelearning.updateDataSource(build())
+	override fun dryResult(): com.amazonaws.services.machinelearning.model.UpdateDataSourceResult {
+	  return com.amazonaws.services.machinelearning.model.UpdateDataSourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.UpdateDataSourceResult {
+		return environment.machinelearning.updateDataSource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -924,12 +1028,12 @@ class AmazonMachineLearningUpdateDataSourceCommand(val dataSourceId: String, val
 }
 
 
-fun AmazonMachineLearningFunctions.updateEvaluation(evaluationId: String, evaluationName: String, init: AmazonMachineLearningUpdateEvaluationCommand.() -> Unit) {
-	this.block.declare(AmazonMachineLearningUpdateEvaluationCommand(evaluationId, evaluationName).apply(init))
+fun AmazonMachineLearningFunctions.updateEvaluation(evaluationId: String, evaluationName: String, init: AmazonMachineLearningUpdateEvaluationCommand.() -> Unit): com.amazonaws.services.machinelearning.model.UpdateEvaluationResult {
+	return this.block.declare(AmazonMachineLearningUpdateEvaluationCommand(evaluationId, evaluationName).apply(init)) as com.amazonaws.services.machinelearning.model.UpdateEvaluationResult
 }
 
 @Generated
-class AmazonMachineLearningUpdateEvaluationCommand(val evaluationId: String, val evaluationName: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.UpdateEvaluationRequest> {
+class AmazonMachineLearningUpdateEvaluationCommand(val evaluationId: String, val evaluationName: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.UpdateEvaluationRequest, com.amazonaws.services.machinelearning.model.UpdateEvaluationResult> {
 
 
 
@@ -940,8 +1044,12 @@ class AmazonMachineLearningUpdateEvaluationCommand(val evaluationId: String, val
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.machinelearning.updateEvaluation(build())
+	override fun dryResult(): com.amazonaws.services.machinelearning.model.UpdateEvaluationResult {
+	  return com.amazonaws.services.machinelearning.model.UpdateEvaluationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.UpdateEvaluationResult {
+		return environment.machinelearning.updateEvaluation(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -953,12 +1061,12 @@ class AmazonMachineLearningUpdateEvaluationCommand(val evaluationId: String, val
 }
 
 
-fun AmazonMachineLearningFunctions.updateMLModel(mLModelId: String, init: AmazonMachineLearningUpdateMLModelCommand.() -> Unit) {
-	this.block.declare(AmazonMachineLearningUpdateMLModelCommand(mLModelId).apply(init))
+fun AmazonMachineLearningFunctions.updateMLModel(mLModelId: String, init: AmazonMachineLearningUpdateMLModelCommand.() -> Unit): com.amazonaws.services.machinelearning.model.UpdateMLModelResult {
+	return this.block.declare(AmazonMachineLearningUpdateMLModelCommand(mLModelId).apply(init)) as com.amazonaws.services.machinelearning.model.UpdateMLModelResult
 }
 
 @Generated
-class AmazonMachineLearningUpdateMLModelCommand(val mLModelId: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.UpdateMLModelRequest> {
+class AmazonMachineLearningUpdateMLModelCommand(val mLModelId: String) : AmazonWebServiceCommand<com.amazonaws.services.machinelearning.model.UpdateMLModelRequest, com.amazonaws.services.machinelearning.model.UpdateMLModelResult> {
 
 	var mLModelName: String? = null
 	var scoreThreshold: Float? = 0f
@@ -971,8 +1079,12 @@ class AmazonMachineLearningUpdateMLModelCommand(val mLModelId: String) : AmazonW
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.machinelearning.updateMLModel(build())
+	override fun dryResult(): com.amazonaws.services.machinelearning.model.UpdateMLModelResult {
+	  return com.amazonaws.services.machinelearning.model.UpdateMLModelResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.machinelearning.model.UpdateMLModelResult {
+		return environment.machinelearning.updateMLModel(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

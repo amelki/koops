@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.elasticloadbalancing: AmazonElasticLoadBalan
 @Generated
 class AmazonElasticLoadBalancingFunctions(val block: Block)
 
-infix fun AwsContinuation.elasticloadbalancing(init: AmazonElasticLoadBalancingFunctions.() -> Unit) {
-	AmazonElasticLoadBalancingFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.elasticloadbalancing(init: AmazonElasticLoadBalancingFunctions.() -> T): T {
+	return AmazonElasticLoadBalancingFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonElasticLoadBalancingFunctions.addTags(loadBalancerNames: List<String>, tags: List<com.amazonaws.services.elasticloadbalancing.model.Tag>, init: AmazonElasticLoadBalancingAddTagsCommand.() -> Unit) {
-	this.block.declare(AmazonElasticLoadBalancingAddTagsCommand(loadBalancerNames, tags).apply(init))
+fun AmazonElasticLoadBalancingFunctions.addTags(loadBalancerNames: List<String>, tags: List<com.amazonaws.services.elasticloadbalancing.model.Tag>, init: AmazonElasticLoadBalancingAddTagsCommand.() -> Unit): com.amazonaws.services.elasticloadbalancing.model.AddTagsResult {
+	return this.block.declare(AmazonElasticLoadBalancingAddTagsCommand(loadBalancerNames, tags).apply(init)) as com.amazonaws.services.elasticloadbalancing.model.AddTagsResult
 }
 
 @Generated
-class AmazonElasticLoadBalancingAddTagsCommand(val loadBalancerNames: List<String>, val tags: List<com.amazonaws.services.elasticloadbalancing.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.AddTagsRequest> {
+class AmazonElasticLoadBalancingAddTagsCommand(val loadBalancerNames: List<String>, val tags: List<com.amazonaws.services.elasticloadbalancing.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.AddTagsRequest, com.amazonaws.services.elasticloadbalancing.model.AddTagsResult> {
 
 
 
@@ -42,8 +42,12 @@ class AmazonElasticLoadBalancingAddTagsCommand(val loadBalancerNames: List<Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticloadbalancing.addTags(build())
+	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.AddTagsResult {
+	  return com.amazonaws.services.elasticloadbalancing.model.AddTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.AddTagsResult {
+		return environment.elasticloadbalancing.addTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -55,12 +59,12 @@ class AmazonElasticLoadBalancingAddTagsCommand(val loadBalancerNames: List<Strin
 }
 
 
-fun AmazonElasticLoadBalancingFunctions.applySecurityGroupsToLoadBalancer(loadBalancerName: String, securityGroups: List<String>, init: AmazonElasticLoadBalancingApplySecurityGroupsToLoadBalancerCommand.() -> Unit) {
-	this.block.declare(AmazonElasticLoadBalancingApplySecurityGroupsToLoadBalancerCommand(loadBalancerName, securityGroups).apply(init))
+fun AmazonElasticLoadBalancingFunctions.applySecurityGroupsToLoadBalancer(loadBalancerName: String, securityGroups: List<String>, init: AmazonElasticLoadBalancingApplySecurityGroupsToLoadBalancerCommand.() -> Unit): com.amazonaws.services.elasticloadbalancing.model.ApplySecurityGroupsToLoadBalancerResult {
+	return this.block.declare(AmazonElasticLoadBalancingApplySecurityGroupsToLoadBalancerCommand(loadBalancerName, securityGroups).apply(init)) as com.amazonaws.services.elasticloadbalancing.model.ApplySecurityGroupsToLoadBalancerResult
 }
 
 @Generated
-class AmazonElasticLoadBalancingApplySecurityGroupsToLoadBalancerCommand(val loadBalancerName: String, val securityGroups: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.ApplySecurityGroupsToLoadBalancerRequest> {
+class AmazonElasticLoadBalancingApplySecurityGroupsToLoadBalancerCommand(val loadBalancerName: String, val securityGroups: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.ApplySecurityGroupsToLoadBalancerRequest, com.amazonaws.services.elasticloadbalancing.model.ApplySecurityGroupsToLoadBalancerResult> {
 
 
 
@@ -71,8 +75,12 @@ class AmazonElasticLoadBalancingApplySecurityGroupsToLoadBalancerCommand(val loa
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticloadbalancing.applySecurityGroupsToLoadBalancer(build())
+	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.ApplySecurityGroupsToLoadBalancerResult {
+	  return com.amazonaws.services.elasticloadbalancing.model.ApplySecurityGroupsToLoadBalancerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.ApplySecurityGroupsToLoadBalancerResult {
+		return environment.elasticloadbalancing.applySecurityGroupsToLoadBalancer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -84,12 +92,12 @@ class AmazonElasticLoadBalancingApplySecurityGroupsToLoadBalancerCommand(val loa
 }
 
 
-fun AmazonElasticLoadBalancingFunctions.attachLoadBalancerToSubnets(loadBalancerName: String, subnets: List<String>, init: AmazonElasticLoadBalancingAttachLoadBalancerToSubnetsCommand.() -> Unit) {
-	this.block.declare(AmazonElasticLoadBalancingAttachLoadBalancerToSubnetsCommand(loadBalancerName, subnets).apply(init))
+fun AmazonElasticLoadBalancingFunctions.attachLoadBalancerToSubnets(loadBalancerName: String, subnets: List<String>, init: AmazonElasticLoadBalancingAttachLoadBalancerToSubnetsCommand.() -> Unit): com.amazonaws.services.elasticloadbalancing.model.AttachLoadBalancerToSubnetsResult {
+	return this.block.declare(AmazonElasticLoadBalancingAttachLoadBalancerToSubnetsCommand(loadBalancerName, subnets).apply(init)) as com.amazonaws.services.elasticloadbalancing.model.AttachLoadBalancerToSubnetsResult
 }
 
 @Generated
-class AmazonElasticLoadBalancingAttachLoadBalancerToSubnetsCommand(val loadBalancerName: String, val subnets: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.AttachLoadBalancerToSubnetsRequest> {
+class AmazonElasticLoadBalancingAttachLoadBalancerToSubnetsCommand(val loadBalancerName: String, val subnets: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.AttachLoadBalancerToSubnetsRequest, com.amazonaws.services.elasticloadbalancing.model.AttachLoadBalancerToSubnetsResult> {
 
 
 
@@ -100,8 +108,12 @@ class AmazonElasticLoadBalancingAttachLoadBalancerToSubnetsCommand(val loadBalan
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticloadbalancing.attachLoadBalancerToSubnets(build())
+	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.AttachLoadBalancerToSubnetsResult {
+	  return com.amazonaws.services.elasticloadbalancing.model.AttachLoadBalancerToSubnetsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.AttachLoadBalancerToSubnetsResult {
+		return environment.elasticloadbalancing.attachLoadBalancerToSubnets(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -113,12 +125,12 @@ class AmazonElasticLoadBalancingAttachLoadBalancerToSubnetsCommand(val loadBalan
 }
 
 
-fun AmazonElasticLoadBalancingFunctions.configureHealthCheck(loadBalancerName: String, healthCheck: com.amazonaws.services.elasticloadbalancing.model.HealthCheck, init: AmazonElasticLoadBalancingConfigureHealthCheckCommand.() -> Unit) {
-	this.block.declare(AmazonElasticLoadBalancingConfigureHealthCheckCommand(loadBalancerName, healthCheck).apply(init))
+fun AmazonElasticLoadBalancingFunctions.configureHealthCheck(loadBalancerName: String, healthCheck: com.amazonaws.services.elasticloadbalancing.model.HealthCheck, init: AmazonElasticLoadBalancingConfigureHealthCheckCommand.() -> Unit): com.amazonaws.services.elasticloadbalancing.model.ConfigureHealthCheckResult {
+	return this.block.declare(AmazonElasticLoadBalancingConfigureHealthCheckCommand(loadBalancerName, healthCheck).apply(init)) as com.amazonaws.services.elasticloadbalancing.model.ConfigureHealthCheckResult
 }
 
 @Generated
-class AmazonElasticLoadBalancingConfigureHealthCheckCommand(val loadBalancerName: String, val healthCheck: com.amazonaws.services.elasticloadbalancing.model.HealthCheck) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.ConfigureHealthCheckRequest> {
+class AmazonElasticLoadBalancingConfigureHealthCheckCommand(val loadBalancerName: String, val healthCheck: com.amazonaws.services.elasticloadbalancing.model.HealthCheck) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.ConfigureHealthCheckRequest, com.amazonaws.services.elasticloadbalancing.model.ConfigureHealthCheckResult> {
 
 
 
@@ -129,8 +141,12 @@ class AmazonElasticLoadBalancingConfigureHealthCheckCommand(val loadBalancerName
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticloadbalancing.configureHealthCheck(build())
+	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.ConfigureHealthCheckResult {
+	  return com.amazonaws.services.elasticloadbalancing.model.ConfigureHealthCheckResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.ConfigureHealthCheckResult {
+		return environment.elasticloadbalancing.configureHealthCheck(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -142,12 +158,12 @@ class AmazonElasticLoadBalancingConfigureHealthCheckCommand(val loadBalancerName
 }
 
 
-fun AmazonElasticLoadBalancingFunctions.createAppCookieStickinessPolicy(loadBalancerName: String, policyName: String, cookieName: String, init: AmazonElasticLoadBalancingCreateAppCookieStickinessPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonElasticLoadBalancingCreateAppCookieStickinessPolicyCommand(loadBalancerName, policyName, cookieName).apply(init))
+fun AmazonElasticLoadBalancingFunctions.createAppCookieStickinessPolicy(loadBalancerName: String, policyName: String, cookieName: String, init: AmazonElasticLoadBalancingCreateAppCookieStickinessPolicyCommand.() -> Unit): com.amazonaws.services.elasticloadbalancing.model.CreateAppCookieStickinessPolicyResult {
+	return this.block.declare(AmazonElasticLoadBalancingCreateAppCookieStickinessPolicyCommand(loadBalancerName, policyName, cookieName).apply(init)) as com.amazonaws.services.elasticloadbalancing.model.CreateAppCookieStickinessPolicyResult
 }
 
 @Generated
-class AmazonElasticLoadBalancingCreateAppCookieStickinessPolicyCommand(val loadBalancerName: String, val policyName: String, val cookieName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.CreateAppCookieStickinessPolicyRequest> {
+class AmazonElasticLoadBalancingCreateAppCookieStickinessPolicyCommand(val loadBalancerName: String, val policyName: String, val cookieName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.CreateAppCookieStickinessPolicyRequest, com.amazonaws.services.elasticloadbalancing.model.CreateAppCookieStickinessPolicyResult> {
 
 
 
@@ -159,8 +175,12 @@ class AmazonElasticLoadBalancingCreateAppCookieStickinessPolicyCommand(val loadB
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticloadbalancing.createAppCookieStickinessPolicy(build())
+	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.CreateAppCookieStickinessPolicyResult {
+	  return com.amazonaws.services.elasticloadbalancing.model.CreateAppCookieStickinessPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.CreateAppCookieStickinessPolicyResult {
+		return environment.elasticloadbalancing.createAppCookieStickinessPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -173,12 +193,12 @@ class AmazonElasticLoadBalancingCreateAppCookieStickinessPolicyCommand(val loadB
 }
 
 
-fun AmazonElasticLoadBalancingFunctions.createLBCookieStickinessPolicy(loadBalancerName: String, policyName: String, init: AmazonElasticLoadBalancingCreateLBCookieStickinessPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonElasticLoadBalancingCreateLBCookieStickinessPolicyCommand(loadBalancerName, policyName).apply(init))
+fun AmazonElasticLoadBalancingFunctions.createLBCookieStickinessPolicy(loadBalancerName: String, policyName: String, init: AmazonElasticLoadBalancingCreateLBCookieStickinessPolicyCommand.() -> Unit): com.amazonaws.services.elasticloadbalancing.model.CreateLBCookieStickinessPolicyResult {
+	return this.block.declare(AmazonElasticLoadBalancingCreateLBCookieStickinessPolicyCommand(loadBalancerName, policyName).apply(init)) as com.amazonaws.services.elasticloadbalancing.model.CreateLBCookieStickinessPolicyResult
 }
 
 @Generated
-class AmazonElasticLoadBalancingCreateLBCookieStickinessPolicyCommand(val loadBalancerName: String, val policyName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.CreateLBCookieStickinessPolicyRequest> {
+class AmazonElasticLoadBalancingCreateLBCookieStickinessPolicyCommand(val loadBalancerName: String, val policyName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.CreateLBCookieStickinessPolicyRequest, com.amazonaws.services.elasticloadbalancing.model.CreateLBCookieStickinessPolicyResult> {
 
 	var cookieExpirationPeriod: Long? = 0L
 
@@ -190,8 +210,12 @@ class AmazonElasticLoadBalancingCreateLBCookieStickinessPolicyCommand(val loadBa
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticloadbalancing.createLBCookieStickinessPolicy(build())
+	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.CreateLBCookieStickinessPolicyResult {
+	  return com.amazonaws.services.elasticloadbalancing.model.CreateLBCookieStickinessPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.CreateLBCookieStickinessPolicyResult {
+		return environment.elasticloadbalancing.createLBCookieStickinessPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -204,12 +228,12 @@ class AmazonElasticLoadBalancingCreateLBCookieStickinessPolicyCommand(val loadBa
 }
 
 
-fun AmazonElasticLoadBalancingFunctions.createLoadBalancer(loadBalancerName: String, listeners: List<com.amazonaws.services.elasticloadbalancing.model.Listener>, init: AmazonElasticLoadBalancingCreateLoadBalancerCommand.() -> Unit) {
-	this.block.declare(AmazonElasticLoadBalancingCreateLoadBalancerCommand(loadBalancerName, listeners).apply(init))
+fun AmazonElasticLoadBalancingFunctions.createLoadBalancer(loadBalancerName: String, listeners: List<com.amazonaws.services.elasticloadbalancing.model.Listener>, init: AmazonElasticLoadBalancingCreateLoadBalancerCommand.() -> Unit): com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerResult {
+	return this.block.declare(AmazonElasticLoadBalancingCreateLoadBalancerCommand(loadBalancerName, listeners).apply(init)) as com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerResult
 }
 
 @Generated
-class AmazonElasticLoadBalancingCreateLoadBalancerCommand(val loadBalancerName: String, val listeners: List<com.amazonaws.services.elasticloadbalancing.model.Listener>) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerRequest> {
+class AmazonElasticLoadBalancingCreateLoadBalancerCommand(val loadBalancerName: String, val listeners: List<com.amazonaws.services.elasticloadbalancing.model.Listener>) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerRequest, com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerResult> {
 
 	var availabilityZones: List<String>? = null
 	var subnets: List<String>? = null
@@ -229,8 +253,12 @@ class AmazonElasticLoadBalancingCreateLoadBalancerCommand(val loadBalancerName: 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticloadbalancing.createLoadBalancer(build())
+	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerResult {
+	  return com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerResult {
+		return environment.elasticloadbalancing.createLoadBalancer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -247,12 +275,12 @@ class AmazonElasticLoadBalancingCreateLoadBalancerCommand(val loadBalancerName: 
 }
 
 
-fun AmazonElasticLoadBalancingFunctions.createLoadBalancerListeners(loadBalancerName: String, listeners: List<com.amazonaws.services.elasticloadbalancing.model.Listener>, init: AmazonElasticLoadBalancingCreateLoadBalancerListenersCommand.() -> Unit) {
-	this.block.declare(AmazonElasticLoadBalancingCreateLoadBalancerListenersCommand(loadBalancerName, listeners).apply(init))
+fun AmazonElasticLoadBalancingFunctions.createLoadBalancerListeners(loadBalancerName: String, listeners: List<com.amazonaws.services.elasticloadbalancing.model.Listener>, init: AmazonElasticLoadBalancingCreateLoadBalancerListenersCommand.() -> Unit): com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerListenersResult {
+	return this.block.declare(AmazonElasticLoadBalancingCreateLoadBalancerListenersCommand(loadBalancerName, listeners).apply(init)) as com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerListenersResult
 }
 
 @Generated
-class AmazonElasticLoadBalancingCreateLoadBalancerListenersCommand(val loadBalancerName: String, val listeners: List<com.amazonaws.services.elasticloadbalancing.model.Listener>) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerListenersRequest> {
+class AmazonElasticLoadBalancingCreateLoadBalancerListenersCommand(val loadBalancerName: String, val listeners: List<com.amazonaws.services.elasticloadbalancing.model.Listener>) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerListenersRequest, com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerListenersResult> {
 
 
 
@@ -263,8 +291,12 @@ class AmazonElasticLoadBalancingCreateLoadBalancerListenersCommand(val loadBalan
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticloadbalancing.createLoadBalancerListeners(build())
+	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerListenersResult {
+	  return com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerListenersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerListenersResult {
+		return environment.elasticloadbalancing.createLoadBalancerListeners(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -276,12 +308,12 @@ class AmazonElasticLoadBalancingCreateLoadBalancerListenersCommand(val loadBalan
 }
 
 
-fun AmazonElasticLoadBalancingFunctions.createLoadBalancerPolicy(loadBalancerName: String, policyName: String, policyTypeName: String, init: AmazonElasticLoadBalancingCreateLoadBalancerPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonElasticLoadBalancingCreateLoadBalancerPolicyCommand(loadBalancerName, policyName, policyTypeName).apply(init))
+fun AmazonElasticLoadBalancingFunctions.createLoadBalancerPolicy(loadBalancerName: String, policyName: String, policyTypeName: String, init: AmazonElasticLoadBalancingCreateLoadBalancerPolicyCommand.() -> Unit): com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerPolicyResult {
+	return this.block.declare(AmazonElasticLoadBalancingCreateLoadBalancerPolicyCommand(loadBalancerName, policyName, policyTypeName).apply(init)) as com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerPolicyResult
 }
 
 @Generated
-class AmazonElasticLoadBalancingCreateLoadBalancerPolicyCommand(val loadBalancerName: String, val policyName: String, val policyTypeName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerPolicyRequest> {
+class AmazonElasticLoadBalancingCreateLoadBalancerPolicyCommand(val loadBalancerName: String, val policyName: String, val policyTypeName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerPolicyRequest, com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerPolicyResult> {
 
 	var policyAttributes: List<com.amazonaws.services.elasticloadbalancing.model.PolicyAttribute>? = null
 
@@ -294,8 +326,12 @@ class AmazonElasticLoadBalancingCreateLoadBalancerPolicyCommand(val loadBalancer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticloadbalancing.createLoadBalancerPolicy(build())
+	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerPolicyResult {
+	  return com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.CreateLoadBalancerPolicyResult {
+		return environment.elasticloadbalancing.createLoadBalancerPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -309,12 +345,12 @@ class AmazonElasticLoadBalancingCreateLoadBalancerPolicyCommand(val loadBalancer
 }
 
 
-fun AmazonElasticLoadBalancingFunctions.deleteLoadBalancer(loadBalancerName: String, init: AmazonElasticLoadBalancingDeleteLoadBalancerCommand.() -> Unit) {
-	this.block.declare(AmazonElasticLoadBalancingDeleteLoadBalancerCommand(loadBalancerName).apply(init))
+fun AmazonElasticLoadBalancingFunctions.deleteLoadBalancer(loadBalancerName: String, init: AmazonElasticLoadBalancingDeleteLoadBalancerCommand.() -> Unit): com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerResult {
+	return this.block.declare(AmazonElasticLoadBalancingDeleteLoadBalancerCommand(loadBalancerName).apply(init)) as com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerResult
 }
 
 @Generated
-class AmazonElasticLoadBalancingDeleteLoadBalancerCommand(val loadBalancerName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerRequest> {
+class AmazonElasticLoadBalancingDeleteLoadBalancerCommand(val loadBalancerName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerRequest, com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerResult> {
 
 
 
@@ -324,8 +360,12 @@ class AmazonElasticLoadBalancingDeleteLoadBalancerCommand(val loadBalancerName: 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticloadbalancing.deleteLoadBalancer(build())
+	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerResult {
+	  return com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerResult {
+		return environment.elasticloadbalancing.deleteLoadBalancer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -336,12 +376,12 @@ class AmazonElasticLoadBalancingDeleteLoadBalancerCommand(val loadBalancerName: 
 }
 
 
-fun AmazonElasticLoadBalancingFunctions.deleteLoadBalancerListeners(loadBalancerName: String, loadBalancerPorts: List<Int>, init: AmazonElasticLoadBalancingDeleteLoadBalancerListenersCommand.() -> Unit) {
-	this.block.declare(AmazonElasticLoadBalancingDeleteLoadBalancerListenersCommand(loadBalancerName, loadBalancerPorts).apply(init))
+fun AmazonElasticLoadBalancingFunctions.deleteLoadBalancerListeners(loadBalancerName: String, loadBalancerPorts: List<Int>, init: AmazonElasticLoadBalancingDeleteLoadBalancerListenersCommand.() -> Unit): com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerListenersResult {
+	return this.block.declare(AmazonElasticLoadBalancingDeleteLoadBalancerListenersCommand(loadBalancerName, loadBalancerPorts).apply(init)) as com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerListenersResult
 }
 
 @Generated
-class AmazonElasticLoadBalancingDeleteLoadBalancerListenersCommand(val loadBalancerName: String, val loadBalancerPorts: List<Int>) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerListenersRequest> {
+class AmazonElasticLoadBalancingDeleteLoadBalancerListenersCommand(val loadBalancerName: String, val loadBalancerPorts: List<Int>) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerListenersRequest, com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerListenersResult> {
 
 
 
@@ -352,8 +392,12 @@ class AmazonElasticLoadBalancingDeleteLoadBalancerListenersCommand(val loadBalan
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticloadbalancing.deleteLoadBalancerListeners(build())
+	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerListenersResult {
+	  return com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerListenersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerListenersResult {
+		return environment.elasticloadbalancing.deleteLoadBalancerListeners(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -365,12 +409,12 @@ class AmazonElasticLoadBalancingDeleteLoadBalancerListenersCommand(val loadBalan
 }
 
 
-fun AmazonElasticLoadBalancingFunctions.deleteLoadBalancerPolicy(loadBalancerName: String, policyName: String, init: AmazonElasticLoadBalancingDeleteLoadBalancerPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonElasticLoadBalancingDeleteLoadBalancerPolicyCommand(loadBalancerName, policyName).apply(init))
+fun AmazonElasticLoadBalancingFunctions.deleteLoadBalancerPolicy(loadBalancerName: String, policyName: String, init: AmazonElasticLoadBalancingDeleteLoadBalancerPolicyCommand.() -> Unit): com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerPolicyResult {
+	return this.block.declare(AmazonElasticLoadBalancingDeleteLoadBalancerPolicyCommand(loadBalancerName, policyName).apply(init)) as com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerPolicyResult
 }
 
 @Generated
-class AmazonElasticLoadBalancingDeleteLoadBalancerPolicyCommand(val loadBalancerName: String, val policyName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerPolicyRequest> {
+class AmazonElasticLoadBalancingDeleteLoadBalancerPolicyCommand(val loadBalancerName: String, val policyName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerPolicyRequest, com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerPolicyResult> {
 
 
 
@@ -381,8 +425,12 @@ class AmazonElasticLoadBalancingDeleteLoadBalancerPolicyCommand(val loadBalancer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticloadbalancing.deleteLoadBalancerPolicy(build())
+	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerPolicyResult {
+	  return com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.DeleteLoadBalancerPolicyResult {
+		return environment.elasticloadbalancing.deleteLoadBalancerPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -394,12 +442,12 @@ class AmazonElasticLoadBalancingDeleteLoadBalancerPolicyCommand(val loadBalancer
 }
 
 
-fun AmazonElasticLoadBalancingFunctions.deregisterInstancesFromLoadBalancer(loadBalancerName: String, instances: List<com.amazonaws.services.elasticloadbalancing.model.Instance>, init: AmazonElasticLoadBalancingDeregisterInstancesFromLoadBalancerCommand.() -> Unit) {
-	this.block.declare(AmazonElasticLoadBalancingDeregisterInstancesFromLoadBalancerCommand(loadBalancerName, instances).apply(init))
+fun AmazonElasticLoadBalancingFunctions.deregisterInstancesFromLoadBalancer(loadBalancerName: String, instances: List<com.amazonaws.services.elasticloadbalancing.model.Instance>, init: AmazonElasticLoadBalancingDeregisterInstancesFromLoadBalancerCommand.() -> Unit): com.amazonaws.services.elasticloadbalancing.model.DeregisterInstancesFromLoadBalancerResult {
+	return this.block.declare(AmazonElasticLoadBalancingDeregisterInstancesFromLoadBalancerCommand(loadBalancerName, instances).apply(init)) as com.amazonaws.services.elasticloadbalancing.model.DeregisterInstancesFromLoadBalancerResult
 }
 
 @Generated
-class AmazonElasticLoadBalancingDeregisterInstancesFromLoadBalancerCommand(val loadBalancerName: String, val instances: List<com.amazonaws.services.elasticloadbalancing.model.Instance>) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.DeregisterInstancesFromLoadBalancerRequest> {
+class AmazonElasticLoadBalancingDeregisterInstancesFromLoadBalancerCommand(val loadBalancerName: String, val instances: List<com.amazonaws.services.elasticloadbalancing.model.Instance>) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.DeregisterInstancesFromLoadBalancerRequest, com.amazonaws.services.elasticloadbalancing.model.DeregisterInstancesFromLoadBalancerResult> {
 
 
 
@@ -410,8 +458,12 @@ class AmazonElasticLoadBalancingDeregisterInstancesFromLoadBalancerCommand(val l
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticloadbalancing.deregisterInstancesFromLoadBalancer(build())
+	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.DeregisterInstancesFromLoadBalancerResult {
+	  return com.amazonaws.services.elasticloadbalancing.model.DeregisterInstancesFromLoadBalancerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.DeregisterInstancesFromLoadBalancerResult {
+		return environment.elasticloadbalancing.deregisterInstancesFromLoadBalancer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -423,12 +475,12 @@ class AmazonElasticLoadBalancingDeregisterInstancesFromLoadBalancerCommand(val l
 }
 
 
-fun AmazonElasticLoadBalancingFunctions.describeAccountLimits(init: AmazonElasticLoadBalancingDescribeAccountLimitsCommand.() -> Unit) {
-	this.block.declare(AmazonElasticLoadBalancingDescribeAccountLimitsCommand().apply(init))
+fun AmazonElasticLoadBalancingFunctions.describeAccountLimits(init: AmazonElasticLoadBalancingDescribeAccountLimitsCommand.() -> Unit): com.amazonaws.services.elasticloadbalancing.model.DescribeAccountLimitsResult {
+	return this.block.declare(AmazonElasticLoadBalancingDescribeAccountLimitsCommand().apply(init)) as com.amazonaws.services.elasticloadbalancing.model.DescribeAccountLimitsResult
 }
 
 @Generated
-class AmazonElasticLoadBalancingDescribeAccountLimitsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.DescribeAccountLimitsRequest> {
+class AmazonElasticLoadBalancingDescribeAccountLimitsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.DescribeAccountLimitsRequest, com.amazonaws.services.elasticloadbalancing.model.DescribeAccountLimitsResult> {
 
 	var marker: String? = null
 	var pageSize: Int? = 0
@@ -440,8 +492,12 @@ class AmazonElasticLoadBalancingDescribeAccountLimitsCommand() : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticloadbalancing.describeAccountLimits(build())
+	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.DescribeAccountLimitsResult {
+	  return com.amazonaws.services.elasticloadbalancing.model.DescribeAccountLimitsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.DescribeAccountLimitsResult {
+		return environment.elasticloadbalancing.describeAccountLimits(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -453,12 +509,12 @@ class AmazonElasticLoadBalancingDescribeAccountLimitsCommand() : AmazonWebServic
 }
 
 
-fun AmazonElasticLoadBalancingFunctions.describeInstanceHealth(loadBalancerName: String, init: AmazonElasticLoadBalancingDescribeInstanceHealthCommand.() -> Unit) {
-	this.block.declare(AmazonElasticLoadBalancingDescribeInstanceHealthCommand(loadBalancerName).apply(init))
+fun AmazonElasticLoadBalancingFunctions.describeInstanceHealth(loadBalancerName: String, init: AmazonElasticLoadBalancingDescribeInstanceHealthCommand.() -> Unit): com.amazonaws.services.elasticloadbalancing.model.DescribeInstanceHealthResult {
+	return this.block.declare(AmazonElasticLoadBalancingDescribeInstanceHealthCommand(loadBalancerName).apply(init)) as com.amazonaws.services.elasticloadbalancing.model.DescribeInstanceHealthResult
 }
 
 @Generated
-class AmazonElasticLoadBalancingDescribeInstanceHealthCommand(val loadBalancerName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.DescribeInstanceHealthRequest> {
+class AmazonElasticLoadBalancingDescribeInstanceHealthCommand(val loadBalancerName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.DescribeInstanceHealthRequest, com.amazonaws.services.elasticloadbalancing.model.DescribeInstanceHealthResult> {
 
 	var instances: List<com.amazonaws.services.elasticloadbalancing.model.Instance>? = null
 
@@ -469,8 +525,12 @@ class AmazonElasticLoadBalancingDescribeInstanceHealthCommand(val loadBalancerNa
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticloadbalancing.describeInstanceHealth(build())
+	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.DescribeInstanceHealthResult {
+	  return com.amazonaws.services.elasticloadbalancing.model.DescribeInstanceHealthResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.DescribeInstanceHealthResult {
+		return environment.elasticloadbalancing.describeInstanceHealth(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -482,12 +542,12 @@ class AmazonElasticLoadBalancingDescribeInstanceHealthCommand(val loadBalancerNa
 }
 
 
-fun AmazonElasticLoadBalancingFunctions.describeLoadBalancerAttributes(loadBalancerName: String, init: AmazonElasticLoadBalancingDescribeLoadBalancerAttributesCommand.() -> Unit) {
-	this.block.declare(AmazonElasticLoadBalancingDescribeLoadBalancerAttributesCommand(loadBalancerName).apply(init))
+fun AmazonElasticLoadBalancingFunctions.describeLoadBalancerAttributes(loadBalancerName: String, init: AmazonElasticLoadBalancingDescribeLoadBalancerAttributesCommand.() -> Unit): com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerAttributesResult {
+	return this.block.declare(AmazonElasticLoadBalancingDescribeLoadBalancerAttributesCommand(loadBalancerName).apply(init)) as com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerAttributesResult
 }
 
 @Generated
-class AmazonElasticLoadBalancingDescribeLoadBalancerAttributesCommand(val loadBalancerName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerAttributesRequest> {
+class AmazonElasticLoadBalancingDescribeLoadBalancerAttributesCommand(val loadBalancerName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerAttributesRequest, com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerAttributesResult> {
 
 
 
@@ -497,8 +557,12 @@ class AmazonElasticLoadBalancingDescribeLoadBalancerAttributesCommand(val loadBa
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticloadbalancing.describeLoadBalancerAttributes(build())
+	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerAttributesResult {
+	  return com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerAttributesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerAttributesResult {
+		return environment.elasticloadbalancing.describeLoadBalancerAttributes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -509,12 +573,12 @@ class AmazonElasticLoadBalancingDescribeLoadBalancerAttributesCommand(val loadBa
 }
 
 
-fun AmazonElasticLoadBalancingFunctions.describeLoadBalancerPolicies(init: AmazonElasticLoadBalancingDescribeLoadBalancerPoliciesCommand.() -> Unit) {
-	this.block.declare(AmazonElasticLoadBalancingDescribeLoadBalancerPoliciesCommand().apply(init))
+fun AmazonElasticLoadBalancingFunctions.describeLoadBalancerPolicies(init: AmazonElasticLoadBalancingDescribeLoadBalancerPoliciesCommand.() -> Unit): com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerPoliciesResult {
+	return this.block.declare(AmazonElasticLoadBalancingDescribeLoadBalancerPoliciesCommand().apply(init)) as com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerPoliciesResult
 }
 
 @Generated
-class AmazonElasticLoadBalancingDescribeLoadBalancerPoliciesCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerPoliciesRequest> {
+class AmazonElasticLoadBalancingDescribeLoadBalancerPoliciesCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerPoliciesRequest, com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerPoliciesResult> {
 
 	var loadBalancerName: String? = null
 	var policyNames: List<String>? = null
@@ -526,8 +590,12 @@ class AmazonElasticLoadBalancingDescribeLoadBalancerPoliciesCommand() : AmazonWe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticloadbalancing.describeLoadBalancerPolicies(build())
+	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerPoliciesResult {
+	  return com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerPoliciesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerPoliciesResult {
+		return environment.elasticloadbalancing.describeLoadBalancerPolicies(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -539,12 +607,12 @@ class AmazonElasticLoadBalancingDescribeLoadBalancerPoliciesCommand() : AmazonWe
 }
 
 
-fun AmazonElasticLoadBalancingFunctions.describeLoadBalancerPolicyTypes(init: AmazonElasticLoadBalancingDescribeLoadBalancerPolicyTypesCommand.() -> Unit) {
-	this.block.declare(AmazonElasticLoadBalancingDescribeLoadBalancerPolicyTypesCommand().apply(init))
+fun AmazonElasticLoadBalancingFunctions.describeLoadBalancerPolicyTypes(init: AmazonElasticLoadBalancingDescribeLoadBalancerPolicyTypesCommand.() -> Unit): com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerPolicyTypesResult {
+	return this.block.declare(AmazonElasticLoadBalancingDescribeLoadBalancerPolicyTypesCommand().apply(init)) as com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerPolicyTypesResult
 }
 
 @Generated
-class AmazonElasticLoadBalancingDescribeLoadBalancerPolicyTypesCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerPolicyTypesRequest> {
+class AmazonElasticLoadBalancingDescribeLoadBalancerPolicyTypesCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerPolicyTypesRequest, com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerPolicyTypesResult> {
 
 	var policyTypeNames: List<String>? = null
 
@@ -554,8 +622,12 @@ class AmazonElasticLoadBalancingDescribeLoadBalancerPolicyTypesCommand() : Amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticloadbalancing.describeLoadBalancerPolicyTypes(build())
+	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerPolicyTypesResult {
+	  return com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerPolicyTypesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancerPolicyTypesResult {
+		return environment.elasticloadbalancing.describeLoadBalancerPolicyTypes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -566,12 +638,12 @@ class AmazonElasticLoadBalancingDescribeLoadBalancerPolicyTypesCommand() : Amazo
 }
 
 
-fun AmazonElasticLoadBalancingFunctions.describeLoadBalancers(init: AmazonElasticLoadBalancingDescribeLoadBalancersCommand.() -> Unit) {
-	this.block.declare(AmazonElasticLoadBalancingDescribeLoadBalancersCommand().apply(init))
+fun AmazonElasticLoadBalancingFunctions.describeLoadBalancers(init: AmazonElasticLoadBalancingDescribeLoadBalancersCommand.() -> Unit): com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancersResult {
+	return this.block.declare(AmazonElasticLoadBalancingDescribeLoadBalancersCommand().apply(init)) as com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancersResult
 }
 
 @Generated
-class AmazonElasticLoadBalancingDescribeLoadBalancersCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancersRequest> {
+class AmazonElasticLoadBalancingDescribeLoadBalancersCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancersRequest, com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancersResult> {
 
 	var loadBalancerNames: List<String>? = null
 	var marker: String? = null
@@ -585,8 +657,12 @@ class AmazonElasticLoadBalancingDescribeLoadBalancersCommand() : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticloadbalancing.describeLoadBalancers(build())
+	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancersResult {
+	  return com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.DescribeLoadBalancersResult {
+		return environment.elasticloadbalancing.describeLoadBalancers(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -599,12 +675,12 @@ class AmazonElasticLoadBalancingDescribeLoadBalancersCommand() : AmazonWebServic
 }
 
 
-fun AmazonElasticLoadBalancingFunctions.describeTags(loadBalancerNames: List<String>, init: AmazonElasticLoadBalancingDescribeTagsCommand.() -> Unit) {
-	this.block.declare(AmazonElasticLoadBalancingDescribeTagsCommand(loadBalancerNames).apply(init))
+fun AmazonElasticLoadBalancingFunctions.describeTags(loadBalancerNames: List<String>, init: AmazonElasticLoadBalancingDescribeTagsCommand.() -> Unit): com.amazonaws.services.elasticloadbalancing.model.DescribeTagsResult {
+	return this.block.declare(AmazonElasticLoadBalancingDescribeTagsCommand(loadBalancerNames).apply(init)) as com.amazonaws.services.elasticloadbalancing.model.DescribeTagsResult
 }
 
 @Generated
-class AmazonElasticLoadBalancingDescribeTagsCommand(val loadBalancerNames: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.DescribeTagsRequest> {
+class AmazonElasticLoadBalancingDescribeTagsCommand(val loadBalancerNames: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.DescribeTagsRequest, com.amazonaws.services.elasticloadbalancing.model.DescribeTagsResult> {
 
 
 
@@ -614,8 +690,12 @@ class AmazonElasticLoadBalancingDescribeTagsCommand(val loadBalancerNames: List<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticloadbalancing.describeTags(build())
+	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.DescribeTagsResult {
+	  return com.amazonaws.services.elasticloadbalancing.model.DescribeTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.DescribeTagsResult {
+		return environment.elasticloadbalancing.describeTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -626,12 +706,12 @@ class AmazonElasticLoadBalancingDescribeTagsCommand(val loadBalancerNames: List<
 }
 
 
-fun AmazonElasticLoadBalancingFunctions.detachLoadBalancerFromSubnets(loadBalancerName: String, subnets: List<String>, init: AmazonElasticLoadBalancingDetachLoadBalancerFromSubnetsCommand.() -> Unit) {
-	this.block.declare(AmazonElasticLoadBalancingDetachLoadBalancerFromSubnetsCommand(loadBalancerName, subnets).apply(init))
+fun AmazonElasticLoadBalancingFunctions.detachLoadBalancerFromSubnets(loadBalancerName: String, subnets: List<String>, init: AmazonElasticLoadBalancingDetachLoadBalancerFromSubnetsCommand.() -> Unit): com.amazonaws.services.elasticloadbalancing.model.DetachLoadBalancerFromSubnetsResult {
+	return this.block.declare(AmazonElasticLoadBalancingDetachLoadBalancerFromSubnetsCommand(loadBalancerName, subnets).apply(init)) as com.amazonaws.services.elasticloadbalancing.model.DetachLoadBalancerFromSubnetsResult
 }
 
 @Generated
-class AmazonElasticLoadBalancingDetachLoadBalancerFromSubnetsCommand(val loadBalancerName: String, val subnets: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.DetachLoadBalancerFromSubnetsRequest> {
+class AmazonElasticLoadBalancingDetachLoadBalancerFromSubnetsCommand(val loadBalancerName: String, val subnets: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.DetachLoadBalancerFromSubnetsRequest, com.amazonaws.services.elasticloadbalancing.model.DetachLoadBalancerFromSubnetsResult> {
 
 
 
@@ -642,8 +722,12 @@ class AmazonElasticLoadBalancingDetachLoadBalancerFromSubnetsCommand(val loadBal
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticloadbalancing.detachLoadBalancerFromSubnets(build())
+	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.DetachLoadBalancerFromSubnetsResult {
+	  return com.amazonaws.services.elasticloadbalancing.model.DetachLoadBalancerFromSubnetsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.DetachLoadBalancerFromSubnetsResult {
+		return environment.elasticloadbalancing.detachLoadBalancerFromSubnets(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -655,12 +739,12 @@ class AmazonElasticLoadBalancingDetachLoadBalancerFromSubnetsCommand(val loadBal
 }
 
 
-fun AmazonElasticLoadBalancingFunctions.disableAvailabilityZonesForLoadBalancer(loadBalancerName: String, availabilityZones: List<String>, init: AmazonElasticLoadBalancingDisableAvailabilityZonesForLoadBalancerCommand.() -> Unit) {
-	this.block.declare(AmazonElasticLoadBalancingDisableAvailabilityZonesForLoadBalancerCommand(loadBalancerName, availabilityZones).apply(init))
+fun AmazonElasticLoadBalancingFunctions.disableAvailabilityZonesForLoadBalancer(loadBalancerName: String, availabilityZones: List<String>, init: AmazonElasticLoadBalancingDisableAvailabilityZonesForLoadBalancerCommand.() -> Unit): com.amazonaws.services.elasticloadbalancing.model.DisableAvailabilityZonesForLoadBalancerResult {
+	return this.block.declare(AmazonElasticLoadBalancingDisableAvailabilityZonesForLoadBalancerCommand(loadBalancerName, availabilityZones).apply(init)) as com.amazonaws.services.elasticloadbalancing.model.DisableAvailabilityZonesForLoadBalancerResult
 }
 
 @Generated
-class AmazonElasticLoadBalancingDisableAvailabilityZonesForLoadBalancerCommand(val loadBalancerName: String, val availabilityZones: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.DisableAvailabilityZonesForLoadBalancerRequest> {
+class AmazonElasticLoadBalancingDisableAvailabilityZonesForLoadBalancerCommand(val loadBalancerName: String, val availabilityZones: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.DisableAvailabilityZonesForLoadBalancerRequest, com.amazonaws.services.elasticloadbalancing.model.DisableAvailabilityZonesForLoadBalancerResult> {
 
 
 
@@ -671,8 +755,12 @@ class AmazonElasticLoadBalancingDisableAvailabilityZonesForLoadBalancerCommand(v
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticloadbalancing.disableAvailabilityZonesForLoadBalancer(build())
+	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.DisableAvailabilityZonesForLoadBalancerResult {
+	  return com.amazonaws.services.elasticloadbalancing.model.DisableAvailabilityZonesForLoadBalancerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.DisableAvailabilityZonesForLoadBalancerResult {
+		return environment.elasticloadbalancing.disableAvailabilityZonesForLoadBalancer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -684,12 +772,12 @@ class AmazonElasticLoadBalancingDisableAvailabilityZonesForLoadBalancerCommand(v
 }
 
 
-fun AmazonElasticLoadBalancingFunctions.enableAvailabilityZonesForLoadBalancer(loadBalancerName: String, availabilityZones: List<String>, init: AmazonElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerCommand.() -> Unit) {
-	this.block.declare(AmazonElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerCommand(loadBalancerName, availabilityZones).apply(init))
+fun AmazonElasticLoadBalancingFunctions.enableAvailabilityZonesForLoadBalancer(loadBalancerName: String, availabilityZones: List<String>, init: AmazonElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerCommand.() -> Unit): com.amazonaws.services.elasticloadbalancing.model.EnableAvailabilityZonesForLoadBalancerResult {
+	return this.block.declare(AmazonElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerCommand(loadBalancerName, availabilityZones).apply(init)) as com.amazonaws.services.elasticloadbalancing.model.EnableAvailabilityZonesForLoadBalancerResult
 }
 
 @Generated
-class AmazonElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerCommand(val loadBalancerName: String, val availabilityZones: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.EnableAvailabilityZonesForLoadBalancerRequest> {
+class AmazonElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerCommand(val loadBalancerName: String, val availabilityZones: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.EnableAvailabilityZonesForLoadBalancerRequest, com.amazonaws.services.elasticloadbalancing.model.EnableAvailabilityZonesForLoadBalancerResult> {
 
 
 
@@ -700,8 +788,12 @@ class AmazonElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerCommand(va
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticloadbalancing.enableAvailabilityZonesForLoadBalancer(build())
+	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.EnableAvailabilityZonesForLoadBalancerResult {
+	  return com.amazonaws.services.elasticloadbalancing.model.EnableAvailabilityZonesForLoadBalancerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.EnableAvailabilityZonesForLoadBalancerResult {
+		return environment.elasticloadbalancing.enableAvailabilityZonesForLoadBalancer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -713,12 +805,12 @@ class AmazonElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerCommand(va
 }
 
 
-fun AmazonElasticLoadBalancingFunctions.modifyLoadBalancerAttributes(loadBalancerName: String, loadBalancerAttributes: com.amazonaws.services.elasticloadbalancing.model.LoadBalancerAttributes, init: AmazonElasticLoadBalancingModifyLoadBalancerAttributesCommand.() -> Unit) {
-	this.block.declare(AmazonElasticLoadBalancingModifyLoadBalancerAttributesCommand(loadBalancerName, loadBalancerAttributes).apply(init))
+fun AmazonElasticLoadBalancingFunctions.modifyLoadBalancerAttributes(loadBalancerName: String, loadBalancerAttributes: com.amazonaws.services.elasticloadbalancing.model.LoadBalancerAttributes, init: AmazonElasticLoadBalancingModifyLoadBalancerAttributesCommand.() -> Unit): com.amazonaws.services.elasticloadbalancing.model.ModifyLoadBalancerAttributesResult {
+	return this.block.declare(AmazonElasticLoadBalancingModifyLoadBalancerAttributesCommand(loadBalancerName, loadBalancerAttributes).apply(init)) as com.amazonaws.services.elasticloadbalancing.model.ModifyLoadBalancerAttributesResult
 }
 
 @Generated
-class AmazonElasticLoadBalancingModifyLoadBalancerAttributesCommand(val loadBalancerName: String, val loadBalancerAttributes: com.amazonaws.services.elasticloadbalancing.model.LoadBalancerAttributes) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.ModifyLoadBalancerAttributesRequest> {
+class AmazonElasticLoadBalancingModifyLoadBalancerAttributesCommand(val loadBalancerName: String, val loadBalancerAttributes: com.amazonaws.services.elasticloadbalancing.model.LoadBalancerAttributes) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.ModifyLoadBalancerAttributesRequest, com.amazonaws.services.elasticloadbalancing.model.ModifyLoadBalancerAttributesResult> {
 
 
 
@@ -729,8 +821,12 @@ class AmazonElasticLoadBalancingModifyLoadBalancerAttributesCommand(val loadBala
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticloadbalancing.modifyLoadBalancerAttributes(build())
+	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.ModifyLoadBalancerAttributesResult {
+	  return com.amazonaws.services.elasticloadbalancing.model.ModifyLoadBalancerAttributesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.ModifyLoadBalancerAttributesResult {
+		return environment.elasticloadbalancing.modifyLoadBalancerAttributes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -742,12 +838,12 @@ class AmazonElasticLoadBalancingModifyLoadBalancerAttributesCommand(val loadBala
 }
 
 
-fun AmazonElasticLoadBalancingFunctions.registerInstancesWithLoadBalancer(loadBalancerName: String, instances: List<com.amazonaws.services.elasticloadbalancing.model.Instance>, init: AmazonElasticLoadBalancingRegisterInstancesWithLoadBalancerCommand.() -> Unit) {
-	this.block.declare(AmazonElasticLoadBalancingRegisterInstancesWithLoadBalancerCommand(loadBalancerName, instances).apply(init))
+fun AmazonElasticLoadBalancingFunctions.registerInstancesWithLoadBalancer(loadBalancerName: String, instances: List<com.amazonaws.services.elasticloadbalancing.model.Instance>, init: AmazonElasticLoadBalancingRegisterInstancesWithLoadBalancerCommand.() -> Unit): com.amazonaws.services.elasticloadbalancing.model.RegisterInstancesWithLoadBalancerResult {
+	return this.block.declare(AmazonElasticLoadBalancingRegisterInstancesWithLoadBalancerCommand(loadBalancerName, instances).apply(init)) as com.amazonaws.services.elasticloadbalancing.model.RegisterInstancesWithLoadBalancerResult
 }
 
 @Generated
-class AmazonElasticLoadBalancingRegisterInstancesWithLoadBalancerCommand(val loadBalancerName: String, val instances: List<com.amazonaws.services.elasticloadbalancing.model.Instance>) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.RegisterInstancesWithLoadBalancerRequest> {
+class AmazonElasticLoadBalancingRegisterInstancesWithLoadBalancerCommand(val loadBalancerName: String, val instances: List<com.amazonaws.services.elasticloadbalancing.model.Instance>) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.RegisterInstancesWithLoadBalancerRequest, com.amazonaws.services.elasticloadbalancing.model.RegisterInstancesWithLoadBalancerResult> {
 
 
 
@@ -758,8 +854,12 @@ class AmazonElasticLoadBalancingRegisterInstancesWithLoadBalancerCommand(val loa
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticloadbalancing.registerInstancesWithLoadBalancer(build())
+	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.RegisterInstancesWithLoadBalancerResult {
+	  return com.amazonaws.services.elasticloadbalancing.model.RegisterInstancesWithLoadBalancerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.RegisterInstancesWithLoadBalancerResult {
+		return environment.elasticloadbalancing.registerInstancesWithLoadBalancer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -771,12 +871,12 @@ class AmazonElasticLoadBalancingRegisterInstancesWithLoadBalancerCommand(val loa
 }
 
 
-fun AmazonElasticLoadBalancingFunctions.removeTags(loadBalancerNames: List<String>, tags: List<com.amazonaws.services.elasticloadbalancing.model.TagKeyOnly>, init: AmazonElasticLoadBalancingRemoveTagsCommand.() -> Unit) {
-	this.block.declare(AmazonElasticLoadBalancingRemoveTagsCommand(loadBalancerNames, tags).apply(init))
+fun AmazonElasticLoadBalancingFunctions.removeTags(loadBalancerNames: List<String>, tags: List<com.amazonaws.services.elasticloadbalancing.model.TagKeyOnly>, init: AmazonElasticLoadBalancingRemoveTagsCommand.() -> Unit): com.amazonaws.services.elasticloadbalancing.model.RemoveTagsResult {
+	return this.block.declare(AmazonElasticLoadBalancingRemoveTagsCommand(loadBalancerNames, tags).apply(init)) as com.amazonaws.services.elasticloadbalancing.model.RemoveTagsResult
 }
 
 @Generated
-class AmazonElasticLoadBalancingRemoveTagsCommand(val loadBalancerNames: List<String>, val tags: List<com.amazonaws.services.elasticloadbalancing.model.TagKeyOnly>) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.RemoveTagsRequest> {
+class AmazonElasticLoadBalancingRemoveTagsCommand(val loadBalancerNames: List<String>, val tags: List<com.amazonaws.services.elasticloadbalancing.model.TagKeyOnly>) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.RemoveTagsRequest, com.amazonaws.services.elasticloadbalancing.model.RemoveTagsResult> {
 
 
 
@@ -787,8 +887,12 @@ class AmazonElasticLoadBalancingRemoveTagsCommand(val loadBalancerNames: List<St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticloadbalancing.removeTags(build())
+	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.RemoveTagsResult {
+	  return com.amazonaws.services.elasticloadbalancing.model.RemoveTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.RemoveTagsResult {
+		return environment.elasticloadbalancing.removeTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -800,12 +904,12 @@ class AmazonElasticLoadBalancingRemoveTagsCommand(val loadBalancerNames: List<St
 }
 
 
-fun AmazonElasticLoadBalancingFunctions.setLoadBalancerListenerSSLCertificate(loadBalancerName: String, loadBalancerPort: Int, sSLCertificateId: String, init: AmazonElasticLoadBalancingSetLoadBalancerListenerSSLCertificateCommand.() -> Unit) {
-	this.block.declare(AmazonElasticLoadBalancingSetLoadBalancerListenerSSLCertificateCommand(loadBalancerName, loadBalancerPort, sSLCertificateId).apply(init))
+fun AmazonElasticLoadBalancingFunctions.setLoadBalancerListenerSSLCertificate(loadBalancerName: String, loadBalancerPort: Int, sSLCertificateId: String, init: AmazonElasticLoadBalancingSetLoadBalancerListenerSSLCertificateCommand.() -> Unit): com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerListenerSSLCertificateResult {
+	return this.block.declare(AmazonElasticLoadBalancingSetLoadBalancerListenerSSLCertificateCommand(loadBalancerName, loadBalancerPort, sSLCertificateId).apply(init)) as com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerListenerSSLCertificateResult
 }
 
 @Generated
-class AmazonElasticLoadBalancingSetLoadBalancerListenerSSLCertificateCommand(val loadBalancerName: String, val loadBalancerPort: Int, val sSLCertificateId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerListenerSSLCertificateRequest> {
+class AmazonElasticLoadBalancingSetLoadBalancerListenerSSLCertificateCommand(val loadBalancerName: String, val loadBalancerPort: Int, val sSLCertificateId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerListenerSSLCertificateRequest, com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerListenerSSLCertificateResult> {
 
 
 
@@ -817,8 +921,12 @@ class AmazonElasticLoadBalancingSetLoadBalancerListenerSSLCertificateCommand(val
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticloadbalancing.setLoadBalancerListenerSSLCertificate(build())
+	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerListenerSSLCertificateResult {
+	  return com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerListenerSSLCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerListenerSSLCertificateResult {
+		return environment.elasticloadbalancing.setLoadBalancerListenerSSLCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -831,12 +939,12 @@ class AmazonElasticLoadBalancingSetLoadBalancerListenerSSLCertificateCommand(val
 }
 
 
-fun AmazonElasticLoadBalancingFunctions.setLoadBalancerPoliciesForBackendServer(loadBalancerName: String, instancePort: Int, policyNames: List<String>, init: AmazonElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerCommand.() -> Unit) {
-	this.block.declare(AmazonElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerCommand(loadBalancerName, instancePort, policyNames).apply(init))
+fun AmazonElasticLoadBalancingFunctions.setLoadBalancerPoliciesForBackendServer(loadBalancerName: String, instancePort: Int, policyNames: List<String>, init: AmazonElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerCommand.() -> Unit): com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerPoliciesForBackendServerResult {
+	return this.block.declare(AmazonElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerCommand(loadBalancerName, instancePort, policyNames).apply(init)) as com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerPoliciesForBackendServerResult
 }
 
 @Generated
-class AmazonElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerCommand(val loadBalancerName: String, val instancePort: Int, val policyNames: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerPoliciesForBackendServerRequest> {
+class AmazonElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerCommand(val loadBalancerName: String, val instancePort: Int, val policyNames: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerPoliciesForBackendServerRequest, com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerPoliciesForBackendServerResult> {
 
 
 
@@ -848,8 +956,12 @@ class AmazonElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerCommand(v
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticloadbalancing.setLoadBalancerPoliciesForBackendServer(build())
+	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerPoliciesForBackendServerResult {
+	  return com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerPoliciesForBackendServerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerPoliciesForBackendServerResult {
+		return environment.elasticloadbalancing.setLoadBalancerPoliciesForBackendServer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -862,12 +974,12 @@ class AmazonElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerCommand(v
 }
 
 
-fun AmazonElasticLoadBalancingFunctions.setLoadBalancerPoliciesOfListener(loadBalancerName: String, loadBalancerPort: Int, policyNames: List<String>, init: AmazonElasticLoadBalancingSetLoadBalancerPoliciesOfListenerCommand.() -> Unit) {
-	this.block.declare(AmazonElasticLoadBalancingSetLoadBalancerPoliciesOfListenerCommand(loadBalancerName, loadBalancerPort, policyNames).apply(init))
+fun AmazonElasticLoadBalancingFunctions.setLoadBalancerPoliciesOfListener(loadBalancerName: String, loadBalancerPort: Int, policyNames: List<String>, init: AmazonElasticLoadBalancingSetLoadBalancerPoliciesOfListenerCommand.() -> Unit): com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerPoliciesOfListenerResult {
+	return this.block.declare(AmazonElasticLoadBalancingSetLoadBalancerPoliciesOfListenerCommand(loadBalancerName, loadBalancerPort, policyNames).apply(init)) as com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerPoliciesOfListenerResult
 }
 
 @Generated
-class AmazonElasticLoadBalancingSetLoadBalancerPoliciesOfListenerCommand(val loadBalancerName: String, val loadBalancerPort: Int, val policyNames: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerPoliciesOfListenerRequest> {
+class AmazonElasticLoadBalancingSetLoadBalancerPoliciesOfListenerCommand(val loadBalancerName: String, val loadBalancerPort: Int, val policyNames: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerPoliciesOfListenerRequest, com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerPoliciesOfListenerResult> {
 
 
 
@@ -879,8 +991,12 @@ class AmazonElasticLoadBalancingSetLoadBalancerPoliciesOfListenerCommand(val loa
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticloadbalancing.setLoadBalancerPoliciesOfListener(build())
+	override fun dryResult(): com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerPoliciesOfListenerResult {
+	  return com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerPoliciesOfListenerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticloadbalancing.model.SetLoadBalancerPoliciesOfListenerResult {
+		return environment.elasticloadbalancing.setLoadBalancerPoliciesOfListener(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

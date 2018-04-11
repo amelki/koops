@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.codecommit: AWSCodeCommit
 @Generated
 class AWSCodeCommitFunctions(val block: Block)
 
-infix fun AwsContinuation.codecommit(init: AWSCodeCommitFunctions.() -> Unit) {
-	AWSCodeCommitFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.codecommit(init: AWSCodeCommitFunctions.() -> T): T {
+	return AWSCodeCommitFunctions(shell).run(init)
 }
 
 			
 
-fun AWSCodeCommitFunctions.batchGetRepositories(init: AWSCodeCommitBatchGetRepositoriesCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitBatchGetRepositoriesCommand().apply(init))
+fun AWSCodeCommitFunctions.batchGetRepositories(init: AWSCodeCommitBatchGetRepositoriesCommand.() -> Unit): com.amazonaws.services.codecommit.model.BatchGetRepositoriesResult {
+	return this.block.declare(AWSCodeCommitBatchGetRepositoriesCommand().apply(init)) as com.amazonaws.services.codecommit.model.BatchGetRepositoriesResult
 }
 
 @Generated
-class AWSCodeCommitBatchGetRepositoriesCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.BatchGetRepositoriesRequest> {
+class AWSCodeCommitBatchGetRepositoriesCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.BatchGetRepositoriesRequest, com.amazonaws.services.codecommit.model.BatchGetRepositoriesResult> {
 
 	var repositoryNames: List<String>? = null
 
@@ -41,8 +41,12 @@ class AWSCodeCommitBatchGetRepositoriesCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.batchGetRepositories(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.BatchGetRepositoriesResult {
+	  return com.amazonaws.services.codecommit.model.BatchGetRepositoriesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.BatchGetRepositoriesResult {
+		return environment.codecommit.batchGetRepositories(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -53,12 +57,12 @@ class AWSCodeCommitBatchGetRepositoriesCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AWSCodeCommitFunctions.createBranch(init: AWSCodeCommitCreateBranchCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitCreateBranchCommand().apply(init))
+fun AWSCodeCommitFunctions.createBranch(init: AWSCodeCommitCreateBranchCommand.() -> Unit): com.amazonaws.services.codecommit.model.CreateBranchResult {
+	return this.block.declare(AWSCodeCommitCreateBranchCommand().apply(init)) as com.amazonaws.services.codecommit.model.CreateBranchResult
 }
 
 @Generated
-class AWSCodeCommitCreateBranchCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.CreateBranchRequest> {
+class AWSCodeCommitCreateBranchCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.CreateBranchRequest, com.amazonaws.services.codecommit.model.CreateBranchResult> {
 
 	var repositoryName: String? = null
 	var branchName: String? = null
@@ -72,8 +76,12 @@ class AWSCodeCommitCreateBranchCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.createBranch(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.CreateBranchResult {
+	  return com.amazonaws.services.codecommit.model.CreateBranchResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.CreateBranchResult {
+		return environment.codecommit.createBranch(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -86,12 +94,12 @@ class AWSCodeCommitCreateBranchCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AWSCodeCommitFunctions.createPullRequest(init: AWSCodeCommitCreatePullRequestCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitCreatePullRequestCommand().apply(init))
+fun AWSCodeCommitFunctions.createPullRequest(init: AWSCodeCommitCreatePullRequestCommand.() -> Unit): com.amazonaws.services.codecommit.model.CreatePullRequestResult {
+	return this.block.declare(AWSCodeCommitCreatePullRequestCommand().apply(init)) as com.amazonaws.services.codecommit.model.CreatePullRequestResult
 }
 
 @Generated
-class AWSCodeCommitCreatePullRequestCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.CreatePullRequestRequest> {
+class AWSCodeCommitCreatePullRequestCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.CreatePullRequestRequest, com.amazonaws.services.codecommit.model.CreatePullRequestResult> {
 
 	var title: String? = null
 	var description: String? = null
@@ -107,8 +115,12 @@ class AWSCodeCommitCreatePullRequestCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.createPullRequest(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.CreatePullRequestResult {
+	  return com.amazonaws.services.codecommit.model.CreatePullRequestResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.CreatePullRequestResult {
+		return environment.codecommit.createPullRequest(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -122,12 +134,12 @@ class AWSCodeCommitCreatePullRequestCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AWSCodeCommitFunctions.createRepository(init: AWSCodeCommitCreateRepositoryCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitCreateRepositoryCommand().apply(init))
+fun AWSCodeCommitFunctions.createRepository(init: AWSCodeCommitCreateRepositoryCommand.() -> Unit): com.amazonaws.services.codecommit.model.CreateRepositoryResult {
+	return this.block.declare(AWSCodeCommitCreateRepositoryCommand().apply(init)) as com.amazonaws.services.codecommit.model.CreateRepositoryResult
 }
 
 @Generated
-class AWSCodeCommitCreateRepositoryCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.CreateRepositoryRequest> {
+class AWSCodeCommitCreateRepositoryCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.CreateRepositoryRequest, com.amazonaws.services.codecommit.model.CreateRepositoryResult> {
 
 	var repositoryName: String? = null
 	var repositoryDescription: String? = null
@@ -139,8 +151,12 @@ class AWSCodeCommitCreateRepositoryCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.createRepository(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.CreateRepositoryResult {
+	  return com.amazonaws.services.codecommit.model.CreateRepositoryResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.CreateRepositoryResult {
+		return environment.codecommit.createRepository(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -152,12 +168,12 @@ class AWSCodeCommitCreateRepositoryCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AWSCodeCommitFunctions.deleteBranch(init: AWSCodeCommitDeleteBranchCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitDeleteBranchCommand().apply(init))
+fun AWSCodeCommitFunctions.deleteBranch(init: AWSCodeCommitDeleteBranchCommand.() -> Unit): com.amazonaws.services.codecommit.model.DeleteBranchResult {
+	return this.block.declare(AWSCodeCommitDeleteBranchCommand().apply(init)) as com.amazonaws.services.codecommit.model.DeleteBranchResult
 }
 
 @Generated
-class AWSCodeCommitDeleteBranchCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.DeleteBranchRequest> {
+class AWSCodeCommitDeleteBranchCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.DeleteBranchRequest, com.amazonaws.services.codecommit.model.DeleteBranchResult> {
 
 	var repositoryName: String? = null
 	var branchName: String? = null
@@ -169,8 +185,12 @@ class AWSCodeCommitDeleteBranchCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.deleteBranch(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.DeleteBranchResult {
+	  return com.amazonaws.services.codecommit.model.DeleteBranchResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.DeleteBranchResult {
+		return environment.codecommit.deleteBranch(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -182,12 +202,12 @@ class AWSCodeCommitDeleteBranchCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AWSCodeCommitFunctions.deleteCommentContent(init: AWSCodeCommitDeleteCommentContentCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitDeleteCommentContentCommand().apply(init))
+fun AWSCodeCommitFunctions.deleteCommentContent(init: AWSCodeCommitDeleteCommentContentCommand.() -> Unit): com.amazonaws.services.codecommit.model.DeleteCommentContentResult {
+	return this.block.declare(AWSCodeCommitDeleteCommentContentCommand().apply(init)) as com.amazonaws.services.codecommit.model.DeleteCommentContentResult
 }
 
 @Generated
-class AWSCodeCommitDeleteCommentContentCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.DeleteCommentContentRequest> {
+class AWSCodeCommitDeleteCommentContentCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.DeleteCommentContentRequest, com.amazonaws.services.codecommit.model.DeleteCommentContentResult> {
 
 	var commentId: String? = null
 
@@ -197,8 +217,12 @@ class AWSCodeCommitDeleteCommentContentCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.deleteCommentContent(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.DeleteCommentContentResult {
+	  return com.amazonaws.services.codecommit.model.DeleteCommentContentResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.DeleteCommentContentResult {
+		return environment.codecommit.deleteCommentContent(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -209,12 +233,12 @@ class AWSCodeCommitDeleteCommentContentCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AWSCodeCommitFunctions.deleteRepository(init: AWSCodeCommitDeleteRepositoryCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitDeleteRepositoryCommand().apply(init))
+fun AWSCodeCommitFunctions.deleteRepository(init: AWSCodeCommitDeleteRepositoryCommand.() -> Unit): com.amazonaws.services.codecommit.model.DeleteRepositoryResult {
+	return this.block.declare(AWSCodeCommitDeleteRepositoryCommand().apply(init)) as com.amazonaws.services.codecommit.model.DeleteRepositoryResult
 }
 
 @Generated
-class AWSCodeCommitDeleteRepositoryCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.DeleteRepositoryRequest> {
+class AWSCodeCommitDeleteRepositoryCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.DeleteRepositoryRequest, com.amazonaws.services.codecommit.model.DeleteRepositoryResult> {
 
 	var repositoryName: String? = null
 
@@ -224,8 +248,12 @@ class AWSCodeCommitDeleteRepositoryCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.deleteRepository(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.DeleteRepositoryResult {
+	  return com.amazonaws.services.codecommit.model.DeleteRepositoryResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.DeleteRepositoryResult {
+		return environment.codecommit.deleteRepository(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -236,12 +264,12 @@ class AWSCodeCommitDeleteRepositoryCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AWSCodeCommitFunctions.describePullRequestEvents(init: AWSCodeCommitDescribePullRequestEventsCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitDescribePullRequestEventsCommand().apply(init))
+fun AWSCodeCommitFunctions.describePullRequestEvents(init: AWSCodeCommitDescribePullRequestEventsCommand.() -> Unit): com.amazonaws.services.codecommit.model.DescribePullRequestEventsResult {
+	return this.block.declare(AWSCodeCommitDescribePullRequestEventsCommand().apply(init)) as com.amazonaws.services.codecommit.model.DescribePullRequestEventsResult
 }
 
 @Generated
-class AWSCodeCommitDescribePullRequestEventsCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.DescribePullRequestEventsRequest> {
+class AWSCodeCommitDescribePullRequestEventsCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.DescribePullRequestEventsRequest, com.amazonaws.services.codecommit.model.DescribePullRequestEventsResult> {
 
 	var pullRequestId: String? = null
 	var pullRequestEventType: PullRequestEventType? = null
@@ -259,8 +287,12 @@ class AWSCodeCommitDescribePullRequestEventsCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.describePullRequestEvents(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.DescribePullRequestEventsResult {
+	  return com.amazonaws.services.codecommit.model.DescribePullRequestEventsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.DescribePullRequestEventsResult {
+		return environment.codecommit.describePullRequestEvents(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -275,12 +307,12 @@ class AWSCodeCommitDescribePullRequestEventsCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AWSCodeCommitFunctions.getBlob(init: AWSCodeCommitGetBlobCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitGetBlobCommand().apply(init))
+fun AWSCodeCommitFunctions.getBlob(init: AWSCodeCommitGetBlobCommand.() -> Unit): com.amazonaws.services.codecommit.model.GetBlobResult {
+	return this.block.declare(AWSCodeCommitGetBlobCommand().apply(init)) as com.amazonaws.services.codecommit.model.GetBlobResult
 }
 
 @Generated
-class AWSCodeCommitGetBlobCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.GetBlobRequest> {
+class AWSCodeCommitGetBlobCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.GetBlobRequest, com.amazonaws.services.codecommit.model.GetBlobResult> {
 
 	var repositoryName: String? = null
 	var blobId: String? = null
@@ -292,8 +324,12 @@ class AWSCodeCommitGetBlobCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.getBlob(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.GetBlobResult {
+	  return com.amazonaws.services.codecommit.model.GetBlobResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.GetBlobResult {
+		return environment.codecommit.getBlob(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -305,12 +341,12 @@ class AWSCodeCommitGetBlobCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 }
 
 
-fun AWSCodeCommitFunctions.getBranch(init: AWSCodeCommitGetBranchCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitGetBranchCommand().apply(init))
+fun AWSCodeCommitFunctions.getBranch(init: AWSCodeCommitGetBranchCommand.() -> Unit): com.amazonaws.services.codecommit.model.GetBranchResult {
+	return this.block.declare(AWSCodeCommitGetBranchCommand().apply(init)) as com.amazonaws.services.codecommit.model.GetBranchResult
 }
 
 @Generated
-class AWSCodeCommitGetBranchCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.GetBranchRequest> {
+class AWSCodeCommitGetBranchCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.GetBranchRequest, com.amazonaws.services.codecommit.model.GetBranchResult> {
 
 	var repositoryName: String? = null
 	var branchName: String? = null
@@ -322,8 +358,12 @@ class AWSCodeCommitGetBranchCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.getBranch(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.GetBranchResult {
+	  return com.amazonaws.services.codecommit.model.GetBranchResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.GetBranchResult {
+		return environment.codecommit.getBranch(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -335,12 +375,12 @@ class AWSCodeCommitGetBranchCommand() : AmazonWebServiceCommand<com.amazonaws.se
 }
 
 
-fun AWSCodeCommitFunctions.getComment(init: AWSCodeCommitGetCommentCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitGetCommentCommand().apply(init))
+fun AWSCodeCommitFunctions.getComment(init: AWSCodeCommitGetCommentCommand.() -> Unit): com.amazonaws.services.codecommit.model.GetCommentResult {
+	return this.block.declare(AWSCodeCommitGetCommentCommand().apply(init)) as com.amazonaws.services.codecommit.model.GetCommentResult
 }
 
 @Generated
-class AWSCodeCommitGetCommentCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.GetCommentRequest> {
+class AWSCodeCommitGetCommentCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.GetCommentRequest, com.amazonaws.services.codecommit.model.GetCommentResult> {
 
 	var commentId: String? = null
 
@@ -350,8 +390,12 @@ class AWSCodeCommitGetCommentCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.getComment(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.GetCommentResult {
+	  return com.amazonaws.services.codecommit.model.GetCommentResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.GetCommentResult {
+		return environment.codecommit.getComment(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -362,12 +406,12 @@ class AWSCodeCommitGetCommentCommand() : AmazonWebServiceCommand<com.amazonaws.s
 }
 
 
-fun AWSCodeCommitFunctions.getCommentsForComparedCommit(init: AWSCodeCommitGetCommentsForComparedCommitCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitGetCommentsForComparedCommitCommand().apply(init))
+fun AWSCodeCommitFunctions.getCommentsForComparedCommit(init: AWSCodeCommitGetCommentsForComparedCommitCommand.() -> Unit): com.amazonaws.services.codecommit.model.GetCommentsForComparedCommitResult {
+	return this.block.declare(AWSCodeCommitGetCommentsForComparedCommitCommand().apply(init)) as com.amazonaws.services.codecommit.model.GetCommentsForComparedCommitResult
 }
 
 @Generated
-class AWSCodeCommitGetCommentsForComparedCommitCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.GetCommentsForComparedCommitRequest> {
+class AWSCodeCommitGetCommentsForComparedCommitCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.GetCommentsForComparedCommitRequest, com.amazonaws.services.codecommit.model.GetCommentsForComparedCommitResult> {
 
 	var repositoryName: String? = null
 	var beforeCommitId: String? = null
@@ -385,8 +429,12 @@ class AWSCodeCommitGetCommentsForComparedCommitCommand() : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.getCommentsForComparedCommit(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.GetCommentsForComparedCommitResult {
+	  return com.amazonaws.services.codecommit.model.GetCommentsForComparedCommitResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.GetCommentsForComparedCommitResult {
+		return environment.codecommit.getCommentsForComparedCommit(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -401,12 +449,12 @@ class AWSCodeCommitGetCommentsForComparedCommitCommand() : AmazonWebServiceComma
 }
 
 
-fun AWSCodeCommitFunctions.getCommentsForPullRequest(init: AWSCodeCommitGetCommentsForPullRequestCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitGetCommentsForPullRequestCommand().apply(init))
+fun AWSCodeCommitFunctions.getCommentsForPullRequest(init: AWSCodeCommitGetCommentsForPullRequestCommand.() -> Unit): com.amazonaws.services.codecommit.model.GetCommentsForPullRequestResult {
+	return this.block.declare(AWSCodeCommitGetCommentsForPullRequestCommand().apply(init)) as com.amazonaws.services.codecommit.model.GetCommentsForPullRequestResult
 }
 
 @Generated
-class AWSCodeCommitGetCommentsForPullRequestCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.GetCommentsForPullRequestRequest> {
+class AWSCodeCommitGetCommentsForPullRequestCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.GetCommentsForPullRequestRequest, com.amazonaws.services.codecommit.model.GetCommentsForPullRequestResult> {
 
 	var pullRequestId: String? = null
 	var repositoryName: String? = null
@@ -426,8 +474,12 @@ class AWSCodeCommitGetCommentsForPullRequestCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.getCommentsForPullRequest(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.GetCommentsForPullRequestResult {
+	  return com.amazonaws.services.codecommit.model.GetCommentsForPullRequestResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.GetCommentsForPullRequestResult {
+		return environment.codecommit.getCommentsForPullRequest(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -443,12 +495,12 @@ class AWSCodeCommitGetCommentsForPullRequestCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AWSCodeCommitFunctions.getCommit(init: AWSCodeCommitGetCommitCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitGetCommitCommand().apply(init))
+fun AWSCodeCommitFunctions.getCommit(init: AWSCodeCommitGetCommitCommand.() -> Unit): com.amazonaws.services.codecommit.model.GetCommitResult {
+	return this.block.declare(AWSCodeCommitGetCommitCommand().apply(init)) as com.amazonaws.services.codecommit.model.GetCommitResult
 }
 
 @Generated
-class AWSCodeCommitGetCommitCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.GetCommitRequest> {
+class AWSCodeCommitGetCommitCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.GetCommitRequest, com.amazonaws.services.codecommit.model.GetCommitResult> {
 
 	var repositoryName: String? = null
 	var commitId: String? = null
@@ -460,8 +512,12 @@ class AWSCodeCommitGetCommitCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.getCommit(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.GetCommitResult {
+	  return com.amazonaws.services.codecommit.model.GetCommitResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.GetCommitResult {
+		return environment.codecommit.getCommit(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -473,12 +529,12 @@ class AWSCodeCommitGetCommitCommand() : AmazonWebServiceCommand<com.amazonaws.se
 }
 
 
-fun AWSCodeCommitFunctions.getDifferences(init: AWSCodeCommitGetDifferencesCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitGetDifferencesCommand().apply(init))
+fun AWSCodeCommitFunctions.getDifferences(init: AWSCodeCommitGetDifferencesCommand.() -> Unit): com.amazonaws.services.codecommit.model.GetDifferencesResult {
+	return this.block.declare(AWSCodeCommitGetDifferencesCommand().apply(init)) as com.amazonaws.services.codecommit.model.GetDifferencesResult
 }
 
 @Generated
-class AWSCodeCommitGetDifferencesCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.GetDifferencesRequest> {
+class AWSCodeCommitGetDifferencesCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.GetDifferencesRequest, com.amazonaws.services.codecommit.model.GetDifferencesResult> {
 
 	var repositoryName: String? = null
 	var beforeCommitSpecifier: String? = null
@@ -500,8 +556,12 @@ class AWSCodeCommitGetDifferencesCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.getDifferences(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.GetDifferencesResult {
+	  return com.amazonaws.services.codecommit.model.GetDifferencesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.GetDifferencesResult {
+		return environment.codecommit.getDifferences(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -518,12 +578,12 @@ class AWSCodeCommitGetDifferencesCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AWSCodeCommitFunctions.getMergeConflicts(init: AWSCodeCommitGetMergeConflictsCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitGetMergeConflictsCommand().apply(init))
+fun AWSCodeCommitFunctions.getMergeConflicts(init: AWSCodeCommitGetMergeConflictsCommand.() -> Unit): com.amazonaws.services.codecommit.model.GetMergeConflictsResult {
+	return this.block.declare(AWSCodeCommitGetMergeConflictsCommand().apply(init)) as com.amazonaws.services.codecommit.model.GetMergeConflictsResult
 }
 
 @Generated
-class AWSCodeCommitGetMergeConflictsCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.GetMergeConflictsRequest> {
+class AWSCodeCommitGetMergeConflictsCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.GetMergeConflictsRequest, com.amazonaws.services.codecommit.model.GetMergeConflictsResult> {
 
 	var repositoryName: String? = null
 	var destinationCommitSpecifier: String? = null
@@ -539,8 +599,12 @@ class AWSCodeCommitGetMergeConflictsCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.getMergeConflicts(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.GetMergeConflictsResult {
+	  return com.amazonaws.services.codecommit.model.GetMergeConflictsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.GetMergeConflictsResult {
+		return environment.codecommit.getMergeConflicts(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -554,12 +618,12 @@ class AWSCodeCommitGetMergeConflictsCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AWSCodeCommitFunctions.getPullRequest(init: AWSCodeCommitGetPullRequestCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitGetPullRequestCommand().apply(init))
+fun AWSCodeCommitFunctions.getPullRequest(init: AWSCodeCommitGetPullRequestCommand.() -> Unit): com.amazonaws.services.codecommit.model.GetPullRequestResult {
+	return this.block.declare(AWSCodeCommitGetPullRequestCommand().apply(init)) as com.amazonaws.services.codecommit.model.GetPullRequestResult
 }
 
 @Generated
-class AWSCodeCommitGetPullRequestCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.GetPullRequestRequest> {
+class AWSCodeCommitGetPullRequestCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.GetPullRequestRequest, com.amazonaws.services.codecommit.model.GetPullRequestResult> {
 
 	var pullRequestId: String? = null
 
@@ -569,8 +633,12 @@ class AWSCodeCommitGetPullRequestCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.getPullRequest(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.GetPullRequestResult {
+	  return com.amazonaws.services.codecommit.model.GetPullRequestResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.GetPullRequestResult {
+		return environment.codecommit.getPullRequest(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -581,12 +649,12 @@ class AWSCodeCommitGetPullRequestCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AWSCodeCommitFunctions.getRepository(init: AWSCodeCommitGetRepositoryCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitGetRepositoryCommand().apply(init))
+fun AWSCodeCommitFunctions.getRepository(init: AWSCodeCommitGetRepositoryCommand.() -> Unit): com.amazonaws.services.codecommit.model.GetRepositoryResult {
+	return this.block.declare(AWSCodeCommitGetRepositoryCommand().apply(init)) as com.amazonaws.services.codecommit.model.GetRepositoryResult
 }
 
 @Generated
-class AWSCodeCommitGetRepositoryCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.GetRepositoryRequest> {
+class AWSCodeCommitGetRepositoryCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.GetRepositoryRequest, com.amazonaws.services.codecommit.model.GetRepositoryResult> {
 
 	var repositoryName: String? = null
 
@@ -596,8 +664,12 @@ class AWSCodeCommitGetRepositoryCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.getRepository(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.GetRepositoryResult {
+	  return com.amazonaws.services.codecommit.model.GetRepositoryResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.GetRepositoryResult {
+		return environment.codecommit.getRepository(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -608,12 +680,12 @@ class AWSCodeCommitGetRepositoryCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AWSCodeCommitFunctions.getRepositoryTriggers(init: AWSCodeCommitGetRepositoryTriggersCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitGetRepositoryTriggersCommand().apply(init))
+fun AWSCodeCommitFunctions.getRepositoryTriggers(init: AWSCodeCommitGetRepositoryTriggersCommand.() -> Unit): com.amazonaws.services.codecommit.model.GetRepositoryTriggersResult {
+	return this.block.declare(AWSCodeCommitGetRepositoryTriggersCommand().apply(init)) as com.amazonaws.services.codecommit.model.GetRepositoryTriggersResult
 }
 
 @Generated
-class AWSCodeCommitGetRepositoryTriggersCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.GetRepositoryTriggersRequest> {
+class AWSCodeCommitGetRepositoryTriggersCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.GetRepositoryTriggersRequest, com.amazonaws.services.codecommit.model.GetRepositoryTriggersResult> {
 
 	var repositoryName: String? = null
 
@@ -623,8 +695,12 @@ class AWSCodeCommitGetRepositoryTriggersCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.getRepositoryTriggers(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.GetRepositoryTriggersResult {
+	  return com.amazonaws.services.codecommit.model.GetRepositoryTriggersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.GetRepositoryTriggersResult {
+		return environment.codecommit.getRepositoryTriggers(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -635,12 +711,12 @@ class AWSCodeCommitGetRepositoryTriggersCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AWSCodeCommitFunctions.listBranches(init: AWSCodeCommitListBranchesCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitListBranchesCommand().apply(init))
+fun AWSCodeCommitFunctions.listBranches(init: AWSCodeCommitListBranchesCommand.() -> Unit): com.amazonaws.services.codecommit.model.ListBranchesResult {
+	return this.block.declare(AWSCodeCommitListBranchesCommand().apply(init)) as com.amazonaws.services.codecommit.model.ListBranchesResult
 }
 
 @Generated
-class AWSCodeCommitListBranchesCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.ListBranchesRequest> {
+class AWSCodeCommitListBranchesCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.ListBranchesRequest, com.amazonaws.services.codecommit.model.ListBranchesResult> {
 
 	var repositoryName: String? = null
 	var nextToken: String? = null
@@ -652,8 +728,12 @@ class AWSCodeCommitListBranchesCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.listBranches(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.ListBranchesResult {
+	  return com.amazonaws.services.codecommit.model.ListBranchesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.ListBranchesResult {
+		return environment.codecommit.listBranches(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -665,12 +745,12 @@ class AWSCodeCommitListBranchesCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AWSCodeCommitFunctions.listPullRequests(init: AWSCodeCommitListPullRequestsCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitListPullRequestsCommand().apply(init))
+fun AWSCodeCommitFunctions.listPullRequests(init: AWSCodeCommitListPullRequestsCommand.() -> Unit): com.amazonaws.services.codecommit.model.ListPullRequestsResult {
+	return this.block.declare(AWSCodeCommitListPullRequestsCommand().apply(init)) as com.amazonaws.services.codecommit.model.ListPullRequestsResult
 }
 
 @Generated
-class AWSCodeCommitListPullRequestsCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.ListPullRequestsRequest> {
+class AWSCodeCommitListPullRequestsCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.ListPullRequestsRequest, com.amazonaws.services.codecommit.model.ListPullRequestsResult> {
 
 	var repositoryName: String? = null
 	var authorArn: String? = null
@@ -688,8 +768,12 @@ class AWSCodeCommitListPullRequestsCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.listPullRequests(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.ListPullRequestsResult {
+	  return com.amazonaws.services.codecommit.model.ListPullRequestsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.ListPullRequestsResult {
+		return environment.codecommit.listPullRequests(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -704,12 +788,12 @@ class AWSCodeCommitListPullRequestsCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AWSCodeCommitFunctions.listRepositories(init: AWSCodeCommitListRepositoriesCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitListRepositoriesCommand().apply(init))
+fun AWSCodeCommitFunctions.listRepositories(init: AWSCodeCommitListRepositoriesCommand.() -> Unit): com.amazonaws.services.codecommit.model.ListRepositoriesResult {
+	return this.block.declare(AWSCodeCommitListRepositoriesCommand().apply(init)) as com.amazonaws.services.codecommit.model.ListRepositoriesResult
 }
 
 @Generated
-class AWSCodeCommitListRepositoriesCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.ListRepositoriesRequest> {
+class AWSCodeCommitListRepositoriesCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.ListRepositoriesRequest, com.amazonaws.services.codecommit.model.ListRepositoriesResult> {
 
 	var nextToken: String? = null
 	var sortBy: SortByEnum? = null
@@ -723,8 +807,12 @@ class AWSCodeCommitListRepositoriesCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.listRepositories(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.ListRepositoriesResult {
+	  return com.amazonaws.services.codecommit.model.ListRepositoriesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.ListRepositoriesResult {
+		return environment.codecommit.listRepositories(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -737,12 +825,12 @@ class AWSCodeCommitListRepositoriesCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AWSCodeCommitFunctions.mergePullRequestByFastForward(init: AWSCodeCommitMergePullRequestByFastForwardCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitMergePullRequestByFastForwardCommand().apply(init))
+fun AWSCodeCommitFunctions.mergePullRequestByFastForward(init: AWSCodeCommitMergePullRequestByFastForwardCommand.() -> Unit): com.amazonaws.services.codecommit.model.MergePullRequestByFastForwardResult {
+	return this.block.declare(AWSCodeCommitMergePullRequestByFastForwardCommand().apply(init)) as com.amazonaws.services.codecommit.model.MergePullRequestByFastForwardResult
 }
 
 @Generated
-class AWSCodeCommitMergePullRequestByFastForwardCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.MergePullRequestByFastForwardRequest> {
+class AWSCodeCommitMergePullRequestByFastForwardCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.MergePullRequestByFastForwardRequest, com.amazonaws.services.codecommit.model.MergePullRequestByFastForwardResult> {
 
 	var pullRequestId: String? = null
 	var repositoryName: String? = null
@@ -756,8 +844,12 @@ class AWSCodeCommitMergePullRequestByFastForwardCommand() : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.mergePullRequestByFastForward(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.MergePullRequestByFastForwardResult {
+	  return com.amazonaws.services.codecommit.model.MergePullRequestByFastForwardResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.MergePullRequestByFastForwardResult {
+		return environment.codecommit.mergePullRequestByFastForward(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -770,12 +862,12 @@ class AWSCodeCommitMergePullRequestByFastForwardCommand() : AmazonWebServiceComm
 }
 
 
-fun AWSCodeCommitFunctions.postCommentForComparedCommit(init: AWSCodeCommitPostCommentForComparedCommitCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitPostCommentForComparedCommitCommand().apply(init))
+fun AWSCodeCommitFunctions.postCommentForComparedCommit(init: AWSCodeCommitPostCommentForComparedCommitCommand.() -> Unit): com.amazonaws.services.codecommit.model.PostCommentForComparedCommitResult {
+	return this.block.declare(AWSCodeCommitPostCommentForComparedCommitCommand().apply(init)) as com.amazonaws.services.codecommit.model.PostCommentForComparedCommitResult
 }
 
 @Generated
-class AWSCodeCommitPostCommentForComparedCommitCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.PostCommentForComparedCommitRequest> {
+class AWSCodeCommitPostCommentForComparedCommitCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.PostCommentForComparedCommitRequest, com.amazonaws.services.codecommit.model.PostCommentForComparedCommitResult> {
 
 	var repositoryName: String? = null
 	var beforeCommitId: String? = null
@@ -795,8 +887,12 @@ class AWSCodeCommitPostCommentForComparedCommitCommand() : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.postCommentForComparedCommit(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.PostCommentForComparedCommitResult {
+	  return com.amazonaws.services.codecommit.model.PostCommentForComparedCommitResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.PostCommentForComparedCommitResult {
+		return environment.codecommit.postCommentForComparedCommit(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -812,12 +908,12 @@ class AWSCodeCommitPostCommentForComparedCommitCommand() : AmazonWebServiceComma
 }
 
 
-fun AWSCodeCommitFunctions.postCommentForPullRequest(init: AWSCodeCommitPostCommentForPullRequestCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitPostCommentForPullRequestCommand().apply(init))
+fun AWSCodeCommitFunctions.postCommentForPullRequest(init: AWSCodeCommitPostCommentForPullRequestCommand.() -> Unit): com.amazonaws.services.codecommit.model.PostCommentForPullRequestResult {
+	return this.block.declare(AWSCodeCommitPostCommentForPullRequestCommand().apply(init)) as com.amazonaws.services.codecommit.model.PostCommentForPullRequestResult
 }
 
 @Generated
-class AWSCodeCommitPostCommentForPullRequestCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.PostCommentForPullRequestRequest> {
+class AWSCodeCommitPostCommentForPullRequestCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.PostCommentForPullRequestRequest, com.amazonaws.services.codecommit.model.PostCommentForPullRequestResult> {
 
 	var pullRequestId: String? = null
 	var repositoryName: String? = null
@@ -839,8 +935,12 @@ class AWSCodeCommitPostCommentForPullRequestCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.postCommentForPullRequest(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.PostCommentForPullRequestResult {
+	  return com.amazonaws.services.codecommit.model.PostCommentForPullRequestResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.PostCommentForPullRequestResult {
+		return environment.codecommit.postCommentForPullRequest(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -857,12 +957,12 @@ class AWSCodeCommitPostCommentForPullRequestCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AWSCodeCommitFunctions.postCommentReply(init: AWSCodeCommitPostCommentReplyCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitPostCommentReplyCommand().apply(init))
+fun AWSCodeCommitFunctions.postCommentReply(init: AWSCodeCommitPostCommentReplyCommand.() -> Unit): com.amazonaws.services.codecommit.model.PostCommentReplyResult {
+	return this.block.declare(AWSCodeCommitPostCommentReplyCommand().apply(init)) as com.amazonaws.services.codecommit.model.PostCommentReplyResult
 }
 
 @Generated
-class AWSCodeCommitPostCommentReplyCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.PostCommentReplyRequest> {
+class AWSCodeCommitPostCommentReplyCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.PostCommentReplyRequest, com.amazonaws.services.codecommit.model.PostCommentReplyResult> {
 
 	var inReplyTo: String? = null
 	var clientRequestToken: String? = null
@@ -876,8 +976,12 @@ class AWSCodeCommitPostCommentReplyCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.postCommentReply(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.PostCommentReplyResult {
+	  return com.amazonaws.services.codecommit.model.PostCommentReplyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.PostCommentReplyResult {
+		return environment.codecommit.postCommentReply(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -890,12 +994,12 @@ class AWSCodeCommitPostCommentReplyCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AWSCodeCommitFunctions.putFile(init: AWSCodeCommitPutFileCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitPutFileCommand().apply(init))
+fun AWSCodeCommitFunctions.putFile(init: AWSCodeCommitPutFileCommand.() -> Unit): com.amazonaws.services.codecommit.model.PutFileResult {
+	return this.block.declare(AWSCodeCommitPutFileCommand().apply(init)) as com.amazonaws.services.codecommit.model.PutFileResult
 }
 
 @Generated
-class AWSCodeCommitPutFileCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.PutFileRequest> {
+class AWSCodeCommitPutFileCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.PutFileRequest, com.amazonaws.services.codecommit.model.PutFileResult> {
 
 	var repositoryName: String? = null
 	var branchName: String? = null
@@ -921,8 +1025,12 @@ class AWSCodeCommitPutFileCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.putFile(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.PutFileResult {
+	  return com.amazonaws.services.codecommit.model.PutFileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.PutFileResult {
+		return environment.codecommit.putFile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -941,12 +1049,12 @@ class AWSCodeCommitPutFileCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 }
 
 
-fun AWSCodeCommitFunctions.putRepositoryTriggers(init: AWSCodeCommitPutRepositoryTriggersCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitPutRepositoryTriggersCommand().apply(init))
+fun AWSCodeCommitFunctions.putRepositoryTriggers(init: AWSCodeCommitPutRepositoryTriggersCommand.() -> Unit): com.amazonaws.services.codecommit.model.PutRepositoryTriggersResult {
+	return this.block.declare(AWSCodeCommitPutRepositoryTriggersCommand().apply(init)) as com.amazonaws.services.codecommit.model.PutRepositoryTriggersResult
 }
 
 @Generated
-class AWSCodeCommitPutRepositoryTriggersCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.PutRepositoryTriggersRequest> {
+class AWSCodeCommitPutRepositoryTriggersCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.PutRepositoryTriggersRequest, com.amazonaws.services.codecommit.model.PutRepositoryTriggersResult> {
 
 	var repositoryName: String? = null
 	var triggers: List<com.amazonaws.services.codecommit.model.RepositoryTrigger>? = null
@@ -958,8 +1066,12 @@ class AWSCodeCommitPutRepositoryTriggersCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.putRepositoryTriggers(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.PutRepositoryTriggersResult {
+	  return com.amazonaws.services.codecommit.model.PutRepositoryTriggersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.PutRepositoryTriggersResult {
+		return environment.codecommit.putRepositoryTriggers(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -971,12 +1083,12 @@ class AWSCodeCommitPutRepositoryTriggersCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AWSCodeCommitFunctions.testRepositoryTriggers(init: AWSCodeCommitTestRepositoryTriggersCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitTestRepositoryTriggersCommand().apply(init))
+fun AWSCodeCommitFunctions.testRepositoryTriggers(init: AWSCodeCommitTestRepositoryTriggersCommand.() -> Unit): com.amazonaws.services.codecommit.model.TestRepositoryTriggersResult {
+	return this.block.declare(AWSCodeCommitTestRepositoryTriggersCommand().apply(init)) as com.amazonaws.services.codecommit.model.TestRepositoryTriggersResult
 }
 
 @Generated
-class AWSCodeCommitTestRepositoryTriggersCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.TestRepositoryTriggersRequest> {
+class AWSCodeCommitTestRepositoryTriggersCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.TestRepositoryTriggersRequest, com.amazonaws.services.codecommit.model.TestRepositoryTriggersResult> {
 
 	var repositoryName: String? = null
 	var triggers: List<com.amazonaws.services.codecommit.model.RepositoryTrigger>? = null
@@ -988,8 +1100,12 @@ class AWSCodeCommitTestRepositoryTriggersCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.testRepositoryTriggers(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.TestRepositoryTriggersResult {
+	  return com.amazonaws.services.codecommit.model.TestRepositoryTriggersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.TestRepositoryTriggersResult {
+		return environment.codecommit.testRepositoryTriggers(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1001,12 +1117,12 @@ class AWSCodeCommitTestRepositoryTriggersCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AWSCodeCommitFunctions.updateComment(init: AWSCodeCommitUpdateCommentCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitUpdateCommentCommand().apply(init))
+fun AWSCodeCommitFunctions.updateComment(init: AWSCodeCommitUpdateCommentCommand.() -> Unit): com.amazonaws.services.codecommit.model.UpdateCommentResult {
+	return this.block.declare(AWSCodeCommitUpdateCommentCommand().apply(init)) as com.amazonaws.services.codecommit.model.UpdateCommentResult
 }
 
 @Generated
-class AWSCodeCommitUpdateCommentCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.UpdateCommentRequest> {
+class AWSCodeCommitUpdateCommentCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.UpdateCommentRequest, com.amazonaws.services.codecommit.model.UpdateCommentResult> {
 
 	var commentId: String? = null
 	var content: String? = null
@@ -1018,8 +1134,12 @@ class AWSCodeCommitUpdateCommentCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.updateComment(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.UpdateCommentResult {
+	  return com.amazonaws.services.codecommit.model.UpdateCommentResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.UpdateCommentResult {
+		return environment.codecommit.updateComment(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1031,12 +1151,12 @@ class AWSCodeCommitUpdateCommentCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AWSCodeCommitFunctions.updateDefaultBranch(init: AWSCodeCommitUpdateDefaultBranchCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitUpdateDefaultBranchCommand().apply(init))
+fun AWSCodeCommitFunctions.updateDefaultBranch(init: AWSCodeCommitUpdateDefaultBranchCommand.() -> Unit): com.amazonaws.services.codecommit.model.UpdateDefaultBranchResult {
+	return this.block.declare(AWSCodeCommitUpdateDefaultBranchCommand().apply(init)) as com.amazonaws.services.codecommit.model.UpdateDefaultBranchResult
 }
 
 @Generated
-class AWSCodeCommitUpdateDefaultBranchCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.UpdateDefaultBranchRequest> {
+class AWSCodeCommitUpdateDefaultBranchCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.UpdateDefaultBranchRequest, com.amazonaws.services.codecommit.model.UpdateDefaultBranchResult> {
 
 	var repositoryName: String? = null
 	var defaultBranchName: String? = null
@@ -1048,8 +1168,12 @@ class AWSCodeCommitUpdateDefaultBranchCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.updateDefaultBranch(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.UpdateDefaultBranchResult {
+	  return com.amazonaws.services.codecommit.model.UpdateDefaultBranchResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.UpdateDefaultBranchResult {
+		return environment.codecommit.updateDefaultBranch(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1061,12 +1185,12 @@ class AWSCodeCommitUpdateDefaultBranchCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AWSCodeCommitFunctions.updatePullRequestDescription(init: AWSCodeCommitUpdatePullRequestDescriptionCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitUpdatePullRequestDescriptionCommand().apply(init))
+fun AWSCodeCommitFunctions.updatePullRequestDescription(init: AWSCodeCommitUpdatePullRequestDescriptionCommand.() -> Unit): com.amazonaws.services.codecommit.model.UpdatePullRequestDescriptionResult {
+	return this.block.declare(AWSCodeCommitUpdatePullRequestDescriptionCommand().apply(init)) as com.amazonaws.services.codecommit.model.UpdatePullRequestDescriptionResult
 }
 
 @Generated
-class AWSCodeCommitUpdatePullRequestDescriptionCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.UpdatePullRequestDescriptionRequest> {
+class AWSCodeCommitUpdatePullRequestDescriptionCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.UpdatePullRequestDescriptionRequest, com.amazonaws.services.codecommit.model.UpdatePullRequestDescriptionResult> {
 
 	var pullRequestId: String? = null
 	var description: String? = null
@@ -1078,8 +1202,12 @@ class AWSCodeCommitUpdatePullRequestDescriptionCommand() : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.updatePullRequestDescription(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.UpdatePullRequestDescriptionResult {
+	  return com.amazonaws.services.codecommit.model.UpdatePullRequestDescriptionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.UpdatePullRequestDescriptionResult {
+		return environment.codecommit.updatePullRequestDescription(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1091,12 +1219,12 @@ class AWSCodeCommitUpdatePullRequestDescriptionCommand() : AmazonWebServiceComma
 }
 
 
-fun AWSCodeCommitFunctions.updatePullRequestStatus(init: AWSCodeCommitUpdatePullRequestStatusCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitUpdatePullRequestStatusCommand().apply(init))
+fun AWSCodeCommitFunctions.updatePullRequestStatus(init: AWSCodeCommitUpdatePullRequestStatusCommand.() -> Unit): com.amazonaws.services.codecommit.model.UpdatePullRequestStatusResult {
+	return this.block.declare(AWSCodeCommitUpdatePullRequestStatusCommand().apply(init)) as com.amazonaws.services.codecommit.model.UpdatePullRequestStatusResult
 }
 
 @Generated
-class AWSCodeCommitUpdatePullRequestStatusCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.UpdatePullRequestStatusRequest> {
+class AWSCodeCommitUpdatePullRequestStatusCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.UpdatePullRequestStatusRequest, com.amazonaws.services.codecommit.model.UpdatePullRequestStatusResult> {
 
 	var pullRequestId: String? = null
 	var pullRequestStatus: PullRequestStatusEnum? = null
@@ -1108,8 +1236,12 @@ class AWSCodeCommitUpdatePullRequestStatusCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.updatePullRequestStatus(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.UpdatePullRequestStatusResult {
+	  return com.amazonaws.services.codecommit.model.UpdatePullRequestStatusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.UpdatePullRequestStatusResult {
+		return environment.codecommit.updatePullRequestStatus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1121,12 +1253,12 @@ class AWSCodeCommitUpdatePullRequestStatusCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AWSCodeCommitFunctions.updatePullRequestTitle(init: AWSCodeCommitUpdatePullRequestTitleCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitUpdatePullRequestTitleCommand().apply(init))
+fun AWSCodeCommitFunctions.updatePullRequestTitle(init: AWSCodeCommitUpdatePullRequestTitleCommand.() -> Unit): com.amazonaws.services.codecommit.model.UpdatePullRequestTitleResult {
+	return this.block.declare(AWSCodeCommitUpdatePullRequestTitleCommand().apply(init)) as com.amazonaws.services.codecommit.model.UpdatePullRequestTitleResult
 }
 
 @Generated
-class AWSCodeCommitUpdatePullRequestTitleCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.UpdatePullRequestTitleRequest> {
+class AWSCodeCommitUpdatePullRequestTitleCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.UpdatePullRequestTitleRequest, com.amazonaws.services.codecommit.model.UpdatePullRequestTitleResult> {
 
 	var pullRequestId: String? = null
 	var title: String? = null
@@ -1138,8 +1270,12 @@ class AWSCodeCommitUpdatePullRequestTitleCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.updatePullRequestTitle(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.UpdatePullRequestTitleResult {
+	  return com.amazonaws.services.codecommit.model.UpdatePullRequestTitleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.UpdatePullRequestTitleResult {
+		return environment.codecommit.updatePullRequestTitle(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1151,12 +1287,12 @@ class AWSCodeCommitUpdatePullRequestTitleCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AWSCodeCommitFunctions.updateRepositoryDescription(init: AWSCodeCommitUpdateRepositoryDescriptionCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitUpdateRepositoryDescriptionCommand().apply(init))
+fun AWSCodeCommitFunctions.updateRepositoryDescription(init: AWSCodeCommitUpdateRepositoryDescriptionCommand.() -> Unit): com.amazonaws.services.codecommit.model.UpdateRepositoryDescriptionResult {
+	return this.block.declare(AWSCodeCommitUpdateRepositoryDescriptionCommand().apply(init)) as com.amazonaws.services.codecommit.model.UpdateRepositoryDescriptionResult
 }
 
 @Generated
-class AWSCodeCommitUpdateRepositoryDescriptionCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.UpdateRepositoryDescriptionRequest> {
+class AWSCodeCommitUpdateRepositoryDescriptionCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.UpdateRepositoryDescriptionRequest, com.amazonaws.services.codecommit.model.UpdateRepositoryDescriptionResult> {
 
 	var repositoryName: String? = null
 	var repositoryDescription: String? = null
@@ -1168,8 +1304,12 @@ class AWSCodeCommitUpdateRepositoryDescriptionCommand() : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.updateRepositoryDescription(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.UpdateRepositoryDescriptionResult {
+	  return com.amazonaws.services.codecommit.model.UpdateRepositoryDescriptionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.UpdateRepositoryDescriptionResult {
+		return environment.codecommit.updateRepositoryDescription(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1181,12 +1321,12 @@ class AWSCodeCommitUpdateRepositoryDescriptionCommand() : AmazonWebServiceComman
 }
 
 
-fun AWSCodeCommitFunctions.updateRepositoryName(init: AWSCodeCommitUpdateRepositoryNameCommand.() -> Unit) {
-	this.block.declare(AWSCodeCommitUpdateRepositoryNameCommand().apply(init))
+fun AWSCodeCommitFunctions.updateRepositoryName(init: AWSCodeCommitUpdateRepositoryNameCommand.() -> Unit): com.amazonaws.services.codecommit.model.UpdateRepositoryNameResult {
+	return this.block.declare(AWSCodeCommitUpdateRepositoryNameCommand().apply(init)) as com.amazonaws.services.codecommit.model.UpdateRepositoryNameResult
 }
 
 @Generated
-class AWSCodeCommitUpdateRepositoryNameCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.UpdateRepositoryNameRequest> {
+class AWSCodeCommitUpdateRepositoryNameCommand() : AmazonWebServiceCommand<com.amazonaws.services.codecommit.model.UpdateRepositoryNameRequest, com.amazonaws.services.codecommit.model.UpdateRepositoryNameResult> {
 
 	var oldName: String? = null
 	var newName: String? = null
@@ -1198,8 +1338,12 @@ class AWSCodeCommitUpdateRepositoryNameCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codecommit.updateRepositoryName(build())
+	override fun dryResult(): com.amazonaws.services.codecommit.model.UpdateRepositoryNameResult {
+	  return com.amazonaws.services.codecommit.model.UpdateRepositoryNameResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codecommit.model.UpdateRepositoryNameResult {
+		return environment.codecommit.updateRepositoryName(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

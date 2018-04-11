@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.workspaces: AmazonWorkspaces
 @Generated
 class AmazonWorkspacesFunctions(val block: Block)
 
-infix fun AwsContinuation.workspaces(init: AmazonWorkspacesFunctions.() -> Unit) {
-	AmazonWorkspacesFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.workspaces(init: AmazonWorkspacesFunctions.() -> T): T {
+	return AmazonWorkspacesFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonWorkspacesFunctions.createTags(resourceId: String, tags: List<com.amazonaws.services.workspaces.model.Tag>, init: AmazonWorkspacesCreateTagsCommand.() -> Unit) {
-	this.block.declare(AmazonWorkspacesCreateTagsCommand(resourceId, tags).apply(init))
+fun AmazonWorkspacesFunctions.createTags(resourceId: String, tags: List<com.amazonaws.services.workspaces.model.Tag>, init: AmazonWorkspacesCreateTagsCommand.() -> Unit): com.amazonaws.services.workspaces.model.CreateTagsResult {
+	return this.block.declare(AmazonWorkspacesCreateTagsCommand(resourceId, tags).apply(init)) as com.amazonaws.services.workspaces.model.CreateTagsResult
 }
 
 @Generated
-class AmazonWorkspacesCreateTagsCommand(val resourceId: String, val tags: List<com.amazonaws.services.workspaces.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.workspaces.model.CreateTagsRequest> {
+class AmazonWorkspacesCreateTagsCommand(val resourceId: String, val tags: List<com.amazonaws.services.workspaces.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.workspaces.model.CreateTagsRequest, com.amazonaws.services.workspaces.model.CreateTagsResult> {
 
 
 
@@ -42,8 +42,12 @@ class AmazonWorkspacesCreateTagsCommand(val resourceId: String, val tags: List<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.workspaces.createTags(build())
+	override fun dryResult(): com.amazonaws.services.workspaces.model.CreateTagsResult {
+	  return com.amazonaws.services.workspaces.model.CreateTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workspaces.model.CreateTagsResult {
+		return environment.workspaces.createTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -55,12 +59,12 @@ class AmazonWorkspacesCreateTagsCommand(val resourceId: String, val tags: List<c
 }
 
 
-fun AmazonWorkspacesFunctions.createWorkspaces(workspaces: List<com.amazonaws.services.workspaces.model.WorkspaceRequest>, init: AmazonWorkspacesCreateWorkspacesCommand.() -> Unit) {
-	this.block.declare(AmazonWorkspacesCreateWorkspacesCommand(workspaces).apply(init))
+fun AmazonWorkspacesFunctions.createWorkspaces(workspaces: List<com.amazonaws.services.workspaces.model.WorkspaceRequest>, init: AmazonWorkspacesCreateWorkspacesCommand.() -> Unit): com.amazonaws.services.workspaces.model.CreateWorkspacesResult {
+	return this.block.declare(AmazonWorkspacesCreateWorkspacesCommand(workspaces).apply(init)) as com.amazonaws.services.workspaces.model.CreateWorkspacesResult
 }
 
 @Generated
-class AmazonWorkspacesCreateWorkspacesCommand(val workspaces: List<com.amazonaws.services.workspaces.model.WorkspaceRequest>) : AmazonWebServiceCommand<com.amazonaws.services.workspaces.model.CreateWorkspacesRequest> {
+class AmazonWorkspacesCreateWorkspacesCommand(val workspaces: List<com.amazonaws.services.workspaces.model.WorkspaceRequest>) : AmazonWebServiceCommand<com.amazonaws.services.workspaces.model.CreateWorkspacesRequest, com.amazonaws.services.workspaces.model.CreateWorkspacesResult> {
 
 
 
@@ -70,8 +74,12 @@ class AmazonWorkspacesCreateWorkspacesCommand(val workspaces: List<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.workspaces.createWorkspaces(build())
+	override fun dryResult(): com.amazonaws.services.workspaces.model.CreateWorkspacesResult {
+	  return com.amazonaws.services.workspaces.model.CreateWorkspacesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workspaces.model.CreateWorkspacesResult {
+		return environment.workspaces.createWorkspaces(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -82,12 +90,12 @@ class AmazonWorkspacesCreateWorkspacesCommand(val workspaces: List<com.amazonaws
 }
 
 
-fun AmazonWorkspacesFunctions.deleteTags(resourceId: String, tagKeys: List<String>, init: AmazonWorkspacesDeleteTagsCommand.() -> Unit) {
-	this.block.declare(AmazonWorkspacesDeleteTagsCommand(resourceId, tagKeys).apply(init))
+fun AmazonWorkspacesFunctions.deleteTags(resourceId: String, tagKeys: List<String>, init: AmazonWorkspacesDeleteTagsCommand.() -> Unit): com.amazonaws.services.workspaces.model.DeleteTagsResult {
+	return this.block.declare(AmazonWorkspacesDeleteTagsCommand(resourceId, tagKeys).apply(init)) as com.amazonaws.services.workspaces.model.DeleteTagsResult
 }
 
 @Generated
-class AmazonWorkspacesDeleteTagsCommand(val resourceId: String, val tagKeys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.workspaces.model.DeleteTagsRequest> {
+class AmazonWorkspacesDeleteTagsCommand(val resourceId: String, val tagKeys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.workspaces.model.DeleteTagsRequest, com.amazonaws.services.workspaces.model.DeleteTagsResult> {
 
 
 
@@ -98,8 +106,12 @@ class AmazonWorkspacesDeleteTagsCommand(val resourceId: String, val tagKeys: Lis
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.workspaces.deleteTags(build())
+	override fun dryResult(): com.amazonaws.services.workspaces.model.DeleteTagsResult {
+	  return com.amazonaws.services.workspaces.model.DeleteTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workspaces.model.DeleteTagsResult {
+		return environment.workspaces.deleteTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -111,12 +123,12 @@ class AmazonWorkspacesDeleteTagsCommand(val resourceId: String, val tagKeys: Lis
 }
 
 
-fun AmazonWorkspacesFunctions.describeTags(resourceId: String, init: AmazonWorkspacesDescribeTagsCommand.() -> Unit) {
-	this.block.declare(AmazonWorkspacesDescribeTagsCommand(resourceId).apply(init))
+fun AmazonWorkspacesFunctions.describeTags(resourceId: String, init: AmazonWorkspacesDescribeTagsCommand.() -> Unit): com.amazonaws.services.workspaces.model.DescribeTagsResult {
+	return this.block.declare(AmazonWorkspacesDescribeTagsCommand(resourceId).apply(init)) as com.amazonaws.services.workspaces.model.DescribeTagsResult
 }
 
 @Generated
-class AmazonWorkspacesDescribeTagsCommand(val resourceId: String) : AmazonWebServiceCommand<com.amazonaws.services.workspaces.model.DescribeTagsRequest> {
+class AmazonWorkspacesDescribeTagsCommand(val resourceId: String) : AmazonWebServiceCommand<com.amazonaws.services.workspaces.model.DescribeTagsRequest, com.amazonaws.services.workspaces.model.DescribeTagsResult> {
 
 
 
@@ -126,8 +138,12 @@ class AmazonWorkspacesDescribeTagsCommand(val resourceId: String) : AmazonWebSer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.workspaces.describeTags(build())
+	override fun dryResult(): com.amazonaws.services.workspaces.model.DescribeTagsResult {
+	  return com.amazonaws.services.workspaces.model.DescribeTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workspaces.model.DescribeTagsResult {
+		return environment.workspaces.describeTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -138,12 +154,12 @@ class AmazonWorkspacesDescribeTagsCommand(val resourceId: String) : AmazonWebSer
 }
 
 
-fun AmazonWorkspacesFunctions.describeWorkspaceBundles(init: AmazonWorkspacesDescribeWorkspaceBundlesCommand.() -> Unit) {
-	this.block.declare(AmazonWorkspacesDescribeWorkspaceBundlesCommand().apply(init))
+fun AmazonWorkspacesFunctions.describeWorkspaceBundles(init: AmazonWorkspacesDescribeWorkspaceBundlesCommand.() -> Unit): com.amazonaws.services.workspaces.model.DescribeWorkspaceBundlesResult {
+	return this.block.declare(AmazonWorkspacesDescribeWorkspaceBundlesCommand().apply(init)) as com.amazonaws.services.workspaces.model.DescribeWorkspaceBundlesResult
 }
 
 @Generated
-class AmazonWorkspacesDescribeWorkspaceBundlesCommand() : AmazonWebServiceCommand<com.amazonaws.services.workspaces.model.DescribeWorkspaceBundlesRequest> {
+class AmazonWorkspacesDescribeWorkspaceBundlesCommand() : AmazonWebServiceCommand<com.amazonaws.services.workspaces.model.DescribeWorkspaceBundlesRequest, com.amazonaws.services.workspaces.model.DescribeWorkspaceBundlesResult> {
 
 	var bundleIds: List<String>? = null
 	var owner: String? = null
@@ -157,8 +173,12 @@ class AmazonWorkspacesDescribeWorkspaceBundlesCommand() : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.workspaces.describeWorkspaceBundles(build())
+	override fun dryResult(): com.amazonaws.services.workspaces.model.DescribeWorkspaceBundlesResult {
+	  return com.amazonaws.services.workspaces.model.DescribeWorkspaceBundlesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workspaces.model.DescribeWorkspaceBundlesResult {
+		return environment.workspaces.describeWorkspaceBundles(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -171,12 +191,12 @@ class AmazonWorkspacesDescribeWorkspaceBundlesCommand() : AmazonWebServiceComman
 }
 
 
-fun AmazonWorkspacesFunctions.describeWorkspaceDirectories(init: AmazonWorkspacesDescribeWorkspaceDirectoriesCommand.() -> Unit) {
-	this.block.declare(AmazonWorkspacesDescribeWorkspaceDirectoriesCommand().apply(init))
+fun AmazonWorkspacesFunctions.describeWorkspaceDirectories(init: AmazonWorkspacesDescribeWorkspaceDirectoriesCommand.() -> Unit): com.amazonaws.services.workspaces.model.DescribeWorkspaceDirectoriesResult {
+	return this.block.declare(AmazonWorkspacesDescribeWorkspaceDirectoriesCommand().apply(init)) as com.amazonaws.services.workspaces.model.DescribeWorkspaceDirectoriesResult
 }
 
 @Generated
-class AmazonWorkspacesDescribeWorkspaceDirectoriesCommand() : AmazonWebServiceCommand<com.amazonaws.services.workspaces.model.DescribeWorkspaceDirectoriesRequest> {
+class AmazonWorkspacesDescribeWorkspaceDirectoriesCommand() : AmazonWebServiceCommand<com.amazonaws.services.workspaces.model.DescribeWorkspaceDirectoriesRequest, com.amazonaws.services.workspaces.model.DescribeWorkspaceDirectoriesResult> {
 
 	var directoryIds: List<String>? = null
 	var nextToken: String? = null
@@ -188,8 +208,12 @@ class AmazonWorkspacesDescribeWorkspaceDirectoriesCommand() : AmazonWebServiceCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.workspaces.describeWorkspaceDirectories(build())
+	override fun dryResult(): com.amazonaws.services.workspaces.model.DescribeWorkspaceDirectoriesResult {
+	  return com.amazonaws.services.workspaces.model.DescribeWorkspaceDirectoriesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workspaces.model.DescribeWorkspaceDirectoriesResult {
+		return environment.workspaces.describeWorkspaceDirectories(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -201,12 +225,12 @@ class AmazonWorkspacesDescribeWorkspaceDirectoriesCommand() : AmazonWebServiceCo
 }
 
 
-fun AmazonWorkspacesFunctions.describeWorkspaces(init: AmazonWorkspacesDescribeWorkspacesCommand.() -> Unit) {
-	this.block.declare(AmazonWorkspacesDescribeWorkspacesCommand().apply(init))
+fun AmazonWorkspacesFunctions.describeWorkspaces(init: AmazonWorkspacesDescribeWorkspacesCommand.() -> Unit): com.amazonaws.services.workspaces.model.DescribeWorkspacesResult {
+	return this.block.declare(AmazonWorkspacesDescribeWorkspacesCommand().apply(init)) as com.amazonaws.services.workspaces.model.DescribeWorkspacesResult
 }
 
 @Generated
-class AmazonWorkspacesDescribeWorkspacesCommand() : AmazonWebServiceCommand<com.amazonaws.services.workspaces.model.DescribeWorkspacesRequest> {
+class AmazonWorkspacesDescribeWorkspacesCommand() : AmazonWebServiceCommand<com.amazonaws.services.workspaces.model.DescribeWorkspacesRequest, com.amazonaws.services.workspaces.model.DescribeWorkspacesResult> {
 
 	var workspaceIds: List<String>? = null
 	var directoryId: String? = null
@@ -226,8 +250,12 @@ class AmazonWorkspacesDescribeWorkspacesCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.workspaces.describeWorkspaces(build())
+	override fun dryResult(): com.amazonaws.services.workspaces.model.DescribeWorkspacesResult {
+	  return com.amazonaws.services.workspaces.model.DescribeWorkspacesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workspaces.model.DescribeWorkspacesResult {
+		return environment.workspaces.describeWorkspaces(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -243,12 +271,12 @@ class AmazonWorkspacesDescribeWorkspacesCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonWorkspacesFunctions.describeWorkspacesConnectionStatus(init: AmazonWorkspacesDescribeWorkspacesConnectionStatusCommand.() -> Unit) {
-	this.block.declare(AmazonWorkspacesDescribeWorkspacesConnectionStatusCommand().apply(init))
+fun AmazonWorkspacesFunctions.describeWorkspacesConnectionStatus(init: AmazonWorkspacesDescribeWorkspacesConnectionStatusCommand.() -> Unit): com.amazonaws.services.workspaces.model.DescribeWorkspacesConnectionStatusResult {
+	return this.block.declare(AmazonWorkspacesDescribeWorkspacesConnectionStatusCommand().apply(init)) as com.amazonaws.services.workspaces.model.DescribeWorkspacesConnectionStatusResult
 }
 
 @Generated
-class AmazonWorkspacesDescribeWorkspacesConnectionStatusCommand() : AmazonWebServiceCommand<com.amazonaws.services.workspaces.model.DescribeWorkspacesConnectionStatusRequest> {
+class AmazonWorkspacesDescribeWorkspacesConnectionStatusCommand() : AmazonWebServiceCommand<com.amazonaws.services.workspaces.model.DescribeWorkspacesConnectionStatusRequest, com.amazonaws.services.workspaces.model.DescribeWorkspacesConnectionStatusResult> {
 
 	var workspaceIds: List<String>? = null
 	var nextToken: String? = null
@@ -260,8 +288,12 @@ class AmazonWorkspacesDescribeWorkspacesConnectionStatusCommand() : AmazonWebSer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.workspaces.describeWorkspacesConnectionStatus(build())
+	override fun dryResult(): com.amazonaws.services.workspaces.model.DescribeWorkspacesConnectionStatusResult {
+	  return com.amazonaws.services.workspaces.model.DescribeWorkspacesConnectionStatusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workspaces.model.DescribeWorkspacesConnectionStatusResult {
+		return environment.workspaces.describeWorkspacesConnectionStatus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -273,12 +305,12 @@ class AmazonWorkspacesDescribeWorkspacesConnectionStatusCommand() : AmazonWebSer
 }
 
 
-fun AmazonWorkspacesFunctions.modifyWorkspaceProperties(workspaceId: String, workspaceProperties: com.amazonaws.services.workspaces.model.WorkspaceProperties, init: AmazonWorkspacesModifyWorkspacePropertiesCommand.() -> Unit) {
-	this.block.declare(AmazonWorkspacesModifyWorkspacePropertiesCommand(workspaceId, workspaceProperties).apply(init))
+fun AmazonWorkspacesFunctions.modifyWorkspaceProperties(workspaceId: String, workspaceProperties: com.amazonaws.services.workspaces.model.WorkspaceProperties, init: AmazonWorkspacesModifyWorkspacePropertiesCommand.() -> Unit): com.amazonaws.services.workspaces.model.ModifyWorkspacePropertiesResult {
+	return this.block.declare(AmazonWorkspacesModifyWorkspacePropertiesCommand(workspaceId, workspaceProperties).apply(init)) as com.amazonaws.services.workspaces.model.ModifyWorkspacePropertiesResult
 }
 
 @Generated
-class AmazonWorkspacesModifyWorkspacePropertiesCommand(val workspaceId: String, val workspaceProperties: com.amazonaws.services.workspaces.model.WorkspaceProperties) : AmazonWebServiceCommand<com.amazonaws.services.workspaces.model.ModifyWorkspacePropertiesRequest> {
+class AmazonWorkspacesModifyWorkspacePropertiesCommand(val workspaceId: String, val workspaceProperties: com.amazonaws.services.workspaces.model.WorkspaceProperties) : AmazonWebServiceCommand<com.amazonaws.services.workspaces.model.ModifyWorkspacePropertiesRequest, com.amazonaws.services.workspaces.model.ModifyWorkspacePropertiesResult> {
 
 
 
@@ -289,8 +321,12 @@ class AmazonWorkspacesModifyWorkspacePropertiesCommand(val workspaceId: String, 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.workspaces.modifyWorkspaceProperties(build())
+	override fun dryResult(): com.amazonaws.services.workspaces.model.ModifyWorkspacePropertiesResult {
+	  return com.amazonaws.services.workspaces.model.ModifyWorkspacePropertiesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workspaces.model.ModifyWorkspacePropertiesResult {
+		return environment.workspaces.modifyWorkspaceProperties(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -302,12 +338,12 @@ class AmazonWorkspacesModifyWorkspacePropertiesCommand(val workspaceId: String, 
 }
 
 
-fun AmazonWorkspacesFunctions.rebootWorkspaces(rebootWorkspaceRequests: List<com.amazonaws.services.workspaces.model.RebootRequest>, init: AmazonWorkspacesRebootWorkspacesCommand.() -> Unit) {
-	this.block.declare(AmazonWorkspacesRebootWorkspacesCommand(rebootWorkspaceRequests).apply(init))
+fun AmazonWorkspacesFunctions.rebootWorkspaces(rebootWorkspaceRequests: List<com.amazonaws.services.workspaces.model.RebootRequest>, init: AmazonWorkspacesRebootWorkspacesCommand.() -> Unit): com.amazonaws.services.workspaces.model.RebootWorkspacesResult {
+	return this.block.declare(AmazonWorkspacesRebootWorkspacesCommand(rebootWorkspaceRequests).apply(init)) as com.amazonaws.services.workspaces.model.RebootWorkspacesResult
 }
 
 @Generated
-class AmazonWorkspacesRebootWorkspacesCommand(val rebootWorkspaceRequests: List<com.amazonaws.services.workspaces.model.RebootRequest>) : AmazonWebServiceCommand<com.amazonaws.services.workspaces.model.RebootWorkspacesRequest> {
+class AmazonWorkspacesRebootWorkspacesCommand(val rebootWorkspaceRequests: List<com.amazonaws.services.workspaces.model.RebootRequest>) : AmazonWebServiceCommand<com.amazonaws.services.workspaces.model.RebootWorkspacesRequest, com.amazonaws.services.workspaces.model.RebootWorkspacesResult> {
 
 
 
@@ -317,8 +353,12 @@ class AmazonWorkspacesRebootWorkspacesCommand(val rebootWorkspaceRequests: List<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.workspaces.rebootWorkspaces(build())
+	override fun dryResult(): com.amazonaws.services.workspaces.model.RebootWorkspacesResult {
+	  return com.amazonaws.services.workspaces.model.RebootWorkspacesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workspaces.model.RebootWorkspacesResult {
+		return environment.workspaces.rebootWorkspaces(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -329,12 +369,12 @@ class AmazonWorkspacesRebootWorkspacesCommand(val rebootWorkspaceRequests: List<
 }
 
 
-fun AmazonWorkspacesFunctions.rebuildWorkspaces(rebuildWorkspaceRequests: List<com.amazonaws.services.workspaces.model.RebuildRequest>, init: AmazonWorkspacesRebuildWorkspacesCommand.() -> Unit) {
-	this.block.declare(AmazonWorkspacesRebuildWorkspacesCommand(rebuildWorkspaceRequests).apply(init))
+fun AmazonWorkspacesFunctions.rebuildWorkspaces(rebuildWorkspaceRequests: List<com.amazonaws.services.workspaces.model.RebuildRequest>, init: AmazonWorkspacesRebuildWorkspacesCommand.() -> Unit): com.amazonaws.services.workspaces.model.RebuildWorkspacesResult {
+	return this.block.declare(AmazonWorkspacesRebuildWorkspacesCommand(rebuildWorkspaceRequests).apply(init)) as com.amazonaws.services.workspaces.model.RebuildWorkspacesResult
 }
 
 @Generated
-class AmazonWorkspacesRebuildWorkspacesCommand(val rebuildWorkspaceRequests: List<com.amazonaws.services.workspaces.model.RebuildRequest>) : AmazonWebServiceCommand<com.amazonaws.services.workspaces.model.RebuildWorkspacesRequest> {
+class AmazonWorkspacesRebuildWorkspacesCommand(val rebuildWorkspaceRequests: List<com.amazonaws.services.workspaces.model.RebuildRequest>) : AmazonWebServiceCommand<com.amazonaws.services.workspaces.model.RebuildWorkspacesRequest, com.amazonaws.services.workspaces.model.RebuildWorkspacesResult> {
 
 
 
@@ -344,8 +384,12 @@ class AmazonWorkspacesRebuildWorkspacesCommand(val rebuildWorkspaceRequests: Lis
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.workspaces.rebuildWorkspaces(build())
+	override fun dryResult(): com.amazonaws.services.workspaces.model.RebuildWorkspacesResult {
+	  return com.amazonaws.services.workspaces.model.RebuildWorkspacesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workspaces.model.RebuildWorkspacesResult {
+		return environment.workspaces.rebuildWorkspaces(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -356,12 +400,12 @@ class AmazonWorkspacesRebuildWorkspacesCommand(val rebuildWorkspaceRequests: Lis
 }
 
 
-fun AmazonWorkspacesFunctions.startWorkspaces(startWorkspaceRequests: List<com.amazonaws.services.workspaces.model.StartRequest>, init: AmazonWorkspacesStartWorkspacesCommand.() -> Unit) {
-	this.block.declare(AmazonWorkspacesStartWorkspacesCommand(startWorkspaceRequests).apply(init))
+fun AmazonWorkspacesFunctions.startWorkspaces(startWorkspaceRequests: List<com.amazonaws.services.workspaces.model.StartRequest>, init: AmazonWorkspacesStartWorkspacesCommand.() -> Unit): com.amazonaws.services.workspaces.model.StartWorkspacesResult {
+	return this.block.declare(AmazonWorkspacesStartWorkspacesCommand(startWorkspaceRequests).apply(init)) as com.amazonaws.services.workspaces.model.StartWorkspacesResult
 }
 
 @Generated
-class AmazonWorkspacesStartWorkspacesCommand(val startWorkspaceRequests: List<com.amazonaws.services.workspaces.model.StartRequest>) : AmazonWebServiceCommand<com.amazonaws.services.workspaces.model.StartWorkspacesRequest> {
+class AmazonWorkspacesStartWorkspacesCommand(val startWorkspaceRequests: List<com.amazonaws.services.workspaces.model.StartRequest>) : AmazonWebServiceCommand<com.amazonaws.services.workspaces.model.StartWorkspacesRequest, com.amazonaws.services.workspaces.model.StartWorkspacesResult> {
 
 
 
@@ -371,8 +415,12 @@ class AmazonWorkspacesStartWorkspacesCommand(val startWorkspaceRequests: List<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.workspaces.startWorkspaces(build())
+	override fun dryResult(): com.amazonaws.services.workspaces.model.StartWorkspacesResult {
+	  return com.amazonaws.services.workspaces.model.StartWorkspacesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workspaces.model.StartWorkspacesResult {
+		return environment.workspaces.startWorkspaces(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -383,12 +431,12 @@ class AmazonWorkspacesStartWorkspacesCommand(val startWorkspaceRequests: List<co
 }
 
 
-fun AmazonWorkspacesFunctions.stopWorkspaces(stopWorkspaceRequests: List<com.amazonaws.services.workspaces.model.StopRequest>, init: AmazonWorkspacesStopWorkspacesCommand.() -> Unit) {
-	this.block.declare(AmazonWorkspacesStopWorkspacesCommand(stopWorkspaceRequests).apply(init))
+fun AmazonWorkspacesFunctions.stopWorkspaces(stopWorkspaceRequests: List<com.amazonaws.services.workspaces.model.StopRequest>, init: AmazonWorkspacesStopWorkspacesCommand.() -> Unit): com.amazonaws.services.workspaces.model.StopWorkspacesResult {
+	return this.block.declare(AmazonWorkspacesStopWorkspacesCommand(stopWorkspaceRequests).apply(init)) as com.amazonaws.services.workspaces.model.StopWorkspacesResult
 }
 
 @Generated
-class AmazonWorkspacesStopWorkspacesCommand(val stopWorkspaceRequests: List<com.amazonaws.services.workspaces.model.StopRequest>) : AmazonWebServiceCommand<com.amazonaws.services.workspaces.model.StopWorkspacesRequest> {
+class AmazonWorkspacesStopWorkspacesCommand(val stopWorkspaceRequests: List<com.amazonaws.services.workspaces.model.StopRequest>) : AmazonWebServiceCommand<com.amazonaws.services.workspaces.model.StopWorkspacesRequest, com.amazonaws.services.workspaces.model.StopWorkspacesResult> {
 
 
 
@@ -398,8 +446,12 @@ class AmazonWorkspacesStopWorkspacesCommand(val stopWorkspaceRequests: List<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.workspaces.stopWorkspaces(build())
+	override fun dryResult(): com.amazonaws.services.workspaces.model.StopWorkspacesResult {
+	  return com.amazonaws.services.workspaces.model.StopWorkspacesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workspaces.model.StopWorkspacesResult {
+		return environment.workspaces.stopWorkspaces(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -410,12 +462,12 @@ class AmazonWorkspacesStopWorkspacesCommand(val stopWorkspaceRequests: List<com.
 }
 
 
-fun AmazonWorkspacesFunctions.terminateWorkspaces(terminateWorkspaceRequests: List<com.amazonaws.services.workspaces.model.TerminateRequest>, init: AmazonWorkspacesTerminateWorkspacesCommand.() -> Unit) {
-	this.block.declare(AmazonWorkspacesTerminateWorkspacesCommand(terminateWorkspaceRequests).apply(init))
+fun AmazonWorkspacesFunctions.terminateWorkspaces(terminateWorkspaceRequests: List<com.amazonaws.services.workspaces.model.TerminateRequest>, init: AmazonWorkspacesTerminateWorkspacesCommand.() -> Unit): com.amazonaws.services.workspaces.model.TerminateWorkspacesResult {
+	return this.block.declare(AmazonWorkspacesTerminateWorkspacesCommand(terminateWorkspaceRequests).apply(init)) as com.amazonaws.services.workspaces.model.TerminateWorkspacesResult
 }
 
 @Generated
-class AmazonWorkspacesTerminateWorkspacesCommand(val terminateWorkspaceRequests: List<com.amazonaws.services.workspaces.model.TerminateRequest>) : AmazonWebServiceCommand<com.amazonaws.services.workspaces.model.TerminateWorkspacesRequest> {
+class AmazonWorkspacesTerminateWorkspacesCommand(val terminateWorkspaceRequests: List<com.amazonaws.services.workspaces.model.TerminateRequest>) : AmazonWebServiceCommand<com.amazonaws.services.workspaces.model.TerminateWorkspacesRequest, com.amazonaws.services.workspaces.model.TerminateWorkspacesResult> {
 
 
 
@@ -425,8 +477,12 @@ class AmazonWorkspacesTerminateWorkspacesCommand(val terminateWorkspaceRequests:
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.workspaces.terminateWorkspaces(build())
+	override fun dryResult(): com.amazonaws.services.workspaces.model.TerminateWorkspacesResult {
+	  return com.amazonaws.services.workspaces.model.TerminateWorkspacesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.workspaces.model.TerminateWorkspacesResult {
+		return environment.workspaces.terminateWorkspaces(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

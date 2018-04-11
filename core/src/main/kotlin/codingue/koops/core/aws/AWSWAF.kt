@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.waf: AWSWAF
 @Generated
 class AWSWAFFunctions(val block: Block)
 
-infix fun AwsContinuation.waf(init: AWSWAFFunctions.() -> Unit) {
-	AWSWAFFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.waf(init: AWSWAFFunctions.() -> T): T {
+	return AWSWAFFunctions(shell).run(init)
 }
 
 			
 
-fun AWSWAFFunctions.createByteMatchSet(name: String, changeToken: String, init: AWSWAFCreateByteMatchSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFCreateByteMatchSetCommand(name, changeToken).apply(init))
+fun AWSWAFFunctions.createByteMatchSet(name: String, changeToken: String, init: AWSWAFCreateByteMatchSetCommand.() -> Unit): com.amazonaws.services.waf.model.CreateByteMatchSetResult {
+	return this.block.declare(AWSWAFCreateByteMatchSetCommand(name, changeToken).apply(init)) as com.amazonaws.services.waf.model.CreateByteMatchSetResult
 }
 
 @Generated
-class AWSWAFCreateByteMatchSetCommand(val name: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.CreateByteMatchSetRequest> {
+class AWSWAFCreateByteMatchSetCommand(val name: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.CreateByteMatchSetRequest, com.amazonaws.services.waf.model.CreateByteMatchSetResult> {
 
 
 
@@ -42,8 +42,12 @@ class AWSWAFCreateByteMatchSetCommand(val name: String, val changeToken: String)
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.createByteMatchSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.CreateByteMatchSetResult {
+	  return com.amazonaws.services.waf.model.CreateByteMatchSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.CreateByteMatchSetResult {
+		return environment.waf.createByteMatchSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -55,12 +59,12 @@ class AWSWAFCreateByteMatchSetCommand(val name: String, val changeToken: String)
 }
 
 
-fun AWSWAFFunctions.createGeoMatchSet(name: String, changeToken: String, init: AWSWAFCreateGeoMatchSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFCreateGeoMatchSetCommand(name, changeToken).apply(init))
+fun AWSWAFFunctions.createGeoMatchSet(name: String, changeToken: String, init: AWSWAFCreateGeoMatchSetCommand.() -> Unit): com.amazonaws.services.waf.model.CreateGeoMatchSetResult {
+	return this.block.declare(AWSWAFCreateGeoMatchSetCommand(name, changeToken).apply(init)) as com.amazonaws.services.waf.model.CreateGeoMatchSetResult
 }
 
 @Generated
-class AWSWAFCreateGeoMatchSetCommand(val name: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.CreateGeoMatchSetRequest> {
+class AWSWAFCreateGeoMatchSetCommand(val name: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.CreateGeoMatchSetRequest, com.amazonaws.services.waf.model.CreateGeoMatchSetResult> {
 
 
 
@@ -71,8 +75,12 @@ class AWSWAFCreateGeoMatchSetCommand(val name: String, val changeToken: String) 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.createGeoMatchSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.CreateGeoMatchSetResult {
+	  return com.amazonaws.services.waf.model.CreateGeoMatchSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.CreateGeoMatchSetResult {
+		return environment.waf.createGeoMatchSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -84,12 +92,12 @@ class AWSWAFCreateGeoMatchSetCommand(val name: String, val changeToken: String) 
 }
 
 
-fun AWSWAFFunctions.createIPSet(name: String, changeToken: String, init: AWSWAFCreateIPSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFCreateIPSetCommand(name, changeToken).apply(init))
+fun AWSWAFFunctions.createIPSet(name: String, changeToken: String, init: AWSWAFCreateIPSetCommand.() -> Unit): com.amazonaws.services.waf.model.CreateIPSetResult {
+	return this.block.declare(AWSWAFCreateIPSetCommand(name, changeToken).apply(init)) as com.amazonaws.services.waf.model.CreateIPSetResult
 }
 
 @Generated
-class AWSWAFCreateIPSetCommand(val name: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.CreateIPSetRequest> {
+class AWSWAFCreateIPSetCommand(val name: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.CreateIPSetRequest, com.amazonaws.services.waf.model.CreateIPSetResult> {
 
 
 
@@ -100,8 +108,12 @@ class AWSWAFCreateIPSetCommand(val name: String, val changeToken: String) : Amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.createIPSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.CreateIPSetResult {
+	  return com.amazonaws.services.waf.model.CreateIPSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.CreateIPSetResult {
+		return environment.waf.createIPSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -113,12 +125,12 @@ class AWSWAFCreateIPSetCommand(val name: String, val changeToken: String) : Amaz
 }
 
 
-fun AWSWAFFunctions.createRateBasedRule(name: String, metricName: String, rateKey: RateKey, rateLimit: Long, changeToken: String, init: AWSWAFCreateRateBasedRuleCommand.() -> Unit) {
-	this.block.declare(AWSWAFCreateRateBasedRuleCommand(name, metricName, rateKey, rateLimit, changeToken).apply(init))
+fun AWSWAFFunctions.createRateBasedRule(name: String, metricName: String, rateKey: RateKey, rateLimit: Long, changeToken: String, init: AWSWAFCreateRateBasedRuleCommand.() -> Unit): com.amazonaws.services.waf.model.CreateRateBasedRuleResult {
+	return this.block.declare(AWSWAFCreateRateBasedRuleCommand(name, metricName, rateKey, rateLimit, changeToken).apply(init)) as com.amazonaws.services.waf.model.CreateRateBasedRuleResult
 }
 
 @Generated
-class AWSWAFCreateRateBasedRuleCommand(val name: String, val metricName: String, val rateKey: RateKey, val rateLimit: Long, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.CreateRateBasedRuleRequest> {
+class AWSWAFCreateRateBasedRuleCommand(val name: String, val metricName: String, val rateKey: RateKey, val rateLimit: Long, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.CreateRateBasedRuleRequest, com.amazonaws.services.waf.model.CreateRateBasedRuleResult> {
 
 
 
@@ -132,8 +144,12 @@ class AWSWAFCreateRateBasedRuleCommand(val name: String, val metricName: String,
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.createRateBasedRule(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.CreateRateBasedRuleResult {
+	  return com.amazonaws.services.waf.model.CreateRateBasedRuleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.CreateRateBasedRuleResult {
+		return environment.waf.createRateBasedRule(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -148,12 +164,12 @@ class AWSWAFCreateRateBasedRuleCommand(val name: String, val metricName: String,
 }
 
 
-fun AWSWAFFunctions.createRegexMatchSet(name: String, changeToken: String, init: AWSWAFCreateRegexMatchSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFCreateRegexMatchSetCommand(name, changeToken).apply(init))
+fun AWSWAFFunctions.createRegexMatchSet(name: String, changeToken: String, init: AWSWAFCreateRegexMatchSetCommand.() -> Unit): com.amazonaws.services.waf.model.CreateRegexMatchSetResult {
+	return this.block.declare(AWSWAFCreateRegexMatchSetCommand(name, changeToken).apply(init)) as com.amazonaws.services.waf.model.CreateRegexMatchSetResult
 }
 
 @Generated
-class AWSWAFCreateRegexMatchSetCommand(val name: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.CreateRegexMatchSetRequest> {
+class AWSWAFCreateRegexMatchSetCommand(val name: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.CreateRegexMatchSetRequest, com.amazonaws.services.waf.model.CreateRegexMatchSetResult> {
 
 
 
@@ -164,8 +180,12 @@ class AWSWAFCreateRegexMatchSetCommand(val name: String, val changeToken: String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.createRegexMatchSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.CreateRegexMatchSetResult {
+	  return com.amazonaws.services.waf.model.CreateRegexMatchSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.CreateRegexMatchSetResult {
+		return environment.waf.createRegexMatchSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -177,12 +197,12 @@ class AWSWAFCreateRegexMatchSetCommand(val name: String, val changeToken: String
 }
 
 
-fun AWSWAFFunctions.createRegexPatternSet(name: String, changeToken: String, init: AWSWAFCreateRegexPatternSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFCreateRegexPatternSetCommand(name, changeToken).apply(init))
+fun AWSWAFFunctions.createRegexPatternSet(name: String, changeToken: String, init: AWSWAFCreateRegexPatternSetCommand.() -> Unit): com.amazonaws.services.waf.model.CreateRegexPatternSetResult {
+	return this.block.declare(AWSWAFCreateRegexPatternSetCommand(name, changeToken).apply(init)) as com.amazonaws.services.waf.model.CreateRegexPatternSetResult
 }
 
 @Generated
-class AWSWAFCreateRegexPatternSetCommand(val name: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.CreateRegexPatternSetRequest> {
+class AWSWAFCreateRegexPatternSetCommand(val name: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.CreateRegexPatternSetRequest, com.amazonaws.services.waf.model.CreateRegexPatternSetResult> {
 
 
 
@@ -193,8 +213,12 @@ class AWSWAFCreateRegexPatternSetCommand(val name: String, val changeToken: Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.createRegexPatternSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.CreateRegexPatternSetResult {
+	  return com.amazonaws.services.waf.model.CreateRegexPatternSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.CreateRegexPatternSetResult {
+		return environment.waf.createRegexPatternSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -206,12 +230,12 @@ class AWSWAFCreateRegexPatternSetCommand(val name: String, val changeToken: Stri
 }
 
 
-fun AWSWAFFunctions.createRule(name: String, metricName: String, changeToken: String, init: AWSWAFCreateRuleCommand.() -> Unit) {
-	this.block.declare(AWSWAFCreateRuleCommand(name, metricName, changeToken).apply(init))
+fun AWSWAFFunctions.createRule(name: String, metricName: String, changeToken: String, init: AWSWAFCreateRuleCommand.() -> Unit): com.amazonaws.services.waf.model.CreateRuleResult {
+	return this.block.declare(AWSWAFCreateRuleCommand(name, metricName, changeToken).apply(init)) as com.amazonaws.services.waf.model.CreateRuleResult
 }
 
 @Generated
-class AWSWAFCreateRuleCommand(val name: String, val metricName: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.CreateRuleRequest> {
+class AWSWAFCreateRuleCommand(val name: String, val metricName: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.CreateRuleRequest, com.amazonaws.services.waf.model.CreateRuleResult> {
 
 
 
@@ -223,8 +247,12 @@ class AWSWAFCreateRuleCommand(val name: String, val metricName: String, val chan
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.createRule(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.CreateRuleResult {
+	  return com.amazonaws.services.waf.model.CreateRuleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.CreateRuleResult {
+		return environment.waf.createRule(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -237,12 +265,12 @@ class AWSWAFCreateRuleCommand(val name: String, val metricName: String, val chan
 }
 
 
-fun AWSWAFFunctions.createRuleGroup(name: String, metricName: String, changeToken: String, init: AWSWAFCreateRuleGroupCommand.() -> Unit) {
-	this.block.declare(AWSWAFCreateRuleGroupCommand(name, metricName, changeToken).apply(init))
+fun AWSWAFFunctions.createRuleGroup(name: String, metricName: String, changeToken: String, init: AWSWAFCreateRuleGroupCommand.() -> Unit): com.amazonaws.services.waf.model.CreateRuleGroupResult {
+	return this.block.declare(AWSWAFCreateRuleGroupCommand(name, metricName, changeToken).apply(init)) as com.amazonaws.services.waf.model.CreateRuleGroupResult
 }
 
 @Generated
-class AWSWAFCreateRuleGroupCommand(val name: String, val metricName: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.CreateRuleGroupRequest> {
+class AWSWAFCreateRuleGroupCommand(val name: String, val metricName: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.CreateRuleGroupRequest, com.amazonaws.services.waf.model.CreateRuleGroupResult> {
 
 
 
@@ -254,8 +282,12 @@ class AWSWAFCreateRuleGroupCommand(val name: String, val metricName: String, val
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.createRuleGroup(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.CreateRuleGroupResult {
+	  return com.amazonaws.services.waf.model.CreateRuleGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.CreateRuleGroupResult {
+		return environment.waf.createRuleGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -268,12 +300,12 @@ class AWSWAFCreateRuleGroupCommand(val name: String, val metricName: String, val
 }
 
 
-fun AWSWAFFunctions.createSizeConstraintSet(name: String, changeToken: String, init: AWSWAFCreateSizeConstraintSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFCreateSizeConstraintSetCommand(name, changeToken).apply(init))
+fun AWSWAFFunctions.createSizeConstraintSet(name: String, changeToken: String, init: AWSWAFCreateSizeConstraintSetCommand.() -> Unit): com.amazonaws.services.waf.model.CreateSizeConstraintSetResult {
+	return this.block.declare(AWSWAFCreateSizeConstraintSetCommand(name, changeToken).apply(init)) as com.amazonaws.services.waf.model.CreateSizeConstraintSetResult
 }
 
 @Generated
-class AWSWAFCreateSizeConstraintSetCommand(val name: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.CreateSizeConstraintSetRequest> {
+class AWSWAFCreateSizeConstraintSetCommand(val name: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.CreateSizeConstraintSetRequest, com.amazonaws.services.waf.model.CreateSizeConstraintSetResult> {
 
 
 
@@ -284,8 +316,12 @@ class AWSWAFCreateSizeConstraintSetCommand(val name: String, val changeToken: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.createSizeConstraintSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.CreateSizeConstraintSetResult {
+	  return com.amazonaws.services.waf.model.CreateSizeConstraintSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.CreateSizeConstraintSetResult {
+		return environment.waf.createSizeConstraintSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -297,12 +333,12 @@ class AWSWAFCreateSizeConstraintSetCommand(val name: String, val changeToken: St
 }
 
 
-fun AWSWAFFunctions.createSqlInjectionMatchSet(name: String, changeToken: String, init: AWSWAFCreateSqlInjectionMatchSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFCreateSqlInjectionMatchSetCommand(name, changeToken).apply(init))
+fun AWSWAFFunctions.createSqlInjectionMatchSet(name: String, changeToken: String, init: AWSWAFCreateSqlInjectionMatchSetCommand.() -> Unit): com.amazonaws.services.waf.model.CreateSqlInjectionMatchSetResult {
+	return this.block.declare(AWSWAFCreateSqlInjectionMatchSetCommand(name, changeToken).apply(init)) as com.amazonaws.services.waf.model.CreateSqlInjectionMatchSetResult
 }
 
 @Generated
-class AWSWAFCreateSqlInjectionMatchSetCommand(val name: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.CreateSqlInjectionMatchSetRequest> {
+class AWSWAFCreateSqlInjectionMatchSetCommand(val name: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.CreateSqlInjectionMatchSetRequest, com.amazonaws.services.waf.model.CreateSqlInjectionMatchSetResult> {
 
 
 
@@ -313,8 +349,12 @@ class AWSWAFCreateSqlInjectionMatchSetCommand(val name: String, val changeToken:
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.createSqlInjectionMatchSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.CreateSqlInjectionMatchSetResult {
+	  return com.amazonaws.services.waf.model.CreateSqlInjectionMatchSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.CreateSqlInjectionMatchSetResult {
+		return environment.waf.createSqlInjectionMatchSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -326,12 +366,12 @@ class AWSWAFCreateSqlInjectionMatchSetCommand(val name: String, val changeToken:
 }
 
 
-fun AWSWAFFunctions.createWebACL(name: String, metricName: String, defaultAction: com.amazonaws.services.waf.model.WafAction, changeToken: String, init: AWSWAFCreateWebACLCommand.() -> Unit) {
-	this.block.declare(AWSWAFCreateWebACLCommand(name, metricName, defaultAction, changeToken).apply(init))
+fun AWSWAFFunctions.createWebACL(name: String, metricName: String, defaultAction: com.amazonaws.services.waf.model.WafAction, changeToken: String, init: AWSWAFCreateWebACLCommand.() -> Unit): com.amazonaws.services.waf.model.CreateWebACLResult {
+	return this.block.declare(AWSWAFCreateWebACLCommand(name, metricName, defaultAction, changeToken).apply(init)) as com.amazonaws.services.waf.model.CreateWebACLResult
 }
 
 @Generated
-class AWSWAFCreateWebACLCommand(val name: String, val metricName: String, val defaultAction: com.amazonaws.services.waf.model.WafAction, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.CreateWebACLRequest> {
+class AWSWAFCreateWebACLCommand(val name: String, val metricName: String, val defaultAction: com.amazonaws.services.waf.model.WafAction, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.CreateWebACLRequest, com.amazonaws.services.waf.model.CreateWebACLResult> {
 
 
 
@@ -344,8 +384,12 @@ class AWSWAFCreateWebACLCommand(val name: String, val metricName: String, val de
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.createWebACL(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.CreateWebACLResult {
+	  return com.amazonaws.services.waf.model.CreateWebACLResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.CreateWebACLResult {
+		return environment.waf.createWebACL(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -359,12 +403,12 @@ class AWSWAFCreateWebACLCommand(val name: String, val metricName: String, val de
 }
 
 
-fun AWSWAFFunctions.createXssMatchSet(name: String, changeToken: String, init: AWSWAFCreateXssMatchSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFCreateXssMatchSetCommand(name, changeToken).apply(init))
+fun AWSWAFFunctions.createXssMatchSet(name: String, changeToken: String, init: AWSWAFCreateXssMatchSetCommand.() -> Unit): com.amazonaws.services.waf.model.CreateXssMatchSetResult {
+	return this.block.declare(AWSWAFCreateXssMatchSetCommand(name, changeToken).apply(init)) as com.amazonaws.services.waf.model.CreateXssMatchSetResult
 }
 
 @Generated
-class AWSWAFCreateXssMatchSetCommand(val name: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.CreateXssMatchSetRequest> {
+class AWSWAFCreateXssMatchSetCommand(val name: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.CreateXssMatchSetRequest, com.amazonaws.services.waf.model.CreateXssMatchSetResult> {
 
 
 
@@ -375,8 +419,12 @@ class AWSWAFCreateXssMatchSetCommand(val name: String, val changeToken: String) 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.createXssMatchSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.CreateXssMatchSetResult {
+	  return com.amazonaws.services.waf.model.CreateXssMatchSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.CreateXssMatchSetResult {
+		return environment.waf.createXssMatchSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -388,12 +436,12 @@ class AWSWAFCreateXssMatchSetCommand(val name: String, val changeToken: String) 
 }
 
 
-fun AWSWAFFunctions.deleteByteMatchSet(byteMatchSetId: String, changeToken: String, init: AWSWAFDeleteByteMatchSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFDeleteByteMatchSetCommand(byteMatchSetId, changeToken).apply(init))
+fun AWSWAFFunctions.deleteByteMatchSet(byteMatchSetId: String, changeToken: String, init: AWSWAFDeleteByteMatchSetCommand.() -> Unit): com.amazonaws.services.waf.model.DeleteByteMatchSetResult {
+	return this.block.declare(AWSWAFDeleteByteMatchSetCommand(byteMatchSetId, changeToken).apply(init)) as com.amazonaws.services.waf.model.DeleteByteMatchSetResult
 }
 
 @Generated
-class AWSWAFDeleteByteMatchSetCommand(val byteMatchSetId: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.DeleteByteMatchSetRequest> {
+class AWSWAFDeleteByteMatchSetCommand(val byteMatchSetId: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.DeleteByteMatchSetRequest, com.amazonaws.services.waf.model.DeleteByteMatchSetResult> {
 
 
 
@@ -404,8 +452,12 @@ class AWSWAFDeleteByteMatchSetCommand(val byteMatchSetId: String, val changeToke
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.deleteByteMatchSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.DeleteByteMatchSetResult {
+	  return com.amazonaws.services.waf.model.DeleteByteMatchSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.DeleteByteMatchSetResult {
+		return environment.waf.deleteByteMatchSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -417,12 +469,12 @@ class AWSWAFDeleteByteMatchSetCommand(val byteMatchSetId: String, val changeToke
 }
 
 
-fun AWSWAFFunctions.deleteGeoMatchSet(geoMatchSetId: String, changeToken: String, init: AWSWAFDeleteGeoMatchSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFDeleteGeoMatchSetCommand(geoMatchSetId, changeToken).apply(init))
+fun AWSWAFFunctions.deleteGeoMatchSet(geoMatchSetId: String, changeToken: String, init: AWSWAFDeleteGeoMatchSetCommand.() -> Unit): com.amazonaws.services.waf.model.DeleteGeoMatchSetResult {
+	return this.block.declare(AWSWAFDeleteGeoMatchSetCommand(geoMatchSetId, changeToken).apply(init)) as com.amazonaws.services.waf.model.DeleteGeoMatchSetResult
 }
 
 @Generated
-class AWSWAFDeleteGeoMatchSetCommand(val geoMatchSetId: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.DeleteGeoMatchSetRequest> {
+class AWSWAFDeleteGeoMatchSetCommand(val geoMatchSetId: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.DeleteGeoMatchSetRequest, com.amazonaws.services.waf.model.DeleteGeoMatchSetResult> {
 
 
 
@@ -433,8 +485,12 @@ class AWSWAFDeleteGeoMatchSetCommand(val geoMatchSetId: String, val changeToken:
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.deleteGeoMatchSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.DeleteGeoMatchSetResult {
+	  return com.amazonaws.services.waf.model.DeleteGeoMatchSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.DeleteGeoMatchSetResult {
+		return environment.waf.deleteGeoMatchSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -446,12 +502,12 @@ class AWSWAFDeleteGeoMatchSetCommand(val geoMatchSetId: String, val changeToken:
 }
 
 
-fun AWSWAFFunctions.deleteIPSet(iPSetId: String, changeToken: String, init: AWSWAFDeleteIPSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFDeleteIPSetCommand(iPSetId, changeToken).apply(init))
+fun AWSWAFFunctions.deleteIPSet(iPSetId: String, changeToken: String, init: AWSWAFDeleteIPSetCommand.() -> Unit): com.amazonaws.services.waf.model.DeleteIPSetResult {
+	return this.block.declare(AWSWAFDeleteIPSetCommand(iPSetId, changeToken).apply(init)) as com.amazonaws.services.waf.model.DeleteIPSetResult
 }
 
 @Generated
-class AWSWAFDeleteIPSetCommand(val iPSetId: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.DeleteIPSetRequest> {
+class AWSWAFDeleteIPSetCommand(val iPSetId: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.DeleteIPSetRequest, com.amazonaws.services.waf.model.DeleteIPSetResult> {
 
 
 
@@ -462,8 +518,12 @@ class AWSWAFDeleteIPSetCommand(val iPSetId: String, val changeToken: String) : A
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.deleteIPSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.DeleteIPSetResult {
+	  return com.amazonaws.services.waf.model.DeleteIPSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.DeleteIPSetResult {
+		return environment.waf.deleteIPSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -475,12 +535,12 @@ class AWSWAFDeleteIPSetCommand(val iPSetId: String, val changeToken: String) : A
 }
 
 
-fun AWSWAFFunctions.deletePermissionPolicy(resourceArn: String, init: AWSWAFDeletePermissionPolicyCommand.() -> Unit) {
-	this.block.declare(AWSWAFDeletePermissionPolicyCommand(resourceArn).apply(init))
+fun AWSWAFFunctions.deletePermissionPolicy(resourceArn: String, init: AWSWAFDeletePermissionPolicyCommand.() -> Unit): com.amazonaws.services.waf.model.DeletePermissionPolicyResult {
+	return this.block.declare(AWSWAFDeletePermissionPolicyCommand(resourceArn).apply(init)) as com.amazonaws.services.waf.model.DeletePermissionPolicyResult
 }
 
 @Generated
-class AWSWAFDeletePermissionPolicyCommand(val resourceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.DeletePermissionPolicyRequest> {
+class AWSWAFDeletePermissionPolicyCommand(val resourceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.DeletePermissionPolicyRequest, com.amazonaws.services.waf.model.DeletePermissionPolicyResult> {
 
 
 
@@ -490,8 +550,12 @@ class AWSWAFDeletePermissionPolicyCommand(val resourceArn: String) : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.deletePermissionPolicy(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.DeletePermissionPolicyResult {
+	  return com.amazonaws.services.waf.model.DeletePermissionPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.DeletePermissionPolicyResult {
+		return environment.waf.deletePermissionPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -502,12 +566,12 @@ class AWSWAFDeletePermissionPolicyCommand(val resourceArn: String) : AmazonWebSe
 }
 
 
-fun AWSWAFFunctions.deleteRateBasedRule(ruleId: String, changeToken: String, init: AWSWAFDeleteRateBasedRuleCommand.() -> Unit) {
-	this.block.declare(AWSWAFDeleteRateBasedRuleCommand(ruleId, changeToken).apply(init))
+fun AWSWAFFunctions.deleteRateBasedRule(ruleId: String, changeToken: String, init: AWSWAFDeleteRateBasedRuleCommand.() -> Unit): com.amazonaws.services.waf.model.DeleteRateBasedRuleResult {
+	return this.block.declare(AWSWAFDeleteRateBasedRuleCommand(ruleId, changeToken).apply(init)) as com.amazonaws.services.waf.model.DeleteRateBasedRuleResult
 }
 
 @Generated
-class AWSWAFDeleteRateBasedRuleCommand(val ruleId: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.DeleteRateBasedRuleRequest> {
+class AWSWAFDeleteRateBasedRuleCommand(val ruleId: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.DeleteRateBasedRuleRequest, com.amazonaws.services.waf.model.DeleteRateBasedRuleResult> {
 
 
 
@@ -518,8 +582,12 @@ class AWSWAFDeleteRateBasedRuleCommand(val ruleId: String, val changeToken: Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.deleteRateBasedRule(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.DeleteRateBasedRuleResult {
+	  return com.amazonaws.services.waf.model.DeleteRateBasedRuleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.DeleteRateBasedRuleResult {
+		return environment.waf.deleteRateBasedRule(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -531,12 +599,12 @@ class AWSWAFDeleteRateBasedRuleCommand(val ruleId: String, val changeToken: Stri
 }
 
 
-fun AWSWAFFunctions.deleteRegexMatchSet(regexMatchSetId: String, changeToken: String, init: AWSWAFDeleteRegexMatchSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFDeleteRegexMatchSetCommand(regexMatchSetId, changeToken).apply(init))
+fun AWSWAFFunctions.deleteRegexMatchSet(regexMatchSetId: String, changeToken: String, init: AWSWAFDeleteRegexMatchSetCommand.() -> Unit): com.amazonaws.services.waf.model.DeleteRegexMatchSetResult {
+	return this.block.declare(AWSWAFDeleteRegexMatchSetCommand(regexMatchSetId, changeToken).apply(init)) as com.amazonaws.services.waf.model.DeleteRegexMatchSetResult
 }
 
 @Generated
-class AWSWAFDeleteRegexMatchSetCommand(val regexMatchSetId: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.DeleteRegexMatchSetRequest> {
+class AWSWAFDeleteRegexMatchSetCommand(val regexMatchSetId: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.DeleteRegexMatchSetRequest, com.amazonaws.services.waf.model.DeleteRegexMatchSetResult> {
 
 
 
@@ -547,8 +615,12 @@ class AWSWAFDeleteRegexMatchSetCommand(val regexMatchSetId: String, val changeTo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.deleteRegexMatchSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.DeleteRegexMatchSetResult {
+	  return com.amazonaws.services.waf.model.DeleteRegexMatchSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.DeleteRegexMatchSetResult {
+		return environment.waf.deleteRegexMatchSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -560,12 +632,12 @@ class AWSWAFDeleteRegexMatchSetCommand(val regexMatchSetId: String, val changeTo
 }
 
 
-fun AWSWAFFunctions.deleteRegexPatternSet(regexPatternSetId: String, changeToken: String, init: AWSWAFDeleteRegexPatternSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFDeleteRegexPatternSetCommand(regexPatternSetId, changeToken).apply(init))
+fun AWSWAFFunctions.deleteRegexPatternSet(regexPatternSetId: String, changeToken: String, init: AWSWAFDeleteRegexPatternSetCommand.() -> Unit): com.amazonaws.services.waf.model.DeleteRegexPatternSetResult {
+	return this.block.declare(AWSWAFDeleteRegexPatternSetCommand(regexPatternSetId, changeToken).apply(init)) as com.amazonaws.services.waf.model.DeleteRegexPatternSetResult
 }
 
 @Generated
-class AWSWAFDeleteRegexPatternSetCommand(val regexPatternSetId: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.DeleteRegexPatternSetRequest> {
+class AWSWAFDeleteRegexPatternSetCommand(val regexPatternSetId: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.DeleteRegexPatternSetRequest, com.amazonaws.services.waf.model.DeleteRegexPatternSetResult> {
 
 
 
@@ -576,8 +648,12 @@ class AWSWAFDeleteRegexPatternSetCommand(val regexPatternSetId: String, val chan
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.deleteRegexPatternSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.DeleteRegexPatternSetResult {
+	  return com.amazonaws.services.waf.model.DeleteRegexPatternSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.DeleteRegexPatternSetResult {
+		return environment.waf.deleteRegexPatternSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -589,12 +665,12 @@ class AWSWAFDeleteRegexPatternSetCommand(val regexPatternSetId: String, val chan
 }
 
 
-fun AWSWAFFunctions.deleteRule(ruleId: String, changeToken: String, init: AWSWAFDeleteRuleCommand.() -> Unit) {
-	this.block.declare(AWSWAFDeleteRuleCommand(ruleId, changeToken).apply(init))
+fun AWSWAFFunctions.deleteRule(ruleId: String, changeToken: String, init: AWSWAFDeleteRuleCommand.() -> Unit): com.amazonaws.services.waf.model.DeleteRuleResult {
+	return this.block.declare(AWSWAFDeleteRuleCommand(ruleId, changeToken).apply(init)) as com.amazonaws.services.waf.model.DeleteRuleResult
 }
 
 @Generated
-class AWSWAFDeleteRuleCommand(val ruleId: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.DeleteRuleRequest> {
+class AWSWAFDeleteRuleCommand(val ruleId: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.DeleteRuleRequest, com.amazonaws.services.waf.model.DeleteRuleResult> {
 
 
 
@@ -605,8 +681,12 @@ class AWSWAFDeleteRuleCommand(val ruleId: String, val changeToken: String) : Ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.deleteRule(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.DeleteRuleResult {
+	  return com.amazonaws.services.waf.model.DeleteRuleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.DeleteRuleResult {
+		return environment.waf.deleteRule(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -618,12 +698,12 @@ class AWSWAFDeleteRuleCommand(val ruleId: String, val changeToken: String) : Ama
 }
 
 
-fun AWSWAFFunctions.deleteRuleGroup(ruleGroupId: String, changeToken: String, init: AWSWAFDeleteRuleGroupCommand.() -> Unit) {
-	this.block.declare(AWSWAFDeleteRuleGroupCommand(ruleGroupId, changeToken).apply(init))
+fun AWSWAFFunctions.deleteRuleGroup(ruleGroupId: String, changeToken: String, init: AWSWAFDeleteRuleGroupCommand.() -> Unit): com.amazonaws.services.waf.model.DeleteRuleGroupResult {
+	return this.block.declare(AWSWAFDeleteRuleGroupCommand(ruleGroupId, changeToken).apply(init)) as com.amazonaws.services.waf.model.DeleteRuleGroupResult
 }
 
 @Generated
-class AWSWAFDeleteRuleGroupCommand(val ruleGroupId: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.DeleteRuleGroupRequest> {
+class AWSWAFDeleteRuleGroupCommand(val ruleGroupId: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.DeleteRuleGroupRequest, com.amazonaws.services.waf.model.DeleteRuleGroupResult> {
 
 
 
@@ -634,8 +714,12 @@ class AWSWAFDeleteRuleGroupCommand(val ruleGroupId: String, val changeToken: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.deleteRuleGroup(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.DeleteRuleGroupResult {
+	  return com.amazonaws.services.waf.model.DeleteRuleGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.DeleteRuleGroupResult {
+		return environment.waf.deleteRuleGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -647,12 +731,12 @@ class AWSWAFDeleteRuleGroupCommand(val ruleGroupId: String, val changeToken: Str
 }
 
 
-fun AWSWAFFunctions.deleteSizeConstraintSet(sizeConstraintSetId: String, changeToken: String, init: AWSWAFDeleteSizeConstraintSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFDeleteSizeConstraintSetCommand(sizeConstraintSetId, changeToken).apply(init))
+fun AWSWAFFunctions.deleteSizeConstraintSet(sizeConstraintSetId: String, changeToken: String, init: AWSWAFDeleteSizeConstraintSetCommand.() -> Unit): com.amazonaws.services.waf.model.DeleteSizeConstraintSetResult {
+	return this.block.declare(AWSWAFDeleteSizeConstraintSetCommand(sizeConstraintSetId, changeToken).apply(init)) as com.amazonaws.services.waf.model.DeleteSizeConstraintSetResult
 }
 
 @Generated
-class AWSWAFDeleteSizeConstraintSetCommand(val sizeConstraintSetId: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.DeleteSizeConstraintSetRequest> {
+class AWSWAFDeleteSizeConstraintSetCommand(val sizeConstraintSetId: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.DeleteSizeConstraintSetRequest, com.amazonaws.services.waf.model.DeleteSizeConstraintSetResult> {
 
 
 
@@ -663,8 +747,12 @@ class AWSWAFDeleteSizeConstraintSetCommand(val sizeConstraintSetId: String, val 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.deleteSizeConstraintSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.DeleteSizeConstraintSetResult {
+	  return com.amazonaws.services.waf.model.DeleteSizeConstraintSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.DeleteSizeConstraintSetResult {
+		return environment.waf.deleteSizeConstraintSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -676,12 +764,12 @@ class AWSWAFDeleteSizeConstraintSetCommand(val sizeConstraintSetId: String, val 
 }
 
 
-fun AWSWAFFunctions.deleteSqlInjectionMatchSet(sqlInjectionMatchSetId: String, changeToken: String, init: AWSWAFDeleteSqlInjectionMatchSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFDeleteSqlInjectionMatchSetCommand(sqlInjectionMatchSetId, changeToken).apply(init))
+fun AWSWAFFunctions.deleteSqlInjectionMatchSet(sqlInjectionMatchSetId: String, changeToken: String, init: AWSWAFDeleteSqlInjectionMatchSetCommand.() -> Unit): com.amazonaws.services.waf.model.DeleteSqlInjectionMatchSetResult {
+	return this.block.declare(AWSWAFDeleteSqlInjectionMatchSetCommand(sqlInjectionMatchSetId, changeToken).apply(init)) as com.amazonaws.services.waf.model.DeleteSqlInjectionMatchSetResult
 }
 
 @Generated
-class AWSWAFDeleteSqlInjectionMatchSetCommand(val sqlInjectionMatchSetId: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.DeleteSqlInjectionMatchSetRequest> {
+class AWSWAFDeleteSqlInjectionMatchSetCommand(val sqlInjectionMatchSetId: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.DeleteSqlInjectionMatchSetRequest, com.amazonaws.services.waf.model.DeleteSqlInjectionMatchSetResult> {
 
 
 
@@ -692,8 +780,12 @@ class AWSWAFDeleteSqlInjectionMatchSetCommand(val sqlInjectionMatchSetId: String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.deleteSqlInjectionMatchSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.DeleteSqlInjectionMatchSetResult {
+	  return com.amazonaws.services.waf.model.DeleteSqlInjectionMatchSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.DeleteSqlInjectionMatchSetResult {
+		return environment.waf.deleteSqlInjectionMatchSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -705,12 +797,12 @@ class AWSWAFDeleteSqlInjectionMatchSetCommand(val sqlInjectionMatchSetId: String
 }
 
 
-fun AWSWAFFunctions.deleteWebACL(webACLId: String, changeToken: String, init: AWSWAFDeleteWebACLCommand.() -> Unit) {
-	this.block.declare(AWSWAFDeleteWebACLCommand(webACLId, changeToken).apply(init))
+fun AWSWAFFunctions.deleteWebACL(webACLId: String, changeToken: String, init: AWSWAFDeleteWebACLCommand.() -> Unit): com.amazonaws.services.waf.model.DeleteWebACLResult {
+	return this.block.declare(AWSWAFDeleteWebACLCommand(webACLId, changeToken).apply(init)) as com.amazonaws.services.waf.model.DeleteWebACLResult
 }
 
 @Generated
-class AWSWAFDeleteWebACLCommand(val webACLId: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.DeleteWebACLRequest> {
+class AWSWAFDeleteWebACLCommand(val webACLId: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.DeleteWebACLRequest, com.amazonaws.services.waf.model.DeleteWebACLResult> {
 
 
 
@@ -721,8 +813,12 @@ class AWSWAFDeleteWebACLCommand(val webACLId: String, val changeToken: String) :
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.deleteWebACL(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.DeleteWebACLResult {
+	  return com.amazonaws.services.waf.model.DeleteWebACLResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.DeleteWebACLResult {
+		return environment.waf.deleteWebACL(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -734,12 +830,12 @@ class AWSWAFDeleteWebACLCommand(val webACLId: String, val changeToken: String) :
 }
 
 
-fun AWSWAFFunctions.deleteXssMatchSet(xssMatchSetId: String, changeToken: String, init: AWSWAFDeleteXssMatchSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFDeleteXssMatchSetCommand(xssMatchSetId, changeToken).apply(init))
+fun AWSWAFFunctions.deleteXssMatchSet(xssMatchSetId: String, changeToken: String, init: AWSWAFDeleteXssMatchSetCommand.() -> Unit): com.amazonaws.services.waf.model.DeleteXssMatchSetResult {
+	return this.block.declare(AWSWAFDeleteXssMatchSetCommand(xssMatchSetId, changeToken).apply(init)) as com.amazonaws.services.waf.model.DeleteXssMatchSetResult
 }
 
 @Generated
-class AWSWAFDeleteXssMatchSetCommand(val xssMatchSetId: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.DeleteXssMatchSetRequest> {
+class AWSWAFDeleteXssMatchSetCommand(val xssMatchSetId: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.DeleteXssMatchSetRequest, com.amazonaws.services.waf.model.DeleteXssMatchSetResult> {
 
 
 
@@ -750,8 +846,12 @@ class AWSWAFDeleteXssMatchSetCommand(val xssMatchSetId: String, val changeToken:
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.deleteXssMatchSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.DeleteXssMatchSetResult {
+	  return com.amazonaws.services.waf.model.DeleteXssMatchSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.DeleteXssMatchSetResult {
+		return environment.waf.deleteXssMatchSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -763,12 +863,12 @@ class AWSWAFDeleteXssMatchSetCommand(val xssMatchSetId: String, val changeToken:
 }
 
 
-fun AWSWAFFunctions.getByteMatchSet(byteMatchSetId: String, init: AWSWAFGetByteMatchSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFGetByteMatchSetCommand(byteMatchSetId).apply(init))
+fun AWSWAFFunctions.getByteMatchSet(byteMatchSetId: String, init: AWSWAFGetByteMatchSetCommand.() -> Unit): com.amazonaws.services.waf.model.GetByteMatchSetResult {
+	return this.block.declare(AWSWAFGetByteMatchSetCommand(byteMatchSetId).apply(init)) as com.amazonaws.services.waf.model.GetByteMatchSetResult
 }
 
 @Generated
-class AWSWAFGetByteMatchSetCommand(val byteMatchSetId: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetByteMatchSetRequest> {
+class AWSWAFGetByteMatchSetCommand(val byteMatchSetId: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetByteMatchSetRequest, com.amazonaws.services.waf.model.GetByteMatchSetResult> {
 
 
 
@@ -778,8 +878,12 @@ class AWSWAFGetByteMatchSetCommand(val byteMatchSetId: String) : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.getByteMatchSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.GetByteMatchSetResult {
+	  return com.amazonaws.services.waf.model.GetByteMatchSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetByteMatchSetResult {
+		return environment.waf.getByteMatchSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -790,12 +894,12 @@ class AWSWAFGetByteMatchSetCommand(val byteMatchSetId: String) : AmazonWebServic
 }
 
 
-fun AWSWAFFunctions.getChangeToken(init: AWSWAFGetChangeTokenCommand.() -> Unit) {
-	this.block.declare(AWSWAFGetChangeTokenCommand().apply(init))
+fun AWSWAFFunctions.getChangeToken(init: AWSWAFGetChangeTokenCommand.() -> Unit): com.amazonaws.services.waf.model.GetChangeTokenResult {
+	return this.block.declare(AWSWAFGetChangeTokenCommand().apply(init)) as com.amazonaws.services.waf.model.GetChangeTokenResult
 }
 
 @Generated
-class AWSWAFGetChangeTokenCommand() : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetChangeTokenRequest> {
+class AWSWAFGetChangeTokenCommand() : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetChangeTokenRequest, com.amazonaws.services.waf.model.GetChangeTokenResult> {
 
 
 
@@ -805,8 +909,12 @@ class AWSWAFGetChangeTokenCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.getChangeToken(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.GetChangeTokenResult {
+	  return com.amazonaws.services.waf.model.GetChangeTokenResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetChangeTokenResult {
+		return environment.waf.getChangeToken(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -817,12 +925,12 @@ class AWSWAFGetChangeTokenCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 }
 
 
-fun AWSWAFFunctions.getChangeTokenStatus(changeToken: String, init: AWSWAFGetChangeTokenStatusCommand.() -> Unit) {
-	this.block.declare(AWSWAFGetChangeTokenStatusCommand(changeToken).apply(init))
+fun AWSWAFFunctions.getChangeTokenStatus(changeToken: String, init: AWSWAFGetChangeTokenStatusCommand.() -> Unit): com.amazonaws.services.waf.model.GetChangeTokenStatusResult {
+	return this.block.declare(AWSWAFGetChangeTokenStatusCommand(changeToken).apply(init)) as com.amazonaws.services.waf.model.GetChangeTokenStatusResult
 }
 
 @Generated
-class AWSWAFGetChangeTokenStatusCommand(val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetChangeTokenStatusRequest> {
+class AWSWAFGetChangeTokenStatusCommand(val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetChangeTokenStatusRequest, com.amazonaws.services.waf.model.GetChangeTokenStatusResult> {
 
 
 
@@ -832,8 +940,12 @@ class AWSWAFGetChangeTokenStatusCommand(val changeToken: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.getChangeTokenStatus(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.GetChangeTokenStatusResult {
+	  return com.amazonaws.services.waf.model.GetChangeTokenStatusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetChangeTokenStatusResult {
+		return environment.waf.getChangeTokenStatus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -844,12 +956,12 @@ class AWSWAFGetChangeTokenStatusCommand(val changeToken: String) : AmazonWebServ
 }
 
 
-fun AWSWAFFunctions.getGeoMatchSet(geoMatchSetId: String, init: AWSWAFGetGeoMatchSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFGetGeoMatchSetCommand(geoMatchSetId).apply(init))
+fun AWSWAFFunctions.getGeoMatchSet(geoMatchSetId: String, init: AWSWAFGetGeoMatchSetCommand.() -> Unit): com.amazonaws.services.waf.model.GetGeoMatchSetResult {
+	return this.block.declare(AWSWAFGetGeoMatchSetCommand(geoMatchSetId).apply(init)) as com.amazonaws.services.waf.model.GetGeoMatchSetResult
 }
 
 @Generated
-class AWSWAFGetGeoMatchSetCommand(val geoMatchSetId: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetGeoMatchSetRequest> {
+class AWSWAFGetGeoMatchSetCommand(val geoMatchSetId: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetGeoMatchSetRequest, com.amazonaws.services.waf.model.GetGeoMatchSetResult> {
 
 
 
@@ -859,8 +971,12 @@ class AWSWAFGetGeoMatchSetCommand(val geoMatchSetId: String) : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.getGeoMatchSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.GetGeoMatchSetResult {
+	  return com.amazonaws.services.waf.model.GetGeoMatchSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetGeoMatchSetResult {
+		return environment.waf.getGeoMatchSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -871,12 +987,12 @@ class AWSWAFGetGeoMatchSetCommand(val geoMatchSetId: String) : AmazonWebServiceC
 }
 
 
-fun AWSWAFFunctions.getIPSet(iPSetId: String, init: AWSWAFGetIPSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFGetIPSetCommand(iPSetId).apply(init))
+fun AWSWAFFunctions.getIPSet(iPSetId: String, init: AWSWAFGetIPSetCommand.() -> Unit): com.amazonaws.services.waf.model.GetIPSetResult {
+	return this.block.declare(AWSWAFGetIPSetCommand(iPSetId).apply(init)) as com.amazonaws.services.waf.model.GetIPSetResult
 }
 
 @Generated
-class AWSWAFGetIPSetCommand(val iPSetId: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetIPSetRequest> {
+class AWSWAFGetIPSetCommand(val iPSetId: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetIPSetRequest, com.amazonaws.services.waf.model.GetIPSetResult> {
 
 
 
@@ -886,8 +1002,12 @@ class AWSWAFGetIPSetCommand(val iPSetId: String) : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.getIPSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.GetIPSetResult {
+	  return com.amazonaws.services.waf.model.GetIPSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetIPSetResult {
+		return environment.waf.getIPSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -898,12 +1018,12 @@ class AWSWAFGetIPSetCommand(val iPSetId: String) : AmazonWebServiceCommand<com.a
 }
 
 
-fun AWSWAFFunctions.getPermissionPolicy(resourceArn: String, init: AWSWAFGetPermissionPolicyCommand.() -> Unit) {
-	this.block.declare(AWSWAFGetPermissionPolicyCommand(resourceArn).apply(init))
+fun AWSWAFFunctions.getPermissionPolicy(resourceArn: String, init: AWSWAFGetPermissionPolicyCommand.() -> Unit): com.amazonaws.services.waf.model.GetPermissionPolicyResult {
+	return this.block.declare(AWSWAFGetPermissionPolicyCommand(resourceArn).apply(init)) as com.amazonaws.services.waf.model.GetPermissionPolicyResult
 }
 
 @Generated
-class AWSWAFGetPermissionPolicyCommand(val resourceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetPermissionPolicyRequest> {
+class AWSWAFGetPermissionPolicyCommand(val resourceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetPermissionPolicyRequest, com.amazonaws.services.waf.model.GetPermissionPolicyResult> {
 
 
 
@@ -913,8 +1033,12 @@ class AWSWAFGetPermissionPolicyCommand(val resourceArn: String) : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.getPermissionPolicy(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.GetPermissionPolicyResult {
+	  return com.amazonaws.services.waf.model.GetPermissionPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetPermissionPolicyResult {
+		return environment.waf.getPermissionPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -925,12 +1049,12 @@ class AWSWAFGetPermissionPolicyCommand(val resourceArn: String) : AmazonWebServi
 }
 
 
-fun AWSWAFFunctions.getRateBasedRule(ruleId: String, init: AWSWAFGetRateBasedRuleCommand.() -> Unit) {
-	this.block.declare(AWSWAFGetRateBasedRuleCommand(ruleId).apply(init))
+fun AWSWAFFunctions.getRateBasedRule(ruleId: String, init: AWSWAFGetRateBasedRuleCommand.() -> Unit): com.amazonaws.services.waf.model.GetRateBasedRuleResult {
+	return this.block.declare(AWSWAFGetRateBasedRuleCommand(ruleId).apply(init)) as com.amazonaws.services.waf.model.GetRateBasedRuleResult
 }
 
 @Generated
-class AWSWAFGetRateBasedRuleCommand(val ruleId: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetRateBasedRuleRequest> {
+class AWSWAFGetRateBasedRuleCommand(val ruleId: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetRateBasedRuleRequest, com.amazonaws.services.waf.model.GetRateBasedRuleResult> {
 
 
 
@@ -940,8 +1064,12 @@ class AWSWAFGetRateBasedRuleCommand(val ruleId: String) : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.getRateBasedRule(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.GetRateBasedRuleResult {
+	  return com.amazonaws.services.waf.model.GetRateBasedRuleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetRateBasedRuleResult {
+		return environment.waf.getRateBasedRule(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -952,12 +1080,12 @@ class AWSWAFGetRateBasedRuleCommand(val ruleId: String) : AmazonWebServiceComman
 }
 
 
-fun AWSWAFFunctions.getRateBasedRuleManagedKeys(ruleId: String, init: AWSWAFGetRateBasedRuleManagedKeysCommand.() -> Unit) {
-	this.block.declare(AWSWAFGetRateBasedRuleManagedKeysCommand(ruleId).apply(init))
+fun AWSWAFFunctions.getRateBasedRuleManagedKeys(ruleId: String, init: AWSWAFGetRateBasedRuleManagedKeysCommand.() -> Unit): com.amazonaws.services.waf.model.GetRateBasedRuleManagedKeysResult {
+	return this.block.declare(AWSWAFGetRateBasedRuleManagedKeysCommand(ruleId).apply(init)) as com.amazonaws.services.waf.model.GetRateBasedRuleManagedKeysResult
 }
 
 @Generated
-class AWSWAFGetRateBasedRuleManagedKeysCommand(val ruleId: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetRateBasedRuleManagedKeysRequest> {
+class AWSWAFGetRateBasedRuleManagedKeysCommand(val ruleId: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetRateBasedRuleManagedKeysRequest, com.amazonaws.services.waf.model.GetRateBasedRuleManagedKeysResult> {
 
 	var nextMarker: String? = null
 
@@ -968,8 +1096,12 @@ class AWSWAFGetRateBasedRuleManagedKeysCommand(val ruleId: String) : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.getRateBasedRuleManagedKeys(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.GetRateBasedRuleManagedKeysResult {
+	  return com.amazonaws.services.waf.model.GetRateBasedRuleManagedKeysResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetRateBasedRuleManagedKeysResult {
+		return environment.waf.getRateBasedRuleManagedKeys(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -981,12 +1113,12 @@ class AWSWAFGetRateBasedRuleManagedKeysCommand(val ruleId: String) : AmazonWebSe
 }
 
 
-fun AWSWAFFunctions.getRegexMatchSet(regexMatchSetId: String, init: AWSWAFGetRegexMatchSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFGetRegexMatchSetCommand(regexMatchSetId).apply(init))
+fun AWSWAFFunctions.getRegexMatchSet(regexMatchSetId: String, init: AWSWAFGetRegexMatchSetCommand.() -> Unit): com.amazonaws.services.waf.model.GetRegexMatchSetResult {
+	return this.block.declare(AWSWAFGetRegexMatchSetCommand(regexMatchSetId).apply(init)) as com.amazonaws.services.waf.model.GetRegexMatchSetResult
 }
 
 @Generated
-class AWSWAFGetRegexMatchSetCommand(val regexMatchSetId: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetRegexMatchSetRequest> {
+class AWSWAFGetRegexMatchSetCommand(val regexMatchSetId: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetRegexMatchSetRequest, com.amazonaws.services.waf.model.GetRegexMatchSetResult> {
 
 
 
@@ -996,8 +1128,12 @@ class AWSWAFGetRegexMatchSetCommand(val regexMatchSetId: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.getRegexMatchSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.GetRegexMatchSetResult {
+	  return com.amazonaws.services.waf.model.GetRegexMatchSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetRegexMatchSetResult {
+		return environment.waf.getRegexMatchSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1008,12 +1144,12 @@ class AWSWAFGetRegexMatchSetCommand(val regexMatchSetId: String) : AmazonWebServ
 }
 
 
-fun AWSWAFFunctions.getRegexPatternSet(regexPatternSetId: String, init: AWSWAFGetRegexPatternSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFGetRegexPatternSetCommand(regexPatternSetId).apply(init))
+fun AWSWAFFunctions.getRegexPatternSet(regexPatternSetId: String, init: AWSWAFGetRegexPatternSetCommand.() -> Unit): com.amazonaws.services.waf.model.GetRegexPatternSetResult {
+	return this.block.declare(AWSWAFGetRegexPatternSetCommand(regexPatternSetId).apply(init)) as com.amazonaws.services.waf.model.GetRegexPatternSetResult
 }
 
 @Generated
-class AWSWAFGetRegexPatternSetCommand(val regexPatternSetId: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetRegexPatternSetRequest> {
+class AWSWAFGetRegexPatternSetCommand(val regexPatternSetId: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetRegexPatternSetRequest, com.amazonaws.services.waf.model.GetRegexPatternSetResult> {
 
 
 
@@ -1023,8 +1159,12 @@ class AWSWAFGetRegexPatternSetCommand(val regexPatternSetId: String) : AmazonWeb
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.getRegexPatternSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.GetRegexPatternSetResult {
+	  return com.amazonaws.services.waf.model.GetRegexPatternSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetRegexPatternSetResult {
+		return environment.waf.getRegexPatternSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1035,12 +1175,12 @@ class AWSWAFGetRegexPatternSetCommand(val regexPatternSetId: String) : AmazonWeb
 }
 
 
-fun AWSWAFFunctions.getRule(ruleId: String, init: AWSWAFGetRuleCommand.() -> Unit) {
-	this.block.declare(AWSWAFGetRuleCommand(ruleId).apply(init))
+fun AWSWAFFunctions.getRule(ruleId: String, init: AWSWAFGetRuleCommand.() -> Unit): com.amazonaws.services.waf.model.GetRuleResult {
+	return this.block.declare(AWSWAFGetRuleCommand(ruleId).apply(init)) as com.amazonaws.services.waf.model.GetRuleResult
 }
 
 @Generated
-class AWSWAFGetRuleCommand(val ruleId: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetRuleRequest> {
+class AWSWAFGetRuleCommand(val ruleId: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetRuleRequest, com.amazonaws.services.waf.model.GetRuleResult> {
 
 
 
@@ -1050,8 +1190,12 @@ class AWSWAFGetRuleCommand(val ruleId: String) : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.getRule(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.GetRuleResult {
+	  return com.amazonaws.services.waf.model.GetRuleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetRuleResult {
+		return environment.waf.getRule(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1062,12 +1206,12 @@ class AWSWAFGetRuleCommand(val ruleId: String) : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AWSWAFFunctions.getRuleGroup(ruleGroupId: String, init: AWSWAFGetRuleGroupCommand.() -> Unit) {
-	this.block.declare(AWSWAFGetRuleGroupCommand(ruleGroupId).apply(init))
+fun AWSWAFFunctions.getRuleGroup(ruleGroupId: String, init: AWSWAFGetRuleGroupCommand.() -> Unit): com.amazonaws.services.waf.model.GetRuleGroupResult {
+	return this.block.declare(AWSWAFGetRuleGroupCommand(ruleGroupId).apply(init)) as com.amazonaws.services.waf.model.GetRuleGroupResult
 }
 
 @Generated
-class AWSWAFGetRuleGroupCommand(val ruleGroupId: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetRuleGroupRequest> {
+class AWSWAFGetRuleGroupCommand(val ruleGroupId: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetRuleGroupRequest, com.amazonaws.services.waf.model.GetRuleGroupResult> {
 
 
 
@@ -1077,8 +1221,12 @@ class AWSWAFGetRuleGroupCommand(val ruleGroupId: String) : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.getRuleGroup(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.GetRuleGroupResult {
+	  return com.amazonaws.services.waf.model.GetRuleGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetRuleGroupResult {
+		return environment.waf.getRuleGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1089,12 +1237,12 @@ class AWSWAFGetRuleGroupCommand(val ruleGroupId: String) : AmazonWebServiceComma
 }
 
 
-fun AWSWAFFunctions.getSampledRequests(webAclId: String, ruleId: String, timeWindow: com.amazonaws.services.waf.model.TimeWindow, maxItems: Long, init: AWSWAFGetSampledRequestsCommand.() -> Unit) {
-	this.block.declare(AWSWAFGetSampledRequestsCommand(webAclId, ruleId, timeWindow, maxItems).apply(init))
+fun AWSWAFFunctions.getSampledRequests(webAclId: String, ruleId: String, timeWindow: com.amazonaws.services.waf.model.TimeWindow, maxItems: Long, init: AWSWAFGetSampledRequestsCommand.() -> Unit): com.amazonaws.services.waf.model.GetSampledRequestsResult {
+	return this.block.declare(AWSWAFGetSampledRequestsCommand(webAclId, ruleId, timeWindow, maxItems).apply(init)) as com.amazonaws.services.waf.model.GetSampledRequestsResult
 }
 
 @Generated
-class AWSWAFGetSampledRequestsCommand(val webAclId: String, val ruleId: String, val timeWindow: com.amazonaws.services.waf.model.TimeWindow, val maxItems: Long) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetSampledRequestsRequest> {
+class AWSWAFGetSampledRequestsCommand(val webAclId: String, val ruleId: String, val timeWindow: com.amazonaws.services.waf.model.TimeWindow, val maxItems: Long) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetSampledRequestsRequest, com.amazonaws.services.waf.model.GetSampledRequestsResult> {
 
 
 
@@ -1107,8 +1255,12 @@ class AWSWAFGetSampledRequestsCommand(val webAclId: String, val ruleId: String, 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.getSampledRequests(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.GetSampledRequestsResult {
+	  return com.amazonaws.services.waf.model.GetSampledRequestsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetSampledRequestsResult {
+		return environment.waf.getSampledRequests(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1122,12 +1274,12 @@ class AWSWAFGetSampledRequestsCommand(val webAclId: String, val ruleId: String, 
 }
 
 
-fun AWSWAFFunctions.getSizeConstraintSet(sizeConstraintSetId: String, init: AWSWAFGetSizeConstraintSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFGetSizeConstraintSetCommand(sizeConstraintSetId).apply(init))
+fun AWSWAFFunctions.getSizeConstraintSet(sizeConstraintSetId: String, init: AWSWAFGetSizeConstraintSetCommand.() -> Unit): com.amazonaws.services.waf.model.GetSizeConstraintSetResult {
+	return this.block.declare(AWSWAFGetSizeConstraintSetCommand(sizeConstraintSetId).apply(init)) as com.amazonaws.services.waf.model.GetSizeConstraintSetResult
 }
 
 @Generated
-class AWSWAFGetSizeConstraintSetCommand(val sizeConstraintSetId: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetSizeConstraintSetRequest> {
+class AWSWAFGetSizeConstraintSetCommand(val sizeConstraintSetId: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetSizeConstraintSetRequest, com.amazonaws.services.waf.model.GetSizeConstraintSetResult> {
 
 
 
@@ -1137,8 +1289,12 @@ class AWSWAFGetSizeConstraintSetCommand(val sizeConstraintSetId: String) : Amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.getSizeConstraintSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.GetSizeConstraintSetResult {
+	  return com.amazonaws.services.waf.model.GetSizeConstraintSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetSizeConstraintSetResult {
+		return environment.waf.getSizeConstraintSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1149,12 +1305,12 @@ class AWSWAFGetSizeConstraintSetCommand(val sizeConstraintSetId: String) : Amazo
 }
 
 
-fun AWSWAFFunctions.getSqlInjectionMatchSet(sqlInjectionMatchSetId: String, init: AWSWAFGetSqlInjectionMatchSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFGetSqlInjectionMatchSetCommand(sqlInjectionMatchSetId).apply(init))
+fun AWSWAFFunctions.getSqlInjectionMatchSet(sqlInjectionMatchSetId: String, init: AWSWAFGetSqlInjectionMatchSetCommand.() -> Unit): com.amazonaws.services.waf.model.GetSqlInjectionMatchSetResult {
+	return this.block.declare(AWSWAFGetSqlInjectionMatchSetCommand(sqlInjectionMatchSetId).apply(init)) as com.amazonaws.services.waf.model.GetSqlInjectionMatchSetResult
 }
 
 @Generated
-class AWSWAFGetSqlInjectionMatchSetCommand(val sqlInjectionMatchSetId: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetSqlInjectionMatchSetRequest> {
+class AWSWAFGetSqlInjectionMatchSetCommand(val sqlInjectionMatchSetId: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetSqlInjectionMatchSetRequest, com.amazonaws.services.waf.model.GetSqlInjectionMatchSetResult> {
 
 
 
@@ -1164,8 +1320,12 @@ class AWSWAFGetSqlInjectionMatchSetCommand(val sqlInjectionMatchSetId: String) :
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.getSqlInjectionMatchSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.GetSqlInjectionMatchSetResult {
+	  return com.amazonaws.services.waf.model.GetSqlInjectionMatchSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetSqlInjectionMatchSetResult {
+		return environment.waf.getSqlInjectionMatchSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1176,12 +1336,12 @@ class AWSWAFGetSqlInjectionMatchSetCommand(val sqlInjectionMatchSetId: String) :
 }
 
 
-fun AWSWAFFunctions.getWebACL(webACLId: String, init: AWSWAFGetWebACLCommand.() -> Unit) {
-	this.block.declare(AWSWAFGetWebACLCommand(webACLId).apply(init))
+fun AWSWAFFunctions.getWebACL(webACLId: String, init: AWSWAFGetWebACLCommand.() -> Unit): com.amazonaws.services.waf.model.GetWebACLResult {
+	return this.block.declare(AWSWAFGetWebACLCommand(webACLId).apply(init)) as com.amazonaws.services.waf.model.GetWebACLResult
 }
 
 @Generated
-class AWSWAFGetWebACLCommand(val webACLId: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetWebACLRequest> {
+class AWSWAFGetWebACLCommand(val webACLId: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetWebACLRequest, com.amazonaws.services.waf.model.GetWebACLResult> {
 
 
 
@@ -1191,8 +1351,12 @@ class AWSWAFGetWebACLCommand(val webACLId: String) : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.getWebACL(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.GetWebACLResult {
+	  return com.amazonaws.services.waf.model.GetWebACLResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetWebACLResult {
+		return environment.waf.getWebACL(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1203,12 +1367,12 @@ class AWSWAFGetWebACLCommand(val webACLId: String) : AmazonWebServiceCommand<com
 }
 
 
-fun AWSWAFFunctions.getXssMatchSet(xssMatchSetId: String, init: AWSWAFGetXssMatchSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFGetXssMatchSetCommand(xssMatchSetId).apply(init))
+fun AWSWAFFunctions.getXssMatchSet(xssMatchSetId: String, init: AWSWAFGetXssMatchSetCommand.() -> Unit): com.amazonaws.services.waf.model.GetXssMatchSetResult {
+	return this.block.declare(AWSWAFGetXssMatchSetCommand(xssMatchSetId).apply(init)) as com.amazonaws.services.waf.model.GetXssMatchSetResult
 }
 
 @Generated
-class AWSWAFGetXssMatchSetCommand(val xssMatchSetId: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetXssMatchSetRequest> {
+class AWSWAFGetXssMatchSetCommand(val xssMatchSetId: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.GetXssMatchSetRequest, com.amazonaws.services.waf.model.GetXssMatchSetResult> {
 
 
 
@@ -1218,8 +1382,12 @@ class AWSWAFGetXssMatchSetCommand(val xssMatchSetId: String) : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.getXssMatchSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.GetXssMatchSetResult {
+	  return com.amazonaws.services.waf.model.GetXssMatchSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.GetXssMatchSetResult {
+		return environment.waf.getXssMatchSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1230,12 +1398,12 @@ class AWSWAFGetXssMatchSetCommand(val xssMatchSetId: String) : AmazonWebServiceC
 }
 
 
-fun AWSWAFFunctions.listActivatedRulesInRuleGroup(init: AWSWAFListActivatedRulesInRuleGroupCommand.() -> Unit) {
-	this.block.declare(AWSWAFListActivatedRulesInRuleGroupCommand().apply(init))
+fun AWSWAFFunctions.listActivatedRulesInRuleGroup(init: AWSWAFListActivatedRulesInRuleGroupCommand.() -> Unit): com.amazonaws.services.waf.model.ListActivatedRulesInRuleGroupResult {
+	return this.block.declare(AWSWAFListActivatedRulesInRuleGroupCommand().apply(init)) as com.amazonaws.services.waf.model.ListActivatedRulesInRuleGroupResult
 }
 
 @Generated
-class AWSWAFListActivatedRulesInRuleGroupCommand() : AmazonWebServiceCommand<com.amazonaws.services.waf.model.ListActivatedRulesInRuleGroupRequest> {
+class AWSWAFListActivatedRulesInRuleGroupCommand() : AmazonWebServiceCommand<com.amazonaws.services.waf.model.ListActivatedRulesInRuleGroupRequest, com.amazonaws.services.waf.model.ListActivatedRulesInRuleGroupResult> {
 
 	var ruleGroupId: String? = null
 	var nextMarker: String? = null
@@ -1249,8 +1417,12 @@ class AWSWAFListActivatedRulesInRuleGroupCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.listActivatedRulesInRuleGroup(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.ListActivatedRulesInRuleGroupResult {
+	  return com.amazonaws.services.waf.model.ListActivatedRulesInRuleGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.ListActivatedRulesInRuleGroupResult {
+		return environment.waf.listActivatedRulesInRuleGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1263,12 +1435,12 @@ class AWSWAFListActivatedRulesInRuleGroupCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AWSWAFFunctions.listByteMatchSets(init: AWSWAFListByteMatchSetsCommand.() -> Unit) {
-	this.block.declare(AWSWAFListByteMatchSetsCommand().apply(init))
+fun AWSWAFFunctions.listByteMatchSets(init: AWSWAFListByteMatchSetsCommand.() -> Unit): com.amazonaws.services.waf.model.ListByteMatchSetsResult {
+	return this.block.declare(AWSWAFListByteMatchSetsCommand().apply(init)) as com.amazonaws.services.waf.model.ListByteMatchSetsResult
 }
 
 @Generated
-class AWSWAFListByteMatchSetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.waf.model.ListByteMatchSetsRequest> {
+class AWSWAFListByteMatchSetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.waf.model.ListByteMatchSetsRequest, com.amazonaws.services.waf.model.ListByteMatchSetsResult> {
 
 	var nextMarker: String? = null
 	var limit: Int? = 0
@@ -1280,8 +1452,12 @@ class AWSWAFListByteMatchSetsCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.listByteMatchSets(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.ListByteMatchSetsResult {
+	  return com.amazonaws.services.waf.model.ListByteMatchSetsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.ListByteMatchSetsResult {
+		return environment.waf.listByteMatchSets(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1293,12 +1469,12 @@ class AWSWAFListByteMatchSetsCommand() : AmazonWebServiceCommand<com.amazonaws.s
 }
 
 
-fun AWSWAFFunctions.listGeoMatchSets(init: AWSWAFListGeoMatchSetsCommand.() -> Unit) {
-	this.block.declare(AWSWAFListGeoMatchSetsCommand().apply(init))
+fun AWSWAFFunctions.listGeoMatchSets(init: AWSWAFListGeoMatchSetsCommand.() -> Unit): com.amazonaws.services.waf.model.ListGeoMatchSetsResult {
+	return this.block.declare(AWSWAFListGeoMatchSetsCommand().apply(init)) as com.amazonaws.services.waf.model.ListGeoMatchSetsResult
 }
 
 @Generated
-class AWSWAFListGeoMatchSetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.waf.model.ListGeoMatchSetsRequest> {
+class AWSWAFListGeoMatchSetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.waf.model.ListGeoMatchSetsRequest, com.amazonaws.services.waf.model.ListGeoMatchSetsResult> {
 
 	var nextMarker: String? = null
 	var limit: Int? = 0
@@ -1310,8 +1486,12 @@ class AWSWAFListGeoMatchSetsCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.listGeoMatchSets(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.ListGeoMatchSetsResult {
+	  return com.amazonaws.services.waf.model.ListGeoMatchSetsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.ListGeoMatchSetsResult {
+		return environment.waf.listGeoMatchSets(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1323,12 +1503,12 @@ class AWSWAFListGeoMatchSetsCommand() : AmazonWebServiceCommand<com.amazonaws.se
 }
 
 
-fun AWSWAFFunctions.listIPSets(init: AWSWAFListIPSetsCommand.() -> Unit) {
-	this.block.declare(AWSWAFListIPSetsCommand().apply(init))
+fun AWSWAFFunctions.listIPSets(init: AWSWAFListIPSetsCommand.() -> Unit): com.amazonaws.services.waf.model.ListIPSetsResult {
+	return this.block.declare(AWSWAFListIPSetsCommand().apply(init)) as com.amazonaws.services.waf.model.ListIPSetsResult
 }
 
 @Generated
-class AWSWAFListIPSetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.waf.model.ListIPSetsRequest> {
+class AWSWAFListIPSetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.waf.model.ListIPSetsRequest, com.amazonaws.services.waf.model.ListIPSetsResult> {
 
 	var nextMarker: String? = null
 	var limit: Int? = 0
@@ -1340,8 +1520,12 @@ class AWSWAFListIPSetsCommand() : AmazonWebServiceCommand<com.amazonaws.services
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.listIPSets(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.ListIPSetsResult {
+	  return com.amazonaws.services.waf.model.ListIPSetsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.ListIPSetsResult {
+		return environment.waf.listIPSets(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1353,12 +1537,12 @@ class AWSWAFListIPSetsCommand() : AmazonWebServiceCommand<com.amazonaws.services
 }
 
 
-fun AWSWAFFunctions.listRateBasedRules(init: AWSWAFListRateBasedRulesCommand.() -> Unit) {
-	this.block.declare(AWSWAFListRateBasedRulesCommand().apply(init))
+fun AWSWAFFunctions.listRateBasedRules(init: AWSWAFListRateBasedRulesCommand.() -> Unit): com.amazonaws.services.waf.model.ListRateBasedRulesResult {
+	return this.block.declare(AWSWAFListRateBasedRulesCommand().apply(init)) as com.amazonaws.services.waf.model.ListRateBasedRulesResult
 }
 
 @Generated
-class AWSWAFListRateBasedRulesCommand() : AmazonWebServiceCommand<com.amazonaws.services.waf.model.ListRateBasedRulesRequest> {
+class AWSWAFListRateBasedRulesCommand() : AmazonWebServiceCommand<com.amazonaws.services.waf.model.ListRateBasedRulesRequest, com.amazonaws.services.waf.model.ListRateBasedRulesResult> {
 
 	var nextMarker: String? = null
 	var limit: Int? = 0
@@ -1370,8 +1554,12 @@ class AWSWAFListRateBasedRulesCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.listRateBasedRules(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.ListRateBasedRulesResult {
+	  return com.amazonaws.services.waf.model.ListRateBasedRulesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.ListRateBasedRulesResult {
+		return environment.waf.listRateBasedRules(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1383,12 +1571,12 @@ class AWSWAFListRateBasedRulesCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AWSWAFFunctions.listRegexMatchSets(init: AWSWAFListRegexMatchSetsCommand.() -> Unit) {
-	this.block.declare(AWSWAFListRegexMatchSetsCommand().apply(init))
+fun AWSWAFFunctions.listRegexMatchSets(init: AWSWAFListRegexMatchSetsCommand.() -> Unit): com.amazonaws.services.waf.model.ListRegexMatchSetsResult {
+	return this.block.declare(AWSWAFListRegexMatchSetsCommand().apply(init)) as com.amazonaws.services.waf.model.ListRegexMatchSetsResult
 }
 
 @Generated
-class AWSWAFListRegexMatchSetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.waf.model.ListRegexMatchSetsRequest> {
+class AWSWAFListRegexMatchSetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.waf.model.ListRegexMatchSetsRequest, com.amazonaws.services.waf.model.ListRegexMatchSetsResult> {
 
 	var nextMarker: String? = null
 	var limit: Int? = 0
@@ -1400,8 +1588,12 @@ class AWSWAFListRegexMatchSetsCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.listRegexMatchSets(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.ListRegexMatchSetsResult {
+	  return com.amazonaws.services.waf.model.ListRegexMatchSetsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.ListRegexMatchSetsResult {
+		return environment.waf.listRegexMatchSets(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1413,12 +1605,12 @@ class AWSWAFListRegexMatchSetsCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AWSWAFFunctions.listRegexPatternSets(init: AWSWAFListRegexPatternSetsCommand.() -> Unit) {
-	this.block.declare(AWSWAFListRegexPatternSetsCommand().apply(init))
+fun AWSWAFFunctions.listRegexPatternSets(init: AWSWAFListRegexPatternSetsCommand.() -> Unit): com.amazonaws.services.waf.model.ListRegexPatternSetsResult {
+	return this.block.declare(AWSWAFListRegexPatternSetsCommand().apply(init)) as com.amazonaws.services.waf.model.ListRegexPatternSetsResult
 }
 
 @Generated
-class AWSWAFListRegexPatternSetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.waf.model.ListRegexPatternSetsRequest> {
+class AWSWAFListRegexPatternSetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.waf.model.ListRegexPatternSetsRequest, com.amazonaws.services.waf.model.ListRegexPatternSetsResult> {
 
 	var nextMarker: String? = null
 	var limit: Int? = 0
@@ -1430,8 +1622,12 @@ class AWSWAFListRegexPatternSetsCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.listRegexPatternSets(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.ListRegexPatternSetsResult {
+	  return com.amazonaws.services.waf.model.ListRegexPatternSetsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.ListRegexPatternSetsResult {
+		return environment.waf.listRegexPatternSets(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1443,12 +1639,12 @@ class AWSWAFListRegexPatternSetsCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AWSWAFFunctions.listRuleGroups(init: AWSWAFListRuleGroupsCommand.() -> Unit) {
-	this.block.declare(AWSWAFListRuleGroupsCommand().apply(init))
+fun AWSWAFFunctions.listRuleGroups(init: AWSWAFListRuleGroupsCommand.() -> Unit): com.amazonaws.services.waf.model.ListRuleGroupsResult {
+	return this.block.declare(AWSWAFListRuleGroupsCommand().apply(init)) as com.amazonaws.services.waf.model.ListRuleGroupsResult
 }
 
 @Generated
-class AWSWAFListRuleGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.services.waf.model.ListRuleGroupsRequest> {
+class AWSWAFListRuleGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.services.waf.model.ListRuleGroupsRequest, com.amazonaws.services.waf.model.ListRuleGroupsResult> {
 
 	var nextMarker: String? = null
 	var limit: Int? = 0
@@ -1460,8 +1656,12 @@ class AWSWAFListRuleGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.listRuleGroups(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.ListRuleGroupsResult {
+	  return com.amazonaws.services.waf.model.ListRuleGroupsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.ListRuleGroupsResult {
+		return environment.waf.listRuleGroups(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1473,12 +1673,12 @@ class AWSWAFListRuleGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 }
 
 
-fun AWSWAFFunctions.listRules(init: AWSWAFListRulesCommand.() -> Unit) {
-	this.block.declare(AWSWAFListRulesCommand().apply(init))
+fun AWSWAFFunctions.listRules(init: AWSWAFListRulesCommand.() -> Unit): com.amazonaws.services.waf.model.ListRulesResult {
+	return this.block.declare(AWSWAFListRulesCommand().apply(init)) as com.amazonaws.services.waf.model.ListRulesResult
 }
 
 @Generated
-class AWSWAFListRulesCommand() : AmazonWebServiceCommand<com.amazonaws.services.waf.model.ListRulesRequest> {
+class AWSWAFListRulesCommand() : AmazonWebServiceCommand<com.amazonaws.services.waf.model.ListRulesRequest, com.amazonaws.services.waf.model.ListRulesResult> {
 
 	var nextMarker: String? = null
 	var limit: Int? = 0
@@ -1490,8 +1690,12 @@ class AWSWAFListRulesCommand() : AmazonWebServiceCommand<com.amazonaws.services.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.listRules(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.ListRulesResult {
+	  return com.amazonaws.services.waf.model.ListRulesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.ListRulesResult {
+		return environment.waf.listRules(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1503,12 +1707,12 @@ class AWSWAFListRulesCommand() : AmazonWebServiceCommand<com.amazonaws.services.
 }
 
 
-fun AWSWAFFunctions.listSizeConstraintSets(init: AWSWAFListSizeConstraintSetsCommand.() -> Unit) {
-	this.block.declare(AWSWAFListSizeConstraintSetsCommand().apply(init))
+fun AWSWAFFunctions.listSizeConstraintSets(init: AWSWAFListSizeConstraintSetsCommand.() -> Unit): com.amazonaws.services.waf.model.ListSizeConstraintSetsResult {
+	return this.block.declare(AWSWAFListSizeConstraintSetsCommand().apply(init)) as com.amazonaws.services.waf.model.ListSizeConstraintSetsResult
 }
 
 @Generated
-class AWSWAFListSizeConstraintSetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.waf.model.ListSizeConstraintSetsRequest> {
+class AWSWAFListSizeConstraintSetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.waf.model.ListSizeConstraintSetsRequest, com.amazonaws.services.waf.model.ListSizeConstraintSetsResult> {
 
 	var nextMarker: String? = null
 	var limit: Int? = 0
@@ -1520,8 +1724,12 @@ class AWSWAFListSizeConstraintSetsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.listSizeConstraintSets(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.ListSizeConstraintSetsResult {
+	  return com.amazonaws.services.waf.model.ListSizeConstraintSetsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.ListSizeConstraintSetsResult {
+		return environment.waf.listSizeConstraintSets(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1533,12 +1741,12 @@ class AWSWAFListSizeConstraintSetsCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AWSWAFFunctions.listSqlInjectionMatchSets(init: AWSWAFListSqlInjectionMatchSetsCommand.() -> Unit) {
-	this.block.declare(AWSWAFListSqlInjectionMatchSetsCommand().apply(init))
+fun AWSWAFFunctions.listSqlInjectionMatchSets(init: AWSWAFListSqlInjectionMatchSetsCommand.() -> Unit): com.amazonaws.services.waf.model.ListSqlInjectionMatchSetsResult {
+	return this.block.declare(AWSWAFListSqlInjectionMatchSetsCommand().apply(init)) as com.amazonaws.services.waf.model.ListSqlInjectionMatchSetsResult
 }
 
 @Generated
-class AWSWAFListSqlInjectionMatchSetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.waf.model.ListSqlInjectionMatchSetsRequest> {
+class AWSWAFListSqlInjectionMatchSetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.waf.model.ListSqlInjectionMatchSetsRequest, com.amazonaws.services.waf.model.ListSqlInjectionMatchSetsResult> {
 
 	var nextMarker: String? = null
 	var limit: Int? = 0
@@ -1550,8 +1758,12 @@ class AWSWAFListSqlInjectionMatchSetsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.listSqlInjectionMatchSets(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.ListSqlInjectionMatchSetsResult {
+	  return com.amazonaws.services.waf.model.ListSqlInjectionMatchSetsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.ListSqlInjectionMatchSetsResult {
+		return environment.waf.listSqlInjectionMatchSets(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1563,12 +1775,12 @@ class AWSWAFListSqlInjectionMatchSetsCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AWSWAFFunctions.listSubscribedRuleGroups(init: AWSWAFListSubscribedRuleGroupsCommand.() -> Unit) {
-	this.block.declare(AWSWAFListSubscribedRuleGroupsCommand().apply(init))
+fun AWSWAFFunctions.listSubscribedRuleGroups(init: AWSWAFListSubscribedRuleGroupsCommand.() -> Unit): com.amazonaws.services.waf.model.ListSubscribedRuleGroupsResult {
+	return this.block.declare(AWSWAFListSubscribedRuleGroupsCommand().apply(init)) as com.amazonaws.services.waf.model.ListSubscribedRuleGroupsResult
 }
 
 @Generated
-class AWSWAFListSubscribedRuleGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.services.waf.model.ListSubscribedRuleGroupsRequest> {
+class AWSWAFListSubscribedRuleGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.services.waf.model.ListSubscribedRuleGroupsRequest, com.amazonaws.services.waf.model.ListSubscribedRuleGroupsResult> {
 
 	var nextMarker: String? = null
 	var limit: Int? = 0
@@ -1580,8 +1792,12 @@ class AWSWAFListSubscribedRuleGroupsCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.listSubscribedRuleGroups(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.ListSubscribedRuleGroupsResult {
+	  return com.amazonaws.services.waf.model.ListSubscribedRuleGroupsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.ListSubscribedRuleGroupsResult {
+		return environment.waf.listSubscribedRuleGroups(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1593,12 +1809,12 @@ class AWSWAFListSubscribedRuleGroupsCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AWSWAFFunctions.listWebACLs(init: AWSWAFListWebACLsCommand.() -> Unit) {
-	this.block.declare(AWSWAFListWebACLsCommand().apply(init))
+fun AWSWAFFunctions.listWebACLs(init: AWSWAFListWebACLsCommand.() -> Unit): com.amazonaws.services.waf.model.ListWebACLsResult {
+	return this.block.declare(AWSWAFListWebACLsCommand().apply(init)) as com.amazonaws.services.waf.model.ListWebACLsResult
 }
 
 @Generated
-class AWSWAFListWebACLsCommand() : AmazonWebServiceCommand<com.amazonaws.services.waf.model.ListWebACLsRequest> {
+class AWSWAFListWebACLsCommand() : AmazonWebServiceCommand<com.amazonaws.services.waf.model.ListWebACLsRequest, com.amazonaws.services.waf.model.ListWebACLsResult> {
 
 	var nextMarker: String? = null
 	var limit: Int? = 0
@@ -1610,8 +1826,12 @@ class AWSWAFListWebACLsCommand() : AmazonWebServiceCommand<com.amazonaws.service
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.listWebACLs(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.ListWebACLsResult {
+	  return com.amazonaws.services.waf.model.ListWebACLsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.ListWebACLsResult {
+		return environment.waf.listWebACLs(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1623,12 +1843,12 @@ class AWSWAFListWebACLsCommand() : AmazonWebServiceCommand<com.amazonaws.service
 }
 
 
-fun AWSWAFFunctions.listXssMatchSets(init: AWSWAFListXssMatchSetsCommand.() -> Unit) {
-	this.block.declare(AWSWAFListXssMatchSetsCommand().apply(init))
+fun AWSWAFFunctions.listXssMatchSets(init: AWSWAFListXssMatchSetsCommand.() -> Unit): com.amazonaws.services.waf.model.ListXssMatchSetsResult {
+	return this.block.declare(AWSWAFListXssMatchSetsCommand().apply(init)) as com.amazonaws.services.waf.model.ListXssMatchSetsResult
 }
 
 @Generated
-class AWSWAFListXssMatchSetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.waf.model.ListXssMatchSetsRequest> {
+class AWSWAFListXssMatchSetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.waf.model.ListXssMatchSetsRequest, com.amazonaws.services.waf.model.ListXssMatchSetsResult> {
 
 	var nextMarker: String? = null
 	var limit: Int? = 0
@@ -1640,8 +1860,12 @@ class AWSWAFListXssMatchSetsCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.listXssMatchSets(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.ListXssMatchSetsResult {
+	  return com.amazonaws.services.waf.model.ListXssMatchSetsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.ListXssMatchSetsResult {
+		return environment.waf.listXssMatchSets(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1653,12 +1877,12 @@ class AWSWAFListXssMatchSetsCommand() : AmazonWebServiceCommand<com.amazonaws.se
 }
 
 
-fun AWSWAFFunctions.putPermissionPolicy(resourceArn: String, policy: String, init: AWSWAFPutPermissionPolicyCommand.() -> Unit) {
-	this.block.declare(AWSWAFPutPermissionPolicyCommand(resourceArn, policy).apply(init))
+fun AWSWAFFunctions.putPermissionPolicy(resourceArn: String, policy: String, init: AWSWAFPutPermissionPolicyCommand.() -> Unit): com.amazonaws.services.waf.model.PutPermissionPolicyResult {
+	return this.block.declare(AWSWAFPutPermissionPolicyCommand(resourceArn, policy).apply(init)) as com.amazonaws.services.waf.model.PutPermissionPolicyResult
 }
 
 @Generated
-class AWSWAFPutPermissionPolicyCommand(val resourceArn: String, val policy: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.PutPermissionPolicyRequest> {
+class AWSWAFPutPermissionPolicyCommand(val resourceArn: String, val policy: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.PutPermissionPolicyRequest, com.amazonaws.services.waf.model.PutPermissionPolicyResult> {
 
 
 
@@ -1669,8 +1893,12 @@ class AWSWAFPutPermissionPolicyCommand(val resourceArn: String, val policy: Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.putPermissionPolicy(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.PutPermissionPolicyResult {
+	  return com.amazonaws.services.waf.model.PutPermissionPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.PutPermissionPolicyResult {
+		return environment.waf.putPermissionPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1682,12 +1910,12 @@ class AWSWAFPutPermissionPolicyCommand(val resourceArn: String, val policy: Stri
 }
 
 
-fun AWSWAFFunctions.updateByteMatchSet(byteMatchSetId: String, changeToken: String, updates: List<com.amazonaws.services.waf.model.ByteMatchSetUpdate>, init: AWSWAFUpdateByteMatchSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFUpdateByteMatchSetCommand(byteMatchSetId, changeToken, updates).apply(init))
+fun AWSWAFFunctions.updateByteMatchSet(byteMatchSetId: String, changeToken: String, updates: List<com.amazonaws.services.waf.model.ByteMatchSetUpdate>, init: AWSWAFUpdateByteMatchSetCommand.() -> Unit): com.amazonaws.services.waf.model.UpdateByteMatchSetResult {
+	return this.block.declare(AWSWAFUpdateByteMatchSetCommand(byteMatchSetId, changeToken, updates).apply(init)) as com.amazonaws.services.waf.model.UpdateByteMatchSetResult
 }
 
 @Generated
-class AWSWAFUpdateByteMatchSetCommand(val byteMatchSetId: String, val changeToken: String, val updates: List<com.amazonaws.services.waf.model.ByteMatchSetUpdate>) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.UpdateByteMatchSetRequest> {
+class AWSWAFUpdateByteMatchSetCommand(val byteMatchSetId: String, val changeToken: String, val updates: List<com.amazonaws.services.waf.model.ByteMatchSetUpdate>) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.UpdateByteMatchSetRequest, com.amazonaws.services.waf.model.UpdateByteMatchSetResult> {
 
 
 
@@ -1699,8 +1927,12 @@ class AWSWAFUpdateByteMatchSetCommand(val byteMatchSetId: String, val changeToke
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.updateByteMatchSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.UpdateByteMatchSetResult {
+	  return com.amazonaws.services.waf.model.UpdateByteMatchSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.UpdateByteMatchSetResult {
+		return environment.waf.updateByteMatchSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1713,12 +1945,12 @@ class AWSWAFUpdateByteMatchSetCommand(val byteMatchSetId: String, val changeToke
 }
 
 
-fun AWSWAFFunctions.updateGeoMatchSet(geoMatchSetId: String, changeToken: String, updates: List<com.amazonaws.services.waf.model.GeoMatchSetUpdate>, init: AWSWAFUpdateGeoMatchSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFUpdateGeoMatchSetCommand(geoMatchSetId, changeToken, updates).apply(init))
+fun AWSWAFFunctions.updateGeoMatchSet(geoMatchSetId: String, changeToken: String, updates: List<com.amazonaws.services.waf.model.GeoMatchSetUpdate>, init: AWSWAFUpdateGeoMatchSetCommand.() -> Unit): com.amazonaws.services.waf.model.UpdateGeoMatchSetResult {
+	return this.block.declare(AWSWAFUpdateGeoMatchSetCommand(geoMatchSetId, changeToken, updates).apply(init)) as com.amazonaws.services.waf.model.UpdateGeoMatchSetResult
 }
 
 @Generated
-class AWSWAFUpdateGeoMatchSetCommand(val geoMatchSetId: String, val changeToken: String, val updates: List<com.amazonaws.services.waf.model.GeoMatchSetUpdate>) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.UpdateGeoMatchSetRequest> {
+class AWSWAFUpdateGeoMatchSetCommand(val geoMatchSetId: String, val changeToken: String, val updates: List<com.amazonaws.services.waf.model.GeoMatchSetUpdate>) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.UpdateGeoMatchSetRequest, com.amazonaws.services.waf.model.UpdateGeoMatchSetResult> {
 
 
 
@@ -1730,8 +1962,12 @@ class AWSWAFUpdateGeoMatchSetCommand(val geoMatchSetId: String, val changeToken:
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.updateGeoMatchSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.UpdateGeoMatchSetResult {
+	  return com.amazonaws.services.waf.model.UpdateGeoMatchSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.UpdateGeoMatchSetResult {
+		return environment.waf.updateGeoMatchSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1744,12 +1980,12 @@ class AWSWAFUpdateGeoMatchSetCommand(val geoMatchSetId: String, val changeToken:
 }
 
 
-fun AWSWAFFunctions.updateIPSet(iPSetId: String, changeToken: String, updates: List<com.amazonaws.services.waf.model.IPSetUpdate>, init: AWSWAFUpdateIPSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFUpdateIPSetCommand(iPSetId, changeToken, updates).apply(init))
+fun AWSWAFFunctions.updateIPSet(iPSetId: String, changeToken: String, updates: List<com.amazonaws.services.waf.model.IPSetUpdate>, init: AWSWAFUpdateIPSetCommand.() -> Unit): com.amazonaws.services.waf.model.UpdateIPSetResult {
+	return this.block.declare(AWSWAFUpdateIPSetCommand(iPSetId, changeToken, updates).apply(init)) as com.amazonaws.services.waf.model.UpdateIPSetResult
 }
 
 @Generated
-class AWSWAFUpdateIPSetCommand(val iPSetId: String, val changeToken: String, val updates: List<com.amazonaws.services.waf.model.IPSetUpdate>) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.UpdateIPSetRequest> {
+class AWSWAFUpdateIPSetCommand(val iPSetId: String, val changeToken: String, val updates: List<com.amazonaws.services.waf.model.IPSetUpdate>) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.UpdateIPSetRequest, com.amazonaws.services.waf.model.UpdateIPSetResult> {
 
 
 
@@ -1761,8 +1997,12 @@ class AWSWAFUpdateIPSetCommand(val iPSetId: String, val changeToken: String, val
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.updateIPSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.UpdateIPSetResult {
+	  return com.amazonaws.services.waf.model.UpdateIPSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.UpdateIPSetResult {
+		return environment.waf.updateIPSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1775,12 +2015,12 @@ class AWSWAFUpdateIPSetCommand(val iPSetId: String, val changeToken: String, val
 }
 
 
-fun AWSWAFFunctions.updateRateBasedRule(ruleId: String, changeToken: String, updates: List<com.amazonaws.services.waf.model.RuleUpdate>, rateLimit: Long, init: AWSWAFUpdateRateBasedRuleCommand.() -> Unit) {
-	this.block.declare(AWSWAFUpdateRateBasedRuleCommand(ruleId, changeToken, updates, rateLimit).apply(init))
+fun AWSWAFFunctions.updateRateBasedRule(ruleId: String, changeToken: String, updates: List<com.amazonaws.services.waf.model.RuleUpdate>, rateLimit: Long, init: AWSWAFUpdateRateBasedRuleCommand.() -> Unit): com.amazonaws.services.waf.model.UpdateRateBasedRuleResult {
+	return this.block.declare(AWSWAFUpdateRateBasedRuleCommand(ruleId, changeToken, updates, rateLimit).apply(init)) as com.amazonaws.services.waf.model.UpdateRateBasedRuleResult
 }
 
 @Generated
-class AWSWAFUpdateRateBasedRuleCommand(val ruleId: String, val changeToken: String, val updates: List<com.amazonaws.services.waf.model.RuleUpdate>, val rateLimit: Long) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.UpdateRateBasedRuleRequest> {
+class AWSWAFUpdateRateBasedRuleCommand(val ruleId: String, val changeToken: String, val updates: List<com.amazonaws.services.waf.model.RuleUpdate>, val rateLimit: Long) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.UpdateRateBasedRuleRequest, com.amazonaws.services.waf.model.UpdateRateBasedRuleResult> {
 
 
 
@@ -1793,8 +2033,12 @@ class AWSWAFUpdateRateBasedRuleCommand(val ruleId: String, val changeToken: Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.updateRateBasedRule(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.UpdateRateBasedRuleResult {
+	  return com.amazonaws.services.waf.model.UpdateRateBasedRuleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.UpdateRateBasedRuleResult {
+		return environment.waf.updateRateBasedRule(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1808,12 +2052,12 @@ class AWSWAFUpdateRateBasedRuleCommand(val ruleId: String, val changeToken: Stri
 }
 
 
-fun AWSWAFFunctions.updateRegexMatchSet(regexMatchSetId: String, updates: List<com.amazonaws.services.waf.model.RegexMatchSetUpdate>, changeToken: String, init: AWSWAFUpdateRegexMatchSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFUpdateRegexMatchSetCommand(regexMatchSetId, updates, changeToken).apply(init))
+fun AWSWAFFunctions.updateRegexMatchSet(regexMatchSetId: String, updates: List<com.amazonaws.services.waf.model.RegexMatchSetUpdate>, changeToken: String, init: AWSWAFUpdateRegexMatchSetCommand.() -> Unit): com.amazonaws.services.waf.model.UpdateRegexMatchSetResult {
+	return this.block.declare(AWSWAFUpdateRegexMatchSetCommand(regexMatchSetId, updates, changeToken).apply(init)) as com.amazonaws.services.waf.model.UpdateRegexMatchSetResult
 }
 
 @Generated
-class AWSWAFUpdateRegexMatchSetCommand(val regexMatchSetId: String, val updates: List<com.amazonaws.services.waf.model.RegexMatchSetUpdate>, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.UpdateRegexMatchSetRequest> {
+class AWSWAFUpdateRegexMatchSetCommand(val regexMatchSetId: String, val updates: List<com.amazonaws.services.waf.model.RegexMatchSetUpdate>, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.UpdateRegexMatchSetRequest, com.amazonaws.services.waf.model.UpdateRegexMatchSetResult> {
 
 
 
@@ -1825,8 +2069,12 @@ class AWSWAFUpdateRegexMatchSetCommand(val regexMatchSetId: String, val updates:
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.updateRegexMatchSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.UpdateRegexMatchSetResult {
+	  return com.amazonaws.services.waf.model.UpdateRegexMatchSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.UpdateRegexMatchSetResult {
+		return environment.waf.updateRegexMatchSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1839,12 +2087,12 @@ class AWSWAFUpdateRegexMatchSetCommand(val regexMatchSetId: String, val updates:
 }
 
 
-fun AWSWAFFunctions.updateRegexPatternSet(regexPatternSetId: String, updates: List<com.amazonaws.services.waf.model.RegexPatternSetUpdate>, changeToken: String, init: AWSWAFUpdateRegexPatternSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFUpdateRegexPatternSetCommand(regexPatternSetId, updates, changeToken).apply(init))
+fun AWSWAFFunctions.updateRegexPatternSet(regexPatternSetId: String, updates: List<com.amazonaws.services.waf.model.RegexPatternSetUpdate>, changeToken: String, init: AWSWAFUpdateRegexPatternSetCommand.() -> Unit): com.amazonaws.services.waf.model.UpdateRegexPatternSetResult {
+	return this.block.declare(AWSWAFUpdateRegexPatternSetCommand(regexPatternSetId, updates, changeToken).apply(init)) as com.amazonaws.services.waf.model.UpdateRegexPatternSetResult
 }
 
 @Generated
-class AWSWAFUpdateRegexPatternSetCommand(val regexPatternSetId: String, val updates: List<com.amazonaws.services.waf.model.RegexPatternSetUpdate>, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.UpdateRegexPatternSetRequest> {
+class AWSWAFUpdateRegexPatternSetCommand(val regexPatternSetId: String, val updates: List<com.amazonaws.services.waf.model.RegexPatternSetUpdate>, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.UpdateRegexPatternSetRequest, com.amazonaws.services.waf.model.UpdateRegexPatternSetResult> {
 
 
 
@@ -1856,8 +2104,12 @@ class AWSWAFUpdateRegexPatternSetCommand(val regexPatternSetId: String, val upda
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.updateRegexPatternSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.UpdateRegexPatternSetResult {
+	  return com.amazonaws.services.waf.model.UpdateRegexPatternSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.UpdateRegexPatternSetResult {
+		return environment.waf.updateRegexPatternSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1870,12 +2122,12 @@ class AWSWAFUpdateRegexPatternSetCommand(val regexPatternSetId: String, val upda
 }
 
 
-fun AWSWAFFunctions.updateRule(ruleId: String, changeToken: String, updates: List<com.amazonaws.services.waf.model.RuleUpdate>, init: AWSWAFUpdateRuleCommand.() -> Unit) {
-	this.block.declare(AWSWAFUpdateRuleCommand(ruleId, changeToken, updates).apply(init))
+fun AWSWAFFunctions.updateRule(ruleId: String, changeToken: String, updates: List<com.amazonaws.services.waf.model.RuleUpdate>, init: AWSWAFUpdateRuleCommand.() -> Unit): com.amazonaws.services.waf.model.UpdateRuleResult {
+	return this.block.declare(AWSWAFUpdateRuleCommand(ruleId, changeToken, updates).apply(init)) as com.amazonaws.services.waf.model.UpdateRuleResult
 }
 
 @Generated
-class AWSWAFUpdateRuleCommand(val ruleId: String, val changeToken: String, val updates: List<com.amazonaws.services.waf.model.RuleUpdate>) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.UpdateRuleRequest> {
+class AWSWAFUpdateRuleCommand(val ruleId: String, val changeToken: String, val updates: List<com.amazonaws.services.waf.model.RuleUpdate>) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.UpdateRuleRequest, com.amazonaws.services.waf.model.UpdateRuleResult> {
 
 
 
@@ -1887,8 +2139,12 @@ class AWSWAFUpdateRuleCommand(val ruleId: String, val changeToken: String, val u
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.updateRule(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.UpdateRuleResult {
+	  return com.amazonaws.services.waf.model.UpdateRuleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.UpdateRuleResult {
+		return environment.waf.updateRule(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1901,12 +2157,12 @@ class AWSWAFUpdateRuleCommand(val ruleId: String, val changeToken: String, val u
 }
 
 
-fun AWSWAFFunctions.updateRuleGroup(ruleGroupId: String, updates: List<com.amazonaws.services.waf.model.RuleGroupUpdate>, changeToken: String, init: AWSWAFUpdateRuleGroupCommand.() -> Unit) {
-	this.block.declare(AWSWAFUpdateRuleGroupCommand(ruleGroupId, updates, changeToken).apply(init))
+fun AWSWAFFunctions.updateRuleGroup(ruleGroupId: String, updates: List<com.amazonaws.services.waf.model.RuleGroupUpdate>, changeToken: String, init: AWSWAFUpdateRuleGroupCommand.() -> Unit): com.amazonaws.services.waf.model.UpdateRuleGroupResult {
+	return this.block.declare(AWSWAFUpdateRuleGroupCommand(ruleGroupId, updates, changeToken).apply(init)) as com.amazonaws.services.waf.model.UpdateRuleGroupResult
 }
 
 @Generated
-class AWSWAFUpdateRuleGroupCommand(val ruleGroupId: String, val updates: List<com.amazonaws.services.waf.model.RuleGroupUpdate>, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.UpdateRuleGroupRequest> {
+class AWSWAFUpdateRuleGroupCommand(val ruleGroupId: String, val updates: List<com.amazonaws.services.waf.model.RuleGroupUpdate>, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.UpdateRuleGroupRequest, com.amazonaws.services.waf.model.UpdateRuleGroupResult> {
 
 
 
@@ -1918,8 +2174,12 @@ class AWSWAFUpdateRuleGroupCommand(val ruleGroupId: String, val updates: List<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.updateRuleGroup(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.UpdateRuleGroupResult {
+	  return com.amazonaws.services.waf.model.UpdateRuleGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.UpdateRuleGroupResult {
+		return environment.waf.updateRuleGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1932,12 +2192,12 @@ class AWSWAFUpdateRuleGroupCommand(val ruleGroupId: String, val updates: List<co
 }
 
 
-fun AWSWAFFunctions.updateSizeConstraintSet(sizeConstraintSetId: String, changeToken: String, updates: List<com.amazonaws.services.waf.model.SizeConstraintSetUpdate>, init: AWSWAFUpdateSizeConstraintSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFUpdateSizeConstraintSetCommand(sizeConstraintSetId, changeToken, updates).apply(init))
+fun AWSWAFFunctions.updateSizeConstraintSet(sizeConstraintSetId: String, changeToken: String, updates: List<com.amazonaws.services.waf.model.SizeConstraintSetUpdate>, init: AWSWAFUpdateSizeConstraintSetCommand.() -> Unit): com.amazonaws.services.waf.model.UpdateSizeConstraintSetResult {
+	return this.block.declare(AWSWAFUpdateSizeConstraintSetCommand(sizeConstraintSetId, changeToken, updates).apply(init)) as com.amazonaws.services.waf.model.UpdateSizeConstraintSetResult
 }
 
 @Generated
-class AWSWAFUpdateSizeConstraintSetCommand(val sizeConstraintSetId: String, val changeToken: String, val updates: List<com.amazonaws.services.waf.model.SizeConstraintSetUpdate>) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.UpdateSizeConstraintSetRequest> {
+class AWSWAFUpdateSizeConstraintSetCommand(val sizeConstraintSetId: String, val changeToken: String, val updates: List<com.amazonaws.services.waf.model.SizeConstraintSetUpdate>) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.UpdateSizeConstraintSetRequest, com.amazonaws.services.waf.model.UpdateSizeConstraintSetResult> {
 
 
 
@@ -1949,8 +2209,12 @@ class AWSWAFUpdateSizeConstraintSetCommand(val sizeConstraintSetId: String, val 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.updateSizeConstraintSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.UpdateSizeConstraintSetResult {
+	  return com.amazonaws.services.waf.model.UpdateSizeConstraintSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.UpdateSizeConstraintSetResult {
+		return environment.waf.updateSizeConstraintSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1963,12 +2227,12 @@ class AWSWAFUpdateSizeConstraintSetCommand(val sizeConstraintSetId: String, val 
 }
 
 
-fun AWSWAFFunctions.updateSqlInjectionMatchSet(sqlInjectionMatchSetId: String, changeToken: String, updates: List<com.amazonaws.services.waf.model.SqlInjectionMatchSetUpdate>, init: AWSWAFUpdateSqlInjectionMatchSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFUpdateSqlInjectionMatchSetCommand(sqlInjectionMatchSetId, changeToken, updates).apply(init))
+fun AWSWAFFunctions.updateSqlInjectionMatchSet(sqlInjectionMatchSetId: String, changeToken: String, updates: List<com.amazonaws.services.waf.model.SqlInjectionMatchSetUpdate>, init: AWSWAFUpdateSqlInjectionMatchSetCommand.() -> Unit): com.amazonaws.services.waf.model.UpdateSqlInjectionMatchSetResult {
+	return this.block.declare(AWSWAFUpdateSqlInjectionMatchSetCommand(sqlInjectionMatchSetId, changeToken, updates).apply(init)) as com.amazonaws.services.waf.model.UpdateSqlInjectionMatchSetResult
 }
 
 @Generated
-class AWSWAFUpdateSqlInjectionMatchSetCommand(val sqlInjectionMatchSetId: String, val changeToken: String, val updates: List<com.amazonaws.services.waf.model.SqlInjectionMatchSetUpdate>) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.UpdateSqlInjectionMatchSetRequest> {
+class AWSWAFUpdateSqlInjectionMatchSetCommand(val sqlInjectionMatchSetId: String, val changeToken: String, val updates: List<com.amazonaws.services.waf.model.SqlInjectionMatchSetUpdate>) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.UpdateSqlInjectionMatchSetRequest, com.amazonaws.services.waf.model.UpdateSqlInjectionMatchSetResult> {
 
 
 
@@ -1980,8 +2244,12 @@ class AWSWAFUpdateSqlInjectionMatchSetCommand(val sqlInjectionMatchSetId: String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.updateSqlInjectionMatchSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.UpdateSqlInjectionMatchSetResult {
+	  return com.amazonaws.services.waf.model.UpdateSqlInjectionMatchSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.UpdateSqlInjectionMatchSetResult {
+		return environment.waf.updateSqlInjectionMatchSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1994,12 +2262,12 @@ class AWSWAFUpdateSqlInjectionMatchSetCommand(val sqlInjectionMatchSetId: String
 }
 
 
-fun AWSWAFFunctions.updateWebACL(webACLId: String, changeToken: String, init: AWSWAFUpdateWebACLCommand.() -> Unit) {
-	this.block.declare(AWSWAFUpdateWebACLCommand(webACLId, changeToken).apply(init))
+fun AWSWAFFunctions.updateWebACL(webACLId: String, changeToken: String, init: AWSWAFUpdateWebACLCommand.() -> Unit): com.amazonaws.services.waf.model.UpdateWebACLResult {
+	return this.block.declare(AWSWAFUpdateWebACLCommand(webACLId, changeToken).apply(init)) as com.amazonaws.services.waf.model.UpdateWebACLResult
 }
 
 @Generated
-class AWSWAFUpdateWebACLCommand(val webACLId: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.UpdateWebACLRequest> {
+class AWSWAFUpdateWebACLCommand(val webACLId: String, val changeToken: String) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.UpdateWebACLRequest, com.amazonaws.services.waf.model.UpdateWebACLResult> {
 
 	var updates: List<com.amazonaws.services.waf.model.WebACLUpdate>? = null
 	var defaultAction: com.amazonaws.services.waf.model.WafAction? = null
@@ -2013,8 +2281,12 @@ class AWSWAFUpdateWebACLCommand(val webACLId: String, val changeToken: String) :
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.updateWebACL(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.UpdateWebACLResult {
+	  return com.amazonaws.services.waf.model.UpdateWebACLResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.UpdateWebACLResult {
+		return environment.waf.updateWebACL(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2028,12 +2300,12 @@ class AWSWAFUpdateWebACLCommand(val webACLId: String, val changeToken: String) :
 }
 
 
-fun AWSWAFFunctions.updateXssMatchSet(xssMatchSetId: String, changeToken: String, updates: List<com.amazonaws.services.waf.model.XssMatchSetUpdate>, init: AWSWAFUpdateXssMatchSetCommand.() -> Unit) {
-	this.block.declare(AWSWAFUpdateXssMatchSetCommand(xssMatchSetId, changeToken, updates).apply(init))
+fun AWSWAFFunctions.updateXssMatchSet(xssMatchSetId: String, changeToken: String, updates: List<com.amazonaws.services.waf.model.XssMatchSetUpdate>, init: AWSWAFUpdateXssMatchSetCommand.() -> Unit): com.amazonaws.services.waf.model.UpdateXssMatchSetResult {
+	return this.block.declare(AWSWAFUpdateXssMatchSetCommand(xssMatchSetId, changeToken, updates).apply(init)) as com.amazonaws.services.waf.model.UpdateXssMatchSetResult
 }
 
 @Generated
-class AWSWAFUpdateXssMatchSetCommand(val xssMatchSetId: String, val changeToken: String, val updates: List<com.amazonaws.services.waf.model.XssMatchSetUpdate>) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.UpdateXssMatchSetRequest> {
+class AWSWAFUpdateXssMatchSetCommand(val xssMatchSetId: String, val changeToken: String, val updates: List<com.amazonaws.services.waf.model.XssMatchSetUpdate>) : AmazonWebServiceCommand<com.amazonaws.services.waf.model.UpdateXssMatchSetRequest, com.amazonaws.services.waf.model.UpdateXssMatchSetResult> {
 
 
 
@@ -2045,8 +2317,12 @@ class AWSWAFUpdateXssMatchSetCommand(val xssMatchSetId: String, val changeToken:
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.waf.updateXssMatchSet(build())
+	override fun dryResult(): com.amazonaws.services.waf.model.UpdateXssMatchSetResult {
+	  return com.amazonaws.services.waf.model.UpdateXssMatchSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.waf.model.UpdateXssMatchSetResult {
+		return environment.waf.updateXssMatchSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

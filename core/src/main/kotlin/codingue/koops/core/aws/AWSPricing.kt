@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.pricing: AWSPricing
 @Generated
 class AWSPricingFunctions(val block: Block)
 
-infix fun AwsContinuation.pricing(init: AWSPricingFunctions.() -> Unit) {
-	AWSPricingFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.pricing(init: AWSPricingFunctions.() -> T): T {
+	return AWSPricingFunctions(shell).run(init)
 }
 
 			
 
-fun AWSPricingFunctions.describeServices(init: AWSPricingDescribeServicesCommand.() -> Unit) {
-	this.block.declare(AWSPricingDescribeServicesCommand().apply(init))
+fun AWSPricingFunctions.describeServices(init: AWSPricingDescribeServicesCommand.() -> Unit): com.amazonaws.services.pricing.model.DescribeServicesResult {
+	return this.block.declare(AWSPricingDescribeServicesCommand().apply(init)) as com.amazonaws.services.pricing.model.DescribeServicesResult
 }
 
 @Generated
-class AWSPricingDescribeServicesCommand() : AmazonWebServiceCommand<com.amazonaws.services.pricing.model.DescribeServicesRequest> {
+class AWSPricingDescribeServicesCommand() : AmazonWebServiceCommand<com.amazonaws.services.pricing.model.DescribeServicesRequest, com.amazonaws.services.pricing.model.DescribeServicesResult> {
 
 	var serviceCode: String? = null
 	var formatVersion: String? = null
@@ -47,8 +47,12 @@ class AWSPricingDescribeServicesCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.pricing.describeServices(build())
+	override fun dryResult(): com.amazonaws.services.pricing.model.DescribeServicesResult {
+	  return com.amazonaws.services.pricing.model.DescribeServicesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pricing.model.DescribeServicesResult {
+		return environment.pricing.describeServices(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -62,12 +66,12 @@ class AWSPricingDescribeServicesCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AWSPricingFunctions.getAttributeValues(serviceCode: String, attributeName: String, init: AWSPricingGetAttributeValuesCommand.() -> Unit) {
-	this.block.declare(AWSPricingGetAttributeValuesCommand(serviceCode, attributeName).apply(init))
+fun AWSPricingFunctions.getAttributeValues(serviceCode: String, attributeName: String, init: AWSPricingGetAttributeValuesCommand.() -> Unit): com.amazonaws.services.pricing.model.GetAttributeValuesResult {
+	return this.block.declare(AWSPricingGetAttributeValuesCommand(serviceCode, attributeName).apply(init)) as com.amazonaws.services.pricing.model.GetAttributeValuesResult
 }
 
 @Generated
-class AWSPricingGetAttributeValuesCommand(val serviceCode: String, val attributeName: String) : AmazonWebServiceCommand<com.amazonaws.services.pricing.model.GetAttributeValuesRequest> {
+class AWSPricingGetAttributeValuesCommand(val serviceCode: String, val attributeName: String) : AmazonWebServiceCommand<com.amazonaws.services.pricing.model.GetAttributeValuesRequest, com.amazonaws.services.pricing.model.GetAttributeValuesResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -81,8 +85,12 @@ class AWSPricingGetAttributeValuesCommand(val serviceCode: String, val attribute
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.pricing.getAttributeValues(build())
+	override fun dryResult(): com.amazonaws.services.pricing.model.GetAttributeValuesResult {
+	  return com.amazonaws.services.pricing.model.GetAttributeValuesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pricing.model.GetAttributeValuesResult {
+		return environment.pricing.getAttributeValues(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -96,12 +104,12 @@ class AWSPricingGetAttributeValuesCommand(val serviceCode: String, val attribute
 }
 
 
-fun AWSPricingFunctions.getProducts(init: AWSPricingGetProductsCommand.() -> Unit) {
-	this.block.declare(AWSPricingGetProductsCommand().apply(init))
+fun AWSPricingFunctions.getProducts(init: AWSPricingGetProductsCommand.() -> Unit): com.amazonaws.services.pricing.model.GetProductsResult {
+	return this.block.declare(AWSPricingGetProductsCommand().apply(init)) as com.amazonaws.services.pricing.model.GetProductsResult
 }
 
 @Generated
-class AWSPricingGetProductsCommand() : AmazonWebServiceCommand<com.amazonaws.services.pricing.model.GetProductsRequest> {
+class AWSPricingGetProductsCommand() : AmazonWebServiceCommand<com.amazonaws.services.pricing.model.GetProductsRequest, com.amazonaws.services.pricing.model.GetProductsResult> {
 
 	var serviceCode: String? = null
 	var filters: List<com.amazonaws.services.pricing.model.Filter>? = null
@@ -119,8 +127,12 @@ class AWSPricingGetProductsCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.pricing.getProducts(build())
+	override fun dryResult(): com.amazonaws.services.pricing.model.GetProductsResult {
+	  return com.amazonaws.services.pricing.model.GetProductsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.pricing.model.GetProductsResult {
+		return environment.pricing.getProducts(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

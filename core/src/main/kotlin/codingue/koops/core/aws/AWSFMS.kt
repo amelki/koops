@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.fms: AWSFMS
 @Generated
 class AWSFMSFunctions(val block: Block)
 
-infix fun AwsContinuation.fms(init: AWSFMSFunctions.() -> Unit) {
-	AWSFMSFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.fms(init: AWSFMSFunctions.() -> T): T {
+	return AWSFMSFunctions(shell).run(init)
 }
 
 			
 
-fun AWSFMSFunctions.associateAdminAccount(adminAccount: String, init: AWSFMSAssociateAdminAccountCommand.() -> Unit) {
-	this.block.declare(AWSFMSAssociateAdminAccountCommand(adminAccount).apply(init))
+fun AWSFMSFunctions.associateAdminAccount(adminAccount: String, init: AWSFMSAssociateAdminAccountCommand.() -> Unit): com.amazonaws.services.fms.model.AssociateAdminAccountResult {
+	return this.block.declare(AWSFMSAssociateAdminAccountCommand(adminAccount).apply(init)) as com.amazonaws.services.fms.model.AssociateAdminAccountResult
 }
 
 @Generated
-class AWSFMSAssociateAdminAccountCommand(val adminAccount: String) : AmazonWebServiceCommand<com.amazonaws.services.fms.model.AssociateAdminAccountRequest> {
+class AWSFMSAssociateAdminAccountCommand(val adminAccount: String) : AmazonWebServiceCommand<com.amazonaws.services.fms.model.AssociateAdminAccountRequest, com.amazonaws.services.fms.model.AssociateAdminAccountResult> {
 
 
 
@@ -41,8 +41,12 @@ class AWSFMSAssociateAdminAccountCommand(val adminAccount: String) : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.fms.associateAdminAccount(build())
+	override fun dryResult(): com.amazonaws.services.fms.model.AssociateAdminAccountResult {
+	  return com.amazonaws.services.fms.model.AssociateAdminAccountResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.fms.model.AssociateAdminAccountResult {
+		return environment.fms.associateAdminAccount(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -53,12 +57,12 @@ class AWSFMSAssociateAdminAccountCommand(val adminAccount: String) : AmazonWebSe
 }
 
 
-fun AWSFMSFunctions.deleteNotificationChannel(init: AWSFMSDeleteNotificationChannelCommand.() -> Unit) {
-	this.block.declare(AWSFMSDeleteNotificationChannelCommand().apply(init))
+fun AWSFMSFunctions.deleteNotificationChannel(init: AWSFMSDeleteNotificationChannelCommand.() -> Unit): com.amazonaws.services.fms.model.DeleteNotificationChannelResult {
+	return this.block.declare(AWSFMSDeleteNotificationChannelCommand().apply(init)) as com.amazonaws.services.fms.model.DeleteNotificationChannelResult
 }
 
 @Generated
-class AWSFMSDeleteNotificationChannelCommand() : AmazonWebServiceCommand<com.amazonaws.services.fms.model.DeleteNotificationChannelRequest> {
+class AWSFMSDeleteNotificationChannelCommand() : AmazonWebServiceCommand<com.amazonaws.services.fms.model.DeleteNotificationChannelRequest, com.amazonaws.services.fms.model.DeleteNotificationChannelResult> {
 
 
 
@@ -68,8 +72,12 @@ class AWSFMSDeleteNotificationChannelCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.fms.deleteNotificationChannel(build())
+	override fun dryResult(): com.amazonaws.services.fms.model.DeleteNotificationChannelResult {
+	  return com.amazonaws.services.fms.model.DeleteNotificationChannelResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.fms.model.DeleteNotificationChannelResult {
+		return environment.fms.deleteNotificationChannel(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -80,12 +88,12 @@ class AWSFMSDeleteNotificationChannelCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AWSFMSFunctions.deletePolicy(policyId: String, init: AWSFMSDeletePolicyCommand.() -> Unit) {
-	this.block.declare(AWSFMSDeletePolicyCommand(policyId).apply(init))
+fun AWSFMSFunctions.deletePolicy(policyId: String, init: AWSFMSDeletePolicyCommand.() -> Unit): com.amazonaws.services.fms.model.DeletePolicyResult {
+	return this.block.declare(AWSFMSDeletePolicyCommand(policyId).apply(init)) as com.amazonaws.services.fms.model.DeletePolicyResult
 }
 
 @Generated
-class AWSFMSDeletePolicyCommand(val policyId: String) : AmazonWebServiceCommand<com.amazonaws.services.fms.model.DeletePolicyRequest> {
+class AWSFMSDeletePolicyCommand(val policyId: String) : AmazonWebServiceCommand<com.amazonaws.services.fms.model.DeletePolicyRequest, com.amazonaws.services.fms.model.DeletePolicyResult> {
 
 
 
@@ -95,8 +103,12 @@ class AWSFMSDeletePolicyCommand(val policyId: String) : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.fms.deletePolicy(build())
+	override fun dryResult(): com.amazonaws.services.fms.model.DeletePolicyResult {
+	  return com.amazonaws.services.fms.model.DeletePolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.fms.model.DeletePolicyResult {
+		return environment.fms.deletePolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -107,12 +119,12 @@ class AWSFMSDeletePolicyCommand(val policyId: String) : AmazonWebServiceCommand<
 }
 
 
-fun AWSFMSFunctions.disassociateAdminAccount(init: AWSFMSDisassociateAdminAccountCommand.() -> Unit) {
-	this.block.declare(AWSFMSDisassociateAdminAccountCommand().apply(init))
+fun AWSFMSFunctions.disassociateAdminAccount(init: AWSFMSDisassociateAdminAccountCommand.() -> Unit): com.amazonaws.services.fms.model.DisassociateAdminAccountResult {
+	return this.block.declare(AWSFMSDisassociateAdminAccountCommand().apply(init)) as com.amazonaws.services.fms.model.DisassociateAdminAccountResult
 }
 
 @Generated
-class AWSFMSDisassociateAdminAccountCommand() : AmazonWebServiceCommand<com.amazonaws.services.fms.model.DisassociateAdminAccountRequest> {
+class AWSFMSDisassociateAdminAccountCommand() : AmazonWebServiceCommand<com.amazonaws.services.fms.model.DisassociateAdminAccountRequest, com.amazonaws.services.fms.model.DisassociateAdminAccountResult> {
 
 
 
@@ -122,8 +134,12 @@ class AWSFMSDisassociateAdminAccountCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.fms.disassociateAdminAccount(build())
+	override fun dryResult(): com.amazonaws.services.fms.model.DisassociateAdminAccountResult {
+	  return com.amazonaws.services.fms.model.DisassociateAdminAccountResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.fms.model.DisassociateAdminAccountResult {
+		return environment.fms.disassociateAdminAccount(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -134,12 +150,12 @@ class AWSFMSDisassociateAdminAccountCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AWSFMSFunctions.getAdminAccount(init: AWSFMSGetAdminAccountCommand.() -> Unit) {
-	this.block.declare(AWSFMSGetAdminAccountCommand().apply(init))
+fun AWSFMSFunctions.getAdminAccount(init: AWSFMSGetAdminAccountCommand.() -> Unit): com.amazonaws.services.fms.model.GetAdminAccountResult {
+	return this.block.declare(AWSFMSGetAdminAccountCommand().apply(init)) as com.amazonaws.services.fms.model.GetAdminAccountResult
 }
 
 @Generated
-class AWSFMSGetAdminAccountCommand() : AmazonWebServiceCommand<com.amazonaws.services.fms.model.GetAdminAccountRequest> {
+class AWSFMSGetAdminAccountCommand() : AmazonWebServiceCommand<com.amazonaws.services.fms.model.GetAdminAccountRequest, com.amazonaws.services.fms.model.GetAdminAccountResult> {
 
 
 
@@ -149,8 +165,12 @@ class AWSFMSGetAdminAccountCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.fms.getAdminAccount(build())
+	override fun dryResult(): com.amazonaws.services.fms.model.GetAdminAccountResult {
+	  return com.amazonaws.services.fms.model.GetAdminAccountResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.fms.model.GetAdminAccountResult {
+		return environment.fms.getAdminAccount(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -161,12 +181,12 @@ class AWSFMSGetAdminAccountCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 }
 
 
-fun AWSFMSFunctions.getComplianceDetail(policyId: String, memberAccount: String, init: AWSFMSGetComplianceDetailCommand.() -> Unit) {
-	this.block.declare(AWSFMSGetComplianceDetailCommand(policyId, memberAccount).apply(init))
+fun AWSFMSFunctions.getComplianceDetail(policyId: String, memberAccount: String, init: AWSFMSGetComplianceDetailCommand.() -> Unit): com.amazonaws.services.fms.model.GetComplianceDetailResult {
+	return this.block.declare(AWSFMSGetComplianceDetailCommand(policyId, memberAccount).apply(init)) as com.amazonaws.services.fms.model.GetComplianceDetailResult
 }
 
 @Generated
-class AWSFMSGetComplianceDetailCommand(val policyId: String, val memberAccount: String) : AmazonWebServiceCommand<com.amazonaws.services.fms.model.GetComplianceDetailRequest> {
+class AWSFMSGetComplianceDetailCommand(val policyId: String, val memberAccount: String) : AmazonWebServiceCommand<com.amazonaws.services.fms.model.GetComplianceDetailRequest, com.amazonaws.services.fms.model.GetComplianceDetailResult> {
 
 
 
@@ -177,8 +197,12 @@ class AWSFMSGetComplianceDetailCommand(val policyId: String, val memberAccount: 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.fms.getComplianceDetail(build())
+	override fun dryResult(): com.amazonaws.services.fms.model.GetComplianceDetailResult {
+	  return com.amazonaws.services.fms.model.GetComplianceDetailResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.fms.model.GetComplianceDetailResult {
+		return environment.fms.getComplianceDetail(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -190,12 +214,12 @@ class AWSFMSGetComplianceDetailCommand(val policyId: String, val memberAccount: 
 }
 
 
-fun AWSFMSFunctions.getNotificationChannel(init: AWSFMSGetNotificationChannelCommand.() -> Unit) {
-	this.block.declare(AWSFMSGetNotificationChannelCommand().apply(init))
+fun AWSFMSFunctions.getNotificationChannel(init: AWSFMSGetNotificationChannelCommand.() -> Unit): com.amazonaws.services.fms.model.GetNotificationChannelResult {
+	return this.block.declare(AWSFMSGetNotificationChannelCommand().apply(init)) as com.amazonaws.services.fms.model.GetNotificationChannelResult
 }
 
 @Generated
-class AWSFMSGetNotificationChannelCommand() : AmazonWebServiceCommand<com.amazonaws.services.fms.model.GetNotificationChannelRequest> {
+class AWSFMSGetNotificationChannelCommand() : AmazonWebServiceCommand<com.amazonaws.services.fms.model.GetNotificationChannelRequest, com.amazonaws.services.fms.model.GetNotificationChannelResult> {
 
 
 
@@ -205,8 +229,12 @@ class AWSFMSGetNotificationChannelCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.fms.getNotificationChannel(build())
+	override fun dryResult(): com.amazonaws.services.fms.model.GetNotificationChannelResult {
+	  return com.amazonaws.services.fms.model.GetNotificationChannelResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.fms.model.GetNotificationChannelResult {
+		return environment.fms.getNotificationChannel(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -217,12 +245,12 @@ class AWSFMSGetNotificationChannelCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AWSFMSFunctions.getPolicy(policyId: String, init: AWSFMSGetPolicyCommand.() -> Unit) {
-	this.block.declare(AWSFMSGetPolicyCommand(policyId).apply(init))
+fun AWSFMSFunctions.getPolicy(policyId: String, init: AWSFMSGetPolicyCommand.() -> Unit): com.amazonaws.services.fms.model.GetPolicyResult {
+	return this.block.declare(AWSFMSGetPolicyCommand(policyId).apply(init)) as com.amazonaws.services.fms.model.GetPolicyResult
 }
 
 @Generated
-class AWSFMSGetPolicyCommand(val policyId: String) : AmazonWebServiceCommand<com.amazonaws.services.fms.model.GetPolicyRequest> {
+class AWSFMSGetPolicyCommand(val policyId: String) : AmazonWebServiceCommand<com.amazonaws.services.fms.model.GetPolicyRequest, com.amazonaws.services.fms.model.GetPolicyResult> {
 
 
 
@@ -232,8 +260,12 @@ class AWSFMSGetPolicyCommand(val policyId: String) : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.fms.getPolicy(build())
+	override fun dryResult(): com.amazonaws.services.fms.model.GetPolicyResult {
+	  return com.amazonaws.services.fms.model.GetPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.fms.model.GetPolicyResult {
+		return environment.fms.getPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -244,12 +276,12 @@ class AWSFMSGetPolicyCommand(val policyId: String) : AmazonWebServiceCommand<com
 }
 
 
-fun AWSFMSFunctions.listComplianceStatus(policyId: String, init: AWSFMSListComplianceStatusCommand.() -> Unit) {
-	this.block.declare(AWSFMSListComplianceStatusCommand(policyId).apply(init))
+fun AWSFMSFunctions.listComplianceStatus(policyId: String, init: AWSFMSListComplianceStatusCommand.() -> Unit): com.amazonaws.services.fms.model.ListComplianceStatusResult {
+	return this.block.declare(AWSFMSListComplianceStatusCommand(policyId).apply(init)) as com.amazonaws.services.fms.model.ListComplianceStatusResult
 }
 
 @Generated
-class AWSFMSListComplianceStatusCommand(val policyId: String) : AmazonWebServiceCommand<com.amazonaws.services.fms.model.ListComplianceStatusRequest> {
+class AWSFMSListComplianceStatusCommand(val policyId: String) : AmazonWebServiceCommand<com.amazonaws.services.fms.model.ListComplianceStatusRequest, com.amazonaws.services.fms.model.ListComplianceStatusResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -262,8 +294,12 @@ class AWSFMSListComplianceStatusCommand(val policyId: String) : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.fms.listComplianceStatus(build())
+	override fun dryResult(): com.amazonaws.services.fms.model.ListComplianceStatusResult {
+	  return com.amazonaws.services.fms.model.ListComplianceStatusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.fms.model.ListComplianceStatusResult {
+		return environment.fms.listComplianceStatus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -276,12 +312,12 @@ class AWSFMSListComplianceStatusCommand(val policyId: String) : AmazonWebService
 }
 
 
-fun AWSFMSFunctions.listPolicies(init: AWSFMSListPoliciesCommand.() -> Unit) {
-	this.block.declare(AWSFMSListPoliciesCommand().apply(init))
+fun AWSFMSFunctions.listPolicies(init: AWSFMSListPoliciesCommand.() -> Unit): com.amazonaws.services.fms.model.ListPoliciesResult {
+	return this.block.declare(AWSFMSListPoliciesCommand().apply(init)) as com.amazonaws.services.fms.model.ListPoliciesResult
 }
 
 @Generated
-class AWSFMSListPoliciesCommand() : AmazonWebServiceCommand<com.amazonaws.services.fms.model.ListPoliciesRequest> {
+class AWSFMSListPoliciesCommand() : AmazonWebServiceCommand<com.amazonaws.services.fms.model.ListPoliciesRequest, com.amazonaws.services.fms.model.ListPoliciesResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -293,8 +329,12 @@ class AWSFMSListPoliciesCommand() : AmazonWebServiceCommand<com.amazonaws.servic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.fms.listPolicies(build())
+	override fun dryResult(): com.amazonaws.services.fms.model.ListPoliciesResult {
+	  return com.amazonaws.services.fms.model.ListPoliciesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.fms.model.ListPoliciesResult {
+		return environment.fms.listPolicies(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -306,12 +346,12 @@ class AWSFMSListPoliciesCommand() : AmazonWebServiceCommand<com.amazonaws.servic
 }
 
 
-fun AWSFMSFunctions.putNotificationChannel(snsTopicArn: String, snsRoleName: String, init: AWSFMSPutNotificationChannelCommand.() -> Unit) {
-	this.block.declare(AWSFMSPutNotificationChannelCommand(snsTopicArn, snsRoleName).apply(init))
+fun AWSFMSFunctions.putNotificationChannel(snsTopicArn: String, snsRoleName: String, init: AWSFMSPutNotificationChannelCommand.() -> Unit): com.amazonaws.services.fms.model.PutNotificationChannelResult {
+	return this.block.declare(AWSFMSPutNotificationChannelCommand(snsTopicArn, snsRoleName).apply(init)) as com.amazonaws.services.fms.model.PutNotificationChannelResult
 }
 
 @Generated
-class AWSFMSPutNotificationChannelCommand(val snsTopicArn: String, val snsRoleName: String) : AmazonWebServiceCommand<com.amazonaws.services.fms.model.PutNotificationChannelRequest> {
+class AWSFMSPutNotificationChannelCommand(val snsTopicArn: String, val snsRoleName: String) : AmazonWebServiceCommand<com.amazonaws.services.fms.model.PutNotificationChannelRequest, com.amazonaws.services.fms.model.PutNotificationChannelResult> {
 
 
 
@@ -322,8 +362,12 @@ class AWSFMSPutNotificationChannelCommand(val snsTopicArn: String, val snsRoleNa
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.fms.putNotificationChannel(build())
+	override fun dryResult(): com.amazonaws.services.fms.model.PutNotificationChannelResult {
+	  return com.amazonaws.services.fms.model.PutNotificationChannelResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.fms.model.PutNotificationChannelResult {
+		return environment.fms.putNotificationChannel(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -335,12 +379,12 @@ class AWSFMSPutNotificationChannelCommand(val snsTopicArn: String, val snsRoleNa
 }
 
 
-fun AWSFMSFunctions.putPolicy(policy: com.amazonaws.services.fms.model.Policy, init: AWSFMSPutPolicyCommand.() -> Unit) {
-	this.block.declare(AWSFMSPutPolicyCommand(policy).apply(init))
+fun AWSFMSFunctions.putPolicy(policy: com.amazonaws.services.fms.model.Policy, init: AWSFMSPutPolicyCommand.() -> Unit): com.amazonaws.services.fms.model.PutPolicyResult {
+	return this.block.declare(AWSFMSPutPolicyCommand(policy).apply(init)) as com.amazonaws.services.fms.model.PutPolicyResult
 }
 
 @Generated
-class AWSFMSPutPolicyCommand(val policy: com.amazonaws.services.fms.model.Policy) : AmazonWebServiceCommand<com.amazonaws.services.fms.model.PutPolicyRequest> {
+class AWSFMSPutPolicyCommand(val policy: com.amazonaws.services.fms.model.Policy) : AmazonWebServiceCommand<com.amazonaws.services.fms.model.PutPolicyRequest, com.amazonaws.services.fms.model.PutPolicyResult> {
 
 
 
@@ -350,8 +394,12 @@ class AWSFMSPutPolicyCommand(val policy: com.amazonaws.services.fms.model.Policy
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.fms.putPolicy(build())
+	override fun dryResult(): com.amazonaws.services.fms.model.PutPolicyResult {
+	  return com.amazonaws.services.fms.model.PutPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.fms.model.PutPolicyResult {
+		return environment.fms.putPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

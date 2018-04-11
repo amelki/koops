@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.alexaforbusiness: AmazonAlexaForBusiness
 @Generated
 class AmazonAlexaForBusinessFunctions(val block: Block)
 
-infix fun AwsContinuation.alexaforbusiness(init: AmazonAlexaForBusinessFunctions.() -> Unit) {
-	AmazonAlexaForBusinessFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.alexaforbusiness(init: AmazonAlexaForBusinessFunctions.() -> T): T {
+	return AmazonAlexaForBusinessFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonAlexaForBusinessFunctions.associateContactWithAddressBook(contactArn: String, addressBookArn: String, init: AmazonAlexaForBusinessAssociateContactWithAddressBookCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessAssociateContactWithAddressBookCommand(contactArn, addressBookArn).apply(init))
+fun AmazonAlexaForBusinessFunctions.associateContactWithAddressBook(contactArn: String, addressBookArn: String, init: AmazonAlexaForBusinessAssociateContactWithAddressBookCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.AssociateContactWithAddressBookResult {
+	return this.block.declare(AmazonAlexaForBusinessAssociateContactWithAddressBookCommand(contactArn, addressBookArn).apply(init)) as com.amazonaws.services.alexaforbusiness.model.AssociateContactWithAddressBookResult
 }
 
 @Generated
-class AmazonAlexaForBusinessAssociateContactWithAddressBookCommand(val contactArn: String, val addressBookArn: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.AssociateContactWithAddressBookRequest> {
+class AmazonAlexaForBusinessAssociateContactWithAddressBookCommand(val contactArn: String, val addressBookArn: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.AssociateContactWithAddressBookRequest, com.amazonaws.services.alexaforbusiness.model.AssociateContactWithAddressBookResult> {
 
 
 
@@ -42,8 +42,12 @@ class AmazonAlexaForBusinessAssociateContactWithAddressBookCommand(val contactAr
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.associateContactWithAddressBook(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.AssociateContactWithAddressBookResult {
+	  return com.amazonaws.services.alexaforbusiness.model.AssociateContactWithAddressBookResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.AssociateContactWithAddressBookResult {
+		return environment.alexaforbusiness.associateContactWithAddressBook(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -55,12 +59,12 @@ class AmazonAlexaForBusinessAssociateContactWithAddressBookCommand(val contactAr
 }
 
 
-fun AmazonAlexaForBusinessFunctions.associateDeviceWithRoom(init: AmazonAlexaForBusinessAssociateDeviceWithRoomCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessAssociateDeviceWithRoomCommand().apply(init))
+fun AmazonAlexaForBusinessFunctions.associateDeviceWithRoom(init: AmazonAlexaForBusinessAssociateDeviceWithRoomCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.AssociateDeviceWithRoomResult {
+	return this.block.declare(AmazonAlexaForBusinessAssociateDeviceWithRoomCommand().apply(init)) as com.amazonaws.services.alexaforbusiness.model.AssociateDeviceWithRoomResult
 }
 
 @Generated
-class AmazonAlexaForBusinessAssociateDeviceWithRoomCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.AssociateDeviceWithRoomRequest> {
+class AmazonAlexaForBusinessAssociateDeviceWithRoomCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.AssociateDeviceWithRoomRequest, com.amazonaws.services.alexaforbusiness.model.AssociateDeviceWithRoomResult> {
 
 	var deviceArn: String? = null
 	var roomArn: String? = null
@@ -72,8 +76,12 @@ class AmazonAlexaForBusinessAssociateDeviceWithRoomCommand() : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.associateDeviceWithRoom(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.AssociateDeviceWithRoomResult {
+	  return com.amazonaws.services.alexaforbusiness.model.AssociateDeviceWithRoomResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.AssociateDeviceWithRoomResult {
+		return environment.alexaforbusiness.associateDeviceWithRoom(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -85,12 +93,12 @@ class AmazonAlexaForBusinessAssociateDeviceWithRoomCommand() : AmazonWebServiceC
 }
 
 
-fun AmazonAlexaForBusinessFunctions.associateSkillGroupWithRoom(init: AmazonAlexaForBusinessAssociateSkillGroupWithRoomCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessAssociateSkillGroupWithRoomCommand().apply(init))
+fun AmazonAlexaForBusinessFunctions.associateSkillGroupWithRoom(init: AmazonAlexaForBusinessAssociateSkillGroupWithRoomCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.AssociateSkillGroupWithRoomResult {
+	return this.block.declare(AmazonAlexaForBusinessAssociateSkillGroupWithRoomCommand().apply(init)) as com.amazonaws.services.alexaforbusiness.model.AssociateSkillGroupWithRoomResult
 }
 
 @Generated
-class AmazonAlexaForBusinessAssociateSkillGroupWithRoomCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.AssociateSkillGroupWithRoomRequest> {
+class AmazonAlexaForBusinessAssociateSkillGroupWithRoomCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.AssociateSkillGroupWithRoomRequest, com.amazonaws.services.alexaforbusiness.model.AssociateSkillGroupWithRoomResult> {
 
 	var skillGroupArn: String? = null
 	var roomArn: String? = null
@@ -102,8 +110,12 @@ class AmazonAlexaForBusinessAssociateSkillGroupWithRoomCommand() : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.associateSkillGroupWithRoom(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.AssociateSkillGroupWithRoomResult {
+	  return com.amazonaws.services.alexaforbusiness.model.AssociateSkillGroupWithRoomResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.AssociateSkillGroupWithRoomResult {
+		return environment.alexaforbusiness.associateSkillGroupWithRoom(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -115,12 +127,12 @@ class AmazonAlexaForBusinessAssociateSkillGroupWithRoomCommand() : AmazonWebServ
 }
 
 
-fun AmazonAlexaForBusinessFunctions.createAddressBook(name: String, init: AmazonAlexaForBusinessCreateAddressBookCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessCreateAddressBookCommand(name).apply(init))
+fun AmazonAlexaForBusinessFunctions.createAddressBook(name: String, init: AmazonAlexaForBusinessCreateAddressBookCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.CreateAddressBookResult {
+	return this.block.declare(AmazonAlexaForBusinessCreateAddressBookCommand(name).apply(init)) as com.amazonaws.services.alexaforbusiness.model.CreateAddressBookResult
 }
 
 @Generated
-class AmazonAlexaForBusinessCreateAddressBookCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.CreateAddressBookRequest> {
+class AmazonAlexaForBusinessCreateAddressBookCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.CreateAddressBookRequest, com.amazonaws.services.alexaforbusiness.model.CreateAddressBookResult> {
 
 	var description: String? = null
 	var clientRequestToken: String? = null
@@ -133,8 +145,12 @@ class AmazonAlexaForBusinessCreateAddressBookCommand(val name: String) : AmazonW
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.createAddressBook(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.CreateAddressBookResult {
+	  return com.amazonaws.services.alexaforbusiness.model.CreateAddressBookResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.CreateAddressBookResult {
+		return environment.alexaforbusiness.createAddressBook(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -147,12 +163,12 @@ class AmazonAlexaForBusinessCreateAddressBookCommand(val name: String) : AmazonW
 }
 
 
-fun AmazonAlexaForBusinessFunctions.createContact(firstName: String, phoneNumber: String, init: AmazonAlexaForBusinessCreateContactCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessCreateContactCommand(firstName, phoneNumber).apply(init))
+fun AmazonAlexaForBusinessFunctions.createContact(firstName: String, phoneNumber: String, init: AmazonAlexaForBusinessCreateContactCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.CreateContactResult {
+	return this.block.declare(AmazonAlexaForBusinessCreateContactCommand(firstName, phoneNumber).apply(init)) as com.amazonaws.services.alexaforbusiness.model.CreateContactResult
 }
 
 @Generated
-class AmazonAlexaForBusinessCreateContactCommand(val firstName: String, val phoneNumber: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.CreateContactRequest> {
+class AmazonAlexaForBusinessCreateContactCommand(val firstName: String, val phoneNumber: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.CreateContactRequest, com.amazonaws.services.alexaforbusiness.model.CreateContactResult> {
 
 	var displayName: String? = null
 	var lastName: String? = null
@@ -168,8 +184,12 @@ class AmazonAlexaForBusinessCreateContactCommand(val firstName: String, val phon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.createContact(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.CreateContactResult {
+	  return com.amazonaws.services.alexaforbusiness.model.CreateContactResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.CreateContactResult {
+		return environment.alexaforbusiness.createContact(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -184,12 +204,12 @@ class AmazonAlexaForBusinessCreateContactCommand(val firstName: String, val phon
 }
 
 
-fun AmazonAlexaForBusinessFunctions.createProfile(profileName: String, timezone: String, address: String, distanceUnit: DistanceUnit, temperatureUnit: TemperatureUnit, wakeWord: WakeWord, init: AmazonAlexaForBusinessCreateProfileCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessCreateProfileCommand(profileName, timezone, address, distanceUnit, temperatureUnit, wakeWord).apply(init))
+fun AmazonAlexaForBusinessFunctions.createProfile(profileName: String, timezone: String, address: String, distanceUnit: DistanceUnit, temperatureUnit: TemperatureUnit, wakeWord: WakeWord, init: AmazonAlexaForBusinessCreateProfileCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.CreateProfileResult {
+	return this.block.declare(AmazonAlexaForBusinessCreateProfileCommand(profileName, timezone, address, distanceUnit, temperatureUnit, wakeWord).apply(init)) as com.amazonaws.services.alexaforbusiness.model.CreateProfileResult
 }
 
 @Generated
-class AmazonAlexaForBusinessCreateProfileCommand(val profileName: String, val timezone: String, val address: String, val distanceUnit: DistanceUnit, val temperatureUnit: TemperatureUnit, val wakeWord: WakeWord) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.CreateProfileRequest> {
+class AmazonAlexaForBusinessCreateProfileCommand(val profileName: String, val timezone: String, val address: String, val distanceUnit: DistanceUnit, val temperatureUnit: TemperatureUnit, val wakeWord: WakeWord) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.CreateProfileRequest, com.amazonaws.services.alexaforbusiness.model.CreateProfileResult> {
 
 	var clientRequestToken: String? = null
 	var setupModeDisabled: Boolean? = false
@@ -211,8 +231,12 @@ class AmazonAlexaForBusinessCreateProfileCommand(val profileName: String, val ti
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.createProfile(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.CreateProfileResult {
+	  return com.amazonaws.services.alexaforbusiness.model.CreateProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.CreateProfileResult {
+		return environment.alexaforbusiness.createProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -232,12 +256,12 @@ class AmazonAlexaForBusinessCreateProfileCommand(val profileName: String, val ti
 }
 
 
-fun AmazonAlexaForBusinessFunctions.createRoom(roomName: String, init: AmazonAlexaForBusinessCreateRoomCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessCreateRoomCommand(roomName).apply(init))
+fun AmazonAlexaForBusinessFunctions.createRoom(roomName: String, init: AmazonAlexaForBusinessCreateRoomCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.CreateRoomResult {
+	return this.block.declare(AmazonAlexaForBusinessCreateRoomCommand(roomName).apply(init)) as com.amazonaws.services.alexaforbusiness.model.CreateRoomResult
 }
 
 @Generated
-class AmazonAlexaForBusinessCreateRoomCommand(val roomName: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.CreateRoomRequest> {
+class AmazonAlexaForBusinessCreateRoomCommand(val roomName: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.CreateRoomRequest, com.amazonaws.services.alexaforbusiness.model.CreateRoomResult> {
 
 	var description: String? = null
 	var profileArn: String? = null
@@ -256,8 +280,12 @@ class AmazonAlexaForBusinessCreateRoomCommand(val roomName: String) : AmazonWebS
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.createRoom(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.CreateRoomResult {
+	  return com.amazonaws.services.alexaforbusiness.model.CreateRoomResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.CreateRoomResult {
+		return environment.alexaforbusiness.createRoom(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -273,12 +301,12 @@ class AmazonAlexaForBusinessCreateRoomCommand(val roomName: String) : AmazonWebS
 }
 
 
-fun AmazonAlexaForBusinessFunctions.createSkillGroup(skillGroupName: String, init: AmazonAlexaForBusinessCreateSkillGroupCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessCreateSkillGroupCommand(skillGroupName).apply(init))
+fun AmazonAlexaForBusinessFunctions.createSkillGroup(skillGroupName: String, init: AmazonAlexaForBusinessCreateSkillGroupCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.CreateSkillGroupResult {
+	return this.block.declare(AmazonAlexaForBusinessCreateSkillGroupCommand(skillGroupName).apply(init)) as com.amazonaws.services.alexaforbusiness.model.CreateSkillGroupResult
 }
 
 @Generated
-class AmazonAlexaForBusinessCreateSkillGroupCommand(val skillGroupName: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.CreateSkillGroupRequest> {
+class AmazonAlexaForBusinessCreateSkillGroupCommand(val skillGroupName: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.CreateSkillGroupRequest, com.amazonaws.services.alexaforbusiness.model.CreateSkillGroupResult> {
 
 	var description: String? = null
 	var clientRequestToken: String? = null
@@ -291,8 +319,12 @@ class AmazonAlexaForBusinessCreateSkillGroupCommand(val skillGroupName: String) 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.createSkillGroup(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.CreateSkillGroupResult {
+	  return com.amazonaws.services.alexaforbusiness.model.CreateSkillGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.CreateSkillGroupResult {
+		return environment.alexaforbusiness.createSkillGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -305,12 +337,12 @@ class AmazonAlexaForBusinessCreateSkillGroupCommand(val skillGroupName: String) 
 }
 
 
-fun AmazonAlexaForBusinessFunctions.createUser(userId: String, init: AmazonAlexaForBusinessCreateUserCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessCreateUserCommand(userId).apply(init))
+fun AmazonAlexaForBusinessFunctions.createUser(userId: String, init: AmazonAlexaForBusinessCreateUserCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.CreateUserResult {
+	return this.block.declare(AmazonAlexaForBusinessCreateUserCommand(userId).apply(init)) as com.amazonaws.services.alexaforbusiness.model.CreateUserResult
 }
 
 @Generated
-class AmazonAlexaForBusinessCreateUserCommand(val userId: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.CreateUserRequest> {
+class AmazonAlexaForBusinessCreateUserCommand(val userId: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.CreateUserRequest, com.amazonaws.services.alexaforbusiness.model.CreateUserResult> {
 
 	var firstName: String? = null
 	var lastName: String? = null
@@ -329,8 +361,12 @@ class AmazonAlexaForBusinessCreateUserCommand(val userId: String) : AmazonWebSer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.createUser(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.CreateUserResult {
+	  return com.amazonaws.services.alexaforbusiness.model.CreateUserResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.CreateUserResult {
+		return environment.alexaforbusiness.createUser(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -346,12 +382,12 @@ class AmazonAlexaForBusinessCreateUserCommand(val userId: String) : AmazonWebSer
 }
 
 
-fun AmazonAlexaForBusinessFunctions.deleteAddressBook(addressBookArn: String, init: AmazonAlexaForBusinessDeleteAddressBookCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessDeleteAddressBookCommand(addressBookArn).apply(init))
+fun AmazonAlexaForBusinessFunctions.deleteAddressBook(addressBookArn: String, init: AmazonAlexaForBusinessDeleteAddressBookCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.DeleteAddressBookResult {
+	return this.block.declare(AmazonAlexaForBusinessDeleteAddressBookCommand(addressBookArn).apply(init)) as com.amazonaws.services.alexaforbusiness.model.DeleteAddressBookResult
 }
 
 @Generated
-class AmazonAlexaForBusinessDeleteAddressBookCommand(val addressBookArn: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.DeleteAddressBookRequest> {
+class AmazonAlexaForBusinessDeleteAddressBookCommand(val addressBookArn: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.DeleteAddressBookRequest, com.amazonaws.services.alexaforbusiness.model.DeleteAddressBookResult> {
 
 
 
@@ -361,8 +397,12 @@ class AmazonAlexaForBusinessDeleteAddressBookCommand(val addressBookArn: String)
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.deleteAddressBook(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.DeleteAddressBookResult {
+	  return com.amazonaws.services.alexaforbusiness.model.DeleteAddressBookResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.DeleteAddressBookResult {
+		return environment.alexaforbusiness.deleteAddressBook(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -373,12 +413,12 @@ class AmazonAlexaForBusinessDeleteAddressBookCommand(val addressBookArn: String)
 }
 
 
-fun AmazonAlexaForBusinessFunctions.deleteContact(contactArn: String, init: AmazonAlexaForBusinessDeleteContactCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessDeleteContactCommand(contactArn).apply(init))
+fun AmazonAlexaForBusinessFunctions.deleteContact(contactArn: String, init: AmazonAlexaForBusinessDeleteContactCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.DeleteContactResult {
+	return this.block.declare(AmazonAlexaForBusinessDeleteContactCommand(contactArn).apply(init)) as com.amazonaws.services.alexaforbusiness.model.DeleteContactResult
 }
 
 @Generated
-class AmazonAlexaForBusinessDeleteContactCommand(val contactArn: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.DeleteContactRequest> {
+class AmazonAlexaForBusinessDeleteContactCommand(val contactArn: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.DeleteContactRequest, com.amazonaws.services.alexaforbusiness.model.DeleteContactResult> {
 
 
 
@@ -388,8 +428,12 @@ class AmazonAlexaForBusinessDeleteContactCommand(val contactArn: String) : Amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.deleteContact(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.DeleteContactResult {
+	  return com.amazonaws.services.alexaforbusiness.model.DeleteContactResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.DeleteContactResult {
+		return environment.alexaforbusiness.deleteContact(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -400,12 +444,12 @@ class AmazonAlexaForBusinessDeleteContactCommand(val contactArn: String) : Amazo
 }
 
 
-fun AmazonAlexaForBusinessFunctions.deleteProfile(init: AmazonAlexaForBusinessDeleteProfileCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessDeleteProfileCommand().apply(init))
+fun AmazonAlexaForBusinessFunctions.deleteProfile(init: AmazonAlexaForBusinessDeleteProfileCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.DeleteProfileResult {
+	return this.block.declare(AmazonAlexaForBusinessDeleteProfileCommand().apply(init)) as com.amazonaws.services.alexaforbusiness.model.DeleteProfileResult
 }
 
 @Generated
-class AmazonAlexaForBusinessDeleteProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.DeleteProfileRequest> {
+class AmazonAlexaForBusinessDeleteProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.DeleteProfileRequest, com.amazonaws.services.alexaforbusiness.model.DeleteProfileResult> {
 
 	var profileArn: String? = null
 
@@ -415,8 +459,12 @@ class AmazonAlexaForBusinessDeleteProfileCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.deleteProfile(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.DeleteProfileResult {
+	  return com.amazonaws.services.alexaforbusiness.model.DeleteProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.DeleteProfileResult {
+		return environment.alexaforbusiness.deleteProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -427,12 +475,12 @@ class AmazonAlexaForBusinessDeleteProfileCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AmazonAlexaForBusinessFunctions.deleteRoom(init: AmazonAlexaForBusinessDeleteRoomCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessDeleteRoomCommand().apply(init))
+fun AmazonAlexaForBusinessFunctions.deleteRoom(init: AmazonAlexaForBusinessDeleteRoomCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.DeleteRoomResult {
+	return this.block.declare(AmazonAlexaForBusinessDeleteRoomCommand().apply(init)) as com.amazonaws.services.alexaforbusiness.model.DeleteRoomResult
 }
 
 @Generated
-class AmazonAlexaForBusinessDeleteRoomCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.DeleteRoomRequest> {
+class AmazonAlexaForBusinessDeleteRoomCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.DeleteRoomRequest, com.amazonaws.services.alexaforbusiness.model.DeleteRoomResult> {
 
 	var roomArn: String? = null
 
@@ -442,8 +490,12 @@ class AmazonAlexaForBusinessDeleteRoomCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.deleteRoom(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.DeleteRoomResult {
+	  return com.amazonaws.services.alexaforbusiness.model.DeleteRoomResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.DeleteRoomResult {
+		return environment.alexaforbusiness.deleteRoom(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -454,12 +506,12 @@ class AmazonAlexaForBusinessDeleteRoomCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonAlexaForBusinessFunctions.deleteRoomSkillParameter(skillId: String, parameterKey: String, init: AmazonAlexaForBusinessDeleteRoomSkillParameterCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessDeleteRoomSkillParameterCommand(skillId, parameterKey).apply(init))
+fun AmazonAlexaForBusinessFunctions.deleteRoomSkillParameter(skillId: String, parameterKey: String, init: AmazonAlexaForBusinessDeleteRoomSkillParameterCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.DeleteRoomSkillParameterResult {
+	return this.block.declare(AmazonAlexaForBusinessDeleteRoomSkillParameterCommand(skillId, parameterKey).apply(init)) as com.amazonaws.services.alexaforbusiness.model.DeleteRoomSkillParameterResult
 }
 
 @Generated
-class AmazonAlexaForBusinessDeleteRoomSkillParameterCommand(val skillId: String, val parameterKey: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.DeleteRoomSkillParameterRequest> {
+class AmazonAlexaForBusinessDeleteRoomSkillParameterCommand(val skillId: String, val parameterKey: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.DeleteRoomSkillParameterRequest, com.amazonaws.services.alexaforbusiness.model.DeleteRoomSkillParameterResult> {
 
 	var roomArn: String? = null
 
@@ -471,8 +523,12 @@ class AmazonAlexaForBusinessDeleteRoomSkillParameterCommand(val skillId: String,
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.deleteRoomSkillParameter(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.DeleteRoomSkillParameterResult {
+	  return com.amazonaws.services.alexaforbusiness.model.DeleteRoomSkillParameterResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.DeleteRoomSkillParameterResult {
+		return environment.alexaforbusiness.deleteRoomSkillParameter(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -485,12 +541,12 @@ class AmazonAlexaForBusinessDeleteRoomSkillParameterCommand(val skillId: String,
 }
 
 
-fun AmazonAlexaForBusinessFunctions.deleteSkillGroup(init: AmazonAlexaForBusinessDeleteSkillGroupCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessDeleteSkillGroupCommand().apply(init))
+fun AmazonAlexaForBusinessFunctions.deleteSkillGroup(init: AmazonAlexaForBusinessDeleteSkillGroupCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.DeleteSkillGroupResult {
+	return this.block.declare(AmazonAlexaForBusinessDeleteSkillGroupCommand().apply(init)) as com.amazonaws.services.alexaforbusiness.model.DeleteSkillGroupResult
 }
 
 @Generated
-class AmazonAlexaForBusinessDeleteSkillGroupCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.DeleteSkillGroupRequest> {
+class AmazonAlexaForBusinessDeleteSkillGroupCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.DeleteSkillGroupRequest, com.amazonaws.services.alexaforbusiness.model.DeleteSkillGroupResult> {
 
 	var skillGroupArn: String? = null
 
@@ -500,8 +556,12 @@ class AmazonAlexaForBusinessDeleteSkillGroupCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.deleteSkillGroup(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.DeleteSkillGroupResult {
+	  return com.amazonaws.services.alexaforbusiness.model.DeleteSkillGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.DeleteSkillGroupResult {
+		return environment.alexaforbusiness.deleteSkillGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -512,12 +572,12 @@ class AmazonAlexaForBusinessDeleteSkillGroupCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AmazonAlexaForBusinessFunctions.deleteUser(enrollmentId: String, init: AmazonAlexaForBusinessDeleteUserCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessDeleteUserCommand(enrollmentId).apply(init))
+fun AmazonAlexaForBusinessFunctions.deleteUser(enrollmentId: String, init: AmazonAlexaForBusinessDeleteUserCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.DeleteUserResult {
+	return this.block.declare(AmazonAlexaForBusinessDeleteUserCommand(enrollmentId).apply(init)) as com.amazonaws.services.alexaforbusiness.model.DeleteUserResult
 }
 
 @Generated
-class AmazonAlexaForBusinessDeleteUserCommand(val enrollmentId: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.DeleteUserRequest> {
+class AmazonAlexaForBusinessDeleteUserCommand(val enrollmentId: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.DeleteUserRequest, com.amazonaws.services.alexaforbusiness.model.DeleteUserResult> {
 
 	var userArn: String? = null
 
@@ -528,8 +588,12 @@ class AmazonAlexaForBusinessDeleteUserCommand(val enrollmentId: String) : Amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.deleteUser(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.DeleteUserResult {
+	  return com.amazonaws.services.alexaforbusiness.model.DeleteUserResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.DeleteUserResult {
+		return environment.alexaforbusiness.deleteUser(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -541,12 +605,12 @@ class AmazonAlexaForBusinessDeleteUserCommand(val enrollmentId: String) : Amazon
 }
 
 
-fun AmazonAlexaForBusinessFunctions.disassociateContactFromAddressBook(contactArn: String, addressBookArn: String, init: AmazonAlexaForBusinessDisassociateContactFromAddressBookCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessDisassociateContactFromAddressBookCommand(contactArn, addressBookArn).apply(init))
+fun AmazonAlexaForBusinessFunctions.disassociateContactFromAddressBook(contactArn: String, addressBookArn: String, init: AmazonAlexaForBusinessDisassociateContactFromAddressBookCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.DisassociateContactFromAddressBookResult {
+	return this.block.declare(AmazonAlexaForBusinessDisassociateContactFromAddressBookCommand(contactArn, addressBookArn).apply(init)) as com.amazonaws.services.alexaforbusiness.model.DisassociateContactFromAddressBookResult
 }
 
 @Generated
-class AmazonAlexaForBusinessDisassociateContactFromAddressBookCommand(val contactArn: String, val addressBookArn: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.DisassociateContactFromAddressBookRequest> {
+class AmazonAlexaForBusinessDisassociateContactFromAddressBookCommand(val contactArn: String, val addressBookArn: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.DisassociateContactFromAddressBookRequest, com.amazonaws.services.alexaforbusiness.model.DisassociateContactFromAddressBookResult> {
 
 
 
@@ -557,8 +621,12 @@ class AmazonAlexaForBusinessDisassociateContactFromAddressBookCommand(val contac
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.disassociateContactFromAddressBook(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.DisassociateContactFromAddressBookResult {
+	  return com.amazonaws.services.alexaforbusiness.model.DisassociateContactFromAddressBookResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.DisassociateContactFromAddressBookResult {
+		return environment.alexaforbusiness.disassociateContactFromAddressBook(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -570,12 +638,12 @@ class AmazonAlexaForBusinessDisassociateContactFromAddressBookCommand(val contac
 }
 
 
-fun AmazonAlexaForBusinessFunctions.disassociateDeviceFromRoom(init: AmazonAlexaForBusinessDisassociateDeviceFromRoomCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessDisassociateDeviceFromRoomCommand().apply(init))
+fun AmazonAlexaForBusinessFunctions.disassociateDeviceFromRoom(init: AmazonAlexaForBusinessDisassociateDeviceFromRoomCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.DisassociateDeviceFromRoomResult {
+	return this.block.declare(AmazonAlexaForBusinessDisassociateDeviceFromRoomCommand().apply(init)) as com.amazonaws.services.alexaforbusiness.model.DisassociateDeviceFromRoomResult
 }
 
 @Generated
-class AmazonAlexaForBusinessDisassociateDeviceFromRoomCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.DisassociateDeviceFromRoomRequest> {
+class AmazonAlexaForBusinessDisassociateDeviceFromRoomCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.DisassociateDeviceFromRoomRequest, com.amazonaws.services.alexaforbusiness.model.DisassociateDeviceFromRoomResult> {
 
 	var deviceArn: String? = null
 
@@ -585,8 +653,12 @@ class AmazonAlexaForBusinessDisassociateDeviceFromRoomCommand() : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.disassociateDeviceFromRoom(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.DisassociateDeviceFromRoomResult {
+	  return com.amazonaws.services.alexaforbusiness.model.DisassociateDeviceFromRoomResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.DisassociateDeviceFromRoomResult {
+		return environment.alexaforbusiness.disassociateDeviceFromRoom(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -597,12 +669,12 @@ class AmazonAlexaForBusinessDisassociateDeviceFromRoomCommand() : AmazonWebServi
 }
 
 
-fun AmazonAlexaForBusinessFunctions.disassociateSkillGroupFromRoom(init: AmazonAlexaForBusinessDisassociateSkillGroupFromRoomCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessDisassociateSkillGroupFromRoomCommand().apply(init))
+fun AmazonAlexaForBusinessFunctions.disassociateSkillGroupFromRoom(init: AmazonAlexaForBusinessDisassociateSkillGroupFromRoomCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.DisassociateSkillGroupFromRoomResult {
+	return this.block.declare(AmazonAlexaForBusinessDisassociateSkillGroupFromRoomCommand().apply(init)) as com.amazonaws.services.alexaforbusiness.model.DisassociateSkillGroupFromRoomResult
 }
 
 @Generated
-class AmazonAlexaForBusinessDisassociateSkillGroupFromRoomCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.DisassociateSkillGroupFromRoomRequest> {
+class AmazonAlexaForBusinessDisassociateSkillGroupFromRoomCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.DisassociateSkillGroupFromRoomRequest, com.amazonaws.services.alexaforbusiness.model.DisassociateSkillGroupFromRoomResult> {
 
 	var skillGroupArn: String? = null
 	var roomArn: String? = null
@@ -614,8 +686,12 @@ class AmazonAlexaForBusinessDisassociateSkillGroupFromRoomCommand() : AmazonWebS
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.disassociateSkillGroupFromRoom(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.DisassociateSkillGroupFromRoomResult {
+	  return com.amazonaws.services.alexaforbusiness.model.DisassociateSkillGroupFromRoomResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.DisassociateSkillGroupFromRoomResult {
+		return environment.alexaforbusiness.disassociateSkillGroupFromRoom(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -627,12 +703,12 @@ class AmazonAlexaForBusinessDisassociateSkillGroupFromRoomCommand() : AmazonWebS
 }
 
 
-fun AmazonAlexaForBusinessFunctions.getAddressBook(addressBookArn: String, init: AmazonAlexaForBusinessGetAddressBookCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessGetAddressBookCommand(addressBookArn).apply(init))
+fun AmazonAlexaForBusinessFunctions.getAddressBook(addressBookArn: String, init: AmazonAlexaForBusinessGetAddressBookCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.GetAddressBookResult {
+	return this.block.declare(AmazonAlexaForBusinessGetAddressBookCommand(addressBookArn).apply(init)) as com.amazonaws.services.alexaforbusiness.model.GetAddressBookResult
 }
 
 @Generated
-class AmazonAlexaForBusinessGetAddressBookCommand(val addressBookArn: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.GetAddressBookRequest> {
+class AmazonAlexaForBusinessGetAddressBookCommand(val addressBookArn: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.GetAddressBookRequest, com.amazonaws.services.alexaforbusiness.model.GetAddressBookResult> {
 
 
 
@@ -642,8 +718,12 @@ class AmazonAlexaForBusinessGetAddressBookCommand(val addressBookArn: String) : 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.getAddressBook(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.GetAddressBookResult {
+	  return com.amazonaws.services.alexaforbusiness.model.GetAddressBookResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.GetAddressBookResult {
+		return environment.alexaforbusiness.getAddressBook(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -654,12 +734,12 @@ class AmazonAlexaForBusinessGetAddressBookCommand(val addressBookArn: String) : 
 }
 
 
-fun AmazonAlexaForBusinessFunctions.getContact(contactArn: String, init: AmazonAlexaForBusinessGetContactCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessGetContactCommand(contactArn).apply(init))
+fun AmazonAlexaForBusinessFunctions.getContact(contactArn: String, init: AmazonAlexaForBusinessGetContactCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.GetContactResult {
+	return this.block.declare(AmazonAlexaForBusinessGetContactCommand(contactArn).apply(init)) as com.amazonaws.services.alexaforbusiness.model.GetContactResult
 }
 
 @Generated
-class AmazonAlexaForBusinessGetContactCommand(val contactArn: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.GetContactRequest> {
+class AmazonAlexaForBusinessGetContactCommand(val contactArn: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.GetContactRequest, com.amazonaws.services.alexaforbusiness.model.GetContactResult> {
 
 
 
@@ -669,8 +749,12 @@ class AmazonAlexaForBusinessGetContactCommand(val contactArn: String) : AmazonWe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.getContact(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.GetContactResult {
+	  return com.amazonaws.services.alexaforbusiness.model.GetContactResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.GetContactResult {
+		return environment.alexaforbusiness.getContact(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -681,12 +765,12 @@ class AmazonAlexaForBusinessGetContactCommand(val contactArn: String) : AmazonWe
 }
 
 
-fun AmazonAlexaForBusinessFunctions.getDevice(init: AmazonAlexaForBusinessGetDeviceCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessGetDeviceCommand().apply(init))
+fun AmazonAlexaForBusinessFunctions.getDevice(init: AmazonAlexaForBusinessGetDeviceCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.GetDeviceResult {
+	return this.block.declare(AmazonAlexaForBusinessGetDeviceCommand().apply(init)) as com.amazonaws.services.alexaforbusiness.model.GetDeviceResult
 }
 
 @Generated
-class AmazonAlexaForBusinessGetDeviceCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.GetDeviceRequest> {
+class AmazonAlexaForBusinessGetDeviceCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.GetDeviceRequest, com.amazonaws.services.alexaforbusiness.model.GetDeviceResult> {
 
 	var deviceArn: String? = null
 
@@ -696,8 +780,12 @@ class AmazonAlexaForBusinessGetDeviceCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.getDevice(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.GetDeviceResult {
+	  return com.amazonaws.services.alexaforbusiness.model.GetDeviceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.GetDeviceResult {
+		return environment.alexaforbusiness.getDevice(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -708,12 +796,12 @@ class AmazonAlexaForBusinessGetDeviceCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AmazonAlexaForBusinessFunctions.getProfile(init: AmazonAlexaForBusinessGetProfileCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessGetProfileCommand().apply(init))
+fun AmazonAlexaForBusinessFunctions.getProfile(init: AmazonAlexaForBusinessGetProfileCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.GetProfileResult {
+	return this.block.declare(AmazonAlexaForBusinessGetProfileCommand().apply(init)) as com.amazonaws.services.alexaforbusiness.model.GetProfileResult
 }
 
 @Generated
-class AmazonAlexaForBusinessGetProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.GetProfileRequest> {
+class AmazonAlexaForBusinessGetProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.GetProfileRequest, com.amazonaws.services.alexaforbusiness.model.GetProfileResult> {
 
 	var profileArn: String? = null
 
@@ -723,8 +811,12 @@ class AmazonAlexaForBusinessGetProfileCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.getProfile(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.GetProfileResult {
+	  return com.amazonaws.services.alexaforbusiness.model.GetProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.GetProfileResult {
+		return environment.alexaforbusiness.getProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -735,12 +827,12 @@ class AmazonAlexaForBusinessGetProfileCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonAlexaForBusinessFunctions.getRoom(init: AmazonAlexaForBusinessGetRoomCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessGetRoomCommand().apply(init))
+fun AmazonAlexaForBusinessFunctions.getRoom(init: AmazonAlexaForBusinessGetRoomCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.GetRoomResult {
+	return this.block.declare(AmazonAlexaForBusinessGetRoomCommand().apply(init)) as com.amazonaws.services.alexaforbusiness.model.GetRoomResult
 }
 
 @Generated
-class AmazonAlexaForBusinessGetRoomCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.GetRoomRequest> {
+class AmazonAlexaForBusinessGetRoomCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.GetRoomRequest, com.amazonaws.services.alexaforbusiness.model.GetRoomResult> {
 
 	var roomArn: String? = null
 
@@ -750,8 +842,12 @@ class AmazonAlexaForBusinessGetRoomCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.getRoom(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.GetRoomResult {
+	  return com.amazonaws.services.alexaforbusiness.model.GetRoomResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.GetRoomResult {
+		return environment.alexaforbusiness.getRoom(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -762,12 +858,12 @@ class AmazonAlexaForBusinessGetRoomCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AmazonAlexaForBusinessFunctions.getRoomSkillParameter(skillId: String, parameterKey: String, init: AmazonAlexaForBusinessGetRoomSkillParameterCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessGetRoomSkillParameterCommand(skillId, parameterKey).apply(init))
+fun AmazonAlexaForBusinessFunctions.getRoomSkillParameter(skillId: String, parameterKey: String, init: AmazonAlexaForBusinessGetRoomSkillParameterCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.GetRoomSkillParameterResult {
+	return this.block.declare(AmazonAlexaForBusinessGetRoomSkillParameterCommand(skillId, parameterKey).apply(init)) as com.amazonaws.services.alexaforbusiness.model.GetRoomSkillParameterResult
 }
 
 @Generated
-class AmazonAlexaForBusinessGetRoomSkillParameterCommand(val skillId: String, val parameterKey: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.GetRoomSkillParameterRequest> {
+class AmazonAlexaForBusinessGetRoomSkillParameterCommand(val skillId: String, val parameterKey: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.GetRoomSkillParameterRequest, com.amazonaws.services.alexaforbusiness.model.GetRoomSkillParameterResult> {
 
 	var roomArn: String? = null
 
@@ -779,8 +875,12 @@ class AmazonAlexaForBusinessGetRoomSkillParameterCommand(val skillId: String, va
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.getRoomSkillParameter(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.GetRoomSkillParameterResult {
+	  return com.amazonaws.services.alexaforbusiness.model.GetRoomSkillParameterResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.GetRoomSkillParameterResult {
+		return environment.alexaforbusiness.getRoomSkillParameter(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -793,12 +893,12 @@ class AmazonAlexaForBusinessGetRoomSkillParameterCommand(val skillId: String, va
 }
 
 
-fun AmazonAlexaForBusinessFunctions.getSkillGroup(init: AmazonAlexaForBusinessGetSkillGroupCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessGetSkillGroupCommand().apply(init))
+fun AmazonAlexaForBusinessFunctions.getSkillGroup(init: AmazonAlexaForBusinessGetSkillGroupCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.GetSkillGroupResult {
+	return this.block.declare(AmazonAlexaForBusinessGetSkillGroupCommand().apply(init)) as com.amazonaws.services.alexaforbusiness.model.GetSkillGroupResult
 }
 
 @Generated
-class AmazonAlexaForBusinessGetSkillGroupCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.GetSkillGroupRequest> {
+class AmazonAlexaForBusinessGetSkillGroupCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.GetSkillGroupRequest, com.amazonaws.services.alexaforbusiness.model.GetSkillGroupResult> {
 
 	var skillGroupArn: String? = null
 
@@ -808,8 +908,12 @@ class AmazonAlexaForBusinessGetSkillGroupCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.getSkillGroup(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.GetSkillGroupResult {
+	  return com.amazonaws.services.alexaforbusiness.model.GetSkillGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.GetSkillGroupResult {
+		return environment.alexaforbusiness.getSkillGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -820,12 +924,12 @@ class AmazonAlexaForBusinessGetSkillGroupCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AmazonAlexaForBusinessFunctions.listSkills(init: AmazonAlexaForBusinessListSkillsCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessListSkillsCommand().apply(init))
+fun AmazonAlexaForBusinessFunctions.listSkills(init: AmazonAlexaForBusinessListSkillsCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.ListSkillsResult {
+	return this.block.declare(AmazonAlexaForBusinessListSkillsCommand().apply(init)) as com.amazonaws.services.alexaforbusiness.model.ListSkillsResult
 }
 
 @Generated
-class AmazonAlexaForBusinessListSkillsCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.ListSkillsRequest> {
+class AmazonAlexaForBusinessListSkillsCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.ListSkillsRequest, com.amazonaws.services.alexaforbusiness.model.ListSkillsResult> {
 
 	var skillGroupArn: String? = null
 	var nextToken: String? = null
@@ -839,8 +943,12 @@ class AmazonAlexaForBusinessListSkillsCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.listSkills(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.ListSkillsResult {
+	  return com.amazonaws.services.alexaforbusiness.model.ListSkillsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.ListSkillsResult {
+		return environment.alexaforbusiness.listSkills(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -853,12 +961,12 @@ class AmazonAlexaForBusinessListSkillsCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonAlexaForBusinessFunctions.listTags(arn: String, init: AmazonAlexaForBusinessListTagsCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessListTagsCommand(arn).apply(init))
+fun AmazonAlexaForBusinessFunctions.listTags(arn: String, init: AmazonAlexaForBusinessListTagsCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.ListTagsResult {
+	return this.block.declare(AmazonAlexaForBusinessListTagsCommand(arn).apply(init)) as com.amazonaws.services.alexaforbusiness.model.ListTagsResult
 }
 
 @Generated
-class AmazonAlexaForBusinessListTagsCommand(val arn: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.ListTagsRequest> {
+class AmazonAlexaForBusinessListTagsCommand(val arn: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.ListTagsRequest, com.amazonaws.services.alexaforbusiness.model.ListTagsResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -871,8 +979,12 @@ class AmazonAlexaForBusinessListTagsCommand(val arn: String) : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.listTags(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.ListTagsResult {
+	  return com.amazonaws.services.alexaforbusiness.model.ListTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.ListTagsResult {
+		return environment.alexaforbusiness.listTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -885,12 +997,12 @@ class AmazonAlexaForBusinessListTagsCommand(val arn: String) : AmazonWebServiceC
 }
 
 
-fun AmazonAlexaForBusinessFunctions.putRoomSkillParameter(skillId: String, roomSkillParameter: com.amazonaws.services.alexaforbusiness.model.RoomSkillParameter, init: AmazonAlexaForBusinessPutRoomSkillParameterCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessPutRoomSkillParameterCommand(skillId, roomSkillParameter).apply(init))
+fun AmazonAlexaForBusinessFunctions.putRoomSkillParameter(skillId: String, roomSkillParameter: com.amazonaws.services.alexaforbusiness.model.RoomSkillParameter, init: AmazonAlexaForBusinessPutRoomSkillParameterCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.PutRoomSkillParameterResult {
+	return this.block.declare(AmazonAlexaForBusinessPutRoomSkillParameterCommand(skillId, roomSkillParameter).apply(init)) as com.amazonaws.services.alexaforbusiness.model.PutRoomSkillParameterResult
 }
 
 @Generated
-class AmazonAlexaForBusinessPutRoomSkillParameterCommand(val skillId: String, val roomSkillParameter: com.amazonaws.services.alexaforbusiness.model.RoomSkillParameter) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.PutRoomSkillParameterRequest> {
+class AmazonAlexaForBusinessPutRoomSkillParameterCommand(val skillId: String, val roomSkillParameter: com.amazonaws.services.alexaforbusiness.model.RoomSkillParameter) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.PutRoomSkillParameterRequest, com.amazonaws.services.alexaforbusiness.model.PutRoomSkillParameterResult> {
 
 	var roomArn: String? = null
 
@@ -902,8 +1014,12 @@ class AmazonAlexaForBusinessPutRoomSkillParameterCommand(val skillId: String, va
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.putRoomSkillParameter(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.PutRoomSkillParameterResult {
+	  return com.amazonaws.services.alexaforbusiness.model.PutRoomSkillParameterResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.PutRoomSkillParameterResult {
+		return environment.alexaforbusiness.putRoomSkillParameter(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -916,12 +1032,12 @@ class AmazonAlexaForBusinessPutRoomSkillParameterCommand(val skillId: String, va
 }
 
 
-fun AmazonAlexaForBusinessFunctions.resolveRoom(userId: String, skillId: String, init: AmazonAlexaForBusinessResolveRoomCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessResolveRoomCommand(userId, skillId).apply(init))
+fun AmazonAlexaForBusinessFunctions.resolveRoom(userId: String, skillId: String, init: AmazonAlexaForBusinessResolveRoomCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.ResolveRoomResult {
+	return this.block.declare(AmazonAlexaForBusinessResolveRoomCommand(userId, skillId).apply(init)) as com.amazonaws.services.alexaforbusiness.model.ResolveRoomResult
 }
 
 @Generated
-class AmazonAlexaForBusinessResolveRoomCommand(val userId: String, val skillId: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.ResolveRoomRequest> {
+class AmazonAlexaForBusinessResolveRoomCommand(val userId: String, val skillId: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.ResolveRoomRequest, com.amazonaws.services.alexaforbusiness.model.ResolveRoomResult> {
 
 
 
@@ -932,8 +1048,12 @@ class AmazonAlexaForBusinessResolveRoomCommand(val userId: String, val skillId: 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.resolveRoom(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.ResolveRoomResult {
+	  return com.amazonaws.services.alexaforbusiness.model.ResolveRoomResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.ResolveRoomResult {
+		return environment.alexaforbusiness.resolveRoom(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -945,12 +1065,12 @@ class AmazonAlexaForBusinessResolveRoomCommand(val userId: String, val skillId: 
 }
 
 
-fun AmazonAlexaForBusinessFunctions.revokeInvitation(init: AmazonAlexaForBusinessRevokeInvitationCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessRevokeInvitationCommand().apply(init))
+fun AmazonAlexaForBusinessFunctions.revokeInvitation(init: AmazonAlexaForBusinessRevokeInvitationCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.RevokeInvitationResult {
+	return this.block.declare(AmazonAlexaForBusinessRevokeInvitationCommand().apply(init)) as com.amazonaws.services.alexaforbusiness.model.RevokeInvitationResult
 }
 
 @Generated
-class AmazonAlexaForBusinessRevokeInvitationCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.RevokeInvitationRequest> {
+class AmazonAlexaForBusinessRevokeInvitationCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.RevokeInvitationRequest, com.amazonaws.services.alexaforbusiness.model.RevokeInvitationResult> {
 
 	var userArn: String? = null
 	var enrollmentId: String? = null
@@ -962,8 +1082,12 @@ class AmazonAlexaForBusinessRevokeInvitationCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.revokeInvitation(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.RevokeInvitationResult {
+	  return com.amazonaws.services.alexaforbusiness.model.RevokeInvitationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.RevokeInvitationResult {
+		return environment.alexaforbusiness.revokeInvitation(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -975,12 +1099,12 @@ class AmazonAlexaForBusinessRevokeInvitationCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AmazonAlexaForBusinessFunctions.searchAddressBooks(init: AmazonAlexaForBusinessSearchAddressBooksCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessSearchAddressBooksCommand().apply(init))
+fun AmazonAlexaForBusinessFunctions.searchAddressBooks(init: AmazonAlexaForBusinessSearchAddressBooksCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.SearchAddressBooksResult {
+	return this.block.declare(AmazonAlexaForBusinessSearchAddressBooksCommand().apply(init)) as com.amazonaws.services.alexaforbusiness.model.SearchAddressBooksResult
 }
 
 @Generated
-class AmazonAlexaForBusinessSearchAddressBooksCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.SearchAddressBooksRequest> {
+class AmazonAlexaForBusinessSearchAddressBooksCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.SearchAddressBooksRequest, com.amazonaws.services.alexaforbusiness.model.SearchAddressBooksResult> {
 
 	var filters: List<com.amazonaws.services.alexaforbusiness.model.Filter>? = null
 	var sortCriteria: List<com.amazonaws.services.alexaforbusiness.model.Sort>? = null
@@ -996,8 +1120,12 @@ class AmazonAlexaForBusinessSearchAddressBooksCommand() : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.searchAddressBooks(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.SearchAddressBooksResult {
+	  return com.amazonaws.services.alexaforbusiness.model.SearchAddressBooksResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.SearchAddressBooksResult {
+		return environment.alexaforbusiness.searchAddressBooks(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1011,12 +1139,12 @@ class AmazonAlexaForBusinessSearchAddressBooksCommand() : AmazonWebServiceComman
 }
 
 
-fun AmazonAlexaForBusinessFunctions.searchContacts(init: AmazonAlexaForBusinessSearchContactsCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessSearchContactsCommand().apply(init))
+fun AmazonAlexaForBusinessFunctions.searchContacts(init: AmazonAlexaForBusinessSearchContactsCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.SearchContactsResult {
+	return this.block.declare(AmazonAlexaForBusinessSearchContactsCommand().apply(init)) as com.amazonaws.services.alexaforbusiness.model.SearchContactsResult
 }
 
 @Generated
-class AmazonAlexaForBusinessSearchContactsCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.SearchContactsRequest> {
+class AmazonAlexaForBusinessSearchContactsCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.SearchContactsRequest, com.amazonaws.services.alexaforbusiness.model.SearchContactsResult> {
 
 	var filters: List<com.amazonaws.services.alexaforbusiness.model.Filter>? = null
 	var sortCriteria: List<com.amazonaws.services.alexaforbusiness.model.Sort>? = null
@@ -1032,8 +1160,12 @@ class AmazonAlexaForBusinessSearchContactsCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.searchContacts(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.SearchContactsResult {
+	  return com.amazonaws.services.alexaforbusiness.model.SearchContactsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.SearchContactsResult {
+		return environment.alexaforbusiness.searchContacts(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1047,12 +1179,12 @@ class AmazonAlexaForBusinessSearchContactsCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonAlexaForBusinessFunctions.searchDevices(init: AmazonAlexaForBusinessSearchDevicesCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessSearchDevicesCommand().apply(init))
+fun AmazonAlexaForBusinessFunctions.searchDevices(init: AmazonAlexaForBusinessSearchDevicesCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.SearchDevicesResult {
+	return this.block.declare(AmazonAlexaForBusinessSearchDevicesCommand().apply(init)) as com.amazonaws.services.alexaforbusiness.model.SearchDevicesResult
 }
 
 @Generated
-class AmazonAlexaForBusinessSearchDevicesCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.SearchDevicesRequest> {
+class AmazonAlexaForBusinessSearchDevicesCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.SearchDevicesRequest, com.amazonaws.services.alexaforbusiness.model.SearchDevicesResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -1068,8 +1200,12 @@ class AmazonAlexaForBusinessSearchDevicesCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.searchDevices(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.SearchDevicesResult {
+	  return com.amazonaws.services.alexaforbusiness.model.SearchDevicesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.SearchDevicesResult {
+		return environment.alexaforbusiness.searchDevices(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1083,12 +1219,12 @@ class AmazonAlexaForBusinessSearchDevicesCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AmazonAlexaForBusinessFunctions.searchProfiles(init: AmazonAlexaForBusinessSearchProfilesCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessSearchProfilesCommand().apply(init))
+fun AmazonAlexaForBusinessFunctions.searchProfiles(init: AmazonAlexaForBusinessSearchProfilesCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.SearchProfilesResult {
+	return this.block.declare(AmazonAlexaForBusinessSearchProfilesCommand().apply(init)) as com.amazonaws.services.alexaforbusiness.model.SearchProfilesResult
 }
 
 @Generated
-class AmazonAlexaForBusinessSearchProfilesCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.SearchProfilesRequest> {
+class AmazonAlexaForBusinessSearchProfilesCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.SearchProfilesRequest, com.amazonaws.services.alexaforbusiness.model.SearchProfilesResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -1104,8 +1240,12 @@ class AmazonAlexaForBusinessSearchProfilesCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.searchProfiles(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.SearchProfilesResult {
+	  return com.amazonaws.services.alexaforbusiness.model.SearchProfilesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.SearchProfilesResult {
+		return environment.alexaforbusiness.searchProfiles(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1119,12 +1259,12 @@ class AmazonAlexaForBusinessSearchProfilesCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonAlexaForBusinessFunctions.searchRooms(init: AmazonAlexaForBusinessSearchRoomsCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessSearchRoomsCommand().apply(init))
+fun AmazonAlexaForBusinessFunctions.searchRooms(init: AmazonAlexaForBusinessSearchRoomsCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.SearchRoomsResult {
+	return this.block.declare(AmazonAlexaForBusinessSearchRoomsCommand().apply(init)) as com.amazonaws.services.alexaforbusiness.model.SearchRoomsResult
 }
 
 @Generated
-class AmazonAlexaForBusinessSearchRoomsCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.SearchRoomsRequest> {
+class AmazonAlexaForBusinessSearchRoomsCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.SearchRoomsRequest, com.amazonaws.services.alexaforbusiness.model.SearchRoomsResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -1140,8 +1280,12 @@ class AmazonAlexaForBusinessSearchRoomsCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.searchRooms(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.SearchRoomsResult {
+	  return com.amazonaws.services.alexaforbusiness.model.SearchRoomsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.SearchRoomsResult {
+		return environment.alexaforbusiness.searchRooms(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1155,12 +1299,12 @@ class AmazonAlexaForBusinessSearchRoomsCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AmazonAlexaForBusinessFunctions.searchSkillGroups(init: AmazonAlexaForBusinessSearchSkillGroupsCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessSearchSkillGroupsCommand().apply(init))
+fun AmazonAlexaForBusinessFunctions.searchSkillGroups(init: AmazonAlexaForBusinessSearchSkillGroupsCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.SearchSkillGroupsResult {
+	return this.block.declare(AmazonAlexaForBusinessSearchSkillGroupsCommand().apply(init)) as com.amazonaws.services.alexaforbusiness.model.SearchSkillGroupsResult
 }
 
 @Generated
-class AmazonAlexaForBusinessSearchSkillGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.SearchSkillGroupsRequest> {
+class AmazonAlexaForBusinessSearchSkillGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.SearchSkillGroupsRequest, com.amazonaws.services.alexaforbusiness.model.SearchSkillGroupsResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -1176,8 +1320,12 @@ class AmazonAlexaForBusinessSearchSkillGroupsCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.searchSkillGroups(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.SearchSkillGroupsResult {
+	  return com.amazonaws.services.alexaforbusiness.model.SearchSkillGroupsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.SearchSkillGroupsResult {
+		return environment.alexaforbusiness.searchSkillGroups(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1191,12 +1339,12 @@ class AmazonAlexaForBusinessSearchSkillGroupsCommand() : AmazonWebServiceCommand
 }
 
 
-fun AmazonAlexaForBusinessFunctions.searchUsers(init: AmazonAlexaForBusinessSearchUsersCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessSearchUsersCommand().apply(init))
+fun AmazonAlexaForBusinessFunctions.searchUsers(init: AmazonAlexaForBusinessSearchUsersCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.SearchUsersResult {
+	return this.block.declare(AmazonAlexaForBusinessSearchUsersCommand().apply(init)) as com.amazonaws.services.alexaforbusiness.model.SearchUsersResult
 }
 
 @Generated
-class AmazonAlexaForBusinessSearchUsersCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.SearchUsersRequest> {
+class AmazonAlexaForBusinessSearchUsersCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.SearchUsersRequest, com.amazonaws.services.alexaforbusiness.model.SearchUsersResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -1212,8 +1360,12 @@ class AmazonAlexaForBusinessSearchUsersCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.searchUsers(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.SearchUsersResult {
+	  return com.amazonaws.services.alexaforbusiness.model.SearchUsersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.SearchUsersResult {
+		return environment.alexaforbusiness.searchUsers(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1227,12 +1379,12 @@ class AmazonAlexaForBusinessSearchUsersCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AmazonAlexaForBusinessFunctions.sendInvitation(init: AmazonAlexaForBusinessSendInvitationCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessSendInvitationCommand().apply(init))
+fun AmazonAlexaForBusinessFunctions.sendInvitation(init: AmazonAlexaForBusinessSendInvitationCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.SendInvitationResult {
+	return this.block.declare(AmazonAlexaForBusinessSendInvitationCommand().apply(init)) as com.amazonaws.services.alexaforbusiness.model.SendInvitationResult
 }
 
 @Generated
-class AmazonAlexaForBusinessSendInvitationCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.SendInvitationRequest> {
+class AmazonAlexaForBusinessSendInvitationCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.SendInvitationRequest, com.amazonaws.services.alexaforbusiness.model.SendInvitationResult> {
 
 	var userArn: String? = null
 
@@ -1242,8 +1394,12 @@ class AmazonAlexaForBusinessSendInvitationCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.sendInvitation(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.SendInvitationResult {
+	  return com.amazonaws.services.alexaforbusiness.model.SendInvitationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.SendInvitationResult {
+		return environment.alexaforbusiness.sendInvitation(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1254,12 +1410,12 @@ class AmazonAlexaForBusinessSendInvitationCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonAlexaForBusinessFunctions.startDeviceSync(features: List<Feature>, init: AmazonAlexaForBusinessStartDeviceSyncCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessStartDeviceSyncCommand(features).apply(init))
+fun AmazonAlexaForBusinessFunctions.startDeviceSync(features: List<Feature>, init: AmazonAlexaForBusinessStartDeviceSyncCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.StartDeviceSyncResult {
+	return this.block.declare(AmazonAlexaForBusinessStartDeviceSyncCommand(features).apply(init)) as com.amazonaws.services.alexaforbusiness.model.StartDeviceSyncResult
 }
 
 @Generated
-class AmazonAlexaForBusinessStartDeviceSyncCommand(val features: List<Feature>) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.StartDeviceSyncRequest> {
+class AmazonAlexaForBusinessStartDeviceSyncCommand(val features: List<Feature>) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.StartDeviceSyncRequest, com.amazonaws.services.alexaforbusiness.model.StartDeviceSyncResult> {
 
 	var roomArn: String? = null
 	var deviceArn: String? = null
@@ -1272,8 +1428,12 @@ class AmazonAlexaForBusinessStartDeviceSyncCommand(val features: List<Feature>) 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.startDeviceSync(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.StartDeviceSyncResult {
+	  return com.amazonaws.services.alexaforbusiness.model.StartDeviceSyncResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.StartDeviceSyncResult {
+		return environment.alexaforbusiness.startDeviceSync(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1286,12 +1446,12 @@ class AmazonAlexaForBusinessStartDeviceSyncCommand(val features: List<Feature>) 
 }
 
 
-fun AmazonAlexaForBusinessFunctions.tagResource(arn: String, tags: List<com.amazonaws.services.alexaforbusiness.model.Tag>, init: AmazonAlexaForBusinessTagResourceCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessTagResourceCommand(arn, tags).apply(init))
+fun AmazonAlexaForBusinessFunctions.tagResource(arn: String, tags: List<com.amazonaws.services.alexaforbusiness.model.Tag>, init: AmazonAlexaForBusinessTagResourceCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.TagResourceResult {
+	return this.block.declare(AmazonAlexaForBusinessTagResourceCommand(arn, tags).apply(init)) as com.amazonaws.services.alexaforbusiness.model.TagResourceResult
 }
 
 @Generated
-class AmazonAlexaForBusinessTagResourceCommand(val arn: String, val tags: List<com.amazonaws.services.alexaforbusiness.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.TagResourceRequest> {
+class AmazonAlexaForBusinessTagResourceCommand(val arn: String, val tags: List<com.amazonaws.services.alexaforbusiness.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.TagResourceRequest, com.amazonaws.services.alexaforbusiness.model.TagResourceResult> {
 
 
 
@@ -1302,8 +1462,12 @@ class AmazonAlexaForBusinessTagResourceCommand(val arn: String, val tags: List<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.tagResource(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.TagResourceResult {
+	  return com.amazonaws.services.alexaforbusiness.model.TagResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.TagResourceResult {
+		return environment.alexaforbusiness.tagResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1315,12 +1479,12 @@ class AmazonAlexaForBusinessTagResourceCommand(val arn: String, val tags: List<c
 }
 
 
-fun AmazonAlexaForBusinessFunctions.untagResource(arn: String, tagKeys: List<String>, init: AmazonAlexaForBusinessUntagResourceCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessUntagResourceCommand(arn, tagKeys).apply(init))
+fun AmazonAlexaForBusinessFunctions.untagResource(arn: String, tagKeys: List<String>, init: AmazonAlexaForBusinessUntagResourceCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.UntagResourceResult {
+	return this.block.declare(AmazonAlexaForBusinessUntagResourceCommand(arn, tagKeys).apply(init)) as com.amazonaws.services.alexaforbusiness.model.UntagResourceResult
 }
 
 @Generated
-class AmazonAlexaForBusinessUntagResourceCommand(val arn: String, val tagKeys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.UntagResourceRequest> {
+class AmazonAlexaForBusinessUntagResourceCommand(val arn: String, val tagKeys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.UntagResourceRequest, com.amazonaws.services.alexaforbusiness.model.UntagResourceResult> {
 
 
 
@@ -1331,8 +1495,12 @@ class AmazonAlexaForBusinessUntagResourceCommand(val arn: String, val tagKeys: L
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.untagResource(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.UntagResourceResult {
+	  return com.amazonaws.services.alexaforbusiness.model.UntagResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.UntagResourceResult {
+		return environment.alexaforbusiness.untagResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1344,12 +1512,12 @@ class AmazonAlexaForBusinessUntagResourceCommand(val arn: String, val tagKeys: L
 }
 
 
-fun AmazonAlexaForBusinessFunctions.updateAddressBook(addressBookArn: String, init: AmazonAlexaForBusinessUpdateAddressBookCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessUpdateAddressBookCommand(addressBookArn).apply(init))
+fun AmazonAlexaForBusinessFunctions.updateAddressBook(addressBookArn: String, init: AmazonAlexaForBusinessUpdateAddressBookCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.UpdateAddressBookResult {
+	return this.block.declare(AmazonAlexaForBusinessUpdateAddressBookCommand(addressBookArn).apply(init)) as com.amazonaws.services.alexaforbusiness.model.UpdateAddressBookResult
 }
 
 @Generated
-class AmazonAlexaForBusinessUpdateAddressBookCommand(val addressBookArn: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.UpdateAddressBookRequest> {
+class AmazonAlexaForBusinessUpdateAddressBookCommand(val addressBookArn: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.UpdateAddressBookRequest, com.amazonaws.services.alexaforbusiness.model.UpdateAddressBookResult> {
 
 	var name: String? = null
 	var description: String? = null
@@ -1362,8 +1530,12 @@ class AmazonAlexaForBusinessUpdateAddressBookCommand(val addressBookArn: String)
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.updateAddressBook(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.UpdateAddressBookResult {
+	  return com.amazonaws.services.alexaforbusiness.model.UpdateAddressBookResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.UpdateAddressBookResult {
+		return environment.alexaforbusiness.updateAddressBook(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1376,12 +1548,12 @@ class AmazonAlexaForBusinessUpdateAddressBookCommand(val addressBookArn: String)
 }
 
 
-fun AmazonAlexaForBusinessFunctions.updateContact(contactArn: String, init: AmazonAlexaForBusinessUpdateContactCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessUpdateContactCommand(contactArn).apply(init))
+fun AmazonAlexaForBusinessFunctions.updateContact(contactArn: String, init: AmazonAlexaForBusinessUpdateContactCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.UpdateContactResult {
+	return this.block.declare(AmazonAlexaForBusinessUpdateContactCommand(contactArn).apply(init)) as com.amazonaws.services.alexaforbusiness.model.UpdateContactResult
 }
 
 @Generated
-class AmazonAlexaForBusinessUpdateContactCommand(val contactArn: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.UpdateContactRequest> {
+class AmazonAlexaForBusinessUpdateContactCommand(val contactArn: String) : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.UpdateContactRequest, com.amazonaws.services.alexaforbusiness.model.UpdateContactResult> {
 
 	var displayName: String? = null
 	var firstName: String? = null
@@ -1398,8 +1570,12 @@ class AmazonAlexaForBusinessUpdateContactCommand(val contactArn: String) : Amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.updateContact(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.UpdateContactResult {
+	  return com.amazonaws.services.alexaforbusiness.model.UpdateContactResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.UpdateContactResult {
+		return environment.alexaforbusiness.updateContact(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1414,12 +1590,12 @@ class AmazonAlexaForBusinessUpdateContactCommand(val contactArn: String) : Amazo
 }
 
 
-fun AmazonAlexaForBusinessFunctions.updateDevice(init: AmazonAlexaForBusinessUpdateDeviceCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessUpdateDeviceCommand().apply(init))
+fun AmazonAlexaForBusinessFunctions.updateDevice(init: AmazonAlexaForBusinessUpdateDeviceCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.UpdateDeviceResult {
+	return this.block.declare(AmazonAlexaForBusinessUpdateDeviceCommand().apply(init)) as com.amazonaws.services.alexaforbusiness.model.UpdateDeviceResult
 }
 
 @Generated
-class AmazonAlexaForBusinessUpdateDeviceCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.UpdateDeviceRequest> {
+class AmazonAlexaForBusinessUpdateDeviceCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.UpdateDeviceRequest, com.amazonaws.services.alexaforbusiness.model.UpdateDeviceResult> {
 
 	var deviceArn: String? = null
 	var deviceName: String? = null
@@ -1431,8 +1607,12 @@ class AmazonAlexaForBusinessUpdateDeviceCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.updateDevice(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.UpdateDeviceResult {
+	  return com.amazonaws.services.alexaforbusiness.model.UpdateDeviceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.UpdateDeviceResult {
+		return environment.alexaforbusiness.updateDevice(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1444,12 +1624,12 @@ class AmazonAlexaForBusinessUpdateDeviceCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonAlexaForBusinessFunctions.updateProfile(init: AmazonAlexaForBusinessUpdateProfileCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessUpdateProfileCommand().apply(init))
+fun AmazonAlexaForBusinessFunctions.updateProfile(init: AmazonAlexaForBusinessUpdateProfileCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.UpdateProfileResult {
+	return this.block.declare(AmazonAlexaForBusinessUpdateProfileCommand().apply(init)) as com.amazonaws.services.alexaforbusiness.model.UpdateProfileResult
 }
 
 @Generated
-class AmazonAlexaForBusinessUpdateProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.UpdateProfileRequest> {
+class AmazonAlexaForBusinessUpdateProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.UpdateProfileRequest, com.amazonaws.services.alexaforbusiness.model.UpdateProfileResult> {
 
 	var profileArn: String? = null
 	var profileName: String? = null
@@ -1477,8 +1657,12 @@ class AmazonAlexaForBusinessUpdateProfileCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.updateProfile(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.UpdateProfileResult {
+	  return com.amazonaws.services.alexaforbusiness.model.UpdateProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.UpdateProfileResult {
+		return environment.alexaforbusiness.updateProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1498,12 +1682,12 @@ class AmazonAlexaForBusinessUpdateProfileCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AmazonAlexaForBusinessFunctions.updateRoom(init: AmazonAlexaForBusinessUpdateRoomCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessUpdateRoomCommand().apply(init))
+fun AmazonAlexaForBusinessFunctions.updateRoom(init: AmazonAlexaForBusinessUpdateRoomCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.UpdateRoomResult {
+	return this.block.declare(AmazonAlexaForBusinessUpdateRoomCommand().apply(init)) as com.amazonaws.services.alexaforbusiness.model.UpdateRoomResult
 }
 
 @Generated
-class AmazonAlexaForBusinessUpdateRoomCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.UpdateRoomRequest> {
+class AmazonAlexaForBusinessUpdateRoomCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.UpdateRoomRequest, com.amazonaws.services.alexaforbusiness.model.UpdateRoomResult> {
 
 	var roomArn: String? = null
 	var roomName: String? = null
@@ -1521,8 +1705,12 @@ class AmazonAlexaForBusinessUpdateRoomCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.updateRoom(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.UpdateRoomResult {
+	  return com.amazonaws.services.alexaforbusiness.model.UpdateRoomResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.UpdateRoomResult {
+		return environment.alexaforbusiness.updateRoom(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1537,12 +1725,12 @@ class AmazonAlexaForBusinessUpdateRoomCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonAlexaForBusinessFunctions.updateSkillGroup(init: AmazonAlexaForBusinessUpdateSkillGroupCommand.() -> Unit) {
-	this.block.declare(AmazonAlexaForBusinessUpdateSkillGroupCommand().apply(init))
+fun AmazonAlexaForBusinessFunctions.updateSkillGroup(init: AmazonAlexaForBusinessUpdateSkillGroupCommand.() -> Unit): com.amazonaws.services.alexaforbusiness.model.UpdateSkillGroupResult {
+	return this.block.declare(AmazonAlexaForBusinessUpdateSkillGroupCommand().apply(init)) as com.amazonaws.services.alexaforbusiness.model.UpdateSkillGroupResult
 }
 
 @Generated
-class AmazonAlexaForBusinessUpdateSkillGroupCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.UpdateSkillGroupRequest> {
+class AmazonAlexaForBusinessUpdateSkillGroupCommand() : AmazonWebServiceCommand<com.amazonaws.services.alexaforbusiness.model.UpdateSkillGroupRequest, com.amazonaws.services.alexaforbusiness.model.UpdateSkillGroupResult> {
 
 	var skillGroupArn: String? = null
 	var skillGroupName: String? = null
@@ -1556,8 +1744,12 @@ class AmazonAlexaForBusinessUpdateSkillGroupCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.alexaforbusiness.updateSkillGroup(build())
+	override fun dryResult(): com.amazonaws.services.alexaforbusiness.model.UpdateSkillGroupResult {
+	  return com.amazonaws.services.alexaforbusiness.model.UpdateSkillGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.alexaforbusiness.model.UpdateSkillGroupResult {
+		return environment.alexaforbusiness.updateSkillGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.inspector: AmazonInspector
 @Generated
 class AmazonInspectorFunctions(val block: Block)
 
-infix fun AwsContinuation.inspector(init: AmazonInspectorFunctions.() -> Unit) {
-	AmazonInspectorFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.inspector(init: AmazonInspectorFunctions.() -> T): T {
+	return AmazonInspectorFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonInspectorFunctions.addAttributesToFindings(init: AmazonInspectorAddAttributesToFindingsCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorAddAttributesToFindingsCommand().apply(init))
+fun AmazonInspectorFunctions.addAttributesToFindings(init: AmazonInspectorAddAttributesToFindingsCommand.() -> Unit): com.amazonaws.services.inspector.model.AddAttributesToFindingsResult {
+	return this.block.declare(AmazonInspectorAddAttributesToFindingsCommand().apply(init)) as com.amazonaws.services.inspector.model.AddAttributesToFindingsResult
 }
 
 @Generated
-class AmazonInspectorAddAttributesToFindingsCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.AddAttributesToFindingsRequest> {
+class AmazonInspectorAddAttributesToFindingsCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.AddAttributesToFindingsRequest, com.amazonaws.services.inspector.model.AddAttributesToFindingsResult> {
 
 	var findingArns: List<String>? = null
 	var attributes: List<com.amazonaws.services.inspector.model.Attribute>? = null
@@ -43,8 +43,12 @@ class AmazonInspectorAddAttributesToFindingsCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.addAttributesToFindings(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.AddAttributesToFindingsResult {
+	  return com.amazonaws.services.inspector.model.AddAttributesToFindingsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.AddAttributesToFindingsResult {
+		return environment.inspector.addAttributesToFindings(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -56,12 +60,12 @@ class AmazonInspectorAddAttributesToFindingsCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AmazonInspectorFunctions.createAssessmentTarget(init: AmazonInspectorCreateAssessmentTargetCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorCreateAssessmentTargetCommand().apply(init))
+fun AmazonInspectorFunctions.createAssessmentTarget(init: AmazonInspectorCreateAssessmentTargetCommand.() -> Unit): com.amazonaws.services.inspector.model.CreateAssessmentTargetResult {
+	return this.block.declare(AmazonInspectorCreateAssessmentTargetCommand().apply(init)) as com.amazonaws.services.inspector.model.CreateAssessmentTargetResult
 }
 
 @Generated
-class AmazonInspectorCreateAssessmentTargetCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.CreateAssessmentTargetRequest> {
+class AmazonInspectorCreateAssessmentTargetCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.CreateAssessmentTargetRequest, com.amazonaws.services.inspector.model.CreateAssessmentTargetResult> {
 
 	var assessmentTargetName: String? = null
 	var resourceGroupArn: String? = null
@@ -73,8 +77,12 @@ class AmazonInspectorCreateAssessmentTargetCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.createAssessmentTarget(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.CreateAssessmentTargetResult {
+	  return com.amazonaws.services.inspector.model.CreateAssessmentTargetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.CreateAssessmentTargetResult {
+		return environment.inspector.createAssessmentTarget(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -86,12 +94,12 @@ class AmazonInspectorCreateAssessmentTargetCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AmazonInspectorFunctions.createAssessmentTemplate(init: AmazonInspectorCreateAssessmentTemplateCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorCreateAssessmentTemplateCommand().apply(init))
+fun AmazonInspectorFunctions.createAssessmentTemplate(init: AmazonInspectorCreateAssessmentTemplateCommand.() -> Unit): com.amazonaws.services.inspector.model.CreateAssessmentTemplateResult {
+	return this.block.declare(AmazonInspectorCreateAssessmentTemplateCommand().apply(init)) as com.amazonaws.services.inspector.model.CreateAssessmentTemplateResult
 }
 
 @Generated
-class AmazonInspectorCreateAssessmentTemplateCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.CreateAssessmentTemplateRequest> {
+class AmazonInspectorCreateAssessmentTemplateCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.CreateAssessmentTemplateRequest, com.amazonaws.services.inspector.model.CreateAssessmentTemplateResult> {
 
 	var assessmentTargetArn: String? = null
 	var assessmentTemplateName: String? = null
@@ -109,8 +117,12 @@ class AmazonInspectorCreateAssessmentTemplateCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.createAssessmentTemplate(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.CreateAssessmentTemplateResult {
+	  return com.amazonaws.services.inspector.model.CreateAssessmentTemplateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.CreateAssessmentTemplateResult {
+		return environment.inspector.createAssessmentTemplate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -125,12 +137,12 @@ class AmazonInspectorCreateAssessmentTemplateCommand() : AmazonWebServiceCommand
 }
 
 
-fun AmazonInspectorFunctions.createResourceGroup(init: AmazonInspectorCreateResourceGroupCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorCreateResourceGroupCommand().apply(init))
+fun AmazonInspectorFunctions.createResourceGroup(init: AmazonInspectorCreateResourceGroupCommand.() -> Unit): com.amazonaws.services.inspector.model.CreateResourceGroupResult {
+	return this.block.declare(AmazonInspectorCreateResourceGroupCommand().apply(init)) as com.amazonaws.services.inspector.model.CreateResourceGroupResult
 }
 
 @Generated
-class AmazonInspectorCreateResourceGroupCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.CreateResourceGroupRequest> {
+class AmazonInspectorCreateResourceGroupCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.CreateResourceGroupRequest, com.amazonaws.services.inspector.model.CreateResourceGroupResult> {
 
 	var resourceGroupTags: List<com.amazonaws.services.inspector.model.ResourceGroupTag>? = null
 
@@ -140,8 +152,12 @@ class AmazonInspectorCreateResourceGroupCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.createResourceGroup(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.CreateResourceGroupResult {
+	  return com.amazonaws.services.inspector.model.CreateResourceGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.CreateResourceGroupResult {
+		return environment.inspector.createResourceGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -152,12 +168,12 @@ class AmazonInspectorCreateResourceGroupCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonInspectorFunctions.deleteAssessmentRun(init: AmazonInspectorDeleteAssessmentRunCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorDeleteAssessmentRunCommand().apply(init))
+fun AmazonInspectorFunctions.deleteAssessmentRun(init: AmazonInspectorDeleteAssessmentRunCommand.() -> Unit): com.amazonaws.services.inspector.model.DeleteAssessmentRunResult {
+	return this.block.declare(AmazonInspectorDeleteAssessmentRunCommand().apply(init)) as com.amazonaws.services.inspector.model.DeleteAssessmentRunResult
 }
 
 @Generated
-class AmazonInspectorDeleteAssessmentRunCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.DeleteAssessmentRunRequest> {
+class AmazonInspectorDeleteAssessmentRunCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.DeleteAssessmentRunRequest, com.amazonaws.services.inspector.model.DeleteAssessmentRunResult> {
 
 	var assessmentRunArn: String? = null
 
@@ -167,8 +183,12 @@ class AmazonInspectorDeleteAssessmentRunCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.deleteAssessmentRun(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.DeleteAssessmentRunResult {
+	  return com.amazonaws.services.inspector.model.DeleteAssessmentRunResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.DeleteAssessmentRunResult {
+		return environment.inspector.deleteAssessmentRun(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -179,12 +199,12 @@ class AmazonInspectorDeleteAssessmentRunCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonInspectorFunctions.deleteAssessmentTarget(init: AmazonInspectorDeleteAssessmentTargetCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorDeleteAssessmentTargetCommand().apply(init))
+fun AmazonInspectorFunctions.deleteAssessmentTarget(init: AmazonInspectorDeleteAssessmentTargetCommand.() -> Unit): com.amazonaws.services.inspector.model.DeleteAssessmentTargetResult {
+	return this.block.declare(AmazonInspectorDeleteAssessmentTargetCommand().apply(init)) as com.amazonaws.services.inspector.model.DeleteAssessmentTargetResult
 }
 
 @Generated
-class AmazonInspectorDeleteAssessmentTargetCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.DeleteAssessmentTargetRequest> {
+class AmazonInspectorDeleteAssessmentTargetCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.DeleteAssessmentTargetRequest, com.amazonaws.services.inspector.model.DeleteAssessmentTargetResult> {
 
 	var assessmentTargetArn: String? = null
 
@@ -194,8 +214,12 @@ class AmazonInspectorDeleteAssessmentTargetCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.deleteAssessmentTarget(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.DeleteAssessmentTargetResult {
+	  return com.amazonaws.services.inspector.model.DeleteAssessmentTargetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.DeleteAssessmentTargetResult {
+		return environment.inspector.deleteAssessmentTarget(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -206,12 +230,12 @@ class AmazonInspectorDeleteAssessmentTargetCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AmazonInspectorFunctions.deleteAssessmentTemplate(init: AmazonInspectorDeleteAssessmentTemplateCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorDeleteAssessmentTemplateCommand().apply(init))
+fun AmazonInspectorFunctions.deleteAssessmentTemplate(init: AmazonInspectorDeleteAssessmentTemplateCommand.() -> Unit): com.amazonaws.services.inspector.model.DeleteAssessmentTemplateResult {
+	return this.block.declare(AmazonInspectorDeleteAssessmentTemplateCommand().apply(init)) as com.amazonaws.services.inspector.model.DeleteAssessmentTemplateResult
 }
 
 @Generated
-class AmazonInspectorDeleteAssessmentTemplateCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.DeleteAssessmentTemplateRequest> {
+class AmazonInspectorDeleteAssessmentTemplateCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.DeleteAssessmentTemplateRequest, com.amazonaws.services.inspector.model.DeleteAssessmentTemplateResult> {
 
 	var assessmentTemplateArn: String? = null
 
@@ -221,8 +245,12 @@ class AmazonInspectorDeleteAssessmentTemplateCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.deleteAssessmentTemplate(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.DeleteAssessmentTemplateResult {
+	  return com.amazonaws.services.inspector.model.DeleteAssessmentTemplateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.DeleteAssessmentTemplateResult {
+		return environment.inspector.deleteAssessmentTemplate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -233,12 +261,12 @@ class AmazonInspectorDeleteAssessmentTemplateCommand() : AmazonWebServiceCommand
 }
 
 
-fun AmazonInspectorFunctions.describeAssessmentRuns(init: AmazonInspectorDescribeAssessmentRunsCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorDescribeAssessmentRunsCommand().apply(init))
+fun AmazonInspectorFunctions.describeAssessmentRuns(init: AmazonInspectorDescribeAssessmentRunsCommand.() -> Unit): com.amazonaws.services.inspector.model.DescribeAssessmentRunsResult {
+	return this.block.declare(AmazonInspectorDescribeAssessmentRunsCommand().apply(init)) as com.amazonaws.services.inspector.model.DescribeAssessmentRunsResult
 }
 
 @Generated
-class AmazonInspectorDescribeAssessmentRunsCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.DescribeAssessmentRunsRequest> {
+class AmazonInspectorDescribeAssessmentRunsCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.DescribeAssessmentRunsRequest, com.amazonaws.services.inspector.model.DescribeAssessmentRunsResult> {
 
 	var assessmentRunArns: List<String>? = null
 
@@ -248,8 +276,12 @@ class AmazonInspectorDescribeAssessmentRunsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.describeAssessmentRuns(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.DescribeAssessmentRunsResult {
+	  return com.amazonaws.services.inspector.model.DescribeAssessmentRunsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.DescribeAssessmentRunsResult {
+		return environment.inspector.describeAssessmentRuns(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -260,12 +292,12 @@ class AmazonInspectorDescribeAssessmentRunsCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AmazonInspectorFunctions.describeAssessmentTargets(init: AmazonInspectorDescribeAssessmentTargetsCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorDescribeAssessmentTargetsCommand().apply(init))
+fun AmazonInspectorFunctions.describeAssessmentTargets(init: AmazonInspectorDescribeAssessmentTargetsCommand.() -> Unit): com.amazonaws.services.inspector.model.DescribeAssessmentTargetsResult {
+	return this.block.declare(AmazonInspectorDescribeAssessmentTargetsCommand().apply(init)) as com.amazonaws.services.inspector.model.DescribeAssessmentTargetsResult
 }
 
 @Generated
-class AmazonInspectorDescribeAssessmentTargetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.DescribeAssessmentTargetsRequest> {
+class AmazonInspectorDescribeAssessmentTargetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.DescribeAssessmentTargetsRequest, com.amazonaws.services.inspector.model.DescribeAssessmentTargetsResult> {
 
 	var assessmentTargetArns: List<String>? = null
 
@@ -275,8 +307,12 @@ class AmazonInspectorDescribeAssessmentTargetsCommand() : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.describeAssessmentTargets(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.DescribeAssessmentTargetsResult {
+	  return com.amazonaws.services.inspector.model.DescribeAssessmentTargetsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.DescribeAssessmentTargetsResult {
+		return environment.inspector.describeAssessmentTargets(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -287,12 +323,12 @@ class AmazonInspectorDescribeAssessmentTargetsCommand() : AmazonWebServiceComman
 }
 
 
-fun AmazonInspectorFunctions.describeAssessmentTemplates(init: AmazonInspectorDescribeAssessmentTemplatesCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorDescribeAssessmentTemplatesCommand().apply(init))
+fun AmazonInspectorFunctions.describeAssessmentTemplates(init: AmazonInspectorDescribeAssessmentTemplatesCommand.() -> Unit): com.amazonaws.services.inspector.model.DescribeAssessmentTemplatesResult {
+	return this.block.declare(AmazonInspectorDescribeAssessmentTemplatesCommand().apply(init)) as com.amazonaws.services.inspector.model.DescribeAssessmentTemplatesResult
 }
 
 @Generated
-class AmazonInspectorDescribeAssessmentTemplatesCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.DescribeAssessmentTemplatesRequest> {
+class AmazonInspectorDescribeAssessmentTemplatesCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.DescribeAssessmentTemplatesRequest, com.amazonaws.services.inspector.model.DescribeAssessmentTemplatesResult> {
 
 	var assessmentTemplateArns: List<String>? = null
 
@@ -302,8 +338,12 @@ class AmazonInspectorDescribeAssessmentTemplatesCommand() : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.describeAssessmentTemplates(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.DescribeAssessmentTemplatesResult {
+	  return com.amazonaws.services.inspector.model.DescribeAssessmentTemplatesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.DescribeAssessmentTemplatesResult {
+		return environment.inspector.describeAssessmentTemplates(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -314,12 +354,12 @@ class AmazonInspectorDescribeAssessmentTemplatesCommand() : AmazonWebServiceComm
 }
 
 
-fun AmazonInspectorFunctions.describeCrossAccountAccessRole(init: AmazonInspectorDescribeCrossAccountAccessRoleCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorDescribeCrossAccountAccessRoleCommand().apply(init))
+fun AmazonInspectorFunctions.describeCrossAccountAccessRole(init: AmazonInspectorDescribeCrossAccountAccessRoleCommand.() -> Unit): com.amazonaws.services.inspector.model.DescribeCrossAccountAccessRoleResult {
+	return this.block.declare(AmazonInspectorDescribeCrossAccountAccessRoleCommand().apply(init)) as com.amazonaws.services.inspector.model.DescribeCrossAccountAccessRoleResult
 }
 
 @Generated
-class AmazonInspectorDescribeCrossAccountAccessRoleCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.DescribeCrossAccountAccessRoleRequest> {
+class AmazonInspectorDescribeCrossAccountAccessRoleCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.DescribeCrossAccountAccessRoleRequest, com.amazonaws.services.inspector.model.DescribeCrossAccountAccessRoleResult> {
 
 
 
@@ -329,8 +369,12 @@ class AmazonInspectorDescribeCrossAccountAccessRoleCommand() : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.describeCrossAccountAccessRole(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.DescribeCrossAccountAccessRoleResult {
+	  return com.amazonaws.services.inspector.model.DescribeCrossAccountAccessRoleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.DescribeCrossAccountAccessRoleResult {
+		return environment.inspector.describeCrossAccountAccessRole(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -341,12 +385,12 @@ class AmazonInspectorDescribeCrossAccountAccessRoleCommand() : AmazonWebServiceC
 }
 
 
-fun AmazonInspectorFunctions.describeFindings(init: AmazonInspectorDescribeFindingsCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorDescribeFindingsCommand().apply(init))
+fun AmazonInspectorFunctions.describeFindings(init: AmazonInspectorDescribeFindingsCommand.() -> Unit): com.amazonaws.services.inspector.model.DescribeFindingsResult {
+	return this.block.declare(AmazonInspectorDescribeFindingsCommand().apply(init)) as com.amazonaws.services.inspector.model.DescribeFindingsResult
 }
 
 @Generated
-class AmazonInspectorDescribeFindingsCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.DescribeFindingsRequest> {
+class AmazonInspectorDescribeFindingsCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.DescribeFindingsRequest, com.amazonaws.services.inspector.model.DescribeFindingsResult> {
 
 	var findingArns: List<String>? = null
 	var locale: Locale? = null
@@ -358,8 +402,12 @@ class AmazonInspectorDescribeFindingsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.describeFindings(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.DescribeFindingsResult {
+	  return com.amazonaws.services.inspector.model.DescribeFindingsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.DescribeFindingsResult {
+		return environment.inspector.describeFindings(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -371,12 +419,12 @@ class AmazonInspectorDescribeFindingsCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AmazonInspectorFunctions.describeResourceGroups(init: AmazonInspectorDescribeResourceGroupsCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorDescribeResourceGroupsCommand().apply(init))
+fun AmazonInspectorFunctions.describeResourceGroups(init: AmazonInspectorDescribeResourceGroupsCommand.() -> Unit): com.amazonaws.services.inspector.model.DescribeResourceGroupsResult {
+	return this.block.declare(AmazonInspectorDescribeResourceGroupsCommand().apply(init)) as com.amazonaws.services.inspector.model.DescribeResourceGroupsResult
 }
 
 @Generated
-class AmazonInspectorDescribeResourceGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.DescribeResourceGroupsRequest> {
+class AmazonInspectorDescribeResourceGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.DescribeResourceGroupsRequest, com.amazonaws.services.inspector.model.DescribeResourceGroupsResult> {
 
 	var resourceGroupArns: List<String>? = null
 
@@ -386,8 +434,12 @@ class AmazonInspectorDescribeResourceGroupsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.describeResourceGroups(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.DescribeResourceGroupsResult {
+	  return com.amazonaws.services.inspector.model.DescribeResourceGroupsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.DescribeResourceGroupsResult {
+		return environment.inspector.describeResourceGroups(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -398,12 +450,12 @@ class AmazonInspectorDescribeResourceGroupsCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AmazonInspectorFunctions.describeRulesPackages(init: AmazonInspectorDescribeRulesPackagesCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorDescribeRulesPackagesCommand().apply(init))
+fun AmazonInspectorFunctions.describeRulesPackages(init: AmazonInspectorDescribeRulesPackagesCommand.() -> Unit): com.amazonaws.services.inspector.model.DescribeRulesPackagesResult {
+	return this.block.declare(AmazonInspectorDescribeRulesPackagesCommand().apply(init)) as com.amazonaws.services.inspector.model.DescribeRulesPackagesResult
 }
 
 @Generated
-class AmazonInspectorDescribeRulesPackagesCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.DescribeRulesPackagesRequest> {
+class AmazonInspectorDescribeRulesPackagesCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.DescribeRulesPackagesRequest, com.amazonaws.services.inspector.model.DescribeRulesPackagesResult> {
 
 	var rulesPackageArns: List<String>? = null
 	var locale: Locale? = null
@@ -415,8 +467,12 @@ class AmazonInspectorDescribeRulesPackagesCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.describeRulesPackages(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.DescribeRulesPackagesResult {
+	  return com.amazonaws.services.inspector.model.DescribeRulesPackagesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.DescribeRulesPackagesResult {
+		return environment.inspector.describeRulesPackages(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -428,12 +484,12 @@ class AmazonInspectorDescribeRulesPackagesCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonInspectorFunctions.getAssessmentReport(init: AmazonInspectorGetAssessmentReportCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorGetAssessmentReportCommand().apply(init))
+fun AmazonInspectorFunctions.getAssessmentReport(init: AmazonInspectorGetAssessmentReportCommand.() -> Unit): com.amazonaws.services.inspector.model.GetAssessmentReportResult {
+	return this.block.declare(AmazonInspectorGetAssessmentReportCommand().apply(init)) as com.amazonaws.services.inspector.model.GetAssessmentReportResult
 }
 
 @Generated
-class AmazonInspectorGetAssessmentReportCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.GetAssessmentReportRequest> {
+class AmazonInspectorGetAssessmentReportCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.GetAssessmentReportRequest, com.amazonaws.services.inspector.model.GetAssessmentReportResult> {
 
 	var assessmentRunArn: String? = null
 	var reportFileFormat: ReportFileFormat? = null
@@ -447,8 +503,12 @@ class AmazonInspectorGetAssessmentReportCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.getAssessmentReport(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.GetAssessmentReportResult {
+	  return com.amazonaws.services.inspector.model.GetAssessmentReportResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.GetAssessmentReportResult {
+		return environment.inspector.getAssessmentReport(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -461,12 +521,12 @@ class AmazonInspectorGetAssessmentReportCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonInspectorFunctions.getTelemetryMetadata(init: AmazonInspectorGetTelemetryMetadataCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorGetTelemetryMetadataCommand().apply(init))
+fun AmazonInspectorFunctions.getTelemetryMetadata(init: AmazonInspectorGetTelemetryMetadataCommand.() -> Unit): com.amazonaws.services.inspector.model.GetTelemetryMetadataResult {
+	return this.block.declare(AmazonInspectorGetTelemetryMetadataCommand().apply(init)) as com.amazonaws.services.inspector.model.GetTelemetryMetadataResult
 }
 
 @Generated
-class AmazonInspectorGetTelemetryMetadataCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.GetTelemetryMetadataRequest> {
+class AmazonInspectorGetTelemetryMetadataCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.GetTelemetryMetadataRequest, com.amazonaws.services.inspector.model.GetTelemetryMetadataResult> {
 
 	var assessmentRunArn: String? = null
 
@@ -476,8 +536,12 @@ class AmazonInspectorGetTelemetryMetadataCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.getTelemetryMetadata(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.GetTelemetryMetadataResult {
+	  return com.amazonaws.services.inspector.model.GetTelemetryMetadataResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.GetTelemetryMetadataResult {
+		return environment.inspector.getTelemetryMetadata(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -488,12 +552,12 @@ class AmazonInspectorGetTelemetryMetadataCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AmazonInspectorFunctions.listAssessmentRunAgents(init: AmazonInspectorListAssessmentRunAgentsCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorListAssessmentRunAgentsCommand().apply(init))
+fun AmazonInspectorFunctions.listAssessmentRunAgents(init: AmazonInspectorListAssessmentRunAgentsCommand.() -> Unit): com.amazonaws.services.inspector.model.ListAssessmentRunAgentsResult {
+	return this.block.declare(AmazonInspectorListAssessmentRunAgentsCommand().apply(init)) as com.amazonaws.services.inspector.model.ListAssessmentRunAgentsResult
 }
 
 @Generated
-class AmazonInspectorListAssessmentRunAgentsCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.ListAssessmentRunAgentsRequest> {
+class AmazonInspectorListAssessmentRunAgentsCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.ListAssessmentRunAgentsRequest, com.amazonaws.services.inspector.model.ListAssessmentRunAgentsResult> {
 
 	var assessmentRunArn: String? = null
 	var filter: com.amazonaws.services.inspector.model.AgentFilter? = null
@@ -509,8 +573,12 @@ class AmazonInspectorListAssessmentRunAgentsCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.listAssessmentRunAgents(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.ListAssessmentRunAgentsResult {
+	  return com.amazonaws.services.inspector.model.ListAssessmentRunAgentsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.ListAssessmentRunAgentsResult {
+		return environment.inspector.listAssessmentRunAgents(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -524,12 +592,12 @@ class AmazonInspectorListAssessmentRunAgentsCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AmazonInspectorFunctions.listAssessmentRuns(init: AmazonInspectorListAssessmentRunsCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorListAssessmentRunsCommand().apply(init))
+fun AmazonInspectorFunctions.listAssessmentRuns(init: AmazonInspectorListAssessmentRunsCommand.() -> Unit): com.amazonaws.services.inspector.model.ListAssessmentRunsResult {
+	return this.block.declare(AmazonInspectorListAssessmentRunsCommand().apply(init)) as com.amazonaws.services.inspector.model.ListAssessmentRunsResult
 }
 
 @Generated
-class AmazonInspectorListAssessmentRunsCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.ListAssessmentRunsRequest> {
+class AmazonInspectorListAssessmentRunsCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.ListAssessmentRunsRequest, com.amazonaws.services.inspector.model.ListAssessmentRunsResult> {
 
 	var assessmentTemplateArns: List<String>? = null
 	var filter: com.amazonaws.services.inspector.model.AssessmentRunFilter? = null
@@ -545,8 +613,12 @@ class AmazonInspectorListAssessmentRunsCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.listAssessmentRuns(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.ListAssessmentRunsResult {
+	  return com.amazonaws.services.inspector.model.ListAssessmentRunsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.ListAssessmentRunsResult {
+		return environment.inspector.listAssessmentRuns(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -560,12 +632,12 @@ class AmazonInspectorListAssessmentRunsCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AmazonInspectorFunctions.listAssessmentTargets(init: AmazonInspectorListAssessmentTargetsCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorListAssessmentTargetsCommand().apply(init))
+fun AmazonInspectorFunctions.listAssessmentTargets(init: AmazonInspectorListAssessmentTargetsCommand.() -> Unit): com.amazonaws.services.inspector.model.ListAssessmentTargetsResult {
+	return this.block.declare(AmazonInspectorListAssessmentTargetsCommand().apply(init)) as com.amazonaws.services.inspector.model.ListAssessmentTargetsResult
 }
 
 @Generated
-class AmazonInspectorListAssessmentTargetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.ListAssessmentTargetsRequest> {
+class AmazonInspectorListAssessmentTargetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.ListAssessmentTargetsRequest, com.amazonaws.services.inspector.model.ListAssessmentTargetsResult> {
 
 	var filter: com.amazonaws.services.inspector.model.AssessmentTargetFilter? = null
 	var nextToken: String? = null
@@ -579,8 +651,12 @@ class AmazonInspectorListAssessmentTargetsCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.listAssessmentTargets(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.ListAssessmentTargetsResult {
+	  return com.amazonaws.services.inspector.model.ListAssessmentTargetsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.ListAssessmentTargetsResult {
+		return environment.inspector.listAssessmentTargets(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -593,12 +669,12 @@ class AmazonInspectorListAssessmentTargetsCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonInspectorFunctions.listAssessmentTemplates(init: AmazonInspectorListAssessmentTemplatesCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorListAssessmentTemplatesCommand().apply(init))
+fun AmazonInspectorFunctions.listAssessmentTemplates(init: AmazonInspectorListAssessmentTemplatesCommand.() -> Unit): com.amazonaws.services.inspector.model.ListAssessmentTemplatesResult {
+	return this.block.declare(AmazonInspectorListAssessmentTemplatesCommand().apply(init)) as com.amazonaws.services.inspector.model.ListAssessmentTemplatesResult
 }
 
 @Generated
-class AmazonInspectorListAssessmentTemplatesCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.ListAssessmentTemplatesRequest> {
+class AmazonInspectorListAssessmentTemplatesCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.ListAssessmentTemplatesRequest, com.amazonaws.services.inspector.model.ListAssessmentTemplatesResult> {
 
 	var assessmentTargetArns: List<String>? = null
 	var filter: com.amazonaws.services.inspector.model.AssessmentTemplateFilter? = null
@@ -614,8 +690,12 @@ class AmazonInspectorListAssessmentTemplatesCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.listAssessmentTemplates(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.ListAssessmentTemplatesResult {
+	  return com.amazonaws.services.inspector.model.ListAssessmentTemplatesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.ListAssessmentTemplatesResult {
+		return environment.inspector.listAssessmentTemplates(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -629,12 +709,12 @@ class AmazonInspectorListAssessmentTemplatesCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AmazonInspectorFunctions.listEventSubscriptions(init: AmazonInspectorListEventSubscriptionsCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorListEventSubscriptionsCommand().apply(init))
+fun AmazonInspectorFunctions.listEventSubscriptions(init: AmazonInspectorListEventSubscriptionsCommand.() -> Unit): com.amazonaws.services.inspector.model.ListEventSubscriptionsResult {
+	return this.block.declare(AmazonInspectorListEventSubscriptionsCommand().apply(init)) as com.amazonaws.services.inspector.model.ListEventSubscriptionsResult
 }
 
 @Generated
-class AmazonInspectorListEventSubscriptionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.ListEventSubscriptionsRequest> {
+class AmazonInspectorListEventSubscriptionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.ListEventSubscriptionsRequest, com.amazonaws.services.inspector.model.ListEventSubscriptionsResult> {
 
 	var resourceArn: String? = null
 	var nextToken: String? = null
@@ -648,8 +728,12 @@ class AmazonInspectorListEventSubscriptionsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.listEventSubscriptions(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.ListEventSubscriptionsResult {
+	  return com.amazonaws.services.inspector.model.ListEventSubscriptionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.ListEventSubscriptionsResult {
+		return environment.inspector.listEventSubscriptions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -662,12 +746,12 @@ class AmazonInspectorListEventSubscriptionsCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AmazonInspectorFunctions.listFindings(init: AmazonInspectorListFindingsCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorListFindingsCommand().apply(init))
+fun AmazonInspectorFunctions.listFindings(init: AmazonInspectorListFindingsCommand.() -> Unit): com.amazonaws.services.inspector.model.ListFindingsResult {
+	return this.block.declare(AmazonInspectorListFindingsCommand().apply(init)) as com.amazonaws.services.inspector.model.ListFindingsResult
 }
 
 @Generated
-class AmazonInspectorListFindingsCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.ListFindingsRequest> {
+class AmazonInspectorListFindingsCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.ListFindingsRequest, com.amazonaws.services.inspector.model.ListFindingsResult> {
 
 	var assessmentRunArns: List<String>? = null
 	var filter: com.amazonaws.services.inspector.model.FindingFilter? = null
@@ -683,8 +767,12 @@ class AmazonInspectorListFindingsCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.listFindings(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.ListFindingsResult {
+	  return com.amazonaws.services.inspector.model.ListFindingsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.ListFindingsResult {
+		return environment.inspector.listFindings(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -698,12 +786,12 @@ class AmazonInspectorListFindingsCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AmazonInspectorFunctions.listRulesPackages(init: AmazonInspectorListRulesPackagesCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorListRulesPackagesCommand().apply(init))
+fun AmazonInspectorFunctions.listRulesPackages(init: AmazonInspectorListRulesPackagesCommand.() -> Unit): com.amazonaws.services.inspector.model.ListRulesPackagesResult {
+	return this.block.declare(AmazonInspectorListRulesPackagesCommand().apply(init)) as com.amazonaws.services.inspector.model.ListRulesPackagesResult
 }
 
 @Generated
-class AmazonInspectorListRulesPackagesCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.ListRulesPackagesRequest> {
+class AmazonInspectorListRulesPackagesCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.ListRulesPackagesRequest, com.amazonaws.services.inspector.model.ListRulesPackagesResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -715,8 +803,12 @@ class AmazonInspectorListRulesPackagesCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.listRulesPackages(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.ListRulesPackagesResult {
+	  return com.amazonaws.services.inspector.model.ListRulesPackagesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.ListRulesPackagesResult {
+		return environment.inspector.listRulesPackages(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -728,12 +820,12 @@ class AmazonInspectorListRulesPackagesCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonInspectorFunctions.listTagsForResource(init: AmazonInspectorListTagsForResourceCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorListTagsForResourceCommand().apply(init))
+fun AmazonInspectorFunctions.listTagsForResource(init: AmazonInspectorListTagsForResourceCommand.() -> Unit): com.amazonaws.services.inspector.model.ListTagsForResourceResult {
+	return this.block.declare(AmazonInspectorListTagsForResourceCommand().apply(init)) as com.amazonaws.services.inspector.model.ListTagsForResourceResult
 }
 
 @Generated
-class AmazonInspectorListTagsForResourceCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.ListTagsForResourceRequest> {
+class AmazonInspectorListTagsForResourceCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.ListTagsForResourceRequest, com.amazonaws.services.inspector.model.ListTagsForResourceResult> {
 
 	var resourceArn: String? = null
 
@@ -743,8 +835,12 @@ class AmazonInspectorListTagsForResourceCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.listTagsForResource(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.ListTagsForResourceResult {
+	  return com.amazonaws.services.inspector.model.ListTagsForResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.ListTagsForResourceResult {
+		return environment.inspector.listTagsForResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -755,12 +851,12 @@ class AmazonInspectorListTagsForResourceCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonInspectorFunctions.previewAgents(init: AmazonInspectorPreviewAgentsCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorPreviewAgentsCommand().apply(init))
+fun AmazonInspectorFunctions.previewAgents(init: AmazonInspectorPreviewAgentsCommand.() -> Unit): com.amazonaws.services.inspector.model.PreviewAgentsResult {
+	return this.block.declare(AmazonInspectorPreviewAgentsCommand().apply(init)) as com.amazonaws.services.inspector.model.PreviewAgentsResult
 }
 
 @Generated
-class AmazonInspectorPreviewAgentsCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.PreviewAgentsRequest> {
+class AmazonInspectorPreviewAgentsCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.PreviewAgentsRequest, com.amazonaws.services.inspector.model.PreviewAgentsResult> {
 
 	var previewAgentsArn: String? = null
 	var nextToken: String? = null
@@ -774,8 +870,12 @@ class AmazonInspectorPreviewAgentsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.previewAgents(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.PreviewAgentsResult {
+	  return com.amazonaws.services.inspector.model.PreviewAgentsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.PreviewAgentsResult {
+		return environment.inspector.previewAgents(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -788,12 +888,12 @@ class AmazonInspectorPreviewAgentsCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonInspectorFunctions.registerCrossAccountAccessRole(init: AmazonInspectorRegisterCrossAccountAccessRoleCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorRegisterCrossAccountAccessRoleCommand().apply(init))
+fun AmazonInspectorFunctions.registerCrossAccountAccessRole(init: AmazonInspectorRegisterCrossAccountAccessRoleCommand.() -> Unit): com.amazonaws.services.inspector.model.RegisterCrossAccountAccessRoleResult {
+	return this.block.declare(AmazonInspectorRegisterCrossAccountAccessRoleCommand().apply(init)) as com.amazonaws.services.inspector.model.RegisterCrossAccountAccessRoleResult
 }
 
 @Generated
-class AmazonInspectorRegisterCrossAccountAccessRoleCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.RegisterCrossAccountAccessRoleRequest> {
+class AmazonInspectorRegisterCrossAccountAccessRoleCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.RegisterCrossAccountAccessRoleRequest, com.amazonaws.services.inspector.model.RegisterCrossAccountAccessRoleResult> {
 
 	var roleArn: String? = null
 
@@ -803,8 +903,12 @@ class AmazonInspectorRegisterCrossAccountAccessRoleCommand() : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.registerCrossAccountAccessRole(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.RegisterCrossAccountAccessRoleResult {
+	  return com.amazonaws.services.inspector.model.RegisterCrossAccountAccessRoleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.RegisterCrossAccountAccessRoleResult {
+		return environment.inspector.registerCrossAccountAccessRole(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -815,12 +919,12 @@ class AmazonInspectorRegisterCrossAccountAccessRoleCommand() : AmazonWebServiceC
 }
 
 
-fun AmazonInspectorFunctions.removeAttributesFromFindings(init: AmazonInspectorRemoveAttributesFromFindingsCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorRemoveAttributesFromFindingsCommand().apply(init))
+fun AmazonInspectorFunctions.removeAttributesFromFindings(init: AmazonInspectorRemoveAttributesFromFindingsCommand.() -> Unit): com.amazonaws.services.inspector.model.RemoveAttributesFromFindingsResult {
+	return this.block.declare(AmazonInspectorRemoveAttributesFromFindingsCommand().apply(init)) as com.amazonaws.services.inspector.model.RemoveAttributesFromFindingsResult
 }
 
 @Generated
-class AmazonInspectorRemoveAttributesFromFindingsCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.RemoveAttributesFromFindingsRequest> {
+class AmazonInspectorRemoveAttributesFromFindingsCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.RemoveAttributesFromFindingsRequest, com.amazonaws.services.inspector.model.RemoveAttributesFromFindingsResult> {
 
 	var findingArns: List<String>? = null
 	var attributeKeys: List<String>? = null
@@ -832,8 +936,12 @@ class AmazonInspectorRemoveAttributesFromFindingsCommand() : AmazonWebServiceCom
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.removeAttributesFromFindings(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.RemoveAttributesFromFindingsResult {
+	  return com.amazonaws.services.inspector.model.RemoveAttributesFromFindingsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.RemoveAttributesFromFindingsResult {
+		return environment.inspector.removeAttributesFromFindings(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -845,12 +953,12 @@ class AmazonInspectorRemoveAttributesFromFindingsCommand() : AmazonWebServiceCom
 }
 
 
-fun AmazonInspectorFunctions.setTagsForResource(init: AmazonInspectorSetTagsForResourceCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorSetTagsForResourceCommand().apply(init))
+fun AmazonInspectorFunctions.setTagsForResource(init: AmazonInspectorSetTagsForResourceCommand.() -> Unit): com.amazonaws.services.inspector.model.SetTagsForResourceResult {
+	return this.block.declare(AmazonInspectorSetTagsForResourceCommand().apply(init)) as com.amazonaws.services.inspector.model.SetTagsForResourceResult
 }
 
 @Generated
-class AmazonInspectorSetTagsForResourceCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.SetTagsForResourceRequest> {
+class AmazonInspectorSetTagsForResourceCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.SetTagsForResourceRequest, com.amazonaws.services.inspector.model.SetTagsForResourceResult> {
 
 	var resourceArn: String? = null
 	var tags: List<com.amazonaws.services.inspector.model.Tag>? = null
@@ -862,8 +970,12 @@ class AmazonInspectorSetTagsForResourceCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.setTagsForResource(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.SetTagsForResourceResult {
+	  return com.amazonaws.services.inspector.model.SetTagsForResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.SetTagsForResourceResult {
+		return environment.inspector.setTagsForResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -875,12 +987,12 @@ class AmazonInspectorSetTagsForResourceCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AmazonInspectorFunctions.startAssessmentRun(init: AmazonInspectorStartAssessmentRunCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorStartAssessmentRunCommand().apply(init))
+fun AmazonInspectorFunctions.startAssessmentRun(init: AmazonInspectorStartAssessmentRunCommand.() -> Unit): com.amazonaws.services.inspector.model.StartAssessmentRunResult {
+	return this.block.declare(AmazonInspectorStartAssessmentRunCommand().apply(init)) as com.amazonaws.services.inspector.model.StartAssessmentRunResult
 }
 
 @Generated
-class AmazonInspectorStartAssessmentRunCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.StartAssessmentRunRequest> {
+class AmazonInspectorStartAssessmentRunCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.StartAssessmentRunRequest, com.amazonaws.services.inspector.model.StartAssessmentRunResult> {
 
 	var assessmentTemplateArn: String? = null
 	var assessmentRunName: String? = null
@@ -892,8 +1004,12 @@ class AmazonInspectorStartAssessmentRunCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.startAssessmentRun(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.StartAssessmentRunResult {
+	  return com.amazonaws.services.inspector.model.StartAssessmentRunResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.StartAssessmentRunResult {
+		return environment.inspector.startAssessmentRun(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -905,12 +1021,12 @@ class AmazonInspectorStartAssessmentRunCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AmazonInspectorFunctions.stopAssessmentRun(init: AmazonInspectorStopAssessmentRunCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorStopAssessmentRunCommand().apply(init))
+fun AmazonInspectorFunctions.stopAssessmentRun(init: AmazonInspectorStopAssessmentRunCommand.() -> Unit): com.amazonaws.services.inspector.model.StopAssessmentRunResult {
+	return this.block.declare(AmazonInspectorStopAssessmentRunCommand().apply(init)) as com.amazonaws.services.inspector.model.StopAssessmentRunResult
 }
 
 @Generated
-class AmazonInspectorStopAssessmentRunCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.StopAssessmentRunRequest> {
+class AmazonInspectorStopAssessmentRunCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.StopAssessmentRunRequest, com.amazonaws.services.inspector.model.StopAssessmentRunResult> {
 
 	var assessmentRunArn: String? = null
 	var stopAction: StopAction? = null
@@ -922,8 +1038,12 @@ class AmazonInspectorStopAssessmentRunCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.stopAssessmentRun(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.StopAssessmentRunResult {
+	  return com.amazonaws.services.inspector.model.StopAssessmentRunResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.StopAssessmentRunResult {
+		return environment.inspector.stopAssessmentRun(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -935,12 +1055,12 @@ class AmazonInspectorStopAssessmentRunCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonInspectorFunctions.subscribeToEvent(init: AmazonInspectorSubscribeToEventCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorSubscribeToEventCommand().apply(init))
+fun AmazonInspectorFunctions.subscribeToEvent(init: AmazonInspectorSubscribeToEventCommand.() -> Unit): com.amazonaws.services.inspector.model.SubscribeToEventResult {
+	return this.block.declare(AmazonInspectorSubscribeToEventCommand().apply(init)) as com.amazonaws.services.inspector.model.SubscribeToEventResult
 }
 
 @Generated
-class AmazonInspectorSubscribeToEventCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.SubscribeToEventRequest> {
+class AmazonInspectorSubscribeToEventCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.SubscribeToEventRequest, com.amazonaws.services.inspector.model.SubscribeToEventResult> {
 
 	var resourceArn: String? = null
 	var event: InspectorEvent? = null
@@ -954,8 +1074,12 @@ class AmazonInspectorSubscribeToEventCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.subscribeToEvent(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.SubscribeToEventResult {
+	  return com.amazonaws.services.inspector.model.SubscribeToEventResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.SubscribeToEventResult {
+		return environment.inspector.subscribeToEvent(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -968,12 +1092,12 @@ class AmazonInspectorSubscribeToEventCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AmazonInspectorFunctions.unsubscribeFromEvent(init: AmazonInspectorUnsubscribeFromEventCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorUnsubscribeFromEventCommand().apply(init))
+fun AmazonInspectorFunctions.unsubscribeFromEvent(init: AmazonInspectorUnsubscribeFromEventCommand.() -> Unit): com.amazonaws.services.inspector.model.UnsubscribeFromEventResult {
+	return this.block.declare(AmazonInspectorUnsubscribeFromEventCommand().apply(init)) as com.amazonaws.services.inspector.model.UnsubscribeFromEventResult
 }
 
 @Generated
-class AmazonInspectorUnsubscribeFromEventCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.UnsubscribeFromEventRequest> {
+class AmazonInspectorUnsubscribeFromEventCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.UnsubscribeFromEventRequest, com.amazonaws.services.inspector.model.UnsubscribeFromEventResult> {
 
 	var resourceArn: String? = null
 	var event: InspectorEvent? = null
@@ -987,8 +1111,12 @@ class AmazonInspectorUnsubscribeFromEventCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.unsubscribeFromEvent(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.UnsubscribeFromEventResult {
+	  return com.amazonaws.services.inspector.model.UnsubscribeFromEventResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.UnsubscribeFromEventResult {
+		return environment.inspector.unsubscribeFromEvent(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1001,12 +1129,12 @@ class AmazonInspectorUnsubscribeFromEventCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AmazonInspectorFunctions.updateAssessmentTarget(init: AmazonInspectorUpdateAssessmentTargetCommand.() -> Unit) {
-	this.block.declare(AmazonInspectorUpdateAssessmentTargetCommand().apply(init))
+fun AmazonInspectorFunctions.updateAssessmentTarget(init: AmazonInspectorUpdateAssessmentTargetCommand.() -> Unit): com.amazonaws.services.inspector.model.UpdateAssessmentTargetResult {
+	return this.block.declare(AmazonInspectorUpdateAssessmentTargetCommand().apply(init)) as com.amazonaws.services.inspector.model.UpdateAssessmentTargetResult
 }
 
 @Generated
-class AmazonInspectorUpdateAssessmentTargetCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.UpdateAssessmentTargetRequest> {
+class AmazonInspectorUpdateAssessmentTargetCommand() : AmazonWebServiceCommand<com.amazonaws.services.inspector.model.UpdateAssessmentTargetRequest, com.amazonaws.services.inspector.model.UpdateAssessmentTargetResult> {
 
 	var assessmentTargetArn: String? = null
 	var assessmentTargetName: String? = null
@@ -1020,8 +1148,12 @@ class AmazonInspectorUpdateAssessmentTargetCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.inspector.updateAssessmentTarget(build())
+	override fun dryResult(): com.amazonaws.services.inspector.model.UpdateAssessmentTargetResult {
+	  return com.amazonaws.services.inspector.model.UpdateAssessmentTargetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.inspector.model.UpdateAssessmentTargetResult {
+		return environment.inspector.updateAssessmentTarget(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

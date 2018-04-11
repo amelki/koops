@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.elasticmapreduce: AmazonElasticMapReduce
 @Generated
 class AmazonElasticMapReduceFunctions(val block: Block)
 
-infix fun AwsContinuation.elasticmapreduce(init: AmazonElasticMapReduceFunctions.() -> Unit) {
-	AmazonElasticMapReduceFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.elasticmapreduce(init: AmazonElasticMapReduceFunctions.() -> T): T {
+	return AmazonElasticMapReduceFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonElasticMapReduceFunctions.addInstanceFleet(clusterId: String, instanceFleet: com.amazonaws.services.elasticmapreduce.model.InstanceFleetConfig, init: AmazonElasticMapReduceAddInstanceFleetCommand.() -> Unit) {
-	this.block.declare(AmazonElasticMapReduceAddInstanceFleetCommand(clusterId, instanceFleet).apply(init))
+fun AmazonElasticMapReduceFunctions.addInstanceFleet(clusterId: String, instanceFleet: com.amazonaws.services.elasticmapreduce.model.InstanceFleetConfig, init: AmazonElasticMapReduceAddInstanceFleetCommand.() -> Unit): com.amazonaws.services.elasticmapreduce.model.AddInstanceFleetResult {
+	return this.block.declare(AmazonElasticMapReduceAddInstanceFleetCommand(clusterId, instanceFleet).apply(init)) as com.amazonaws.services.elasticmapreduce.model.AddInstanceFleetResult
 }
 
 @Generated
-class AmazonElasticMapReduceAddInstanceFleetCommand(val clusterId: String, val instanceFleet: com.amazonaws.services.elasticmapreduce.model.InstanceFleetConfig) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.AddInstanceFleetRequest> {
+class AmazonElasticMapReduceAddInstanceFleetCommand(val clusterId: String, val instanceFleet: com.amazonaws.services.elasticmapreduce.model.InstanceFleetConfig) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.AddInstanceFleetRequest, com.amazonaws.services.elasticmapreduce.model.AddInstanceFleetResult> {
 
 
 
@@ -42,8 +42,12 @@ class AmazonElasticMapReduceAddInstanceFleetCommand(val clusterId: String, val i
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticmapreduce.addInstanceFleet(build())
+	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.AddInstanceFleetResult {
+	  return com.amazonaws.services.elasticmapreduce.model.AddInstanceFleetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.AddInstanceFleetResult {
+		return environment.elasticmapreduce.addInstanceFleet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -55,12 +59,12 @@ class AmazonElasticMapReduceAddInstanceFleetCommand(val clusterId: String, val i
 }
 
 
-fun AmazonElasticMapReduceFunctions.addInstanceGroups(instanceGroups: List<com.amazonaws.services.elasticmapreduce.model.InstanceGroupConfig>, jobFlowId: String, init: AmazonElasticMapReduceAddInstanceGroupsCommand.() -> Unit) {
-	this.block.declare(AmazonElasticMapReduceAddInstanceGroupsCommand(instanceGroups, jobFlowId).apply(init))
+fun AmazonElasticMapReduceFunctions.addInstanceGroups(instanceGroups: List<com.amazonaws.services.elasticmapreduce.model.InstanceGroupConfig>, jobFlowId: String, init: AmazonElasticMapReduceAddInstanceGroupsCommand.() -> Unit): com.amazonaws.services.elasticmapreduce.model.AddInstanceGroupsResult {
+	return this.block.declare(AmazonElasticMapReduceAddInstanceGroupsCommand(instanceGroups, jobFlowId).apply(init)) as com.amazonaws.services.elasticmapreduce.model.AddInstanceGroupsResult
 }
 
 @Generated
-class AmazonElasticMapReduceAddInstanceGroupsCommand(val instanceGroups: List<com.amazonaws.services.elasticmapreduce.model.InstanceGroupConfig>, val jobFlowId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.AddInstanceGroupsRequest> {
+class AmazonElasticMapReduceAddInstanceGroupsCommand(val instanceGroups: List<com.amazonaws.services.elasticmapreduce.model.InstanceGroupConfig>, val jobFlowId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.AddInstanceGroupsRequest, com.amazonaws.services.elasticmapreduce.model.AddInstanceGroupsResult> {
 
 
 
@@ -71,8 +75,12 @@ class AmazonElasticMapReduceAddInstanceGroupsCommand(val instanceGroups: List<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticmapreduce.addInstanceGroups(build())
+	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.AddInstanceGroupsResult {
+	  return com.amazonaws.services.elasticmapreduce.model.AddInstanceGroupsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.AddInstanceGroupsResult {
+		return environment.elasticmapreduce.addInstanceGroups(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -84,12 +92,12 @@ class AmazonElasticMapReduceAddInstanceGroupsCommand(val instanceGroups: List<co
 }
 
 
-fun AmazonElasticMapReduceFunctions.addJobFlowSteps(jobFlowId: String, steps: List<com.amazonaws.services.elasticmapreduce.model.StepConfig>, init: AmazonElasticMapReduceAddJobFlowStepsCommand.() -> Unit) {
-	this.block.declare(AmazonElasticMapReduceAddJobFlowStepsCommand(jobFlowId, steps).apply(init))
+fun AmazonElasticMapReduceFunctions.addJobFlowSteps(jobFlowId: String, steps: List<com.amazonaws.services.elasticmapreduce.model.StepConfig>, init: AmazonElasticMapReduceAddJobFlowStepsCommand.() -> Unit): com.amazonaws.services.elasticmapreduce.model.AddJobFlowStepsResult {
+	return this.block.declare(AmazonElasticMapReduceAddJobFlowStepsCommand(jobFlowId, steps).apply(init)) as com.amazonaws.services.elasticmapreduce.model.AddJobFlowStepsResult
 }
 
 @Generated
-class AmazonElasticMapReduceAddJobFlowStepsCommand(val jobFlowId: String, val steps: List<com.amazonaws.services.elasticmapreduce.model.StepConfig>) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.AddJobFlowStepsRequest> {
+class AmazonElasticMapReduceAddJobFlowStepsCommand(val jobFlowId: String, val steps: List<com.amazonaws.services.elasticmapreduce.model.StepConfig>) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.AddJobFlowStepsRequest, com.amazonaws.services.elasticmapreduce.model.AddJobFlowStepsResult> {
 
 
 
@@ -100,8 +108,12 @@ class AmazonElasticMapReduceAddJobFlowStepsCommand(val jobFlowId: String, val st
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticmapreduce.addJobFlowSteps(build())
+	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.AddJobFlowStepsResult {
+	  return com.amazonaws.services.elasticmapreduce.model.AddJobFlowStepsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.AddJobFlowStepsResult {
+		return environment.elasticmapreduce.addJobFlowSteps(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -113,12 +125,12 @@ class AmazonElasticMapReduceAddJobFlowStepsCommand(val jobFlowId: String, val st
 }
 
 
-fun AmazonElasticMapReduceFunctions.addTags(resourceId: String, tags: List<com.amazonaws.services.elasticmapreduce.model.Tag>, init: AmazonElasticMapReduceAddTagsCommand.() -> Unit) {
-	this.block.declare(AmazonElasticMapReduceAddTagsCommand(resourceId, tags).apply(init))
+fun AmazonElasticMapReduceFunctions.addTags(resourceId: String, tags: List<com.amazonaws.services.elasticmapreduce.model.Tag>, init: AmazonElasticMapReduceAddTagsCommand.() -> Unit): com.amazonaws.services.elasticmapreduce.model.AddTagsResult {
+	return this.block.declare(AmazonElasticMapReduceAddTagsCommand(resourceId, tags).apply(init)) as com.amazonaws.services.elasticmapreduce.model.AddTagsResult
 }
 
 @Generated
-class AmazonElasticMapReduceAddTagsCommand(val resourceId: String, val tags: List<com.amazonaws.services.elasticmapreduce.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.AddTagsRequest> {
+class AmazonElasticMapReduceAddTagsCommand(val resourceId: String, val tags: List<com.amazonaws.services.elasticmapreduce.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.AddTagsRequest, com.amazonaws.services.elasticmapreduce.model.AddTagsResult> {
 
 
 
@@ -129,8 +141,12 @@ class AmazonElasticMapReduceAddTagsCommand(val resourceId: String, val tags: Lis
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticmapreduce.addTags(build())
+	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.AddTagsResult {
+	  return com.amazonaws.services.elasticmapreduce.model.AddTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.AddTagsResult {
+		return environment.elasticmapreduce.addTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -142,12 +158,12 @@ class AmazonElasticMapReduceAddTagsCommand(val resourceId: String, val tags: Lis
 }
 
 
-fun AmazonElasticMapReduceFunctions.cancelSteps(init: AmazonElasticMapReduceCancelStepsCommand.() -> Unit) {
-	this.block.declare(AmazonElasticMapReduceCancelStepsCommand().apply(init))
+fun AmazonElasticMapReduceFunctions.cancelSteps(init: AmazonElasticMapReduceCancelStepsCommand.() -> Unit): com.amazonaws.services.elasticmapreduce.model.CancelStepsResult {
+	return this.block.declare(AmazonElasticMapReduceCancelStepsCommand().apply(init)) as com.amazonaws.services.elasticmapreduce.model.CancelStepsResult
 }
 
 @Generated
-class AmazonElasticMapReduceCancelStepsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.CancelStepsRequest> {
+class AmazonElasticMapReduceCancelStepsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.CancelStepsRequest, com.amazonaws.services.elasticmapreduce.model.CancelStepsResult> {
 
 	var clusterId: String? = null
 	var stepIds: List<String>? = null
@@ -159,8 +175,12 @@ class AmazonElasticMapReduceCancelStepsCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticmapreduce.cancelSteps(build())
+	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.CancelStepsResult {
+	  return com.amazonaws.services.elasticmapreduce.model.CancelStepsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.CancelStepsResult {
+		return environment.elasticmapreduce.cancelSteps(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -172,12 +192,12 @@ class AmazonElasticMapReduceCancelStepsCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AmazonElasticMapReduceFunctions.createSecurityConfiguration(name: String, securityConfiguration: String, init: AmazonElasticMapReduceCreateSecurityConfigurationCommand.() -> Unit) {
-	this.block.declare(AmazonElasticMapReduceCreateSecurityConfigurationCommand(name, securityConfiguration).apply(init))
+fun AmazonElasticMapReduceFunctions.createSecurityConfiguration(name: String, securityConfiguration: String, init: AmazonElasticMapReduceCreateSecurityConfigurationCommand.() -> Unit): com.amazonaws.services.elasticmapreduce.model.CreateSecurityConfigurationResult {
+	return this.block.declare(AmazonElasticMapReduceCreateSecurityConfigurationCommand(name, securityConfiguration).apply(init)) as com.amazonaws.services.elasticmapreduce.model.CreateSecurityConfigurationResult
 }
 
 @Generated
-class AmazonElasticMapReduceCreateSecurityConfigurationCommand(val name: String, val securityConfiguration: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.CreateSecurityConfigurationRequest> {
+class AmazonElasticMapReduceCreateSecurityConfigurationCommand(val name: String, val securityConfiguration: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.CreateSecurityConfigurationRequest, com.amazonaws.services.elasticmapreduce.model.CreateSecurityConfigurationResult> {
 
 
 
@@ -188,8 +208,12 @@ class AmazonElasticMapReduceCreateSecurityConfigurationCommand(val name: String,
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticmapreduce.createSecurityConfiguration(build())
+	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.CreateSecurityConfigurationResult {
+	  return com.amazonaws.services.elasticmapreduce.model.CreateSecurityConfigurationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.CreateSecurityConfigurationResult {
+		return environment.elasticmapreduce.createSecurityConfiguration(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -201,12 +225,12 @@ class AmazonElasticMapReduceCreateSecurityConfigurationCommand(val name: String,
 }
 
 
-fun AmazonElasticMapReduceFunctions.deleteSecurityConfiguration(name: String, init: AmazonElasticMapReduceDeleteSecurityConfigurationCommand.() -> Unit) {
-	this.block.declare(AmazonElasticMapReduceDeleteSecurityConfigurationCommand(name).apply(init))
+fun AmazonElasticMapReduceFunctions.deleteSecurityConfiguration(name: String, init: AmazonElasticMapReduceDeleteSecurityConfigurationCommand.() -> Unit): com.amazonaws.services.elasticmapreduce.model.DeleteSecurityConfigurationResult {
+	return this.block.declare(AmazonElasticMapReduceDeleteSecurityConfigurationCommand(name).apply(init)) as com.amazonaws.services.elasticmapreduce.model.DeleteSecurityConfigurationResult
 }
 
 @Generated
-class AmazonElasticMapReduceDeleteSecurityConfigurationCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.DeleteSecurityConfigurationRequest> {
+class AmazonElasticMapReduceDeleteSecurityConfigurationCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.DeleteSecurityConfigurationRequest, com.amazonaws.services.elasticmapreduce.model.DeleteSecurityConfigurationResult> {
 
 
 
@@ -216,8 +240,12 @@ class AmazonElasticMapReduceDeleteSecurityConfigurationCommand(val name: String)
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticmapreduce.deleteSecurityConfiguration(build())
+	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.DeleteSecurityConfigurationResult {
+	  return com.amazonaws.services.elasticmapreduce.model.DeleteSecurityConfigurationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.DeleteSecurityConfigurationResult {
+		return environment.elasticmapreduce.deleteSecurityConfiguration(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -228,12 +256,12 @@ class AmazonElasticMapReduceDeleteSecurityConfigurationCommand(val name: String)
 }
 
 
-fun AmazonElasticMapReduceFunctions.describeCluster(clusterId: String, init: AmazonElasticMapReduceDescribeClusterCommand.() -> Unit) {
-	this.block.declare(AmazonElasticMapReduceDescribeClusterCommand(clusterId).apply(init))
+fun AmazonElasticMapReduceFunctions.describeCluster(clusterId: String, init: AmazonElasticMapReduceDescribeClusterCommand.() -> Unit): com.amazonaws.services.elasticmapreduce.model.DescribeClusterResult {
+	return this.block.declare(AmazonElasticMapReduceDescribeClusterCommand(clusterId).apply(init)) as com.amazonaws.services.elasticmapreduce.model.DescribeClusterResult
 }
 
 @Generated
-class AmazonElasticMapReduceDescribeClusterCommand(val clusterId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.DescribeClusterRequest> {
+class AmazonElasticMapReduceDescribeClusterCommand(val clusterId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.DescribeClusterRequest, com.amazonaws.services.elasticmapreduce.model.DescribeClusterResult> {
 
 
 
@@ -243,8 +271,12 @@ class AmazonElasticMapReduceDescribeClusterCommand(val clusterId: String) : Amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticmapreduce.describeCluster(build())
+	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.DescribeClusterResult {
+	  return com.amazonaws.services.elasticmapreduce.model.DescribeClusterResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.DescribeClusterResult {
+		return environment.elasticmapreduce.describeCluster(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -255,12 +287,12 @@ class AmazonElasticMapReduceDescribeClusterCommand(val clusterId: String) : Amaz
 }
 
 
-fun AmazonElasticMapReduceFunctions.describeJobFlows(init: AmazonElasticMapReduceDescribeJobFlowsCommand.() -> Unit) {
-	this.block.declare(AmazonElasticMapReduceDescribeJobFlowsCommand().apply(init))
+fun AmazonElasticMapReduceFunctions.describeJobFlows(init: AmazonElasticMapReduceDescribeJobFlowsCommand.() -> Unit): com.amazonaws.services.elasticmapreduce.model.DescribeJobFlowsResult {
+	return this.block.declare(AmazonElasticMapReduceDescribeJobFlowsCommand().apply(init)) as com.amazonaws.services.elasticmapreduce.model.DescribeJobFlowsResult
 }
 
 @Generated
-class AmazonElasticMapReduceDescribeJobFlowsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.DescribeJobFlowsRequest> {
+class AmazonElasticMapReduceDescribeJobFlowsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.DescribeJobFlowsRequest, com.amazonaws.services.elasticmapreduce.model.DescribeJobFlowsResult> {
 
 	var createdAfter: java.util.Date? = null
 	var createdBefore: java.util.Date? = null
@@ -276,8 +308,12 @@ class AmazonElasticMapReduceDescribeJobFlowsCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticmapreduce.describeJobFlows(build())
+	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.DescribeJobFlowsResult {
+	  return com.amazonaws.services.elasticmapreduce.model.DescribeJobFlowsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.DescribeJobFlowsResult {
+		return environment.elasticmapreduce.describeJobFlows(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -291,12 +327,12 @@ class AmazonElasticMapReduceDescribeJobFlowsCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AmazonElasticMapReduceFunctions.describeSecurityConfiguration(name: String, init: AmazonElasticMapReduceDescribeSecurityConfigurationCommand.() -> Unit) {
-	this.block.declare(AmazonElasticMapReduceDescribeSecurityConfigurationCommand(name).apply(init))
+fun AmazonElasticMapReduceFunctions.describeSecurityConfiguration(name: String, init: AmazonElasticMapReduceDescribeSecurityConfigurationCommand.() -> Unit): com.amazonaws.services.elasticmapreduce.model.DescribeSecurityConfigurationResult {
+	return this.block.declare(AmazonElasticMapReduceDescribeSecurityConfigurationCommand(name).apply(init)) as com.amazonaws.services.elasticmapreduce.model.DescribeSecurityConfigurationResult
 }
 
 @Generated
-class AmazonElasticMapReduceDescribeSecurityConfigurationCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.DescribeSecurityConfigurationRequest> {
+class AmazonElasticMapReduceDescribeSecurityConfigurationCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.DescribeSecurityConfigurationRequest, com.amazonaws.services.elasticmapreduce.model.DescribeSecurityConfigurationResult> {
 
 
 
@@ -306,8 +342,12 @@ class AmazonElasticMapReduceDescribeSecurityConfigurationCommand(val name: Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticmapreduce.describeSecurityConfiguration(build())
+	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.DescribeSecurityConfigurationResult {
+	  return com.amazonaws.services.elasticmapreduce.model.DescribeSecurityConfigurationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.DescribeSecurityConfigurationResult {
+		return environment.elasticmapreduce.describeSecurityConfiguration(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -318,12 +358,12 @@ class AmazonElasticMapReduceDescribeSecurityConfigurationCommand(val name: Strin
 }
 
 
-fun AmazonElasticMapReduceFunctions.describeStep(clusterId: String, stepId: String, init: AmazonElasticMapReduceDescribeStepCommand.() -> Unit) {
-	this.block.declare(AmazonElasticMapReduceDescribeStepCommand(clusterId, stepId).apply(init))
+fun AmazonElasticMapReduceFunctions.describeStep(clusterId: String, stepId: String, init: AmazonElasticMapReduceDescribeStepCommand.() -> Unit): com.amazonaws.services.elasticmapreduce.model.DescribeStepResult {
+	return this.block.declare(AmazonElasticMapReduceDescribeStepCommand(clusterId, stepId).apply(init)) as com.amazonaws.services.elasticmapreduce.model.DescribeStepResult
 }
 
 @Generated
-class AmazonElasticMapReduceDescribeStepCommand(val clusterId: String, val stepId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.DescribeStepRequest> {
+class AmazonElasticMapReduceDescribeStepCommand(val clusterId: String, val stepId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.DescribeStepRequest, com.amazonaws.services.elasticmapreduce.model.DescribeStepResult> {
 
 
 
@@ -334,8 +374,12 @@ class AmazonElasticMapReduceDescribeStepCommand(val clusterId: String, val stepI
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticmapreduce.describeStep(build())
+	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.DescribeStepResult {
+	  return com.amazonaws.services.elasticmapreduce.model.DescribeStepResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.DescribeStepResult {
+		return environment.elasticmapreduce.describeStep(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -347,12 +391,12 @@ class AmazonElasticMapReduceDescribeStepCommand(val clusterId: String, val stepI
 }
 
 
-fun AmazonElasticMapReduceFunctions.listBootstrapActions(clusterId: String, init: AmazonElasticMapReduceListBootstrapActionsCommand.() -> Unit) {
-	this.block.declare(AmazonElasticMapReduceListBootstrapActionsCommand(clusterId).apply(init))
+fun AmazonElasticMapReduceFunctions.listBootstrapActions(clusterId: String, init: AmazonElasticMapReduceListBootstrapActionsCommand.() -> Unit): com.amazonaws.services.elasticmapreduce.model.ListBootstrapActionsResult {
+	return this.block.declare(AmazonElasticMapReduceListBootstrapActionsCommand(clusterId).apply(init)) as com.amazonaws.services.elasticmapreduce.model.ListBootstrapActionsResult
 }
 
 @Generated
-class AmazonElasticMapReduceListBootstrapActionsCommand(val clusterId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.ListBootstrapActionsRequest> {
+class AmazonElasticMapReduceListBootstrapActionsCommand(val clusterId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.ListBootstrapActionsRequest, com.amazonaws.services.elasticmapreduce.model.ListBootstrapActionsResult> {
 
 	var marker: String? = null
 
@@ -363,8 +407,12 @@ class AmazonElasticMapReduceListBootstrapActionsCommand(val clusterId: String) :
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticmapreduce.listBootstrapActions(build())
+	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.ListBootstrapActionsResult {
+	  return com.amazonaws.services.elasticmapreduce.model.ListBootstrapActionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.ListBootstrapActionsResult {
+		return environment.elasticmapreduce.listBootstrapActions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -376,12 +424,12 @@ class AmazonElasticMapReduceListBootstrapActionsCommand(val clusterId: String) :
 }
 
 
-fun AmazonElasticMapReduceFunctions.listClusters(init: AmazonElasticMapReduceListClustersCommand.() -> Unit) {
-	this.block.declare(AmazonElasticMapReduceListClustersCommand().apply(init))
+fun AmazonElasticMapReduceFunctions.listClusters(init: AmazonElasticMapReduceListClustersCommand.() -> Unit): com.amazonaws.services.elasticmapreduce.model.ListClustersResult {
+	return this.block.declare(AmazonElasticMapReduceListClustersCommand().apply(init)) as com.amazonaws.services.elasticmapreduce.model.ListClustersResult
 }
 
 @Generated
-class AmazonElasticMapReduceListClustersCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.ListClustersRequest> {
+class AmazonElasticMapReduceListClustersCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.ListClustersRequest, com.amazonaws.services.elasticmapreduce.model.ListClustersResult> {
 
 	var createdAfter: java.util.Date? = null
 	var createdBefore: java.util.Date? = null
@@ -397,8 +445,12 @@ class AmazonElasticMapReduceListClustersCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticmapreduce.listClusters(build())
+	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.ListClustersResult {
+	  return com.amazonaws.services.elasticmapreduce.model.ListClustersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.ListClustersResult {
+		return environment.elasticmapreduce.listClusters(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -412,12 +464,12 @@ class AmazonElasticMapReduceListClustersCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonElasticMapReduceFunctions.listInstanceFleets(clusterId: String, init: AmazonElasticMapReduceListInstanceFleetsCommand.() -> Unit) {
-	this.block.declare(AmazonElasticMapReduceListInstanceFleetsCommand(clusterId).apply(init))
+fun AmazonElasticMapReduceFunctions.listInstanceFleets(clusterId: String, init: AmazonElasticMapReduceListInstanceFleetsCommand.() -> Unit): com.amazonaws.services.elasticmapreduce.model.ListInstanceFleetsResult {
+	return this.block.declare(AmazonElasticMapReduceListInstanceFleetsCommand(clusterId).apply(init)) as com.amazonaws.services.elasticmapreduce.model.ListInstanceFleetsResult
 }
 
 @Generated
-class AmazonElasticMapReduceListInstanceFleetsCommand(val clusterId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.ListInstanceFleetsRequest> {
+class AmazonElasticMapReduceListInstanceFleetsCommand(val clusterId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.ListInstanceFleetsRequest, com.amazonaws.services.elasticmapreduce.model.ListInstanceFleetsResult> {
 
 	var marker: String? = null
 
@@ -428,8 +480,12 @@ class AmazonElasticMapReduceListInstanceFleetsCommand(val clusterId: String) : A
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticmapreduce.listInstanceFleets(build())
+	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.ListInstanceFleetsResult {
+	  return com.amazonaws.services.elasticmapreduce.model.ListInstanceFleetsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.ListInstanceFleetsResult {
+		return environment.elasticmapreduce.listInstanceFleets(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -441,12 +497,12 @@ class AmazonElasticMapReduceListInstanceFleetsCommand(val clusterId: String) : A
 }
 
 
-fun AmazonElasticMapReduceFunctions.listInstanceGroups(clusterId: String, init: AmazonElasticMapReduceListInstanceGroupsCommand.() -> Unit) {
-	this.block.declare(AmazonElasticMapReduceListInstanceGroupsCommand(clusterId).apply(init))
+fun AmazonElasticMapReduceFunctions.listInstanceGroups(clusterId: String, init: AmazonElasticMapReduceListInstanceGroupsCommand.() -> Unit): com.amazonaws.services.elasticmapreduce.model.ListInstanceGroupsResult {
+	return this.block.declare(AmazonElasticMapReduceListInstanceGroupsCommand(clusterId).apply(init)) as com.amazonaws.services.elasticmapreduce.model.ListInstanceGroupsResult
 }
 
 @Generated
-class AmazonElasticMapReduceListInstanceGroupsCommand(val clusterId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.ListInstanceGroupsRequest> {
+class AmazonElasticMapReduceListInstanceGroupsCommand(val clusterId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.ListInstanceGroupsRequest, com.amazonaws.services.elasticmapreduce.model.ListInstanceGroupsResult> {
 
 	var marker: String? = null
 
@@ -457,8 +513,12 @@ class AmazonElasticMapReduceListInstanceGroupsCommand(val clusterId: String) : A
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticmapreduce.listInstanceGroups(build())
+	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.ListInstanceGroupsResult {
+	  return com.amazonaws.services.elasticmapreduce.model.ListInstanceGroupsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.ListInstanceGroupsResult {
+		return environment.elasticmapreduce.listInstanceGroups(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -470,12 +530,12 @@ class AmazonElasticMapReduceListInstanceGroupsCommand(val clusterId: String) : A
 }
 
 
-fun AmazonElasticMapReduceFunctions.listInstances(clusterId: String, init: AmazonElasticMapReduceListInstancesCommand.() -> Unit) {
-	this.block.declare(AmazonElasticMapReduceListInstancesCommand(clusterId).apply(init))
+fun AmazonElasticMapReduceFunctions.listInstances(clusterId: String, init: AmazonElasticMapReduceListInstancesCommand.() -> Unit): com.amazonaws.services.elasticmapreduce.model.ListInstancesResult {
+	return this.block.declare(AmazonElasticMapReduceListInstancesCommand(clusterId).apply(init)) as com.amazonaws.services.elasticmapreduce.model.ListInstancesResult
 }
 
 @Generated
-class AmazonElasticMapReduceListInstancesCommand(val clusterId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.ListInstancesRequest> {
+class AmazonElasticMapReduceListInstancesCommand(val clusterId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.ListInstancesRequest, com.amazonaws.services.elasticmapreduce.model.ListInstancesResult> {
 
 	var instanceGroupId: String? = null
 	var instanceGroupTypes: List<InstanceGroupType>? = null
@@ -496,8 +556,12 @@ class AmazonElasticMapReduceListInstancesCommand(val clusterId: String) : Amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticmapreduce.listInstances(build())
+	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.ListInstancesResult {
+	  return com.amazonaws.services.elasticmapreduce.model.ListInstancesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.ListInstancesResult {
+		return environment.elasticmapreduce.listInstances(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -514,12 +578,12 @@ class AmazonElasticMapReduceListInstancesCommand(val clusterId: String) : Amazon
 }
 
 
-fun AmazonElasticMapReduceFunctions.listSecurityConfigurations(init: AmazonElasticMapReduceListSecurityConfigurationsCommand.() -> Unit) {
-	this.block.declare(AmazonElasticMapReduceListSecurityConfigurationsCommand().apply(init))
+fun AmazonElasticMapReduceFunctions.listSecurityConfigurations(init: AmazonElasticMapReduceListSecurityConfigurationsCommand.() -> Unit): com.amazonaws.services.elasticmapreduce.model.ListSecurityConfigurationsResult {
+	return this.block.declare(AmazonElasticMapReduceListSecurityConfigurationsCommand().apply(init)) as com.amazonaws.services.elasticmapreduce.model.ListSecurityConfigurationsResult
 }
 
 @Generated
-class AmazonElasticMapReduceListSecurityConfigurationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.ListSecurityConfigurationsRequest> {
+class AmazonElasticMapReduceListSecurityConfigurationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.ListSecurityConfigurationsRequest, com.amazonaws.services.elasticmapreduce.model.ListSecurityConfigurationsResult> {
 
 	var marker: String? = null
 
@@ -529,8 +593,12 @@ class AmazonElasticMapReduceListSecurityConfigurationsCommand() : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticmapreduce.listSecurityConfigurations(build())
+	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.ListSecurityConfigurationsResult {
+	  return com.amazonaws.services.elasticmapreduce.model.ListSecurityConfigurationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.ListSecurityConfigurationsResult {
+		return environment.elasticmapreduce.listSecurityConfigurations(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -541,12 +609,12 @@ class AmazonElasticMapReduceListSecurityConfigurationsCommand() : AmazonWebServi
 }
 
 
-fun AmazonElasticMapReduceFunctions.listSteps(clusterId: String, init: AmazonElasticMapReduceListStepsCommand.() -> Unit) {
-	this.block.declare(AmazonElasticMapReduceListStepsCommand(clusterId).apply(init))
+fun AmazonElasticMapReduceFunctions.listSteps(clusterId: String, init: AmazonElasticMapReduceListStepsCommand.() -> Unit): com.amazonaws.services.elasticmapreduce.model.ListStepsResult {
+	return this.block.declare(AmazonElasticMapReduceListStepsCommand(clusterId).apply(init)) as com.amazonaws.services.elasticmapreduce.model.ListStepsResult
 }
 
 @Generated
-class AmazonElasticMapReduceListStepsCommand(val clusterId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.ListStepsRequest> {
+class AmazonElasticMapReduceListStepsCommand(val clusterId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.ListStepsRequest, com.amazonaws.services.elasticmapreduce.model.ListStepsResult> {
 
 	var stepStates: List<StepState>? = null
 	var stepIds: List<String>? = null
@@ -561,8 +629,12 @@ class AmazonElasticMapReduceListStepsCommand(val clusterId: String) : AmazonWebS
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticmapreduce.listSteps(build())
+	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.ListStepsResult {
+	  return com.amazonaws.services.elasticmapreduce.model.ListStepsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.ListStepsResult {
+		return environment.elasticmapreduce.listSteps(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -576,12 +648,12 @@ class AmazonElasticMapReduceListStepsCommand(val clusterId: String) : AmazonWebS
 }
 
 
-fun AmazonElasticMapReduceFunctions.modifyInstanceFleet(clusterId: String, instanceFleet: com.amazonaws.services.elasticmapreduce.model.InstanceFleetModifyConfig, init: AmazonElasticMapReduceModifyInstanceFleetCommand.() -> Unit) {
-	this.block.declare(AmazonElasticMapReduceModifyInstanceFleetCommand(clusterId, instanceFleet).apply(init))
+fun AmazonElasticMapReduceFunctions.modifyInstanceFleet(clusterId: String, instanceFleet: com.amazonaws.services.elasticmapreduce.model.InstanceFleetModifyConfig, init: AmazonElasticMapReduceModifyInstanceFleetCommand.() -> Unit): com.amazonaws.services.elasticmapreduce.model.ModifyInstanceFleetResult {
+	return this.block.declare(AmazonElasticMapReduceModifyInstanceFleetCommand(clusterId, instanceFleet).apply(init)) as com.amazonaws.services.elasticmapreduce.model.ModifyInstanceFleetResult
 }
 
 @Generated
-class AmazonElasticMapReduceModifyInstanceFleetCommand(val clusterId: String, val instanceFleet: com.amazonaws.services.elasticmapreduce.model.InstanceFleetModifyConfig) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.ModifyInstanceFleetRequest> {
+class AmazonElasticMapReduceModifyInstanceFleetCommand(val clusterId: String, val instanceFleet: com.amazonaws.services.elasticmapreduce.model.InstanceFleetModifyConfig) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.ModifyInstanceFleetRequest, com.amazonaws.services.elasticmapreduce.model.ModifyInstanceFleetResult> {
 
 
 
@@ -592,8 +664,12 @@ class AmazonElasticMapReduceModifyInstanceFleetCommand(val clusterId: String, va
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticmapreduce.modifyInstanceFleet(build())
+	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.ModifyInstanceFleetResult {
+	  return com.amazonaws.services.elasticmapreduce.model.ModifyInstanceFleetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.ModifyInstanceFleetResult {
+		return environment.elasticmapreduce.modifyInstanceFleet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -605,12 +681,12 @@ class AmazonElasticMapReduceModifyInstanceFleetCommand(val clusterId: String, va
 }
 
 
-fun AmazonElasticMapReduceFunctions.modifyInstanceGroups(init: AmazonElasticMapReduceModifyInstanceGroupsCommand.() -> Unit) {
-	this.block.declare(AmazonElasticMapReduceModifyInstanceGroupsCommand().apply(init))
+fun AmazonElasticMapReduceFunctions.modifyInstanceGroups(init: AmazonElasticMapReduceModifyInstanceGroupsCommand.() -> Unit): com.amazonaws.services.elasticmapreduce.model.ModifyInstanceGroupsResult {
+	return this.block.declare(AmazonElasticMapReduceModifyInstanceGroupsCommand().apply(init)) as com.amazonaws.services.elasticmapreduce.model.ModifyInstanceGroupsResult
 }
 
 @Generated
-class AmazonElasticMapReduceModifyInstanceGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.ModifyInstanceGroupsRequest> {
+class AmazonElasticMapReduceModifyInstanceGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.ModifyInstanceGroupsRequest, com.amazonaws.services.elasticmapreduce.model.ModifyInstanceGroupsResult> {
 
 	var clusterId: String? = null
 	var instanceGroups: List<com.amazonaws.services.elasticmapreduce.model.InstanceGroupModifyConfig>? = null
@@ -622,8 +698,12 @@ class AmazonElasticMapReduceModifyInstanceGroupsCommand() : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticmapreduce.modifyInstanceGroups(build())
+	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.ModifyInstanceGroupsResult {
+	  return com.amazonaws.services.elasticmapreduce.model.ModifyInstanceGroupsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.ModifyInstanceGroupsResult {
+		return environment.elasticmapreduce.modifyInstanceGroups(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -635,12 +715,12 @@ class AmazonElasticMapReduceModifyInstanceGroupsCommand() : AmazonWebServiceComm
 }
 
 
-fun AmazonElasticMapReduceFunctions.putAutoScalingPolicy(clusterId: String, instanceGroupId: String, autoScalingPolicy: com.amazonaws.services.elasticmapreduce.model.AutoScalingPolicy, init: AmazonElasticMapReducePutAutoScalingPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonElasticMapReducePutAutoScalingPolicyCommand(clusterId, instanceGroupId, autoScalingPolicy).apply(init))
+fun AmazonElasticMapReduceFunctions.putAutoScalingPolicy(clusterId: String, instanceGroupId: String, autoScalingPolicy: com.amazonaws.services.elasticmapreduce.model.AutoScalingPolicy, init: AmazonElasticMapReducePutAutoScalingPolicyCommand.() -> Unit): com.amazonaws.services.elasticmapreduce.model.PutAutoScalingPolicyResult {
+	return this.block.declare(AmazonElasticMapReducePutAutoScalingPolicyCommand(clusterId, instanceGroupId, autoScalingPolicy).apply(init)) as com.amazonaws.services.elasticmapreduce.model.PutAutoScalingPolicyResult
 }
 
 @Generated
-class AmazonElasticMapReducePutAutoScalingPolicyCommand(val clusterId: String, val instanceGroupId: String, val autoScalingPolicy: com.amazonaws.services.elasticmapreduce.model.AutoScalingPolicy) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.PutAutoScalingPolicyRequest> {
+class AmazonElasticMapReducePutAutoScalingPolicyCommand(val clusterId: String, val instanceGroupId: String, val autoScalingPolicy: com.amazonaws.services.elasticmapreduce.model.AutoScalingPolicy) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.PutAutoScalingPolicyRequest, com.amazonaws.services.elasticmapreduce.model.PutAutoScalingPolicyResult> {
 
 
 
@@ -652,8 +732,12 @@ class AmazonElasticMapReducePutAutoScalingPolicyCommand(val clusterId: String, v
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticmapreduce.putAutoScalingPolicy(build())
+	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.PutAutoScalingPolicyResult {
+	  return com.amazonaws.services.elasticmapreduce.model.PutAutoScalingPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.PutAutoScalingPolicyResult {
+		return environment.elasticmapreduce.putAutoScalingPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -666,12 +750,12 @@ class AmazonElasticMapReducePutAutoScalingPolicyCommand(val clusterId: String, v
 }
 
 
-fun AmazonElasticMapReduceFunctions.removeAutoScalingPolicy(clusterId: String, instanceGroupId: String, init: AmazonElasticMapReduceRemoveAutoScalingPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonElasticMapReduceRemoveAutoScalingPolicyCommand(clusterId, instanceGroupId).apply(init))
+fun AmazonElasticMapReduceFunctions.removeAutoScalingPolicy(clusterId: String, instanceGroupId: String, init: AmazonElasticMapReduceRemoveAutoScalingPolicyCommand.() -> Unit): com.amazonaws.services.elasticmapreduce.model.RemoveAutoScalingPolicyResult {
+	return this.block.declare(AmazonElasticMapReduceRemoveAutoScalingPolicyCommand(clusterId, instanceGroupId).apply(init)) as com.amazonaws.services.elasticmapreduce.model.RemoveAutoScalingPolicyResult
 }
 
 @Generated
-class AmazonElasticMapReduceRemoveAutoScalingPolicyCommand(val clusterId: String, val instanceGroupId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.RemoveAutoScalingPolicyRequest> {
+class AmazonElasticMapReduceRemoveAutoScalingPolicyCommand(val clusterId: String, val instanceGroupId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.RemoveAutoScalingPolicyRequest, com.amazonaws.services.elasticmapreduce.model.RemoveAutoScalingPolicyResult> {
 
 
 
@@ -682,8 +766,12 @@ class AmazonElasticMapReduceRemoveAutoScalingPolicyCommand(val clusterId: String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticmapreduce.removeAutoScalingPolicy(build())
+	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.RemoveAutoScalingPolicyResult {
+	  return com.amazonaws.services.elasticmapreduce.model.RemoveAutoScalingPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.RemoveAutoScalingPolicyResult {
+		return environment.elasticmapreduce.removeAutoScalingPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -695,12 +783,12 @@ class AmazonElasticMapReduceRemoveAutoScalingPolicyCommand(val clusterId: String
 }
 
 
-fun AmazonElasticMapReduceFunctions.removeTags(resourceId: String, tagKeys: List<String>, init: AmazonElasticMapReduceRemoveTagsCommand.() -> Unit) {
-	this.block.declare(AmazonElasticMapReduceRemoveTagsCommand(resourceId, tagKeys).apply(init))
+fun AmazonElasticMapReduceFunctions.removeTags(resourceId: String, tagKeys: List<String>, init: AmazonElasticMapReduceRemoveTagsCommand.() -> Unit): com.amazonaws.services.elasticmapreduce.model.RemoveTagsResult {
+	return this.block.declare(AmazonElasticMapReduceRemoveTagsCommand(resourceId, tagKeys).apply(init)) as com.amazonaws.services.elasticmapreduce.model.RemoveTagsResult
 }
 
 @Generated
-class AmazonElasticMapReduceRemoveTagsCommand(val resourceId: String, val tagKeys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.RemoveTagsRequest> {
+class AmazonElasticMapReduceRemoveTagsCommand(val resourceId: String, val tagKeys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.RemoveTagsRequest, com.amazonaws.services.elasticmapreduce.model.RemoveTagsResult> {
 
 
 
@@ -711,8 +799,12 @@ class AmazonElasticMapReduceRemoveTagsCommand(val resourceId: String, val tagKey
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticmapreduce.removeTags(build())
+	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.RemoveTagsResult {
+	  return com.amazonaws.services.elasticmapreduce.model.RemoveTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.RemoveTagsResult {
+		return environment.elasticmapreduce.removeTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -724,12 +816,12 @@ class AmazonElasticMapReduceRemoveTagsCommand(val resourceId: String, val tagKey
 }
 
 
-fun AmazonElasticMapReduceFunctions.runJobFlow(name: String, instances: com.amazonaws.services.elasticmapreduce.model.JobFlowInstancesConfig, init: AmazonElasticMapReduceRunJobFlowCommand.() -> Unit) {
-	this.block.declare(AmazonElasticMapReduceRunJobFlowCommand(name, instances).apply(init))
+fun AmazonElasticMapReduceFunctions.runJobFlow(name: String, instances: com.amazonaws.services.elasticmapreduce.model.JobFlowInstancesConfig, init: AmazonElasticMapReduceRunJobFlowCommand.() -> Unit): com.amazonaws.services.elasticmapreduce.model.RunJobFlowResult {
+	return this.block.declare(AmazonElasticMapReduceRunJobFlowCommand(name, instances).apply(init)) as com.amazonaws.services.elasticmapreduce.model.RunJobFlowResult
 }
 
 @Generated
-class AmazonElasticMapReduceRunJobFlowCommand(val name: String, val instances: com.amazonaws.services.elasticmapreduce.model.JobFlowInstancesConfig) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.RunJobFlowRequest> {
+class AmazonElasticMapReduceRunJobFlowCommand(val name: String, val instances: com.amazonaws.services.elasticmapreduce.model.JobFlowInstancesConfig) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.RunJobFlowRequest, com.amazonaws.services.elasticmapreduce.model.RunJobFlowResult> {
 
 	var logUri: String? = null
 	var additionalInfo: String? = null
@@ -781,8 +873,12 @@ class AmazonElasticMapReduceRunJobFlowCommand(val name: String, val instances: c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticmapreduce.runJobFlow(build())
+	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.RunJobFlowResult {
+	  return com.amazonaws.services.elasticmapreduce.model.RunJobFlowResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.RunJobFlowResult {
+		return environment.elasticmapreduce.runJobFlow(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -815,12 +911,12 @@ class AmazonElasticMapReduceRunJobFlowCommand(val name: String, val instances: c
 }
 
 
-fun AmazonElasticMapReduceFunctions.setTerminationProtection(jobFlowIds: List<String>, terminationProtected: Boolean, init: AmazonElasticMapReduceSetTerminationProtectionCommand.() -> Unit) {
-	this.block.declare(AmazonElasticMapReduceSetTerminationProtectionCommand(jobFlowIds, terminationProtected).apply(init))
+fun AmazonElasticMapReduceFunctions.setTerminationProtection(jobFlowIds: List<String>, terminationProtected: Boolean, init: AmazonElasticMapReduceSetTerminationProtectionCommand.() -> Unit): com.amazonaws.services.elasticmapreduce.model.SetTerminationProtectionResult {
+	return this.block.declare(AmazonElasticMapReduceSetTerminationProtectionCommand(jobFlowIds, terminationProtected).apply(init)) as com.amazonaws.services.elasticmapreduce.model.SetTerminationProtectionResult
 }
 
 @Generated
-class AmazonElasticMapReduceSetTerminationProtectionCommand(val jobFlowIds: List<String>, val terminationProtected: Boolean) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.SetTerminationProtectionRequest> {
+class AmazonElasticMapReduceSetTerminationProtectionCommand(val jobFlowIds: List<String>, val terminationProtected: Boolean) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.SetTerminationProtectionRequest, com.amazonaws.services.elasticmapreduce.model.SetTerminationProtectionResult> {
 
 
 
@@ -831,8 +927,12 @@ class AmazonElasticMapReduceSetTerminationProtectionCommand(val jobFlowIds: List
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticmapreduce.setTerminationProtection(build())
+	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.SetTerminationProtectionResult {
+	  return com.amazonaws.services.elasticmapreduce.model.SetTerminationProtectionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.SetTerminationProtectionResult {
+		return environment.elasticmapreduce.setTerminationProtection(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -844,12 +944,12 @@ class AmazonElasticMapReduceSetTerminationProtectionCommand(val jobFlowIds: List
 }
 
 
-fun AmazonElasticMapReduceFunctions.setVisibleToAllUsers(jobFlowIds: List<String>, visibleToAllUsers: Boolean, init: AmazonElasticMapReduceSetVisibleToAllUsersCommand.() -> Unit) {
-	this.block.declare(AmazonElasticMapReduceSetVisibleToAllUsersCommand(jobFlowIds, visibleToAllUsers).apply(init))
+fun AmazonElasticMapReduceFunctions.setVisibleToAllUsers(jobFlowIds: List<String>, visibleToAllUsers: Boolean, init: AmazonElasticMapReduceSetVisibleToAllUsersCommand.() -> Unit): com.amazonaws.services.elasticmapreduce.model.SetVisibleToAllUsersResult {
+	return this.block.declare(AmazonElasticMapReduceSetVisibleToAllUsersCommand(jobFlowIds, visibleToAllUsers).apply(init)) as com.amazonaws.services.elasticmapreduce.model.SetVisibleToAllUsersResult
 }
 
 @Generated
-class AmazonElasticMapReduceSetVisibleToAllUsersCommand(val jobFlowIds: List<String>, val visibleToAllUsers: Boolean) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.SetVisibleToAllUsersRequest> {
+class AmazonElasticMapReduceSetVisibleToAllUsersCommand(val jobFlowIds: List<String>, val visibleToAllUsers: Boolean) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.SetVisibleToAllUsersRequest, com.amazonaws.services.elasticmapreduce.model.SetVisibleToAllUsersResult> {
 
 
 
@@ -860,8 +960,12 @@ class AmazonElasticMapReduceSetVisibleToAllUsersCommand(val jobFlowIds: List<Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticmapreduce.setVisibleToAllUsers(build())
+	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.SetVisibleToAllUsersResult {
+	  return com.amazonaws.services.elasticmapreduce.model.SetVisibleToAllUsersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.SetVisibleToAllUsersResult {
+		return environment.elasticmapreduce.setVisibleToAllUsers(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -873,12 +977,12 @@ class AmazonElasticMapReduceSetVisibleToAllUsersCommand(val jobFlowIds: List<Str
 }
 
 
-fun AmazonElasticMapReduceFunctions.terminateJobFlows(jobFlowIds: List<String>, init: AmazonElasticMapReduceTerminateJobFlowsCommand.() -> Unit) {
-	this.block.declare(AmazonElasticMapReduceTerminateJobFlowsCommand(jobFlowIds).apply(init))
+fun AmazonElasticMapReduceFunctions.terminateJobFlows(jobFlowIds: List<String>, init: AmazonElasticMapReduceTerminateJobFlowsCommand.() -> Unit): com.amazonaws.services.elasticmapreduce.model.TerminateJobFlowsResult {
+	return this.block.declare(AmazonElasticMapReduceTerminateJobFlowsCommand(jobFlowIds).apply(init)) as com.amazonaws.services.elasticmapreduce.model.TerminateJobFlowsResult
 }
 
 @Generated
-class AmazonElasticMapReduceTerminateJobFlowsCommand(val jobFlowIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.TerminateJobFlowsRequest> {
+class AmazonElasticMapReduceTerminateJobFlowsCommand(val jobFlowIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.elasticmapreduce.model.TerminateJobFlowsRequest, com.amazonaws.services.elasticmapreduce.model.TerminateJobFlowsResult> {
 
 
 
@@ -888,8 +992,12 @@ class AmazonElasticMapReduceTerminateJobFlowsCommand(val jobFlowIds: List<String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticmapreduce.terminateJobFlows(build())
+	override fun dryResult(): com.amazonaws.services.elasticmapreduce.model.TerminateJobFlowsResult {
+	  return com.amazonaws.services.elasticmapreduce.model.TerminateJobFlowsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticmapreduce.model.TerminateJobFlowsResult {
+		return environment.elasticmapreduce.terminateJobFlows(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

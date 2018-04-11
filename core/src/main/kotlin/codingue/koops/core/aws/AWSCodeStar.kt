@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.codestar: AWSCodeStar
 @Generated
 class AWSCodeStarFunctions(val block: Block)
 
-infix fun AwsContinuation.codestar(init: AWSCodeStarFunctions.() -> Unit) {
-	AWSCodeStarFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.codestar(init: AWSCodeStarFunctions.() -> T): T {
+	return AWSCodeStarFunctions(shell).run(init)
 }
 
 			
 
-fun AWSCodeStarFunctions.associateTeamMember(init: AWSCodeStarAssociateTeamMemberCommand.() -> Unit) {
-	this.block.declare(AWSCodeStarAssociateTeamMemberCommand().apply(init))
+fun AWSCodeStarFunctions.associateTeamMember(init: AWSCodeStarAssociateTeamMemberCommand.() -> Unit): com.amazonaws.services.codestar.model.AssociateTeamMemberResult {
+	return this.block.declare(AWSCodeStarAssociateTeamMemberCommand().apply(init)) as com.amazonaws.services.codestar.model.AssociateTeamMemberResult
 }
 
 @Generated
-class AWSCodeStarAssociateTeamMemberCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.AssociateTeamMemberRequest> {
+class AWSCodeStarAssociateTeamMemberCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.AssociateTeamMemberRequest, com.amazonaws.services.codestar.model.AssociateTeamMemberResult> {
 
 	var projectId: String? = null
 	var clientRequestToken: String? = null
@@ -49,8 +49,12 @@ class AWSCodeStarAssociateTeamMemberCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codestar.associateTeamMember(build())
+	override fun dryResult(): com.amazonaws.services.codestar.model.AssociateTeamMemberResult {
+	  return com.amazonaws.services.codestar.model.AssociateTeamMemberResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.AssociateTeamMemberResult {
+		return environment.codestar.associateTeamMember(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -65,12 +69,12 @@ class AWSCodeStarAssociateTeamMemberCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AWSCodeStarFunctions.createProject(init: AWSCodeStarCreateProjectCommand.() -> Unit) {
-	this.block.declare(AWSCodeStarCreateProjectCommand().apply(init))
+fun AWSCodeStarFunctions.createProject(init: AWSCodeStarCreateProjectCommand.() -> Unit): com.amazonaws.services.codestar.model.CreateProjectResult {
+	return this.block.declare(AWSCodeStarCreateProjectCommand().apply(init)) as com.amazonaws.services.codestar.model.CreateProjectResult
 }
 
 @Generated
-class AWSCodeStarCreateProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.CreateProjectRequest> {
+class AWSCodeStarCreateProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.CreateProjectRequest, com.amazonaws.services.codestar.model.CreateProjectResult> {
 
 	var name: String? = null
 	var id: String? = null
@@ -86,8 +90,12 @@ class AWSCodeStarCreateProjectCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codestar.createProject(build())
+	override fun dryResult(): com.amazonaws.services.codestar.model.CreateProjectResult {
+	  return com.amazonaws.services.codestar.model.CreateProjectResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.CreateProjectResult {
+		return environment.codestar.createProject(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -101,12 +109,12 @@ class AWSCodeStarCreateProjectCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AWSCodeStarFunctions.createUserProfile(init: AWSCodeStarCreateUserProfileCommand.() -> Unit) {
-	this.block.declare(AWSCodeStarCreateUserProfileCommand().apply(init))
+fun AWSCodeStarFunctions.createUserProfile(init: AWSCodeStarCreateUserProfileCommand.() -> Unit): com.amazonaws.services.codestar.model.CreateUserProfileResult {
+	return this.block.declare(AWSCodeStarCreateUserProfileCommand().apply(init)) as com.amazonaws.services.codestar.model.CreateUserProfileResult
 }
 
 @Generated
-class AWSCodeStarCreateUserProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.CreateUserProfileRequest> {
+class AWSCodeStarCreateUserProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.CreateUserProfileRequest, com.amazonaws.services.codestar.model.CreateUserProfileResult> {
 
 	var userArn: String? = null
 	var displayName: String? = null
@@ -122,8 +130,12 @@ class AWSCodeStarCreateUserProfileCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codestar.createUserProfile(build())
+	override fun dryResult(): com.amazonaws.services.codestar.model.CreateUserProfileResult {
+	  return com.amazonaws.services.codestar.model.CreateUserProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.CreateUserProfileResult {
+		return environment.codestar.createUserProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -137,12 +149,12 @@ class AWSCodeStarCreateUserProfileCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AWSCodeStarFunctions.deleteProject(init: AWSCodeStarDeleteProjectCommand.() -> Unit) {
-	this.block.declare(AWSCodeStarDeleteProjectCommand().apply(init))
+fun AWSCodeStarFunctions.deleteProject(init: AWSCodeStarDeleteProjectCommand.() -> Unit): com.amazonaws.services.codestar.model.DeleteProjectResult {
+	return this.block.declare(AWSCodeStarDeleteProjectCommand().apply(init)) as com.amazonaws.services.codestar.model.DeleteProjectResult
 }
 
 @Generated
-class AWSCodeStarDeleteProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.DeleteProjectRequest> {
+class AWSCodeStarDeleteProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.DeleteProjectRequest, com.amazonaws.services.codestar.model.DeleteProjectResult> {
 
 	var id: String? = null
 	var clientRequestToken: String? = null
@@ -156,8 +168,12 @@ class AWSCodeStarDeleteProjectCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codestar.deleteProject(build())
+	override fun dryResult(): com.amazonaws.services.codestar.model.DeleteProjectResult {
+	  return com.amazonaws.services.codestar.model.DeleteProjectResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.DeleteProjectResult {
+		return environment.codestar.deleteProject(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -170,12 +186,12 @@ class AWSCodeStarDeleteProjectCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AWSCodeStarFunctions.deleteUserProfile(init: AWSCodeStarDeleteUserProfileCommand.() -> Unit) {
-	this.block.declare(AWSCodeStarDeleteUserProfileCommand().apply(init))
+fun AWSCodeStarFunctions.deleteUserProfile(init: AWSCodeStarDeleteUserProfileCommand.() -> Unit): com.amazonaws.services.codestar.model.DeleteUserProfileResult {
+	return this.block.declare(AWSCodeStarDeleteUserProfileCommand().apply(init)) as com.amazonaws.services.codestar.model.DeleteUserProfileResult
 }
 
 @Generated
-class AWSCodeStarDeleteUserProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.DeleteUserProfileRequest> {
+class AWSCodeStarDeleteUserProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.DeleteUserProfileRequest, com.amazonaws.services.codestar.model.DeleteUserProfileResult> {
 
 	var userArn: String? = null
 
@@ -185,8 +201,12 @@ class AWSCodeStarDeleteUserProfileCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codestar.deleteUserProfile(build())
+	override fun dryResult(): com.amazonaws.services.codestar.model.DeleteUserProfileResult {
+	  return com.amazonaws.services.codestar.model.DeleteUserProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.DeleteUserProfileResult {
+		return environment.codestar.deleteUserProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -197,12 +217,12 @@ class AWSCodeStarDeleteUserProfileCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AWSCodeStarFunctions.describeProject(init: AWSCodeStarDescribeProjectCommand.() -> Unit) {
-	this.block.declare(AWSCodeStarDescribeProjectCommand().apply(init))
+fun AWSCodeStarFunctions.describeProject(init: AWSCodeStarDescribeProjectCommand.() -> Unit): com.amazonaws.services.codestar.model.DescribeProjectResult {
+	return this.block.declare(AWSCodeStarDescribeProjectCommand().apply(init)) as com.amazonaws.services.codestar.model.DescribeProjectResult
 }
 
 @Generated
-class AWSCodeStarDescribeProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.DescribeProjectRequest> {
+class AWSCodeStarDescribeProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.DescribeProjectRequest, com.amazonaws.services.codestar.model.DescribeProjectResult> {
 
 	var id: String? = null
 
@@ -212,8 +232,12 @@ class AWSCodeStarDescribeProjectCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codestar.describeProject(build())
+	override fun dryResult(): com.amazonaws.services.codestar.model.DescribeProjectResult {
+	  return com.amazonaws.services.codestar.model.DescribeProjectResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.DescribeProjectResult {
+		return environment.codestar.describeProject(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -224,12 +248,12 @@ class AWSCodeStarDescribeProjectCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AWSCodeStarFunctions.describeUserProfile(init: AWSCodeStarDescribeUserProfileCommand.() -> Unit) {
-	this.block.declare(AWSCodeStarDescribeUserProfileCommand().apply(init))
+fun AWSCodeStarFunctions.describeUserProfile(init: AWSCodeStarDescribeUserProfileCommand.() -> Unit): com.amazonaws.services.codestar.model.DescribeUserProfileResult {
+	return this.block.declare(AWSCodeStarDescribeUserProfileCommand().apply(init)) as com.amazonaws.services.codestar.model.DescribeUserProfileResult
 }
 
 @Generated
-class AWSCodeStarDescribeUserProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.DescribeUserProfileRequest> {
+class AWSCodeStarDescribeUserProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.DescribeUserProfileRequest, com.amazonaws.services.codestar.model.DescribeUserProfileResult> {
 
 	var userArn: String? = null
 
@@ -239,8 +263,12 @@ class AWSCodeStarDescribeUserProfileCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codestar.describeUserProfile(build())
+	override fun dryResult(): com.amazonaws.services.codestar.model.DescribeUserProfileResult {
+	  return com.amazonaws.services.codestar.model.DescribeUserProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.DescribeUserProfileResult {
+		return environment.codestar.describeUserProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -251,12 +279,12 @@ class AWSCodeStarDescribeUserProfileCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AWSCodeStarFunctions.disassociateTeamMember(init: AWSCodeStarDisassociateTeamMemberCommand.() -> Unit) {
-	this.block.declare(AWSCodeStarDisassociateTeamMemberCommand().apply(init))
+fun AWSCodeStarFunctions.disassociateTeamMember(init: AWSCodeStarDisassociateTeamMemberCommand.() -> Unit): com.amazonaws.services.codestar.model.DisassociateTeamMemberResult {
+	return this.block.declare(AWSCodeStarDisassociateTeamMemberCommand().apply(init)) as com.amazonaws.services.codestar.model.DisassociateTeamMemberResult
 }
 
 @Generated
-class AWSCodeStarDisassociateTeamMemberCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.DisassociateTeamMemberRequest> {
+class AWSCodeStarDisassociateTeamMemberCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.DisassociateTeamMemberRequest, com.amazonaws.services.codestar.model.DisassociateTeamMemberResult> {
 
 	var projectId: String? = null
 	var userArn: String? = null
@@ -268,8 +296,12 @@ class AWSCodeStarDisassociateTeamMemberCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codestar.disassociateTeamMember(build())
+	override fun dryResult(): com.amazonaws.services.codestar.model.DisassociateTeamMemberResult {
+	  return com.amazonaws.services.codestar.model.DisassociateTeamMemberResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.DisassociateTeamMemberResult {
+		return environment.codestar.disassociateTeamMember(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -281,12 +313,12 @@ class AWSCodeStarDisassociateTeamMemberCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AWSCodeStarFunctions.listProjects(init: AWSCodeStarListProjectsCommand.() -> Unit) {
-	this.block.declare(AWSCodeStarListProjectsCommand().apply(init))
+fun AWSCodeStarFunctions.listProjects(init: AWSCodeStarListProjectsCommand.() -> Unit): com.amazonaws.services.codestar.model.ListProjectsResult {
+	return this.block.declare(AWSCodeStarListProjectsCommand().apply(init)) as com.amazonaws.services.codestar.model.ListProjectsResult
 }
 
 @Generated
-class AWSCodeStarListProjectsCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.ListProjectsRequest> {
+class AWSCodeStarListProjectsCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.ListProjectsRequest, com.amazonaws.services.codestar.model.ListProjectsResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -298,8 +330,12 @@ class AWSCodeStarListProjectsCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codestar.listProjects(build())
+	override fun dryResult(): com.amazonaws.services.codestar.model.ListProjectsResult {
+	  return com.amazonaws.services.codestar.model.ListProjectsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.ListProjectsResult {
+		return environment.codestar.listProjects(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -311,12 +347,12 @@ class AWSCodeStarListProjectsCommand() : AmazonWebServiceCommand<com.amazonaws.s
 }
 
 
-fun AWSCodeStarFunctions.listResources(init: AWSCodeStarListResourcesCommand.() -> Unit) {
-	this.block.declare(AWSCodeStarListResourcesCommand().apply(init))
+fun AWSCodeStarFunctions.listResources(init: AWSCodeStarListResourcesCommand.() -> Unit): com.amazonaws.services.codestar.model.ListResourcesResult {
+	return this.block.declare(AWSCodeStarListResourcesCommand().apply(init)) as com.amazonaws.services.codestar.model.ListResourcesResult
 }
 
 @Generated
-class AWSCodeStarListResourcesCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.ListResourcesRequest> {
+class AWSCodeStarListResourcesCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.ListResourcesRequest, com.amazonaws.services.codestar.model.ListResourcesResult> {
 
 	var projectId: String? = null
 	var nextToken: String? = null
@@ -330,8 +366,12 @@ class AWSCodeStarListResourcesCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codestar.listResources(build())
+	override fun dryResult(): com.amazonaws.services.codestar.model.ListResourcesResult {
+	  return com.amazonaws.services.codestar.model.ListResourcesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.ListResourcesResult {
+		return environment.codestar.listResources(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -344,12 +384,12 @@ class AWSCodeStarListResourcesCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AWSCodeStarFunctions.listTagsForProject(init: AWSCodeStarListTagsForProjectCommand.() -> Unit) {
-	this.block.declare(AWSCodeStarListTagsForProjectCommand().apply(init))
+fun AWSCodeStarFunctions.listTagsForProject(init: AWSCodeStarListTagsForProjectCommand.() -> Unit): com.amazonaws.services.codestar.model.ListTagsForProjectResult {
+	return this.block.declare(AWSCodeStarListTagsForProjectCommand().apply(init)) as com.amazonaws.services.codestar.model.ListTagsForProjectResult
 }
 
 @Generated
-class AWSCodeStarListTagsForProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.ListTagsForProjectRequest> {
+class AWSCodeStarListTagsForProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.ListTagsForProjectRequest, com.amazonaws.services.codestar.model.ListTagsForProjectResult> {
 
 	var id: String? = null
 	var nextToken: String? = null
@@ -363,8 +403,12 @@ class AWSCodeStarListTagsForProjectCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codestar.listTagsForProject(build())
+	override fun dryResult(): com.amazonaws.services.codestar.model.ListTagsForProjectResult {
+	  return com.amazonaws.services.codestar.model.ListTagsForProjectResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.ListTagsForProjectResult {
+		return environment.codestar.listTagsForProject(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -377,12 +421,12 @@ class AWSCodeStarListTagsForProjectCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AWSCodeStarFunctions.listTeamMembers(init: AWSCodeStarListTeamMembersCommand.() -> Unit) {
-	this.block.declare(AWSCodeStarListTeamMembersCommand().apply(init))
+fun AWSCodeStarFunctions.listTeamMembers(init: AWSCodeStarListTeamMembersCommand.() -> Unit): com.amazonaws.services.codestar.model.ListTeamMembersResult {
+	return this.block.declare(AWSCodeStarListTeamMembersCommand().apply(init)) as com.amazonaws.services.codestar.model.ListTeamMembersResult
 }
 
 @Generated
-class AWSCodeStarListTeamMembersCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.ListTeamMembersRequest> {
+class AWSCodeStarListTeamMembersCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.ListTeamMembersRequest, com.amazonaws.services.codestar.model.ListTeamMembersResult> {
 
 	var projectId: String? = null
 	var nextToken: String? = null
@@ -396,8 +440,12 @@ class AWSCodeStarListTeamMembersCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codestar.listTeamMembers(build())
+	override fun dryResult(): com.amazonaws.services.codestar.model.ListTeamMembersResult {
+	  return com.amazonaws.services.codestar.model.ListTeamMembersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.ListTeamMembersResult {
+		return environment.codestar.listTeamMembers(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -410,12 +458,12 @@ class AWSCodeStarListTeamMembersCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AWSCodeStarFunctions.listUserProfiles(init: AWSCodeStarListUserProfilesCommand.() -> Unit) {
-	this.block.declare(AWSCodeStarListUserProfilesCommand().apply(init))
+fun AWSCodeStarFunctions.listUserProfiles(init: AWSCodeStarListUserProfilesCommand.() -> Unit): com.amazonaws.services.codestar.model.ListUserProfilesResult {
+	return this.block.declare(AWSCodeStarListUserProfilesCommand().apply(init)) as com.amazonaws.services.codestar.model.ListUserProfilesResult
 }
 
 @Generated
-class AWSCodeStarListUserProfilesCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.ListUserProfilesRequest> {
+class AWSCodeStarListUserProfilesCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.ListUserProfilesRequest, com.amazonaws.services.codestar.model.ListUserProfilesResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -427,8 +475,12 @@ class AWSCodeStarListUserProfilesCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codestar.listUserProfiles(build())
+	override fun dryResult(): com.amazonaws.services.codestar.model.ListUserProfilesResult {
+	  return com.amazonaws.services.codestar.model.ListUserProfilesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.ListUserProfilesResult {
+		return environment.codestar.listUserProfiles(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -440,12 +492,12 @@ class AWSCodeStarListUserProfilesCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AWSCodeStarFunctions.tagProject(init: AWSCodeStarTagProjectCommand.() -> Unit) {
-	this.block.declare(AWSCodeStarTagProjectCommand().apply(init))
+fun AWSCodeStarFunctions.tagProject(init: AWSCodeStarTagProjectCommand.() -> Unit): com.amazonaws.services.codestar.model.TagProjectResult {
+	return this.block.declare(AWSCodeStarTagProjectCommand().apply(init)) as com.amazonaws.services.codestar.model.TagProjectResult
 }
 
 @Generated
-class AWSCodeStarTagProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.TagProjectRequest> {
+class AWSCodeStarTagProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.TagProjectRequest, com.amazonaws.services.codestar.model.TagProjectResult> {
 
 	var id: String? = null
 	var tags: Map<String, String>? = null
@@ -457,8 +509,12 @@ class AWSCodeStarTagProjectCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codestar.tagProject(build())
+	override fun dryResult(): com.amazonaws.services.codestar.model.TagProjectResult {
+	  return com.amazonaws.services.codestar.model.TagProjectResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.TagProjectResult {
+		return environment.codestar.tagProject(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -470,12 +526,12 @@ class AWSCodeStarTagProjectCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 }
 
 
-fun AWSCodeStarFunctions.untagProject(init: AWSCodeStarUntagProjectCommand.() -> Unit) {
-	this.block.declare(AWSCodeStarUntagProjectCommand().apply(init))
+fun AWSCodeStarFunctions.untagProject(init: AWSCodeStarUntagProjectCommand.() -> Unit): com.amazonaws.services.codestar.model.UntagProjectResult {
+	return this.block.declare(AWSCodeStarUntagProjectCommand().apply(init)) as com.amazonaws.services.codestar.model.UntagProjectResult
 }
 
 @Generated
-class AWSCodeStarUntagProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.UntagProjectRequest> {
+class AWSCodeStarUntagProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.UntagProjectRequest, com.amazonaws.services.codestar.model.UntagProjectResult> {
 
 	var id: String? = null
 	var tags: List<String>? = null
@@ -487,8 +543,12 @@ class AWSCodeStarUntagProjectCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codestar.untagProject(build())
+	override fun dryResult(): com.amazonaws.services.codestar.model.UntagProjectResult {
+	  return com.amazonaws.services.codestar.model.UntagProjectResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.UntagProjectResult {
+		return environment.codestar.untagProject(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -500,12 +560,12 @@ class AWSCodeStarUntagProjectCommand() : AmazonWebServiceCommand<com.amazonaws.s
 }
 
 
-fun AWSCodeStarFunctions.updateProject(init: AWSCodeStarUpdateProjectCommand.() -> Unit) {
-	this.block.declare(AWSCodeStarUpdateProjectCommand().apply(init))
+fun AWSCodeStarFunctions.updateProject(init: AWSCodeStarUpdateProjectCommand.() -> Unit): com.amazonaws.services.codestar.model.UpdateProjectResult {
+	return this.block.declare(AWSCodeStarUpdateProjectCommand().apply(init)) as com.amazonaws.services.codestar.model.UpdateProjectResult
 }
 
 @Generated
-class AWSCodeStarUpdateProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.UpdateProjectRequest> {
+class AWSCodeStarUpdateProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.UpdateProjectRequest, com.amazonaws.services.codestar.model.UpdateProjectResult> {
 
 	var id: String? = null
 	var name: String? = null
@@ -519,8 +579,12 @@ class AWSCodeStarUpdateProjectCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codestar.updateProject(build())
+	override fun dryResult(): com.amazonaws.services.codestar.model.UpdateProjectResult {
+	  return com.amazonaws.services.codestar.model.UpdateProjectResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.UpdateProjectResult {
+		return environment.codestar.updateProject(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -533,12 +597,12 @@ class AWSCodeStarUpdateProjectCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AWSCodeStarFunctions.updateTeamMember(init: AWSCodeStarUpdateTeamMemberCommand.() -> Unit) {
-	this.block.declare(AWSCodeStarUpdateTeamMemberCommand().apply(init))
+fun AWSCodeStarFunctions.updateTeamMember(init: AWSCodeStarUpdateTeamMemberCommand.() -> Unit): com.amazonaws.services.codestar.model.UpdateTeamMemberResult {
+	return this.block.declare(AWSCodeStarUpdateTeamMemberCommand().apply(init)) as com.amazonaws.services.codestar.model.UpdateTeamMemberResult
 }
 
 @Generated
-class AWSCodeStarUpdateTeamMemberCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.UpdateTeamMemberRequest> {
+class AWSCodeStarUpdateTeamMemberCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.UpdateTeamMemberRequest, com.amazonaws.services.codestar.model.UpdateTeamMemberResult> {
 
 	var projectId: String? = null
 	var userArn: String? = null
@@ -554,8 +618,12 @@ class AWSCodeStarUpdateTeamMemberCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codestar.updateTeamMember(build())
+	override fun dryResult(): com.amazonaws.services.codestar.model.UpdateTeamMemberResult {
+	  return com.amazonaws.services.codestar.model.UpdateTeamMemberResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.UpdateTeamMemberResult {
+		return environment.codestar.updateTeamMember(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -569,12 +637,12 @@ class AWSCodeStarUpdateTeamMemberCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AWSCodeStarFunctions.updateUserProfile(init: AWSCodeStarUpdateUserProfileCommand.() -> Unit) {
-	this.block.declare(AWSCodeStarUpdateUserProfileCommand().apply(init))
+fun AWSCodeStarFunctions.updateUserProfile(init: AWSCodeStarUpdateUserProfileCommand.() -> Unit): com.amazonaws.services.codestar.model.UpdateUserProfileResult {
+	return this.block.declare(AWSCodeStarUpdateUserProfileCommand().apply(init)) as com.amazonaws.services.codestar.model.UpdateUserProfileResult
 }
 
 @Generated
-class AWSCodeStarUpdateUserProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.UpdateUserProfileRequest> {
+class AWSCodeStarUpdateUserProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.codestar.model.UpdateUserProfileRequest, com.amazonaws.services.codestar.model.UpdateUserProfileResult> {
 
 	var userArn: String? = null
 	var displayName: String? = null
@@ -590,8 +658,12 @@ class AWSCodeStarUpdateUserProfileCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codestar.updateUserProfile(build())
+	override fun dryResult(): com.amazonaws.services.codestar.model.UpdateUserProfileResult {
+	  return com.amazonaws.services.codestar.model.UpdateUserProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codestar.model.UpdateUserProfileResult {
+		return environment.codestar.updateUserProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

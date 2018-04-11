@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.acm: AWSCertificateManager
 @Generated
 class AWSCertificateManagerFunctions(val block: Block)
 
-infix fun AwsContinuation.acm(init: AWSCertificateManagerFunctions.() -> Unit) {
-	AWSCertificateManagerFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.acm(init: AWSCertificateManagerFunctions.() -> T): T {
+	return AWSCertificateManagerFunctions(shell).run(init)
 }
 
 			
 
-fun AWSCertificateManagerFunctions.addTagsToCertificate(certificateArn: String, tags: List<com.amazonaws.services.certificatemanager.model.Tag>, init: AWSCertificateManagerAddTagsToCertificateCommand.() -> Unit) {
-	this.block.declare(AWSCertificateManagerAddTagsToCertificateCommand(certificateArn, tags).apply(init))
+fun AWSCertificateManagerFunctions.addTagsToCertificate(certificateArn: String, tags: List<com.amazonaws.services.certificatemanager.model.Tag>, init: AWSCertificateManagerAddTagsToCertificateCommand.() -> Unit): com.amazonaws.services.certificatemanager.model.AddTagsToCertificateResult {
+	return this.block.declare(AWSCertificateManagerAddTagsToCertificateCommand(certificateArn, tags).apply(init)) as com.amazonaws.services.certificatemanager.model.AddTagsToCertificateResult
 }
 
 @Generated
-class AWSCertificateManagerAddTagsToCertificateCommand(val certificateArn: String, val tags: List<com.amazonaws.services.certificatemanager.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.certificatemanager.model.AddTagsToCertificateRequest> {
+class AWSCertificateManagerAddTagsToCertificateCommand(val certificateArn: String, val tags: List<com.amazonaws.services.certificatemanager.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.certificatemanager.model.AddTagsToCertificateRequest, com.amazonaws.services.certificatemanager.model.AddTagsToCertificateResult> {
 
 
 
@@ -42,8 +42,12 @@ class AWSCertificateManagerAddTagsToCertificateCommand(val certificateArn: Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.acm.addTagsToCertificate(build())
+	override fun dryResult(): com.amazonaws.services.certificatemanager.model.AddTagsToCertificateResult {
+	  return com.amazonaws.services.certificatemanager.model.AddTagsToCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.certificatemanager.model.AddTagsToCertificateResult {
+		return environment.acm.addTagsToCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -55,12 +59,12 @@ class AWSCertificateManagerAddTagsToCertificateCommand(val certificateArn: Strin
 }
 
 
-fun AWSCertificateManagerFunctions.deleteCertificate(certificateArn: String, init: AWSCertificateManagerDeleteCertificateCommand.() -> Unit) {
-	this.block.declare(AWSCertificateManagerDeleteCertificateCommand(certificateArn).apply(init))
+fun AWSCertificateManagerFunctions.deleteCertificate(certificateArn: String, init: AWSCertificateManagerDeleteCertificateCommand.() -> Unit): com.amazonaws.services.certificatemanager.model.DeleteCertificateResult {
+	return this.block.declare(AWSCertificateManagerDeleteCertificateCommand(certificateArn).apply(init)) as com.amazonaws.services.certificatemanager.model.DeleteCertificateResult
 }
 
 @Generated
-class AWSCertificateManagerDeleteCertificateCommand(val certificateArn: String) : AmazonWebServiceCommand<com.amazonaws.services.certificatemanager.model.DeleteCertificateRequest> {
+class AWSCertificateManagerDeleteCertificateCommand(val certificateArn: String) : AmazonWebServiceCommand<com.amazonaws.services.certificatemanager.model.DeleteCertificateRequest, com.amazonaws.services.certificatemanager.model.DeleteCertificateResult> {
 
 
 
@@ -70,8 +74,12 @@ class AWSCertificateManagerDeleteCertificateCommand(val certificateArn: String) 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.acm.deleteCertificate(build())
+	override fun dryResult(): com.amazonaws.services.certificatemanager.model.DeleteCertificateResult {
+	  return com.amazonaws.services.certificatemanager.model.DeleteCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.certificatemanager.model.DeleteCertificateResult {
+		return environment.acm.deleteCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -82,12 +90,12 @@ class AWSCertificateManagerDeleteCertificateCommand(val certificateArn: String) 
 }
 
 
-fun AWSCertificateManagerFunctions.describeCertificate(certificateArn: String, init: AWSCertificateManagerDescribeCertificateCommand.() -> Unit) {
-	this.block.declare(AWSCertificateManagerDescribeCertificateCommand(certificateArn).apply(init))
+fun AWSCertificateManagerFunctions.describeCertificate(certificateArn: String, init: AWSCertificateManagerDescribeCertificateCommand.() -> Unit): com.amazonaws.services.certificatemanager.model.DescribeCertificateResult {
+	return this.block.declare(AWSCertificateManagerDescribeCertificateCommand(certificateArn).apply(init)) as com.amazonaws.services.certificatemanager.model.DescribeCertificateResult
 }
 
 @Generated
-class AWSCertificateManagerDescribeCertificateCommand(val certificateArn: String) : AmazonWebServiceCommand<com.amazonaws.services.certificatemanager.model.DescribeCertificateRequest> {
+class AWSCertificateManagerDescribeCertificateCommand(val certificateArn: String) : AmazonWebServiceCommand<com.amazonaws.services.certificatemanager.model.DescribeCertificateRequest, com.amazonaws.services.certificatemanager.model.DescribeCertificateResult> {
 
 
 
@@ -97,8 +105,12 @@ class AWSCertificateManagerDescribeCertificateCommand(val certificateArn: String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.acm.describeCertificate(build())
+	override fun dryResult(): com.amazonaws.services.certificatemanager.model.DescribeCertificateResult {
+	  return com.amazonaws.services.certificatemanager.model.DescribeCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.certificatemanager.model.DescribeCertificateResult {
+		return environment.acm.describeCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -109,12 +121,12 @@ class AWSCertificateManagerDescribeCertificateCommand(val certificateArn: String
 }
 
 
-fun AWSCertificateManagerFunctions.exportCertificate(certificateArn: String, passphrase: java.nio.ByteBuffer, init: AWSCertificateManagerExportCertificateCommand.() -> Unit) {
-	this.block.declare(AWSCertificateManagerExportCertificateCommand(certificateArn, passphrase).apply(init))
+fun AWSCertificateManagerFunctions.exportCertificate(certificateArn: String, passphrase: java.nio.ByteBuffer, init: AWSCertificateManagerExportCertificateCommand.() -> Unit): com.amazonaws.services.certificatemanager.model.ExportCertificateResult {
+	return this.block.declare(AWSCertificateManagerExportCertificateCommand(certificateArn, passphrase).apply(init)) as com.amazonaws.services.certificatemanager.model.ExportCertificateResult
 }
 
 @Generated
-class AWSCertificateManagerExportCertificateCommand(val certificateArn: String, val passphrase: java.nio.ByteBuffer) : AmazonWebServiceCommand<com.amazonaws.services.certificatemanager.model.ExportCertificateRequest> {
+class AWSCertificateManagerExportCertificateCommand(val certificateArn: String, val passphrase: java.nio.ByteBuffer) : AmazonWebServiceCommand<com.amazonaws.services.certificatemanager.model.ExportCertificateRequest, com.amazonaws.services.certificatemanager.model.ExportCertificateResult> {
 
 
 
@@ -125,8 +137,12 @@ class AWSCertificateManagerExportCertificateCommand(val certificateArn: String, 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.acm.exportCertificate(build())
+	override fun dryResult(): com.amazonaws.services.certificatemanager.model.ExportCertificateResult {
+	  return com.amazonaws.services.certificatemanager.model.ExportCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.certificatemanager.model.ExportCertificateResult {
+		return environment.acm.exportCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -138,12 +154,12 @@ class AWSCertificateManagerExportCertificateCommand(val certificateArn: String, 
 }
 
 
-fun AWSCertificateManagerFunctions.getCertificate(certificateArn: String, init: AWSCertificateManagerGetCertificateCommand.() -> Unit) {
-	this.block.declare(AWSCertificateManagerGetCertificateCommand(certificateArn).apply(init))
+fun AWSCertificateManagerFunctions.getCertificate(certificateArn: String, init: AWSCertificateManagerGetCertificateCommand.() -> Unit): com.amazonaws.services.certificatemanager.model.GetCertificateResult {
+	return this.block.declare(AWSCertificateManagerGetCertificateCommand(certificateArn).apply(init)) as com.amazonaws.services.certificatemanager.model.GetCertificateResult
 }
 
 @Generated
-class AWSCertificateManagerGetCertificateCommand(val certificateArn: String) : AmazonWebServiceCommand<com.amazonaws.services.certificatemanager.model.GetCertificateRequest> {
+class AWSCertificateManagerGetCertificateCommand(val certificateArn: String) : AmazonWebServiceCommand<com.amazonaws.services.certificatemanager.model.GetCertificateRequest, com.amazonaws.services.certificatemanager.model.GetCertificateResult> {
 
 
 
@@ -153,8 +169,12 @@ class AWSCertificateManagerGetCertificateCommand(val certificateArn: String) : A
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.acm.getCertificate(build())
+	override fun dryResult(): com.amazonaws.services.certificatemanager.model.GetCertificateResult {
+	  return com.amazonaws.services.certificatemanager.model.GetCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.certificatemanager.model.GetCertificateResult {
+		return environment.acm.getCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -165,12 +185,12 @@ class AWSCertificateManagerGetCertificateCommand(val certificateArn: String) : A
 }
 
 
-fun AWSCertificateManagerFunctions.importCertificate(certificate: java.nio.ByteBuffer, privateKey: java.nio.ByteBuffer, init: AWSCertificateManagerImportCertificateCommand.() -> Unit) {
-	this.block.declare(AWSCertificateManagerImportCertificateCommand(certificate, privateKey).apply(init))
+fun AWSCertificateManagerFunctions.importCertificate(certificate: java.nio.ByteBuffer, privateKey: java.nio.ByteBuffer, init: AWSCertificateManagerImportCertificateCommand.() -> Unit): com.amazonaws.services.certificatemanager.model.ImportCertificateResult {
+	return this.block.declare(AWSCertificateManagerImportCertificateCommand(certificate, privateKey).apply(init)) as com.amazonaws.services.certificatemanager.model.ImportCertificateResult
 }
 
 @Generated
-class AWSCertificateManagerImportCertificateCommand(val certificate: java.nio.ByteBuffer, val privateKey: java.nio.ByteBuffer) : AmazonWebServiceCommand<com.amazonaws.services.certificatemanager.model.ImportCertificateRequest> {
+class AWSCertificateManagerImportCertificateCommand(val certificate: java.nio.ByteBuffer, val privateKey: java.nio.ByteBuffer) : AmazonWebServiceCommand<com.amazonaws.services.certificatemanager.model.ImportCertificateRequest, com.amazonaws.services.certificatemanager.model.ImportCertificateResult> {
 
 	var certificateArn: String? = null
 	var certificateChain: java.nio.ByteBuffer? = null
@@ -184,8 +204,12 @@ class AWSCertificateManagerImportCertificateCommand(val certificate: java.nio.By
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.acm.importCertificate(build())
+	override fun dryResult(): com.amazonaws.services.certificatemanager.model.ImportCertificateResult {
+	  return com.amazonaws.services.certificatemanager.model.ImportCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.certificatemanager.model.ImportCertificateResult {
+		return environment.acm.importCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -199,12 +223,12 @@ class AWSCertificateManagerImportCertificateCommand(val certificate: java.nio.By
 }
 
 
-fun AWSCertificateManagerFunctions.listCertificates(init: AWSCertificateManagerListCertificatesCommand.() -> Unit) {
-	this.block.declare(AWSCertificateManagerListCertificatesCommand().apply(init))
+fun AWSCertificateManagerFunctions.listCertificates(init: AWSCertificateManagerListCertificatesCommand.() -> Unit): com.amazonaws.services.certificatemanager.model.ListCertificatesResult {
+	return this.block.declare(AWSCertificateManagerListCertificatesCommand().apply(init)) as com.amazonaws.services.certificatemanager.model.ListCertificatesResult
 }
 
 @Generated
-class AWSCertificateManagerListCertificatesCommand() : AmazonWebServiceCommand<com.amazonaws.services.certificatemanager.model.ListCertificatesRequest> {
+class AWSCertificateManagerListCertificatesCommand() : AmazonWebServiceCommand<com.amazonaws.services.certificatemanager.model.ListCertificatesRequest, com.amazonaws.services.certificatemanager.model.ListCertificatesResult> {
 
 	var certificateStatuses: List<CertificateStatus>? = null
 	var includes: com.amazonaws.services.certificatemanager.model.Filters? = null
@@ -220,8 +244,12 @@ class AWSCertificateManagerListCertificatesCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.acm.listCertificates(build())
+	override fun dryResult(): com.amazonaws.services.certificatemanager.model.ListCertificatesResult {
+	  return com.amazonaws.services.certificatemanager.model.ListCertificatesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.certificatemanager.model.ListCertificatesResult {
+		return environment.acm.listCertificates(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -235,12 +263,12 @@ class AWSCertificateManagerListCertificatesCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AWSCertificateManagerFunctions.listTagsForCertificate(certificateArn: String, init: AWSCertificateManagerListTagsForCertificateCommand.() -> Unit) {
-	this.block.declare(AWSCertificateManagerListTagsForCertificateCommand(certificateArn).apply(init))
+fun AWSCertificateManagerFunctions.listTagsForCertificate(certificateArn: String, init: AWSCertificateManagerListTagsForCertificateCommand.() -> Unit): com.amazonaws.services.certificatemanager.model.ListTagsForCertificateResult {
+	return this.block.declare(AWSCertificateManagerListTagsForCertificateCommand(certificateArn).apply(init)) as com.amazonaws.services.certificatemanager.model.ListTagsForCertificateResult
 }
 
 @Generated
-class AWSCertificateManagerListTagsForCertificateCommand(val certificateArn: String) : AmazonWebServiceCommand<com.amazonaws.services.certificatemanager.model.ListTagsForCertificateRequest> {
+class AWSCertificateManagerListTagsForCertificateCommand(val certificateArn: String) : AmazonWebServiceCommand<com.amazonaws.services.certificatemanager.model.ListTagsForCertificateRequest, com.amazonaws.services.certificatemanager.model.ListTagsForCertificateResult> {
 
 
 
@@ -250,8 +278,12 @@ class AWSCertificateManagerListTagsForCertificateCommand(val certificateArn: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.acm.listTagsForCertificate(build())
+	override fun dryResult(): com.amazonaws.services.certificatemanager.model.ListTagsForCertificateResult {
+	  return com.amazonaws.services.certificatemanager.model.ListTagsForCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.certificatemanager.model.ListTagsForCertificateResult {
+		return environment.acm.listTagsForCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -262,12 +294,12 @@ class AWSCertificateManagerListTagsForCertificateCommand(val certificateArn: Str
 }
 
 
-fun AWSCertificateManagerFunctions.removeTagsFromCertificate(certificateArn: String, tags: List<com.amazonaws.services.certificatemanager.model.Tag>, init: AWSCertificateManagerRemoveTagsFromCertificateCommand.() -> Unit) {
-	this.block.declare(AWSCertificateManagerRemoveTagsFromCertificateCommand(certificateArn, tags).apply(init))
+fun AWSCertificateManagerFunctions.removeTagsFromCertificate(certificateArn: String, tags: List<com.amazonaws.services.certificatemanager.model.Tag>, init: AWSCertificateManagerRemoveTagsFromCertificateCommand.() -> Unit): com.amazonaws.services.certificatemanager.model.RemoveTagsFromCertificateResult {
+	return this.block.declare(AWSCertificateManagerRemoveTagsFromCertificateCommand(certificateArn, tags).apply(init)) as com.amazonaws.services.certificatemanager.model.RemoveTagsFromCertificateResult
 }
 
 @Generated
-class AWSCertificateManagerRemoveTagsFromCertificateCommand(val certificateArn: String, val tags: List<com.amazonaws.services.certificatemanager.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.certificatemanager.model.RemoveTagsFromCertificateRequest> {
+class AWSCertificateManagerRemoveTagsFromCertificateCommand(val certificateArn: String, val tags: List<com.amazonaws.services.certificatemanager.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.certificatemanager.model.RemoveTagsFromCertificateRequest, com.amazonaws.services.certificatemanager.model.RemoveTagsFromCertificateResult> {
 
 
 
@@ -278,8 +310,12 @@ class AWSCertificateManagerRemoveTagsFromCertificateCommand(val certificateArn: 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.acm.removeTagsFromCertificate(build())
+	override fun dryResult(): com.amazonaws.services.certificatemanager.model.RemoveTagsFromCertificateResult {
+	  return com.amazonaws.services.certificatemanager.model.RemoveTagsFromCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.certificatemanager.model.RemoveTagsFromCertificateResult {
+		return environment.acm.removeTagsFromCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -291,12 +327,12 @@ class AWSCertificateManagerRemoveTagsFromCertificateCommand(val certificateArn: 
 }
 
 
-fun AWSCertificateManagerFunctions.requestCertificate(domainName: String, init: AWSCertificateManagerRequestCertificateCommand.() -> Unit) {
-	this.block.declare(AWSCertificateManagerRequestCertificateCommand(domainName).apply(init))
+fun AWSCertificateManagerFunctions.requestCertificate(domainName: String, init: AWSCertificateManagerRequestCertificateCommand.() -> Unit): com.amazonaws.services.certificatemanager.model.RequestCertificateResult {
+	return this.block.declare(AWSCertificateManagerRequestCertificateCommand(domainName).apply(init)) as com.amazonaws.services.certificatemanager.model.RequestCertificateResult
 }
 
 @Generated
-class AWSCertificateManagerRequestCertificateCommand(val domainName: String) : AmazonWebServiceCommand<com.amazonaws.services.certificatemanager.model.RequestCertificateRequest> {
+class AWSCertificateManagerRequestCertificateCommand(val domainName: String) : AmazonWebServiceCommand<com.amazonaws.services.certificatemanager.model.RequestCertificateRequest, com.amazonaws.services.certificatemanager.model.RequestCertificateResult> {
 
 	var validationMethod: ValidationMethod? = null
 	var subjectAlternativeNames: List<String>? = null
@@ -317,8 +353,12 @@ class AWSCertificateManagerRequestCertificateCommand(val domainName: String) : A
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.acm.requestCertificate(build())
+	override fun dryResult(): com.amazonaws.services.certificatemanager.model.RequestCertificateResult {
+	  return com.amazonaws.services.certificatemanager.model.RequestCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.certificatemanager.model.RequestCertificateResult {
+		return environment.acm.requestCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -335,12 +375,12 @@ class AWSCertificateManagerRequestCertificateCommand(val domainName: String) : A
 }
 
 
-fun AWSCertificateManagerFunctions.resendValidationEmail(certificateArn: String, domain: String, validationDomain: String, init: AWSCertificateManagerResendValidationEmailCommand.() -> Unit) {
-	this.block.declare(AWSCertificateManagerResendValidationEmailCommand(certificateArn, domain, validationDomain).apply(init))
+fun AWSCertificateManagerFunctions.resendValidationEmail(certificateArn: String, domain: String, validationDomain: String, init: AWSCertificateManagerResendValidationEmailCommand.() -> Unit): com.amazonaws.services.certificatemanager.model.ResendValidationEmailResult {
+	return this.block.declare(AWSCertificateManagerResendValidationEmailCommand(certificateArn, domain, validationDomain).apply(init)) as com.amazonaws.services.certificatemanager.model.ResendValidationEmailResult
 }
 
 @Generated
-class AWSCertificateManagerResendValidationEmailCommand(val certificateArn: String, val domain: String, val validationDomain: String) : AmazonWebServiceCommand<com.amazonaws.services.certificatemanager.model.ResendValidationEmailRequest> {
+class AWSCertificateManagerResendValidationEmailCommand(val certificateArn: String, val domain: String, val validationDomain: String) : AmazonWebServiceCommand<com.amazonaws.services.certificatemanager.model.ResendValidationEmailRequest, com.amazonaws.services.certificatemanager.model.ResendValidationEmailResult> {
 
 
 
@@ -352,8 +392,12 @@ class AWSCertificateManagerResendValidationEmailCommand(val certificateArn: Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.acm.resendValidationEmail(build())
+	override fun dryResult(): com.amazonaws.services.certificatemanager.model.ResendValidationEmailResult {
+	  return com.amazonaws.services.certificatemanager.model.ResendValidationEmailResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.certificatemanager.model.ResendValidationEmailResult {
+		return environment.acm.resendValidationEmail(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -366,12 +410,12 @@ class AWSCertificateManagerResendValidationEmailCommand(val certificateArn: Stri
 }
 
 
-fun AWSCertificateManagerFunctions.updateCertificateOptions(certificateArn: String, options: com.amazonaws.services.certificatemanager.model.CertificateOptions, init: AWSCertificateManagerUpdateCertificateOptionsCommand.() -> Unit) {
-	this.block.declare(AWSCertificateManagerUpdateCertificateOptionsCommand(certificateArn, options).apply(init))
+fun AWSCertificateManagerFunctions.updateCertificateOptions(certificateArn: String, options: com.amazonaws.services.certificatemanager.model.CertificateOptions, init: AWSCertificateManagerUpdateCertificateOptionsCommand.() -> Unit): com.amazonaws.services.certificatemanager.model.UpdateCertificateOptionsResult {
+	return this.block.declare(AWSCertificateManagerUpdateCertificateOptionsCommand(certificateArn, options).apply(init)) as com.amazonaws.services.certificatemanager.model.UpdateCertificateOptionsResult
 }
 
 @Generated
-class AWSCertificateManagerUpdateCertificateOptionsCommand(val certificateArn: String, val options: com.amazonaws.services.certificatemanager.model.CertificateOptions) : AmazonWebServiceCommand<com.amazonaws.services.certificatemanager.model.UpdateCertificateOptionsRequest> {
+class AWSCertificateManagerUpdateCertificateOptionsCommand(val certificateArn: String, val options: com.amazonaws.services.certificatemanager.model.CertificateOptions) : AmazonWebServiceCommand<com.amazonaws.services.certificatemanager.model.UpdateCertificateOptionsRequest, com.amazonaws.services.certificatemanager.model.UpdateCertificateOptionsResult> {
 
 
 
@@ -382,8 +426,12 @@ class AWSCertificateManagerUpdateCertificateOptionsCommand(val certificateArn: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.acm.updateCertificateOptions(build())
+	override fun dryResult(): com.amazonaws.services.certificatemanager.model.UpdateCertificateOptionsResult {
+	  return com.amazonaws.services.certificatemanager.model.UpdateCertificateOptionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.certificatemanager.model.UpdateCertificateOptionsResult {
+		return environment.acm.updateCertificateOptions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.transcribe: AmazonTranscribe
 @Generated
 class AmazonTranscribeFunctions(val block: Block)
 
-infix fun AwsContinuation.transcribe(init: AmazonTranscribeFunctions.() -> Unit) {
-	AmazonTranscribeFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.transcribe(init: AmazonTranscribeFunctions.() -> T): T {
+	return AmazonTranscribeFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonTranscribeFunctions.createVocabulary(vocabularyName: String, languageCode: LanguageCode, phrases: List<String>, init: AmazonTranscribeCreateVocabularyCommand.() -> Unit) {
-	this.block.declare(AmazonTranscribeCreateVocabularyCommand(vocabularyName, languageCode, phrases).apply(init))
+fun AmazonTranscribeFunctions.createVocabulary(vocabularyName: String, languageCode: LanguageCode, phrases: List<String>, init: AmazonTranscribeCreateVocabularyCommand.() -> Unit): com.amazonaws.services.transcribe.model.CreateVocabularyResult {
+	return this.block.declare(AmazonTranscribeCreateVocabularyCommand(vocabularyName, languageCode, phrases).apply(init)) as com.amazonaws.services.transcribe.model.CreateVocabularyResult
 }
 
 @Generated
-class AmazonTranscribeCreateVocabularyCommand(val vocabularyName: String, val languageCode: LanguageCode, val phrases: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.transcribe.model.CreateVocabularyRequest> {
+class AmazonTranscribeCreateVocabularyCommand(val vocabularyName: String, val languageCode: LanguageCode, val phrases: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.transcribe.model.CreateVocabularyRequest, com.amazonaws.services.transcribe.model.CreateVocabularyResult> {
 
 
 
@@ -43,8 +43,12 @@ class AmazonTranscribeCreateVocabularyCommand(val vocabularyName: String, val la
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.transcribe.createVocabulary(build())
+	override fun dryResult(): com.amazonaws.services.transcribe.model.CreateVocabularyResult {
+	  return com.amazonaws.services.transcribe.model.CreateVocabularyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.transcribe.model.CreateVocabularyResult {
+		return environment.transcribe.createVocabulary(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -57,12 +61,12 @@ class AmazonTranscribeCreateVocabularyCommand(val vocabularyName: String, val la
 }
 
 
-fun AmazonTranscribeFunctions.deleteVocabulary(vocabularyName: String, init: AmazonTranscribeDeleteVocabularyCommand.() -> Unit) {
-	this.block.declare(AmazonTranscribeDeleteVocabularyCommand(vocabularyName).apply(init))
+fun AmazonTranscribeFunctions.deleteVocabulary(vocabularyName: String, init: AmazonTranscribeDeleteVocabularyCommand.() -> Unit): com.amazonaws.services.transcribe.model.DeleteVocabularyResult {
+	return this.block.declare(AmazonTranscribeDeleteVocabularyCommand(vocabularyName).apply(init)) as com.amazonaws.services.transcribe.model.DeleteVocabularyResult
 }
 
 @Generated
-class AmazonTranscribeDeleteVocabularyCommand(val vocabularyName: String) : AmazonWebServiceCommand<com.amazonaws.services.transcribe.model.DeleteVocabularyRequest> {
+class AmazonTranscribeDeleteVocabularyCommand(val vocabularyName: String) : AmazonWebServiceCommand<com.amazonaws.services.transcribe.model.DeleteVocabularyRequest, com.amazonaws.services.transcribe.model.DeleteVocabularyResult> {
 
 
 
@@ -72,8 +76,12 @@ class AmazonTranscribeDeleteVocabularyCommand(val vocabularyName: String) : Amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.transcribe.deleteVocabulary(build())
+	override fun dryResult(): com.amazonaws.services.transcribe.model.DeleteVocabularyResult {
+	  return com.amazonaws.services.transcribe.model.DeleteVocabularyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.transcribe.model.DeleteVocabularyResult {
+		return environment.transcribe.deleteVocabulary(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -84,12 +92,12 @@ class AmazonTranscribeDeleteVocabularyCommand(val vocabularyName: String) : Amaz
 }
 
 
-fun AmazonTranscribeFunctions.getTranscriptionJob(transcriptionJobName: String, init: AmazonTranscribeGetTranscriptionJobCommand.() -> Unit) {
-	this.block.declare(AmazonTranscribeGetTranscriptionJobCommand(transcriptionJobName).apply(init))
+fun AmazonTranscribeFunctions.getTranscriptionJob(transcriptionJobName: String, init: AmazonTranscribeGetTranscriptionJobCommand.() -> Unit): com.amazonaws.services.transcribe.model.GetTranscriptionJobResult {
+	return this.block.declare(AmazonTranscribeGetTranscriptionJobCommand(transcriptionJobName).apply(init)) as com.amazonaws.services.transcribe.model.GetTranscriptionJobResult
 }
 
 @Generated
-class AmazonTranscribeGetTranscriptionJobCommand(val transcriptionJobName: String) : AmazonWebServiceCommand<com.amazonaws.services.transcribe.model.GetTranscriptionJobRequest> {
+class AmazonTranscribeGetTranscriptionJobCommand(val transcriptionJobName: String) : AmazonWebServiceCommand<com.amazonaws.services.transcribe.model.GetTranscriptionJobRequest, com.amazonaws.services.transcribe.model.GetTranscriptionJobResult> {
 
 
 
@@ -99,8 +107,12 @@ class AmazonTranscribeGetTranscriptionJobCommand(val transcriptionJobName: Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.transcribe.getTranscriptionJob(build())
+	override fun dryResult(): com.amazonaws.services.transcribe.model.GetTranscriptionJobResult {
+	  return com.amazonaws.services.transcribe.model.GetTranscriptionJobResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.transcribe.model.GetTranscriptionJobResult {
+		return environment.transcribe.getTranscriptionJob(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -111,12 +123,12 @@ class AmazonTranscribeGetTranscriptionJobCommand(val transcriptionJobName: Strin
 }
 
 
-fun AmazonTranscribeFunctions.getVocabulary(vocabularyName: String, init: AmazonTranscribeGetVocabularyCommand.() -> Unit) {
-	this.block.declare(AmazonTranscribeGetVocabularyCommand(vocabularyName).apply(init))
+fun AmazonTranscribeFunctions.getVocabulary(vocabularyName: String, init: AmazonTranscribeGetVocabularyCommand.() -> Unit): com.amazonaws.services.transcribe.model.GetVocabularyResult {
+	return this.block.declare(AmazonTranscribeGetVocabularyCommand(vocabularyName).apply(init)) as com.amazonaws.services.transcribe.model.GetVocabularyResult
 }
 
 @Generated
-class AmazonTranscribeGetVocabularyCommand(val vocabularyName: String) : AmazonWebServiceCommand<com.amazonaws.services.transcribe.model.GetVocabularyRequest> {
+class AmazonTranscribeGetVocabularyCommand(val vocabularyName: String) : AmazonWebServiceCommand<com.amazonaws.services.transcribe.model.GetVocabularyRequest, com.amazonaws.services.transcribe.model.GetVocabularyResult> {
 
 
 
@@ -126,8 +138,12 @@ class AmazonTranscribeGetVocabularyCommand(val vocabularyName: String) : AmazonW
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.transcribe.getVocabulary(build())
+	override fun dryResult(): com.amazonaws.services.transcribe.model.GetVocabularyResult {
+	  return com.amazonaws.services.transcribe.model.GetVocabularyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.transcribe.model.GetVocabularyResult {
+		return environment.transcribe.getVocabulary(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -138,12 +154,12 @@ class AmazonTranscribeGetVocabularyCommand(val vocabularyName: String) : AmazonW
 }
 
 
-fun AmazonTranscribeFunctions.listTranscriptionJobs(init: AmazonTranscribeListTranscriptionJobsCommand.() -> Unit) {
-	this.block.declare(AmazonTranscribeListTranscriptionJobsCommand().apply(init))
+fun AmazonTranscribeFunctions.listTranscriptionJobs(init: AmazonTranscribeListTranscriptionJobsCommand.() -> Unit): com.amazonaws.services.transcribe.model.ListTranscriptionJobsResult {
+	return this.block.declare(AmazonTranscribeListTranscriptionJobsCommand().apply(init)) as com.amazonaws.services.transcribe.model.ListTranscriptionJobsResult
 }
 
 @Generated
-class AmazonTranscribeListTranscriptionJobsCommand() : AmazonWebServiceCommand<com.amazonaws.services.transcribe.model.ListTranscriptionJobsRequest> {
+class AmazonTranscribeListTranscriptionJobsCommand() : AmazonWebServiceCommand<com.amazonaws.services.transcribe.model.ListTranscriptionJobsRequest, com.amazonaws.services.transcribe.model.ListTranscriptionJobsResult> {
 
 	var status: TranscriptionJobStatus? = null
 	var jobNameContains: String? = null
@@ -159,8 +175,12 @@ class AmazonTranscribeListTranscriptionJobsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.transcribe.listTranscriptionJobs(build())
+	override fun dryResult(): com.amazonaws.services.transcribe.model.ListTranscriptionJobsResult {
+	  return com.amazonaws.services.transcribe.model.ListTranscriptionJobsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.transcribe.model.ListTranscriptionJobsResult {
+		return environment.transcribe.listTranscriptionJobs(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -174,12 +194,12 @@ class AmazonTranscribeListTranscriptionJobsCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AmazonTranscribeFunctions.listVocabularies(init: AmazonTranscribeListVocabulariesCommand.() -> Unit) {
-	this.block.declare(AmazonTranscribeListVocabulariesCommand().apply(init))
+fun AmazonTranscribeFunctions.listVocabularies(init: AmazonTranscribeListVocabulariesCommand.() -> Unit): com.amazonaws.services.transcribe.model.ListVocabulariesResult {
+	return this.block.declare(AmazonTranscribeListVocabulariesCommand().apply(init)) as com.amazonaws.services.transcribe.model.ListVocabulariesResult
 }
 
 @Generated
-class AmazonTranscribeListVocabulariesCommand() : AmazonWebServiceCommand<com.amazonaws.services.transcribe.model.ListVocabulariesRequest> {
+class AmazonTranscribeListVocabulariesCommand() : AmazonWebServiceCommand<com.amazonaws.services.transcribe.model.ListVocabulariesRequest, com.amazonaws.services.transcribe.model.ListVocabulariesResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -195,8 +215,12 @@ class AmazonTranscribeListVocabulariesCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.transcribe.listVocabularies(build())
+	override fun dryResult(): com.amazonaws.services.transcribe.model.ListVocabulariesResult {
+	  return com.amazonaws.services.transcribe.model.ListVocabulariesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.transcribe.model.ListVocabulariesResult {
+		return environment.transcribe.listVocabularies(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -210,12 +234,12 @@ class AmazonTranscribeListVocabulariesCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonTranscribeFunctions.startTranscriptionJob(transcriptionJobName: String, languageCode: LanguageCode, mediaFormat: MediaFormat, media: com.amazonaws.services.transcribe.model.Media, init: AmazonTranscribeStartTranscriptionJobCommand.() -> Unit) {
-	this.block.declare(AmazonTranscribeStartTranscriptionJobCommand(transcriptionJobName, languageCode, mediaFormat, media).apply(init))
+fun AmazonTranscribeFunctions.startTranscriptionJob(transcriptionJobName: String, languageCode: LanguageCode, mediaFormat: MediaFormat, media: com.amazonaws.services.transcribe.model.Media, init: AmazonTranscribeStartTranscriptionJobCommand.() -> Unit): com.amazonaws.services.transcribe.model.StartTranscriptionJobResult {
+	return this.block.declare(AmazonTranscribeStartTranscriptionJobCommand(transcriptionJobName, languageCode, mediaFormat, media).apply(init)) as com.amazonaws.services.transcribe.model.StartTranscriptionJobResult
 }
 
 @Generated
-class AmazonTranscribeStartTranscriptionJobCommand(val transcriptionJobName: String, val languageCode: LanguageCode, val mediaFormat: MediaFormat, val media: com.amazonaws.services.transcribe.model.Media) : AmazonWebServiceCommand<com.amazonaws.services.transcribe.model.StartTranscriptionJobRequest> {
+class AmazonTranscribeStartTranscriptionJobCommand(val transcriptionJobName: String, val languageCode: LanguageCode, val mediaFormat: MediaFormat, val media: com.amazonaws.services.transcribe.model.Media) : AmazonWebServiceCommand<com.amazonaws.services.transcribe.model.StartTranscriptionJobRequest, com.amazonaws.services.transcribe.model.StartTranscriptionJobResult> {
 
 	var mediaSampleRateHertz: Int? = 0
 	var settings: com.amazonaws.services.transcribe.model.Settings? = null
@@ -231,8 +255,12 @@ class AmazonTranscribeStartTranscriptionJobCommand(val transcriptionJobName: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.transcribe.startTranscriptionJob(build())
+	override fun dryResult(): com.amazonaws.services.transcribe.model.StartTranscriptionJobResult {
+	  return com.amazonaws.services.transcribe.model.StartTranscriptionJobResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.transcribe.model.StartTranscriptionJobResult {
+		return environment.transcribe.startTranscriptionJob(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -248,12 +276,12 @@ class AmazonTranscribeStartTranscriptionJobCommand(val transcriptionJobName: Str
 }
 
 
-fun AmazonTranscribeFunctions.updateVocabulary(vocabularyName: String, languageCode: LanguageCode, phrases: List<String>, init: AmazonTranscribeUpdateVocabularyCommand.() -> Unit) {
-	this.block.declare(AmazonTranscribeUpdateVocabularyCommand(vocabularyName, languageCode, phrases).apply(init))
+fun AmazonTranscribeFunctions.updateVocabulary(vocabularyName: String, languageCode: LanguageCode, phrases: List<String>, init: AmazonTranscribeUpdateVocabularyCommand.() -> Unit): com.amazonaws.services.transcribe.model.UpdateVocabularyResult {
+	return this.block.declare(AmazonTranscribeUpdateVocabularyCommand(vocabularyName, languageCode, phrases).apply(init)) as com.amazonaws.services.transcribe.model.UpdateVocabularyResult
 }
 
 @Generated
-class AmazonTranscribeUpdateVocabularyCommand(val vocabularyName: String, val languageCode: LanguageCode, val phrases: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.transcribe.model.UpdateVocabularyRequest> {
+class AmazonTranscribeUpdateVocabularyCommand(val vocabularyName: String, val languageCode: LanguageCode, val phrases: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.transcribe.model.UpdateVocabularyRequest, com.amazonaws.services.transcribe.model.UpdateVocabularyResult> {
 
 
 
@@ -265,8 +293,12 @@ class AmazonTranscribeUpdateVocabularyCommand(val vocabularyName: String, val la
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.transcribe.updateVocabulary(build())
+	override fun dryResult(): com.amazonaws.services.transcribe.model.UpdateVocabularyResult {
+	  return com.amazonaws.services.transcribe.model.UpdateVocabularyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.transcribe.model.UpdateVocabularyResult {
+		return environment.transcribe.updateVocabulary(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.ecr: AmazonECR
 @Generated
 class AmazonECRFunctions(val block: Block)
 
-infix fun AwsContinuation.ecr(init: AmazonECRFunctions.() -> Unit) {
-	AmazonECRFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.ecr(init: AmazonECRFunctions.() -> T): T {
+	return AmazonECRFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonECRFunctions.batchCheckLayerAvailability(init: AmazonECRBatchCheckLayerAvailabilityCommand.() -> Unit) {
-	this.block.declare(AmazonECRBatchCheckLayerAvailabilityCommand().apply(init))
+fun AmazonECRFunctions.batchCheckLayerAvailability(init: AmazonECRBatchCheckLayerAvailabilityCommand.() -> Unit): com.amazonaws.services.ecr.model.BatchCheckLayerAvailabilityResult {
+	return this.block.declare(AmazonECRBatchCheckLayerAvailabilityCommand().apply(init)) as com.amazonaws.services.ecr.model.BatchCheckLayerAvailabilityResult
 }
 
 @Generated
-class AmazonECRBatchCheckLayerAvailabilityCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.BatchCheckLayerAvailabilityRequest> {
+class AmazonECRBatchCheckLayerAvailabilityCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.BatchCheckLayerAvailabilityRequest, com.amazonaws.services.ecr.model.BatchCheckLayerAvailabilityResult> {
 
 	var registryId: String? = null
 	var repositoryName: String? = null
@@ -45,8 +45,12 @@ class AmazonECRBatchCheckLayerAvailabilityCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ecr.batchCheckLayerAvailability(build())
+	override fun dryResult(): com.amazonaws.services.ecr.model.BatchCheckLayerAvailabilityResult {
+	  return com.amazonaws.services.ecr.model.BatchCheckLayerAvailabilityResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.BatchCheckLayerAvailabilityResult {
+		return environment.ecr.batchCheckLayerAvailability(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -59,12 +63,12 @@ class AmazonECRBatchCheckLayerAvailabilityCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonECRFunctions.batchDeleteImage(init: AmazonECRBatchDeleteImageCommand.() -> Unit) {
-	this.block.declare(AmazonECRBatchDeleteImageCommand().apply(init))
+fun AmazonECRFunctions.batchDeleteImage(init: AmazonECRBatchDeleteImageCommand.() -> Unit): com.amazonaws.services.ecr.model.BatchDeleteImageResult {
+	return this.block.declare(AmazonECRBatchDeleteImageCommand().apply(init)) as com.amazonaws.services.ecr.model.BatchDeleteImageResult
 }
 
 @Generated
-class AmazonECRBatchDeleteImageCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.BatchDeleteImageRequest> {
+class AmazonECRBatchDeleteImageCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.BatchDeleteImageRequest, com.amazonaws.services.ecr.model.BatchDeleteImageResult> {
 
 	var registryId: String? = null
 	var repositoryName: String? = null
@@ -78,8 +82,12 @@ class AmazonECRBatchDeleteImageCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ecr.batchDeleteImage(build())
+	override fun dryResult(): com.amazonaws.services.ecr.model.BatchDeleteImageResult {
+	  return com.amazonaws.services.ecr.model.BatchDeleteImageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.BatchDeleteImageResult {
+		return environment.ecr.batchDeleteImage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -92,12 +100,12 @@ class AmazonECRBatchDeleteImageCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AmazonECRFunctions.batchGetImage(init: AmazonECRBatchGetImageCommand.() -> Unit) {
-	this.block.declare(AmazonECRBatchGetImageCommand().apply(init))
+fun AmazonECRFunctions.batchGetImage(init: AmazonECRBatchGetImageCommand.() -> Unit): com.amazonaws.services.ecr.model.BatchGetImageResult {
+	return this.block.declare(AmazonECRBatchGetImageCommand().apply(init)) as com.amazonaws.services.ecr.model.BatchGetImageResult
 }
 
 @Generated
-class AmazonECRBatchGetImageCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.BatchGetImageRequest> {
+class AmazonECRBatchGetImageCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.BatchGetImageRequest, com.amazonaws.services.ecr.model.BatchGetImageResult> {
 
 	var registryId: String? = null
 	var repositoryName: String? = null
@@ -113,8 +121,12 @@ class AmazonECRBatchGetImageCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ecr.batchGetImage(build())
+	override fun dryResult(): com.amazonaws.services.ecr.model.BatchGetImageResult {
+	  return com.amazonaws.services.ecr.model.BatchGetImageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.BatchGetImageResult {
+		return environment.ecr.batchGetImage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -128,12 +140,12 @@ class AmazonECRBatchGetImageCommand() : AmazonWebServiceCommand<com.amazonaws.se
 }
 
 
-fun AmazonECRFunctions.completeLayerUpload(init: AmazonECRCompleteLayerUploadCommand.() -> Unit) {
-	this.block.declare(AmazonECRCompleteLayerUploadCommand().apply(init))
+fun AmazonECRFunctions.completeLayerUpload(init: AmazonECRCompleteLayerUploadCommand.() -> Unit): com.amazonaws.services.ecr.model.CompleteLayerUploadResult {
+	return this.block.declare(AmazonECRCompleteLayerUploadCommand().apply(init)) as com.amazonaws.services.ecr.model.CompleteLayerUploadResult
 }
 
 @Generated
-class AmazonECRCompleteLayerUploadCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.CompleteLayerUploadRequest> {
+class AmazonECRCompleteLayerUploadCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.CompleteLayerUploadRequest, com.amazonaws.services.ecr.model.CompleteLayerUploadResult> {
 
 	var registryId: String? = null
 	var repositoryName: String? = null
@@ -149,8 +161,12 @@ class AmazonECRCompleteLayerUploadCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ecr.completeLayerUpload(build())
+	override fun dryResult(): com.amazonaws.services.ecr.model.CompleteLayerUploadResult {
+	  return com.amazonaws.services.ecr.model.CompleteLayerUploadResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.CompleteLayerUploadResult {
+		return environment.ecr.completeLayerUpload(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -164,12 +180,12 @@ class AmazonECRCompleteLayerUploadCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonECRFunctions.createRepository(init: AmazonECRCreateRepositoryCommand.() -> Unit) {
-	this.block.declare(AmazonECRCreateRepositoryCommand().apply(init))
+fun AmazonECRFunctions.createRepository(init: AmazonECRCreateRepositoryCommand.() -> Unit): com.amazonaws.services.ecr.model.CreateRepositoryResult {
+	return this.block.declare(AmazonECRCreateRepositoryCommand().apply(init)) as com.amazonaws.services.ecr.model.CreateRepositoryResult
 }
 
 @Generated
-class AmazonECRCreateRepositoryCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.CreateRepositoryRequest> {
+class AmazonECRCreateRepositoryCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.CreateRepositoryRequest, com.amazonaws.services.ecr.model.CreateRepositoryResult> {
 
 	var repositoryName: String? = null
 
@@ -179,8 +195,12 @@ class AmazonECRCreateRepositoryCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ecr.createRepository(build())
+	override fun dryResult(): com.amazonaws.services.ecr.model.CreateRepositoryResult {
+	  return com.amazonaws.services.ecr.model.CreateRepositoryResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.CreateRepositoryResult {
+		return environment.ecr.createRepository(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -191,12 +211,12 @@ class AmazonECRCreateRepositoryCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AmazonECRFunctions.deleteLifecyclePolicy(init: AmazonECRDeleteLifecyclePolicyCommand.() -> Unit) {
-	this.block.declare(AmazonECRDeleteLifecyclePolicyCommand().apply(init))
+fun AmazonECRFunctions.deleteLifecyclePolicy(init: AmazonECRDeleteLifecyclePolicyCommand.() -> Unit): com.amazonaws.services.ecr.model.DeleteLifecyclePolicyResult {
+	return this.block.declare(AmazonECRDeleteLifecyclePolicyCommand().apply(init)) as com.amazonaws.services.ecr.model.DeleteLifecyclePolicyResult
 }
 
 @Generated
-class AmazonECRDeleteLifecyclePolicyCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.DeleteLifecyclePolicyRequest> {
+class AmazonECRDeleteLifecyclePolicyCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.DeleteLifecyclePolicyRequest, com.amazonaws.services.ecr.model.DeleteLifecyclePolicyResult> {
 
 	var registryId: String? = null
 	var repositoryName: String? = null
@@ -208,8 +228,12 @@ class AmazonECRDeleteLifecyclePolicyCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ecr.deleteLifecyclePolicy(build())
+	override fun dryResult(): com.amazonaws.services.ecr.model.DeleteLifecyclePolicyResult {
+	  return com.amazonaws.services.ecr.model.DeleteLifecyclePolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.DeleteLifecyclePolicyResult {
+		return environment.ecr.deleteLifecyclePolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -221,12 +245,12 @@ class AmazonECRDeleteLifecyclePolicyCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AmazonECRFunctions.deleteRepository(init: AmazonECRDeleteRepositoryCommand.() -> Unit) {
-	this.block.declare(AmazonECRDeleteRepositoryCommand().apply(init))
+fun AmazonECRFunctions.deleteRepository(init: AmazonECRDeleteRepositoryCommand.() -> Unit): com.amazonaws.services.ecr.model.DeleteRepositoryResult {
+	return this.block.declare(AmazonECRDeleteRepositoryCommand().apply(init)) as com.amazonaws.services.ecr.model.DeleteRepositoryResult
 }
 
 @Generated
-class AmazonECRDeleteRepositoryCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.DeleteRepositoryRequest> {
+class AmazonECRDeleteRepositoryCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.DeleteRepositoryRequest, com.amazonaws.services.ecr.model.DeleteRepositoryResult> {
 
 	var registryId: String? = null
 	var repositoryName: String? = null
@@ -240,8 +264,12 @@ class AmazonECRDeleteRepositoryCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ecr.deleteRepository(build())
+	override fun dryResult(): com.amazonaws.services.ecr.model.DeleteRepositoryResult {
+	  return com.amazonaws.services.ecr.model.DeleteRepositoryResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.DeleteRepositoryResult {
+		return environment.ecr.deleteRepository(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -254,12 +282,12 @@ class AmazonECRDeleteRepositoryCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AmazonECRFunctions.deleteRepositoryPolicy(init: AmazonECRDeleteRepositoryPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonECRDeleteRepositoryPolicyCommand().apply(init))
+fun AmazonECRFunctions.deleteRepositoryPolicy(init: AmazonECRDeleteRepositoryPolicyCommand.() -> Unit): com.amazonaws.services.ecr.model.DeleteRepositoryPolicyResult {
+	return this.block.declare(AmazonECRDeleteRepositoryPolicyCommand().apply(init)) as com.amazonaws.services.ecr.model.DeleteRepositoryPolicyResult
 }
 
 @Generated
-class AmazonECRDeleteRepositoryPolicyCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.DeleteRepositoryPolicyRequest> {
+class AmazonECRDeleteRepositoryPolicyCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.DeleteRepositoryPolicyRequest, com.amazonaws.services.ecr.model.DeleteRepositoryPolicyResult> {
 
 	var registryId: String? = null
 	var repositoryName: String? = null
@@ -271,8 +299,12 @@ class AmazonECRDeleteRepositoryPolicyCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ecr.deleteRepositoryPolicy(build())
+	override fun dryResult(): com.amazonaws.services.ecr.model.DeleteRepositoryPolicyResult {
+	  return com.amazonaws.services.ecr.model.DeleteRepositoryPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.DeleteRepositoryPolicyResult {
+		return environment.ecr.deleteRepositoryPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -284,12 +316,12 @@ class AmazonECRDeleteRepositoryPolicyCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AmazonECRFunctions.describeImages(init: AmazonECRDescribeImagesCommand.() -> Unit) {
-	this.block.declare(AmazonECRDescribeImagesCommand().apply(init))
+fun AmazonECRFunctions.describeImages(init: AmazonECRDescribeImagesCommand.() -> Unit): com.amazonaws.services.ecr.model.DescribeImagesResult {
+	return this.block.declare(AmazonECRDescribeImagesCommand().apply(init)) as com.amazonaws.services.ecr.model.DescribeImagesResult
 }
 
 @Generated
-class AmazonECRDescribeImagesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.DescribeImagesRequest> {
+class AmazonECRDescribeImagesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.DescribeImagesRequest, com.amazonaws.services.ecr.model.DescribeImagesResult> {
 
 	var registryId: String? = null
 	var repositoryName: String? = null
@@ -309,8 +341,12 @@ class AmazonECRDescribeImagesCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ecr.describeImages(build())
+	override fun dryResult(): com.amazonaws.services.ecr.model.DescribeImagesResult {
+	  return com.amazonaws.services.ecr.model.DescribeImagesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.DescribeImagesResult {
+		return environment.ecr.describeImages(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -326,12 +362,12 @@ class AmazonECRDescribeImagesCommand() : AmazonWebServiceCommand<com.amazonaws.s
 }
 
 
-fun AmazonECRFunctions.describeRepositories(init: AmazonECRDescribeRepositoriesCommand.() -> Unit) {
-	this.block.declare(AmazonECRDescribeRepositoriesCommand().apply(init))
+fun AmazonECRFunctions.describeRepositories(init: AmazonECRDescribeRepositoriesCommand.() -> Unit): com.amazonaws.services.ecr.model.DescribeRepositoriesResult {
+	return this.block.declare(AmazonECRDescribeRepositoriesCommand().apply(init)) as com.amazonaws.services.ecr.model.DescribeRepositoriesResult
 }
 
 @Generated
-class AmazonECRDescribeRepositoriesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.DescribeRepositoriesRequest> {
+class AmazonECRDescribeRepositoriesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.DescribeRepositoriesRequest, com.amazonaws.services.ecr.model.DescribeRepositoriesResult> {
 
 	var registryId: String? = null
 	var repositoryNames: List<String>? = null
@@ -347,8 +383,12 @@ class AmazonECRDescribeRepositoriesCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ecr.describeRepositories(build())
+	override fun dryResult(): com.amazonaws.services.ecr.model.DescribeRepositoriesResult {
+	  return com.amazonaws.services.ecr.model.DescribeRepositoriesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.DescribeRepositoriesResult {
+		return environment.ecr.describeRepositories(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -362,12 +402,12 @@ class AmazonECRDescribeRepositoriesCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AmazonECRFunctions.getAuthorizationToken(init: AmazonECRGetAuthorizationTokenCommand.() -> Unit) {
-	this.block.declare(AmazonECRGetAuthorizationTokenCommand().apply(init))
+fun AmazonECRFunctions.getAuthorizationToken(init: AmazonECRGetAuthorizationTokenCommand.() -> Unit): com.amazonaws.services.ecr.model.GetAuthorizationTokenResult {
+	return this.block.declare(AmazonECRGetAuthorizationTokenCommand().apply(init)) as com.amazonaws.services.ecr.model.GetAuthorizationTokenResult
 }
 
 @Generated
-class AmazonECRGetAuthorizationTokenCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.GetAuthorizationTokenRequest> {
+class AmazonECRGetAuthorizationTokenCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.GetAuthorizationTokenRequest, com.amazonaws.services.ecr.model.GetAuthorizationTokenResult> {
 
 	var registryIds: List<String>? = null
 
@@ -377,8 +417,12 @@ class AmazonECRGetAuthorizationTokenCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ecr.getAuthorizationToken(build())
+	override fun dryResult(): com.amazonaws.services.ecr.model.GetAuthorizationTokenResult {
+	  return com.amazonaws.services.ecr.model.GetAuthorizationTokenResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.GetAuthorizationTokenResult {
+		return environment.ecr.getAuthorizationToken(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -389,12 +433,12 @@ class AmazonECRGetAuthorizationTokenCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AmazonECRFunctions.getDownloadUrlForLayer(init: AmazonECRGetDownloadUrlForLayerCommand.() -> Unit) {
-	this.block.declare(AmazonECRGetDownloadUrlForLayerCommand().apply(init))
+fun AmazonECRFunctions.getDownloadUrlForLayer(init: AmazonECRGetDownloadUrlForLayerCommand.() -> Unit): com.amazonaws.services.ecr.model.GetDownloadUrlForLayerResult {
+	return this.block.declare(AmazonECRGetDownloadUrlForLayerCommand().apply(init)) as com.amazonaws.services.ecr.model.GetDownloadUrlForLayerResult
 }
 
 @Generated
-class AmazonECRGetDownloadUrlForLayerCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.GetDownloadUrlForLayerRequest> {
+class AmazonECRGetDownloadUrlForLayerCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.GetDownloadUrlForLayerRequest, com.amazonaws.services.ecr.model.GetDownloadUrlForLayerResult> {
 
 	var registryId: String? = null
 	var repositoryName: String? = null
@@ -408,8 +452,12 @@ class AmazonECRGetDownloadUrlForLayerCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ecr.getDownloadUrlForLayer(build())
+	override fun dryResult(): com.amazonaws.services.ecr.model.GetDownloadUrlForLayerResult {
+	  return com.amazonaws.services.ecr.model.GetDownloadUrlForLayerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.GetDownloadUrlForLayerResult {
+		return environment.ecr.getDownloadUrlForLayer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -422,12 +470,12 @@ class AmazonECRGetDownloadUrlForLayerCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AmazonECRFunctions.getLifecyclePolicy(init: AmazonECRGetLifecyclePolicyCommand.() -> Unit) {
-	this.block.declare(AmazonECRGetLifecyclePolicyCommand().apply(init))
+fun AmazonECRFunctions.getLifecyclePolicy(init: AmazonECRGetLifecyclePolicyCommand.() -> Unit): com.amazonaws.services.ecr.model.GetLifecyclePolicyResult {
+	return this.block.declare(AmazonECRGetLifecyclePolicyCommand().apply(init)) as com.amazonaws.services.ecr.model.GetLifecyclePolicyResult
 }
 
 @Generated
-class AmazonECRGetLifecyclePolicyCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.GetLifecyclePolicyRequest> {
+class AmazonECRGetLifecyclePolicyCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.GetLifecyclePolicyRequest, com.amazonaws.services.ecr.model.GetLifecyclePolicyResult> {
 
 	var registryId: String? = null
 	var repositoryName: String? = null
@@ -439,8 +487,12 @@ class AmazonECRGetLifecyclePolicyCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ecr.getLifecyclePolicy(build())
+	override fun dryResult(): com.amazonaws.services.ecr.model.GetLifecyclePolicyResult {
+	  return com.amazonaws.services.ecr.model.GetLifecyclePolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.GetLifecyclePolicyResult {
+		return environment.ecr.getLifecyclePolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -452,12 +504,12 @@ class AmazonECRGetLifecyclePolicyCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AmazonECRFunctions.getLifecyclePolicyPreview(init: AmazonECRGetLifecyclePolicyPreviewCommand.() -> Unit) {
-	this.block.declare(AmazonECRGetLifecyclePolicyPreviewCommand().apply(init))
+fun AmazonECRFunctions.getLifecyclePolicyPreview(init: AmazonECRGetLifecyclePolicyPreviewCommand.() -> Unit): com.amazonaws.services.ecr.model.GetLifecyclePolicyPreviewResult {
+	return this.block.declare(AmazonECRGetLifecyclePolicyPreviewCommand().apply(init)) as com.amazonaws.services.ecr.model.GetLifecyclePolicyPreviewResult
 }
 
 @Generated
-class AmazonECRGetLifecyclePolicyPreviewCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.GetLifecyclePolicyPreviewRequest> {
+class AmazonECRGetLifecyclePolicyPreviewCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.GetLifecyclePolicyPreviewRequest, com.amazonaws.services.ecr.model.GetLifecyclePolicyPreviewResult> {
 
 	var registryId: String? = null
 	var repositoryName: String? = null
@@ -477,8 +529,12 @@ class AmazonECRGetLifecyclePolicyPreviewCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ecr.getLifecyclePolicyPreview(build())
+	override fun dryResult(): com.amazonaws.services.ecr.model.GetLifecyclePolicyPreviewResult {
+	  return com.amazonaws.services.ecr.model.GetLifecyclePolicyPreviewResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.GetLifecyclePolicyPreviewResult {
+		return environment.ecr.getLifecyclePolicyPreview(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -494,12 +550,12 @@ class AmazonECRGetLifecyclePolicyPreviewCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonECRFunctions.getRepositoryPolicy(init: AmazonECRGetRepositoryPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonECRGetRepositoryPolicyCommand().apply(init))
+fun AmazonECRFunctions.getRepositoryPolicy(init: AmazonECRGetRepositoryPolicyCommand.() -> Unit): com.amazonaws.services.ecr.model.GetRepositoryPolicyResult {
+	return this.block.declare(AmazonECRGetRepositoryPolicyCommand().apply(init)) as com.amazonaws.services.ecr.model.GetRepositoryPolicyResult
 }
 
 @Generated
-class AmazonECRGetRepositoryPolicyCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.GetRepositoryPolicyRequest> {
+class AmazonECRGetRepositoryPolicyCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.GetRepositoryPolicyRequest, com.amazonaws.services.ecr.model.GetRepositoryPolicyResult> {
 
 	var registryId: String? = null
 	var repositoryName: String? = null
@@ -511,8 +567,12 @@ class AmazonECRGetRepositoryPolicyCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ecr.getRepositoryPolicy(build())
+	override fun dryResult(): com.amazonaws.services.ecr.model.GetRepositoryPolicyResult {
+	  return com.amazonaws.services.ecr.model.GetRepositoryPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.GetRepositoryPolicyResult {
+		return environment.ecr.getRepositoryPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -524,12 +584,12 @@ class AmazonECRGetRepositoryPolicyCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonECRFunctions.initiateLayerUpload(init: AmazonECRInitiateLayerUploadCommand.() -> Unit) {
-	this.block.declare(AmazonECRInitiateLayerUploadCommand().apply(init))
+fun AmazonECRFunctions.initiateLayerUpload(init: AmazonECRInitiateLayerUploadCommand.() -> Unit): com.amazonaws.services.ecr.model.InitiateLayerUploadResult {
+	return this.block.declare(AmazonECRInitiateLayerUploadCommand().apply(init)) as com.amazonaws.services.ecr.model.InitiateLayerUploadResult
 }
 
 @Generated
-class AmazonECRInitiateLayerUploadCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.InitiateLayerUploadRequest> {
+class AmazonECRInitiateLayerUploadCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.InitiateLayerUploadRequest, com.amazonaws.services.ecr.model.InitiateLayerUploadResult> {
 
 	var registryId: String? = null
 	var repositoryName: String? = null
@@ -541,8 +601,12 @@ class AmazonECRInitiateLayerUploadCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ecr.initiateLayerUpload(build())
+	override fun dryResult(): com.amazonaws.services.ecr.model.InitiateLayerUploadResult {
+	  return com.amazonaws.services.ecr.model.InitiateLayerUploadResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.InitiateLayerUploadResult {
+		return environment.ecr.initiateLayerUpload(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -554,12 +618,12 @@ class AmazonECRInitiateLayerUploadCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonECRFunctions.listImages(init: AmazonECRListImagesCommand.() -> Unit) {
-	this.block.declare(AmazonECRListImagesCommand().apply(init))
+fun AmazonECRFunctions.listImages(init: AmazonECRListImagesCommand.() -> Unit): com.amazonaws.services.ecr.model.ListImagesResult {
+	return this.block.declare(AmazonECRListImagesCommand().apply(init)) as com.amazonaws.services.ecr.model.ListImagesResult
 }
 
 @Generated
-class AmazonECRListImagesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.ListImagesRequest> {
+class AmazonECRListImagesCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.ListImagesRequest, com.amazonaws.services.ecr.model.ListImagesResult> {
 
 	var registryId: String? = null
 	var repositoryName: String? = null
@@ -577,8 +641,12 @@ class AmazonECRListImagesCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ecr.listImages(build())
+	override fun dryResult(): com.amazonaws.services.ecr.model.ListImagesResult {
+	  return com.amazonaws.services.ecr.model.ListImagesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.ListImagesResult {
+		return environment.ecr.listImages(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -593,12 +661,12 @@ class AmazonECRListImagesCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 }
 
 
-fun AmazonECRFunctions.putImage(init: AmazonECRPutImageCommand.() -> Unit) {
-	this.block.declare(AmazonECRPutImageCommand().apply(init))
+fun AmazonECRFunctions.putImage(init: AmazonECRPutImageCommand.() -> Unit): com.amazonaws.services.ecr.model.PutImageResult {
+	return this.block.declare(AmazonECRPutImageCommand().apply(init)) as com.amazonaws.services.ecr.model.PutImageResult
 }
 
 @Generated
-class AmazonECRPutImageCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.PutImageRequest> {
+class AmazonECRPutImageCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.PutImageRequest, com.amazonaws.services.ecr.model.PutImageResult> {
 
 	var registryId: String? = null
 	var repositoryName: String? = null
@@ -614,8 +682,12 @@ class AmazonECRPutImageCommand() : AmazonWebServiceCommand<com.amazonaws.service
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ecr.putImage(build())
+	override fun dryResult(): com.amazonaws.services.ecr.model.PutImageResult {
+	  return com.amazonaws.services.ecr.model.PutImageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.PutImageResult {
+		return environment.ecr.putImage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -629,12 +701,12 @@ class AmazonECRPutImageCommand() : AmazonWebServiceCommand<com.amazonaws.service
 }
 
 
-fun AmazonECRFunctions.putLifecyclePolicy(init: AmazonECRPutLifecyclePolicyCommand.() -> Unit) {
-	this.block.declare(AmazonECRPutLifecyclePolicyCommand().apply(init))
+fun AmazonECRFunctions.putLifecyclePolicy(init: AmazonECRPutLifecyclePolicyCommand.() -> Unit): com.amazonaws.services.ecr.model.PutLifecyclePolicyResult {
+	return this.block.declare(AmazonECRPutLifecyclePolicyCommand().apply(init)) as com.amazonaws.services.ecr.model.PutLifecyclePolicyResult
 }
 
 @Generated
-class AmazonECRPutLifecyclePolicyCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.PutLifecyclePolicyRequest> {
+class AmazonECRPutLifecyclePolicyCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.PutLifecyclePolicyRequest, com.amazonaws.services.ecr.model.PutLifecyclePolicyResult> {
 
 	var registryId: String? = null
 	var repositoryName: String? = null
@@ -648,8 +720,12 @@ class AmazonECRPutLifecyclePolicyCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ecr.putLifecyclePolicy(build())
+	override fun dryResult(): com.amazonaws.services.ecr.model.PutLifecyclePolicyResult {
+	  return com.amazonaws.services.ecr.model.PutLifecyclePolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.PutLifecyclePolicyResult {
+		return environment.ecr.putLifecyclePolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -662,12 +738,12 @@ class AmazonECRPutLifecyclePolicyCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AmazonECRFunctions.setRepositoryPolicy(init: AmazonECRSetRepositoryPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonECRSetRepositoryPolicyCommand().apply(init))
+fun AmazonECRFunctions.setRepositoryPolicy(init: AmazonECRSetRepositoryPolicyCommand.() -> Unit): com.amazonaws.services.ecr.model.SetRepositoryPolicyResult {
+	return this.block.declare(AmazonECRSetRepositoryPolicyCommand().apply(init)) as com.amazonaws.services.ecr.model.SetRepositoryPolicyResult
 }
 
 @Generated
-class AmazonECRSetRepositoryPolicyCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.SetRepositoryPolicyRequest> {
+class AmazonECRSetRepositoryPolicyCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.SetRepositoryPolicyRequest, com.amazonaws.services.ecr.model.SetRepositoryPolicyResult> {
 
 	var registryId: String? = null
 	var repositoryName: String? = null
@@ -683,8 +759,12 @@ class AmazonECRSetRepositoryPolicyCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ecr.setRepositoryPolicy(build())
+	override fun dryResult(): com.amazonaws.services.ecr.model.SetRepositoryPolicyResult {
+	  return com.amazonaws.services.ecr.model.SetRepositoryPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.SetRepositoryPolicyResult {
+		return environment.ecr.setRepositoryPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -698,12 +778,12 @@ class AmazonECRSetRepositoryPolicyCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonECRFunctions.startLifecyclePolicyPreview(init: AmazonECRStartLifecyclePolicyPreviewCommand.() -> Unit) {
-	this.block.declare(AmazonECRStartLifecyclePolicyPreviewCommand().apply(init))
+fun AmazonECRFunctions.startLifecyclePolicyPreview(init: AmazonECRStartLifecyclePolicyPreviewCommand.() -> Unit): com.amazonaws.services.ecr.model.StartLifecyclePolicyPreviewResult {
+	return this.block.declare(AmazonECRStartLifecyclePolicyPreviewCommand().apply(init)) as com.amazonaws.services.ecr.model.StartLifecyclePolicyPreviewResult
 }
 
 @Generated
-class AmazonECRStartLifecyclePolicyPreviewCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.StartLifecyclePolicyPreviewRequest> {
+class AmazonECRStartLifecyclePolicyPreviewCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.StartLifecyclePolicyPreviewRequest, com.amazonaws.services.ecr.model.StartLifecyclePolicyPreviewResult> {
 
 	var registryId: String? = null
 	var repositoryName: String? = null
@@ -717,8 +797,12 @@ class AmazonECRStartLifecyclePolicyPreviewCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ecr.startLifecyclePolicyPreview(build())
+	override fun dryResult(): com.amazonaws.services.ecr.model.StartLifecyclePolicyPreviewResult {
+	  return com.amazonaws.services.ecr.model.StartLifecyclePolicyPreviewResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.StartLifecyclePolicyPreviewResult {
+		return environment.ecr.startLifecyclePolicyPreview(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -731,12 +815,12 @@ class AmazonECRStartLifecyclePolicyPreviewCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonECRFunctions.uploadLayerPart(init: AmazonECRUploadLayerPartCommand.() -> Unit) {
-	this.block.declare(AmazonECRUploadLayerPartCommand().apply(init))
+fun AmazonECRFunctions.uploadLayerPart(init: AmazonECRUploadLayerPartCommand.() -> Unit): com.amazonaws.services.ecr.model.UploadLayerPartResult {
+	return this.block.declare(AmazonECRUploadLayerPartCommand().apply(init)) as com.amazonaws.services.ecr.model.UploadLayerPartResult
 }
 
 @Generated
-class AmazonECRUploadLayerPartCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.UploadLayerPartRequest> {
+class AmazonECRUploadLayerPartCommand() : AmazonWebServiceCommand<com.amazonaws.services.ecr.model.UploadLayerPartRequest, com.amazonaws.services.ecr.model.UploadLayerPartResult> {
 
 	var registryId: String? = null
 	var repositoryName: String? = null
@@ -756,8 +840,12 @@ class AmazonECRUploadLayerPartCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ecr.uploadLayerPart(build())
+	override fun dryResult(): com.amazonaws.services.ecr.model.UploadLayerPartResult {
+	  return com.amazonaws.services.ecr.model.UploadLayerPartResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.ecr.model.UploadLayerPartResult {
+		return environment.ecr.uploadLayerPart(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

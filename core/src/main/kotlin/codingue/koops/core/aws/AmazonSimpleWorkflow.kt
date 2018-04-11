@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.swf: AmazonSimpleWorkflow
 @Generated
 class AmazonSimpleWorkflowFunctions(val block: Block)
 
-infix fun AwsContinuation.swf(init: AmazonSimpleWorkflowFunctions.() -> Unit) {
-	AmazonSimpleWorkflowFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.swf(init: AmazonSimpleWorkflowFunctions.() -> T): T {
+	return AmazonSimpleWorkflowFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonSimpleWorkflowFunctions.countClosedWorkflowExecutions(init: AmazonSimpleWorkflowCountClosedWorkflowExecutionsCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleWorkflowCountClosedWorkflowExecutionsCommand().apply(init))
+fun AmazonSimpleWorkflowFunctions.countClosedWorkflowExecutions(init: AmazonSimpleWorkflowCountClosedWorkflowExecutionsCommand.() -> Unit): com.amazonaws.services.simpleworkflow.model.WorkflowExecutionCount {
+	return this.block.declare(AmazonSimpleWorkflowCountClosedWorkflowExecutionsCommand().apply(init)) as com.amazonaws.services.simpleworkflow.model.WorkflowExecutionCount
 }
 
 @Generated
-class AmazonSimpleWorkflowCountClosedWorkflowExecutionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.CountClosedWorkflowExecutionsRequest> {
+class AmazonSimpleWorkflowCountClosedWorkflowExecutionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.CountClosedWorkflowExecutionsRequest, com.amazonaws.services.simpleworkflow.model.WorkflowExecutionCount> {
 
 	var domain: String? = null
 	var startTimeFilter: com.amazonaws.services.simpleworkflow.model.ExecutionTimeFilter? = null
@@ -53,8 +53,12 @@ class AmazonSimpleWorkflowCountClosedWorkflowExecutionsCommand() : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.swf.countClosedWorkflowExecutions(build())
+	override fun dryResult(): com.amazonaws.services.simpleworkflow.model.WorkflowExecutionCount {
+	  return com.amazonaws.services.simpleworkflow.model.WorkflowExecutionCount()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleworkflow.model.WorkflowExecutionCount {
+		return environment.swf.countClosedWorkflowExecutions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -71,12 +75,12 @@ class AmazonSimpleWorkflowCountClosedWorkflowExecutionsCommand() : AmazonWebServ
 }
 
 
-fun AmazonSimpleWorkflowFunctions.countOpenWorkflowExecutions(init: AmazonSimpleWorkflowCountOpenWorkflowExecutionsCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleWorkflowCountOpenWorkflowExecutionsCommand().apply(init))
+fun AmazonSimpleWorkflowFunctions.countOpenWorkflowExecutions(init: AmazonSimpleWorkflowCountOpenWorkflowExecutionsCommand.() -> Unit): com.amazonaws.services.simpleworkflow.model.WorkflowExecutionCount {
+	return this.block.declare(AmazonSimpleWorkflowCountOpenWorkflowExecutionsCommand().apply(init)) as com.amazonaws.services.simpleworkflow.model.WorkflowExecutionCount
 }
 
 @Generated
-class AmazonSimpleWorkflowCountOpenWorkflowExecutionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.CountOpenWorkflowExecutionsRequest> {
+class AmazonSimpleWorkflowCountOpenWorkflowExecutionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.CountOpenWorkflowExecutionsRequest, com.amazonaws.services.simpleworkflow.model.WorkflowExecutionCount> {
 
 	var domain: String? = null
 	var startTimeFilter: com.amazonaws.services.simpleworkflow.model.ExecutionTimeFilter? = null
@@ -94,8 +98,12 @@ class AmazonSimpleWorkflowCountOpenWorkflowExecutionsCommand() : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.swf.countOpenWorkflowExecutions(build())
+	override fun dryResult(): com.amazonaws.services.simpleworkflow.model.WorkflowExecutionCount {
+	  return com.amazonaws.services.simpleworkflow.model.WorkflowExecutionCount()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleworkflow.model.WorkflowExecutionCount {
+		return environment.swf.countOpenWorkflowExecutions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -110,12 +118,12 @@ class AmazonSimpleWorkflowCountOpenWorkflowExecutionsCommand() : AmazonWebServic
 }
 
 
-fun AmazonSimpleWorkflowFunctions.countPendingActivityTasks(init: AmazonSimpleWorkflowCountPendingActivityTasksCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleWorkflowCountPendingActivityTasksCommand().apply(init))
+fun AmazonSimpleWorkflowFunctions.countPendingActivityTasks(init: AmazonSimpleWorkflowCountPendingActivityTasksCommand.() -> Unit): com.amazonaws.services.simpleworkflow.model.PendingTaskCount {
+	return this.block.declare(AmazonSimpleWorkflowCountPendingActivityTasksCommand().apply(init)) as com.amazonaws.services.simpleworkflow.model.PendingTaskCount
 }
 
 @Generated
-class AmazonSimpleWorkflowCountPendingActivityTasksCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.CountPendingActivityTasksRequest> {
+class AmazonSimpleWorkflowCountPendingActivityTasksCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.CountPendingActivityTasksRequest, com.amazonaws.services.simpleworkflow.model.PendingTaskCount> {
 
 	var domain: String? = null
 	var taskList: com.amazonaws.services.simpleworkflow.model.TaskList? = null
@@ -127,8 +135,12 @@ class AmazonSimpleWorkflowCountPendingActivityTasksCommand() : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.swf.countPendingActivityTasks(build())
+	override fun dryResult(): com.amazonaws.services.simpleworkflow.model.PendingTaskCount {
+	  return com.amazonaws.services.simpleworkflow.model.PendingTaskCount()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleworkflow.model.PendingTaskCount {
+		return environment.swf.countPendingActivityTasks(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -140,12 +152,12 @@ class AmazonSimpleWorkflowCountPendingActivityTasksCommand() : AmazonWebServiceC
 }
 
 
-fun AmazonSimpleWorkflowFunctions.countPendingDecisionTasks(init: AmazonSimpleWorkflowCountPendingDecisionTasksCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleWorkflowCountPendingDecisionTasksCommand().apply(init))
+fun AmazonSimpleWorkflowFunctions.countPendingDecisionTasks(init: AmazonSimpleWorkflowCountPendingDecisionTasksCommand.() -> Unit): com.amazonaws.services.simpleworkflow.model.PendingTaskCount {
+	return this.block.declare(AmazonSimpleWorkflowCountPendingDecisionTasksCommand().apply(init)) as com.amazonaws.services.simpleworkflow.model.PendingTaskCount
 }
 
 @Generated
-class AmazonSimpleWorkflowCountPendingDecisionTasksCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.CountPendingDecisionTasksRequest> {
+class AmazonSimpleWorkflowCountPendingDecisionTasksCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.CountPendingDecisionTasksRequest, com.amazonaws.services.simpleworkflow.model.PendingTaskCount> {
 
 	var domain: String? = null
 	var taskList: com.amazonaws.services.simpleworkflow.model.TaskList? = null
@@ -157,8 +169,12 @@ class AmazonSimpleWorkflowCountPendingDecisionTasksCommand() : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.swf.countPendingDecisionTasks(build())
+	override fun dryResult(): com.amazonaws.services.simpleworkflow.model.PendingTaskCount {
+	  return com.amazonaws.services.simpleworkflow.model.PendingTaskCount()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleworkflow.model.PendingTaskCount {
+		return environment.swf.countPendingDecisionTasks(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -170,12 +186,12 @@ class AmazonSimpleWorkflowCountPendingDecisionTasksCommand() : AmazonWebServiceC
 }
 
 
-fun AmazonSimpleWorkflowFunctions.deprecateActivityType(init: AmazonSimpleWorkflowDeprecateActivityTypeCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleWorkflowDeprecateActivityTypeCommand().apply(init))
+fun AmazonSimpleWorkflowFunctions.deprecateActivityType(init: AmazonSimpleWorkflowDeprecateActivityTypeCommand.() -> Unit): codingue.koops.core.VoidResult {
+	return this.block.declare(AmazonSimpleWorkflowDeprecateActivityTypeCommand().apply(init)) as codingue.koops.core.VoidResult
 }
 
 @Generated
-class AmazonSimpleWorkflowDeprecateActivityTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.DeprecateActivityTypeRequest> {
+class AmazonSimpleWorkflowDeprecateActivityTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.DeprecateActivityTypeRequest, codingue.koops.core.VoidResult> {
 
 	var domain: String? = null
 	var activityType: com.amazonaws.services.simpleworkflow.model.ActivityType? = null
@@ -187,8 +203,12 @@ class AmazonSimpleWorkflowDeprecateActivityTypeCommand() : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.swf.deprecateActivityType(build())
+	override fun dryResult(): codingue.koops.core.VoidResult {
+	  return codingue.koops.core.VoidResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): codingue.koops.core.VoidResult {
+		return environment.swf.deprecateActivityType(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -200,12 +220,12 @@ class AmazonSimpleWorkflowDeprecateActivityTypeCommand() : AmazonWebServiceComma
 }
 
 
-fun AmazonSimpleWorkflowFunctions.deprecateDomain(init: AmazonSimpleWorkflowDeprecateDomainCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleWorkflowDeprecateDomainCommand().apply(init))
+fun AmazonSimpleWorkflowFunctions.deprecateDomain(init: AmazonSimpleWorkflowDeprecateDomainCommand.() -> Unit): codingue.koops.core.VoidResult {
+	return this.block.declare(AmazonSimpleWorkflowDeprecateDomainCommand().apply(init)) as codingue.koops.core.VoidResult
 }
 
 @Generated
-class AmazonSimpleWorkflowDeprecateDomainCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.DeprecateDomainRequest> {
+class AmazonSimpleWorkflowDeprecateDomainCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.DeprecateDomainRequest, codingue.koops.core.VoidResult> {
 
 	var name: String? = null
 
@@ -215,8 +235,12 @@ class AmazonSimpleWorkflowDeprecateDomainCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.swf.deprecateDomain(build())
+	override fun dryResult(): codingue.koops.core.VoidResult {
+	  return codingue.koops.core.VoidResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): codingue.koops.core.VoidResult {
+		return environment.swf.deprecateDomain(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -227,12 +251,12 @@ class AmazonSimpleWorkflowDeprecateDomainCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AmazonSimpleWorkflowFunctions.deprecateWorkflowType(init: AmazonSimpleWorkflowDeprecateWorkflowTypeCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleWorkflowDeprecateWorkflowTypeCommand().apply(init))
+fun AmazonSimpleWorkflowFunctions.deprecateWorkflowType(init: AmazonSimpleWorkflowDeprecateWorkflowTypeCommand.() -> Unit): codingue.koops.core.VoidResult {
+	return this.block.declare(AmazonSimpleWorkflowDeprecateWorkflowTypeCommand().apply(init)) as codingue.koops.core.VoidResult
 }
 
 @Generated
-class AmazonSimpleWorkflowDeprecateWorkflowTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.DeprecateWorkflowTypeRequest> {
+class AmazonSimpleWorkflowDeprecateWorkflowTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.DeprecateWorkflowTypeRequest, codingue.koops.core.VoidResult> {
 
 	var domain: String? = null
 	var workflowType: com.amazonaws.services.simpleworkflow.model.WorkflowType? = null
@@ -244,8 +268,12 @@ class AmazonSimpleWorkflowDeprecateWorkflowTypeCommand() : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.swf.deprecateWorkflowType(build())
+	override fun dryResult(): codingue.koops.core.VoidResult {
+	  return codingue.koops.core.VoidResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): codingue.koops.core.VoidResult {
+		return environment.swf.deprecateWorkflowType(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -257,12 +285,12 @@ class AmazonSimpleWorkflowDeprecateWorkflowTypeCommand() : AmazonWebServiceComma
 }
 
 
-fun AmazonSimpleWorkflowFunctions.describeActivityType(init: AmazonSimpleWorkflowDescribeActivityTypeCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleWorkflowDescribeActivityTypeCommand().apply(init))
+fun AmazonSimpleWorkflowFunctions.describeActivityType(init: AmazonSimpleWorkflowDescribeActivityTypeCommand.() -> Unit): com.amazonaws.services.simpleworkflow.model.ActivityTypeDetail {
+	return this.block.declare(AmazonSimpleWorkflowDescribeActivityTypeCommand().apply(init)) as com.amazonaws.services.simpleworkflow.model.ActivityTypeDetail
 }
 
 @Generated
-class AmazonSimpleWorkflowDescribeActivityTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.DescribeActivityTypeRequest> {
+class AmazonSimpleWorkflowDescribeActivityTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.DescribeActivityTypeRequest, com.amazonaws.services.simpleworkflow.model.ActivityTypeDetail> {
 
 	var domain: String? = null
 	var activityType: com.amazonaws.services.simpleworkflow.model.ActivityType? = null
@@ -274,8 +302,12 @@ class AmazonSimpleWorkflowDescribeActivityTypeCommand() : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.swf.describeActivityType(build())
+	override fun dryResult(): com.amazonaws.services.simpleworkflow.model.ActivityTypeDetail {
+	  return com.amazonaws.services.simpleworkflow.model.ActivityTypeDetail()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleworkflow.model.ActivityTypeDetail {
+		return environment.swf.describeActivityType(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -287,12 +319,12 @@ class AmazonSimpleWorkflowDescribeActivityTypeCommand() : AmazonWebServiceComman
 }
 
 
-fun AmazonSimpleWorkflowFunctions.describeDomain(init: AmazonSimpleWorkflowDescribeDomainCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleWorkflowDescribeDomainCommand().apply(init))
+fun AmazonSimpleWorkflowFunctions.describeDomain(init: AmazonSimpleWorkflowDescribeDomainCommand.() -> Unit): com.amazonaws.services.simpleworkflow.model.DomainDetail {
+	return this.block.declare(AmazonSimpleWorkflowDescribeDomainCommand().apply(init)) as com.amazonaws.services.simpleworkflow.model.DomainDetail
 }
 
 @Generated
-class AmazonSimpleWorkflowDescribeDomainCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.DescribeDomainRequest> {
+class AmazonSimpleWorkflowDescribeDomainCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.DescribeDomainRequest, com.amazonaws.services.simpleworkflow.model.DomainDetail> {
 
 	var name: String? = null
 
@@ -302,8 +334,12 @@ class AmazonSimpleWorkflowDescribeDomainCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.swf.describeDomain(build())
+	override fun dryResult(): com.amazonaws.services.simpleworkflow.model.DomainDetail {
+	  return com.amazonaws.services.simpleworkflow.model.DomainDetail()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleworkflow.model.DomainDetail {
+		return environment.swf.describeDomain(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -314,12 +350,12 @@ class AmazonSimpleWorkflowDescribeDomainCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonSimpleWorkflowFunctions.describeWorkflowExecution(init: AmazonSimpleWorkflowDescribeWorkflowExecutionCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleWorkflowDescribeWorkflowExecutionCommand().apply(init))
+fun AmazonSimpleWorkflowFunctions.describeWorkflowExecution(init: AmazonSimpleWorkflowDescribeWorkflowExecutionCommand.() -> Unit): com.amazonaws.services.simpleworkflow.model.WorkflowExecutionDetail {
+	return this.block.declare(AmazonSimpleWorkflowDescribeWorkflowExecutionCommand().apply(init)) as com.amazonaws.services.simpleworkflow.model.WorkflowExecutionDetail
 }
 
 @Generated
-class AmazonSimpleWorkflowDescribeWorkflowExecutionCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.DescribeWorkflowExecutionRequest> {
+class AmazonSimpleWorkflowDescribeWorkflowExecutionCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.DescribeWorkflowExecutionRequest, com.amazonaws.services.simpleworkflow.model.WorkflowExecutionDetail> {
 
 	var domain: String? = null
 	var execution: com.amazonaws.services.simpleworkflow.model.WorkflowExecution? = null
@@ -331,8 +367,12 @@ class AmazonSimpleWorkflowDescribeWorkflowExecutionCommand() : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.swf.describeWorkflowExecution(build())
+	override fun dryResult(): com.amazonaws.services.simpleworkflow.model.WorkflowExecutionDetail {
+	  return com.amazonaws.services.simpleworkflow.model.WorkflowExecutionDetail()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleworkflow.model.WorkflowExecutionDetail {
+		return environment.swf.describeWorkflowExecution(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -344,12 +384,12 @@ class AmazonSimpleWorkflowDescribeWorkflowExecutionCommand() : AmazonWebServiceC
 }
 
 
-fun AmazonSimpleWorkflowFunctions.describeWorkflowType(init: AmazonSimpleWorkflowDescribeWorkflowTypeCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleWorkflowDescribeWorkflowTypeCommand().apply(init))
+fun AmazonSimpleWorkflowFunctions.describeWorkflowType(init: AmazonSimpleWorkflowDescribeWorkflowTypeCommand.() -> Unit): com.amazonaws.services.simpleworkflow.model.WorkflowTypeDetail {
+	return this.block.declare(AmazonSimpleWorkflowDescribeWorkflowTypeCommand().apply(init)) as com.amazonaws.services.simpleworkflow.model.WorkflowTypeDetail
 }
 
 @Generated
-class AmazonSimpleWorkflowDescribeWorkflowTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.DescribeWorkflowTypeRequest> {
+class AmazonSimpleWorkflowDescribeWorkflowTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.DescribeWorkflowTypeRequest, com.amazonaws.services.simpleworkflow.model.WorkflowTypeDetail> {
 
 	var domain: String? = null
 	var workflowType: com.amazonaws.services.simpleworkflow.model.WorkflowType? = null
@@ -361,8 +401,12 @@ class AmazonSimpleWorkflowDescribeWorkflowTypeCommand() : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.swf.describeWorkflowType(build())
+	override fun dryResult(): com.amazonaws.services.simpleworkflow.model.WorkflowTypeDetail {
+	  return com.amazonaws.services.simpleworkflow.model.WorkflowTypeDetail()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleworkflow.model.WorkflowTypeDetail {
+		return environment.swf.describeWorkflowType(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -374,12 +418,12 @@ class AmazonSimpleWorkflowDescribeWorkflowTypeCommand() : AmazonWebServiceComman
 }
 
 
-fun AmazonSimpleWorkflowFunctions.getWorkflowExecutionHistory(init: AmazonSimpleWorkflowGetWorkflowExecutionHistoryCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleWorkflowGetWorkflowExecutionHistoryCommand().apply(init))
+fun AmazonSimpleWorkflowFunctions.getWorkflowExecutionHistory(init: AmazonSimpleWorkflowGetWorkflowExecutionHistoryCommand.() -> Unit): com.amazonaws.services.simpleworkflow.model.History {
+	return this.block.declare(AmazonSimpleWorkflowGetWorkflowExecutionHistoryCommand().apply(init)) as com.amazonaws.services.simpleworkflow.model.History
 }
 
 @Generated
-class AmazonSimpleWorkflowGetWorkflowExecutionHistoryCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.GetWorkflowExecutionHistoryRequest> {
+class AmazonSimpleWorkflowGetWorkflowExecutionHistoryCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.GetWorkflowExecutionHistoryRequest, com.amazonaws.services.simpleworkflow.model.History> {
 
 	var domain: String? = null
 	var execution: com.amazonaws.services.simpleworkflow.model.WorkflowExecution? = null
@@ -397,8 +441,12 @@ class AmazonSimpleWorkflowGetWorkflowExecutionHistoryCommand() : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.swf.getWorkflowExecutionHistory(build())
+	override fun dryResult(): com.amazonaws.services.simpleworkflow.model.History {
+	  return com.amazonaws.services.simpleworkflow.model.History()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleworkflow.model.History {
+		return environment.swf.getWorkflowExecutionHistory(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -413,12 +461,12 @@ class AmazonSimpleWorkflowGetWorkflowExecutionHistoryCommand() : AmazonWebServic
 }
 
 
-fun AmazonSimpleWorkflowFunctions.listActivityTypes(init: AmazonSimpleWorkflowListActivityTypesCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleWorkflowListActivityTypesCommand().apply(init))
+fun AmazonSimpleWorkflowFunctions.listActivityTypes(init: AmazonSimpleWorkflowListActivityTypesCommand.() -> Unit): com.amazonaws.services.simpleworkflow.model.ActivityTypeInfos {
+	return this.block.declare(AmazonSimpleWorkflowListActivityTypesCommand().apply(init)) as com.amazonaws.services.simpleworkflow.model.ActivityTypeInfos
 }
 
 @Generated
-class AmazonSimpleWorkflowListActivityTypesCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.ListActivityTypesRequest> {
+class AmazonSimpleWorkflowListActivityTypesCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.ListActivityTypesRequest, com.amazonaws.services.simpleworkflow.model.ActivityTypeInfos> {
 
 	var domain: String? = null
 	var name: String? = null
@@ -438,8 +486,12 @@ class AmazonSimpleWorkflowListActivityTypesCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.swf.listActivityTypes(build())
+	override fun dryResult(): com.amazonaws.services.simpleworkflow.model.ActivityTypeInfos {
+	  return com.amazonaws.services.simpleworkflow.model.ActivityTypeInfos()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleworkflow.model.ActivityTypeInfos {
+		return environment.swf.listActivityTypes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -455,12 +507,12 @@ class AmazonSimpleWorkflowListActivityTypesCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AmazonSimpleWorkflowFunctions.listClosedWorkflowExecutions(init: AmazonSimpleWorkflowListClosedWorkflowExecutionsCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleWorkflowListClosedWorkflowExecutionsCommand().apply(init))
+fun AmazonSimpleWorkflowFunctions.listClosedWorkflowExecutions(init: AmazonSimpleWorkflowListClosedWorkflowExecutionsCommand.() -> Unit): com.amazonaws.services.simpleworkflow.model.WorkflowExecutionInfos {
+	return this.block.declare(AmazonSimpleWorkflowListClosedWorkflowExecutionsCommand().apply(init)) as com.amazonaws.services.simpleworkflow.model.WorkflowExecutionInfos
 }
 
 @Generated
-class AmazonSimpleWorkflowListClosedWorkflowExecutionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.ListClosedWorkflowExecutionsRequest> {
+class AmazonSimpleWorkflowListClosedWorkflowExecutionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.ListClosedWorkflowExecutionsRequest, com.amazonaws.services.simpleworkflow.model.WorkflowExecutionInfos> {
 
 	var domain: String? = null
 	var startTimeFilter: com.amazonaws.services.simpleworkflow.model.ExecutionTimeFilter? = null
@@ -488,8 +540,12 @@ class AmazonSimpleWorkflowListClosedWorkflowExecutionsCommand() : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.swf.listClosedWorkflowExecutions(build())
+	override fun dryResult(): com.amazonaws.services.simpleworkflow.model.WorkflowExecutionInfos {
+	  return com.amazonaws.services.simpleworkflow.model.WorkflowExecutionInfos()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleworkflow.model.WorkflowExecutionInfos {
+		return environment.swf.listClosedWorkflowExecutions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -509,12 +565,12 @@ class AmazonSimpleWorkflowListClosedWorkflowExecutionsCommand() : AmazonWebServi
 }
 
 
-fun AmazonSimpleWorkflowFunctions.listDomains(init: AmazonSimpleWorkflowListDomainsCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleWorkflowListDomainsCommand().apply(init))
+fun AmazonSimpleWorkflowFunctions.listDomains(init: AmazonSimpleWorkflowListDomainsCommand.() -> Unit): com.amazonaws.services.simpleworkflow.model.DomainInfos {
+	return this.block.declare(AmazonSimpleWorkflowListDomainsCommand().apply(init)) as com.amazonaws.services.simpleworkflow.model.DomainInfos
 }
 
 @Generated
-class AmazonSimpleWorkflowListDomainsCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.ListDomainsRequest> {
+class AmazonSimpleWorkflowListDomainsCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.ListDomainsRequest, com.amazonaws.services.simpleworkflow.model.DomainInfos> {
 
 	var nextPageToken: String? = null
 	var registrationStatus: RegistrationStatus? = null
@@ -530,8 +586,12 @@ class AmazonSimpleWorkflowListDomainsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.swf.listDomains(build())
+	override fun dryResult(): com.amazonaws.services.simpleworkflow.model.DomainInfos {
+	  return com.amazonaws.services.simpleworkflow.model.DomainInfos()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleworkflow.model.DomainInfos {
+		return environment.swf.listDomains(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -545,12 +605,12 @@ class AmazonSimpleWorkflowListDomainsCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AmazonSimpleWorkflowFunctions.listOpenWorkflowExecutions(init: AmazonSimpleWorkflowListOpenWorkflowExecutionsCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleWorkflowListOpenWorkflowExecutionsCommand().apply(init))
+fun AmazonSimpleWorkflowFunctions.listOpenWorkflowExecutions(init: AmazonSimpleWorkflowListOpenWorkflowExecutionsCommand.() -> Unit): com.amazonaws.services.simpleworkflow.model.WorkflowExecutionInfos {
+	return this.block.declare(AmazonSimpleWorkflowListOpenWorkflowExecutionsCommand().apply(init)) as com.amazonaws.services.simpleworkflow.model.WorkflowExecutionInfos
 }
 
 @Generated
-class AmazonSimpleWorkflowListOpenWorkflowExecutionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.ListOpenWorkflowExecutionsRequest> {
+class AmazonSimpleWorkflowListOpenWorkflowExecutionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.ListOpenWorkflowExecutionsRequest, com.amazonaws.services.simpleworkflow.model.WorkflowExecutionInfos> {
 
 	var domain: String? = null
 	var startTimeFilter: com.amazonaws.services.simpleworkflow.model.ExecutionTimeFilter? = null
@@ -574,8 +634,12 @@ class AmazonSimpleWorkflowListOpenWorkflowExecutionsCommand() : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.swf.listOpenWorkflowExecutions(build())
+	override fun dryResult(): com.amazonaws.services.simpleworkflow.model.WorkflowExecutionInfos {
+	  return com.amazonaws.services.simpleworkflow.model.WorkflowExecutionInfos()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleworkflow.model.WorkflowExecutionInfos {
+		return environment.swf.listOpenWorkflowExecutions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -593,12 +657,12 @@ class AmazonSimpleWorkflowListOpenWorkflowExecutionsCommand() : AmazonWebService
 }
 
 
-fun AmazonSimpleWorkflowFunctions.listWorkflowTypes(init: AmazonSimpleWorkflowListWorkflowTypesCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleWorkflowListWorkflowTypesCommand().apply(init))
+fun AmazonSimpleWorkflowFunctions.listWorkflowTypes(init: AmazonSimpleWorkflowListWorkflowTypesCommand.() -> Unit): com.amazonaws.services.simpleworkflow.model.WorkflowTypeInfos {
+	return this.block.declare(AmazonSimpleWorkflowListWorkflowTypesCommand().apply(init)) as com.amazonaws.services.simpleworkflow.model.WorkflowTypeInfos
 }
 
 @Generated
-class AmazonSimpleWorkflowListWorkflowTypesCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.ListWorkflowTypesRequest> {
+class AmazonSimpleWorkflowListWorkflowTypesCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.ListWorkflowTypesRequest, com.amazonaws.services.simpleworkflow.model.WorkflowTypeInfos> {
 
 	var domain: String? = null
 	var name: String? = null
@@ -618,8 +682,12 @@ class AmazonSimpleWorkflowListWorkflowTypesCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.swf.listWorkflowTypes(build())
+	override fun dryResult(): com.amazonaws.services.simpleworkflow.model.WorkflowTypeInfos {
+	  return com.amazonaws.services.simpleworkflow.model.WorkflowTypeInfos()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleworkflow.model.WorkflowTypeInfos {
+		return environment.swf.listWorkflowTypes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -635,12 +703,12 @@ class AmazonSimpleWorkflowListWorkflowTypesCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AmazonSimpleWorkflowFunctions.pollForActivityTask(init: AmazonSimpleWorkflowPollForActivityTaskCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleWorkflowPollForActivityTaskCommand().apply(init))
+fun AmazonSimpleWorkflowFunctions.pollForActivityTask(init: AmazonSimpleWorkflowPollForActivityTaskCommand.() -> Unit): com.amazonaws.services.simpleworkflow.model.ActivityTask {
+	return this.block.declare(AmazonSimpleWorkflowPollForActivityTaskCommand().apply(init)) as com.amazonaws.services.simpleworkflow.model.ActivityTask
 }
 
 @Generated
-class AmazonSimpleWorkflowPollForActivityTaskCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.PollForActivityTaskRequest> {
+class AmazonSimpleWorkflowPollForActivityTaskCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.PollForActivityTaskRequest, com.amazonaws.services.simpleworkflow.model.ActivityTask> {
 
 	var domain: String? = null
 	var taskList: com.amazonaws.services.simpleworkflow.model.TaskList? = null
@@ -654,8 +722,12 @@ class AmazonSimpleWorkflowPollForActivityTaskCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.swf.pollForActivityTask(build())
+	override fun dryResult(): com.amazonaws.services.simpleworkflow.model.ActivityTask {
+	  return com.amazonaws.services.simpleworkflow.model.ActivityTask()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleworkflow.model.ActivityTask {
+		return environment.swf.pollForActivityTask(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -668,12 +740,12 @@ class AmazonSimpleWorkflowPollForActivityTaskCommand() : AmazonWebServiceCommand
 }
 
 
-fun AmazonSimpleWorkflowFunctions.pollForDecisionTask(init: AmazonSimpleWorkflowPollForDecisionTaskCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleWorkflowPollForDecisionTaskCommand().apply(init))
+fun AmazonSimpleWorkflowFunctions.pollForDecisionTask(init: AmazonSimpleWorkflowPollForDecisionTaskCommand.() -> Unit): com.amazonaws.services.simpleworkflow.model.DecisionTask {
+	return this.block.declare(AmazonSimpleWorkflowPollForDecisionTaskCommand().apply(init)) as com.amazonaws.services.simpleworkflow.model.DecisionTask
 }
 
 @Generated
-class AmazonSimpleWorkflowPollForDecisionTaskCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.PollForDecisionTaskRequest> {
+class AmazonSimpleWorkflowPollForDecisionTaskCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.PollForDecisionTaskRequest, com.amazonaws.services.simpleworkflow.model.DecisionTask> {
 
 	var domain: String? = null
 	var taskList: com.amazonaws.services.simpleworkflow.model.TaskList? = null
@@ -693,8 +765,12 @@ class AmazonSimpleWorkflowPollForDecisionTaskCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.swf.pollForDecisionTask(build())
+	override fun dryResult(): com.amazonaws.services.simpleworkflow.model.DecisionTask {
+	  return com.amazonaws.services.simpleworkflow.model.DecisionTask()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleworkflow.model.DecisionTask {
+		return environment.swf.pollForDecisionTask(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -710,12 +786,12 @@ class AmazonSimpleWorkflowPollForDecisionTaskCommand() : AmazonWebServiceCommand
 }
 
 
-fun AmazonSimpleWorkflowFunctions.recordActivityTaskHeartbeat(init: AmazonSimpleWorkflowRecordActivityTaskHeartbeatCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleWorkflowRecordActivityTaskHeartbeatCommand().apply(init))
+fun AmazonSimpleWorkflowFunctions.recordActivityTaskHeartbeat(init: AmazonSimpleWorkflowRecordActivityTaskHeartbeatCommand.() -> Unit): com.amazonaws.services.simpleworkflow.model.ActivityTaskStatus {
+	return this.block.declare(AmazonSimpleWorkflowRecordActivityTaskHeartbeatCommand().apply(init)) as com.amazonaws.services.simpleworkflow.model.ActivityTaskStatus
 }
 
 @Generated
-class AmazonSimpleWorkflowRecordActivityTaskHeartbeatCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.RecordActivityTaskHeartbeatRequest> {
+class AmazonSimpleWorkflowRecordActivityTaskHeartbeatCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.RecordActivityTaskHeartbeatRequest, com.amazonaws.services.simpleworkflow.model.ActivityTaskStatus> {
 
 	var taskToken: String? = null
 	var details: String? = null
@@ -727,8 +803,12 @@ class AmazonSimpleWorkflowRecordActivityTaskHeartbeatCommand() : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.swf.recordActivityTaskHeartbeat(build())
+	override fun dryResult(): com.amazonaws.services.simpleworkflow.model.ActivityTaskStatus {
+	  return com.amazonaws.services.simpleworkflow.model.ActivityTaskStatus()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleworkflow.model.ActivityTaskStatus {
+		return environment.swf.recordActivityTaskHeartbeat(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -740,12 +820,12 @@ class AmazonSimpleWorkflowRecordActivityTaskHeartbeatCommand() : AmazonWebServic
 }
 
 
-fun AmazonSimpleWorkflowFunctions.registerActivityType(init: AmazonSimpleWorkflowRegisterActivityTypeCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleWorkflowRegisterActivityTypeCommand().apply(init))
+fun AmazonSimpleWorkflowFunctions.registerActivityType(init: AmazonSimpleWorkflowRegisterActivityTypeCommand.() -> Unit): codingue.koops.core.VoidResult {
+	return this.block.declare(AmazonSimpleWorkflowRegisterActivityTypeCommand().apply(init)) as codingue.koops.core.VoidResult
 }
 
 @Generated
-class AmazonSimpleWorkflowRegisterActivityTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.RegisterActivityTypeRequest> {
+class AmazonSimpleWorkflowRegisterActivityTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.RegisterActivityTypeRequest, codingue.koops.core.VoidResult> {
 
 	var domain: String? = null
 	var name: String? = null
@@ -773,8 +853,12 @@ class AmazonSimpleWorkflowRegisterActivityTypeCommand() : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.swf.registerActivityType(build())
+	override fun dryResult(): codingue.koops.core.VoidResult {
+	  return codingue.koops.core.VoidResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): codingue.koops.core.VoidResult {
+		return environment.swf.registerActivityType(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -794,12 +878,12 @@ class AmazonSimpleWorkflowRegisterActivityTypeCommand() : AmazonWebServiceComman
 }
 
 
-fun AmazonSimpleWorkflowFunctions.registerDomain(init: AmazonSimpleWorkflowRegisterDomainCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleWorkflowRegisterDomainCommand().apply(init))
+fun AmazonSimpleWorkflowFunctions.registerDomain(init: AmazonSimpleWorkflowRegisterDomainCommand.() -> Unit): codingue.koops.core.VoidResult {
+	return this.block.declare(AmazonSimpleWorkflowRegisterDomainCommand().apply(init)) as codingue.koops.core.VoidResult
 }
 
 @Generated
-class AmazonSimpleWorkflowRegisterDomainCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.RegisterDomainRequest> {
+class AmazonSimpleWorkflowRegisterDomainCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.RegisterDomainRequest, codingue.koops.core.VoidResult> {
 
 	var name: String? = null
 	var description: String? = null
@@ -813,8 +897,12 @@ class AmazonSimpleWorkflowRegisterDomainCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.swf.registerDomain(build())
+	override fun dryResult(): codingue.koops.core.VoidResult {
+	  return codingue.koops.core.VoidResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): codingue.koops.core.VoidResult {
+		return environment.swf.registerDomain(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -827,12 +915,12 @@ class AmazonSimpleWorkflowRegisterDomainCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonSimpleWorkflowFunctions.registerWorkflowType(init: AmazonSimpleWorkflowRegisterWorkflowTypeCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleWorkflowRegisterWorkflowTypeCommand().apply(init))
+fun AmazonSimpleWorkflowFunctions.registerWorkflowType(init: AmazonSimpleWorkflowRegisterWorkflowTypeCommand.() -> Unit): codingue.koops.core.VoidResult {
+	return this.block.declare(AmazonSimpleWorkflowRegisterWorkflowTypeCommand().apply(init)) as codingue.koops.core.VoidResult
 }
 
 @Generated
-class AmazonSimpleWorkflowRegisterWorkflowTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.RegisterWorkflowTypeRequest> {
+class AmazonSimpleWorkflowRegisterWorkflowTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.RegisterWorkflowTypeRequest, codingue.koops.core.VoidResult> {
 
 	var domain: String? = null
 	var name: String? = null
@@ -860,8 +948,12 @@ class AmazonSimpleWorkflowRegisterWorkflowTypeCommand() : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.swf.registerWorkflowType(build())
+	override fun dryResult(): codingue.koops.core.VoidResult {
+	  return codingue.koops.core.VoidResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): codingue.koops.core.VoidResult {
+		return environment.swf.registerWorkflowType(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -881,12 +973,12 @@ class AmazonSimpleWorkflowRegisterWorkflowTypeCommand() : AmazonWebServiceComman
 }
 
 
-fun AmazonSimpleWorkflowFunctions.requestCancelWorkflowExecution(init: AmazonSimpleWorkflowRequestCancelWorkflowExecutionCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleWorkflowRequestCancelWorkflowExecutionCommand().apply(init))
+fun AmazonSimpleWorkflowFunctions.requestCancelWorkflowExecution(init: AmazonSimpleWorkflowRequestCancelWorkflowExecutionCommand.() -> Unit): codingue.koops.core.VoidResult {
+	return this.block.declare(AmazonSimpleWorkflowRequestCancelWorkflowExecutionCommand().apply(init)) as codingue.koops.core.VoidResult
 }
 
 @Generated
-class AmazonSimpleWorkflowRequestCancelWorkflowExecutionCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.RequestCancelWorkflowExecutionRequest> {
+class AmazonSimpleWorkflowRequestCancelWorkflowExecutionCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.RequestCancelWorkflowExecutionRequest, codingue.koops.core.VoidResult> {
 
 	var domain: String? = null
 	var workflowId: String? = null
@@ -900,8 +992,12 @@ class AmazonSimpleWorkflowRequestCancelWorkflowExecutionCommand() : AmazonWebSer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.swf.requestCancelWorkflowExecution(build())
+	override fun dryResult(): codingue.koops.core.VoidResult {
+	  return codingue.koops.core.VoidResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): codingue.koops.core.VoidResult {
+		return environment.swf.requestCancelWorkflowExecution(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -914,12 +1010,12 @@ class AmazonSimpleWorkflowRequestCancelWorkflowExecutionCommand() : AmazonWebSer
 }
 
 
-fun AmazonSimpleWorkflowFunctions.respondActivityTaskCanceled(init: AmazonSimpleWorkflowRespondActivityTaskCanceledCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleWorkflowRespondActivityTaskCanceledCommand().apply(init))
+fun AmazonSimpleWorkflowFunctions.respondActivityTaskCanceled(init: AmazonSimpleWorkflowRespondActivityTaskCanceledCommand.() -> Unit): codingue.koops.core.VoidResult {
+	return this.block.declare(AmazonSimpleWorkflowRespondActivityTaskCanceledCommand().apply(init)) as codingue.koops.core.VoidResult
 }
 
 @Generated
-class AmazonSimpleWorkflowRespondActivityTaskCanceledCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.RespondActivityTaskCanceledRequest> {
+class AmazonSimpleWorkflowRespondActivityTaskCanceledCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.RespondActivityTaskCanceledRequest, codingue.koops.core.VoidResult> {
 
 	var taskToken: String? = null
 	var details: String? = null
@@ -931,8 +1027,12 @@ class AmazonSimpleWorkflowRespondActivityTaskCanceledCommand() : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.swf.respondActivityTaskCanceled(build())
+	override fun dryResult(): codingue.koops.core.VoidResult {
+	  return codingue.koops.core.VoidResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): codingue.koops.core.VoidResult {
+		return environment.swf.respondActivityTaskCanceled(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -944,12 +1044,12 @@ class AmazonSimpleWorkflowRespondActivityTaskCanceledCommand() : AmazonWebServic
 }
 
 
-fun AmazonSimpleWorkflowFunctions.respondActivityTaskCompleted(init: AmazonSimpleWorkflowRespondActivityTaskCompletedCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleWorkflowRespondActivityTaskCompletedCommand().apply(init))
+fun AmazonSimpleWorkflowFunctions.respondActivityTaskCompleted(init: AmazonSimpleWorkflowRespondActivityTaskCompletedCommand.() -> Unit): codingue.koops.core.VoidResult {
+	return this.block.declare(AmazonSimpleWorkflowRespondActivityTaskCompletedCommand().apply(init)) as codingue.koops.core.VoidResult
 }
 
 @Generated
-class AmazonSimpleWorkflowRespondActivityTaskCompletedCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.RespondActivityTaskCompletedRequest> {
+class AmazonSimpleWorkflowRespondActivityTaskCompletedCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.RespondActivityTaskCompletedRequest, codingue.koops.core.VoidResult> {
 
 	var taskToken: String? = null
 	var result: String? = null
@@ -961,8 +1061,12 @@ class AmazonSimpleWorkflowRespondActivityTaskCompletedCommand() : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.swf.respondActivityTaskCompleted(build())
+	override fun dryResult(): codingue.koops.core.VoidResult {
+	  return codingue.koops.core.VoidResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): codingue.koops.core.VoidResult {
+		return environment.swf.respondActivityTaskCompleted(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -974,12 +1078,12 @@ class AmazonSimpleWorkflowRespondActivityTaskCompletedCommand() : AmazonWebServi
 }
 
 
-fun AmazonSimpleWorkflowFunctions.respondActivityTaskFailed(init: AmazonSimpleWorkflowRespondActivityTaskFailedCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleWorkflowRespondActivityTaskFailedCommand().apply(init))
+fun AmazonSimpleWorkflowFunctions.respondActivityTaskFailed(init: AmazonSimpleWorkflowRespondActivityTaskFailedCommand.() -> Unit): codingue.koops.core.VoidResult {
+	return this.block.declare(AmazonSimpleWorkflowRespondActivityTaskFailedCommand().apply(init)) as codingue.koops.core.VoidResult
 }
 
 @Generated
-class AmazonSimpleWorkflowRespondActivityTaskFailedCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.RespondActivityTaskFailedRequest> {
+class AmazonSimpleWorkflowRespondActivityTaskFailedCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.RespondActivityTaskFailedRequest, codingue.koops.core.VoidResult> {
 
 	var taskToken: String? = null
 	var reason: String? = null
@@ -993,8 +1097,12 @@ class AmazonSimpleWorkflowRespondActivityTaskFailedCommand() : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.swf.respondActivityTaskFailed(build())
+	override fun dryResult(): codingue.koops.core.VoidResult {
+	  return codingue.koops.core.VoidResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): codingue.koops.core.VoidResult {
+		return environment.swf.respondActivityTaskFailed(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1007,12 +1115,12 @@ class AmazonSimpleWorkflowRespondActivityTaskFailedCommand() : AmazonWebServiceC
 }
 
 
-fun AmazonSimpleWorkflowFunctions.respondDecisionTaskCompleted(init: AmazonSimpleWorkflowRespondDecisionTaskCompletedCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleWorkflowRespondDecisionTaskCompletedCommand().apply(init))
+fun AmazonSimpleWorkflowFunctions.respondDecisionTaskCompleted(init: AmazonSimpleWorkflowRespondDecisionTaskCompletedCommand.() -> Unit): codingue.koops.core.VoidResult {
+	return this.block.declare(AmazonSimpleWorkflowRespondDecisionTaskCompletedCommand().apply(init)) as codingue.koops.core.VoidResult
 }
 
 @Generated
-class AmazonSimpleWorkflowRespondDecisionTaskCompletedCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.RespondDecisionTaskCompletedRequest> {
+class AmazonSimpleWorkflowRespondDecisionTaskCompletedCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.RespondDecisionTaskCompletedRequest, codingue.koops.core.VoidResult> {
 
 	var taskToken: String? = null
 	var decisions: List<com.amazonaws.services.simpleworkflow.model.Decision>? = null
@@ -1026,8 +1134,12 @@ class AmazonSimpleWorkflowRespondDecisionTaskCompletedCommand() : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.swf.respondDecisionTaskCompleted(build())
+	override fun dryResult(): codingue.koops.core.VoidResult {
+	  return codingue.koops.core.VoidResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): codingue.koops.core.VoidResult {
+		return environment.swf.respondDecisionTaskCompleted(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1040,12 +1152,12 @@ class AmazonSimpleWorkflowRespondDecisionTaskCompletedCommand() : AmazonWebServi
 }
 
 
-fun AmazonSimpleWorkflowFunctions.signalWorkflowExecution(init: AmazonSimpleWorkflowSignalWorkflowExecutionCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleWorkflowSignalWorkflowExecutionCommand().apply(init))
+fun AmazonSimpleWorkflowFunctions.signalWorkflowExecution(init: AmazonSimpleWorkflowSignalWorkflowExecutionCommand.() -> Unit): codingue.koops.core.VoidResult {
+	return this.block.declare(AmazonSimpleWorkflowSignalWorkflowExecutionCommand().apply(init)) as codingue.koops.core.VoidResult
 }
 
 @Generated
-class AmazonSimpleWorkflowSignalWorkflowExecutionCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.SignalWorkflowExecutionRequest> {
+class AmazonSimpleWorkflowSignalWorkflowExecutionCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.SignalWorkflowExecutionRequest, codingue.koops.core.VoidResult> {
 
 	var domain: String? = null
 	var workflowId: String? = null
@@ -1063,8 +1175,12 @@ class AmazonSimpleWorkflowSignalWorkflowExecutionCommand() : AmazonWebServiceCom
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.swf.signalWorkflowExecution(build())
+	override fun dryResult(): codingue.koops.core.VoidResult {
+	  return codingue.koops.core.VoidResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): codingue.koops.core.VoidResult {
+		return environment.swf.signalWorkflowExecution(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1079,12 +1195,12 @@ class AmazonSimpleWorkflowSignalWorkflowExecutionCommand() : AmazonWebServiceCom
 }
 
 
-fun AmazonSimpleWorkflowFunctions.startWorkflowExecution(init: AmazonSimpleWorkflowStartWorkflowExecutionCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleWorkflowStartWorkflowExecutionCommand().apply(init))
+fun AmazonSimpleWorkflowFunctions.startWorkflowExecution(init: AmazonSimpleWorkflowStartWorkflowExecutionCommand.() -> Unit): com.amazonaws.services.simpleworkflow.model.Run {
+	return this.block.declare(AmazonSimpleWorkflowStartWorkflowExecutionCommand().apply(init)) as com.amazonaws.services.simpleworkflow.model.Run
 }
 
 @Generated
-class AmazonSimpleWorkflowStartWorkflowExecutionCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.StartWorkflowExecutionRequest> {
+class AmazonSimpleWorkflowStartWorkflowExecutionCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.StartWorkflowExecutionRequest, com.amazonaws.services.simpleworkflow.model.Run> {
 
 	var domain: String? = null
 	var workflowId: String? = null
@@ -1114,8 +1230,12 @@ class AmazonSimpleWorkflowStartWorkflowExecutionCommand() : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.swf.startWorkflowExecution(build())
+	override fun dryResult(): com.amazonaws.services.simpleworkflow.model.Run {
+	  return com.amazonaws.services.simpleworkflow.model.Run()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpleworkflow.model.Run {
+		return environment.swf.startWorkflowExecution(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1136,12 +1256,12 @@ class AmazonSimpleWorkflowStartWorkflowExecutionCommand() : AmazonWebServiceComm
 }
 
 
-fun AmazonSimpleWorkflowFunctions.terminateWorkflowExecution(init: AmazonSimpleWorkflowTerminateWorkflowExecutionCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleWorkflowTerminateWorkflowExecutionCommand().apply(init))
+fun AmazonSimpleWorkflowFunctions.terminateWorkflowExecution(init: AmazonSimpleWorkflowTerminateWorkflowExecutionCommand.() -> Unit): codingue.koops.core.VoidResult {
+	return this.block.declare(AmazonSimpleWorkflowTerminateWorkflowExecutionCommand().apply(init)) as codingue.koops.core.VoidResult
 }
 
 @Generated
-class AmazonSimpleWorkflowTerminateWorkflowExecutionCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.TerminateWorkflowExecutionRequest> {
+class AmazonSimpleWorkflowTerminateWorkflowExecutionCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpleworkflow.model.TerminateWorkflowExecutionRequest, codingue.koops.core.VoidResult> {
 
 	var domain: String? = null
 	var workflowId: String? = null
@@ -1161,8 +1281,12 @@ class AmazonSimpleWorkflowTerminateWorkflowExecutionCommand() : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.swf.terminateWorkflowExecution(build())
+	override fun dryResult(): codingue.koops.core.VoidResult {
+	  return codingue.koops.core.VoidResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): codingue.koops.core.VoidResult {
+		return environment.swf.terminateWorkflowExecution(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.resource_groups: AWSResourceGroups
 @Generated
 class AWSResourceGroupsFunctions(val block: Block)
 
-infix fun AwsContinuation.resource_groups(init: AWSResourceGroupsFunctions.() -> Unit) {
-	AWSResourceGroupsFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.resource_groups(init: AWSResourceGroupsFunctions.() -> T): T {
+	return AWSResourceGroupsFunctions(shell).run(init)
 }
 
 			
 
-fun AWSResourceGroupsFunctions.createGroup(name: String, resourceQuery: com.amazonaws.services.resourcegroups.model.ResourceQuery, init: AWSResourceGroupsCreateGroupCommand.() -> Unit) {
-	this.block.declare(AWSResourceGroupsCreateGroupCommand(name, resourceQuery).apply(init))
+fun AWSResourceGroupsFunctions.createGroup(name: String, resourceQuery: com.amazonaws.services.resourcegroups.model.ResourceQuery, init: AWSResourceGroupsCreateGroupCommand.() -> Unit): com.amazonaws.services.resourcegroups.model.CreateGroupResult {
+	return this.block.declare(AWSResourceGroupsCreateGroupCommand(name, resourceQuery).apply(init)) as com.amazonaws.services.resourcegroups.model.CreateGroupResult
 }
 
 @Generated
-class AWSResourceGroupsCreateGroupCommand(val name: String, val resourceQuery: com.amazonaws.services.resourcegroups.model.ResourceQuery) : AmazonWebServiceCommand<com.amazonaws.services.resourcegroups.model.CreateGroupRequest> {
+class AWSResourceGroupsCreateGroupCommand(val name: String, val resourceQuery: com.amazonaws.services.resourcegroups.model.ResourceQuery) : AmazonWebServiceCommand<com.amazonaws.services.resourcegroups.model.CreateGroupRequest, com.amazonaws.services.resourcegroups.model.CreateGroupResult> {
 
 	var description: String? = null
 	var tags: Map<String, String>? = null
@@ -45,8 +45,12 @@ class AWSResourceGroupsCreateGroupCommand(val name: String, val resourceQuery: c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.resource_groups.createGroup(build())
+	override fun dryResult(): com.amazonaws.services.resourcegroups.model.CreateGroupResult {
+	  return com.amazonaws.services.resourcegroups.model.CreateGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.resourcegroups.model.CreateGroupResult {
+		return environment.resource_groups.createGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -60,12 +64,12 @@ class AWSResourceGroupsCreateGroupCommand(val name: String, val resourceQuery: c
 }
 
 
-fun AWSResourceGroupsFunctions.deleteGroup(groupName: String, init: AWSResourceGroupsDeleteGroupCommand.() -> Unit) {
-	this.block.declare(AWSResourceGroupsDeleteGroupCommand(groupName).apply(init))
+fun AWSResourceGroupsFunctions.deleteGroup(groupName: String, init: AWSResourceGroupsDeleteGroupCommand.() -> Unit): com.amazonaws.services.resourcegroups.model.DeleteGroupResult {
+	return this.block.declare(AWSResourceGroupsDeleteGroupCommand(groupName).apply(init)) as com.amazonaws.services.resourcegroups.model.DeleteGroupResult
 }
 
 @Generated
-class AWSResourceGroupsDeleteGroupCommand(val groupName: String) : AmazonWebServiceCommand<com.amazonaws.services.resourcegroups.model.DeleteGroupRequest> {
+class AWSResourceGroupsDeleteGroupCommand(val groupName: String) : AmazonWebServiceCommand<com.amazonaws.services.resourcegroups.model.DeleteGroupRequest, com.amazonaws.services.resourcegroups.model.DeleteGroupResult> {
 
 
 
@@ -75,8 +79,12 @@ class AWSResourceGroupsDeleteGroupCommand(val groupName: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.resource_groups.deleteGroup(build())
+	override fun dryResult(): com.amazonaws.services.resourcegroups.model.DeleteGroupResult {
+	  return com.amazonaws.services.resourcegroups.model.DeleteGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.resourcegroups.model.DeleteGroupResult {
+		return environment.resource_groups.deleteGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -87,12 +95,12 @@ class AWSResourceGroupsDeleteGroupCommand(val groupName: String) : AmazonWebServ
 }
 
 
-fun AWSResourceGroupsFunctions.getGroup(groupName: String, init: AWSResourceGroupsGetGroupCommand.() -> Unit) {
-	this.block.declare(AWSResourceGroupsGetGroupCommand(groupName).apply(init))
+fun AWSResourceGroupsFunctions.getGroup(groupName: String, init: AWSResourceGroupsGetGroupCommand.() -> Unit): com.amazonaws.services.resourcegroups.model.GetGroupResult {
+	return this.block.declare(AWSResourceGroupsGetGroupCommand(groupName).apply(init)) as com.amazonaws.services.resourcegroups.model.GetGroupResult
 }
 
 @Generated
-class AWSResourceGroupsGetGroupCommand(val groupName: String) : AmazonWebServiceCommand<com.amazonaws.services.resourcegroups.model.GetGroupRequest> {
+class AWSResourceGroupsGetGroupCommand(val groupName: String) : AmazonWebServiceCommand<com.amazonaws.services.resourcegroups.model.GetGroupRequest, com.amazonaws.services.resourcegroups.model.GetGroupResult> {
 
 
 
@@ -102,8 +110,12 @@ class AWSResourceGroupsGetGroupCommand(val groupName: String) : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.resource_groups.getGroup(build())
+	override fun dryResult(): com.amazonaws.services.resourcegroups.model.GetGroupResult {
+	  return com.amazonaws.services.resourcegroups.model.GetGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.resourcegroups.model.GetGroupResult {
+		return environment.resource_groups.getGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -114,12 +126,12 @@ class AWSResourceGroupsGetGroupCommand(val groupName: String) : AmazonWebService
 }
 
 
-fun AWSResourceGroupsFunctions.getGroupQuery(groupName: String, init: AWSResourceGroupsGetGroupQueryCommand.() -> Unit) {
-	this.block.declare(AWSResourceGroupsGetGroupQueryCommand(groupName).apply(init))
+fun AWSResourceGroupsFunctions.getGroupQuery(groupName: String, init: AWSResourceGroupsGetGroupQueryCommand.() -> Unit): com.amazonaws.services.resourcegroups.model.GetGroupQueryResult {
+	return this.block.declare(AWSResourceGroupsGetGroupQueryCommand(groupName).apply(init)) as com.amazonaws.services.resourcegroups.model.GetGroupQueryResult
 }
 
 @Generated
-class AWSResourceGroupsGetGroupQueryCommand(val groupName: String) : AmazonWebServiceCommand<com.amazonaws.services.resourcegroups.model.GetGroupQueryRequest> {
+class AWSResourceGroupsGetGroupQueryCommand(val groupName: String) : AmazonWebServiceCommand<com.amazonaws.services.resourcegroups.model.GetGroupQueryRequest, com.amazonaws.services.resourcegroups.model.GetGroupQueryResult> {
 
 
 
@@ -129,8 +141,12 @@ class AWSResourceGroupsGetGroupQueryCommand(val groupName: String) : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.resource_groups.getGroupQuery(build())
+	override fun dryResult(): com.amazonaws.services.resourcegroups.model.GetGroupQueryResult {
+	  return com.amazonaws.services.resourcegroups.model.GetGroupQueryResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.resourcegroups.model.GetGroupQueryResult {
+		return environment.resource_groups.getGroupQuery(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -141,12 +157,12 @@ class AWSResourceGroupsGetGroupQueryCommand(val groupName: String) : AmazonWebSe
 }
 
 
-fun AWSResourceGroupsFunctions.getTags(arn: String, init: AWSResourceGroupsGetTagsCommand.() -> Unit) {
-	this.block.declare(AWSResourceGroupsGetTagsCommand(arn).apply(init))
+fun AWSResourceGroupsFunctions.getTags(arn: String, init: AWSResourceGroupsGetTagsCommand.() -> Unit): com.amazonaws.services.resourcegroups.model.GetTagsResult {
+	return this.block.declare(AWSResourceGroupsGetTagsCommand(arn).apply(init)) as com.amazonaws.services.resourcegroups.model.GetTagsResult
 }
 
 @Generated
-class AWSResourceGroupsGetTagsCommand(val arn: String) : AmazonWebServiceCommand<com.amazonaws.services.resourcegroups.model.GetTagsRequest> {
+class AWSResourceGroupsGetTagsCommand(val arn: String) : AmazonWebServiceCommand<com.amazonaws.services.resourcegroups.model.GetTagsRequest, com.amazonaws.services.resourcegroups.model.GetTagsResult> {
 
 
 
@@ -156,8 +172,12 @@ class AWSResourceGroupsGetTagsCommand(val arn: String) : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.resource_groups.getTags(build())
+	override fun dryResult(): com.amazonaws.services.resourcegroups.model.GetTagsResult {
+	  return com.amazonaws.services.resourcegroups.model.GetTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.resourcegroups.model.GetTagsResult {
+		return environment.resource_groups.getTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -168,12 +188,12 @@ class AWSResourceGroupsGetTagsCommand(val arn: String) : AmazonWebServiceCommand
 }
 
 
-fun AWSResourceGroupsFunctions.listGroupResources(groupName: String, init: AWSResourceGroupsListGroupResourcesCommand.() -> Unit) {
-	this.block.declare(AWSResourceGroupsListGroupResourcesCommand(groupName).apply(init))
+fun AWSResourceGroupsFunctions.listGroupResources(groupName: String, init: AWSResourceGroupsListGroupResourcesCommand.() -> Unit): com.amazonaws.services.resourcegroups.model.ListGroupResourcesResult {
+	return this.block.declare(AWSResourceGroupsListGroupResourcesCommand(groupName).apply(init)) as com.amazonaws.services.resourcegroups.model.ListGroupResourcesResult
 }
 
 @Generated
-class AWSResourceGroupsListGroupResourcesCommand(val groupName: String) : AmazonWebServiceCommand<com.amazonaws.services.resourcegroups.model.ListGroupResourcesRequest> {
+class AWSResourceGroupsListGroupResourcesCommand(val groupName: String) : AmazonWebServiceCommand<com.amazonaws.services.resourcegroups.model.ListGroupResourcesRequest, com.amazonaws.services.resourcegroups.model.ListGroupResourcesResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -186,8 +206,12 @@ class AWSResourceGroupsListGroupResourcesCommand(val groupName: String) : Amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.resource_groups.listGroupResources(build())
+	override fun dryResult(): com.amazonaws.services.resourcegroups.model.ListGroupResourcesResult {
+	  return com.amazonaws.services.resourcegroups.model.ListGroupResourcesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.resourcegroups.model.ListGroupResourcesResult {
+		return environment.resource_groups.listGroupResources(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -200,12 +224,12 @@ class AWSResourceGroupsListGroupResourcesCommand(val groupName: String) : Amazon
 }
 
 
-fun AWSResourceGroupsFunctions.listGroups(init: AWSResourceGroupsListGroupsCommand.() -> Unit) {
-	this.block.declare(AWSResourceGroupsListGroupsCommand().apply(init))
+fun AWSResourceGroupsFunctions.listGroups(init: AWSResourceGroupsListGroupsCommand.() -> Unit): com.amazonaws.services.resourcegroups.model.ListGroupsResult {
+	return this.block.declare(AWSResourceGroupsListGroupsCommand().apply(init)) as com.amazonaws.services.resourcegroups.model.ListGroupsResult
 }
 
 @Generated
-class AWSResourceGroupsListGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.services.resourcegroups.model.ListGroupsRequest> {
+class AWSResourceGroupsListGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.services.resourcegroups.model.ListGroupsRequest, com.amazonaws.services.resourcegroups.model.ListGroupsResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -217,8 +241,12 @@ class AWSResourceGroupsListGroupsCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.resource_groups.listGroups(build())
+	override fun dryResult(): com.amazonaws.services.resourcegroups.model.ListGroupsResult {
+	  return com.amazonaws.services.resourcegroups.model.ListGroupsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.resourcegroups.model.ListGroupsResult {
+		return environment.resource_groups.listGroups(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -230,12 +258,12 @@ class AWSResourceGroupsListGroupsCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AWSResourceGroupsFunctions.searchResources(resourceQuery: com.amazonaws.services.resourcegroups.model.ResourceQuery, init: AWSResourceGroupsSearchResourcesCommand.() -> Unit) {
-	this.block.declare(AWSResourceGroupsSearchResourcesCommand(resourceQuery).apply(init))
+fun AWSResourceGroupsFunctions.searchResources(resourceQuery: com.amazonaws.services.resourcegroups.model.ResourceQuery, init: AWSResourceGroupsSearchResourcesCommand.() -> Unit): com.amazonaws.services.resourcegroups.model.SearchResourcesResult {
+	return this.block.declare(AWSResourceGroupsSearchResourcesCommand(resourceQuery).apply(init)) as com.amazonaws.services.resourcegroups.model.SearchResourcesResult
 }
 
 @Generated
-class AWSResourceGroupsSearchResourcesCommand(val resourceQuery: com.amazonaws.services.resourcegroups.model.ResourceQuery) : AmazonWebServiceCommand<com.amazonaws.services.resourcegroups.model.SearchResourcesRequest> {
+class AWSResourceGroupsSearchResourcesCommand(val resourceQuery: com.amazonaws.services.resourcegroups.model.ResourceQuery) : AmazonWebServiceCommand<com.amazonaws.services.resourcegroups.model.SearchResourcesRequest, com.amazonaws.services.resourcegroups.model.SearchResourcesResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -248,8 +276,12 @@ class AWSResourceGroupsSearchResourcesCommand(val resourceQuery: com.amazonaws.s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.resource_groups.searchResources(build())
+	override fun dryResult(): com.amazonaws.services.resourcegroups.model.SearchResourcesResult {
+	  return com.amazonaws.services.resourcegroups.model.SearchResourcesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.resourcegroups.model.SearchResourcesResult {
+		return environment.resource_groups.searchResources(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -262,12 +294,12 @@ class AWSResourceGroupsSearchResourcesCommand(val resourceQuery: com.amazonaws.s
 }
 
 
-fun AWSResourceGroupsFunctions.tag(arn: String, tags: Map<String, String>, init: AWSResourceGroupsTagCommand.() -> Unit) {
-	this.block.declare(AWSResourceGroupsTagCommand(arn, tags).apply(init))
+fun AWSResourceGroupsFunctions.tag(arn: String, tags: Map<String, String>, init: AWSResourceGroupsTagCommand.() -> Unit): com.amazonaws.services.resourcegroups.model.TagResult {
+	return this.block.declare(AWSResourceGroupsTagCommand(arn, tags).apply(init)) as com.amazonaws.services.resourcegroups.model.TagResult
 }
 
 @Generated
-class AWSResourceGroupsTagCommand(val arn: String, val tags: Map<String, String>) : AmazonWebServiceCommand<com.amazonaws.services.resourcegroups.model.TagRequest> {
+class AWSResourceGroupsTagCommand(val arn: String, val tags: Map<String, String>) : AmazonWebServiceCommand<com.amazonaws.services.resourcegroups.model.TagRequest, com.amazonaws.services.resourcegroups.model.TagResult> {
 
 
 
@@ -278,8 +310,12 @@ class AWSResourceGroupsTagCommand(val arn: String, val tags: Map<String, String>
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.resource_groups.tag(build())
+	override fun dryResult(): com.amazonaws.services.resourcegroups.model.TagResult {
+	  return com.amazonaws.services.resourcegroups.model.TagResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.resourcegroups.model.TagResult {
+		return environment.resource_groups.tag(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -291,12 +327,12 @@ class AWSResourceGroupsTagCommand(val arn: String, val tags: Map<String, String>
 }
 
 
-fun AWSResourceGroupsFunctions.untag(arn: String, keys: List<String>, init: AWSResourceGroupsUntagCommand.() -> Unit) {
-	this.block.declare(AWSResourceGroupsUntagCommand(arn, keys).apply(init))
+fun AWSResourceGroupsFunctions.untag(arn: String, keys: List<String>, init: AWSResourceGroupsUntagCommand.() -> Unit): com.amazonaws.services.resourcegroups.model.UntagResult {
+	return this.block.declare(AWSResourceGroupsUntagCommand(arn, keys).apply(init)) as com.amazonaws.services.resourcegroups.model.UntagResult
 }
 
 @Generated
-class AWSResourceGroupsUntagCommand(val arn: String, val keys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.resourcegroups.model.UntagRequest> {
+class AWSResourceGroupsUntagCommand(val arn: String, val keys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.resourcegroups.model.UntagRequest, com.amazonaws.services.resourcegroups.model.UntagResult> {
 
 
 
@@ -307,8 +343,12 @@ class AWSResourceGroupsUntagCommand(val arn: String, val keys: List<String>) : A
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.resource_groups.untag(build())
+	override fun dryResult(): com.amazonaws.services.resourcegroups.model.UntagResult {
+	  return com.amazonaws.services.resourcegroups.model.UntagResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.resourcegroups.model.UntagResult {
+		return environment.resource_groups.untag(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -320,12 +360,12 @@ class AWSResourceGroupsUntagCommand(val arn: String, val keys: List<String>) : A
 }
 
 
-fun AWSResourceGroupsFunctions.updateGroup(groupName: String, init: AWSResourceGroupsUpdateGroupCommand.() -> Unit) {
-	this.block.declare(AWSResourceGroupsUpdateGroupCommand(groupName).apply(init))
+fun AWSResourceGroupsFunctions.updateGroup(groupName: String, init: AWSResourceGroupsUpdateGroupCommand.() -> Unit): com.amazonaws.services.resourcegroups.model.UpdateGroupResult {
+	return this.block.declare(AWSResourceGroupsUpdateGroupCommand(groupName).apply(init)) as com.amazonaws.services.resourcegroups.model.UpdateGroupResult
 }
 
 @Generated
-class AWSResourceGroupsUpdateGroupCommand(val groupName: String) : AmazonWebServiceCommand<com.amazonaws.services.resourcegroups.model.UpdateGroupRequest> {
+class AWSResourceGroupsUpdateGroupCommand(val groupName: String) : AmazonWebServiceCommand<com.amazonaws.services.resourcegroups.model.UpdateGroupRequest, com.amazonaws.services.resourcegroups.model.UpdateGroupResult> {
 
 	var description: String? = null
 
@@ -336,8 +376,12 @@ class AWSResourceGroupsUpdateGroupCommand(val groupName: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.resource_groups.updateGroup(build())
+	override fun dryResult(): com.amazonaws.services.resourcegroups.model.UpdateGroupResult {
+	  return com.amazonaws.services.resourcegroups.model.UpdateGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.resourcegroups.model.UpdateGroupResult {
+		return environment.resource_groups.updateGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -349,12 +393,12 @@ class AWSResourceGroupsUpdateGroupCommand(val groupName: String) : AmazonWebServ
 }
 
 
-fun AWSResourceGroupsFunctions.updateGroupQuery(groupName: String, resourceQuery: com.amazonaws.services.resourcegroups.model.ResourceQuery, init: AWSResourceGroupsUpdateGroupQueryCommand.() -> Unit) {
-	this.block.declare(AWSResourceGroupsUpdateGroupQueryCommand(groupName, resourceQuery).apply(init))
+fun AWSResourceGroupsFunctions.updateGroupQuery(groupName: String, resourceQuery: com.amazonaws.services.resourcegroups.model.ResourceQuery, init: AWSResourceGroupsUpdateGroupQueryCommand.() -> Unit): com.amazonaws.services.resourcegroups.model.UpdateGroupQueryResult {
+	return this.block.declare(AWSResourceGroupsUpdateGroupQueryCommand(groupName, resourceQuery).apply(init)) as com.amazonaws.services.resourcegroups.model.UpdateGroupQueryResult
 }
 
 @Generated
-class AWSResourceGroupsUpdateGroupQueryCommand(val groupName: String, val resourceQuery: com.amazonaws.services.resourcegroups.model.ResourceQuery) : AmazonWebServiceCommand<com.amazonaws.services.resourcegroups.model.UpdateGroupQueryRequest> {
+class AWSResourceGroupsUpdateGroupQueryCommand(val groupName: String, val resourceQuery: com.amazonaws.services.resourcegroups.model.ResourceQuery) : AmazonWebServiceCommand<com.amazonaws.services.resourcegroups.model.UpdateGroupQueryRequest, com.amazonaws.services.resourcegroups.model.UpdateGroupQueryResult> {
 
 
 
@@ -365,8 +409,12 @@ class AWSResourceGroupsUpdateGroupQueryCommand(val groupName: String, val resour
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.resource_groups.updateGroupQuery(build())
+	override fun dryResult(): com.amazonaws.services.resourcegroups.model.UpdateGroupQueryResult {
+	  return com.amazonaws.services.resourcegroups.model.UpdateGroupQueryResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.resourcegroups.model.UpdateGroupQueryResult {
+		return environment.resource_groups.updateGroupQuery(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

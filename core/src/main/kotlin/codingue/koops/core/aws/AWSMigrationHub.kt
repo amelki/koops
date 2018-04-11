@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.mgh: AWSMigrationHub
 @Generated
 class AWSMigrationHubFunctions(val block: Block)
 
-infix fun AwsContinuation.mgh(init: AWSMigrationHubFunctions.() -> Unit) {
-	AWSMigrationHubFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.mgh(init: AWSMigrationHubFunctions.() -> T): T {
+	return AWSMigrationHubFunctions(shell).run(init)
 }
 
 			
 
-fun AWSMigrationHubFunctions.associateCreatedArtifact(progressUpdateStream: String, migrationTaskName: String, createdArtifact: com.amazonaws.services.migrationhub.model.CreatedArtifact, init: AWSMigrationHubAssociateCreatedArtifactCommand.() -> Unit) {
-	this.block.declare(AWSMigrationHubAssociateCreatedArtifactCommand(progressUpdateStream, migrationTaskName, createdArtifact).apply(init))
+fun AWSMigrationHubFunctions.associateCreatedArtifact(progressUpdateStream: String, migrationTaskName: String, createdArtifact: com.amazonaws.services.migrationhub.model.CreatedArtifact, init: AWSMigrationHubAssociateCreatedArtifactCommand.() -> Unit): com.amazonaws.services.migrationhub.model.AssociateCreatedArtifactResult {
+	return this.block.declare(AWSMigrationHubAssociateCreatedArtifactCommand(progressUpdateStream, migrationTaskName, createdArtifact).apply(init)) as com.amazonaws.services.migrationhub.model.AssociateCreatedArtifactResult
 }
 
 @Generated
-class AWSMigrationHubAssociateCreatedArtifactCommand(val progressUpdateStream: String, val migrationTaskName: String, val createdArtifact: com.amazonaws.services.migrationhub.model.CreatedArtifact) : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.AssociateCreatedArtifactRequest> {
+class AWSMigrationHubAssociateCreatedArtifactCommand(val progressUpdateStream: String, val migrationTaskName: String, val createdArtifact: com.amazonaws.services.migrationhub.model.CreatedArtifact) : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.AssociateCreatedArtifactRequest, com.amazonaws.services.migrationhub.model.AssociateCreatedArtifactResult> {
 
 	var dryRun: Boolean? = false
 
@@ -44,8 +44,12 @@ class AWSMigrationHubAssociateCreatedArtifactCommand(val progressUpdateStream: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mgh.associateCreatedArtifact(build())
+	override fun dryResult(): com.amazonaws.services.migrationhub.model.AssociateCreatedArtifactResult {
+	  return com.amazonaws.services.migrationhub.model.AssociateCreatedArtifactResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.AssociateCreatedArtifactResult {
+		return environment.mgh.associateCreatedArtifact(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -59,12 +63,12 @@ class AWSMigrationHubAssociateCreatedArtifactCommand(val progressUpdateStream: S
 }
 
 
-fun AWSMigrationHubFunctions.associateDiscoveredResource(progressUpdateStream: String, migrationTaskName: String, discoveredResource: com.amazonaws.services.migrationhub.model.DiscoveredResource, init: AWSMigrationHubAssociateDiscoveredResourceCommand.() -> Unit) {
-	this.block.declare(AWSMigrationHubAssociateDiscoveredResourceCommand(progressUpdateStream, migrationTaskName, discoveredResource).apply(init))
+fun AWSMigrationHubFunctions.associateDiscoveredResource(progressUpdateStream: String, migrationTaskName: String, discoveredResource: com.amazonaws.services.migrationhub.model.DiscoveredResource, init: AWSMigrationHubAssociateDiscoveredResourceCommand.() -> Unit): com.amazonaws.services.migrationhub.model.AssociateDiscoveredResourceResult {
+	return this.block.declare(AWSMigrationHubAssociateDiscoveredResourceCommand(progressUpdateStream, migrationTaskName, discoveredResource).apply(init)) as com.amazonaws.services.migrationhub.model.AssociateDiscoveredResourceResult
 }
 
 @Generated
-class AWSMigrationHubAssociateDiscoveredResourceCommand(val progressUpdateStream: String, val migrationTaskName: String, val discoveredResource: com.amazonaws.services.migrationhub.model.DiscoveredResource) : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.AssociateDiscoveredResourceRequest> {
+class AWSMigrationHubAssociateDiscoveredResourceCommand(val progressUpdateStream: String, val migrationTaskName: String, val discoveredResource: com.amazonaws.services.migrationhub.model.DiscoveredResource) : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.AssociateDiscoveredResourceRequest, com.amazonaws.services.migrationhub.model.AssociateDiscoveredResourceResult> {
 
 	var dryRun: Boolean? = false
 
@@ -77,8 +81,12 @@ class AWSMigrationHubAssociateDiscoveredResourceCommand(val progressUpdateStream
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mgh.associateDiscoveredResource(build())
+	override fun dryResult(): com.amazonaws.services.migrationhub.model.AssociateDiscoveredResourceResult {
+	  return com.amazonaws.services.migrationhub.model.AssociateDiscoveredResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.AssociateDiscoveredResourceResult {
+		return environment.mgh.associateDiscoveredResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -92,12 +100,12 @@ class AWSMigrationHubAssociateDiscoveredResourceCommand(val progressUpdateStream
 }
 
 
-fun AWSMigrationHubFunctions.createProgressUpdateStream(progressUpdateStreamName: String, init: AWSMigrationHubCreateProgressUpdateStreamCommand.() -> Unit) {
-	this.block.declare(AWSMigrationHubCreateProgressUpdateStreamCommand(progressUpdateStreamName).apply(init))
+fun AWSMigrationHubFunctions.createProgressUpdateStream(progressUpdateStreamName: String, init: AWSMigrationHubCreateProgressUpdateStreamCommand.() -> Unit): com.amazonaws.services.migrationhub.model.CreateProgressUpdateStreamResult {
+	return this.block.declare(AWSMigrationHubCreateProgressUpdateStreamCommand(progressUpdateStreamName).apply(init)) as com.amazonaws.services.migrationhub.model.CreateProgressUpdateStreamResult
 }
 
 @Generated
-class AWSMigrationHubCreateProgressUpdateStreamCommand(val progressUpdateStreamName: String) : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.CreateProgressUpdateStreamRequest> {
+class AWSMigrationHubCreateProgressUpdateStreamCommand(val progressUpdateStreamName: String) : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.CreateProgressUpdateStreamRequest, com.amazonaws.services.migrationhub.model.CreateProgressUpdateStreamResult> {
 
 	var dryRun: Boolean? = false
 
@@ -108,8 +116,12 @@ class AWSMigrationHubCreateProgressUpdateStreamCommand(val progressUpdateStreamN
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mgh.createProgressUpdateStream(build())
+	override fun dryResult(): com.amazonaws.services.migrationhub.model.CreateProgressUpdateStreamResult {
+	  return com.amazonaws.services.migrationhub.model.CreateProgressUpdateStreamResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.CreateProgressUpdateStreamResult {
+		return environment.mgh.createProgressUpdateStream(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -121,12 +133,12 @@ class AWSMigrationHubCreateProgressUpdateStreamCommand(val progressUpdateStreamN
 }
 
 
-fun AWSMigrationHubFunctions.deleteProgressUpdateStream(progressUpdateStreamName: String, init: AWSMigrationHubDeleteProgressUpdateStreamCommand.() -> Unit) {
-	this.block.declare(AWSMigrationHubDeleteProgressUpdateStreamCommand(progressUpdateStreamName).apply(init))
+fun AWSMigrationHubFunctions.deleteProgressUpdateStream(progressUpdateStreamName: String, init: AWSMigrationHubDeleteProgressUpdateStreamCommand.() -> Unit): com.amazonaws.services.migrationhub.model.DeleteProgressUpdateStreamResult {
+	return this.block.declare(AWSMigrationHubDeleteProgressUpdateStreamCommand(progressUpdateStreamName).apply(init)) as com.amazonaws.services.migrationhub.model.DeleteProgressUpdateStreamResult
 }
 
 @Generated
-class AWSMigrationHubDeleteProgressUpdateStreamCommand(val progressUpdateStreamName: String) : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.DeleteProgressUpdateStreamRequest> {
+class AWSMigrationHubDeleteProgressUpdateStreamCommand(val progressUpdateStreamName: String) : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.DeleteProgressUpdateStreamRequest, com.amazonaws.services.migrationhub.model.DeleteProgressUpdateStreamResult> {
 
 	var dryRun: Boolean? = false
 
@@ -137,8 +149,12 @@ class AWSMigrationHubDeleteProgressUpdateStreamCommand(val progressUpdateStreamN
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mgh.deleteProgressUpdateStream(build())
+	override fun dryResult(): com.amazonaws.services.migrationhub.model.DeleteProgressUpdateStreamResult {
+	  return com.amazonaws.services.migrationhub.model.DeleteProgressUpdateStreamResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.DeleteProgressUpdateStreamResult {
+		return environment.mgh.deleteProgressUpdateStream(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -150,12 +166,12 @@ class AWSMigrationHubDeleteProgressUpdateStreamCommand(val progressUpdateStreamN
 }
 
 
-fun AWSMigrationHubFunctions.describeApplicationState(applicationId: String, init: AWSMigrationHubDescribeApplicationStateCommand.() -> Unit) {
-	this.block.declare(AWSMigrationHubDescribeApplicationStateCommand(applicationId).apply(init))
+fun AWSMigrationHubFunctions.describeApplicationState(applicationId: String, init: AWSMigrationHubDescribeApplicationStateCommand.() -> Unit): com.amazonaws.services.migrationhub.model.DescribeApplicationStateResult {
+	return this.block.declare(AWSMigrationHubDescribeApplicationStateCommand(applicationId).apply(init)) as com.amazonaws.services.migrationhub.model.DescribeApplicationStateResult
 }
 
 @Generated
-class AWSMigrationHubDescribeApplicationStateCommand(val applicationId: String) : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.DescribeApplicationStateRequest> {
+class AWSMigrationHubDescribeApplicationStateCommand(val applicationId: String) : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.DescribeApplicationStateRequest, com.amazonaws.services.migrationhub.model.DescribeApplicationStateResult> {
 
 
 
@@ -165,8 +181,12 @@ class AWSMigrationHubDescribeApplicationStateCommand(val applicationId: String) 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mgh.describeApplicationState(build())
+	override fun dryResult(): com.amazonaws.services.migrationhub.model.DescribeApplicationStateResult {
+	  return com.amazonaws.services.migrationhub.model.DescribeApplicationStateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.DescribeApplicationStateResult {
+		return environment.mgh.describeApplicationState(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -177,12 +197,12 @@ class AWSMigrationHubDescribeApplicationStateCommand(val applicationId: String) 
 }
 
 
-fun AWSMigrationHubFunctions.describeMigrationTask(progressUpdateStream: String, migrationTaskName: String, init: AWSMigrationHubDescribeMigrationTaskCommand.() -> Unit) {
-	this.block.declare(AWSMigrationHubDescribeMigrationTaskCommand(progressUpdateStream, migrationTaskName).apply(init))
+fun AWSMigrationHubFunctions.describeMigrationTask(progressUpdateStream: String, migrationTaskName: String, init: AWSMigrationHubDescribeMigrationTaskCommand.() -> Unit): com.amazonaws.services.migrationhub.model.DescribeMigrationTaskResult {
+	return this.block.declare(AWSMigrationHubDescribeMigrationTaskCommand(progressUpdateStream, migrationTaskName).apply(init)) as com.amazonaws.services.migrationhub.model.DescribeMigrationTaskResult
 }
 
 @Generated
-class AWSMigrationHubDescribeMigrationTaskCommand(val progressUpdateStream: String, val migrationTaskName: String) : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.DescribeMigrationTaskRequest> {
+class AWSMigrationHubDescribeMigrationTaskCommand(val progressUpdateStream: String, val migrationTaskName: String) : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.DescribeMigrationTaskRequest, com.amazonaws.services.migrationhub.model.DescribeMigrationTaskResult> {
 
 
 
@@ -193,8 +213,12 @@ class AWSMigrationHubDescribeMigrationTaskCommand(val progressUpdateStream: Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mgh.describeMigrationTask(build())
+	override fun dryResult(): com.amazonaws.services.migrationhub.model.DescribeMigrationTaskResult {
+	  return com.amazonaws.services.migrationhub.model.DescribeMigrationTaskResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.DescribeMigrationTaskResult {
+		return environment.mgh.describeMigrationTask(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -206,12 +230,12 @@ class AWSMigrationHubDescribeMigrationTaskCommand(val progressUpdateStream: Stri
 }
 
 
-fun AWSMigrationHubFunctions.disassociateCreatedArtifact(progressUpdateStream: String, migrationTaskName: String, createdArtifactName: String, init: AWSMigrationHubDisassociateCreatedArtifactCommand.() -> Unit) {
-	this.block.declare(AWSMigrationHubDisassociateCreatedArtifactCommand(progressUpdateStream, migrationTaskName, createdArtifactName).apply(init))
+fun AWSMigrationHubFunctions.disassociateCreatedArtifact(progressUpdateStream: String, migrationTaskName: String, createdArtifactName: String, init: AWSMigrationHubDisassociateCreatedArtifactCommand.() -> Unit): com.amazonaws.services.migrationhub.model.DisassociateCreatedArtifactResult {
+	return this.block.declare(AWSMigrationHubDisassociateCreatedArtifactCommand(progressUpdateStream, migrationTaskName, createdArtifactName).apply(init)) as com.amazonaws.services.migrationhub.model.DisassociateCreatedArtifactResult
 }
 
 @Generated
-class AWSMigrationHubDisassociateCreatedArtifactCommand(val progressUpdateStream: String, val migrationTaskName: String, val createdArtifactName: String) : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.DisassociateCreatedArtifactRequest> {
+class AWSMigrationHubDisassociateCreatedArtifactCommand(val progressUpdateStream: String, val migrationTaskName: String, val createdArtifactName: String) : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.DisassociateCreatedArtifactRequest, com.amazonaws.services.migrationhub.model.DisassociateCreatedArtifactResult> {
 
 	var dryRun: Boolean? = false
 
@@ -224,8 +248,12 @@ class AWSMigrationHubDisassociateCreatedArtifactCommand(val progressUpdateStream
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mgh.disassociateCreatedArtifact(build())
+	override fun dryResult(): com.amazonaws.services.migrationhub.model.DisassociateCreatedArtifactResult {
+	  return com.amazonaws.services.migrationhub.model.DisassociateCreatedArtifactResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.DisassociateCreatedArtifactResult {
+		return environment.mgh.disassociateCreatedArtifact(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -239,12 +267,12 @@ class AWSMigrationHubDisassociateCreatedArtifactCommand(val progressUpdateStream
 }
 
 
-fun AWSMigrationHubFunctions.disassociateDiscoveredResource(progressUpdateStream: String, migrationTaskName: String, configurationId: String, init: AWSMigrationHubDisassociateDiscoveredResourceCommand.() -> Unit) {
-	this.block.declare(AWSMigrationHubDisassociateDiscoveredResourceCommand(progressUpdateStream, migrationTaskName, configurationId).apply(init))
+fun AWSMigrationHubFunctions.disassociateDiscoveredResource(progressUpdateStream: String, migrationTaskName: String, configurationId: String, init: AWSMigrationHubDisassociateDiscoveredResourceCommand.() -> Unit): com.amazonaws.services.migrationhub.model.DisassociateDiscoveredResourceResult {
+	return this.block.declare(AWSMigrationHubDisassociateDiscoveredResourceCommand(progressUpdateStream, migrationTaskName, configurationId).apply(init)) as com.amazonaws.services.migrationhub.model.DisassociateDiscoveredResourceResult
 }
 
 @Generated
-class AWSMigrationHubDisassociateDiscoveredResourceCommand(val progressUpdateStream: String, val migrationTaskName: String, val configurationId: String) : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.DisassociateDiscoveredResourceRequest> {
+class AWSMigrationHubDisassociateDiscoveredResourceCommand(val progressUpdateStream: String, val migrationTaskName: String, val configurationId: String) : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.DisassociateDiscoveredResourceRequest, com.amazonaws.services.migrationhub.model.DisassociateDiscoveredResourceResult> {
 
 	var dryRun: Boolean? = false
 
@@ -257,8 +285,12 @@ class AWSMigrationHubDisassociateDiscoveredResourceCommand(val progressUpdateStr
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mgh.disassociateDiscoveredResource(build())
+	override fun dryResult(): com.amazonaws.services.migrationhub.model.DisassociateDiscoveredResourceResult {
+	  return com.amazonaws.services.migrationhub.model.DisassociateDiscoveredResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.DisassociateDiscoveredResourceResult {
+		return environment.mgh.disassociateDiscoveredResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -272,12 +304,12 @@ class AWSMigrationHubDisassociateDiscoveredResourceCommand(val progressUpdateStr
 }
 
 
-fun AWSMigrationHubFunctions.importMigrationTask(progressUpdateStream: String, migrationTaskName: String, init: AWSMigrationHubImportMigrationTaskCommand.() -> Unit) {
-	this.block.declare(AWSMigrationHubImportMigrationTaskCommand(progressUpdateStream, migrationTaskName).apply(init))
+fun AWSMigrationHubFunctions.importMigrationTask(progressUpdateStream: String, migrationTaskName: String, init: AWSMigrationHubImportMigrationTaskCommand.() -> Unit): com.amazonaws.services.migrationhub.model.ImportMigrationTaskResult {
+	return this.block.declare(AWSMigrationHubImportMigrationTaskCommand(progressUpdateStream, migrationTaskName).apply(init)) as com.amazonaws.services.migrationhub.model.ImportMigrationTaskResult
 }
 
 @Generated
-class AWSMigrationHubImportMigrationTaskCommand(val progressUpdateStream: String, val migrationTaskName: String) : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.ImportMigrationTaskRequest> {
+class AWSMigrationHubImportMigrationTaskCommand(val progressUpdateStream: String, val migrationTaskName: String) : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.ImportMigrationTaskRequest, com.amazonaws.services.migrationhub.model.ImportMigrationTaskResult> {
 
 	var dryRun: Boolean? = false
 
@@ -289,8 +321,12 @@ class AWSMigrationHubImportMigrationTaskCommand(val progressUpdateStream: String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mgh.importMigrationTask(build())
+	override fun dryResult(): com.amazonaws.services.migrationhub.model.ImportMigrationTaskResult {
+	  return com.amazonaws.services.migrationhub.model.ImportMigrationTaskResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.ImportMigrationTaskResult {
+		return environment.mgh.importMigrationTask(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -303,12 +339,12 @@ class AWSMigrationHubImportMigrationTaskCommand(val progressUpdateStream: String
 }
 
 
-fun AWSMigrationHubFunctions.listCreatedArtifacts(progressUpdateStream: String, migrationTaskName: String, init: AWSMigrationHubListCreatedArtifactsCommand.() -> Unit) {
-	this.block.declare(AWSMigrationHubListCreatedArtifactsCommand(progressUpdateStream, migrationTaskName).apply(init))
+fun AWSMigrationHubFunctions.listCreatedArtifacts(progressUpdateStream: String, migrationTaskName: String, init: AWSMigrationHubListCreatedArtifactsCommand.() -> Unit): com.amazonaws.services.migrationhub.model.ListCreatedArtifactsResult {
+	return this.block.declare(AWSMigrationHubListCreatedArtifactsCommand(progressUpdateStream, migrationTaskName).apply(init)) as com.amazonaws.services.migrationhub.model.ListCreatedArtifactsResult
 }
 
 @Generated
-class AWSMigrationHubListCreatedArtifactsCommand(val progressUpdateStream: String, val migrationTaskName: String) : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.ListCreatedArtifactsRequest> {
+class AWSMigrationHubListCreatedArtifactsCommand(val progressUpdateStream: String, val migrationTaskName: String) : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.ListCreatedArtifactsRequest, com.amazonaws.services.migrationhub.model.ListCreatedArtifactsResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -322,8 +358,12 @@ class AWSMigrationHubListCreatedArtifactsCommand(val progressUpdateStream: Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mgh.listCreatedArtifacts(build())
+	override fun dryResult(): com.amazonaws.services.migrationhub.model.ListCreatedArtifactsResult {
+	  return com.amazonaws.services.migrationhub.model.ListCreatedArtifactsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.ListCreatedArtifactsResult {
+		return environment.mgh.listCreatedArtifacts(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -337,12 +377,12 @@ class AWSMigrationHubListCreatedArtifactsCommand(val progressUpdateStream: Strin
 }
 
 
-fun AWSMigrationHubFunctions.listDiscoveredResources(progressUpdateStream: String, migrationTaskName: String, init: AWSMigrationHubListDiscoveredResourcesCommand.() -> Unit) {
-	this.block.declare(AWSMigrationHubListDiscoveredResourcesCommand(progressUpdateStream, migrationTaskName).apply(init))
+fun AWSMigrationHubFunctions.listDiscoveredResources(progressUpdateStream: String, migrationTaskName: String, init: AWSMigrationHubListDiscoveredResourcesCommand.() -> Unit): com.amazonaws.services.migrationhub.model.ListDiscoveredResourcesResult {
+	return this.block.declare(AWSMigrationHubListDiscoveredResourcesCommand(progressUpdateStream, migrationTaskName).apply(init)) as com.amazonaws.services.migrationhub.model.ListDiscoveredResourcesResult
 }
 
 @Generated
-class AWSMigrationHubListDiscoveredResourcesCommand(val progressUpdateStream: String, val migrationTaskName: String) : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.ListDiscoveredResourcesRequest> {
+class AWSMigrationHubListDiscoveredResourcesCommand(val progressUpdateStream: String, val migrationTaskName: String) : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.ListDiscoveredResourcesRequest, com.amazonaws.services.migrationhub.model.ListDiscoveredResourcesResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -356,8 +396,12 @@ class AWSMigrationHubListDiscoveredResourcesCommand(val progressUpdateStream: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mgh.listDiscoveredResources(build())
+	override fun dryResult(): com.amazonaws.services.migrationhub.model.ListDiscoveredResourcesResult {
+	  return com.amazonaws.services.migrationhub.model.ListDiscoveredResourcesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.ListDiscoveredResourcesResult {
+		return environment.mgh.listDiscoveredResources(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -371,12 +415,12 @@ class AWSMigrationHubListDiscoveredResourcesCommand(val progressUpdateStream: St
 }
 
 
-fun AWSMigrationHubFunctions.listMigrationTasks(init: AWSMigrationHubListMigrationTasksCommand.() -> Unit) {
-	this.block.declare(AWSMigrationHubListMigrationTasksCommand().apply(init))
+fun AWSMigrationHubFunctions.listMigrationTasks(init: AWSMigrationHubListMigrationTasksCommand.() -> Unit): com.amazonaws.services.migrationhub.model.ListMigrationTasksResult {
+	return this.block.declare(AWSMigrationHubListMigrationTasksCommand().apply(init)) as com.amazonaws.services.migrationhub.model.ListMigrationTasksResult
 }
 
 @Generated
-class AWSMigrationHubListMigrationTasksCommand() : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.ListMigrationTasksRequest> {
+class AWSMigrationHubListMigrationTasksCommand() : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.ListMigrationTasksRequest, com.amazonaws.services.migrationhub.model.ListMigrationTasksResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -390,8 +434,12 @@ class AWSMigrationHubListMigrationTasksCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mgh.listMigrationTasks(build())
+	override fun dryResult(): com.amazonaws.services.migrationhub.model.ListMigrationTasksResult {
+	  return com.amazonaws.services.migrationhub.model.ListMigrationTasksResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.ListMigrationTasksResult {
+		return environment.mgh.listMigrationTasks(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -404,12 +452,12 @@ class AWSMigrationHubListMigrationTasksCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AWSMigrationHubFunctions.listProgressUpdateStreams(init: AWSMigrationHubListProgressUpdateStreamsCommand.() -> Unit) {
-	this.block.declare(AWSMigrationHubListProgressUpdateStreamsCommand().apply(init))
+fun AWSMigrationHubFunctions.listProgressUpdateStreams(init: AWSMigrationHubListProgressUpdateStreamsCommand.() -> Unit): com.amazonaws.services.migrationhub.model.ListProgressUpdateStreamsResult {
+	return this.block.declare(AWSMigrationHubListProgressUpdateStreamsCommand().apply(init)) as com.amazonaws.services.migrationhub.model.ListProgressUpdateStreamsResult
 }
 
 @Generated
-class AWSMigrationHubListProgressUpdateStreamsCommand() : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.ListProgressUpdateStreamsRequest> {
+class AWSMigrationHubListProgressUpdateStreamsCommand() : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.ListProgressUpdateStreamsRequest, com.amazonaws.services.migrationhub.model.ListProgressUpdateStreamsResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -421,8 +469,12 @@ class AWSMigrationHubListProgressUpdateStreamsCommand() : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mgh.listProgressUpdateStreams(build())
+	override fun dryResult(): com.amazonaws.services.migrationhub.model.ListProgressUpdateStreamsResult {
+	  return com.amazonaws.services.migrationhub.model.ListProgressUpdateStreamsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.ListProgressUpdateStreamsResult {
+		return environment.mgh.listProgressUpdateStreams(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -434,12 +486,12 @@ class AWSMigrationHubListProgressUpdateStreamsCommand() : AmazonWebServiceComman
 }
 
 
-fun AWSMigrationHubFunctions.notifyApplicationState(applicationId: String, status: ApplicationStatus, init: AWSMigrationHubNotifyApplicationStateCommand.() -> Unit) {
-	this.block.declare(AWSMigrationHubNotifyApplicationStateCommand(applicationId, status).apply(init))
+fun AWSMigrationHubFunctions.notifyApplicationState(applicationId: String, status: ApplicationStatus, init: AWSMigrationHubNotifyApplicationStateCommand.() -> Unit): com.amazonaws.services.migrationhub.model.NotifyApplicationStateResult {
+	return this.block.declare(AWSMigrationHubNotifyApplicationStateCommand(applicationId, status).apply(init)) as com.amazonaws.services.migrationhub.model.NotifyApplicationStateResult
 }
 
 @Generated
-class AWSMigrationHubNotifyApplicationStateCommand(val applicationId: String, val status: ApplicationStatus) : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.NotifyApplicationStateRequest> {
+class AWSMigrationHubNotifyApplicationStateCommand(val applicationId: String, val status: ApplicationStatus) : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.NotifyApplicationStateRequest, com.amazonaws.services.migrationhub.model.NotifyApplicationStateResult> {
 
 	var dryRun: Boolean? = false
 
@@ -451,8 +503,12 @@ class AWSMigrationHubNotifyApplicationStateCommand(val applicationId: String, va
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mgh.notifyApplicationState(build())
+	override fun dryResult(): com.amazonaws.services.migrationhub.model.NotifyApplicationStateResult {
+	  return com.amazonaws.services.migrationhub.model.NotifyApplicationStateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.NotifyApplicationStateResult {
+		return environment.mgh.notifyApplicationState(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -465,12 +521,12 @@ class AWSMigrationHubNotifyApplicationStateCommand(val applicationId: String, va
 }
 
 
-fun AWSMigrationHubFunctions.notifyMigrationTaskState(progressUpdateStream: String, migrationTaskName: String, task: com.amazonaws.services.migrationhub.model.Task, updateDateTime: java.util.Date, nextUpdateSeconds: Int, init: AWSMigrationHubNotifyMigrationTaskStateCommand.() -> Unit) {
-	this.block.declare(AWSMigrationHubNotifyMigrationTaskStateCommand(progressUpdateStream, migrationTaskName, task, updateDateTime, nextUpdateSeconds).apply(init))
+fun AWSMigrationHubFunctions.notifyMigrationTaskState(progressUpdateStream: String, migrationTaskName: String, task: com.amazonaws.services.migrationhub.model.Task, updateDateTime: java.util.Date, nextUpdateSeconds: Int, init: AWSMigrationHubNotifyMigrationTaskStateCommand.() -> Unit): com.amazonaws.services.migrationhub.model.NotifyMigrationTaskStateResult {
+	return this.block.declare(AWSMigrationHubNotifyMigrationTaskStateCommand(progressUpdateStream, migrationTaskName, task, updateDateTime, nextUpdateSeconds).apply(init)) as com.amazonaws.services.migrationhub.model.NotifyMigrationTaskStateResult
 }
 
 @Generated
-class AWSMigrationHubNotifyMigrationTaskStateCommand(val progressUpdateStream: String, val migrationTaskName: String, val task: com.amazonaws.services.migrationhub.model.Task, val updateDateTime: java.util.Date, val nextUpdateSeconds: Int) : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.NotifyMigrationTaskStateRequest> {
+class AWSMigrationHubNotifyMigrationTaskStateCommand(val progressUpdateStream: String, val migrationTaskName: String, val task: com.amazonaws.services.migrationhub.model.Task, val updateDateTime: java.util.Date, val nextUpdateSeconds: Int) : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.NotifyMigrationTaskStateRequest, com.amazonaws.services.migrationhub.model.NotifyMigrationTaskStateResult> {
 
 	var dryRun: Boolean? = false
 
@@ -485,8 +541,12 @@ class AWSMigrationHubNotifyMigrationTaskStateCommand(val progressUpdateStream: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mgh.notifyMigrationTaskState(build())
+	override fun dryResult(): com.amazonaws.services.migrationhub.model.NotifyMigrationTaskStateResult {
+	  return com.amazonaws.services.migrationhub.model.NotifyMigrationTaskStateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.NotifyMigrationTaskStateResult {
+		return environment.mgh.notifyMigrationTaskState(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -502,12 +562,12 @@ class AWSMigrationHubNotifyMigrationTaskStateCommand(val progressUpdateStream: S
 }
 
 
-fun AWSMigrationHubFunctions.putResourceAttributes(progressUpdateStream: String, migrationTaskName: String, resourceAttributeList: List<com.amazonaws.services.migrationhub.model.ResourceAttribute>, init: AWSMigrationHubPutResourceAttributesCommand.() -> Unit) {
-	this.block.declare(AWSMigrationHubPutResourceAttributesCommand(progressUpdateStream, migrationTaskName, resourceAttributeList).apply(init))
+fun AWSMigrationHubFunctions.putResourceAttributes(progressUpdateStream: String, migrationTaskName: String, resourceAttributeList: List<com.amazonaws.services.migrationhub.model.ResourceAttribute>, init: AWSMigrationHubPutResourceAttributesCommand.() -> Unit): com.amazonaws.services.migrationhub.model.PutResourceAttributesResult {
+	return this.block.declare(AWSMigrationHubPutResourceAttributesCommand(progressUpdateStream, migrationTaskName, resourceAttributeList).apply(init)) as com.amazonaws.services.migrationhub.model.PutResourceAttributesResult
 }
 
 @Generated
-class AWSMigrationHubPutResourceAttributesCommand(val progressUpdateStream: String, val migrationTaskName: String, val resourceAttributeList: List<com.amazonaws.services.migrationhub.model.ResourceAttribute>) : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.PutResourceAttributesRequest> {
+class AWSMigrationHubPutResourceAttributesCommand(val progressUpdateStream: String, val migrationTaskName: String, val resourceAttributeList: List<com.amazonaws.services.migrationhub.model.ResourceAttribute>) : AmazonWebServiceCommand<com.amazonaws.services.migrationhub.model.PutResourceAttributesRequest, com.amazonaws.services.migrationhub.model.PutResourceAttributesResult> {
 
 	var dryRun: Boolean? = false
 
@@ -520,8 +580,12 @@ class AWSMigrationHubPutResourceAttributesCommand(val progressUpdateStream: Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mgh.putResourceAttributes(build())
+	override fun dryResult(): com.amazonaws.services.migrationhub.model.PutResourceAttributesResult {
+	  return com.amazonaws.services.migrationhub.model.PutResourceAttributesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.migrationhub.model.PutResourceAttributesResult {
+		return environment.mgh.putResourceAttributes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

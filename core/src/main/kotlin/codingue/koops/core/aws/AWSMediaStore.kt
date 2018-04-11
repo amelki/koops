@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.mediastore: AWSMediaStore
 @Generated
 class AWSMediaStoreFunctions(val block: Block)
 
-infix fun AwsContinuation.mediastore(init: AWSMediaStoreFunctions.() -> Unit) {
-	AWSMediaStoreFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.mediastore(init: AWSMediaStoreFunctions.() -> T): T {
+	return AWSMediaStoreFunctions(shell).run(init)
 }
 
 			
 
-fun AWSMediaStoreFunctions.createContainer(containerName: String, init: AWSMediaStoreCreateContainerCommand.() -> Unit) {
-	this.block.declare(AWSMediaStoreCreateContainerCommand(containerName).apply(init))
+fun AWSMediaStoreFunctions.createContainer(containerName: String, init: AWSMediaStoreCreateContainerCommand.() -> Unit): com.amazonaws.services.mediastore.model.CreateContainerResult {
+	return this.block.declare(AWSMediaStoreCreateContainerCommand(containerName).apply(init)) as com.amazonaws.services.mediastore.model.CreateContainerResult
 }
 
 @Generated
-class AWSMediaStoreCreateContainerCommand(val containerName: String) : AmazonWebServiceCommand<com.amazonaws.services.mediastore.model.CreateContainerRequest> {
+class AWSMediaStoreCreateContainerCommand(val containerName: String) : AmazonWebServiceCommand<com.amazonaws.services.mediastore.model.CreateContainerRequest, com.amazonaws.services.mediastore.model.CreateContainerResult> {
 
 
 
@@ -41,8 +41,12 @@ class AWSMediaStoreCreateContainerCommand(val containerName: String) : AmazonWeb
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mediastore.createContainer(build())
+	override fun dryResult(): com.amazonaws.services.mediastore.model.CreateContainerResult {
+	  return com.amazonaws.services.mediastore.model.CreateContainerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediastore.model.CreateContainerResult {
+		return environment.mediastore.createContainer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -53,12 +57,12 @@ class AWSMediaStoreCreateContainerCommand(val containerName: String) : AmazonWeb
 }
 
 
-fun AWSMediaStoreFunctions.deleteContainer(containerName: String, init: AWSMediaStoreDeleteContainerCommand.() -> Unit) {
-	this.block.declare(AWSMediaStoreDeleteContainerCommand(containerName).apply(init))
+fun AWSMediaStoreFunctions.deleteContainer(containerName: String, init: AWSMediaStoreDeleteContainerCommand.() -> Unit): com.amazonaws.services.mediastore.model.DeleteContainerResult {
+	return this.block.declare(AWSMediaStoreDeleteContainerCommand(containerName).apply(init)) as com.amazonaws.services.mediastore.model.DeleteContainerResult
 }
 
 @Generated
-class AWSMediaStoreDeleteContainerCommand(val containerName: String) : AmazonWebServiceCommand<com.amazonaws.services.mediastore.model.DeleteContainerRequest> {
+class AWSMediaStoreDeleteContainerCommand(val containerName: String) : AmazonWebServiceCommand<com.amazonaws.services.mediastore.model.DeleteContainerRequest, com.amazonaws.services.mediastore.model.DeleteContainerResult> {
 
 
 
@@ -68,8 +72,12 @@ class AWSMediaStoreDeleteContainerCommand(val containerName: String) : AmazonWeb
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mediastore.deleteContainer(build())
+	override fun dryResult(): com.amazonaws.services.mediastore.model.DeleteContainerResult {
+	  return com.amazonaws.services.mediastore.model.DeleteContainerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediastore.model.DeleteContainerResult {
+		return environment.mediastore.deleteContainer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -80,12 +88,12 @@ class AWSMediaStoreDeleteContainerCommand(val containerName: String) : AmazonWeb
 }
 
 
-fun AWSMediaStoreFunctions.deleteContainerPolicy(containerName: String, init: AWSMediaStoreDeleteContainerPolicyCommand.() -> Unit) {
-	this.block.declare(AWSMediaStoreDeleteContainerPolicyCommand(containerName).apply(init))
+fun AWSMediaStoreFunctions.deleteContainerPolicy(containerName: String, init: AWSMediaStoreDeleteContainerPolicyCommand.() -> Unit): com.amazonaws.services.mediastore.model.DeleteContainerPolicyResult {
+	return this.block.declare(AWSMediaStoreDeleteContainerPolicyCommand(containerName).apply(init)) as com.amazonaws.services.mediastore.model.DeleteContainerPolicyResult
 }
 
 @Generated
-class AWSMediaStoreDeleteContainerPolicyCommand(val containerName: String) : AmazonWebServiceCommand<com.amazonaws.services.mediastore.model.DeleteContainerPolicyRequest> {
+class AWSMediaStoreDeleteContainerPolicyCommand(val containerName: String) : AmazonWebServiceCommand<com.amazonaws.services.mediastore.model.DeleteContainerPolicyRequest, com.amazonaws.services.mediastore.model.DeleteContainerPolicyResult> {
 
 
 
@@ -95,8 +103,12 @@ class AWSMediaStoreDeleteContainerPolicyCommand(val containerName: String) : Ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mediastore.deleteContainerPolicy(build())
+	override fun dryResult(): com.amazonaws.services.mediastore.model.DeleteContainerPolicyResult {
+	  return com.amazonaws.services.mediastore.model.DeleteContainerPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediastore.model.DeleteContainerPolicyResult {
+		return environment.mediastore.deleteContainerPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -107,12 +119,12 @@ class AWSMediaStoreDeleteContainerPolicyCommand(val containerName: String) : Ama
 }
 
 
-fun AWSMediaStoreFunctions.deleteCorsPolicy(containerName: String, init: AWSMediaStoreDeleteCorsPolicyCommand.() -> Unit) {
-	this.block.declare(AWSMediaStoreDeleteCorsPolicyCommand(containerName).apply(init))
+fun AWSMediaStoreFunctions.deleteCorsPolicy(containerName: String, init: AWSMediaStoreDeleteCorsPolicyCommand.() -> Unit): com.amazonaws.services.mediastore.model.DeleteCorsPolicyResult {
+	return this.block.declare(AWSMediaStoreDeleteCorsPolicyCommand(containerName).apply(init)) as com.amazonaws.services.mediastore.model.DeleteCorsPolicyResult
 }
 
 @Generated
-class AWSMediaStoreDeleteCorsPolicyCommand(val containerName: String) : AmazonWebServiceCommand<com.amazonaws.services.mediastore.model.DeleteCorsPolicyRequest> {
+class AWSMediaStoreDeleteCorsPolicyCommand(val containerName: String) : AmazonWebServiceCommand<com.amazonaws.services.mediastore.model.DeleteCorsPolicyRequest, com.amazonaws.services.mediastore.model.DeleteCorsPolicyResult> {
 
 
 
@@ -122,8 +134,12 @@ class AWSMediaStoreDeleteCorsPolicyCommand(val containerName: String) : AmazonWe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mediastore.deleteCorsPolicy(build())
+	override fun dryResult(): com.amazonaws.services.mediastore.model.DeleteCorsPolicyResult {
+	  return com.amazonaws.services.mediastore.model.DeleteCorsPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediastore.model.DeleteCorsPolicyResult {
+		return environment.mediastore.deleteCorsPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -134,12 +150,12 @@ class AWSMediaStoreDeleteCorsPolicyCommand(val containerName: String) : AmazonWe
 }
 
 
-fun AWSMediaStoreFunctions.describeContainer(init: AWSMediaStoreDescribeContainerCommand.() -> Unit) {
-	this.block.declare(AWSMediaStoreDescribeContainerCommand().apply(init))
+fun AWSMediaStoreFunctions.describeContainer(init: AWSMediaStoreDescribeContainerCommand.() -> Unit): com.amazonaws.services.mediastore.model.DescribeContainerResult {
+	return this.block.declare(AWSMediaStoreDescribeContainerCommand().apply(init)) as com.amazonaws.services.mediastore.model.DescribeContainerResult
 }
 
 @Generated
-class AWSMediaStoreDescribeContainerCommand() : AmazonWebServiceCommand<com.amazonaws.services.mediastore.model.DescribeContainerRequest> {
+class AWSMediaStoreDescribeContainerCommand() : AmazonWebServiceCommand<com.amazonaws.services.mediastore.model.DescribeContainerRequest, com.amazonaws.services.mediastore.model.DescribeContainerResult> {
 
 	var containerName: String? = null
 
@@ -149,8 +165,12 @@ class AWSMediaStoreDescribeContainerCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mediastore.describeContainer(build())
+	override fun dryResult(): com.amazonaws.services.mediastore.model.DescribeContainerResult {
+	  return com.amazonaws.services.mediastore.model.DescribeContainerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediastore.model.DescribeContainerResult {
+		return environment.mediastore.describeContainer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -161,12 +181,12 @@ class AWSMediaStoreDescribeContainerCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AWSMediaStoreFunctions.getContainerPolicy(containerName: String, init: AWSMediaStoreGetContainerPolicyCommand.() -> Unit) {
-	this.block.declare(AWSMediaStoreGetContainerPolicyCommand(containerName).apply(init))
+fun AWSMediaStoreFunctions.getContainerPolicy(containerName: String, init: AWSMediaStoreGetContainerPolicyCommand.() -> Unit): com.amazonaws.services.mediastore.model.GetContainerPolicyResult {
+	return this.block.declare(AWSMediaStoreGetContainerPolicyCommand(containerName).apply(init)) as com.amazonaws.services.mediastore.model.GetContainerPolicyResult
 }
 
 @Generated
-class AWSMediaStoreGetContainerPolicyCommand(val containerName: String) : AmazonWebServiceCommand<com.amazonaws.services.mediastore.model.GetContainerPolicyRequest> {
+class AWSMediaStoreGetContainerPolicyCommand(val containerName: String) : AmazonWebServiceCommand<com.amazonaws.services.mediastore.model.GetContainerPolicyRequest, com.amazonaws.services.mediastore.model.GetContainerPolicyResult> {
 
 
 
@@ -176,8 +196,12 @@ class AWSMediaStoreGetContainerPolicyCommand(val containerName: String) : Amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mediastore.getContainerPolicy(build())
+	override fun dryResult(): com.amazonaws.services.mediastore.model.GetContainerPolicyResult {
+	  return com.amazonaws.services.mediastore.model.GetContainerPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediastore.model.GetContainerPolicyResult {
+		return environment.mediastore.getContainerPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -188,12 +212,12 @@ class AWSMediaStoreGetContainerPolicyCommand(val containerName: String) : Amazon
 }
 
 
-fun AWSMediaStoreFunctions.getCorsPolicy(containerName: String, init: AWSMediaStoreGetCorsPolicyCommand.() -> Unit) {
-	this.block.declare(AWSMediaStoreGetCorsPolicyCommand(containerName).apply(init))
+fun AWSMediaStoreFunctions.getCorsPolicy(containerName: String, init: AWSMediaStoreGetCorsPolicyCommand.() -> Unit): com.amazonaws.services.mediastore.model.GetCorsPolicyResult {
+	return this.block.declare(AWSMediaStoreGetCorsPolicyCommand(containerName).apply(init)) as com.amazonaws.services.mediastore.model.GetCorsPolicyResult
 }
 
 @Generated
-class AWSMediaStoreGetCorsPolicyCommand(val containerName: String) : AmazonWebServiceCommand<com.amazonaws.services.mediastore.model.GetCorsPolicyRequest> {
+class AWSMediaStoreGetCorsPolicyCommand(val containerName: String) : AmazonWebServiceCommand<com.amazonaws.services.mediastore.model.GetCorsPolicyRequest, com.amazonaws.services.mediastore.model.GetCorsPolicyResult> {
 
 
 
@@ -203,8 +227,12 @@ class AWSMediaStoreGetCorsPolicyCommand(val containerName: String) : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mediastore.getCorsPolicy(build())
+	override fun dryResult(): com.amazonaws.services.mediastore.model.GetCorsPolicyResult {
+	  return com.amazonaws.services.mediastore.model.GetCorsPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediastore.model.GetCorsPolicyResult {
+		return environment.mediastore.getCorsPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -215,12 +243,12 @@ class AWSMediaStoreGetCorsPolicyCommand(val containerName: String) : AmazonWebSe
 }
 
 
-fun AWSMediaStoreFunctions.listContainers(init: AWSMediaStoreListContainersCommand.() -> Unit) {
-	this.block.declare(AWSMediaStoreListContainersCommand().apply(init))
+fun AWSMediaStoreFunctions.listContainers(init: AWSMediaStoreListContainersCommand.() -> Unit): com.amazonaws.services.mediastore.model.ListContainersResult {
+	return this.block.declare(AWSMediaStoreListContainersCommand().apply(init)) as com.amazonaws.services.mediastore.model.ListContainersResult
 }
 
 @Generated
-class AWSMediaStoreListContainersCommand() : AmazonWebServiceCommand<com.amazonaws.services.mediastore.model.ListContainersRequest> {
+class AWSMediaStoreListContainersCommand() : AmazonWebServiceCommand<com.amazonaws.services.mediastore.model.ListContainersRequest, com.amazonaws.services.mediastore.model.ListContainersResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -232,8 +260,12 @@ class AWSMediaStoreListContainersCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mediastore.listContainers(build())
+	override fun dryResult(): com.amazonaws.services.mediastore.model.ListContainersResult {
+	  return com.amazonaws.services.mediastore.model.ListContainersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediastore.model.ListContainersResult {
+		return environment.mediastore.listContainers(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -245,12 +277,12 @@ class AWSMediaStoreListContainersCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AWSMediaStoreFunctions.putContainerPolicy(containerName: String, policy: String, init: AWSMediaStorePutContainerPolicyCommand.() -> Unit) {
-	this.block.declare(AWSMediaStorePutContainerPolicyCommand(containerName, policy).apply(init))
+fun AWSMediaStoreFunctions.putContainerPolicy(containerName: String, policy: String, init: AWSMediaStorePutContainerPolicyCommand.() -> Unit): com.amazonaws.services.mediastore.model.PutContainerPolicyResult {
+	return this.block.declare(AWSMediaStorePutContainerPolicyCommand(containerName, policy).apply(init)) as com.amazonaws.services.mediastore.model.PutContainerPolicyResult
 }
 
 @Generated
-class AWSMediaStorePutContainerPolicyCommand(val containerName: String, val policy: String) : AmazonWebServiceCommand<com.amazonaws.services.mediastore.model.PutContainerPolicyRequest> {
+class AWSMediaStorePutContainerPolicyCommand(val containerName: String, val policy: String) : AmazonWebServiceCommand<com.amazonaws.services.mediastore.model.PutContainerPolicyRequest, com.amazonaws.services.mediastore.model.PutContainerPolicyResult> {
 
 
 
@@ -261,8 +293,12 @@ class AWSMediaStorePutContainerPolicyCommand(val containerName: String, val poli
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mediastore.putContainerPolicy(build())
+	override fun dryResult(): com.amazonaws.services.mediastore.model.PutContainerPolicyResult {
+	  return com.amazonaws.services.mediastore.model.PutContainerPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediastore.model.PutContainerPolicyResult {
+		return environment.mediastore.putContainerPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -274,12 +310,12 @@ class AWSMediaStorePutContainerPolicyCommand(val containerName: String, val poli
 }
 
 
-fun AWSMediaStoreFunctions.putCorsPolicy(containerName: String, corsPolicy: List<com.amazonaws.services.mediastore.model.CorsRule>, init: AWSMediaStorePutCorsPolicyCommand.() -> Unit) {
-	this.block.declare(AWSMediaStorePutCorsPolicyCommand(containerName, corsPolicy).apply(init))
+fun AWSMediaStoreFunctions.putCorsPolicy(containerName: String, corsPolicy: List<com.amazonaws.services.mediastore.model.CorsRule>, init: AWSMediaStorePutCorsPolicyCommand.() -> Unit): com.amazonaws.services.mediastore.model.PutCorsPolicyResult {
+	return this.block.declare(AWSMediaStorePutCorsPolicyCommand(containerName, corsPolicy).apply(init)) as com.amazonaws.services.mediastore.model.PutCorsPolicyResult
 }
 
 @Generated
-class AWSMediaStorePutCorsPolicyCommand(val containerName: String, val corsPolicy: List<com.amazonaws.services.mediastore.model.CorsRule>) : AmazonWebServiceCommand<com.amazonaws.services.mediastore.model.PutCorsPolicyRequest> {
+class AWSMediaStorePutCorsPolicyCommand(val containerName: String, val corsPolicy: List<com.amazonaws.services.mediastore.model.CorsRule>) : AmazonWebServiceCommand<com.amazonaws.services.mediastore.model.PutCorsPolicyRequest, com.amazonaws.services.mediastore.model.PutCorsPolicyResult> {
 
 
 
@@ -290,8 +326,12 @@ class AWSMediaStorePutCorsPolicyCommand(val containerName: String, val corsPolic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mediastore.putCorsPolicy(build())
+	override fun dryResult(): com.amazonaws.services.mediastore.model.PutCorsPolicyResult {
+	  return com.amazonaws.services.mediastore.model.PutCorsPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediastore.model.PutCorsPolicyResult {
+		return environment.mediastore.putCorsPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

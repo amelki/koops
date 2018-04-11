@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.shield: AWSShield
 @Generated
 class AWSShieldFunctions(val block: Block)
 
-infix fun AwsContinuation.shield(init: AWSShieldFunctions.() -> Unit) {
-	AWSShieldFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.shield(init: AWSShieldFunctions.() -> T): T {
+	return AWSShieldFunctions(shell).run(init)
 }
 
 			
 
-fun AWSShieldFunctions.createProtection(name: String, resourceArn: String, init: AWSShieldCreateProtectionCommand.() -> Unit) {
-	this.block.declare(AWSShieldCreateProtectionCommand(name, resourceArn).apply(init))
+fun AWSShieldFunctions.createProtection(name: String, resourceArn: String, init: AWSShieldCreateProtectionCommand.() -> Unit): com.amazonaws.services.shield.model.CreateProtectionResult {
+	return this.block.declare(AWSShieldCreateProtectionCommand(name, resourceArn).apply(init)) as com.amazonaws.services.shield.model.CreateProtectionResult
 }
 
 @Generated
-class AWSShieldCreateProtectionCommand(val name: String, val resourceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.shield.model.CreateProtectionRequest> {
+class AWSShieldCreateProtectionCommand(val name: String, val resourceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.shield.model.CreateProtectionRequest, com.amazonaws.services.shield.model.CreateProtectionResult> {
 
 
 
@@ -42,8 +42,12 @@ class AWSShieldCreateProtectionCommand(val name: String, val resourceArn: String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.shield.createProtection(build())
+	override fun dryResult(): com.amazonaws.services.shield.model.CreateProtectionResult {
+	  return com.amazonaws.services.shield.model.CreateProtectionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.shield.model.CreateProtectionResult {
+		return environment.shield.createProtection(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -55,12 +59,12 @@ class AWSShieldCreateProtectionCommand(val name: String, val resourceArn: String
 }
 
 
-fun AWSShieldFunctions.createSubscription(init: AWSShieldCreateSubscriptionCommand.() -> Unit) {
-	this.block.declare(AWSShieldCreateSubscriptionCommand().apply(init))
+fun AWSShieldFunctions.createSubscription(init: AWSShieldCreateSubscriptionCommand.() -> Unit): com.amazonaws.services.shield.model.CreateSubscriptionResult {
+	return this.block.declare(AWSShieldCreateSubscriptionCommand().apply(init)) as com.amazonaws.services.shield.model.CreateSubscriptionResult
 }
 
 @Generated
-class AWSShieldCreateSubscriptionCommand() : AmazonWebServiceCommand<com.amazonaws.services.shield.model.CreateSubscriptionRequest> {
+class AWSShieldCreateSubscriptionCommand() : AmazonWebServiceCommand<com.amazonaws.services.shield.model.CreateSubscriptionRequest, com.amazonaws.services.shield.model.CreateSubscriptionResult> {
 
 
 
@@ -70,8 +74,12 @@ class AWSShieldCreateSubscriptionCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.shield.createSubscription(build())
+	override fun dryResult(): com.amazonaws.services.shield.model.CreateSubscriptionResult {
+	  return com.amazonaws.services.shield.model.CreateSubscriptionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.shield.model.CreateSubscriptionResult {
+		return environment.shield.createSubscription(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -82,12 +90,12 @@ class AWSShieldCreateSubscriptionCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AWSShieldFunctions.deleteProtection(protectionId: String, init: AWSShieldDeleteProtectionCommand.() -> Unit) {
-	this.block.declare(AWSShieldDeleteProtectionCommand(protectionId).apply(init))
+fun AWSShieldFunctions.deleteProtection(protectionId: String, init: AWSShieldDeleteProtectionCommand.() -> Unit): com.amazonaws.services.shield.model.DeleteProtectionResult {
+	return this.block.declare(AWSShieldDeleteProtectionCommand(protectionId).apply(init)) as com.amazonaws.services.shield.model.DeleteProtectionResult
 }
 
 @Generated
-class AWSShieldDeleteProtectionCommand(val protectionId: String) : AmazonWebServiceCommand<com.amazonaws.services.shield.model.DeleteProtectionRequest> {
+class AWSShieldDeleteProtectionCommand(val protectionId: String) : AmazonWebServiceCommand<com.amazonaws.services.shield.model.DeleteProtectionRequest, com.amazonaws.services.shield.model.DeleteProtectionResult> {
 
 
 
@@ -97,8 +105,12 @@ class AWSShieldDeleteProtectionCommand(val protectionId: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.shield.deleteProtection(build())
+	override fun dryResult(): com.amazonaws.services.shield.model.DeleteProtectionResult {
+	  return com.amazonaws.services.shield.model.DeleteProtectionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.shield.model.DeleteProtectionResult {
+		return environment.shield.deleteProtection(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -109,12 +121,12 @@ class AWSShieldDeleteProtectionCommand(val protectionId: String) : AmazonWebServ
 }
 
 
-fun AWSShieldFunctions.deleteSubscription(init: AWSShieldDeleteSubscriptionCommand.() -> Unit) {
-	this.block.declare(AWSShieldDeleteSubscriptionCommand().apply(init))
+fun AWSShieldFunctions.deleteSubscription(init: AWSShieldDeleteSubscriptionCommand.() -> Unit): com.amazonaws.services.shield.model.DeleteSubscriptionResult {
+	return this.block.declare(AWSShieldDeleteSubscriptionCommand().apply(init)) as com.amazonaws.services.shield.model.DeleteSubscriptionResult
 }
 
 @Generated
-class AWSShieldDeleteSubscriptionCommand() : AmazonWebServiceCommand<com.amazonaws.services.shield.model.DeleteSubscriptionRequest> {
+class AWSShieldDeleteSubscriptionCommand() : AmazonWebServiceCommand<com.amazonaws.services.shield.model.DeleteSubscriptionRequest, com.amazonaws.services.shield.model.DeleteSubscriptionResult> {
 
 
 
@@ -124,8 +136,12 @@ class AWSShieldDeleteSubscriptionCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.shield.deleteSubscription(build())
+	override fun dryResult(): com.amazonaws.services.shield.model.DeleteSubscriptionResult {
+	  return com.amazonaws.services.shield.model.DeleteSubscriptionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.shield.model.DeleteSubscriptionResult {
+		return environment.shield.deleteSubscription(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -136,12 +152,12 @@ class AWSShieldDeleteSubscriptionCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AWSShieldFunctions.describeAttack(attackId: String, init: AWSShieldDescribeAttackCommand.() -> Unit) {
-	this.block.declare(AWSShieldDescribeAttackCommand(attackId).apply(init))
+fun AWSShieldFunctions.describeAttack(attackId: String, init: AWSShieldDescribeAttackCommand.() -> Unit): com.amazonaws.services.shield.model.DescribeAttackResult {
+	return this.block.declare(AWSShieldDescribeAttackCommand(attackId).apply(init)) as com.amazonaws.services.shield.model.DescribeAttackResult
 }
 
 @Generated
-class AWSShieldDescribeAttackCommand(val attackId: String) : AmazonWebServiceCommand<com.amazonaws.services.shield.model.DescribeAttackRequest> {
+class AWSShieldDescribeAttackCommand(val attackId: String) : AmazonWebServiceCommand<com.amazonaws.services.shield.model.DescribeAttackRequest, com.amazonaws.services.shield.model.DescribeAttackResult> {
 
 
 
@@ -151,8 +167,12 @@ class AWSShieldDescribeAttackCommand(val attackId: String) : AmazonWebServiceCom
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.shield.describeAttack(build())
+	override fun dryResult(): com.amazonaws.services.shield.model.DescribeAttackResult {
+	  return com.amazonaws.services.shield.model.DescribeAttackResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.shield.model.DescribeAttackResult {
+		return environment.shield.describeAttack(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -163,12 +183,12 @@ class AWSShieldDescribeAttackCommand(val attackId: String) : AmazonWebServiceCom
 }
 
 
-fun AWSShieldFunctions.describeProtection(protectionId: String, init: AWSShieldDescribeProtectionCommand.() -> Unit) {
-	this.block.declare(AWSShieldDescribeProtectionCommand(protectionId).apply(init))
+fun AWSShieldFunctions.describeProtection(protectionId: String, init: AWSShieldDescribeProtectionCommand.() -> Unit): com.amazonaws.services.shield.model.DescribeProtectionResult {
+	return this.block.declare(AWSShieldDescribeProtectionCommand(protectionId).apply(init)) as com.amazonaws.services.shield.model.DescribeProtectionResult
 }
 
 @Generated
-class AWSShieldDescribeProtectionCommand(val protectionId: String) : AmazonWebServiceCommand<com.amazonaws.services.shield.model.DescribeProtectionRequest> {
+class AWSShieldDescribeProtectionCommand(val protectionId: String) : AmazonWebServiceCommand<com.amazonaws.services.shield.model.DescribeProtectionRequest, com.amazonaws.services.shield.model.DescribeProtectionResult> {
 
 
 
@@ -178,8 +198,12 @@ class AWSShieldDescribeProtectionCommand(val protectionId: String) : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.shield.describeProtection(build())
+	override fun dryResult(): com.amazonaws.services.shield.model.DescribeProtectionResult {
+	  return com.amazonaws.services.shield.model.DescribeProtectionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.shield.model.DescribeProtectionResult {
+		return environment.shield.describeProtection(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -190,12 +214,12 @@ class AWSShieldDescribeProtectionCommand(val protectionId: String) : AmazonWebSe
 }
 
 
-fun AWSShieldFunctions.describeSubscription(init: AWSShieldDescribeSubscriptionCommand.() -> Unit) {
-	this.block.declare(AWSShieldDescribeSubscriptionCommand().apply(init))
+fun AWSShieldFunctions.describeSubscription(init: AWSShieldDescribeSubscriptionCommand.() -> Unit): com.amazonaws.services.shield.model.DescribeSubscriptionResult {
+	return this.block.declare(AWSShieldDescribeSubscriptionCommand().apply(init)) as com.amazonaws.services.shield.model.DescribeSubscriptionResult
 }
 
 @Generated
-class AWSShieldDescribeSubscriptionCommand() : AmazonWebServiceCommand<com.amazonaws.services.shield.model.DescribeSubscriptionRequest> {
+class AWSShieldDescribeSubscriptionCommand() : AmazonWebServiceCommand<com.amazonaws.services.shield.model.DescribeSubscriptionRequest, com.amazonaws.services.shield.model.DescribeSubscriptionResult> {
 
 
 
@@ -205,8 +229,12 @@ class AWSShieldDescribeSubscriptionCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.shield.describeSubscription(build())
+	override fun dryResult(): com.amazonaws.services.shield.model.DescribeSubscriptionResult {
+	  return com.amazonaws.services.shield.model.DescribeSubscriptionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.shield.model.DescribeSubscriptionResult {
+		return environment.shield.describeSubscription(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -217,12 +245,12 @@ class AWSShieldDescribeSubscriptionCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AWSShieldFunctions.getSubscriptionState(init: AWSShieldGetSubscriptionStateCommand.() -> Unit) {
-	this.block.declare(AWSShieldGetSubscriptionStateCommand().apply(init))
+fun AWSShieldFunctions.getSubscriptionState(init: AWSShieldGetSubscriptionStateCommand.() -> Unit): com.amazonaws.services.shield.model.GetSubscriptionStateResult {
+	return this.block.declare(AWSShieldGetSubscriptionStateCommand().apply(init)) as com.amazonaws.services.shield.model.GetSubscriptionStateResult
 }
 
 @Generated
-class AWSShieldGetSubscriptionStateCommand() : AmazonWebServiceCommand<com.amazonaws.services.shield.model.GetSubscriptionStateRequest> {
+class AWSShieldGetSubscriptionStateCommand() : AmazonWebServiceCommand<com.amazonaws.services.shield.model.GetSubscriptionStateRequest, com.amazonaws.services.shield.model.GetSubscriptionStateResult> {
 
 
 
@@ -232,8 +260,12 @@ class AWSShieldGetSubscriptionStateCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.shield.getSubscriptionState(build())
+	override fun dryResult(): com.amazonaws.services.shield.model.GetSubscriptionStateResult {
+	  return com.amazonaws.services.shield.model.GetSubscriptionStateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.shield.model.GetSubscriptionStateResult {
+		return environment.shield.getSubscriptionState(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -244,12 +276,12 @@ class AWSShieldGetSubscriptionStateCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AWSShieldFunctions.listAttacks(init: AWSShieldListAttacksCommand.() -> Unit) {
-	this.block.declare(AWSShieldListAttacksCommand().apply(init))
+fun AWSShieldFunctions.listAttacks(init: AWSShieldListAttacksCommand.() -> Unit): com.amazonaws.services.shield.model.ListAttacksResult {
+	return this.block.declare(AWSShieldListAttacksCommand().apply(init)) as com.amazonaws.services.shield.model.ListAttacksResult
 }
 
 @Generated
-class AWSShieldListAttacksCommand() : AmazonWebServiceCommand<com.amazonaws.services.shield.model.ListAttacksRequest> {
+class AWSShieldListAttacksCommand() : AmazonWebServiceCommand<com.amazonaws.services.shield.model.ListAttacksRequest, com.amazonaws.services.shield.model.ListAttacksResult> {
 
 	var resourceArns: List<String>? = null
 	var startTime: com.amazonaws.services.shield.model.TimeRange? = null
@@ -267,8 +299,12 @@ class AWSShieldListAttacksCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.shield.listAttacks(build())
+	override fun dryResult(): com.amazonaws.services.shield.model.ListAttacksResult {
+	  return com.amazonaws.services.shield.model.ListAttacksResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.shield.model.ListAttacksResult {
+		return environment.shield.listAttacks(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -283,12 +319,12 @@ class AWSShieldListAttacksCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 }
 
 
-fun AWSShieldFunctions.listProtections(init: AWSShieldListProtectionsCommand.() -> Unit) {
-	this.block.declare(AWSShieldListProtectionsCommand().apply(init))
+fun AWSShieldFunctions.listProtections(init: AWSShieldListProtectionsCommand.() -> Unit): com.amazonaws.services.shield.model.ListProtectionsResult {
+	return this.block.declare(AWSShieldListProtectionsCommand().apply(init)) as com.amazonaws.services.shield.model.ListProtectionsResult
 }
 
 @Generated
-class AWSShieldListProtectionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.shield.model.ListProtectionsRequest> {
+class AWSShieldListProtectionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.shield.model.ListProtectionsRequest, com.amazonaws.services.shield.model.ListProtectionsResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -300,8 +336,12 @@ class AWSShieldListProtectionsCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.shield.listProtections(build())
+	override fun dryResult(): com.amazonaws.services.shield.model.ListProtectionsResult {
+	  return com.amazonaws.services.shield.model.ListProtectionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.shield.model.ListProtectionsResult {
+		return environment.shield.listProtections(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

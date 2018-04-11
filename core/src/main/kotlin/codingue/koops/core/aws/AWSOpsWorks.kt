@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.opsworks: AWSOpsWorks
 @Generated
 class AWSOpsWorksFunctions(val block: Block)
 
-infix fun AwsContinuation.opsworks(init: AWSOpsWorksFunctions.() -> Unit) {
-	AWSOpsWorksFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.opsworks(init: AWSOpsWorksFunctions.() -> T): T {
+	return AWSOpsWorksFunctions(shell).run(init)
 }
 
 			
 
-fun AWSOpsWorksFunctions.assignInstance(instanceId: String, layerIds: List<String>, init: AWSOpsWorksAssignInstanceCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksAssignInstanceCommand(instanceId, layerIds).apply(init))
+fun AWSOpsWorksFunctions.assignInstance(instanceId: String, layerIds: List<String>, init: AWSOpsWorksAssignInstanceCommand.() -> Unit): com.amazonaws.services.opsworks.model.AssignInstanceResult {
+	return this.block.declare(AWSOpsWorksAssignInstanceCommand(instanceId, layerIds).apply(init)) as com.amazonaws.services.opsworks.model.AssignInstanceResult
 }
 
 @Generated
-class AWSOpsWorksAssignInstanceCommand(val instanceId: String, val layerIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.AssignInstanceRequest> {
+class AWSOpsWorksAssignInstanceCommand(val instanceId: String, val layerIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.AssignInstanceRequest, com.amazonaws.services.opsworks.model.AssignInstanceResult> {
 
 
 
@@ -42,8 +42,12 @@ class AWSOpsWorksAssignInstanceCommand(val instanceId: String, val layerIds: Lis
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.assignInstance(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.AssignInstanceResult {
+	  return com.amazonaws.services.opsworks.model.AssignInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.AssignInstanceResult {
+		return environment.opsworks.assignInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -55,12 +59,12 @@ class AWSOpsWorksAssignInstanceCommand(val instanceId: String, val layerIds: Lis
 }
 
 
-fun AWSOpsWorksFunctions.assignVolume(volumeId: String, init: AWSOpsWorksAssignVolumeCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksAssignVolumeCommand(volumeId).apply(init))
+fun AWSOpsWorksFunctions.assignVolume(volumeId: String, init: AWSOpsWorksAssignVolumeCommand.() -> Unit): com.amazonaws.services.opsworks.model.AssignVolumeResult {
+	return this.block.declare(AWSOpsWorksAssignVolumeCommand(volumeId).apply(init)) as com.amazonaws.services.opsworks.model.AssignVolumeResult
 }
 
 @Generated
-class AWSOpsWorksAssignVolumeCommand(val volumeId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.AssignVolumeRequest> {
+class AWSOpsWorksAssignVolumeCommand(val volumeId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.AssignVolumeRequest, com.amazonaws.services.opsworks.model.AssignVolumeResult> {
 
 	var instanceId: String? = null
 
@@ -71,8 +75,12 @@ class AWSOpsWorksAssignVolumeCommand(val volumeId: String) : AmazonWebServiceCom
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.assignVolume(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.AssignVolumeResult {
+	  return com.amazonaws.services.opsworks.model.AssignVolumeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.AssignVolumeResult {
+		return environment.opsworks.assignVolume(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -84,12 +92,12 @@ class AWSOpsWorksAssignVolumeCommand(val volumeId: String) : AmazonWebServiceCom
 }
 
 
-fun AWSOpsWorksFunctions.associateElasticIp(elasticIp: String, init: AWSOpsWorksAssociateElasticIpCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksAssociateElasticIpCommand(elasticIp).apply(init))
+fun AWSOpsWorksFunctions.associateElasticIp(elasticIp: String, init: AWSOpsWorksAssociateElasticIpCommand.() -> Unit): com.amazonaws.services.opsworks.model.AssociateElasticIpResult {
+	return this.block.declare(AWSOpsWorksAssociateElasticIpCommand(elasticIp).apply(init)) as com.amazonaws.services.opsworks.model.AssociateElasticIpResult
 }
 
 @Generated
-class AWSOpsWorksAssociateElasticIpCommand(val elasticIp: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.AssociateElasticIpRequest> {
+class AWSOpsWorksAssociateElasticIpCommand(val elasticIp: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.AssociateElasticIpRequest, com.amazonaws.services.opsworks.model.AssociateElasticIpResult> {
 
 	var instanceId: String? = null
 
@@ -100,8 +108,12 @@ class AWSOpsWorksAssociateElasticIpCommand(val elasticIp: String) : AmazonWebSer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.associateElasticIp(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.AssociateElasticIpResult {
+	  return com.amazonaws.services.opsworks.model.AssociateElasticIpResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.AssociateElasticIpResult {
+		return environment.opsworks.associateElasticIp(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -113,12 +125,12 @@ class AWSOpsWorksAssociateElasticIpCommand(val elasticIp: String) : AmazonWebSer
 }
 
 
-fun AWSOpsWorksFunctions.attachElasticLoadBalancer(elasticLoadBalancerName: String, layerId: String, init: AWSOpsWorksAttachElasticLoadBalancerCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksAttachElasticLoadBalancerCommand(elasticLoadBalancerName, layerId).apply(init))
+fun AWSOpsWorksFunctions.attachElasticLoadBalancer(elasticLoadBalancerName: String, layerId: String, init: AWSOpsWorksAttachElasticLoadBalancerCommand.() -> Unit): com.amazonaws.services.opsworks.model.AttachElasticLoadBalancerResult {
+	return this.block.declare(AWSOpsWorksAttachElasticLoadBalancerCommand(elasticLoadBalancerName, layerId).apply(init)) as com.amazonaws.services.opsworks.model.AttachElasticLoadBalancerResult
 }
 
 @Generated
-class AWSOpsWorksAttachElasticLoadBalancerCommand(val elasticLoadBalancerName: String, val layerId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.AttachElasticLoadBalancerRequest> {
+class AWSOpsWorksAttachElasticLoadBalancerCommand(val elasticLoadBalancerName: String, val layerId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.AttachElasticLoadBalancerRequest, com.amazonaws.services.opsworks.model.AttachElasticLoadBalancerResult> {
 
 
 
@@ -129,8 +141,12 @@ class AWSOpsWorksAttachElasticLoadBalancerCommand(val elasticLoadBalancerName: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.attachElasticLoadBalancer(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.AttachElasticLoadBalancerResult {
+	  return com.amazonaws.services.opsworks.model.AttachElasticLoadBalancerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.AttachElasticLoadBalancerResult {
+		return environment.opsworks.attachElasticLoadBalancer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -142,12 +158,12 @@ class AWSOpsWorksAttachElasticLoadBalancerCommand(val elasticLoadBalancerName: S
 }
 
 
-fun AWSOpsWorksFunctions.cloneStack(sourceStackId: String, serviceRoleArn: String, init: AWSOpsWorksCloneStackCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksCloneStackCommand(sourceStackId, serviceRoleArn).apply(init))
+fun AWSOpsWorksFunctions.cloneStack(sourceStackId: String, serviceRoleArn: String, init: AWSOpsWorksCloneStackCommand.() -> Unit): com.amazonaws.services.opsworks.model.CloneStackResult {
+	return this.block.declare(AWSOpsWorksCloneStackCommand(sourceStackId, serviceRoleArn).apply(init)) as com.amazonaws.services.opsworks.model.CloneStackResult
 }
 
 @Generated
-class AWSOpsWorksCloneStackCommand(val sourceStackId: String, val serviceRoleArn: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.CloneStackRequest> {
+class AWSOpsWorksCloneStackCommand(val sourceStackId: String, val serviceRoleArn: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.CloneStackRequest, com.amazonaws.services.opsworks.model.CloneStackResult> {
 
 	var name: String? = null
 	var region: String? = null
@@ -197,8 +213,12 @@ class AWSOpsWorksCloneStackCommand(val sourceStackId: String, val serviceRoleArn
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.cloneStack(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.CloneStackResult {
+	  return com.amazonaws.services.opsworks.model.CloneStackResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.CloneStackResult {
+		return environment.opsworks.cloneStack(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -230,12 +250,12 @@ class AWSOpsWorksCloneStackCommand(val sourceStackId: String, val serviceRoleArn
 }
 
 
-fun AWSOpsWorksFunctions.createApp(stackId: String, name: String, type: AppType, init: AWSOpsWorksCreateAppCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksCreateAppCommand(stackId, name, type).apply(init))
+fun AWSOpsWorksFunctions.createApp(stackId: String, name: String, type: AppType, init: AWSOpsWorksCreateAppCommand.() -> Unit): com.amazonaws.services.opsworks.model.CreateAppResult {
+	return this.block.declare(AWSOpsWorksCreateAppCommand(stackId, name, type).apply(init)) as com.amazonaws.services.opsworks.model.CreateAppResult
 }
 
 @Generated
-class AWSOpsWorksCreateAppCommand(val stackId: String, val name: String, val type: AppType) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.CreateAppRequest> {
+class AWSOpsWorksCreateAppCommand(val stackId: String, val name: String, val type: AppType) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.CreateAppRequest, com.amazonaws.services.opsworks.model.CreateAppResult> {
 
 	var shortname: String? = null
 	var description: String? = null
@@ -264,8 +284,12 @@ class AWSOpsWorksCreateAppCommand(val stackId: String, val name: String, val typ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.createApp(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.CreateAppResult {
+	  return com.amazonaws.services.opsworks.model.CreateAppResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.CreateAppResult {
+		return environment.opsworks.createApp(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -287,12 +311,12 @@ class AWSOpsWorksCreateAppCommand(val stackId: String, val name: String, val typ
 }
 
 
-fun AWSOpsWorksFunctions.createDeployment(stackId: String, command: com.amazonaws.services.opsworks.model.DeploymentCommand, init: AWSOpsWorksCreateDeploymentCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksCreateDeploymentCommand(stackId, command).apply(init))
+fun AWSOpsWorksFunctions.createDeployment(stackId: String, command: com.amazonaws.services.opsworks.model.DeploymentCommand, init: AWSOpsWorksCreateDeploymentCommand.() -> Unit): com.amazonaws.services.opsworks.model.CreateDeploymentResult {
+	return this.block.declare(AWSOpsWorksCreateDeploymentCommand(stackId, command).apply(init)) as com.amazonaws.services.opsworks.model.CreateDeploymentResult
 }
 
 @Generated
-class AWSOpsWorksCreateDeploymentCommand(val stackId: String, val command: com.amazonaws.services.opsworks.model.DeploymentCommand) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.CreateDeploymentRequest> {
+class AWSOpsWorksCreateDeploymentCommand(val stackId: String, val command: com.amazonaws.services.opsworks.model.DeploymentCommand) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.CreateDeploymentRequest, com.amazonaws.services.opsworks.model.CreateDeploymentResult> {
 
 	var appId: String? = null
 	var instanceIds: List<String>? = null
@@ -312,8 +336,12 @@ class AWSOpsWorksCreateDeploymentCommand(val stackId: String, val command: com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.createDeployment(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.CreateDeploymentResult {
+	  return com.amazonaws.services.opsworks.model.CreateDeploymentResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.CreateDeploymentResult {
+		return environment.opsworks.createDeployment(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -330,12 +358,12 @@ class AWSOpsWorksCreateDeploymentCommand(val stackId: String, val command: com.a
 }
 
 
-fun AWSOpsWorksFunctions.createInstance(stackId: String, layerIds: List<String>, instanceType: String, init: AWSOpsWorksCreateInstanceCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksCreateInstanceCommand(stackId, layerIds, instanceType).apply(init))
+fun AWSOpsWorksFunctions.createInstance(stackId: String, layerIds: List<String>, instanceType: String, init: AWSOpsWorksCreateInstanceCommand.() -> Unit): com.amazonaws.services.opsworks.model.CreateInstanceResult {
+	return this.block.declare(AWSOpsWorksCreateInstanceCommand(stackId, layerIds, instanceType).apply(init)) as com.amazonaws.services.opsworks.model.CreateInstanceResult
 }
 
 @Generated
-class AWSOpsWorksCreateInstanceCommand(val stackId: String, val layerIds: List<String>, val instanceType: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.CreateInstanceRequest> {
+class AWSOpsWorksCreateInstanceCommand(val stackId: String, val layerIds: List<String>, val instanceType: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.CreateInstanceRequest, com.amazonaws.services.opsworks.model.CreateInstanceResult> {
 
 	var autoScalingType: AutoScalingType? = null
 	var hostname: String? = null
@@ -376,8 +404,12 @@ class AWSOpsWorksCreateInstanceCommand(val stackId: String, val layerIds: List<S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.createInstance(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.CreateInstanceResult {
+	  return com.amazonaws.services.opsworks.model.CreateInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.CreateInstanceResult {
+		return environment.opsworks.createInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -405,12 +437,12 @@ class AWSOpsWorksCreateInstanceCommand(val stackId: String, val layerIds: List<S
 }
 
 
-fun AWSOpsWorksFunctions.createLayer(stackId: String, type: LayerType, name: String, shortname: String, init: AWSOpsWorksCreateLayerCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksCreateLayerCommand(stackId, type, name, shortname).apply(init))
+fun AWSOpsWorksFunctions.createLayer(stackId: String, type: LayerType, name: String, shortname: String, init: AWSOpsWorksCreateLayerCommand.() -> Unit): com.amazonaws.services.opsworks.model.CreateLayerResult {
+	return this.block.declare(AWSOpsWorksCreateLayerCommand(stackId, type, name, shortname).apply(init)) as com.amazonaws.services.opsworks.model.CreateLayerResult
 }
 
 @Generated
-class AWSOpsWorksCreateLayerCommand(val stackId: String, val type: LayerType, val name: String, val shortname: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.CreateLayerRequest> {
+class AWSOpsWorksCreateLayerCommand(val stackId: String, val type: LayerType, val name: String, val shortname: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.CreateLayerRequest, com.amazonaws.services.opsworks.model.CreateLayerResult> {
 
 	var attributes: Map<LayerAttributesKeys, String>? = null
 	var cloudWatchLogsConfiguration: com.amazonaws.services.opsworks.model.CloudWatchLogsConfiguration? = null
@@ -450,8 +482,12 @@ class AWSOpsWorksCreateLayerCommand(val stackId: String, val type: LayerType, va
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.createLayer(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.CreateLayerResult {
+	  return com.amazonaws.services.opsworks.model.CreateLayerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.CreateLayerResult {
+		return environment.opsworks.createLayer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -479,12 +515,12 @@ class AWSOpsWorksCreateLayerCommand(val stackId: String, val type: LayerType, va
 }
 
 
-fun AWSOpsWorksFunctions.createStack(name: String, region: String, serviceRoleArn: String, defaultInstanceProfileArn: String, init: AWSOpsWorksCreateStackCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksCreateStackCommand(name, region, serviceRoleArn, defaultInstanceProfileArn).apply(init))
+fun AWSOpsWorksFunctions.createStack(name: String, region: String, serviceRoleArn: String, defaultInstanceProfileArn: String, init: AWSOpsWorksCreateStackCommand.() -> Unit): com.amazonaws.services.opsworks.model.CreateStackResult {
+	return this.block.declare(AWSOpsWorksCreateStackCommand(name, region, serviceRoleArn, defaultInstanceProfileArn).apply(init)) as com.amazonaws.services.opsworks.model.CreateStackResult
 }
 
 @Generated
-class AWSOpsWorksCreateStackCommand(val name: String, val region: String, val serviceRoleArn: String, val defaultInstanceProfileArn: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.CreateStackRequest> {
+class AWSOpsWorksCreateStackCommand(val name: String, val region: String, val serviceRoleArn: String, val defaultInstanceProfileArn: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.CreateStackRequest, com.amazonaws.services.opsworks.model.CreateStackResult> {
 
 	var vpcId: String? = null
 	var attributes: Map<StackAttributesKeys, String>? = null
@@ -526,8 +562,12 @@ class AWSOpsWorksCreateStackCommand(val name: String, val region: String, val se
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.createStack(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.CreateStackResult {
+	  return com.amazonaws.services.opsworks.model.CreateStackResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.CreateStackResult {
+		return environment.opsworks.createStack(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -556,12 +596,12 @@ class AWSOpsWorksCreateStackCommand(val name: String, val region: String, val se
 }
 
 
-fun AWSOpsWorksFunctions.createUserProfile(iamUserArn: String, init: AWSOpsWorksCreateUserProfileCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksCreateUserProfileCommand(iamUserArn).apply(init))
+fun AWSOpsWorksFunctions.createUserProfile(iamUserArn: String, init: AWSOpsWorksCreateUserProfileCommand.() -> Unit): com.amazonaws.services.opsworks.model.CreateUserProfileResult {
+	return this.block.declare(AWSOpsWorksCreateUserProfileCommand(iamUserArn).apply(init)) as com.amazonaws.services.opsworks.model.CreateUserProfileResult
 }
 
 @Generated
-class AWSOpsWorksCreateUserProfileCommand(val iamUserArn: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.CreateUserProfileRequest> {
+class AWSOpsWorksCreateUserProfileCommand(val iamUserArn: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.CreateUserProfileRequest, com.amazonaws.services.opsworks.model.CreateUserProfileResult> {
 
 	var sshUsername: String? = null
 	var sshPublicKey: String? = null
@@ -576,8 +616,12 @@ class AWSOpsWorksCreateUserProfileCommand(val iamUserArn: String) : AmazonWebSer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.createUserProfile(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.CreateUserProfileResult {
+	  return com.amazonaws.services.opsworks.model.CreateUserProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.CreateUserProfileResult {
+		return environment.opsworks.createUserProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -591,12 +635,12 @@ class AWSOpsWorksCreateUserProfileCommand(val iamUserArn: String) : AmazonWebSer
 }
 
 
-fun AWSOpsWorksFunctions.deleteApp(appId: String, init: AWSOpsWorksDeleteAppCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDeleteAppCommand(appId).apply(init))
+fun AWSOpsWorksFunctions.deleteApp(appId: String, init: AWSOpsWorksDeleteAppCommand.() -> Unit): com.amazonaws.services.opsworks.model.DeleteAppResult {
+	return this.block.declare(AWSOpsWorksDeleteAppCommand(appId).apply(init)) as com.amazonaws.services.opsworks.model.DeleteAppResult
 }
 
 @Generated
-class AWSOpsWorksDeleteAppCommand(val appId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DeleteAppRequest> {
+class AWSOpsWorksDeleteAppCommand(val appId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DeleteAppRequest, com.amazonaws.services.opsworks.model.DeleteAppResult> {
 
 
 
@@ -606,8 +650,12 @@ class AWSOpsWorksDeleteAppCommand(val appId: String) : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.deleteApp(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DeleteAppResult {
+	  return com.amazonaws.services.opsworks.model.DeleteAppResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DeleteAppResult {
+		return environment.opsworks.deleteApp(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -618,12 +666,12 @@ class AWSOpsWorksDeleteAppCommand(val appId: String) : AmazonWebServiceCommand<c
 }
 
 
-fun AWSOpsWorksFunctions.deleteInstance(instanceId: String, init: AWSOpsWorksDeleteInstanceCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDeleteInstanceCommand(instanceId).apply(init))
+fun AWSOpsWorksFunctions.deleteInstance(instanceId: String, init: AWSOpsWorksDeleteInstanceCommand.() -> Unit): com.amazonaws.services.opsworks.model.DeleteInstanceResult {
+	return this.block.declare(AWSOpsWorksDeleteInstanceCommand(instanceId).apply(init)) as com.amazonaws.services.opsworks.model.DeleteInstanceResult
 }
 
 @Generated
-class AWSOpsWorksDeleteInstanceCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DeleteInstanceRequest> {
+class AWSOpsWorksDeleteInstanceCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DeleteInstanceRequest, com.amazonaws.services.opsworks.model.DeleteInstanceResult> {
 
 	var deleteElasticIp: Boolean? = false
 	var deleteVolumes: Boolean? = false
@@ -636,8 +684,12 @@ class AWSOpsWorksDeleteInstanceCommand(val instanceId: String) : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.deleteInstance(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DeleteInstanceResult {
+	  return com.amazonaws.services.opsworks.model.DeleteInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DeleteInstanceResult {
+		return environment.opsworks.deleteInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -650,12 +702,12 @@ class AWSOpsWorksDeleteInstanceCommand(val instanceId: String) : AmazonWebServic
 }
 
 
-fun AWSOpsWorksFunctions.deleteLayer(layerId: String, init: AWSOpsWorksDeleteLayerCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDeleteLayerCommand(layerId).apply(init))
+fun AWSOpsWorksFunctions.deleteLayer(layerId: String, init: AWSOpsWorksDeleteLayerCommand.() -> Unit): com.amazonaws.services.opsworks.model.DeleteLayerResult {
+	return this.block.declare(AWSOpsWorksDeleteLayerCommand(layerId).apply(init)) as com.amazonaws.services.opsworks.model.DeleteLayerResult
 }
 
 @Generated
-class AWSOpsWorksDeleteLayerCommand(val layerId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DeleteLayerRequest> {
+class AWSOpsWorksDeleteLayerCommand(val layerId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DeleteLayerRequest, com.amazonaws.services.opsworks.model.DeleteLayerResult> {
 
 
 
@@ -665,8 +717,12 @@ class AWSOpsWorksDeleteLayerCommand(val layerId: String) : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.deleteLayer(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DeleteLayerResult {
+	  return com.amazonaws.services.opsworks.model.DeleteLayerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DeleteLayerResult {
+		return environment.opsworks.deleteLayer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -677,12 +733,12 @@ class AWSOpsWorksDeleteLayerCommand(val layerId: String) : AmazonWebServiceComma
 }
 
 
-fun AWSOpsWorksFunctions.deleteStack(stackId: String, init: AWSOpsWorksDeleteStackCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDeleteStackCommand(stackId).apply(init))
+fun AWSOpsWorksFunctions.deleteStack(stackId: String, init: AWSOpsWorksDeleteStackCommand.() -> Unit): com.amazonaws.services.opsworks.model.DeleteStackResult {
+	return this.block.declare(AWSOpsWorksDeleteStackCommand(stackId).apply(init)) as com.amazonaws.services.opsworks.model.DeleteStackResult
 }
 
 @Generated
-class AWSOpsWorksDeleteStackCommand(val stackId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DeleteStackRequest> {
+class AWSOpsWorksDeleteStackCommand(val stackId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DeleteStackRequest, com.amazonaws.services.opsworks.model.DeleteStackResult> {
 
 
 
@@ -692,8 +748,12 @@ class AWSOpsWorksDeleteStackCommand(val stackId: String) : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.deleteStack(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DeleteStackResult {
+	  return com.amazonaws.services.opsworks.model.DeleteStackResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DeleteStackResult {
+		return environment.opsworks.deleteStack(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -704,12 +764,12 @@ class AWSOpsWorksDeleteStackCommand(val stackId: String) : AmazonWebServiceComma
 }
 
 
-fun AWSOpsWorksFunctions.deleteUserProfile(iamUserArn: String, init: AWSOpsWorksDeleteUserProfileCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDeleteUserProfileCommand(iamUserArn).apply(init))
+fun AWSOpsWorksFunctions.deleteUserProfile(iamUserArn: String, init: AWSOpsWorksDeleteUserProfileCommand.() -> Unit): com.amazonaws.services.opsworks.model.DeleteUserProfileResult {
+	return this.block.declare(AWSOpsWorksDeleteUserProfileCommand(iamUserArn).apply(init)) as com.amazonaws.services.opsworks.model.DeleteUserProfileResult
 }
 
 @Generated
-class AWSOpsWorksDeleteUserProfileCommand(val iamUserArn: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DeleteUserProfileRequest> {
+class AWSOpsWorksDeleteUserProfileCommand(val iamUserArn: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DeleteUserProfileRequest, com.amazonaws.services.opsworks.model.DeleteUserProfileResult> {
 
 
 
@@ -719,8 +779,12 @@ class AWSOpsWorksDeleteUserProfileCommand(val iamUserArn: String) : AmazonWebSer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.deleteUserProfile(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DeleteUserProfileResult {
+	  return com.amazonaws.services.opsworks.model.DeleteUserProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DeleteUserProfileResult {
+		return environment.opsworks.deleteUserProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -731,12 +795,12 @@ class AWSOpsWorksDeleteUserProfileCommand(val iamUserArn: String) : AmazonWebSer
 }
 
 
-fun AWSOpsWorksFunctions.deregisterEcsCluster(ecsClusterArn: String, init: AWSOpsWorksDeregisterEcsClusterCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDeregisterEcsClusterCommand(ecsClusterArn).apply(init))
+fun AWSOpsWorksFunctions.deregisterEcsCluster(ecsClusterArn: String, init: AWSOpsWorksDeregisterEcsClusterCommand.() -> Unit): com.amazonaws.services.opsworks.model.DeregisterEcsClusterResult {
+	return this.block.declare(AWSOpsWorksDeregisterEcsClusterCommand(ecsClusterArn).apply(init)) as com.amazonaws.services.opsworks.model.DeregisterEcsClusterResult
 }
 
 @Generated
-class AWSOpsWorksDeregisterEcsClusterCommand(val ecsClusterArn: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DeregisterEcsClusterRequest> {
+class AWSOpsWorksDeregisterEcsClusterCommand(val ecsClusterArn: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DeregisterEcsClusterRequest, com.amazonaws.services.opsworks.model.DeregisterEcsClusterResult> {
 
 
 
@@ -746,8 +810,12 @@ class AWSOpsWorksDeregisterEcsClusterCommand(val ecsClusterArn: String) : Amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.deregisterEcsCluster(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DeregisterEcsClusterResult {
+	  return com.amazonaws.services.opsworks.model.DeregisterEcsClusterResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DeregisterEcsClusterResult {
+		return environment.opsworks.deregisterEcsCluster(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -758,12 +826,12 @@ class AWSOpsWorksDeregisterEcsClusterCommand(val ecsClusterArn: String) : Amazon
 }
 
 
-fun AWSOpsWorksFunctions.deregisterElasticIp(elasticIp: String, init: AWSOpsWorksDeregisterElasticIpCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDeregisterElasticIpCommand(elasticIp).apply(init))
+fun AWSOpsWorksFunctions.deregisterElasticIp(elasticIp: String, init: AWSOpsWorksDeregisterElasticIpCommand.() -> Unit): com.amazonaws.services.opsworks.model.DeregisterElasticIpResult {
+	return this.block.declare(AWSOpsWorksDeregisterElasticIpCommand(elasticIp).apply(init)) as com.amazonaws.services.opsworks.model.DeregisterElasticIpResult
 }
 
 @Generated
-class AWSOpsWorksDeregisterElasticIpCommand(val elasticIp: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DeregisterElasticIpRequest> {
+class AWSOpsWorksDeregisterElasticIpCommand(val elasticIp: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DeregisterElasticIpRequest, com.amazonaws.services.opsworks.model.DeregisterElasticIpResult> {
 
 
 
@@ -773,8 +841,12 @@ class AWSOpsWorksDeregisterElasticIpCommand(val elasticIp: String) : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.deregisterElasticIp(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DeregisterElasticIpResult {
+	  return com.amazonaws.services.opsworks.model.DeregisterElasticIpResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DeregisterElasticIpResult {
+		return environment.opsworks.deregisterElasticIp(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -785,12 +857,12 @@ class AWSOpsWorksDeregisterElasticIpCommand(val elasticIp: String) : AmazonWebSe
 }
 
 
-fun AWSOpsWorksFunctions.deregisterInstance(instanceId: String, init: AWSOpsWorksDeregisterInstanceCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDeregisterInstanceCommand(instanceId).apply(init))
+fun AWSOpsWorksFunctions.deregisterInstance(instanceId: String, init: AWSOpsWorksDeregisterInstanceCommand.() -> Unit): com.amazonaws.services.opsworks.model.DeregisterInstanceResult {
+	return this.block.declare(AWSOpsWorksDeregisterInstanceCommand(instanceId).apply(init)) as com.amazonaws.services.opsworks.model.DeregisterInstanceResult
 }
 
 @Generated
-class AWSOpsWorksDeregisterInstanceCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DeregisterInstanceRequest> {
+class AWSOpsWorksDeregisterInstanceCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DeregisterInstanceRequest, com.amazonaws.services.opsworks.model.DeregisterInstanceResult> {
 
 
 
@@ -800,8 +872,12 @@ class AWSOpsWorksDeregisterInstanceCommand(val instanceId: String) : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.deregisterInstance(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DeregisterInstanceResult {
+	  return com.amazonaws.services.opsworks.model.DeregisterInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DeregisterInstanceResult {
+		return environment.opsworks.deregisterInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -812,12 +888,12 @@ class AWSOpsWorksDeregisterInstanceCommand(val instanceId: String) : AmazonWebSe
 }
 
 
-fun AWSOpsWorksFunctions.deregisterRdsDbInstance(rdsDbInstanceArn: String, init: AWSOpsWorksDeregisterRdsDbInstanceCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDeregisterRdsDbInstanceCommand(rdsDbInstanceArn).apply(init))
+fun AWSOpsWorksFunctions.deregisterRdsDbInstance(rdsDbInstanceArn: String, init: AWSOpsWorksDeregisterRdsDbInstanceCommand.() -> Unit): com.amazonaws.services.opsworks.model.DeregisterRdsDbInstanceResult {
+	return this.block.declare(AWSOpsWorksDeregisterRdsDbInstanceCommand(rdsDbInstanceArn).apply(init)) as com.amazonaws.services.opsworks.model.DeregisterRdsDbInstanceResult
 }
 
 @Generated
-class AWSOpsWorksDeregisterRdsDbInstanceCommand(val rdsDbInstanceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DeregisterRdsDbInstanceRequest> {
+class AWSOpsWorksDeregisterRdsDbInstanceCommand(val rdsDbInstanceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DeregisterRdsDbInstanceRequest, com.amazonaws.services.opsworks.model.DeregisterRdsDbInstanceResult> {
 
 
 
@@ -827,8 +903,12 @@ class AWSOpsWorksDeregisterRdsDbInstanceCommand(val rdsDbInstanceArn: String) : 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.deregisterRdsDbInstance(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DeregisterRdsDbInstanceResult {
+	  return com.amazonaws.services.opsworks.model.DeregisterRdsDbInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DeregisterRdsDbInstanceResult {
+		return environment.opsworks.deregisterRdsDbInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -839,12 +919,12 @@ class AWSOpsWorksDeregisterRdsDbInstanceCommand(val rdsDbInstanceArn: String) : 
 }
 
 
-fun AWSOpsWorksFunctions.deregisterVolume(volumeId: String, init: AWSOpsWorksDeregisterVolumeCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDeregisterVolumeCommand(volumeId).apply(init))
+fun AWSOpsWorksFunctions.deregisterVolume(volumeId: String, init: AWSOpsWorksDeregisterVolumeCommand.() -> Unit): com.amazonaws.services.opsworks.model.DeregisterVolumeResult {
+	return this.block.declare(AWSOpsWorksDeregisterVolumeCommand(volumeId).apply(init)) as com.amazonaws.services.opsworks.model.DeregisterVolumeResult
 }
 
 @Generated
-class AWSOpsWorksDeregisterVolumeCommand(val volumeId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DeregisterVolumeRequest> {
+class AWSOpsWorksDeregisterVolumeCommand(val volumeId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DeregisterVolumeRequest, com.amazonaws.services.opsworks.model.DeregisterVolumeResult> {
 
 
 
@@ -854,8 +934,12 @@ class AWSOpsWorksDeregisterVolumeCommand(val volumeId: String) : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.deregisterVolume(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DeregisterVolumeResult {
+	  return com.amazonaws.services.opsworks.model.DeregisterVolumeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DeregisterVolumeResult {
+		return environment.opsworks.deregisterVolume(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -866,12 +950,12 @@ class AWSOpsWorksDeregisterVolumeCommand(val volumeId: String) : AmazonWebServic
 }
 
 
-fun AWSOpsWorksFunctions.describeAgentVersions(init: AWSOpsWorksDescribeAgentVersionsCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDescribeAgentVersionsCommand().apply(init))
+fun AWSOpsWorksFunctions.describeAgentVersions(init: AWSOpsWorksDescribeAgentVersionsCommand.() -> Unit): com.amazonaws.services.opsworks.model.DescribeAgentVersionsResult {
+	return this.block.declare(AWSOpsWorksDescribeAgentVersionsCommand().apply(init)) as com.amazonaws.services.opsworks.model.DescribeAgentVersionsResult
 }
 
 @Generated
-class AWSOpsWorksDescribeAgentVersionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeAgentVersionsRequest> {
+class AWSOpsWorksDescribeAgentVersionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeAgentVersionsRequest, com.amazonaws.services.opsworks.model.DescribeAgentVersionsResult> {
 
 	var stackId: String? = null
 	var configurationManager: com.amazonaws.services.opsworks.model.StackConfigurationManager? = null
@@ -883,8 +967,12 @@ class AWSOpsWorksDescribeAgentVersionsCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.describeAgentVersions(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeAgentVersionsResult {
+	  return com.amazonaws.services.opsworks.model.DescribeAgentVersionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeAgentVersionsResult {
+		return environment.opsworks.describeAgentVersions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -896,12 +984,12 @@ class AWSOpsWorksDescribeAgentVersionsCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AWSOpsWorksFunctions.describeApps(init: AWSOpsWorksDescribeAppsCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDescribeAppsCommand().apply(init))
+fun AWSOpsWorksFunctions.describeApps(init: AWSOpsWorksDescribeAppsCommand.() -> Unit): com.amazonaws.services.opsworks.model.DescribeAppsResult {
+	return this.block.declare(AWSOpsWorksDescribeAppsCommand().apply(init)) as com.amazonaws.services.opsworks.model.DescribeAppsResult
 }
 
 @Generated
-class AWSOpsWorksDescribeAppsCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeAppsRequest> {
+class AWSOpsWorksDescribeAppsCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeAppsRequest, com.amazonaws.services.opsworks.model.DescribeAppsResult> {
 
 	var stackId: String? = null
 	var appIds: List<String>? = null
@@ -913,8 +1001,12 @@ class AWSOpsWorksDescribeAppsCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.describeApps(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeAppsResult {
+	  return com.amazonaws.services.opsworks.model.DescribeAppsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeAppsResult {
+		return environment.opsworks.describeApps(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -926,12 +1018,12 @@ class AWSOpsWorksDescribeAppsCommand() : AmazonWebServiceCommand<com.amazonaws.s
 }
 
 
-fun AWSOpsWorksFunctions.describeCommands(init: AWSOpsWorksDescribeCommandsCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDescribeCommandsCommand().apply(init))
+fun AWSOpsWorksFunctions.describeCommands(init: AWSOpsWorksDescribeCommandsCommand.() -> Unit): com.amazonaws.services.opsworks.model.DescribeCommandsResult {
+	return this.block.declare(AWSOpsWorksDescribeCommandsCommand().apply(init)) as com.amazonaws.services.opsworks.model.DescribeCommandsResult
 }
 
 @Generated
-class AWSOpsWorksDescribeCommandsCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeCommandsRequest> {
+class AWSOpsWorksDescribeCommandsCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeCommandsRequest, com.amazonaws.services.opsworks.model.DescribeCommandsResult> {
 
 	var deploymentId: String? = null
 	var instanceId: String? = null
@@ -945,8 +1037,12 @@ class AWSOpsWorksDescribeCommandsCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.describeCommands(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeCommandsResult {
+	  return com.amazonaws.services.opsworks.model.DescribeCommandsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeCommandsResult {
+		return environment.opsworks.describeCommands(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -959,12 +1055,12 @@ class AWSOpsWorksDescribeCommandsCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AWSOpsWorksFunctions.describeDeployments(init: AWSOpsWorksDescribeDeploymentsCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDescribeDeploymentsCommand().apply(init))
+fun AWSOpsWorksFunctions.describeDeployments(init: AWSOpsWorksDescribeDeploymentsCommand.() -> Unit): com.amazonaws.services.opsworks.model.DescribeDeploymentsResult {
+	return this.block.declare(AWSOpsWorksDescribeDeploymentsCommand().apply(init)) as com.amazonaws.services.opsworks.model.DescribeDeploymentsResult
 }
 
 @Generated
-class AWSOpsWorksDescribeDeploymentsCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeDeploymentsRequest> {
+class AWSOpsWorksDescribeDeploymentsCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeDeploymentsRequest, com.amazonaws.services.opsworks.model.DescribeDeploymentsResult> {
 
 	var stackId: String? = null
 	var appId: String? = null
@@ -978,8 +1074,12 @@ class AWSOpsWorksDescribeDeploymentsCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.describeDeployments(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeDeploymentsResult {
+	  return com.amazonaws.services.opsworks.model.DescribeDeploymentsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeDeploymentsResult {
+		return environment.opsworks.describeDeployments(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -992,12 +1092,12 @@ class AWSOpsWorksDescribeDeploymentsCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AWSOpsWorksFunctions.describeEcsClusters(init: AWSOpsWorksDescribeEcsClustersCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDescribeEcsClustersCommand().apply(init))
+fun AWSOpsWorksFunctions.describeEcsClusters(init: AWSOpsWorksDescribeEcsClustersCommand.() -> Unit): com.amazonaws.services.opsworks.model.DescribeEcsClustersResult {
+	return this.block.declare(AWSOpsWorksDescribeEcsClustersCommand().apply(init)) as com.amazonaws.services.opsworks.model.DescribeEcsClustersResult
 }
 
 @Generated
-class AWSOpsWorksDescribeEcsClustersCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeEcsClustersRequest> {
+class AWSOpsWorksDescribeEcsClustersCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeEcsClustersRequest, com.amazonaws.services.opsworks.model.DescribeEcsClustersResult> {
 
 	var ecsClusterArns: List<String>? = null
 	var stackId: String? = null
@@ -1013,8 +1113,12 @@ class AWSOpsWorksDescribeEcsClustersCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.describeEcsClusters(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeEcsClustersResult {
+	  return com.amazonaws.services.opsworks.model.DescribeEcsClustersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeEcsClustersResult {
+		return environment.opsworks.describeEcsClusters(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1028,12 +1132,12 @@ class AWSOpsWorksDescribeEcsClustersCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AWSOpsWorksFunctions.describeElasticIps(init: AWSOpsWorksDescribeElasticIpsCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDescribeElasticIpsCommand().apply(init))
+fun AWSOpsWorksFunctions.describeElasticIps(init: AWSOpsWorksDescribeElasticIpsCommand.() -> Unit): com.amazonaws.services.opsworks.model.DescribeElasticIpsResult {
+	return this.block.declare(AWSOpsWorksDescribeElasticIpsCommand().apply(init)) as com.amazonaws.services.opsworks.model.DescribeElasticIpsResult
 }
 
 @Generated
-class AWSOpsWorksDescribeElasticIpsCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeElasticIpsRequest> {
+class AWSOpsWorksDescribeElasticIpsCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeElasticIpsRequest, com.amazonaws.services.opsworks.model.DescribeElasticIpsResult> {
 
 	var instanceId: String? = null
 	var stackId: String? = null
@@ -1047,8 +1151,12 @@ class AWSOpsWorksDescribeElasticIpsCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.describeElasticIps(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeElasticIpsResult {
+	  return com.amazonaws.services.opsworks.model.DescribeElasticIpsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeElasticIpsResult {
+		return environment.opsworks.describeElasticIps(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1061,12 +1169,12 @@ class AWSOpsWorksDescribeElasticIpsCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AWSOpsWorksFunctions.describeElasticLoadBalancers(init: AWSOpsWorksDescribeElasticLoadBalancersCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDescribeElasticLoadBalancersCommand().apply(init))
+fun AWSOpsWorksFunctions.describeElasticLoadBalancers(init: AWSOpsWorksDescribeElasticLoadBalancersCommand.() -> Unit): com.amazonaws.services.opsworks.model.DescribeElasticLoadBalancersResult {
+	return this.block.declare(AWSOpsWorksDescribeElasticLoadBalancersCommand().apply(init)) as com.amazonaws.services.opsworks.model.DescribeElasticLoadBalancersResult
 }
 
 @Generated
-class AWSOpsWorksDescribeElasticLoadBalancersCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeElasticLoadBalancersRequest> {
+class AWSOpsWorksDescribeElasticLoadBalancersCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeElasticLoadBalancersRequest, com.amazonaws.services.opsworks.model.DescribeElasticLoadBalancersResult> {
 
 	var stackId: String? = null
 	var layerIds: List<String>? = null
@@ -1078,8 +1186,12 @@ class AWSOpsWorksDescribeElasticLoadBalancersCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.describeElasticLoadBalancers(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeElasticLoadBalancersResult {
+	  return com.amazonaws.services.opsworks.model.DescribeElasticLoadBalancersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeElasticLoadBalancersResult {
+		return environment.opsworks.describeElasticLoadBalancers(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1091,12 +1203,12 @@ class AWSOpsWorksDescribeElasticLoadBalancersCommand() : AmazonWebServiceCommand
 }
 
 
-fun AWSOpsWorksFunctions.describeInstances(init: AWSOpsWorksDescribeInstancesCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDescribeInstancesCommand().apply(init))
+fun AWSOpsWorksFunctions.describeInstances(init: AWSOpsWorksDescribeInstancesCommand.() -> Unit): com.amazonaws.services.opsworks.model.DescribeInstancesResult {
+	return this.block.declare(AWSOpsWorksDescribeInstancesCommand().apply(init)) as com.amazonaws.services.opsworks.model.DescribeInstancesResult
 }
 
 @Generated
-class AWSOpsWorksDescribeInstancesCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeInstancesRequest> {
+class AWSOpsWorksDescribeInstancesCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeInstancesRequest, com.amazonaws.services.opsworks.model.DescribeInstancesResult> {
 
 	var stackId: String? = null
 	var layerId: String? = null
@@ -1110,8 +1222,12 @@ class AWSOpsWorksDescribeInstancesCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.describeInstances(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeInstancesResult {
+	  return com.amazonaws.services.opsworks.model.DescribeInstancesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeInstancesResult {
+		return environment.opsworks.describeInstances(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1124,12 +1240,12 @@ class AWSOpsWorksDescribeInstancesCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AWSOpsWorksFunctions.describeLayers(init: AWSOpsWorksDescribeLayersCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDescribeLayersCommand().apply(init))
+fun AWSOpsWorksFunctions.describeLayers(init: AWSOpsWorksDescribeLayersCommand.() -> Unit): com.amazonaws.services.opsworks.model.DescribeLayersResult {
+	return this.block.declare(AWSOpsWorksDescribeLayersCommand().apply(init)) as com.amazonaws.services.opsworks.model.DescribeLayersResult
 }
 
 @Generated
-class AWSOpsWorksDescribeLayersCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeLayersRequest> {
+class AWSOpsWorksDescribeLayersCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeLayersRequest, com.amazonaws.services.opsworks.model.DescribeLayersResult> {
 
 	var stackId: String? = null
 	var layerIds: List<String>? = null
@@ -1141,8 +1257,12 @@ class AWSOpsWorksDescribeLayersCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.describeLayers(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeLayersResult {
+	  return com.amazonaws.services.opsworks.model.DescribeLayersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeLayersResult {
+		return environment.opsworks.describeLayers(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1154,12 +1274,12 @@ class AWSOpsWorksDescribeLayersCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AWSOpsWorksFunctions.describeLoadBasedAutoScaling(layerIds: List<String>, init: AWSOpsWorksDescribeLoadBasedAutoScalingCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDescribeLoadBasedAutoScalingCommand(layerIds).apply(init))
+fun AWSOpsWorksFunctions.describeLoadBasedAutoScaling(layerIds: List<String>, init: AWSOpsWorksDescribeLoadBasedAutoScalingCommand.() -> Unit): com.amazonaws.services.opsworks.model.DescribeLoadBasedAutoScalingResult {
+	return this.block.declare(AWSOpsWorksDescribeLoadBasedAutoScalingCommand(layerIds).apply(init)) as com.amazonaws.services.opsworks.model.DescribeLoadBasedAutoScalingResult
 }
 
 @Generated
-class AWSOpsWorksDescribeLoadBasedAutoScalingCommand(val layerIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeLoadBasedAutoScalingRequest> {
+class AWSOpsWorksDescribeLoadBasedAutoScalingCommand(val layerIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeLoadBasedAutoScalingRequest, com.amazonaws.services.opsworks.model.DescribeLoadBasedAutoScalingResult> {
 
 
 
@@ -1169,8 +1289,12 @@ class AWSOpsWorksDescribeLoadBasedAutoScalingCommand(val layerIds: List<String>)
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.describeLoadBasedAutoScaling(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeLoadBasedAutoScalingResult {
+	  return com.amazonaws.services.opsworks.model.DescribeLoadBasedAutoScalingResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeLoadBasedAutoScalingResult {
+		return environment.opsworks.describeLoadBasedAutoScaling(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1181,12 +1305,12 @@ class AWSOpsWorksDescribeLoadBasedAutoScalingCommand(val layerIds: List<String>)
 }
 
 
-fun AWSOpsWorksFunctions.describeMyUserProfile(init: AWSOpsWorksDescribeMyUserProfileCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDescribeMyUserProfileCommand().apply(init))
+fun AWSOpsWorksFunctions.describeMyUserProfile(init: AWSOpsWorksDescribeMyUserProfileCommand.() -> Unit): com.amazonaws.services.opsworks.model.DescribeMyUserProfileResult {
+	return this.block.declare(AWSOpsWorksDescribeMyUserProfileCommand().apply(init)) as com.amazonaws.services.opsworks.model.DescribeMyUserProfileResult
 }
 
 @Generated
-class AWSOpsWorksDescribeMyUserProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeMyUserProfileRequest> {
+class AWSOpsWorksDescribeMyUserProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeMyUserProfileRequest, com.amazonaws.services.opsworks.model.DescribeMyUserProfileResult> {
 
 
 
@@ -1196,8 +1320,12 @@ class AWSOpsWorksDescribeMyUserProfileCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.describeMyUserProfile(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeMyUserProfileResult {
+	  return com.amazonaws.services.opsworks.model.DescribeMyUserProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeMyUserProfileResult {
+		return environment.opsworks.describeMyUserProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1208,12 +1336,12 @@ class AWSOpsWorksDescribeMyUserProfileCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AWSOpsWorksFunctions.describeOperatingSystems(init: AWSOpsWorksDescribeOperatingSystemsCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDescribeOperatingSystemsCommand().apply(init))
+fun AWSOpsWorksFunctions.describeOperatingSystems(init: AWSOpsWorksDescribeOperatingSystemsCommand.() -> Unit): com.amazonaws.services.opsworks.model.DescribeOperatingSystemsResult {
+	return this.block.declare(AWSOpsWorksDescribeOperatingSystemsCommand().apply(init)) as com.amazonaws.services.opsworks.model.DescribeOperatingSystemsResult
 }
 
 @Generated
-class AWSOpsWorksDescribeOperatingSystemsCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeOperatingSystemsRequest> {
+class AWSOpsWorksDescribeOperatingSystemsCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeOperatingSystemsRequest, com.amazonaws.services.opsworks.model.DescribeOperatingSystemsResult> {
 
 
 
@@ -1223,8 +1351,12 @@ class AWSOpsWorksDescribeOperatingSystemsCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.describeOperatingSystems(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeOperatingSystemsResult {
+	  return com.amazonaws.services.opsworks.model.DescribeOperatingSystemsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeOperatingSystemsResult {
+		return environment.opsworks.describeOperatingSystems(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1235,12 +1367,12 @@ class AWSOpsWorksDescribeOperatingSystemsCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AWSOpsWorksFunctions.describePermissions(init: AWSOpsWorksDescribePermissionsCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDescribePermissionsCommand().apply(init))
+fun AWSOpsWorksFunctions.describePermissions(init: AWSOpsWorksDescribePermissionsCommand.() -> Unit): com.amazonaws.services.opsworks.model.DescribePermissionsResult {
+	return this.block.declare(AWSOpsWorksDescribePermissionsCommand().apply(init)) as com.amazonaws.services.opsworks.model.DescribePermissionsResult
 }
 
 @Generated
-class AWSOpsWorksDescribePermissionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribePermissionsRequest> {
+class AWSOpsWorksDescribePermissionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribePermissionsRequest, com.amazonaws.services.opsworks.model.DescribePermissionsResult> {
 
 	var iamUserArn: String? = null
 	var stackId: String? = null
@@ -1252,8 +1384,12 @@ class AWSOpsWorksDescribePermissionsCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.describePermissions(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribePermissionsResult {
+	  return com.amazonaws.services.opsworks.model.DescribePermissionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribePermissionsResult {
+		return environment.opsworks.describePermissions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1265,12 +1401,12 @@ class AWSOpsWorksDescribePermissionsCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AWSOpsWorksFunctions.describeRaidArrays(init: AWSOpsWorksDescribeRaidArraysCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDescribeRaidArraysCommand().apply(init))
+fun AWSOpsWorksFunctions.describeRaidArrays(init: AWSOpsWorksDescribeRaidArraysCommand.() -> Unit): com.amazonaws.services.opsworks.model.DescribeRaidArraysResult {
+	return this.block.declare(AWSOpsWorksDescribeRaidArraysCommand().apply(init)) as com.amazonaws.services.opsworks.model.DescribeRaidArraysResult
 }
 
 @Generated
-class AWSOpsWorksDescribeRaidArraysCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeRaidArraysRequest> {
+class AWSOpsWorksDescribeRaidArraysCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeRaidArraysRequest, com.amazonaws.services.opsworks.model.DescribeRaidArraysResult> {
 
 	var instanceId: String? = null
 	var stackId: String? = null
@@ -1284,8 +1420,12 @@ class AWSOpsWorksDescribeRaidArraysCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.describeRaidArrays(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeRaidArraysResult {
+	  return com.amazonaws.services.opsworks.model.DescribeRaidArraysResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeRaidArraysResult {
+		return environment.opsworks.describeRaidArrays(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1298,12 +1438,12 @@ class AWSOpsWorksDescribeRaidArraysCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AWSOpsWorksFunctions.describeRdsDbInstances(stackId: String, init: AWSOpsWorksDescribeRdsDbInstancesCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDescribeRdsDbInstancesCommand(stackId).apply(init))
+fun AWSOpsWorksFunctions.describeRdsDbInstances(stackId: String, init: AWSOpsWorksDescribeRdsDbInstancesCommand.() -> Unit): com.amazonaws.services.opsworks.model.DescribeRdsDbInstancesResult {
+	return this.block.declare(AWSOpsWorksDescribeRdsDbInstancesCommand(stackId).apply(init)) as com.amazonaws.services.opsworks.model.DescribeRdsDbInstancesResult
 }
 
 @Generated
-class AWSOpsWorksDescribeRdsDbInstancesCommand(val stackId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeRdsDbInstancesRequest> {
+class AWSOpsWorksDescribeRdsDbInstancesCommand(val stackId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeRdsDbInstancesRequest, com.amazonaws.services.opsworks.model.DescribeRdsDbInstancesResult> {
 
 	var rdsDbInstanceArns: List<String>? = null
 
@@ -1314,8 +1454,12 @@ class AWSOpsWorksDescribeRdsDbInstancesCommand(val stackId: String) : AmazonWebS
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.describeRdsDbInstances(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeRdsDbInstancesResult {
+	  return com.amazonaws.services.opsworks.model.DescribeRdsDbInstancesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeRdsDbInstancesResult {
+		return environment.opsworks.describeRdsDbInstances(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1327,12 +1471,12 @@ class AWSOpsWorksDescribeRdsDbInstancesCommand(val stackId: String) : AmazonWebS
 }
 
 
-fun AWSOpsWorksFunctions.describeServiceErrors(init: AWSOpsWorksDescribeServiceErrorsCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDescribeServiceErrorsCommand().apply(init))
+fun AWSOpsWorksFunctions.describeServiceErrors(init: AWSOpsWorksDescribeServiceErrorsCommand.() -> Unit): com.amazonaws.services.opsworks.model.DescribeServiceErrorsResult {
+	return this.block.declare(AWSOpsWorksDescribeServiceErrorsCommand().apply(init)) as com.amazonaws.services.opsworks.model.DescribeServiceErrorsResult
 }
 
 @Generated
-class AWSOpsWorksDescribeServiceErrorsCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeServiceErrorsRequest> {
+class AWSOpsWorksDescribeServiceErrorsCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeServiceErrorsRequest, com.amazonaws.services.opsworks.model.DescribeServiceErrorsResult> {
 
 	var stackId: String? = null
 	var instanceId: String? = null
@@ -1346,8 +1490,12 @@ class AWSOpsWorksDescribeServiceErrorsCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.describeServiceErrors(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeServiceErrorsResult {
+	  return com.amazonaws.services.opsworks.model.DescribeServiceErrorsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeServiceErrorsResult {
+		return environment.opsworks.describeServiceErrors(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1360,12 +1508,12 @@ class AWSOpsWorksDescribeServiceErrorsCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AWSOpsWorksFunctions.describeStackProvisioningParameters(stackId: String, init: AWSOpsWorksDescribeStackProvisioningParametersCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDescribeStackProvisioningParametersCommand(stackId).apply(init))
+fun AWSOpsWorksFunctions.describeStackProvisioningParameters(stackId: String, init: AWSOpsWorksDescribeStackProvisioningParametersCommand.() -> Unit): com.amazonaws.services.opsworks.model.DescribeStackProvisioningParametersResult {
+	return this.block.declare(AWSOpsWorksDescribeStackProvisioningParametersCommand(stackId).apply(init)) as com.amazonaws.services.opsworks.model.DescribeStackProvisioningParametersResult
 }
 
 @Generated
-class AWSOpsWorksDescribeStackProvisioningParametersCommand(val stackId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeStackProvisioningParametersRequest> {
+class AWSOpsWorksDescribeStackProvisioningParametersCommand(val stackId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeStackProvisioningParametersRequest, com.amazonaws.services.opsworks.model.DescribeStackProvisioningParametersResult> {
 
 
 
@@ -1375,8 +1523,12 @@ class AWSOpsWorksDescribeStackProvisioningParametersCommand(val stackId: String)
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.describeStackProvisioningParameters(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeStackProvisioningParametersResult {
+	  return com.amazonaws.services.opsworks.model.DescribeStackProvisioningParametersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeStackProvisioningParametersResult {
+		return environment.opsworks.describeStackProvisioningParameters(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1387,12 +1539,12 @@ class AWSOpsWorksDescribeStackProvisioningParametersCommand(val stackId: String)
 }
 
 
-fun AWSOpsWorksFunctions.describeStackSummary(stackId: String, init: AWSOpsWorksDescribeStackSummaryCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDescribeStackSummaryCommand(stackId).apply(init))
+fun AWSOpsWorksFunctions.describeStackSummary(stackId: String, init: AWSOpsWorksDescribeStackSummaryCommand.() -> Unit): com.amazonaws.services.opsworks.model.DescribeStackSummaryResult {
+	return this.block.declare(AWSOpsWorksDescribeStackSummaryCommand(stackId).apply(init)) as com.amazonaws.services.opsworks.model.DescribeStackSummaryResult
 }
 
 @Generated
-class AWSOpsWorksDescribeStackSummaryCommand(val stackId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeStackSummaryRequest> {
+class AWSOpsWorksDescribeStackSummaryCommand(val stackId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeStackSummaryRequest, com.amazonaws.services.opsworks.model.DescribeStackSummaryResult> {
 
 
 
@@ -1402,8 +1554,12 @@ class AWSOpsWorksDescribeStackSummaryCommand(val stackId: String) : AmazonWebSer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.describeStackSummary(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeStackSummaryResult {
+	  return com.amazonaws.services.opsworks.model.DescribeStackSummaryResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeStackSummaryResult {
+		return environment.opsworks.describeStackSummary(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1414,12 +1570,12 @@ class AWSOpsWorksDescribeStackSummaryCommand(val stackId: String) : AmazonWebSer
 }
 
 
-fun AWSOpsWorksFunctions.describeStacks(init: AWSOpsWorksDescribeStacksCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDescribeStacksCommand().apply(init))
+fun AWSOpsWorksFunctions.describeStacks(init: AWSOpsWorksDescribeStacksCommand.() -> Unit): com.amazonaws.services.opsworks.model.DescribeStacksResult {
+	return this.block.declare(AWSOpsWorksDescribeStacksCommand().apply(init)) as com.amazonaws.services.opsworks.model.DescribeStacksResult
 }
 
 @Generated
-class AWSOpsWorksDescribeStacksCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeStacksRequest> {
+class AWSOpsWorksDescribeStacksCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeStacksRequest, com.amazonaws.services.opsworks.model.DescribeStacksResult> {
 
 	var stackIds: List<String>? = null
 
@@ -1429,8 +1585,12 @@ class AWSOpsWorksDescribeStacksCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.describeStacks(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeStacksResult {
+	  return com.amazonaws.services.opsworks.model.DescribeStacksResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeStacksResult {
+		return environment.opsworks.describeStacks(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1441,12 +1601,12 @@ class AWSOpsWorksDescribeStacksCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AWSOpsWorksFunctions.describeTimeBasedAutoScaling(instanceIds: List<String>, init: AWSOpsWorksDescribeTimeBasedAutoScalingCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDescribeTimeBasedAutoScalingCommand(instanceIds).apply(init))
+fun AWSOpsWorksFunctions.describeTimeBasedAutoScaling(instanceIds: List<String>, init: AWSOpsWorksDescribeTimeBasedAutoScalingCommand.() -> Unit): com.amazonaws.services.opsworks.model.DescribeTimeBasedAutoScalingResult {
+	return this.block.declare(AWSOpsWorksDescribeTimeBasedAutoScalingCommand(instanceIds).apply(init)) as com.amazonaws.services.opsworks.model.DescribeTimeBasedAutoScalingResult
 }
 
 @Generated
-class AWSOpsWorksDescribeTimeBasedAutoScalingCommand(val instanceIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeTimeBasedAutoScalingRequest> {
+class AWSOpsWorksDescribeTimeBasedAutoScalingCommand(val instanceIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeTimeBasedAutoScalingRequest, com.amazonaws.services.opsworks.model.DescribeTimeBasedAutoScalingResult> {
 
 
 
@@ -1456,8 +1616,12 @@ class AWSOpsWorksDescribeTimeBasedAutoScalingCommand(val instanceIds: List<Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.describeTimeBasedAutoScaling(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeTimeBasedAutoScalingResult {
+	  return com.amazonaws.services.opsworks.model.DescribeTimeBasedAutoScalingResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeTimeBasedAutoScalingResult {
+		return environment.opsworks.describeTimeBasedAutoScaling(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1468,12 +1632,12 @@ class AWSOpsWorksDescribeTimeBasedAutoScalingCommand(val instanceIds: List<Strin
 }
 
 
-fun AWSOpsWorksFunctions.describeUserProfiles(init: AWSOpsWorksDescribeUserProfilesCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDescribeUserProfilesCommand().apply(init))
+fun AWSOpsWorksFunctions.describeUserProfiles(init: AWSOpsWorksDescribeUserProfilesCommand.() -> Unit): com.amazonaws.services.opsworks.model.DescribeUserProfilesResult {
+	return this.block.declare(AWSOpsWorksDescribeUserProfilesCommand().apply(init)) as com.amazonaws.services.opsworks.model.DescribeUserProfilesResult
 }
 
 @Generated
-class AWSOpsWorksDescribeUserProfilesCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeUserProfilesRequest> {
+class AWSOpsWorksDescribeUserProfilesCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeUserProfilesRequest, com.amazonaws.services.opsworks.model.DescribeUserProfilesResult> {
 
 	var iamUserArns: List<String>? = null
 
@@ -1483,8 +1647,12 @@ class AWSOpsWorksDescribeUserProfilesCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.describeUserProfiles(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeUserProfilesResult {
+	  return com.amazonaws.services.opsworks.model.DescribeUserProfilesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeUserProfilesResult {
+		return environment.opsworks.describeUserProfiles(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1495,12 +1663,12 @@ class AWSOpsWorksDescribeUserProfilesCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AWSOpsWorksFunctions.describeVolumes(init: AWSOpsWorksDescribeVolumesCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDescribeVolumesCommand().apply(init))
+fun AWSOpsWorksFunctions.describeVolumes(init: AWSOpsWorksDescribeVolumesCommand.() -> Unit): com.amazonaws.services.opsworks.model.DescribeVolumesResult {
+	return this.block.declare(AWSOpsWorksDescribeVolumesCommand().apply(init)) as com.amazonaws.services.opsworks.model.DescribeVolumesResult
 }
 
 @Generated
-class AWSOpsWorksDescribeVolumesCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeVolumesRequest> {
+class AWSOpsWorksDescribeVolumesCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DescribeVolumesRequest, com.amazonaws.services.opsworks.model.DescribeVolumesResult> {
 
 	var instanceId: String? = null
 	var stackId: String? = null
@@ -1516,8 +1684,12 @@ class AWSOpsWorksDescribeVolumesCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.describeVolumes(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DescribeVolumesResult {
+	  return com.amazonaws.services.opsworks.model.DescribeVolumesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DescribeVolumesResult {
+		return environment.opsworks.describeVolumes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1531,12 +1703,12 @@ class AWSOpsWorksDescribeVolumesCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AWSOpsWorksFunctions.detachElasticLoadBalancer(elasticLoadBalancerName: String, layerId: String, init: AWSOpsWorksDetachElasticLoadBalancerCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDetachElasticLoadBalancerCommand(elasticLoadBalancerName, layerId).apply(init))
+fun AWSOpsWorksFunctions.detachElasticLoadBalancer(elasticLoadBalancerName: String, layerId: String, init: AWSOpsWorksDetachElasticLoadBalancerCommand.() -> Unit): com.amazonaws.services.opsworks.model.DetachElasticLoadBalancerResult {
+	return this.block.declare(AWSOpsWorksDetachElasticLoadBalancerCommand(elasticLoadBalancerName, layerId).apply(init)) as com.amazonaws.services.opsworks.model.DetachElasticLoadBalancerResult
 }
 
 @Generated
-class AWSOpsWorksDetachElasticLoadBalancerCommand(val elasticLoadBalancerName: String, val layerId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DetachElasticLoadBalancerRequest> {
+class AWSOpsWorksDetachElasticLoadBalancerCommand(val elasticLoadBalancerName: String, val layerId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DetachElasticLoadBalancerRequest, com.amazonaws.services.opsworks.model.DetachElasticLoadBalancerResult> {
 
 
 
@@ -1547,8 +1719,12 @@ class AWSOpsWorksDetachElasticLoadBalancerCommand(val elasticLoadBalancerName: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.detachElasticLoadBalancer(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DetachElasticLoadBalancerResult {
+	  return com.amazonaws.services.opsworks.model.DetachElasticLoadBalancerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DetachElasticLoadBalancerResult {
+		return environment.opsworks.detachElasticLoadBalancer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1560,12 +1736,12 @@ class AWSOpsWorksDetachElasticLoadBalancerCommand(val elasticLoadBalancerName: S
 }
 
 
-fun AWSOpsWorksFunctions.disassociateElasticIp(elasticIp: String, init: AWSOpsWorksDisassociateElasticIpCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksDisassociateElasticIpCommand(elasticIp).apply(init))
+fun AWSOpsWorksFunctions.disassociateElasticIp(elasticIp: String, init: AWSOpsWorksDisassociateElasticIpCommand.() -> Unit): com.amazonaws.services.opsworks.model.DisassociateElasticIpResult {
+	return this.block.declare(AWSOpsWorksDisassociateElasticIpCommand(elasticIp).apply(init)) as com.amazonaws.services.opsworks.model.DisassociateElasticIpResult
 }
 
 @Generated
-class AWSOpsWorksDisassociateElasticIpCommand(val elasticIp: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DisassociateElasticIpRequest> {
+class AWSOpsWorksDisassociateElasticIpCommand(val elasticIp: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.DisassociateElasticIpRequest, com.amazonaws.services.opsworks.model.DisassociateElasticIpResult> {
 
 
 
@@ -1575,8 +1751,12 @@ class AWSOpsWorksDisassociateElasticIpCommand(val elasticIp: String) : AmazonWeb
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.disassociateElasticIp(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.DisassociateElasticIpResult {
+	  return com.amazonaws.services.opsworks.model.DisassociateElasticIpResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.DisassociateElasticIpResult {
+		return environment.opsworks.disassociateElasticIp(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1587,12 +1767,12 @@ class AWSOpsWorksDisassociateElasticIpCommand(val elasticIp: String) : AmazonWeb
 }
 
 
-fun AWSOpsWorksFunctions.getHostnameSuggestion(layerId: String, init: AWSOpsWorksGetHostnameSuggestionCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksGetHostnameSuggestionCommand(layerId).apply(init))
+fun AWSOpsWorksFunctions.getHostnameSuggestion(layerId: String, init: AWSOpsWorksGetHostnameSuggestionCommand.() -> Unit): com.amazonaws.services.opsworks.model.GetHostnameSuggestionResult {
+	return this.block.declare(AWSOpsWorksGetHostnameSuggestionCommand(layerId).apply(init)) as com.amazonaws.services.opsworks.model.GetHostnameSuggestionResult
 }
 
 @Generated
-class AWSOpsWorksGetHostnameSuggestionCommand(val layerId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.GetHostnameSuggestionRequest> {
+class AWSOpsWorksGetHostnameSuggestionCommand(val layerId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.GetHostnameSuggestionRequest, com.amazonaws.services.opsworks.model.GetHostnameSuggestionResult> {
 
 
 
@@ -1602,8 +1782,12 @@ class AWSOpsWorksGetHostnameSuggestionCommand(val layerId: String) : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.getHostnameSuggestion(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.GetHostnameSuggestionResult {
+	  return com.amazonaws.services.opsworks.model.GetHostnameSuggestionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.GetHostnameSuggestionResult {
+		return environment.opsworks.getHostnameSuggestion(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1614,12 +1798,12 @@ class AWSOpsWorksGetHostnameSuggestionCommand(val layerId: String) : AmazonWebSe
 }
 
 
-fun AWSOpsWorksFunctions.grantAccess(instanceId: String, init: AWSOpsWorksGrantAccessCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksGrantAccessCommand(instanceId).apply(init))
+fun AWSOpsWorksFunctions.grantAccess(instanceId: String, init: AWSOpsWorksGrantAccessCommand.() -> Unit): com.amazonaws.services.opsworks.model.GrantAccessResult {
+	return this.block.declare(AWSOpsWorksGrantAccessCommand(instanceId).apply(init)) as com.amazonaws.services.opsworks.model.GrantAccessResult
 }
 
 @Generated
-class AWSOpsWorksGrantAccessCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.GrantAccessRequest> {
+class AWSOpsWorksGrantAccessCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.GrantAccessRequest, com.amazonaws.services.opsworks.model.GrantAccessResult> {
 
 	var validForInMinutes: Int? = 0
 
@@ -1630,8 +1814,12 @@ class AWSOpsWorksGrantAccessCommand(val instanceId: String) : AmazonWebServiceCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.grantAccess(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.GrantAccessResult {
+	  return com.amazonaws.services.opsworks.model.GrantAccessResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.GrantAccessResult {
+		return environment.opsworks.grantAccess(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1643,12 +1831,12 @@ class AWSOpsWorksGrantAccessCommand(val instanceId: String) : AmazonWebServiceCo
 }
 
 
-fun AWSOpsWorksFunctions.listTags(resourceArn: String, init: AWSOpsWorksListTagsCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksListTagsCommand(resourceArn).apply(init))
+fun AWSOpsWorksFunctions.listTags(resourceArn: String, init: AWSOpsWorksListTagsCommand.() -> Unit): com.amazonaws.services.opsworks.model.ListTagsResult {
+	return this.block.declare(AWSOpsWorksListTagsCommand(resourceArn).apply(init)) as com.amazonaws.services.opsworks.model.ListTagsResult
 }
 
 @Generated
-class AWSOpsWorksListTagsCommand(val resourceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.ListTagsRequest> {
+class AWSOpsWorksListTagsCommand(val resourceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.ListTagsRequest, com.amazonaws.services.opsworks.model.ListTagsResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -1661,8 +1849,12 @@ class AWSOpsWorksListTagsCommand(val resourceArn: String) : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.listTags(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.ListTagsResult {
+	  return com.amazonaws.services.opsworks.model.ListTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.ListTagsResult {
+		return environment.opsworks.listTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1675,12 +1867,12 @@ class AWSOpsWorksListTagsCommand(val resourceArn: String) : AmazonWebServiceComm
 }
 
 
-fun AWSOpsWorksFunctions.rebootInstance(instanceId: String, init: AWSOpsWorksRebootInstanceCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksRebootInstanceCommand(instanceId).apply(init))
+fun AWSOpsWorksFunctions.rebootInstance(instanceId: String, init: AWSOpsWorksRebootInstanceCommand.() -> Unit): com.amazonaws.services.opsworks.model.RebootInstanceResult {
+	return this.block.declare(AWSOpsWorksRebootInstanceCommand(instanceId).apply(init)) as com.amazonaws.services.opsworks.model.RebootInstanceResult
 }
 
 @Generated
-class AWSOpsWorksRebootInstanceCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.RebootInstanceRequest> {
+class AWSOpsWorksRebootInstanceCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.RebootInstanceRequest, com.amazonaws.services.opsworks.model.RebootInstanceResult> {
 
 
 
@@ -1690,8 +1882,12 @@ class AWSOpsWorksRebootInstanceCommand(val instanceId: String) : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.rebootInstance(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.RebootInstanceResult {
+	  return com.amazonaws.services.opsworks.model.RebootInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.RebootInstanceResult {
+		return environment.opsworks.rebootInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1702,12 +1898,12 @@ class AWSOpsWorksRebootInstanceCommand(val instanceId: String) : AmazonWebServic
 }
 
 
-fun AWSOpsWorksFunctions.registerEcsCluster(ecsClusterArn: String, stackId: String, init: AWSOpsWorksRegisterEcsClusterCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksRegisterEcsClusterCommand(ecsClusterArn, stackId).apply(init))
+fun AWSOpsWorksFunctions.registerEcsCluster(ecsClusterArn: String, stackId: String, init: AWSOpsWorksRegisterEcsClusterCommand.() -> Unit): com.amazonaws.services.opsworks.model.RegisterEcsClusterResult {
+	return this.block.declare(AWSOpsWorksRegisterEcsClusterCommand(ecsClusterArn, stackId).apply(init)) as com.amazonaws.services.opsworks.model.RegisterEcsClusterResult
 }
 
 @Generated
-class AWSOpsWorksRegisterEcsClusterCommand(val ecsClusterArn: String, val stackId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.RegisterEcsClusterRequest> {
+class AWSOpsWorksRegisterEcsClusterCommand(val ecsClusterArn: String, val stackId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.RegisterEcsClusterRequest, com.amazonaws.services.opsworks.model.RegisterEcsClusterResult> {
 
 
 
@@ -1718,8 +1914,12 @@ class AWSOpsWorksRegisterEcsClusterCommand(val ecsClusterArn: String, val stackI
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.registerEcsCluster(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.RegisterEcsClusterResult {
+	  return com.amazonaws.services.opsworks.model.RegisterEcsClusterResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.RegisterEcsClusterResult {
+		return environment.opsworks.registerEcsCluster(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1731,12 +1931,12 @@ class AWSOpsWorksRegisterEcsClusterCommand(val ecsClusterArn: String, val stackI
 }
 
 
-fun AWSOpsWorksFunctions.registerElasticIp(elasticIp: String, stackId: String, init: AWSOpsWorksRegisterElasticIpCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksRegisterElasticIpCommand(elasticIp, stackId).apply(init))
+fun AWSOpsWorksFunctions.registerElasticIp(elasticIp: String, stackId: String, init: AWSOpsWorksRegisterElasticIpCommand.() -> Unit): com.amazonaws.services.opsworks.model.RegisterElasticIpResult {
+	return this.block.declare(AWSOpsWorksRegisterElasticIpCommand(elasticIp, stackId).apply(init)) as com.amazonaws.services.opsworks.model.RegisterElasticIpResult
 }
 
 @Generated
-class AWSOpsWorksRegisterElasticIpCommand(val elasticIp: String, val stackId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.RegisterElasticIpRequest> {
+class AWSOpsWorksRegisterElasticIpCommand(val elasticIp: String, val stackId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.RegisterElasticIpRequest, com.amazonaws.services.opsworks.model.RegisterElasticIpResult> {
 
 
 
@@ -1747,8 +1947,12 @@ class AWSOpsWorksRegisterElasticIpCommand(val elasticIp: String, val stackId: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.registerElasticIp(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.RegisterElasticIpResult {
+	  return com.amazonaws.services.opsworks.model.RegisterElasticIpResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.RegisterElasticIpResult {
+		return environment.opsworks.registerElasticIp(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1760,12 +1964,12 @@ class AWSOpsWorksRegisterElasticIpCommand(val elasticIp: String, val stackId: St
 }
 
 
-fun AWSOpsWorksFunctions.registerInstance(stackId: String, init: AWSOpsWorksRegisterInstanceCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksRegisterInstanceCommand(stackId).apply(init))
+fun AWSOpsWorksFunctions.registerInstance(stackId: String, init: AWSOpsWorksRegisterInstanceCommand.() -> Unit): com.amazonaws.services.opsworks.model.RegisterInstanceResult {
+	return this.block.declare(AWSOpsWorksRegisterInstanceCommand(stackId).apply(init)) as com.amazonaws.services.opsworks.model.RegisterInstanceResult
 }
 
 @Generated
-class AWSOpsWorksRegisterInstanceCommand(val stackId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.RegisterInstanceRequest> {
+class AWSOpsWorksRegisterInstanceCommand(val stackId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.RegisterInstanceRequest, com.amazonaws.services.opsworks.model.RegisterInstanceResult> {
 
 	var hostname: String? = null
 	var publicIp: String? = null
@@ -1786,8 +1990,12 @@ class AWSOpsWorksRegisterInstanceCommand(val stackId: String) : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.registerInstance(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.RegisterInstanceResult {
+	  return com.amazonaws.services.opsworks.model.RegisterInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.RegisterInstanceResult {
+		return environment.opsworks.registerInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1804,12 +2012,12 @@ class AWSOpsWorksRegisterInstanceCommand(val stackId: String) : AmazonWebService
 }
 
 
-fun AWSOpsWorksFunctions.registerRdsDbInstance(stackId: String, rdsDbInstanceArn: String, dbUser: String, dbPassword: String, init: AWSOpsWorksRegisterRdsDbInstanceCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksRegisterRdsDbInstanceCommand(stackId, rdsDbInstanceArn, dbUser, dbPassword).apply(init))
+fun AWSOpsWorksFunctions.registerRdsDbInstance(stackId: String, rdsDbInstanceArn: String, dbUser: String, dbPassword: String, init: AWSOpsWorksRegisterRdsDbInstanceCommand.() -> Unit): com.amazonaws.services.opsworks.model.RegisterRdsDbInstanceResult {
+	return this.block.declare(AWSOpsWorksRegisterRdsDbInstanceCommand(stackId, rdsDbInstanceArn, dbUser, dbPassword).apply(init)) as com.amazonaws.services.opsworks.model.RegisterRdsDbInstanceResult
 }
 
 @Generated
-class AWSOpsWorksRegisterRdsDbInstanceCommand(val stackId: String, val rdsDbInstanceArn: String, val dbUser: String, val dbPassword: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.RegisterRdsDbInstanceRequest> {
+class AWSOpsWorksRegisterRdsDbInstanceCommand(val stackId: String, val rdsDbInstanceArn: String, val dbUser: String, val dbPassword: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.RegisterRdsDbInstanceRequest, com.amazonaws.services.opsworks.model.RegisterRdsDbInstanceResult> {
 
 
 
@@ -1822,8 +2030,12 @@ class AWSOpsWorksRegisterRdsDbInstanceCommand(val stackId: String, val rdsDbInst
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.registerRdsDbInstance(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.RegisterRdsDbInstanceResult {
+	  return com.amazonaws.services.opsworks.model.RegisterRdsDbInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.RegisterRdsDbInstanceResult {
+		return environment.opsworks.registerRdsDbInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1837,12 +2049,12 @@ class AWSOpsWorksRegisterRdsDbInstanceCommand(val stackId: String, val rdsDbInst
 }
 
 
-fun AWSOpsWorksFunctions.registerVolume(stackId: String, init: AWSOpsWorksRegisterVolumeCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksRegisterVolumeCommand(stackId).apply(init))
+fun AWSOpsWorksFunctions.registerVolume(stackId: String, init: AWSOpsWorksRegisterVolumeCommand.() -> Unit): com.amazonaws.services.opsworks.model.RegisterVolumeResult {
+	return this.block.declare(AWSOpsWorksRegisterVolumeCommand(stackId).apply(init)) as com.amazonaws.services.opsworks.model.RegisterVolumeResult
 }
 
 @Generated
-class AWSOpsWorksRegisterVolumeCommand(val stackId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.RegisterVolumeRequest> {
+class AWSOpsWorksRegisterVolumeCommand(val stackId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.RegisterVolumeRequest, com.amazonaws.services.opsworks.model.RegisterVolumeResult> {
 
 	var ec2VolumeId: String? = null
 
@@ -1853,8 +2065,12 @@ class AWSOpsWorksRegisterVolumeCommand(val stackId: String) : AmazonWebServiceCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.registerVolume(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.RegisterVolumeResult {
+	  return com.amazonaws.services.opsworks.model.RegisterVolumeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.RegisterVolumeResult {
+		return environment.opsworks.registerVolume(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1866,12 +2082,12 @@ class AWSOpsWorksRegisterVolumeCommand(val stackId: String) : AmazonWebServiceCo
 }
 
 
-fun AWSOpsWorksFunctions.setLoadBasedAutoScaling(layerId: String, init: AWSOpsWorksSetLoadBasedAutoScalingCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksSetLoadBasedAutoScalingCommand(layerId).apply(init))
+fun AWSOpsWorksFunctions.setLoadBasedAutoScaling(layerId: String, init: AWSOpsWorksSetLoadBasedAutoScalingCommand.() -> Unit): com.amazonaws.services.opsworks.model.SetLoadBasedAutoScalingResult {
+	return this.block.declare(AWSOpsWorksSetLoadBasedAutoScalingCommand(layerId).apply(init)) as com.amazonaws.services.opsworks.model.SetLoadBasedAutoScalingResult
 }
 
 @Generated
-class AWSOpsWorksSetLoadBasedAutoScalingCommand(val layerId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.SetLoadBasedAutoScalingRequest> {
+class AWSOpsWorksSetLoadBasedAutoScalingCommand(val layerId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.SetLoadBasedAutoScalingRequest, com.amazonaws.services.opsworks.model.SetLoadBasedAutoScalingResult> {
 
 	var enable: Boolean? = false
 	var upScaling: com.amazonaws.services.opsworks.model.AutoScalingThresholds? = null
@@ -1886,8 +2102,12 @@ class AWSOpsWorksSetLoadBasedAutoScalingCommand(val layerId: String) : AmazonWeb
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.setLoadBasedAutoScaling(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.SetLoadBasedAutoScalingResult {
+	  return com.amazonaws.services.opsworks.model.SetLoadBasedAutoScalingResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.SetLoadBasedAutoScalingResult {
+		return environment.opsworks.setLoadBasedAutoScaling(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1901,12 +2121,12 @@ class AWSOpsWorksSetLoadBasedAutoScalingCommand(val layerId: String) : AmazonWeb
 }
 
 
-fun AWSOpsWorksFunctions.setPermission(stackId: String, iamUserArn: String, init: AWSOpsWorksSetPermissionCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksSetPermissionCommand(stackId, iamUserArn).apply(init))
+fun AWSOpsWorksFunctions.setPermission(stackId: String, iamUserArn: String, init: AWSOpsWorksSetPermissionCommand.() -> Unit): com.amazonaws.services.opsworks.model.SetPermissionResult {
+	return this.block.declare(AWSOpsWorksSetPermissionCommand(stackId, iamUserArn).apply(init)) as com.amazonaws.services.opsworks.model.SetPermissionResult
 }
 
 @Generated
-class AWSOpsWorksSetPermissionCommand(val stackId: String, val iamUserArn: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.SetPermissionRequest> {
+class AWSOpsWorksSetPermissionCommand(val stackId: String, val iamUserArn: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.SetPermissionRequest, com.amazonaws.services.opsworks.model.SetPermissionResult> {
 
 	var allowSsh: Boolean? = false
 	var allowSudo: Boolean? = false
@@ -1922,8 +2142,12 @@ class AWSOpsWorksSetPermissionCommand(val stackId: String, val iamUserArn: Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.setPermission(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.SetPermissionResult {
+	  return com.amazonaws.services.opsworks.model.SetPermissionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.SetPermissionResult {
+		return environment.opsworks.setPermission(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1938,12 +2162,12 @@ class AWSOpsWorksSetPermissionCommand(val stackId: String, val iamUserArn: Strin
 }
 
 
-fun AWSOpsWorksFunctions.setTimeBasedAutoScaling(instanceId: String, init: AWSOpsWorksSetTimeBasedAutoScalingCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksSetTimeBasedAutoScalingCommand(instanceId).apply(init))
+fun AWSOpsWorksFunctions.setTimeBasedAutoScaling(instanceId: String, init: AWSOpsWorksSetTimeBasedAutoScalingCommand.() -> Unit): com.amazonaws.services.opsworks.model.SetTimeBasedAutoScalingResult {
+	return this.block.declare(AWSOpsWorksSetTimeBasedAutoScalingCommand(instanceId).apply(init)) as com.amazonaws.services.opsworks.model.SetTimeBasedAutoScalingResult
 }
 
 @Generated
-class AWSOpsWorksSetTimeBasedAutoScalingCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.SetTimeBasedAutoScalingRequest> {
+class AWSOpsWorksSetTimeBasedAutoScalingCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.SetTimeBasedAutoScalingRequest, com.amazonaws.services.opsworks.model.SetTimeBasedAutoScalingResult> {
 
 	var autoScalingSchedule: com.amazonaws.services.opsworks.model.WeeklyAutoScalingSchedule? = null
 
@@ -1954,8 +2178,12 @@ class AWSOpsWorksSetTimeBasedAutoScalingCommand(val instanceId: String) : Amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.setTimeBasedAutoScaling(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.SetTimeBasedAutoScalingResult {
+	  return com.amazonaws.services.opsworks.model.SetTimeBasedAutoScalingResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.SetTimeBasedAutoScalingResult {
+		return environment.opsworks.setTimeBasedAutoScaling(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1967,12 +2195,12 @@ class AWSOpsWorksSetTimeBasedAutoScalingCommand(val instanceId: String) : Amazon
 }
 
 
-fun AWSOpsWorksFunctions.startInstance(instanceId: String, init: AWSOpsWorksStartInstanceCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksStartInstanceCommand(instanceId).apply(init))
+fun AWSOpsWorksFunctions.startInstance(instanceId: String, init: AWSOpsWorksStartInstanceCommand.() -> Unit): com.amazonaws.services.opsworks.model.StartInstanceResult {
+	return this.block.declare(AWSOpsWorksStartInstanceCommand(instanceId).apply(init)) as com.amazonaws.services.opsworks.model.StartInstanceResult
 }
 
 @Generated
-class AWSOpsWorksStartInstanceCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.StartInstanceRequest> {
+class AWSOpsWorksStartInstanceCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.StartInstanceRequest, com.amazonaws.services.opsworks.model.StartInstanceResult> {
 
 
 
@@ -1982,8 +2210,12 @@ class AWSOpsWorksStartInstanceCommand(val instanceId: String) : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.startInstance(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.StartInstanceResult {
+	  return com.amazonaws.services.opsworks.model.StartInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.StartInstanceResult {
+		return environment.opsworks.startInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1994,12 +2226,12 @@ class AWSOpsWorksStartInstanceCommand(val instanceId: String) : AmazonWebService
 }
 
 
-fun AWSOpsWorksFunctions.startStack(stackId: String, init: AWSOpsWorksStartStackCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksStartStackCommand(stackId).apply(init))
+fun AWSOpsWorksFunctions.startStack(stackId: String, init: AWSOpsWorksStartStackCommand.() -> Unit): com.amazonaws.services.opsworks.model.StartStackResult {
+	return this.block.declare(AWSOpsWorksStartStackCommand(stackId).apply(init)) as com.amazonaws.services.opsworks.model.StartStackResult
 }
 
 @Generated
-class AWSOpsWorksStartStackCommand(val stackId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.StartStackRequest> {
+class AWSOpsWorksStartStackCommand(val stackId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.StartStackRequest, com.amazonaws.services.opsworks.model.StartStackResult> {
 
 
 
@@ -2009,8 +2241,12 @@ class AWSOpsWorksStartStackCommand(val stackId: String) : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.startStack(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.StartStackResult {
+	  return com.amazonaws.services.opsworks.model.StartStackResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.StartStackResult {
+		return environment.opsworks.startStack(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2021,12 +2257,12 @@ class AWSOpsWorksStartStackCommand(val stackId: String) : AmazonWebServiceComman
 }
 
 
-fun AWSOpsWorksFunctions.stopInstance(instanceId: String, init: AWSOpsWorksStopInstanceCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksStopInstanceCommand(instanceId).apply(init))
+fun AWSOpsWorksFunctions.stopInstance(instanceId: String, init: AWSOpsWorksStopInstanceCommand.() -> Unit): com.amazonaws.services.opsworks.model.StopInstanceResult {
+	return this.block.declare(AWSOpsWorksStopInstanceCommand(instanceId).apply(init)) as com.amazonaws.services.opsworks.model.StopInstanceResult
 }
 
 @Generated
-class AWSOpsWorksStopInstanceCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.StopInstanceRequest> {
+class AWSOpsWorksStopInstanceCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.StopInstanceRequest, com.amazonaws.services.opsworks.model.StopInstanceResult> {
 
 	var force: Boolean? = false
 
@@ -2037,8 +2273,12 @@ class AWSOpsWorksStopInstanceCommand(val instanceId: String) : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.stopInstance(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.StopInstanceResult {
+	  return com.amazonaws.services.opsworks.model.StopInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.StopInstanceResult {
+		return environment.opsworks.stopInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2050,12 +2290,12 @@ class AWSOpsWorksStopInstanceCommand(val instanceId: String) : AmazonWebServiceC
 }
 
 
-fun AWSOpsWorksFunctions.stopStack(stackId: String, init: AWSOpsWorksStopStackCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksStopStackCommand(stackId).apply(init))
+fun AWSOpsWorksFunctions.stopStack(stackId: String, init: AWSOpsWorksStopStackCommand.() -> Unit): com.amazonaws.services.opsworks.model.StopStackResult {
+	return this.block.declare(AWSOpsWorksStopStackCommand(stackId).apply(init)) as com.amazonaws.services.opsworks.model.StopStackResult
 }
 
 @Generated
-class AWSOpsWorksStopStackCommand(val stackId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.StopStackRequest> {
+class AWSOpsWorksStopStackCommand(val stackId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.StopStackRequest, com.amazonaws.services.opsworks.model.StopStackResult> {
 
 
 
@@ -2065,8 +2305,12 @@ class AWSOpsWorksStopStackCommand(val stackId: String) : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.stopStack(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.StopStackResult {
+	  return com.amazonaws.services.opsworks.model.StopStackResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.StopStackResult {
+		return environment.opsworks.stopStack(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2077,12 +2321,12 @@ class AWSOpsWorksStopStackCommand(val stackId: String) : AmazonWebServiceCommand
 }
 
 
-fun AWSOpsWorksFunctions.tagResource(resourceArn: String, tags: Map<String, String>, init: AWSOpsWorksTagResourceCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksTagResourceCommand(resourceArn, tags).apply(init))
+fun AWSOpsWorksFunctions.tagResource(resourceArn: String, tags: Map<String, String>, init: AWSOpsWorksTagResourceCommand.() -> Unit): com.amazonaws.services.opsworks.model.TagResourceResult {
+	return this.block.declare(AWSOpsWorksTagResourceCommand(resourceArn, tags).apply(init)) as com.amazonaws.services.opsworks.model.TagResourceResult
 }
 
 @Generated
-class AWSOpsWorksTagResourceCommand(val resourceArn: String, val tags: Map<String, String>) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.TagResourceRequest> {
+class AWSOpsWorksTagResourceCommand(val resourceArn: String, val tags: Map<String, String>) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.TagResourceRequest, com.amazonaws.services.opsworks.model.TagResourceResult> {
 
 
 
@@ -2093,8 +2337,12 @@ class AWSOpsWorksTagResourceCommand(val resourceArn: String, val tags: Map<Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.tagResource(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.TagResourceResult {
+	  return com.amazonaws.services.opsworks.model.TagResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.TagResourceResult {
+		return environment.opsworks.tagResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2106,12 +2354,12 @@ class AWSOpsWorksTagResourceCommand(val resourceArn: String, val tags: Map<Strin
 }
 
 
-fun AWSOpsWorksFunctions.unassignInstance(instanceId: String, init: AWSOpsWorksUnassignInstanceCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksUnassignInstanceCommand(instanceId).apply(init))
+fun AWSOpsWorksFunctions.unassignInstance(instanceId: String, init: AWSOpsWorksUnassignInstanceCommand.() -> Unit): com.amazonaws.services.opsworks.model.UnassignInstanceResult {
+	return this.block.declare(AWSOpsWorksUnassignInstanceCommand(instanceId).apply(init)) as com.amazonaws.services.opsworks.model.UnassignInstanceResult
 }
 
 @Generated
-class AWSOpsWorksUnassignInstanceCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.UnassignInstanceRequest> {
+class AWSOpsWorksUnassignInstanceCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.UnassignInstanceRequest, com.amazonaws.services.opsworks.model.UnassignInstanceResult> {
 
 
 
@@ -2121,8 +2369,12 @@ class AWSOpsWorksUnassignInstanceCommand(val instanceId: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.unassignInstance(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.UnassignInstanceResult {
+	  return com.amazonaws.services.opsworks.model.UnassignInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.UnassignInstanceResult {
+		return environment.opsworks.unassignInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2133,12 +2385,12 @@ class AWSOpsWorksUnassignInstanceCommand(val instanceId: String) : AmazonWebServ
 }
 
 
-fun AWSOpsWorksFunctions.unassignVolume(volumeId: String, init: AWSOpsWorksUnassignVolumeCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksUnassignVolumeCommand(volumeId).apply(init))
+fun AWSOpsWorksFunctions.unassignVolume(volumeId: String, init: AWSOpsWorksUnassignVolumeCommand.() -> Unit): com.amazonaws.services.opsworks.model.UnassignVolumeResult {
+	return this.block.declare(AWSOpsWorksUnassignVolumeCommand(volumeId).apply(init)) as com.amazonaws.services.opsworks.model.UnassignVolumeResult
 }
 
 @Generated
-class AWSOpsWorksUnassignVolumeCommand(val volumeId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.UnassignVolumeRequest> {
+class AWSOpsWorksUnassignVolumeCommand(val volumeId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.UnassignVolumeRequest, com.amazonaws.services.opsworks.model.UnassignVolumeResult> {
 
 
 
@@ -2148,8 +2400,12 @@ class AWSOpsWorksUnassignVolumeCommand(val volumeId: String) : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.unassignVolume(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.UnassignVolumeResult {
+	  return com.amazonaws.services.opsworks.model.UnassignVolumeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.UnassignVolumeResult {
+		return environment.opsworks.unassignVolume(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2160,12 +2416,12 @@ class AWSOpsWorksUnassignVolumeCommand(val volumeId: String) : AmazonWebServiceC
 }
 
 
-fun AWSOpsWorksFunctions.untagResource(resourceArn: String, tagKeys: List<String>, init: AWSOpsWorksUntagResourceCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksUntagResourceCommand(resourceArn, tagKeys).apply(init))
+fun AWSOpsWorksFunctions.untagResource(resourceArn: String, tagKeys: List<String>, init: AWSOpsWorksUntagResourceCommand.() -> Unit): com.amazonaws.services.opsworks.model.UntagResourceResult {
+	return this.block.declare(AWSOpsWorksUntagResourceCommand(resourceArn, tagKeys).apply(init)) as com.amazonaws.services.opsworks.model.UntagResourceResult
 }
 
 @Generated
-class AWSOpsWorksUntagResourceCommand(val resourceArn: String, val tagKeys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.UntagResourceRequest> {
+class AWSOpsWorksUntagResourceCommand(val resourceArn: String, val tagKeys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.UntagResourceRequest, com.amazonaws.services.opsworks.model.UntagResourceResult> {
 
 
 
@@ -2176,8 +2432,12 @@ class AWSOpsWorksUntagResourceCommand(val resourceArn: String, val tagKeys: List
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.untagResource(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.UntagResourceResult {
+	  return com.amazonaws.services.opsworks.model.UntagResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.UntagResourceResult {
+		return environment.opsworks.untagResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2189,12 +2449,12 @@ class AWSOpsWorksUntagResourceCommand(val resourceArn: String, val tagKeys: List
 }
 
 
-fun AWSOpsWorksFunctions.updateApp(appId: String, init: AWSOpsWorksUpdateAppCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksUpdateAppCommand(appId).apply(init))
+fun AWSOpsWorksFunctions.updateApp(appId: String, init: AWSOpsWorksUpdateAppCommand.() -> Unit): com.amazonaws.services.opsworks.model.UpdateAppResult {
+	return this.block.declare(AWSOpsWorksUpdateAppCommand(appId).apply(init)) as com.amazonaws.services.opsworks.model.UpdateAppResult
 }
 
 @Generated
-class AWSOpsWorksUpdateAppCommand(val appId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.UpdateAppRequest> {
+class AWSOpsWorksUpdateAppCommand(val appId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.UpdateAppRequest, com.amazonaws.services.opsworks.model.UpdateAppResult> {
 
 	var name: String? = null
 	var description: String? = null
@@ -2223,8 +2483,12 @@ class AWSOpsWorksUpdateAppCommand(val appId: String) : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.updateApp(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.UpdateAppResult {
+	  return com.amazonaws.services.opsworks.model.UpdateAppResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.UpdateAppResult {
+		return environment.opsworks.updateApp(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2245,12 +2509,12 @@ class AWSOpsWorksUpdateAppCommand(val appId: String) : AmazonWebServiceCommand<c
 }
 
 
-fun AWSOpsWorksFunctions.updateElasticIp(elasticIp: String, init: AWSOpsWorksUpdateElasticIpCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksUpdateElasticIpCommand(elasticIp).apply(init))
+fun AWSOpsWorksFunctions.updateElasticIp(elasticIp: String, init: AWSOpsWorksUpdateElasticIpCommand.() -> Unit): com.amazonaws.services.opsworks.model.UpdateElasticIpResult {
+	return this.block.declare(AWSOpsWorksUpdateElasticIpCommand(elasticIp).apply(init)) as com.amazonaws.services.opsworks.model.UpdateElasticIpResult
 }
 
 @Generated
-class AWSOpsWorksUpdateElasticIpCommand(val elasticIp: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.UpdateElasticIpRequest> {
+class AWSOpsWorksUpdateElasticIpCommand(val elasticIp: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.UpdateElasticIpRequest, com.amazonaws.services.opsworks.model.UpdateElasticIpResult> {
 
 	var name: String? = null
 
@@ -2261,8 +2525,12 @@ class AWSOpsWorksUpdateElasticIpCommand(val elasticIp: String) : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.updateElasticIp(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.UpdateElasticIpResult {
+	  return com.amazonaws.services.opsworks.model.UpdateElasticIpResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.UpdateElasticIpResult {
+		return environment.opsworks.updateElasticIp(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2274,12 +2542,12 @@ class AWSOpsWorksUpdateElasticIpCommand(val elasticIp: String) : AmazonWebServic
 }
 
 
-fun AWSOpsWorksFunctions.updateInstance(instanceId: String, init: AWSOpsWorksUpdateInstanceCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksUpdateInstanceCommand(instanceId).apply(init))
+fun AWSOpsWorksFunctions.updateInstance(instanceId: String, init: AWSOpsWorksUpdateInstanceCommand.() -> Unit): com.amazonaws.services.opsworks.model.UpdateInstanceResult {
+	return this.block.declare(AWSOpsWorksUpdateInstanceCommand(instanceId).apply(init)) as com.amazonaws.services.opsworks.model.UpdateInstanceResult
 }
 
 @Generated
-class AWSOpsWorksUpdateInstanceCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.UpdateInstanceRequest> {
+class AWSOpsWorksUpdateInstanceCommand(val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.UpdateInstanceRequest, com.amazonaws.services.opsworks.model.UpdateInstanceResult> {
 
 	var layerIds: List<String>? = null
 	var instanceType: String? = null
@@ -2310,8 +2578,12 @@ class AWSOpsWorksUpdateInstanceCommand(val instanceId: String) : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.updateInstance(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.UpdateInstanceResult {
+	  return com.amazonaws.services.opsworks.model.UpdateInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.UpdateInstanceResult {
+		return environment.opsworks.updateInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2333,12 +2605,12 @@ class AWSOpsWorksUpdateInstanceCommand(val instanceId: String) : AmazonWebServic
 }
 
 
-fun AWSOpsWorksFunctions.updateLayer(layerId: String, init: AWSOpsWorksUpdateLayerCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksUpdateLayerCommand(layerId).apply(init))
+fun AWSOpsWorksFunctions.updateLayer(layerId: String, init: AWSOpsWorksUpdateLayerCommand.() -> Unit): com.amazonaws.services.opsworks.model.UpdateLayerResult {
+	return this.block.declare(AWSOpsWorksUpdateLayerCommand(layerId).apply(init)) as com.amazonaws.services.opsworks.model.UpdateLayerResult
 }
 
 @Generated
-class AWSOpsWorksUpdateLayerCommand(val layerId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.UpdateLayerRequest> {
+class AWSOpsWorksUpdateLayerCommand(val layerId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.UpdateLayerRequest, com.amazonaws.services.opsworks.model.UpdateLayerResult> {
 
 	var name: String? = null
 	var shortname: String? = null
@@ -2379,8 +2651,12 @@ class AWSOpsWorksUpdateLayerCommand(val layerId: String) : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.updateLayer(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.UpdateLayerResult {
+	  return com.amazonaws.services.opsworks.model.UpdateLayerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.UpdateLayerResult {
+		return environment.opsworks.updateLayer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2407,12 +2683,12 @@ class AWSOpsWorksUpdateLayerCommand(val layerId: String) : AmazonWebServiceComma
 }
 
 
-fun AWSOpsWorksFunctions.updateMyUserProfile(init: AWSOpsWorksUpdateMyUserProfileCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksUpdateMyUserProfileCommand().apply(init))
+fun AWSOpsWorksFunctions.updateMyUserProfile(init: AWSOpsWorksUpdateMyUserProfileCommand.() -> Unit): com.amazonaws.services.opsworks.model.UpdateMyUserProfileResult {
+	return this.block.declare(AWSOpsWorksUpdateMyUserProfileCommand().apply(init)) as com.amazonaws.services.opsworks.model.UpdateMyUserProfileResult
 }
 
 @Generated
-class AWSOpsWorksUpdateMyUserProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.UpdateMyUserProfileRequest> {
+class AWSOpsWorksUpdateMyUserProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.UpdateMyUserProfileRequest, com.amazonaws.services.opsworks.model.UpdateMyUserProfileResult> {
 
 	var sshPublicKey: String? = null
 
@@ -2422,8 +2698,12 @@ class AWSOpsWorksUpdateMyUserProfileCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.updateMyUserProfile(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.UpdateMyUserProfileResult {
+	  return com.amazonaws.services.opsworks.model.UpdateMyUserProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.UpdateMyUserProfileResult {
+		return environment.opsworks.updateMyUserProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2434,12 +2714,12 @@ class AWSOpsWorksUpdateMyUserProfileCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AWSOpsWorksFunctions.updateRdsDbInstance(rdsDbInstanceArn: String, init: AWSOpsWorksUpdateRdsDbInstanceCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksUpdateRdsDbInstanceCommand(rdsDbInstanceArn).apply(init))
+fun AWSOpsWorksFunctions.updateRdsDbInstance(rdsDbInstanceArn: String, init: AWSOpsWorksUpdateRdsDbInstanceCommand.() -> Unit): com.amazonaws.services.opsworks.model.UpdateRdsDbInstanceResult {
+	return this.block.declare(AWSOpsWorksUpdateRdsDbInstanceCommand(rdsDbInstanceArn).apply(init)) as com.amazonaws.services.opsworks.model.UpdateRdsDbInstanceResult
 }
 
 @Generated
-class AWSOpsWorksUpdateRdsDbInstanceCommand(val rdsDbInstanceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.UpdateRdsDbInstanceRequest> {
+class AWSOpsWorksUpdateRdsDbInstanceCommand(val rdsDbInstanceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.UpdateRdsDbInstanceRequest, com.amazonaws.services.opsworks.model.UpdateRdsDbInstanceResult> {
 
 	var dbUser: String? = null
 	var dbPassword: String? = null
@@ -2452,8 +2732,12 @@ class AWSOpsWorksUpdateRdsDbInstanceCommand(val rdsDbInstanceArn: String) : Amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.updateRdsDbInstance(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.UpdateRdsDbInstanceResult {
+	  return com.amazonaws.services.opsworks.model.UpdateRdsDbInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.UpdateRdsDbInstanceResult {
+		return environment.opsworks.updateRdsDbInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2466,12 +2750,12 @@ class AWSOpsWorksUpdateRdsDbInstanceCommand(val rdsDbInstanceArn: String) : Amaz
 }
 
 
-fun AWSOpsWorksFunctions.updateStack(stackId: String, init: AWSOpsWorksUpdateStackCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksUpdateStackCommand(stackId).apply(init))
+fun AWSOpsWorksFunctions.updateStack(stackId: String, init: AWSOpsWorksUpdateStackCommand.() -> Unit): com.amazonaws.services.opsworks.model.UpdateStackResult {
+	return this.block.declare(AWSOpsWorksUpdateStackCommand(stackId).apply(init)) as com.amazonaws.services.opsworks.model.UpdateStackResult
 }
 
 @Generated
-class AWSOpsWorksUpdateStackCommand(val stackId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.UpdateStackRequest> {
+class AWSOpsWorksUpdateStackCommand(val stackId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.UpdateStackRequest, com.amazonaws.services.opsworks.model.UpdateStackResult> {
 
 	var name: String? = null
 	var attributes: Map<StackAttributesKeys, String>? = null
@@ -2514,8 +2798,12 @@ class AWSOpsWorksUpdateStackCommand(val stackId: String) : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.updateStack(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.UpdateStackResult {
+	  return com.amazonaws.services.opsworks.model.UpdateStackResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.UpdateStackResult {
+		return environment.opsworks.updateStack(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2543,12 +2831,12 @@ class AWSOpsWorksUpdateStackCommand(val stackId: String) : AmazonWebServiceComma
 }
 
 
-fun AWSOpsWorksFunctions.updateUserProfile(iamUserArn: String, init: AWSOpsWorksUpdateUserProfileCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksUpdateUserProfileCommand(iamUserArn).apply(init))
+fun AWSOpsWorksFunctions.updateUserProfile(iamUserArn: String, init: AWSOpsWorksUpdateUserProfileCommand.() -> Unit): com.amazonaws.services.opsworks.model.UpdateUserProfileResult {
+	return this.block.declare(AWSOpsWorksUpdateUserProfileCommand(iamUserArn).apply(init)) as com.amazonaws.services.opsworks.model.UpdateUserProfileResult
 }
 
 @Generated
-class AWSOpsWorksUpdateUserProfileCommand(val iamUserArn: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.UpdateUserProfileRequest> {
+class AWSOpsWorksUpdateUserProfileCommand(val iamUserArn: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.UpdateUserProfileRequest, com.amazonaws.services.opsworks.model.UpdateUserProfileResult> {
 
 	var sshUsername: String? = null
 	var sshPublicKey: String? = null
@@ -2563,8 +2851,12 @@ class AWSOpsWorksUpdateUserProfileCommand(val iamUserArn: String) : AmazonWebSer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.updateUserProfile(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.UpdateUserProfileResult {
+	  return com.amazonaws.services.opsworks.model.UpdateUserProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.UpdateUserProfileResult {
+		return environment.opsworks.updateUserProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2578,12 +2870,12 @@ class AWSOpsWorksUpdateUserProfileCommand(val iamUserArn: String) : AmazonWebSer
 }
 
 
-fun AWSOpsWorksFunctions.updateVolume(volumeId: String, init: AWSOpsWorksUpdateVolumeCommand.() -> Unit) {
-	this.block.declare(AWSOpsWorksUpdateVolumeCommand(volumeId).apply(init))
+fun AWSOpsWorksFunctions.updateVolume(volumeId: String, init: AWSOpsWorksUpdateVolumeCommand.() -> Unit): com.amazonaws.services.opsworks.model.UpdateVolumeResult {
+	return this.block.declare(AWSOpsWorksUpdateVolumeCommand(volumeId).apply(init)) as com.amazonaws.services.opsworks.model.UpdateVolumeResult
 }
 
 @Generated
-class AWSOpsWorksUpdateVolumeCommand(val volumeId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.UpdateVolumeRequest> {
+class AWSOpsWorksUpdateVolumeCommand(val volumeId: String) : AmazonWebServiceCommand<com.amazonaws.services.opsworks.model.UpdateVolumeRequest, com.amazonaws.services.opsworks.model.UpdateVolumeResult> {
 
 	var name: String? = null
 	var mountPoint: String? = null
@@ -2596,8 +2888,12 @@ class AWSOpsWorksUpdateVolumeCommand(val volumeId: String) : AmazonWebServiceCom
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.opsworks.updateVolume(build())
+	override fun dryResult(): com.amazonaws.services.opsworks.model.UpdateVolumeResult {
+	  return com.amazonaws.services.opsworks.model.UpdateVolumeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.opsworks.model.UpdateVolumeResult {
+		return environment.opsworks.updateVolume(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

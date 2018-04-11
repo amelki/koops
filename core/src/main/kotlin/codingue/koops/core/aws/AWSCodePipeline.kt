@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.codepipeline: AWSCodePipeline
 @Generated
 class AWSCodePipelineFunctions(val block: Block)
 
-infix fun AwsContinuation.codepipeline(init: AWSCodePipelineFunctions.() -> Unit) {
-	AWSCodePipelineFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.codepipeline(init: AWSCodePipelineFunctions.() -> T): T {
+	return AWSCodePipelineFunctions(shell).run(init)
 }
 
 			
 
-fun AWSCodePipelineFunctions.acknowledgeJob(init: AWSCodePipelineAcknowledgeJobCommand.() -> Unit) {
-	this.block.declare(AWSCodePipelineAcknowledgeJobCommand().apply(init))
+fun AWSCodePipelineFunctions.acknowledgeJob(init: AWSCodePipelineAcknowledgeJobCommand.() -> Unit): com.amazonaws.services.codepipeline.model.AcknowledgeJobResult {
+	return this.block.declare(AWSCodePipelineAcknowledgeJobCommand().apply(init)) as com.amazonaws.services.codepipeline.model.AcknowledgeJobResult
 }
 
 @Generated
-class AWSCodePipelineAcknowledgeJobCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.AcknowledgeJobRequest> {
+class AWSCodePipelineAcknowledgeJobCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.AcknowledgeJobRequest, com.amazonaws.services.codepipeline.model.AcknowledgeJobResult> {
 
 	var jobId: String? = null
 	var nonce: String? = null
@@ -43,8 +43,12 @@ class AWSCodePipelineAcknowledgeJobCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codepipeline.acknowledgeJob(build())
+	override fun dryResult(): com.amazonaws.services.codepipeline.model.AcknowledgeJobResult {
+	  return com.amazonaws.services.codepipeline.model.AcknowledgeJobResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.AcknowledgeJobResult {
+		return environment.codepipeline.acknowledgeJob(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -56,12 +60,12 @@ class AWSCodePipelineAcknowledgeJobCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AWSCodePipelineFunctions.acknowledgeThirdPartyJob(init: AWSCodePipelineAcknowledgeThirdPartyJobCommand.() -> Unit) {
-	this.block.declare(AWSCodePipelineAcknowledgeThirdPartyJobCommand().apply(init))
+fun AWSCodePipelineFunctions.acknowledgeThirdPartyJob(init: AWSCodePipelineAcknowledgeThirdPartyJobCommand.() -> Unit): com.amazonaws.services.codepipeline.model.AcknowledgeThirdPartyJobResult {
+	return this.block.declare(AWSCodePipelineAcknowledgeThirdPartyJobCommand().apply(init)) as com.amazonaws.services.codepipeline.model.AcknowledgeThirdPartyJobResult
 }
 
 @Generated
-class AWSCodePipelineAcknowledgeThirdPartyJobCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.AcknowledgeThirdPartyJobRequest> {
+class AWSCodePipelineAcknowledgeThirdPartyJobCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.AcknowledgeThirdPartyJobRequest, com.amazonaws.services.codepipeline.model.AcknowledgeThirdPartyJobResult> {
 
 	var jobId: String? = null
 	var nonce: String? = null
@@ -75,8 +79,12 @@ class AWSCodePipelineAcknowledgeThirdPartyJobCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codepipeline.acknowledgeThirdPartyJob(build())
+	override fun dryResult(): com.amazonaws.services.codepipeline.model.AcknowledgeThirdPartyJobResult {
+	  return com.amazonaws.services.codepipeline.model.AcknowledgeThirdPartyJobResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.AcknowledgeThirdPartyJobResult {
+		return environment.codepipeline.acknowledgeThirdPartyJob(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -89,12 +97,12 @@ class AWSCodePipelineAcknowledgeThirdPartyJobCommand() : AmazonWebServiceCommand
 }
 
 
-fun AWSCodePipelineFunctions.createCustomActionType(init: AWSCodePipelineCreateCustomActionTypeCommand.() -> Unit) {
-	this.block.declare(AWSCodePipelineCreateCustomActionTypeCommand().apply(init))
+fun AWSCodePipelineFunctions.createCustomActionType(init: AWSCodePipelineCreateCustomActionTypeCommand.() -> Unit): com.amazonaws.services.codepipeline.model.CreateCustomActionTypeResult {
+	return this.block.declare(AWSCodePipelineCreateCustomActionTypeCommand().apply(init)) as com.amazonaws.services.codepipeline.model.CreateCustomActionTypeResult
 }
 
 @Generated
-class AWSCodePipelineCreateCustomActionTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.CreateCustomActionTypeRequest> {
+class AWSCodePipelineCreateCustomActionTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.CreateCustomActionTypeRequest, com.amazonaws.services.codepipeline.model.CreateCustomActionTypeResult> {
 
 	var category: ActionCategory? = null
 	var provider: String? = null
@@ -116,8 +124,12 @@ class AWSCodePipelineCreateCustomActionTypeCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codepipeline.createCustomActionType(build())
+	override fun dryResult(): com.amazonaws.services.codepipeline.model.CreateCustomActionTypeResult {
+	  return com.amazonaws.services.codepipeline.model.CreateCustomActionTypeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.CreateCustomActionTypeResult {
+		return environment.codepipeline.createCustomActionType(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -134,12 +146,12 @@ class AWSCodePipelineCreateCustomActionTypeCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AWSCodePipelineFunctions.createPipeline(init: AWSCodePipelineCreatePipelineCommand.() -> Unit) {
-	this.block.declare(AWSCodePipelineCreatePipelineCommand().apply(init))
+fun AWSCodePipelineFunctions.createPipeline(init: AWSCodePipelineCreatePipelineCommand.() -> Unit): com.amazonaws.services.codepipeline.model.CreatePipelineResult {
+	return this.block.declare(AWSCodePipelineCreatePipelineCommand().apply(init)) as com.amazonaws.services.codepipeline.model.CreatePipelineResult
 }
 
 @Generated
-class AWSCodePipelineCreatePipelineCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.CreatePipelineRequest> {
+class AWSCodePipelineCreatePipelineCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.CreatePipelineRequest, com.amazonaws.services.codepipeline.model.CreatePipelineResult> {
 
 	var pipeline: com.amazonaws.services.codepipeline.model.PipelineDeclaration? = null
 
@@ -149,8 +161,12 @@ class AWSCodePipelineCreatePipelineCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codepipeline.createPipeline(build())
+	override fun dryResult(): com.amazonaws.services.codepipeline.model.CreatePipelineResult {
+	  return com.amazonaws.services.codepipeline.model.CreatePipelineResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.CreatePipelineResult {
+		return environment.codepipeline.createPipeline(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -161,12 +177,12 @@ class AWSCodePipelineCreatePipelineCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AWSCodePipelineFunctions.deleteCustomActionType(init: AWSCodePipelineDeleteCustomActionTypeCommand.() -> Unit) {
-	this.block.declare(AWSCodePipelineDeleteCustomActionTypeCommand().apply(init))
+fun AWSCodePipelineFunctions.deleteCustomActionType(init: AWSCodePipelineDeleteCustomActionTypeCommand.() -> Unit): com.amazonaws.services.codepipeline.model.DeleteCustomActionTypeResult {
+	return this.block.declare(AWSCodePipelineDeleteCustomActionTypeCommand().apply(init)) as com.amazonaws.services.codepipeline.model.DeleteCustomActionTypeResult
 }
 
 @Generated
-class AWSCodePipelineDeleteCustomActionTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.DeleteCustomActionTypeRequest> {
+class AWSCodePipelineDeleteCustomActionTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.DeleteCustomActionTypeRequest, com.amazonaws.services.codepipeline.model.DeleteCustomActionTypeResult> {
 
 	var category: ActionCategory? = null
 	var provider: String? = null
@@ -180,8 +196,12 @@ class AWSCodePipelineDeleteCustomActionTypeCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codepipeline.deleteCustomActionType(build())
+	override fun dryResult(): com.amazonaws.services.codepipeline.model.DeleteCustomActionTypeResult {
+	  return com.amazonaws.services.codepipeline.model.DeleteCustomActionTypeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.DeleteCustomActionTypeResult {
+		return environment.codepipeline.deleteCustomActionType(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -194,12 +214,12 @@ class AWSCodePipelineDeleteCustomActionTypeCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AWSCodePipelineFunctions.deletePipeline(init: AWSCodePipelineDeletePipelineCommand.() -> Unit) {
-	this.block.declare(AWSCodePipelineDeletePipelineCommand().apply(init))
+fun AWSCodePipelineFunctions.deletePipeline(init: AWSCodePipelineDeletePipelineCommand.() -> Unit): com.amazonaws.services.codepipeline.model.DeletePipelineResult {
+	return this.block.declare(AWSCodePipelineDeletePipelineCommand().apply(init)) as com.amazonaws.services.codepipeline.model.DeletePipelineResult
 }
 
 @Generated
-class AWSCodePipelineDeletePipelineCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.DeletePipelineRequest> {
+class AWSCodePipelineDeletePipelineCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.DeletePipelineRequest, com.amazonaws.services.codepipeline.model.DeletePipelineResult> {
 
 	var name: String? = null
 
@@ -209,8 +229,12 @@ class AWSCodePipelineDeletePipelineCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codepipeline.deletePipeline(build())
+	override fun dryResult(): com.amazonaws.services.codepipeline.model.DeletePipelineResult {
+	  return com.amazonaws.services.codepipeline.model.DeletePipelineResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.DeletePipelineResult {
+		return environment.codepipeline.deletePipeline(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -221,12 +245,12 @@ class AWSCodePipelineDeletePipelineCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AWSCodePipelineFunctions.disableStageTransition(init: AWSCodePipelineDisableStageTransitionCommand.() -> Unit) {
-	this.block.declare(AWSCodePipelineDisableStageTransitionCommand().apply(init))
+fun AWSCodePipelineFunctions.disableStageTransition(init: AWSCodePipelineDisableStageTransitionCommand.() -> Unit): com.amazonaws.services.codepipeline.model.DisableStageTransitionResult {
+	return this.block.declare(AWSCodePipelineDisableStageTransitionCommand().apply(init)) as com.amazonaws.services.codepipeline.model.DisableStageTransitionResult
 }
 
 @Generated
-class AWSCodePipelineDisableStageTransitionCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.DisableStageTransitionRequest> {
+class AWSCodePipelineDisableStageTransitionCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.DisableStageTransitionRequest, com.amazonaws.services.codepipeline.model.DisableStageTransitionResult> {
 
 	var pipelineName: String? = null
 	var stageName: String? = null
@@ -242,8 +266,12 @@ class AWSCodePipelineDisableStageTransitionCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codepipeline.disableStageTransition(build())
+	override fun dryResult(): com.amazonaws.services.codepipeline.model.DisableStageTransitionResult {
+	  return com.amazonaws.services.codepipeline.model.DisableStageTransitionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.DisableStageTransitionResult {
+		return environment.codepipeline.disableStageTransition(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -257,12 +285,12 @@ class AWSCodePipelineDisableStageTransitionCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AWSCodePipelineFunctions.enableStageTransition(init: AWSCodePipelineEnableStageTransitionCommand.() -> Unit) {
-	this.block.declare(AWSCodePipelineEnableStageTransitionCommand().apply(init))
+fun AWSCodePipelineFunctions.enableStageTransition(init: AWSCodePipelineEnableStageTransitionCommand.() -> Unit): com.amazonaws.services.codepipeline.model.EnableStageTransitionResult {
+	return this.block.declare(AWSCodePipelineEnableStageTransitionCommand().apply(init)) as com.amazonaws.services.codepipeline.model.EnableStageTransitionResult
 }
 
 @Generated
-class AWSCodePipelineEnableStageTransitionCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.EnableStageTransitionRequest> {
+class AWSCodePipelineEnableStageTransitionCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.EnableStageTransitionRequest, com.amazonaws.services.codepipeline.model.EnableStageTransitionResult> {
 
 	var pipelineName: String? = null
 	var stageName: String? = null
@@ -276,8 +304,12 @@ class AWSCodePipelineEnableStageTransitionCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codepipeline.enableStageTransition(build())
+	override fun dryResult(): com.amazonaws.services.codepipeline.model.EnableStageTransitionResult {
+	  return com.amazonaws.services.codepipeline.model.EnableStageTransitionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.EnableStageTransitionResult {
+		return environment.codepipeline.enableStageTransition(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -290,12 +322,12 @@ class AWSCodePipelineEnableStageTransitionCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AWSCodePipelineFunctions.getJobDetails(init: AWSCodePipelineGetJobDetailsCommand.() -> Unit) {
-	this.block.declare(AWSCodePipelineGetJobDetailsCommand().apply(init))
+fun AWSCodePipelineFunctions.getJobDetails(init: AWSCodePipelineGetJobDetailsCommand.() -> Unit): com.amazonaws.services.codepipeline.model.GetJobDetailsResult {
+	return this.block.declare(AWSCodePipelineGetJobDetailsCommand().apply(init)) as com.amazonaws.services.codepipeline.model.GetJobDetailsResult
 }
 
 @Generated
-class AWSCodePipelineGetJobDetailsCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.GetJobDetailsRequest> {
+class AWSCodePipelineGetJobDetailsCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.GetJobDetailsRequest, com.amazonaws.services.codepipeline.model.GetJobDetailsResult> {
 
 	var jobId: String? = null
 
@@ -305,8 +337,12 @@ class AWSCodePipelineGetJobDetailsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codepipeline.getJobDetails(build())
+	override fun dryResult(): com.amazonaws.services.codepipeline.model.GetJobDetailsResult {
+	  return com.amazonaws.services.codepipeline.model.GetJobDetailsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.GetJobDetailsResult {
+		return environment.codepipeline.getJobDetails(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -317,12 +353,12 @@ class AWSCodePipelineGetJobDetailsCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AWSCodePipelineFunctions.getPipeline(init: AWSCodePipelineGetPipelineCommand.() -> Unit) {
-	this.block.declare(AWSCodePipelineGetPipelineCommand().apply(init))
+fun AWSCodePipelineFunctions.getPipeline(init: AWSCodePipelineGetPipelineCommand.() -> Unit): com.amazonaws.services.codepipeline.model.GetPipelineResult {
+	return this.block.declare(AWSCodePipelineGetPipelineCommand().apply(init)) as com.amazonaws.services.codepipeline.model.GetPipelineResult
 }
 
 @Generated
-class AWSCodePipelineGetPipelineCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.GetPipelineRequest> {
+class AWSCodePipelineGetPipelineCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.GetPipelineRequest, com.amazonaws.services.codepipeline.model.GetPipelineResult> {
 
 	var name: String? = null
 	var version: Int? = 0
@@ -334,8 +370,12 @@ class AWSCodePipelineGetPipelineCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codepipeline.getPipeline(build())
+	override fun dryResult(): com.amazonaws.services.codepipeline.model.GetPipelineResult {
+	  return com.amazonaws.services.codepipeline.model.GetPipelineResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.GetPipelineResult {
+		return environment.codepipeline.getPipeline(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -347,12 +387,12 @@ class AWSCodePipelineGetPipelineCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AWSCodePipelineFunctions.getPipelineExecution(init: AWSCodePipelineGetPipelineExecutionCommand.() -> Unit) {
-	this.block.declare(AWSCodePipelineGetPipelineExecutionCommand().apply(init))
+fun AWSCodePipelineFunctions.getPipelineExecution(init: AWSCodePipelineGetPipelineExecutionCommand.() -> Unit): com.amazonaws.services.codepipeline.model.GetPipelineExecutionResult {
+	return this.block.declare(AWSCodePipelineGetPipelineExecutionCommand().apply(init)) as com.amazonaws.services.codepipeline.model.GetPipelineExecutionResult
 }
 
 @Generated
-class AWSCodePipelineGetPipelineExecutionCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.GetPipelineExecutionRequest> {
+class AWSCodePipelineGetPipelineExecutionCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.GetPipelineExecutionRequest, com.amazonaws.services.codepipeline.model.GetPipelineExecutionResult> {
 
 	var pipelineName: String? = null
 	var pipelineExecutionId: String? = null
@@ -364,8 +404,12 @@ class AWSCodePipelineGetPipelineExecutionCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codepipeline.getPipelineExecution(build())
+	override fun dryResult(): com.amazonaws.services.codepipeline.model.GetPipelineExecutionResult {
+	  return com.amazonaws.services.codepipeline.model.GetPipelineExecutionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.GetPipelineExecutionResult {
+		return environment.codepipeline.getPipelineExecution(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -377,12 +421,12 @@ class AWSCodePipelineGetPipelineExecutionCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AWSCodePipelineFunctions.getPipelineState(init: AWSCodePipelineGetPipelineStateCommand.() -> Unit) {
-	this.block.declare(AWSCodePipelineGetPipelineStateCommand().apply(init))
+fun AWSCodePipelineFunctions.getPipelineState(init: AWSCodePipelineGetPipelineStateCommand.() -> Unit): com.amazonaws.services.codepipeline.model.GetPipelineStateResult {
+	return this.block.declare(AWSCodePipelineGetPipelineStateCommand().apply(init)) as com.amazonaws.services.codepipeline.model.GetPipelineStateResult
 }
 
 @Generated
-class AWSCodePipelineGetPipelineStateCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.GetPipelineStateRequest> {
+class AWSCodePipelineGetPipelineStateCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.GetPipelineStateRequest, com.amazonaws.services.codepipeline.model.GetPipelineStateResult> {
 
 	var name: String? = null
 
@@ -392,8 +436,12 @@ class AWSCodePipelineGetPipelineStateCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codepipeline.getPipelineState(build())
+	override fun dryResult(): com.amazonaws.services.codepipeline.model.GetPipelineStateResult {
+	  return com.amazonaws.services.codepipeline.model.GetPipelineStateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.GetPipelineStateResult {
+		return environment.codepipeline.getPipelineState(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -404,12 +452,12 @@ class AWSCodePipelineGetPipelineStateCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AWSCodePipelineFunctions.getThirdPartyJobDetails(init: AWSCodePipelineGetThirdPartyJobDetailsCommand.() -> Unit) {
-	this.block.declare(AWSCodePipelineGetThirdPartyJobDetailsCommand().apply(init))
+fun AWSCodePipelineFunctions.getThirdPartyJobDetails(init: AWSCodePipelineGetThirdPartyJobDetailsCommand.() -> Unit): com.amazonaws.services.codepipeline.model.GetThirdPartyJobDetailsResult {
+	return this.block.declare(AWSCodePipelineGetThirdPartyJobDetailsCommand().apply(init)) as com.amazonaws.services.codepipeline.model.GetThirdPartyJobDetailsResult
 }
 
 @Generated
-class AWSCodePipelineGetThirdPartyJobDetailsCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.GetThirdPartyJobDetailsRequest> {
+class AWSCodePipelineGetThirdPartyJobDetailsCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.GetThirdPartyJobDetailsRequest, com.amazonaws.services.codepipeline.model.GetThirdPartyJobDetailsResult> {
 
 	var jobId: String? = null
 	var clientToken: String? = null
@@ -421,8 +469,12 @@ class AWSCodePipelineGetThirdPartyJobDetailsCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codepipeline.getThirdPartyJobDetails(build())
+	override fun dryResult(): com.amazonaws.services.codepipeline.model.GetThirdPartyJobDetailsResult {
+	  return com.amazonaws.services.codepipeline.model.GetThirdPartyJobDetailsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.GetThirdPartyJobDetailsResult {
+		return environment.codepipeline.getThirdPartyJobDetails(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -434,12 +486,12 @@ class AWSCodePipelineGetThirdPartyJobDetailsCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AWSCodePipelineFunctions.listActionTypes(init: AWSCodePipelineListActionTypesCommand.() -> Unit) {
-	this.block.declare(AWSCodePipelineListActionTypesCommand().apply(init))
+fun AWSCodePipelineFunctions.listActionTypes(init: AWSCodePipelineListActionTypesCommand.() -> Unit): com.amazonaws.services.codepipeline.model.ListActionTypesResult {
+	return this.block.declare(AWSCodePipelineListActionTypesCommand().apply(init)) as com.amazonaws.services.codepipeline.model.ListActionTypesResult
 }
 
 @Generated
-class AWSCodePipelineListActionTypesCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.ListActionTypesRequest> {
+class AWSCodePipelineListActionTypesCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.ListActionTypesRequest, com.amazonaws.services.codepipeline.model.ListActionTypesResult> {
 
 	var actionOwnerFilter: ActionOwner? = null
 	var nextToken: String? = null
@@ -451,8 +503,12 @@ class AWSCodePipelineListActionTypesCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codepipeline.listActionTypes(build())
+	override fun dryResult(): com.amazonaws.services.codepipeline.model.ListActionTypesResult {
+	  return com.amazonaws.services.codepipeline.model.ListActionTypesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.ListActionTypesResult {
+		return environment.codepipeline.listActionTypes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -464,12 +520,12 @@ class AWSCodePipelineListActionTypesCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AWSCodePipelineFunctions.listPipelineExecutions(init: AWSCodePipelineListPipelineExecutionsCommand.() -> Unit) {
-	this.block.declare(AWSCodePipelineListPipelineExecutionsCommand().apply(init))
+fun AWSCodePipelineFunctions.listPipelineExecutions(init: AWSCodePipelineListPipelineExecutionsCommand.() -> Unit): com.amazonaws.services.codepipeline.model.ListPipelineExecutionsResult {
+	return this.block.declare(AWSCodePipelineListPipelineExecutionsCommand().apply(init)) as com.amazonaws.services.codepipeline.model.ListPipelineExecutionsResult
 }
 
 @Generated
-class AWSCodePipelineListPipelineExecutionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.ListPipelineExecutionsRequest> {
+class AWSCodePipelineListPipelineExecutionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.ListPipelineExecutionsRequest, com.amazonaws.services.codepipeline.model.ListPipelineExecutionsResult> {
 
 	var pipelineName: String? = null
 	var maxResults: Int? = 0
@@ -483,8 +539,12 @@ class AWSCodePipelineListPipelineExecutionsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codepipeline.listPipelineExecutions(build())
+	override fun dryResult(): com.amazonaws.services.codepipeline.model.ListPipelineExecutionsResult {
+	  return com.amazonaws.services.codepipeline.model.ListPipelineExecutionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.ListPipelineExecutionsResult {
+		return environment.codepipeline.listPipelineExecutions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -497,12 +557,12 @@ class AWSCodePipelineListPipelineExecutionsCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AWSCodePipelineFunctions.listPipelines(init: AWSCodePipelineListPipelinesCommand.() -> Unit) {
-	this.block.declare(AWSCodePipelineListPipelinesCommand().apply(init))
+fun AWSCodePipelineFunctions.listPipelines(init: AWSCodePipelineListPipelinesCommand.() -> Unit): com.amazonaws.services.codepipeline.model.ListPipelinesResult {
+	return this.block.declare(AWSCodePipelineListPipelinesCommand().apply(init)) as com.amazonaws.services.codepipeline.model.ListPipelinesResult
 }
 
 @Generated
-class AWSCodePipelineListPipelinesCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.ListPipelinesRequest> {
+class AWSCodePipelineListPipelinesCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.ListPipelinesRequest, com.amazonaws.services.codepipeline.model.ListPipelinesResult> {
 
 	var nextToken: String? = null
 
@@ -512,8 +572,12 @@ class AWSCodePipelineListPipelinesCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codepipeline.listPipelines(build())
+	override fun dryResult(): com.amazonaws.services.codepipeline.model.ListPipelinesResult {
+	  return com.amazonaws.services.codepipeline.model.ListPipelinesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.ListPipelinesResult {
+		return environment.codepipeline.listPipelines(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -524,12 +588,12 @@ class AWSCodePipelineListPipelinesCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AWSCodePipelineFunctions.pollForJobs(init: AWSCodePipelinePollForJobsCommand.() -> Unit) {
-	this.block.declare(AWSCodePipelinePollForJobsCommand().apply(init))
+fun AWSCodePipelineFunctions.pollForJobs(init: AWSCodePipelinePollForJobsCommand.() -> Unit): com.amazonaws.services.codepipeline.model.PollForJobsResult {
+	return this.block.declare(AWSCodePipelinePollForJobsCommand().apply(init)) as com.amazonaws.services.codepipeline.model.PollForJobsResult
 }
 
 @Generated
-class AWSCodePipelinePollForJobsCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.PollForJobsRequest> {
+class AWSCodePipelinePollForJobsCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.PollForJobsRequest, com.amazonaws.services.codepipeline.model.PollForJobsResult> {
 
 	var actionTypeId: com.amazonaws.services.codepipeline.model.ActionTypeId? = null
 	var maxBatchSize: Int? = 0
@@ -543,8 +607,12 @@ class AWSCodePipelinePollForJobsCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codepipeline.pollForJobs(build())
+	override fun dryResult(): com.amazonaws.services.codepipeline.model.PollForJobsResult {
+	  return com.amazonaws.services.codepipeline.model.PollForJobsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.PollForJobsResult {
+		return environment.codepipeline.pollForJobs(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -557,12 +625,12 @@ class AWSCodePipelinePollForJobsCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AWSCodePipelineFunctions.pollForThirdPartyJobs(init: AWSCodePipelinePollForThirdPartyJobsCommand.() -> Unit) {
-	this.block.declare(AWSCodePipelinePollForThirdPartyJobsCommand().apply(init))
+fun AWSCodePipelineFunctions.pollForThirdPartyJobs(init: AWSCodePipelinePollForThirdPartyJobsCommand.() -> Unit): com.amazonaws.services.codepipeline.model.PollForThirdPartyJobsResult {
+	return this.block.declare(AWSCodePipelinePollForThirdPartyJobsCommand().apply(init)) as com.amazonaws.services.codepipeline.model.PollForThirdPartyJobsResult
 }
 
 @Generated
-class AWSCodePipelinePollForThirdPartyJobsCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.PollForThirdPartyJobsRequest> {
+class AWSCodePipelinePollForThirdPartyJobsCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.PollForThirdPartyJobsRequest, com.amazonaws.services.codepipeline.model.PollForThirdPartyJobsResult> {
 
 	var actionTypeId: com.amazonaws.services.codepipeline.model.ActionTypeId? = null
 	var maxBatchSize: Int? = 0
@@ -574,8 +642,12 @@ class AWSCodePipelinePollForThirdPartyJobsCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codepipeline.pollForThirdPartyJobs(build())
+	override fun dryResult(): com.amazonaws.services.codepipeline.model.PollForThirdPartyJobsResult {
+	  return com.amazonaws.services.codepipeline.model.PollForThirdPartyJobsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.PollForThirdPartyJobsResult {
+		return environment.codepipeline.pollForThirdPartyJobs(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -587,12 +659,12 @@ class AWSCodePipelinePollForThirdPartyJobsCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AWSCodePipelineFunctions.putActionRevision(init: AWSCodePipelinePutActionRevisionCommand.() -> Unit) {
-	this.block.declare(AWSCodePipelinePutActionRevisionCommand().apply(init))
+fun AWSCodePipelineFunctions.putActionRevision(init: AWSCodePipelinePutActionRevisionCommand.() -> Unit): com.amazonaws.services.codepipeline.model.PutActionRevisionResult {
+	return this.block.declare(AWSCodePipelinePutActionRevisionCommand().apply(init)) as com.amazonaws.services.codepipeline.model.PutActionRevisionResult
 }
 
 @Generated
-class AWSCodePipelinePutActionRevisionCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.PutActionRevisionRequest> {
+class AWSCodePipelinePutActionRevisionCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.PutActionRevisionRequest, com.amazonaws.services.codepipeline.model.PutActionRevisionResult> {
 
 	var pipelineName: String? = null
 	var stageName: String? = null
@@ -608,8 +680,12 @@ class AWSCodePipelinePutActionRevisionCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codepipeline.putActionRevision(build())
+	override fun dryResult(): com.amazonaws.services.codepipeline.model.PutActionRevisionResult {
+	  return com.amazonaws.services.codepipeline.model.PutActionRevisionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.PutActionRevisionResult {
+		return environment.codepipeline.putActionRevision(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -623,12 +699,12 @@ class AWSCodePipelinePutActionRevisionCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AWSCodePipelineFunctions.putApprovalResult(init: AWSCodePipelinePutApprovalResultCommand.() -> Unit) {
-	this.block.declare(AWSCodePipelinePutApprovalResultCommand().apply(init))
+fun AWSCodePipelineFunctions.putApprovalResult(init: AWSCodePipelinePutApprovalResultCommand.() -> Unit): com.amazonaws.services.codepipeline.model.PutApprovalResultResult {
+	return this.block.declare(AWSCodePipelinePutApprovalResultCommand().apply(init)) as com.amazonaws.services.codepipeline.model.PutApprovalResultResult
 }
 
 @Generated
-class AWSCodePipelinePutApprovalResultCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.PutApprovalResultRequest> {
+class AWSCodePipelinePutApprovalResultCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.PutApprovalResultRequest, com.amazonaws.services.codepipeline.model.PutApprovalResultResult> {
 
 	var pipelineName: String? = null
 	var stageName: String? = null
@@ -646,8 +722,12 @@ class AWSCodePipelinePutApprovalResultCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codepipeline.putApprovalResult(build())
+	override fun dryResult(): com.amazonaws.services.codepipeline.model.PutApprovalResultResult {
+	  return com.amazonaws.services.codepipeline.model.PutApprovalResultResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.PutApprovalResultResult {
+		return environment.codepipeline.putApprovalResult(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -662,12 +742,12 @@ class AWSCodePipelinePutApprovalResultCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AWSCodePipelineFunctions.putJobFailureResult(init: AWSCodePipelinePutJobFailureResultCommand.() -> Unit) {
-	this.block.declare(AWSCodePipelinePutJobFailureResultCommand().apply(init))
+fun AWSCodePipelineFunctions.putJobFailureResult(init: AWSCodePipelinePutJobFailureResultCommand.() -> Unit): com.amazonaws.services.codepipeline.model.PutJobFailureResultResult {
+	return this.block.declare(AWSCodePipelinePutJobFailureResultCommand().apply(init)) as com.amazonaws.services.codepipeline.model.PutJobFailureResultResult
 }
 
 @Generated
-class AWSCodePipelinePutJobFailureResultCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.PutJobFailureResultRequest> {
+class AWSCodePipelinePutJobFailureResultCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.PutJobFailureResultRequest, com.amazonaws.services.codepipeline.model.PutJobFailureResultResult> {
 
 	var jobId: String? = null
 	var failureDetails: com.amazonaws.services.codepipeline.model.FailureDetails? = null
@@ -679,8 +759,12 @@ class AWSCodePipelinePutJobFailureResultCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codepipeline.putJobFailureResult(build())
+	override fun dryResult(): com.amazonaws.services.codepipeline.model.PutJobFailureResultResult {
+	  return com.amazonaws.services.codepipeline.model.PutJobFailureResultResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.PutJobFailureResultResult {
+		return environment.codepipeline.putJobFailureResult(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -692,12 +776,12 @@ class AWSCodePipelinePutJobFailureResultCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AWSCodePipelineFunctions.putJobSuccessResult(init: AWSCodePipelinePutJobSuccessResultCommand.() -> Unit) {
-	this.block.declare(AWSCodePipelinePutJobSuccessResultCommand().apply(init))
+fun AWSCodePipelineFunctions.putJobSuccessResult(init: AWSCodePipelinePutJobSuccessResultCommand.() -> Unit): com.amazonaws.services.codepipeline.model.PutJobSuccessResultResult {
+	return this.block.declare(AWSCodePipelinePutJobSuccessResultCommand().apply(init)) as com.amazonaws.services.codepipeline.model.PutJobSuccessResultResult
 }
 
 @Generated
-class AWSCodePipelinePutJobSuccessResultCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.PutJobSuccessResultRequest> {
+class AWSCodePipelinePutJobSuccessResultCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.PutJobSuccessResultRequest, com.amazonaws.services.codepipeline.model.PutJobSuccessResultResult> {
 
 	var jobId: String? = null
 	var currentRevision: com.amazonaws.services.codepipeline.model.CurrentRevision? = null
@@ -713,8 +797,12 @@ class AWSCodePipelinePutJobSuccessResultCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codepipeline.putJobSuccessResult(build())
+	override fun dryResult(): com.amazonaws.services.codepipeline.model.PutJobSuccessResultResult {
+	  return com.amazonaws.services.codepipeline.model.PutJobSuccessResultResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.PutJobSuccessResultResult {
+		return environment.codepipeline.putJobSuccessResult(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -728,12 +816,12 @@ class AWSCodePipelinePutJobSuccessResultCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AWSCodePipelineFunctions.putThirdPartyJobFailureResult(init: AWSCodePipelinePutThirdPartyJobFailureResultCommand.() -> Unit) {
-	this.block.declare(AWSCodePipelinePutThirdPartyJobFailureResultCommand().apply(init))
+fun AWSCodePipelineFunctions.putThirdPartyJobFailureResult(init: AWSCodePipelinePutThirdPartyJobFailureResultCommand.() -> Unit): com.amazonaws.services.codepipeline.model.PutThirdPartyJobFailureResultResult {
+	return this.block.declare(AWSCodePipelinePutThirdPartyJobFailureResultCommand().apply(init)) as com.amazonaws.services.codepipeline.model.PutThirdPartyJobFailureResultResult
 }
 
 @Generated
-class AWSCodePipelinePutThirdPartyJobFailureResultCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.PutThirdPartyJobFailureResultRequest> {
+class AWSCodePipelinePutThirdPartyJobFailureResultCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.PutThirdPartyJobFailureResultRequest, com.amazonaws.services.codepipeline.model.PutThirdPartyJobFailureResultResult> {
 
 	var jobId: String? = null
 	var clientToken: String? = null
@@ -747,8 +835,12 @@ class AWSCodePipelinePutThirdPartyJobFailureResultCommand() : AmazonWebServiceCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codepipeline.putThirdPartyJobFailureResult(build())
+	override fun dryResult(): com.amazonaws.services.codepipeline.model.PutThirdPartyJobFailureResultResult {
+	  return com.amazonaws.services.codepipeline.model.PutThirdPartyJobFailureResultResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.PutThirdPartyJobFailureResultResult {
+		return environment.codepipeline.putThirdPartyJobFailureResult(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -761,12 +853,12 @@ class AWSCodePipelinePutThirdPartyJobFailureResultCommand() : AmazonWebServiceCo
 }
 
 
-fun AWSCodePipelineFunctions.putThirdPartyJobSuccessResult(init: AWSCodePipelinePutThirdPartyJobSuccessResultCommand.() -> Unit) {
-	this.block.declare(AWSCodePipelinePutThirdPartyJobSuccessResultCommand().apply(init))
+fun AWSCodePipelineFunctions.putThirdPartyJobSuccessResult(init: AWSCodePipelinePutThirdPartyJobSuccessResultCommand.() -> Unit): com.amazonaws.services.codepipeline.model.PutThirdPartyJobSuccessResultResult {
+	return this.block.declare(AWSCodePipelinePutThirdPartyJobSuccessResultCommand().apply(init)) as com.amazonaws.services.codepipeline.model.PutThirdPartyJobSuccessResultResult
 }
 
 @Generated
-class AWSCodePipelinePutThirdPartyJobSuccessResultCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.PutThirdPartyJobSuccessResultRequest> {
+class AWSCodePipelinePutThirdPartyJobSuccessResultCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.PutThirdPartyJobSuccessResultRequest, com.amazonaws.services.codepipeline.model.PutThirdPartyJobSuccessResultResult> {
 
 	var jobId: String? = null
 	var clientToken: String? = null
@@ -784,8 +876,12 @@ class AWSCodePipelinePutThirdPartyJobSuccessResultCommand() : AmazonWebServiceCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codepipeline.putThirdPartyJobSuccessResult(build())
+	override fun dryResult(): com.amazonaws.services.codepipeline.model.PutThirdPartyJobSuccessResultResult {
+	  return com.amazonaws.services.codepipeline.model.PutThirdPartyJobSuccessResultResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.PutThirdPartyJobSuccessResultResult {
+		return environment.codepipeline.putThirdPartyJobSuccessResult(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -800,12 +896,12 @@ class AWSCodePipelinePutThirdPartyJobSuccessResultCommand() : AmazonWebServiceCo
 }
 
 
-fun AWSCodePipelineFunctions.retryStageExecution(init: AWSCodePipelineRetryStageExecutionCommand.() -> Unit) {
-	this.block.declare(AWSCodePipelineRetryStageExecutionCommand().apply(init))
+fun AWSCodePipelineFunctions.retryStageExecution(init: AWSCodePipelineRetryStageExecutionCommand.() -> Unit): com.amazonaws.services.codepipeline.model.RetryStageExecutionResult {
+	return this.block.declare(AWSCodePipelineRetryStageExecutionCommand().apply(init)) as com.amazonaws.services.codepipeline.model.RetryStageExecutionResult
 }
 
 @Generated
-class AWSCodePipelineRetryStageExecutionCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.RetryStageExecutionRequest> {
+class AWSCodePipelineRetryStageExecutionCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.RetryStageExecutionRequest, com.amazonaws.services.codepipeline.model.RetryStageExecutionResult> {
 
 	var pipelineName: String? = null
 	var stageName: String? = null
@@ -821,8 +917,12 @@ class AWSCodePipelineRetryStageExecutionCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codepipeline.retryStageExecution(build())
+	override fun dryResult(): com.amazonaws.services.codepipeline.model.RetryStageExecutionResult {
+	  return com.amazonaws.services.codepipeline.model.RetryStageExecutionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.RetryStageExecutionResult {
+		return environment.codepipeline.retryStageExecution(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -836,12 +936,12 @@ class AWSCodePipelineRetryStageExecutionCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AWSCodePipelineFunctions.startPipelineExecution(init: AWSCodePipelineStartPipelineExecutionCommand.() -> Unit) {
-	this.block.declare(AWSCodePipelineStartPipelineExecutionCommand().apply(init))
+fun AWSCodePipelineFunctions.startPipelineExecution(init: AWSCodePipelineStartPipelineExecutionCommand.() -> Unit): com.amazonaws.services.codepipeline.model.StartPipelineExecutionResult {
+	return this.block.declare(AWSCodePipelineStartPipelineExecutionCommand().apply(init)) as com.amazonaws.services.codepipeline.model.StartPipelineExecutionResult
 }
 
 @Generated
-class AWSCodePipelineStartPipelineExecutionCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.StartPipelineExecutionRequest> {
+class AWSCodePipelineStartPipelineExecutionCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.StartPipelineExecutionRequest, com.amazonaws.services.codepipeline.model.StartPipelineExecutionResult> {
 
 	var name: String? = null
 
@@ -851,8 +951,12 @@ class AWSCodePipelineStartPipelineExecutionCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codepipeline.startPipelineExecution(build())
+	override fun dryResult(): com.amazonaws.services.codepipeline.model.StartPipelineExecutionResult {
+	  return com.amazonaws.services.codepipeline.model.StartPipelineExecutionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.StartPipelineExecutionResult {
+		return environment.codepipeline.startPipelineExecution(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -863,12 +967,12 @@ class AWSCodePipelineStartPipelineExecutionCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AWSCodePipelineFunctions.updatePipeline(init: AWSCodePipelineUpdatePipelineCommand.() -> Unit) {
-	this.block.declare(AWSCodePipelineUpdatePipelineCommand().apply(init))
+fun AWSCodePipelineFunctions.updatePipeline(init: AWSCodePipelineUpdatePipelineCommand.() -> Unit): com.amazonaws.services.codepipeline.model.UpdatePipelineResult {
+	return this.block.declare(AWSCodePipelineUpdatePipelineCommand().apply(init)) as com.amazonaws.services.codepipeline.model.UpdatePipelineResult
 }
 
 @Generated
-class AWSCodePipelineUpdatePipelineCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.UpdatePipelineRequest> {
+class AWSCodePipelineUpdatePipelineCommand() : AmazonWebServiceCommand<com.amazonaws.services.codepipeline.model.UpdatePipelineRequest, com.amazonaws.services.codepipeline.model.UpdatePipelineResult> {
 
 	var pipeline: com.amazonaws.services.codepipeline.model.PipelineDeclaration? = null
 
@@ -878,8 +982,12 @@ class AWSCodePipelineUpdatePipelineCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.codepipeline.updatePipeline(build())
+	override fun dryResult(): com.amazonaws.services.codepipeline.model.UpdatePipelineResult {
+	  return com.amazonaws.services.codepipeline.model.UpdatePipelineResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.codepipeline.model.UpdatePipelineResult {
+		return environment.codepipeline.updatePipeline(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

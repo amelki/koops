@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.cloudhsmv2: AWSCloudHSMV2
 @Generated
 class AWSCloudHSMV2Functions(val block: Block)
 
-infix fun AwsContinuation.cloudhsmv2(init: AWSCloudHSMV2Functions.() -> Unit) {
-	AWSCloudHSMV2Functions(shell).apply(init)
+infix fun <T> AwsContinuation.cloudhsmv2(init: AWSCloudHSMV2Functions.() -> T): T {
+	return AWSCloudHSMV2Functions(shell).run(init)
 }
 
 			
 
-fun AWSCloudHSMV2Functions.createCluster(subnetIds: List<String>, hsmType: String, init: AWSCloudHSMV2CreateClusterCommand.() -> Unit) {
-	this.block.declare(AWSCloudHSMV2CreateClusterCommand(subnetIds, hsmType).apply(init))
+fun AWSCloudHSMV2Functions.createCluster(subnetIds: List<String>, hsmType: String, init: AWSCloudHSMV2CreateClusterCommand.() -> Unit): com.amazonaws.services.cloudhsmv2.model.CreateClusterResult {
+	return this.block.declare(AWSCloudHSMV2CreateClusterCommand(subnetIds, hsmType).apply(init)) as com.amazonaws.services.cloudhsmv2.model.CreateClusterResult
 }
 
 @Generated
-class AWSCloudHSMV2CreateClusterCommand(val subnetIds: List<String>, val hsmType: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsmv2.model.CreateClusterRequest> {
+class AWSCloudHSMV2CreateClusterCommand(val subnetIds: List<String>, val hsmType: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsmv2.model.CreateClusterRequest, com.amazonaws.services.cloudhsmv2.model.CreateClusterResult> {
 
 	var sourceBackupId: String? = null
 
@@ -43,8 +43,12 @@ class AWSCloudHSMV2CreateClusterCommand(val subnetIds: List<String>, val hsmType
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudhsmv2.createCluster(build())
+	override fun dryResult(): com.amazonaws.services.cloudhsmv2.model.CreateClusterResult {
+	  return com.amazonaws.services.cloudhsmv2.model.CreateClusterResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsmv2.model.CreateClusterResult {
+		return environment.cloudhsmv2.createCluster(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -57,12 +61,12 @@ class AWSCloudHSMV2CreateClusterCommand(val subnetIds: List<String>, val hsmType
 }
 
 
-fun AWSCloudHSMV2Functions.createHsm(clusterId: String, availabilityZone: String, init: AWSCloudHSMV2CreateHsmCommand.() -> Unit) {
-	this.block.declare(AWSCloudHSMV2CreateHsmCommand(clusterId, availabilityZone).apply(init))
+fun AWSCloudHSMV2Functions.createHsm(clusterId: String, availabilityZone: String, init: AWSCloudHSMV2CreateHsmCommand.() -> Unit): com.amazonaws.services.cloudhsmv2.model.CreateHsmResult {
+	return this.block.declare(AWSCloudHSMV2CreateHsmCommand(clusterId, availabilityZone).apply(init)) as com.amazonaws.services.cloudhsmv2.model.CreateHsmResult
 }
 
 @Generated
-class AWSCloudHSMV2CreateHsmCommand(val clusterId: String, val availabilityZone: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsmv2.model.CreateHsmRequest> {
+class AWSCloudHSMV2CreateHsmCommand(val clusterId: String, val availabilityZone: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsmv2.model.CreateHsmRequest, com.amazonaws.services.cloudhsmv2.model.CreateHsmResult> {
 
 	var ipAddress: String? = null
 
@@ -74,8 +78,12 @@ class AWSCloudHSMV2CreateHsmCommand(val clusterId: String, val availabilityZone:
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudhsmv2.createHsm(build())
+	override fun dryResult(): com.amazonaws.services.cloudhsmv2.model.CreateHsmResult {
+	  return com.amazonaws.services.cloudhsmv2.model.CreateHsmResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsmv2.model.CreateHsmResult {
+		return environment.cloudhsmv2.createHsm(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -88,12 +96,12 @@ class AWSCloudHSMV2CreateHsmCommand(val clusterId: String, val availabilityZone:
 }
 
 
-fun AWSCloudHSMV2Functions.deleteCluster(clusterId: String, init: AWSCloudHSMV2DeleteClusterCommand.() -> Unit) {
-	this.block.declare(AWSCloudHSMV2DeleteClusterCommand(clusterId).apply(init))
+fun AWSCloudHSMV2Functions.deleteCluster(clusterId: String, init: AWSCloudHSMV2DeleteClusterCommand.() -> Unit): com.amazonaws.services.cloudhsmv2.model.DeleteClusterResult {
+	return this.block.declare(AWSCloudHSMV2DeleteClusterCommand(clusterId).apply(init)) as com.amazonaws.services.cloudhsmv2.model.DeleteClusterResult
 }
 
 @Generated
-class AWSCloudHSMV2DeleteClusterCommand(val clusterId: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsmv2.model.DeleteClusterRequest> {
+class AWSCloudHSMV2DeleteClusterCommand(val clusterId: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsmv2.model.DeleteClusterRequest, com.amazonaws.services.cloudhsmv2.model.DeleteClusterResult> {
 
 
 
@@ -103,8 +111,12 @@ class AWSCloudHSMV2DeleteClusterCommand(val clusterId: String) : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudhsmv2.deleteCluster(build())
+	override fun dryResult(): com.amazonaws.services.cloudhsmv2.model.DeleteClusterResult {
+	  return com.amazonaws.services.cloudhsmv2.model.DeleteClusterResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsmv2.model.DeleteClusterResult {
+		return environment.cloudhsmv2.deleteCluster(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -115,12 +127,12 @@ class AWSCloudHSMV2DeleteClusterCommand(val clusterId: String) : AmazonWebServic
 }
 
 
-fun AWSCloudHSMV2Functions.deleteHsm(clusterId: String, init: AWSCloudHSMV2DeleteHsmCommand.() -> Unit) {
-	this.block.declare(AWSCloudHSMV2DeleteHsmCommand(clusterId).apply(init))
+fun AWSCloudHSMV2Functions.deleteHsm(clusterId: String, init: AWSCloudHSMV2DeleteHsmCommand.() -> Unit): com.amazonaws.services.cloudhsmv2.model.DeleteHsmResult {
+	return this.block.declare(AWSCloudHSMV2DeleteHsmCommand(clusterId).apply(init)) as com.amazonaws.services.cloudhsmv2.model.DeleteHsmResult
 }
 
 @Generated
-class AWSCloudHSMV2DeleteHsmCommand(val clusterId: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsmv2.model.DeleteHsmRequest> {
+class AWSCloudHSMV2DeleteHsmCommand(val clusterId: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsmv2.model.DeleteHsmRequest, com.amazonaws.services.cloudhsmv2.model.DeleteHsmResult> {
 
 	var hsmId: String? = null
 	var eniId: String? = null
@@ -135,8 +147,12 @@ class AWSCloudHSMV2DeleteHsmCommand(val clusterId: String) : AmazonWebServiceCom
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudhsmv2.deleteHsm(build())
+	override fun dryResult(): com.amazonaws.services.cloudhsmv2.model.DeleteHsmResult {
+	  return com.amazonaws.services.cloudhsmv2.model.DeleteHsmResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsmv2.model.DeleteHsmResult {
+		return environment.cloudhsmv2.deleteHsm(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -150,12 +166,12 @@ class AWSCloudHSMV2DeleteHsmCommand(val clusterId: String) : AmazonWebServiceCom
 }
 
 
-fun AWSCloudHSMV2Functions.describeBackups(init: AWSCloudHSMV2DescribeBackupsCommand.() -> Unit) {
-	this.block.declare(AWSCloudHSMV2DescribeBackupsCommand().apply(init))
+fun AWSCloudHSMV2Functions.describeBackups(init: AWSCloudHSMV2DescribeBackupsCommand.() -> Unit): com.amazonaws.services.cloudhsmv2.model.DescribeBackupsResult {
+	return this.block.declare(AWSCloudHSMV2DescribeBackupsCommand().apply(init)) as com.amazonaws.services.cloudhsmv2.model.DescribeBackupsResult
 }
 
 @Generated
-class AWSCloudHSMV2DescribeBackupsCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudhsmv2.model.DescribeBackupsRequest> {
+class AWSCloudHSMV2DescribeBackupsCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudhsmv2.model.DescribeBackupsRequest, com.amazonaws.services.cloudhsmv2.model.DescribeBackupsResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -169,8 +185,12 @@ class AWSCloudHSMV2DescribeBackupsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudhsmv2.describeBackups(build())
+	override fun dryResult(): com.amazonaws.services.cloudhsmv2.model.DescribeBackupsResult {
+	  return com.amazonaws.services.cloudhsmv2.model.DescribeBackupsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsmv2.model.DescribeBackupsResult {
+		return environment.cloudhsmv2.describeBackups(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -183,12 +203,12 @@ class AWSCloudHSMV2DescribeBackupsCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AWSCloudHSMV2Functions.describeClusters(init: AWSCloudHSMV2DescribeClustersCommand.() -> Unit) {
-	this.block.declare(AWSCloudHSMV2DescribeClustersCommand().apply(init))
+fun AWSCloudHSMV2Functions.describeClusters(init: AWSCloudHSMV2DescribeClustersCommand.() -> Unit): com.amazonaws.services.cloudhsmv2.model.DescribeClustersResult {
+	return this.block.declare(AWSCloudHSMV2DescribeClustersCommand().apply(init)) as com.amazonaws.services.cloudhsmv2.model.DescribeClustersResult
 }
 
 @Generated
-class AWSCloudHSMV2DescribeClustersCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudhsmv2.model.DescribeClustersRequest> {
+class AWSCloudHSMV2DescribeClustersCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudhsmv2.model.DescribeClustersRequest, com.amazonaws.services.cloudhsmv2.model.DescribeClustersResult> {
 
 	var filters: Map<String, List<String>>? = null
 	var nextToken: String? = null
@@ -202,8 +222,12 @@ class AWSCloudHSMV2DescribeClustersCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudhsmv2.describeClusters(build())
+	override fun dryResult(): com.amazonaws.services.cloudhsmv2.model.DescribeClustersResult {
+	  return com.amazonaws.services.cloudhsmv2.model.DescribeClustersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsmv2.model.DescribeClustersResult {
+		return environment.cloudhsmv2.describeClusters(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -216,12 +240,12 @@ class AWSCloudHSMV2DescribeClustersCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AWSCloudHSMV2Functions.initializeCluster(clusterId: String, signedCert: String, trustAnchor: String, init: AWSCloudHSMV2InitializeClusterCommand.() -> Unit) {
-	this.block.declare(AWSCloudHSMV2InitializeClusterCommand(clusterId, signedCert, trustAnchor).apply(init))
+fun AWSCloudHSMV2Functions.initializeCluster(clusterId: String, signedCert: String, trustAnchor: String, init: AWSCloudHSMV2InitializeClusterCommand.() -> Unit): com.amazonaws.services.cloudhsmv2.model.InitializeClusterResult {
+	return this.block.declare(AWSCloudHSMV2InitializeClusterCommand(clusterId, signedCert, trustAnchor).apply(init)) as com.amazonaws.services.cloudhsmv2.model.InitializeClusterResult
 }
 
 @Generated
-class AWSCloudHSMV2InitializeClusterCommand(val clusterId: String, val signedCert: String, val trustAnchor: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsmv2.model.InitializeClusterRequest> {
+class AWSCloudHSMV2InitializeClusterCommand(val clusterId: String, val signedCert: String, val trustAnchor: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsmv2.model.InitializeClusterRequest, com.amazonaws.services.cloudhsmv2.model.InitializeClusterResult> {
 
 
 
@@ -233,8 +257,12 @@ class AWSCloudHSMV2InitializeClusterCommand(val clusterId: String, val signedCer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudhsmv2.initializeCluster(build())
+	override fun dryResult(): com.amazonaws.services.cloudhsmv2.model.InitializeClusterResult {
+	  return com.amazonaws.services.cloudhsmv2.model.InitializeClusterResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsmv2.model.InitializeClusterResult {
+		return environment.cloudhsmv2.initializeCluster(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -247,12 +275,12 @@ class AWSCloudHSMV2InitializeClusterCommand(val clusterId: String, val signedCer
 }
 
 
-fun AWSCloudHSMV2Functions.listTags(resourceId: String, init: AWSCloudHSMV2ListTagsCommand.() -> Unit) {
-	this.block.declare(AWSCloudHSMV2ListTagsCommand(resourceId).apply(init))
+fun AWSCloudHSMV2Functions.listTags(resourceId: String, init: AWSCloudHSMV2ListTagsCommand.() -> Unit): com.amazonaws.services.cloudhsmv2.model.ListTagsResult {
+	return this.block.declare(AWSCloudHSMV2ListTagsCommand(resourceId).apply(init)) as com.amazonaws.services.cloudhsmv2.model.ListTagsResult
 }
 
 @Generated
-class AWSCloudHSMV2ListTagsCommand(val resourceId: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsmv2.model.ListTagsRequest> {
+class AWSCloudHSMV2ListTagsCommand(val resourceId: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsmv2.model.ListTagsRequest, com.amazonaws.services.cloudhsmv2.model.ListTagsResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -265,8 +293,12 @@ class AWSCloudHSMV2ListTagsCommand(val resourceId: String) : AmazonWebServiceCom
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudhsmv2.listTags(build())
+	override fun dryResult(): com.amazonaws.services.cloudhsmv2.model.ListTagsResult {
+	  return com.amazonaws.services.cloudhsmv2.model.ListTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsmv2.model.ListTagsResult {
+		return environment.cloudhsmv2.listTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -279,12 +311,12 @@ class AWSCloudHSMV2ListTagsCommand(val resourceId: String) : AmazonWebServiceCom
 }
 
 
-fun AWSCloudHSMV2Functions.tagResource(resourceId: String, tagList: List<com.amazonaws.services.cloudhsmv2.model.Tag>, init: AWSCloudHSMV2TagResourceCommand.() -> Unit) {
-	this.block.declare(AWSCloudHSMV2TagResourceCommand(resourceId, tagList).apply(init))
+fun AWSCloudHSMV2Functions.tagResource(resourceId: String, tagList: List<com.amazonaws.services.cloudhsmv2.model.Tag>, init: AWSCloudHSMV2TagResourceCommand.() -> Unit): com.amazonaws.services.cloudhsmv2.model.TagResourceResult {
+	return this.block.declare(AWSCloudHSMV2TagResourceCommand(resourceId, tagList).apply(init)) as com.amazonaws.services.cloudhsmv2.model.TagResourceResult
 }
 
 @Generated
-class AWSCloudHSMV2TagResourceCommand(val resourceId: String, val tagList: List<com.amazonaws.services.cloudhsmv2.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsmv2.model.TagResourceRequest> {
+class AWSCloudHSMV2TagResourceCommand(val resourceId: String, val tagList: List<com.amazonaws.services.cloudhsmv2.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsmv2.model.TagResourceRequest, com.amazonaws.services.cloudhsmv2.model.TagResourceResult> {
 
 
 
@@ -295,8 +327,12 @@ class AWSCloudHSMV2TagResourceCommand(val resourceId: String, val tagList: List<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudhsmv2.tagResource(build())
+	override fun dryResult(): com.amazonaws.services.cloudhsmv2.model.TagResourceResult {
+	  return com.amazonaws.services.cloudhsmv2.model.TagResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsmv2.model.TagResourceResult {
+		return environment.cloudhsmv2.tagResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -308,12 +344,12 @@ class AWSCloudHSMV2TagResourceCommand(val resourceId: String, val tagList: List<
 }
 
 
-fun AWSCloudHSMV2Functions.untagResource(resourceId: String, tagKeyList: List<String>, init: AWSCloudHSMV2UntagResourceCommand.() -> Unit) {
-	this.block.declare(AWSCloudHSMV2UntagResourceCommand(resourceId, tagKeyList).apply(init))
+fun AWSCloudHSMV2Functions.untagResource(resourceId: String, tagKeyList: List<String>, init: AWSCloudHSMV2UntagResourceCommand.() -> Unit): com.amazonaws.services.cloudhsmv2.model.UntagResourceResult {
+	return this.block.declare(AWSCloudHSMV2UntagResourceCommand(resourceId, tagKeyList).apply(init)) as com.amazonaws.services.cloudhsmv2.model.UntagResourceResult
 }
 
 @Generated
-class AWSCloudHSMV2UntagResourceCommand(val resourceId: String, val tagKeyList: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsmv2.model.UntagResourceRequest> {
+class AWSCloudHSMV2UntagResourceCommand(val resourceId: String, val tagKeyList: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsmv2.model.UntagResourceRequest, com.amazonaws.services.cloudhsmv2.model.UntagResourceResult> {
 
 
 
@@ -324,8 +360,12 @@ class AWSCloudHSMV2UntagResourceCommand(val resourceId: String, val tagKeyList: 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudhsmv2.untagResource(build())
+	override fun dryResult(): com.amazonaws.services.cloudhsmv2.model.UntagResourceResult {
+	  return com.amazonaws.services.cloudhsmv2.model.UntagResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsmv2.model.UntagResourceResult {
+		return environment.cloudhsmv2.untagResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

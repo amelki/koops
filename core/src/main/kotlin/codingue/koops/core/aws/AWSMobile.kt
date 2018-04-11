@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.AWSMobileHubService: AWSMobile
 @Generated
 class AWSMobileFunctions(val block: Block)
 
-infix fun AwsContinuation.AWSMobileHubService(init: AWSMobileFunctions.() -> Unit) {
-	AWSMobileFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.AWSMobileHubService(init: AWSMobileFunctions.() -> T): T {
+	return AWSMobileFunctions(shell).run(init)
 }
 
 			
 
-fun AWSMobileFunctions.createProject(init: AWSMobileCreateProjectCommand.() -> Unit) {
-	this.block.declare(AWSMobileCreateProjectCommand().apply(init))
+fun AWSMobileFunctions.createProject(init: AWSMobileCreateProjectCommand.() -> Unit): com.amazonaws.services.mobile.model.CreateProjectResult {
+	return this.block.declare(AWSMobileCreateProjectCommand().apply(init)) as com.amazonaws.services.mobile.model.CreateProjectResult
 }
 
 @Generated
-class AWSMobileCreateProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.mobile.model.CreateProjectRequest> {
+class AWSMobileCreateProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.mobile.model.CreateProjectRequest, com.amazonaws.services.mobile.model.CreateProjectResult> {
 
 	var name: String? = null
 	var region: String? = null
@@ -47,8 +47,12 @@ class AWSMobileCreateProjectCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.AWSMobileHubService.createProject(build())
+	override fun dryResult(): com.amazonaws.services.mobile.model.CreateProjectResult {
+	  return com.amazonaws.services.mobile.model.CreateProjectResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mobile.model.CreateProjectResult {
+		return environment.AWSMobileHubService.createProject(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -62,12 +66,12 @@ class AWSMobileCreateProjectCommand() : AmazonWebServiceCommand<com.amazonaws.se
 }
 
 
-fun AWSMobileFunctions.deleteProject(init: AWSMobileDeleteProjectCommand.() -> Unit) {
-	this.block.declare(AWSMobileDeleteProjectCommand().apply(init))
+fun AWSMobileFunctions.deleteProject(init: AWSMobileDeleteProjectCommand.() -> Unit): com.amazonaws.services.mobile.model.DeleteProjectResult {
+	return this.block.declare(AWSMobileDeleteProjectCommand().apply(init)) as com.amazonaws.services.mobile.model.DeleteProjectResult
 }
 
 @Generated
-class AWSMobileDeleteProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.mobile.model.DeleteProjectRequest> {
+class AWSMobileDeleteProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.mobile.model.DeleteProjectRequest, com.amazonaws.services.mobile.model.DeleteProjectResult> {
 
 	var projectId: String? = null
 
@@ -77,8 +81,12 @@ class AWSMobileDeleteProjectCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.AWSMobileHubService.deleteProject(build())
+	override fun dryResult(): com.amazonaws.services.mobile.model.DeleteProjectResult {
+	  return com.amazonaws.services.mobile.model.DeleteProjectResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mobile.model.DeleteProjectResult {
+		return environment.AWSMobileHubService.deleteProject(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -89,12 +97,12 @@ class AWSMobileDeleteProjectCommand() : AmazonWebServiceCommand<com.amazonaws.se
 }
 
 
-fun AWSMobileFunctions.describeBundle(init: AWSMobileDescribeBundleCommand.() -> Unit) {
-	this.block.declare(AWSMobileDescribeBundleCommand().apply(init))
+fun AWSMobileFunctions.describeBundle(init: AWSMobileDescribeBundleCommand.() -> Unit): com.amazonaws.services.mobile.model.DescribeBundleResult {
+	return this.block.declare(AWSMobileDescribeBundleCommand().apply(init)) as com.amazonaws.services.mobile.model.DescribeBundleResult
 }
 
 @Generated
-class AWSMobileDescribeBundleCommand() : AmazonWebServiceCommand<com.amazonaws.services.mobile.model.DescribeBundleRequest> {
+class AWSMobileDescribeBundleCommand() : AmazonWebServiceCommand<com.amazonaws.services.mobile.model.DescribeBundleRequest, com.amazonaws.services.mobile.model.DescribeBundleResult> {
 
 	var bundleId: String? = null
 
@@ -104,8 +112,12 @@ class AWSMobileDescribeBundleCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.AWSMobileHubService.describeBundle(build())
+	override fun dryResult(): com.amazonaws.services.mobile.model.DescribeBundleResult {
+	  return com.amazonaws.services.mobile.model.DescribeBundleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mobile.model.DescribeBundleResult {
+		return environment.AWSMobileHubService.describeBundle(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -116,12 +128,12 @@ class AWSMobileDescribeBundleCommand() : AmazonWebServiceCommand<com.amazonaws.s
 }
 
 
-fun AWSMobileFunctions.describeProject(init: AWSMobileDescribeProjectCommand.() -> Unit) {
-	this.block.declare(AWSMobileDescribeProjectCommand().apply(init))
+fun AWSMobileFunctions.describeProject(init: AWSMobileDescribeProjectCommand.() -> Unit): com.amazonaws.services.mobile.model.DescribeProjectResult {
+	return this.block.declare(AWSMobileDescribeProjectCommand().apply(init)) as com.amazonaws.services.mobile.model.DescribeProjectResult
 }
 
 @Generated
-class AWSMobileDescribeProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.mobile.model.DescribeProjectRequest> {
+class AWSMobileDescribeProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.mobile.model.DescribeProjectRequest, com.amazonaws.services.mobile.model.DescribeProjectResult> {
 
 	var projectId: String? = null
 	var syncFromResources: Boolean? = false
@@ -133,8 +145,12 @@ class AWSMobileDescribeProjectCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.AWSMobileHubService.describeProject(build())
+	override fun dryResult(): com.amazonaws.services.mobile.model.DescribeProjectResult {
+	  return com.amazonaws.services.mobile.model.DescribeProjectResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mobile.model.DescribeProjectResult {
+		return environment.AWSMobileHubService.describeProject(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -146,12 +162,12 @@ class AWSMobileDescribeProjectCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AWSMobileFunctions.exportBundle(init: AWSMobileExportBundleCommand.() -> Unit) {
-	this.block.declare(AWSMobileExportBundleCommand().apply(init))
+fun AWSMobileFunctions.exportBundle(init: AWSMobileExportBundleCommand.() -> Unit): com.amazonaws.services.mobile.model.ExportBundleResult {
+	return this.block.declare(AWSMobileExportBundleCommand().apply(init)) as com.amazonaws.services.mobile.model.ExportBundleResult
 }
 
 @Generated
-class AWSMobileExportBundleCommand() : AmazonWebServiceCommand<com.amazonaws.services.mobile.model.ExportBundleRequest> {
+class AWSMobileExportBundleCommand() : AmazonWebServiceCommand<com.amazonaws.services.mobile.model.ExportBundleRequest, com.amazonaws.services.mobile.model.ExportBundleResult> {
 
 	var bundleId: String? = null
 	var projectId: String? = null
@@ -165,8 +181,12 @@ class AWSMobileExportBundleCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.AWSMobileHubService.exportBundle(build())
+	override fun dryResult(): com.amazonaws.services.mobile.model.ExportBundleResult {
+	  return com.amazonaws.services.mobile.model.ExportBundleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mobile.model.ExportBundleResult {
+		return environment.AWSMobileHubService.exportBundle(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -179,12 +199,12 @@ class AWSMobileExportBundleCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 }
 
 
-fun AWSMobileFunctions.exportProject(init: AWSMobileExportProjectCommand.() -> Unit) {
-	this.block.declare(AWSMobileExportProjectCommand().apply(init))
+fun AWSMobileFunctions.exportProject(init: AWSMobileExportProjectCommand.() -> Unit): com.amazonaws.services.mobile.model.ExportProjectResult {
+	return this.block.declare(AWSMobileExportProjectCommand().apply(init)) as com.amazonaws.services.mobile.model.ExportProjectResult
 }
 
 @Generated
-class AWSMobileExportProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.mobile.model.ExportProjectRequest> {
+class AWSMobileExportProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.mobile.model.ExportProjectRequest, com.amazonaws.services.mobile.model.ExportProjectResult> {
 
 	var projectId: String? = null
 
@@ -194,8 +214,12 @@ class AWSMobileExportProjectCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.AWSMobileHubService.exportProject(build())
+	override fun dryResult(): com.amazonaws.services.mobile.model.ExportProjectResult {
+	  return com.amazonaws.services.mobile.model.ExportProjectResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mobile.model.ExportProjectResult {
+		return environment.AWSMobileHubService.exportProject(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -206,12 +230,12 @@ class AWSMobileExportProjectCommand() : AmazonWebServiceCommand<com.amazonaws.se
 }
 
 
-fun AWSMobileFunctions.listBundles(init: AWSMobileListBundlesCommand.() -> Unit) {
-	this.block.declare(AWSMobileListBundlesCommand().apply(init))
+fun AWSMobileFunctions.listBundles(init: AWSMobileListBundlesCommand.() -> Unit): com.amazonaws.services.mobile.model.ListBundlesResult {
+	return this.block.declare(AWSMobileListBundlesCommand().apply(init)) as com.amazonaws.services.mobile.model.ListBundlesResult
 }
 
 @Generated
-class AWSMobileListBundlesCommand() : AmazonWebServiceCommand<com.amazonaws.services.mobile.model.ListBundlesRequest> {
+class AWSMobileListBundlesCommand() : AmazonWebServiceCommand<com.amazonaws.services.mobile.model.ListBundlesRequest, com.amazonaws.services.mobile.model.ListBundlesResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -223,8 +247,12 @@ class AWSMobileListBundlesCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.AWSMobileHubService.listBundles(build())
+	override fun dryResult(): com.amazonaws.services.mobile.model.ListBundlesResult {
+	  return com.amazonaws.services.mobile.model.ListBundlesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mobile.model.ListBundlesResult {
+		return environment.AWSMobileHubService.listBundles(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -236,12 +264,12 @@ class AWSMobileListBundlesCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 }
 
 
-fun AWSMobileFunctions.listProjects(init: AWSMobileListProjectsCommand.() -> Unit) {
-	this.block.declare(AWSMobileListProjectsCommand().apply(init))
+fun AWSMobileFunctions.listProjects(init: AWSMobileListProjectsCommand.() -> Unit): com.amazonaws.services.mobile.model.ListProjectsResult {
+	return this.block.declare(AWSMobileListProjectsCommand().apply(init)) as com.amazonaws.services.mobile.model.ListProjectsResult
 }
 
 @Generated
-class AWSMobileListProjectsCommand() : AmazonWebServiceCommand<com.amazonaws.services.mobile.model.ListProjectsRequest> {
+class AWSMobileListProjectsCommand() : AmazonWebServiceCommand<com.amazonaws.services.mobile.model.ListProjectsRequest, com.amazonaws.services.mobile.model.ListProjectsResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -253,8 +281,12 @@ class AWSMobileListProjectsCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.AWSMobileHubService.listProjects(build())
+	override fun dryResult(): com.amazonaws.services.mobile.model.ListProjectsResult {
+	  return com.amazonaws.services.mobile.model.ListProjectsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mobile.model.ListProjectsResult {
+		return environment.AWSMobileHubService.listProjects(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -266,12 +298,12 @@ class AWSMobileListProjectsCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 }
 
 
-fun AWSMobileFunctions.updateProject(init: AWSMobileUpdateProjectCommand.() -> Unit) {
-	this.block.declare(AWSMobileUpdateProjectCommand().apply(init))
+fun AWSMobileFunctions.updateProject(init: AWSMobileUpdateProjectCommand.() -> Unit): com.amazonaws.services.mobile.model.UpdateProjectResult {
+	return this.block.declare(AWSMobileUpdateProjectCommand().apply(init)) as com.amazonaws.services.mobile.model.UpdateProjectResult
 }
 
 @Generated
-class AWSMobileUpdateProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.mobile.model.UpdateProjectRequest> {
+class AWSMobileUpdateProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.mobile.model.UpdateProjectRequest, com.amazonaws.services.mobile.model.UpdateProjectResult> {
 
 	var contents: java.nio.ByteBuffer? = null
 	var projectId: String? = null
@@ -283,8 +315,12 @@ class AWSMobileUpdateProjectCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.AWSMobileHubService.updateProject(build())
+	override fun dryResult(): com.amazonaws.services.mobile.model.UpdateProjectResult {
+	  return com.amazonaws.services.mobile.model.UpdateProjectResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mobile.model.UpdateProjectResult {
+		return environment.AWSMobileHubService.updateProject(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

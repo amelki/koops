@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.glue: AWSGlue
 @Generated
 class AWSGlueFunctions(val block: Block)
 
-infix fun AwsContinuation.glue(init: AWSGlueFunctions.() -> Unit) {
-	AWSGlueFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.glue(init: AWSGlueFunctions.() -> T): T {
+	return AWSGlueFunctions(shell).run(init)
 }
 
 			
 
-fun AWSGlueFunctions.batchCreatePartition(databaseName: String, tableName: String, partitionInputList: List<com.amazonaws.services.glue.model.PartitionInput>, init: AWSGlueBatchCreatePartitionCommand.() -> Unit) {
-	this.block.declare(AWSGlueBatchCreatePartitionCommand(databaseName, tableName, partitionInputList).apply(init))
+fun AWSGlueFunctions.batchCreatePartition(databaseName: String, tableName: String, partitionInputList: List<com.amazonaws.services.glue.model.PartitionInput>, init: AWSGlueBatchCreatePartitionCommand.() -> Unit): com.amazonaws.services.glue.model.BatchCreatePartitionResult {
+	return this.block.declare(AWSGlueBatchCreatePartitionCommand(databaseName, tableName, partitionInputList).apply(init)) as com.amazonaws.services.glue.model.BatchCreatePartitionResult
 }
 
 @Generated
-class AWSGlueBatchCreatePartitionCommand(val databaseName: String, val tableName: String, val partitionInputList: List<com.amazonaws.services.glue.model.PartitionInput>) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.BatchCreatePartitionRequest> {
+class AWSGlueBatchCreatePartitionCommand(val databaseName: String, val tableName: String, val partitionInputList: List<com.amazonaws.services.glue.model.PartitionInput>) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.BatchCreatePartitionRequest, com.amazonaws.services.glue.model.BatchCreatePartitionResult> {
 
 	var catalogId: String? = null
 
@@ -44,8 +44,12 @@ class AWSGlueBatchCreatePartitionCommand(val databaseName: String, val tableName
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.batchCreatePartition(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.BatchCreatePartitionResult {
+	  return com.amazonaws.services.glue.model.BatchCreatePartitionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.BatchCreatePartitionResult {
+		return environment.glue.batchCreatePartition(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -59,12 +63,12 @@ class AWSGlueBatchCreatePartitionCommand(val databaseName: String, val tableName
 }
 
 
-fun AWSGlueFunctions.batchDeleteConnection(connectionNameList: List<String>, init: AWSGlueBatchDeleteConnectionCommand.() -> Unit) {
-	this.block.declare(AWSGlueBatchDeleteConnectionCommand(connectionNameList).apply(init))
+fun AWSGlueFunctions.batchDeleteConnection(connectionNameList: List<String>, init: AWSGlueBatchDeleteConnectionCommand.() -> Unit): com.amazonaws.services.glue.model.BatchDeleteConnectionResult {
+	return this.block.declare(AWSGlueBatchDeleteConnectionCommand(connectionNameList).apply(init)) as com.amazonaws.services.glue.model.BatchDeleteConnectionResult
 }
 
 @Generated
-class AWSGlueBatchDeleteConnectionCommand(val connectionNameList: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.BatchDeleteConnectionRequest> {
+class AWSGlueBatchDeleteConnectionCommand(val connectionNameList: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.BatchDeleteConnectionRequest, com.amazonaws.services.glue.model.BatchDeleteConnectionResult> {
 
 	var catalogId: String? = null
 
@@ -75,8 +79,12 @@ class AWSGlueBatchDeleteConnectionCommand(val connectionNameList: List<String>) 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.batchDeleteConnection(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.BatchDeleteConnectionResult {
+	  return com.amazonaws.services.glue.model.BatchDeleteConnectionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.BatchDeleteConnectionResult {
+		return environment.glue.batchDeleteConnection(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -88,12 +96,12 @@ class AWSGlueBatchDeleteConnectionCommand(val connectionNameList: List<String>) 
 }
 
 
-fun AWSGlueFunctions.batchDeletePartition(databaseName: String, tableName: String, partitionsToDelete: List<com.amazonaws.services.glue.model.PartitionValueList>, init: AWSGlueBatchDeletePartitionCommand.() -> Unit) {
-	this.block.declare(AWSGlueBatchDeletePartitionCommand(databaseName, tableName, partitionsToDelete).apply(init))
+fun AWSGlueFunctions.batchDeletePartition(databaseName: String, tableName: String, partitionsToDelete: List<com.amazonaws.services.glue.model.PartitionValueList>, init: AWSGlueBatchDeletePartitionCommand.() -> Unit): com.amazonaws.services.glue.model.BatchDeletePartitionResult {
+	return this.block.declare(AWSGlueBatchDeletePartitionCommand(databaseName, tableName, partitionsToDelete).apply(init)) as com.amazonaws.services.glue.model.BatchDeletePartitionResult
 }
 
 @Generated
-class AWSGlueBatchDeletePartitionCommand(val databaseName: String, val tableName: String, val partitionsToDelete: List<com.amazonaws.services.glue.model.PartitionValueList>) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.BatchDeletePartitionRequest> {
+class AWSGlueBatchDeletePartitionCommand(val databaseName: String, val tableName: String, val partitionsToDelete: List<com.amazonaws.services.glue.model.PartitionValueList>) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.BatchDeletePartitionRequest, com.amazonaws.services.glue.model.BatchDeletePartitionResult> {
 
 	var catalogId: String? = null
 
@@ -106,8 +114,12 @@ class AWSGlueBatchDeletePartitionCommand(val databaseName: String, val tableName
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.batchDeletePartition(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.BatchDeletePartitionResult {
+	  return com.amazonaws.services.glue.model.BatchDeletePartitionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.BatchDeletePartitionResult {
+		return environment.glue.batchDeletePartition(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -121,12 +133,12 @@ class AWSGlueBatchDeletePartitionCommand(val databaseName: String, val tableName
 }
 
 
-fun AWSGlueFunctions.batchDeleteTable(databaseName: String, tablesToDelete: List<String>, init: AWSGlueBatchDeleteTableCommand.() -> Unit) {
-	this.block.declare(AWSGlueBatchDeleteTableCommand(databaseName, tablesToDelete).apply(init))
+fun AWSGlueFunctions.batchDeleteTable(databaseName: String, tablesToDelete: List<String>, init: AWSGlueBatchDeleteTableCommand.() -> Unit): com.amazonaws.services.glue.model.BatchDeleteTableResult {
+	return this.block.declare(AWSGlueBatchDeleteTableCommand(databaseName, tablesToDelete).apply(init)) as com.amazonaws.services.glue.model.BatchDeleteTableResult
 }
 
 @Generated
-class AWSGlueBatchDeleteTableCommand(val databaseName: String, val tablesToDelete: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.BatchDeleteTableRequest> {
+class AWSGlueBatchDeleteTableCommand(val databaseName: String, val tablesToDelete: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.BatchDeleteTableRequest, com.amazonaws.services.glue.model.BatchDeleteTableResult> {
 
 	var catalogId: String? = null
 
@@ -138,8 +150,12 @@ class AWSGlueBatchDeleteTableCommand(val databaseName: String, val tablesToDelet
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.batchDeleteTable(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.BatchDeleteTableResult {
+	  return com.amazonaws.services.glue.model.BatchDeleteTableResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.BatchDeleteTableResult {
+		return environment.glue.batchDeleteTable(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -152,12 +168,12 @@ class AWSGlueBatchDeleteTableCommand(val databaseName: String, val tablesToDelet
 }
 
 
-fun AWSGlueFunctions.batchDeleteTableVersion(databaseName: String, tableName: String, versionIds: List<String>, init: AWSGlueBatchDeleteTableVersionCommand.() -> Unit) {
-	this.block.declare(AWSGlueBatchDeleteTableVersionCommand(databaseName, tableName, versionIds).apply(init))
+fun AWSGlueFunctions.batchDeleteTableVersion(databaseName: String, tableName: String, versionIds: List<String>, init: AWSGlueBatchDeleteTableVersionCommand.() -> Unit): com.amazonaws.services.glue.model.BatchDeleteTableVersionResult {
+	return this.block.declare(AWSGlueBatchDeleteTableVersionCommand(databaseName, tableName, versionIds).apply(init)) as com.amazonaws.services.glue.model.BatchDeleteTableVersionResult
 }
 
 @Generated
-class AWSGlueBatchDeleteTableVersionCommand(val databaseName: String, val tableName: String, val versionIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.BatchDeleteTableVersionRequest> {
+class AWSGlueBatchDeleteTableVersionCommand(val databaseName: String, val tableName: String, val versionIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.BatchDeleteTableVersionRequest, com.amazonaws.services.glue.model.BatchDeleteTableVersionResult> {
 
 	var catalogId: String? = null
 
@@ -170,8 +186,12 @@ class AWSGlueBatchDeleteTableVersionCommand(val databaseName: String, val tableN
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.batchDeleteTableVersion(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.BatchDeleteTableVersionResult {
+	  return com.amazonaws.services.glue.model.BatchDeleteTableVersionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.BatchDeleteTableVersionResult {
+		return environment.glue.batchDeleteTableVersion(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -185,12 +205,12 @@ class AWSGlueBatchDeleteTableVersionCommand(val databaseName: String, val tableN
 }
 
 
-fun AWSGlueFunctions.batchGetPartition(databaseName: String, tableName: String, partitionsToGet: List<com.amazonaws.services.glue.model.PartitionValueList>, init: AWSGlueBatchGetPartitionCommand.() -> Unit) {
-	this.block.declare(AWSGlueBatchGetPartitionCommand(databaseName, tableName, partitionsToGet).apply(init))
+fun AWSGlueFunctions.batchGetPartition(databaseName: String, tableName: String, partitionsToGet: List<com.amazonaws.services.glue.model.PartitionValueList>, init: AWSGlueBatchGetPartitionCommand.() -> Unit): com.amazonaws.services.glue.model.BatchGetPartitionResult {
+	return this.block.declare(AWSGlueBatchGetPartitionCommand(databaseName, tableName, partitionsToGet).apply(init)) as com.amazonaws.services.glue.model.BatchGetPartitionResult
 }
 
 @Generated
-class AWSGlueBatchGetPartitionCommand(val databaseName: String, val tableName: String, val partitionsToGet: List<com.amazonaws.services.glue.model.PartitionValueList>) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.BatchGetPartitionRequest> {
+class AWSGlueBatchGetPartitionCommand(val databaseName: String, val tableName: String, val partitionsToGet: List<com.amazonaws.services.glue.model.PartitionValueList>) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.BatchGetPartitionRequest, com.amazonaws.services.glue.model.BatchGetPartitionResult> {
 
 	var catalogId: String? = null
 
@@ -203,8 +223,12 @@ class AWSGlueBatchGetPartitionCommand(val databaseName: String, val tableName: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.batchGetPartition(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.BatchGetPartitionResult {
+	  return com.amazonaws.services.glue.model.BatchGetPartitionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.BatchGetPartitionResult {
+		return environment.glue.batchGetPartition(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -218,12 +242,12 @@ class AWSGlueBatchGetPartitionCommand(val databaseName: String, val tableName: S
 }
 
 
-fun AWSGlueFunctions.batchStopJobRun(jobName: String, jobRunIds: List<String>, init: AWSGlueBatchStopJobRunCommand.() -> Unit) {
-	this.block.declare(AWSGlueBatchStopJobRunCommand(jobName, jobRunIds).apply(init))
+fun AWSGlueFunctions.batchStopJobRun(jobName: String, jobRunIds: List<String>, init: AWSGlueBatchStopJobRunCommand.() -> Unit): com.amazonaws.services.glue.model.BatchStopJobRunResult {
+	return this.block.declare(AWSGlueBatchStopJobRunCommand(jobName, jobRunIds).apply(init)) as com.amazonaws.services.glue.model.BatchStopJobRunResult
 }
 
 @Generated
-class AWSGlueBatchStopJobRunCommand(val jobName: String, val jobRunIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.BatchStopJobRunRequest> {
+class AWSGlueBatchStopJobRunCommand(val jobName: String, val jobRunIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.BatchStopJobRunRequest, com.amazonaws.services.glue.model.BatchStopJobRunResult> {
 
 
 
@@ -234,8 +258,12 @@ class AWSGlueBatchStopJobRunCommand(val jobName: String, val jobRunIds: List<Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.batchStopJobRun(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.BatchStopJobRunResult {
+	  return com.amazonaws.services.glue.model.BatchStopJobRunResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.BatchStopJobRunResult {
+		return environment.glue.batchStopJobRun(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -247,12 +275,12 @@ class AWSGlueBatchStopJobRunCommand(val jobName: String, val jobRunIds: List<Str
 }
 
 
-fun AWSGlueFunctions.createClassifier(init: AWSGlueCreateClassifierCommand.() -> Unit) {
-	this.block.declare(AWSGlueCreateClassifierCommand().apply(init))
+fun AWSGlueFunctions.createClassifier(init: AWSGlueCreateClassifierCommand.() -> Unit): com.amazonaws.services.glue.model.CreateClassifierResult {
+	return this.block.declare(AWSGlueCreateClassifierCommand().apply(init)) as com.amazonaws.services.glue.model.CreateClassifierResult
 }
 
 @Generated
-class AWSGlueCreateClassifierCommand() : AmazonWebServiceCommand<com.amazonaws.services.glue.model.CreateClassifierRequest> {
+class AWSGlueCreateClassifierCommand() : AmazonWebServiceCommand<com.amazonaws.services.glue.model.CreateClassifierRequest, com.amazonaws.services.glue.model.CreateClassifierResult> {
 
 	var grokClassifier: com.amazonaws.services.glue.model.CreateGrokClassifierRequest? = null
 	var xMLClassifier: com.amazonaws.services.glue.model.CreateXMLClassifierRequest? = null
@@ -266,8 +294,12 @@ class AWSGlueCreateClassifierCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.createClassifier(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.CreateClassifierResult {
+	  return com.amazonaws.services.glue.model.CreateClassifierResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.CreateClassifierResult {
+		return environment.glue.createClassifier(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -280,12 +312,12 @@ class AWSGlueCreateClassifierCommand() : AmazonWebServiceCommand<com.amazonaws.s
 }
 
 
-fun AWSGlueFunctions.createConnection(connectionInput: com.amazonaws.services.glue.model.ConnectionInput, init: AWSGlueCreateConnectionCommand.() -> Unit) {
-	this.block.declare(AWSGlueCreateConnectionCommand(connectionInput).apply(init))
+fun AWSGlueFunctions.createConnection(connectionInput: com.amazonaws.services.glue.model.ConnectionInput, init: AWSGlueCreateConnectionCommand.() -> Unit): com.amazonaws.services.glue.model.CreateConnectionResult {
+	return this.block.declare(AWSGlueCreateConnectionCommand(connectionInput).apply(init)) as com.amazonaws.services.glue.model.CreateConnectionResult
 }
 
 @Generated
-class AWSGlueCreateConnectionCommand(val connectionInput: com.amazonaws.services.glue.model.ConnectionInput) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.CreateConnectionRequest> {
+class AWSGlueCreateConnectionCommand(val connectionInput: com.amazonaws.services.glue.model.ConnectionInput) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.CreateConnectionRequest, com.amazonaws.services.glue.model.CreateConnectionResult> {
 
 	var catalogId: String? = null
 
@@ -296,8 +328,12 @@ class AWSGlueCreateConnectionCommand(val connectionInput: com.amazonaws.services
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.createConnection(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.CreateConnectionResult {
+	  return com.amazonaws.services.glue.model.CreateConnectionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.CreateConnectionResult {
+		return environment.glue.createConnection(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -309,12 +345,12 @@ class AWSGlueCreateConnectionCommand(val connectionInput: com.amazonaws.services
 }
 
 
-fun AWSGlueFunctions.createCrawler(name: String, role: String, databaseName: String, targets: com.amazonaws.services.glue.model.CrawlerTargets, init: AWSGlueCreateCrawlerCommand.() -> Unit) {
-	this.block.declare(AWSGlueCreateCrawlerCommand(name, role, databaseName, targets).apply(init))
+fun AWSGlueFunctions.createCrawler(name: String, role: String, databaseName: String, targets: com.amazonaws.services.glue.model.CrawlerTargets, init: AWSGlueCreateCrawlerCommand.() -> Unit): com.amazonaws.services.glue.model.CreateCrawlerResult {
+	return this.block.declare(AWSGlueCreateCrawlerCommand(name, role, databaseName, targets).apply(init)) as com.amazonaws.services.glue.model.CreateCrawlerResult
 }
 
 @Generated
-class AWSGlueCreateCrawlerCommand(val name: String, val role: String, val databaseName: String, val targets: com.amazonaws.services.glue.model.CrawlerTargets) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.CreateCrawlerRequest> {
+class AWSGlueCreateCrawlerCommand(val name: String, val role: String, val databaseName: String, val targets: com.amazonaws.services.glue.model.CrawlerTargets) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.CreateCrawlerRequest, com.amazonaws.services.glue.model.CreateCrawlerResult> {
 
 	var description: String? = null
 	var schedule: String? = null
@@ -338,8 +374,12 @@ class AWSGlueCreateCrawlerCommand(val name: String, val role: String, val databa
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.createCrawler(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.CreateCrawlerResult {
+	  return com.amazonaws.services.glue.model.CreateCrawlerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.CreateCrawlerResult {
+		return environment.glue.createCrawler(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -359,12 +399,12 @@ class AWSGlueCreateCrawlerCommand(val name: String, val role: String, val databa
 }
 
 
-fun AWSGlueFunctions.createDatabase(databaseInput: com.amazonaws.services.glue.model.DatabaseInput, init: AWSGlueCreateDatabaseCommand.() -> Unit) {
-	this.block.declare(AWSGlueCreateDatabaseCommand(databaseInput).apply(init))
+fun AWSGlueFunctions.createDatabase(databaseInput: com.amazonaws.services.glue.model.DatabaseInput, init: AWSGlueCreateDatabaseCommand.() -> Unit): com.amazonaws.services.glue.model.CreateDatabaseResult {
+	return this.block.declare(AWSGlueCreateDatabaseCommand(databaseInput).apply(init)) as com.amazonaws.services.glue.model.CreateDatabaseResult
 }
 
 @Generated
-class AWSGlueCreateDatabaseCommand(val databaseInput: com.amazonaws.services.glue.model.DatabaseInput) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.CreateDatabaseRequest> {
+class AWSGlueCreateDatabaseCommand(val databaseInput: com.amazonaws.services.glue.model.DatabaseInput) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.CreateDatabaseRequest, com.amazonaws.services.glue.model.CreateDatabaseResult> {
 
 	var catalogId: String? = null
 
@@ -375,8 +415,12 @@ class AWSGlueCreateDatabaseCommand(val databaseInput: com.amazonaws.services.glu
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.createDatabase(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.CreateDatabaseResult {
+	  return com.amazonaws.services.glue.model.CreateDatabaseResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.CreateDatabaseResult {
+		return environment.glue.createDatabase(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -388,12 +432,12 @@ class AWSGlueCreateDatabaseCommand(val databaseInput: com.amazonaws.services.glu
 }
 
 
-fun AWSGlueFunctions.createDevEndpoint(endpointName: String, roleArn: String, init: AWSGlueCreateDevEndpointCommand.() -> Unit) {
-	this.block.declare(AWSGlueCreateDevEndpointCommand(endpointName, roleArn).apply(init))
+fun AWSGlueFunctions.createDevEndpoint(endpointName: String, roleArn: String, init: AWSGlueCreateDevEndpointCommand.() -> Unit): com.amazonaws.services.glue.model.CreateDevEndpointResult {
+	return this.block.declare(AWSGlueCreateDevEndpointCommand(endpointName, roleArn).apply(init)) as com.amazonaws.services.glue.model.CreateDevEndpointResult
 }
 
 @Generated
-class AWSGlueCreateDevEndpointCommand(val endpointName: String, val roleArn: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.CreateDevEndpointRequest> {
+class AWSGlueCreateDevEndpointCommand(val endpointName: String, val roleArn: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.CreateDevEndpointRequest, com.amazonaws.services.glue.model.CreateDevEndpointResult> {
 
 	var securityGroupIds: List<String>? = null
 	var subnetId: String? = null
@@ -415,8 +459,12 @@ class AWSGlueCreateDevEndpointCommand(val endpointName: String, val roleArn: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.createDevEndpoint(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.CreateDevEndpointResult {
+	  return com.amazonaws.services.glue.model.CreateDevEndpointResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.CreateDevEndpointResult {
+		return environment.glue.createDevEndpoint(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -434,12 +482,12 @@ class AWSGlueCreateDevEndpointCommand(val endpointName: String, val roleArn: Str
 }
 
 
-fun AWSGlueFunctions.createJob(name: String, role: String, command: com.amazonaws.services.glue.model.JobCommand, init: AWSGlueCreateJobCommand.() -> Unit) {
-	this.block.declare(AWSGlueCreateJobCommand(name, role, command).apply(init))
+fun AWSGlueFunctions.createJob(name: String, role: String, command: com.amazonaws.services.glue.model.JobCommand, init: AWSGlueCreateJobCommand.() -> Unit): com.amazonaws.services.glue.model.CreateJobResult {
+	return this.block.declare(AWSGlueCreateJobCommand(name, role, command).apply(init)) as com.amazonaws.services.glue.model.CreateJobResult
 }
 
 @Generated
-class AWSGlueCreateJobCommand(val name: String, val role: String, val command: com.amazonaws.services.glue.model.JobCommand) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.CreateJobRequest> {
+class AWSGlueCreateJobCommand(val name: String, val role: String, val command: com.amazonaws.services.glue.model.JobCommand) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.CreateJobRequest, com.amazonaws.services.glue.model.CreateJobResult> {
 
 	var description: String? = null
 	var logUri: String? = null
@@ -464,8 +512,12 @@ class AWSGlueCreateJobCommand(val name: String, val role: String, val command: c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.createJob(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.CreateJobResult {
+	  return com.amazonaws.services.glue.model.CreateJobResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.CreateJobResult {
+		return environment.glue.createJob(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -485,12 +537,12 @@ class AWSGlueCreateJobCommand(val name: String, val role: String, val command: c
 }
 
 
-fun AWSGlueFunctions.createPartition(databaseName: String, tableName: String, partitionInput: com.amazonaws.services.glue.model.PartitionInput, init: AWSGlueCreatePartitionCommand.() -> Unit) {
-	this.block.declare(AWSGlueCreatePartitionCommand(databaseName, tableName, partitionInput).apply(init))
+fun AWSGlueFunctions.createPartition(databaseName: String, tableName: String, partitionInput: com.amazonaws.services.glue.model.PartitionInput, init: AWSGlueCreatePartitionCommand.() -> Unit): com.amazonaws.services.glue.model.CreatePartitionResult {
+	return this.block.declare(AWSGlueCreatePartitionCommand(databaseName, tableName, partitionInput).apply(init)) as com.amazonaws.services.glue.model.CreatePartitionResult
 }
 
 @Generated
-class AWSGlueCreatePartitionCommand(val databaseName: String, val tableName: String, val partitionInput: com.amazonaws.services.glue.model.PartitionInput) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.CreatePartitionRequest> {
+class AWSGlueCreatePartitionCommand(val databaseName: String, val tableName: String, val partitionInput: com.amazonaws.services.glue.model.PartitionInput) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.CreatePartitionRequest, com.amazonaws.services.glue.model.CreatePartitionResult> {
 
 	var catalogId: String? = null
 
@@ -503,8 +555,12 @@ class AWSGlueCreatePartitionCommand(val databaseName: String, val tableName: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.createPartition(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.CreatePartitionResult {
+	  return com.amazonaws.services.glue.model.CreatePartitionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.CreatePartitionResult {
+		return environment.glue.createPartition(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -518,12 +574,12 @@ class AWSGlueCreatePartitionCommand(val databaseName: String, val tableName: Str
 }
 
 
-fun AWSGlueFunctions.createScript(init: AWSGlueCreateScriptCommand.() -> Unit) {
-	this.block.declare(AWSGlueCreateScriptCommand().apply(init))
+fun AWSGlueFunctions.createScript(init: AWSGlueCreateScriptCommand.() -> Unit): com.amazonaws.services.glue.model.CreateScriptResult {
+	return this.block.declare(AWSGlueCreateScriptCommand().apply(init)) as com.amazonaws.services.glue.model.CreateScriptResult
 }
 
 @Generated
-class AWSGlueCreateScriptCommand() : AmazonWebServiceCommand<com.amazonaws.services.glue.model.CreateScriptRequest> {
+class AWSGlueCreateScriptCommand() : AmazonWebServiceCommand<com.amazonaws.services.glue.model.CreateScriptRequest, com.amazonaws.services.glue.model.CreateScriptResult> {
 
 	var dagNodes: List<com.amazonaws.services.glue.model.CodeGenNode>? = null
 	var dagEdges: List<com.amazonaws.services.glue.model.CodeGenEdge>? = null
@@ -537,8 +593,12 @@ class AWSGlueCreateScriptCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.createScript(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.CreateScriptResult {
+	  return com.amazonaws.services.glue.model.CreateScriptResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.CreateScriptResult {
+		return environment.glue.createScript(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -551,12 +611,12 @@ class AWSGlueCreateScriptCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 }
 
 
-fun AWSGlueFunctions.createTable(databaseName: String, tableInput: com.amazonaws.services.glue.model.TableInput, init: AWSGlueCreateTableCommand.() -> Unit) {
-	this.block.declare(AWSGlueCreateTableCommand(databaseName, tableInput).apply(init))
+fun AWSGlueFunctions.createTable(databaseName: String, tableInput: com.amazonaws.services.glue.model.TableInput, init: AWSGlueCreateTableCommand.() -> Unit): com.amazonaws.services.glue.model.CreateTableResult {
+	return this.block.declare(AWSGlueCreateTableCommand(databaseName, tableInput).apply(init)) as com.amazonaws.services.glue.model.CreateTableResult
 }
 
 @Generated
-class AWSGlueCreateTableCommand(val databaseName: String, val tableInput: com.amazonaws.services.glue.model.TableInput) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.CreateTableRequest> {
+class AWSGlueCreateTableCommand(val databaseName: String, val tableInput: com.amazonaws.services.glue.model.TableInput) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.CreateTableRequest, com.amazonaws.services.glue.model.CreateTableResult> {
 
 	var catalogId: String? = null
 
@@ -568,8 +628,12 @@ class AWSGlueCreateTableCommand(val databaseName: String, val tableInput: com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.createTable(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.CreateTableResult {
+	  return com.amazonaws.services.glue.model.CreateTableResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.CreateTableResult {
+		return environment.glue.createTable(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -582,12 +646,12 @@ class AWSGlueCreateTableCommand(val databaseName: String, val tableInput: com.am
 }
 
 
-fun AWSGlueFunctions.createTrigger(name: String, type: TriggerType, actions: List<com.amazonaws.services.glue.model.Action>, init: AWSGlueCreateTriggerCommand.() -> Unit) {
-	this.block.declare(AWSGlueCreateTriggerCommand(name, type, actions).apply(init))
+fun AWSGlueFunctions.createTrigger(name: String, type: TriggerType, actions: List<com.amazonaws.services.glue.model.Action>, init: AWSGlueCreateTriggerCommand.() -> Unit): com.amazonaws.services.glue.model.CreateTriggerResult {
+	return this.block.declare(AWSGlueCreateTriggerCommand(name, type, actions).apply(init)) as com.amazonaws.services.glue.model.CreateTriggerResult
 }
 
 @Generated
-class AWSGlueCreateTriggerCommand(val name: String, val type: TriggerType, val actions: List<com.amazonaws.services.glue.model.Action>) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.CreateTriggerRequest> {
+class AWSGlueCreateTriggerCommand(val name: String, val type: TriggerType, val actions: List<com.amazonaws.services.glue.model.Action>) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.CreateTriggerRequest, com.amazonaws.services.glue.model.CreateTriggerResult> {
 
 	var schedule: String? = null
 	var predicate: com.amazonaws.services.glue.model.Predicate? = null
@@ -604,8 +668,12 @@ class AWSGlueCreateTriggerCommand(val name: String, val type: TriggerType, val a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.createTrigger(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.CreateTriggerResult {
+	  return com.amazonaws.services.glue.model.CreateTriggerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.CreateTriggerResult {
+		return environment.glue.createTrigger(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -621,12 +689,12 @@ class AWSGlueCreateTriggerCommand(val name: String, val type: TriggerType, val a
 }
 
 
-fun AWSGlueFunctions.createUserDefinedFunction(databaseName: String, functionInput: com.amazonaws.services.glue.model.UserDefinedFunctionInput, init: AWSGlueCreateUserDefinedFunctionCommand.() -> Unit) {
-	this.block.declare(AWSGlueCreateUserDefinedFunctionCommand(databaseName, functionInput).apply(init))
+fun AWSGlueFunctions.createUserDefinedFunction(databaseName: String, functionInput: com.amazonaws.services.glue.model.UserDefinedFunctionInput, init: AWSGlueCreateUserDefinedFunctionCommand.() -> Unit): com.amazonaws.services.glue.model.CreateUserDefinedFunctionResult {
+	return this.block.declare(AWSGlueCreateUserDefinedFunctionCommand(databaseName, functionInput).apply(init)) as com.amazonaws.services.glue.model.CreateUserDefinedFunctionResult
 }
 
 @Generated
-class AWSGlueCreateUserDefinedFunctionCommand(val databaseName: String, val functionInput: com.amazonaws.services.glue.model.UserDefinedFunctionInput) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.CreateUserDefinedFunctionRequest> {
+class AWSGlueCreateUserDefinedFunctionCommand(val databaseName: String, val functionInput: com.amazonaws.services.glue.model.UserDefinedFunctionInput) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.CreateUserDefinedFunctionRequest, com.amazonaws.services.glue.model.CreateUserDefinedFunctionResult> {
 
 	var catalogId: String? = null
 
@@ -638,8 +706,12 @@ class AWSGlueCreateUserDefinedFunctionCommand(val databaseName: String, val func
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.createUserDefinedFunction(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.CreateUserDefinedFunctionResult {
+	  return com.amazonaws.services.glue.model.CreateUserDefinedFunctionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.CreateUserDefinedFunctionResult {
+		return environment.glue.createUserDefinedFunction(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -652,12 +724,12 @@ class AWSGlueCreateUserDefinedFunctionCommand(val databaseName: String, val func
 }
 
 
-fun AWSGlueFunctions.deleteClassifier(name: String, init: AWSGlueDeleteClassifierCommand.() -> Unit) {
-	this.block.declare(AWSGlueDeleteClassifierCommand(name).apply(init))
+fun AWSGlueFunctions.deleteClassifier(name: String, init: AWSGlueDeleteClassifierCommand.() -> Unit): com.amazonaws.services.glue.model.DeleteClassifierResult {
+	return this.block.declare(AWSGlueDeleteClassifierCommand(name).apply(init)) as com.amazonaws.services.glue.model.DeleteClassifierResult
 }
 
 @Generated
-class AWSGlueDeleteClassifierCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.DeleteClassifierRequest> {
+class AWSGlueDeleteClassifierCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.DeleteClassifierRequest, com.amazonaws.services.glue.model.DeleteClassifierResult> {
 
 
 
@@ -667,8 +739,12 @@ class AWSGlueDeleteClassifierCommand(val name: String) : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.deleteClassifier(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.DeleteClassifierResult {
+	  return com.amazonaws.services.glue.model.DeleteClassifierResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.DeleteClassifierResult {
+		return environment.glue.deleteClassifier(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -679,12 +755,12 @@ class AWSGlueDeleteClassifierCommand(val name: String) : AmazonWebServiceCommand
 }
 
 
-fun AWSGlueFunctions.deleteConnection(connectionName: String, init: AWSGlueDeleteConnectionCommand.() -> Unit) {
-	this.block.declare(AWSGlueDeleteConnectionCommand(connectionName).apply(init))
+fun AWSGlueFunctions.deleteConnection(connectionName: String, init: AWSGlueDeleteConnectionCommand.() -> Unit): com.amazonaws.services.glue.model.DeleteConnectionResult {
+	return this.block.declare(AWSGlueDeleteConnectionCommand(connectionName).apply(init)) as com.amazonaws.services.glue.model.DeleteConnectionResult
 }
 
 @Generated
-class AWSGlueDeleteConnectionCommand(val connectionName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.DeleteConnectionRequest> {
+class AWSGlueDeleteConnectionCommand(val connectionName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.DeleteConnectionRequest, com.amazonaws.services.glue.model.DeleteConnectionResult> {
 
 	var catalogId: String? = null
 
@@ -695,8 +771,12 @@ class AWSGlueDeleteConnectionCommand(val connectionName: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.deleteConnection(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.DeleteConnectionResult {
+	  return com.amazonaws.services.glue.model.DeleteConnectionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.DeleteConnectionResult {
+		return environment.glue.deleteConnection(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -708,12 +788,12 @@ class AWSGlueDeleteConnectionCommand(val connectionName: String) : AmazonWebServ
 }
 
 
-fun AWSGlueFunctions.deleteCrawler(name: String, init: AWSGlueDeleteCrawlerCommand.() -> Unit) {
-	this.block.declare(AWSGlueDeleteCrawlerCommand(name).apply(init))
+fun AWSGlueFunctions.deleteCrawler(name: String, init: AWSGlueDeleteCrawlerCommand.() -> Unit): com.amazonaws.services.glue.model.DeleteCrawlerResult {
+	return this.block.declare(AWSGlueDeleteCrawlerCommand(name).apply(init)) as com.amazonaws.services.glue.model.DeleteCrawlerResult
 }
 
 @Generated
-class AWSGlueDeleteCrawlerCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.DeleteCrawlerRequest> {
+class AWSGlueDeleteCrawlerCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.DeleteCrawlerRequest, com.amazonaws.services.glue.model.DeleteCrawlerResult> {
 
 
 
@@ -723,8 +803,12 @@ class AWSGlueDeleteCrawlerCommand(val name: String) : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.deleteCrawler(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.DeleteCrawlerResult {
+	  return com.amazonaws.services.glue.model.DeleteCrawlerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.DeleteCrawlerResult {
+		return environment.glue.deleteCrawler(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -735,12 +819,12 @@ class AWSGlueDeleteCrawlerCommand(val name: String) : AmazonWebServiceCommand<co
 }
 
 
-fun AWSGlueFunctions.deleteDatabase(name: String, init: AWSGlueDeleteDatabaseCommand.() -> Unit) {
-	this.block.declare(AWSGlueDeleteDatabaseCommand(name).apply(init))
+fun AWSGlueFunctions.deleteDatabase(name: String, init: AWSGlueDeleteDatabaseCommand.() -> Unit): com.amazonaws.services.glue.model.DeleteDatabaseResult {
+	return this.block.declare(AWSGlueDeleteDatabaseCommand(name).apply(init)) as com.amazonaws.services.glue.model.DeleteDatabaseResult
 }
 
 @Generated
-class AWSGlueDeleteDatabaseCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.DeleteDatabaseRequest> {
+class AWSGlueDeleteDatabaseCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.DeleteDatabaseRequest, com.amazonaws.services.glue.model.DeleteDatabaseResult> {
 
 	var catalogId: String? = null
 
@@ -751,8 +835,12 @@ class AWSGlueDeleteDatabaseCommand(val name: String) : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.deleteDatabase(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.DeleteDatabaseResult {
+	  return com.amazonaws.services.glue.model.DeleteDatabaseResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.DeleteDatabaseResult {
+		return environment.glue.deleteDatabase(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -764,12 +852,12 @@ class AWSGlueDeleteDatabaseCommand(val name: String) : AmazonWebServiceCommand<c
 }
 
 
-fun AWSGlueFunctions.deleteDevEndpoint(endpointName: String, init: AWSGlueDeleteDevEndpointCommand.() -> Unit) {
-	this.block.declare(AWSGlueDeleteDevEndpointCommand(endpointName).apply(init))
+fun AWSGlueFunctions.deleteDevEndpoint(endpointName: String, init: AWSGlueDeleteDevEndpointCommand.() -> Unit): com.amazonaws.services.glue.model.DeleteDevEndpointResult {
+	return this.block.declare(AWSGlueDeleteDevEndpointCommand(endpointName).apply(init)) as com.amazonaws.services.glue.model.DeleteDevEndpointResult
 }
 
 @Generated
-class AWSGlueDeleteDevEndpointCommand(val endpointName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.DeleteDevEndpointRequest> {
+class AWSGlueDeleteDevEndpointCommand(val endpointName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.DeleteDevEndpointRequest, com.amazonaws.services.glue.model.DeleteDevEndpointResult> {
 
 
 
@@ -779,8 +867,12 @@ class AWSGlueDeleteDevEndpointCommand(val endpointName: String) : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.deleteDevEndpoint(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.DeleteDevEndpointResult {
+	  return com.amazonaws.services.glue.model.DeleteDevEndpointResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.DeleteDevEndpointResult {
+		return environment.glue.deleteDevEndpoint(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -791,12 +883,12 @@ class AWSGlueDeleteDevEndpointCommand(val endpointName: String) : AmazonWebServi
 }
 
 
-fun AWSGlueFunctions.deleteJob(jobName: String, init: AWSGlueDeleteJobCommand.() -> Unit) {
-	this.block.declare(AWSGlueDeleteJobCommand(jobName).apply(init))
+fun AWSGlueFunctions.deleteJob(jobName: String, init: AWSGlueDeleteJobCommand.() -> Unit): com.amazonaws.services.glue.model.DeleteJobResult {
+	return this.block.declare(AWSGlueDeleteJobCommand(jobName).apply(init)) as com.amazonaws.services.glue.model.DeleteJobResult
 }
 
 @Generated
-class AWSGlueDeleteJobCommand(val jobName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.DeleteJobRequest> {
+class AWSGlueDeleteJobCommand(val jobName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.DeleteJobRequest, com.amazonaws.services.glue.model.DeleteJobResult> {
 
 
 
@@ -806,8 +898,12 @@ class AWSGlueDeleteJobCommand(val jobName: String) : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.deleteJob(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.DeleteJobResult {
+	  return com.amazonaws.services.glue.model.DeleteJobResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.DeleteJobResult {
+		return environment.glue.deleteJob(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -818,12 +914,12 @@ class AWSGlueDeleteJobCommand(val jobName: String) : AmazonWebServiceCommand<com
 }
 
 
-fun AWSGlueFunctions.deletePartition(databaseName: String, tableName: String, partitionValues: List<String>, init: AWSGlueDeletePartitionCommand.() -> Unit) {
-	this.block.declare(AWSGlueDeletePartitionCommand(databaseName, tableName, partitionValues).apply(init))
+fun AWSGlueFunctions.deletePartition(databaseName: String, tableName: String, partitionValues: List<String>, init: AWSGlueDeletePartitionCommand.() -> Unit): com.amazonaws.services.glue.model.DeletePartitionResult {
+	return this.block.declare(AWSGlueDeletePartitionCommand(databaseName, tableName, partitionValues).apply(init)) as com.amazonaws.services.glue.model.DeletePartitionResult
 }
 
 @Generated
-class AWSGlueDeletePartitionCommand(val databaseName: String, val tableName: String, val partitionValues: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.DeletePartitionRequest> {
+class AWSGlueDeletePartitionCommand(val databaseName: String, val tableName: String, val partitionValues: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.DeletePartitionRequest, com.amazonaws.services.glue.model.DeletePartitionResult> {
 
 	var catalogId: String? = null
 
@@ -836,8 +932,12 @@ class AWSGlueDeletePartitionCommand(val databaseName: String, val tableName: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.deletePartition(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.DeletePartitionResult {
+	  return com.amazonaws.services.glue.model.DeletePartitionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.DeletePartitionResult {
+		return environment.glue.deletePartition(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -851,12 +951,12 @@ class AWSGlueDeletePartitionCommand(val databaseName: String, val tableName: Str
 }
 
 
-fun AWSGlueFunctions.deleteTable(databaseName: String, name: String, init: AWSGlueDeleteTableCommand.() -> Unit) {
-	this.block.declare(AWSGlueDeleteTableCommand(databaseName, name).apply(init))
+fun AWSGlueFunctions.deleteTable(databaseName: String, name: String, init: AWSGlueDeleteTableCommand.() -> Unit): com.amazonaws.services.glue.model.DeleteTableResult {
+	return this.block.declare(AWSGlueDeleteTableCommand(databaseName, name).apply(init)) as com.amazonaws.services.glue.model.DeleteTableResult
 }
 
 @Generated
-class AWSGlueDeleteTableCommand(val databaseName: String, val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.DeleteTableRequest> {
+class AWSGlueDeleteTableCommand(val databaseName: String, val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.DeleteTableRequest, com.amazonaws.services.glue.model.DeleteTableResult> {
 
 	var catalogId: String? = null
 
@@ -868,8 +968,12 @@ class AWSGlueDeleteTableCommand(val databaseName: String, val name: String) : Am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.deleteTable(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.DeleteTableResult {
+	  return com.amazonaws.services.glue.model.DeleteTableResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.DeleteTableResult {
+		return environment.glue.deleteTable(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -882,12 +986,12 @@ class AWSGlueDeleteTableCommand(val databaseName: String, val name: String) : Am
 }
 
 
-fun AWSGlueFunctions.deleteTableVersion(databaseName: String, tableName: String, versionId: String, init: AWSGlueDeleteTableVersionCommand.() -> Unit) {
-	this.block.declare(AWSGlueDeleteTableVersionCommand(databaseName, tableName, versionId).apply(init))
+fun AWSGlueFunctions.deleteTableVersion(databaseName: String, tableName: String, versionId: String, init: AWSGlueDeleteTableVersionCommand.() -> Unit): com.amazonaws.services.glue.model.DeleteTableVersionResult {
+	return this.block.declare(AWSGlueDeleteTableVersionCommand(databaseName, tableName, versionId).apply(init)) as com.amazonaws.services.glue.model.DeleteTableVersionResult
 }
 
 @Generated
-class AWSGlueDeleteTableVersionCommand(val databaseName: String, val tableName: String, val versionId: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.DeleteTableVersionRequest> {
+class AWSGlueDeleteTableVersionCommand(val databaseName: String, val tableName: String, val versionId: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.DeleteTableVersionRequest, com.amazonaws.services.glue.model.DeleteTableVersionResult> {
 
 	var catalogId: String? = null
 
@@ -900,8 +1004,12 @@ class AWSGlueDeleteTableVersionCommand(val databaseName: String, val tableName: 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.deleteTableVersion(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.DeleteTableVersionResult {
+	  return com.amazonaws.services.glue.model.DeleteTableVersionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.DeleteTableVersionResult {
+		return environment.glue.deleteTableVersion(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -915,12 +1023,12 @@ class AWSGlueDeleteTableVersionCommand(val databaseName: String, val tableName: 
 }
 
 
-fun AWSGlueFunctions.deleteTrigger(name: String, init: AWSGlueDeleteTriggerCommand.() -> Unit) {
-	this.block.declare(AWSGlueDeleteTriggerCommand(name).apply(init))
+fun AWSGlueFunctions.deleteTrigger(name: String, init: AWSGlueDeleteTriggerCommand.() -> Unit): com.amazonaws.services.glue.model.DeleteTriggerResult {
+	return this.block.declare(AWSGlueDeleteTriggerCommand(name).apply(init)) as com.amazonaws.services.glue.model.DeleteTriggerResult
 }
 
 @Generated
-class AWSGlueDeleteTriggerCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.DeleteTriggerRequest> {
+class AWSGlueDeleteTriggerCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.DeleteTriggerRequest, com.amazonaws.services.glue.model.DeleteTriggerResult> {
 
 
 
@@ -930,8 +1038,12 @@ class AWSGlueDeleteTriggerCommand(val name: String) : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.deleteTrigger(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.DeleteTriggerResult {
+	  return com.amazonaws.services.glue.model.DeleteTriggerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.DeleteTriggerResult {
+		return environment.glue.deleteTrigger(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -942,12 +1054,12 @@ class AWSGlueDeleteTriggerCommand(val name: String) : AmazonWebServiceCommand<co
 }
 
 
-fun AWSGlueFunctions.deleteUserDefinedFunction(databaseName: String, functionName: String, init: AWSGlueDeleteUserDefinedFunctionCommand.() -> Unit) {
-	this.block.declare(AWSGlueDeleteUserDefinedFunctionCommand(databaseName, functionName).apply(init))
+fun AWSGlueFunctions.deleteUserDefinedFunction(databaseName: String, functionName: String, init: AWSGlueDeleteUserDefinedFunctionCommand.() -> Unit): com.amazonaws.services.glue.model.DeleteUserDefinedFunctionResult {
+	return this.block.declare(AWSGlueDeleteUserDefinedFunctionCommand(databaseName, functionName).apply(init)) as com.amazonaws.services.glue.model.DeleteUserDefinedFunctionResult
 }
 
 @Generated
-class AWSGlueDeleteUserDefinedFunctionCommand(val databaseName: String, val functionName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.DeleteUserDefinedFunctionRequest> {
+class AWSGlueDeleteUserDefinedFunctionCommand(val databaseName: String, val functionName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.DeleteUserDefinedFunctionRequest, com.amazonaws.services.glue.model.DeleteUserDefinedFunctionResult> {
 
 	var catalogId: String? = null
 
@@ -959,8 +1071,12 @@ class AWSGlueDeleteUserDefinedFunctionCommand(val databaseName: String, val func
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.deleteUserDefinedFunction(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.DeleteUserDefinedFunctionResult {
+	  return com.amazonaws.services.glue.model.DeleteUserDefinedFunctionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.DeleteUserDefinedFunctionResult {
+		return environment.glue.deleteUserDefinedFunction(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -973,12 +1089,12 @@ class AWSGlueDeleteUserDefinedFunctionCommand(val databaseName: String, val func
 }
 
 
-fun AWSGlueFunctions.getCatalogImportStatus(init: AWSGlueGetCatalogImportStatusCommand.() -> Unit) {
-	this.block.declare(AWSGlueGetCatalogImportStatusCommand().apply(init))
+fun AWSGlueFunctions.getCatalogImportStatus(init: AWSGlueGetCatalogImportStatusCommand.() -> Unit): com.amazonaws.services.glue.model.GetCatalogImportStatusResult {
+	return this.block.declare(AWSGlueGetCatalogImportStatusCommand().apply(init)) as com.amazonaws.services.glue.model.GetCatalogImportStatusResult
 }
 
 @Generated
-class AWSGlueGetCatalogImportStatusCommand() : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetCatalogImportStatusRequest> {
+class AWSGlueGetCatalogImportStatusCommand() : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetCatalogImportStatusRequest, com.amazonaws.services.glue.model.GetCatalogImportStatusResult> {
 
 	var catalogId: String? = null
 
@@ -988,8 +1104,12 @@ class AWSGlueGetCatalogImportStatusCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.getCatalogImportStatus(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.GetCatalogImportStatusResult {
+	  return com.amazonaws.services.glue.model.GetCatalogImportStatusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetCatalogImportStatusResult {
+		return environment.glue.getCatalogImportStatus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1000,12 +1120,12 @@ class AWSGlueGetCatalogImportStatusCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AWSGlueFunctions.getClassifier(name: String, init: AWSGlueGetClassifierCommand.() -> Unit) {
-	this.block.declare(AWSGlueGetClassifierCommand(name).apply(init))
+fun AWSGlueFunctions.getClassifier(name: String, init: AWSGlueGetClassifierCommand.() -> Unit): com.amazonaws.services.glue.model.GetClassifierResult {
+	return this.block.declare(AWSGlueGetClassifierCommand(name).apply(init)) as com.amazonaws.services.glue.model.GetClassifierResult
 }
 
 @Generated
-class AWSGlueGetClassifierCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetClassifierRequest> {
+class AWSGlueGetClassifierCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetClassifierRequest, com.amazonaws.services.glue.model.GetClassifierResult> {
 
 
 
@@ -1015,8 +1135,12 @@ class AWSGlueGetClassifierCommand(val name: String) : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.getClassifier(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.GetClassifierResult {
+	  return com.amazonaws.services.glue.model.GetClassifierResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetClassifierResult {
+		return environment.glue.getClassifier(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1027,12 +1151,12 @@ class AWSGlueGetClassifierCommand(val name: String) : AmazonWebServiceCommand<co
 }
 
 
-fun AWSGlueFunctions.getClassifiers(init: AWSGlueGetClassifiersCommand.() -> Unit) {
-	this.block.declare(AWSGlueGetClassifiersCommand().apply(init))
+fun AWSGlueFunctions.getClassifiers(init: AWSGlueGetClassifiersCommand.() -> Unit): com.amazonaws.services.glue.model.GetClassifiersResult {
+	return this.block.declare(AWSGlueGetClassifiersCommand().apply(init)) as com.amazonaws.services.glue.model.GetClassifiersResult
 }
 
 @Generated
-class AWSGlueGetClassifiersCommand() : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetClassifiersRequest> {
+class AWSGlueGetClassifiersCommand() : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetClassifiersRequest, com.amazonaws.services.glue.model.GetClassifiersResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -1044,8 +1168,12 @@ class AWSGlueGetClassifiersCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.getClassifiers(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.GetClassifiersResult {
+	  return com.amazonaws.services.glue.model.GetClassifiersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetClassifiersResult {
+		return environment.glue.getClassifiers(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1057,12 +1185,12 @@ class AWSGlueGetClassifiersCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 }
 
 
-fun AWSGlueFunctions.getConnection(name: String, init: AWSGlueGetConnectionCommand.() -> Unit) {
-	this.block.declare(AWSGlueGetConnectionCommand(name).apply(init))
+fun AWSGlueFunctions.getConnection(name: String, init: AWSGlueGetConnectionCommand.() -> Unit): com.amazonaws.services.glue.model.GetConnectionResult {
+	return this.block.declare(AWSGlueGetConnectionCommand(name).apply(init)) as com.amazonaws.services.glue.model.GetConnectionResult
 }
 
 @Generated
-class AWSGlueGetConnectionCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetConnectionRequest> {
+class AWSGlueGetConnectionCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetConnectionRequest, com.amazonaws.services.glue.model.GetConnectionResult> {
 
 	var catalogId: String? = null
 
@@ -1073,8 +1201,12 @@ class AWSGlueGetConnectionCommand(val name: String) : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.getConnection(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.GetConnectionResult {
+	  return com.amazonaws.services.glue.model.GetConnectionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetConnectionResult {
+		return environment.glue.getConnection(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1086,12 +1218,12 @@ class AWSGlueGetConnectionCommand(val name: String) : AmazonWebServiceCommand<co
 }
 
 
-fun AWSGlueFunctions.getConnections(init: AWSGlueGetConnectionsCommand.() -> Unit) {
-	this.block.declare(AWSGlueGetConnectionsCommand().apply(init))
+fun AWSGlueFunctions.getConnections(init: AWSGlueGetConnectionsCommand.() -> Unit): com.amazonaws.services.glue.model.GetConnectionsResult {
+	return this.block.declare(AWSGlueGetConnectionsCommand().apply(init)) as com.amazonaws.services.glue.model.GetConnectionsResult
 }
 
 @Generated
-class AWSGlueGetConnectionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetConnectionsRequest> {
+class AWSGlueGetConnectionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetConnectionsRequest, com.amazonaws.services.glue.model.GetConnectionsResult> {
 
 	var catalogId: String? = null
 	var filter: com.amazonaws.services.glue.model.GetConnectionsFilter? = null
@@ -1107,8 +1239,12 @@ class AWSGlueGetConnectionsCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.getConnections(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.GetConnectionsResult {
+	  return com.amazonaws.services.glue.model.GetConnectionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetConnectionsResult {
+		return environment.glue.getConnections(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1122,12 +1258,12 @@ class AWSGlueGetConnectionsCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 }
 
 
-fun AWSGlueFunctions.getCrawler(name: String, init: AWSGlueGetCrawlerCommand.() -> Unit) {
-	this.block.declare(AWSGlueGetCrawlerCommand(name).apply(init))
+fun AWSGlueFunctions.getCrawler(name: String, init: AWSGlueGetCrawlerCommand.() -> Unit): com.amazonaws.services.glue.model.GetCrawlerResult {
+	return this.block.declare(AWSGlueGetCrawlerCommand(name).apply(init)) as com.amazonaws.services.glue.model.GetCrawlerResult
 }
 
 @Generated
-class AWSGlueGetCrawlerCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetCrawlerRequest> {
+class AWSGlueGetCrawlerCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetCrawlerRequest, com.amazonaws.services.glue.model.GetCrawlerResult> {
 
 
 
@@ -1137,8 +1273,12 @@ class AWSGlueGetCrawlerCommand(val name: String) : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.getCrawler(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.GetCrawlerResult {
+	  return com.amazonaws.services.glue.model.GetCrawlerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetCrawlerResult {
+		return environment.glue.getCrawler(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1149,12 +1289,12 @@ class AWSGlueGetCrawlerCommand(val name: String) : AmazonWebServiceCommand<com.a
 }
 
 
-fun AWSGlueFunctions.getCrawlerMetrics(init: AWSGlueGetCrawlerMetricsCommand.() -> Unit) {
-	this.block.declare(AWSGlueGetCrawlerMetricsCommand().apply(init))
+fun AWSGlueFunctions.getCrawlerMetrics(init: AWSGlueGetCrawlerMetricsCommand.() -> Unit): com.amazonaws.services.glue.model.GetCrawlerMetricsResult {
+	return this.block.declare(AWSGlueGetCrawlerMetricsCommand().apply(init)) as com.amazonaws.services.glue.model.GetCrawlerMetricsResult
 }
 
 @Generated
-class AWSGlueGetCrawlerMetricsCommand() : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetCrawlerMetricsRequest> {
+class AWSGlueGetCrawlerMetricsCommand() : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetCrawlerMetricsRequest, com.amazonaws.services.glue.model.GetCrawlerMetricsResult> {
 
 	var crawlerNameList: List<String>? = null
 	var maxResults: Int? = 0
@@ -1168,8 +1308,12 @@ class AWSGlueGetCrawlerMetricsCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.getCrawlerMetrics(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.GetCrawlerMetricsResult {
+	  return com.amazonaws.services.glue.model.GetCrawlerMetricsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetCrawlerMetricsResult {
+		return environment.glue.getCrawlerMetrics(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1182,12 +1326,12 @@ class AWSGlueGetCrawlerMetricsCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AWSGlueFunctions.getCrawlers(init: AWSGlueGetCrawlersCommand.() -> Unit) {
-	this.block.declare(AWSGlueGetCrawlersCommand().apply(init))
+fun AWSGlueFunctions.getCrawlers(init: AWSGlueGetCrawlersCommand.() -> Unit): com.amazonaws.services.glue.model.GetCrawlersResult {
+	return this.block.declare(AWSGlueGetCrawlersCommand().apply(init)) as com.amazonaws.services.glue.model.GetCrawlersResult
 }
 
 @Generated
-class AWSGlueGetCrawlersCommand() : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetCrawlersRequest> {
+class AWSGlueGetCrawlersCommand() : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetCrawlersRequest, com.amazonaws.services.glue.model.GetCrawlersResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -1199,8 +1343,12 @@ class AWSGlueGetCrawlersCommand() : AmazonWebServiceCommand<com.amazonaws.servic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.getCrawlers(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.GetCrawlersResult {
+	  return com.amazonaws.services.glue.model.GetCrawlersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetCrawlersResult {
+		return environment.glue.getCrawlers(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1212,12 +1360,12 @@ class AWSGlueGetCrawlersCommand() : AmazonWebServiceCommand<com.amazonaws.servic
 }
 
 
-fun AWSGlueFunctions.getDatabase(name: String, init: AWSGlueGetDatabaseCommand.() -> Unit) {
-	this.block.declare(AWSGlueGetDatabaseCommand(name).apply(init))
+fun AWSGlueFunctions.getDatabase(name: String, init: AWSGlueGetDatabaseCommand.() -> Unit): com.amazonaws.services.glue.model.GetDatabaseResult {
+	return this.block.declare(AWSGlueGetDatabaseCommand(name).apply(init)) as com.amazonaws.services.glue.model.GetDatabaseResult
 }
 
 @Generated
-class AWSGlueGetDatabaseCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetDatabaseRequest> {
+class AWSGlueGetDatabaseCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetDatabaseRequest, com.amazonaws.services.glue.model.GetDatabaseResult> {
 
 	var catalogId: String? = null
 
@@ -1228,8 +1376,12 @@ class AWSGlueGetDatabaseCommand(val name: String) : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.getDatabase(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.GetDatabaseResult {
+	  return com.amazonaws.services.glue.model.GetDatabaseResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetDatabaseResult {
+		return environment.glue.getDatabase(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1241,12 +1393,12 @@ class AWSGlueGetDatabaseCommand(val name: String) : AmazonWebServiceCommand<com.
 }
 
 
-fun AWSGlueFunctions.getDatabases(init: AWSGlueGetDatabasesCommand.() -> Unit) {
-	this.block.declare(AWSGlueGetDatabasesCommand().apply(init))
+fun AWSGlueFunctions.getDatabases(init: AWSGlueGetDatabasesCommand.() -> Unit): com.amazonaws.services.glue.model.GetDatabasesResult {
+	return this.block.declare(AWSGlueGetDatabasesCommand().apply(init)) as com.amazonaws.services.glue.model.GetDatabasesResult
 }
 
 @Generated
-class AWSGlueGetDatabasesCommand() : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetDatabasesRequest> {
+class AWSGlueGetDatabasesCommand() : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetDatabasesRequest, com.amazonaws.services.glue.model.GetDatabasesResult> {
 
 	var catalogId: String? = null
 	var nextToken: String? = null
@@ -1260,8 +1412,12 @@ class AWSGlueGetDatabasesCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.getDatabases(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.GetDatabasesResult {
+	  return com.amazonaws.services.glue.model.GetDatabasesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetDatabasesResult {
+		return environment.glue.getDatabases(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1274,12 +1430,12 @@ class AWSGlueGetDatabasesCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 }
 
 
-fun AWSGlueFunctions.getDataflowGraph(init: AWSGlueGetDataflowGraphCommand.() -> Unit) {
-	this.block.declare(AWSGlueGetDataflowGraphCommand().apply(init))
+fun AWSGlueFunctions.getDataflowGraph(init: AWSGlueGetDataflowGraphCommand.() -> Unit): com.amazonaws.services.glue.model.GetDataflowGraphResult {
+	return this.block.declare(AWSGlueGetDataflowGraphCommand().apply(init)) as com.amazonaws.services.glue.model.GetDataflowGraphResult
 }
 
 @Generated
-class AWSGlueGetDataflowGraphCommand() : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetDataflowGraphRequest> {
+class AWSGlueGetDataflowGraphCommand() : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetDataflowGraphRequest, com.amazonaws.services.glue.model.GetDataflowGraphResult> {
 
 	var pythonScript: String? = null
 
@@ -1289,8 +1445,12 @@ class AWSGlueGetDataflowGraphCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.getDataflowGraph(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.GetDataflowGraphResult {
+	  return com.amazonaws.services.glue.model.GetDataflowGraphResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetDataflowGraphResult {
+		return environment.glue.getDataflowGraph(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1301,12 +1461,12 @@ class AWSGlueGetDataflowGraphCommand() : AmazonWebServiceCommand<com.amazonaws.s
 }
 
 
-fun AWSGlueFunctions.getDevEndpoint(endpointName: String, init: AWSGlueGetDevEndpointCommand.() -> Unit) {
-	this.block.declare(AWSGlueGetDevEndpointCommand(endpointName).apply(init))
+fun AWSGlueFunctions.getDevEndpoint(endpointName: String, init: AWSGlueGetDevEndpointCommand.() -> Unit): com.amazonaws.services.glue.model.GetDevEndpointResult {
+	return this.block.declare(AWSGlueGetDevEndpointCommand(endpointName).apply(init)) as com.amazonaws.services.glue.model.GetDevEndpointResult
 }
 
 @Generated
-class AWSGlueGetDevEndpointCommand(val endpointName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetDevEndpointRequest> {
+class AWSGlueGetDevEndpointCommand(val endpointName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetDevEndpointRequest, com.amazonaws.services.glue.model.GetDevEndpointResult> {
 
 
 
@@ -1316,8 +1476,12 @@ class AWSGlueGetDevEndpointCommand(val endpointName: String) : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.getDevEndpoint(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.GetDevEndpointResult {
+	  return com.amazonaws.services.glue.model.GetDevEndpointResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetDevEndpointResult {
+		return environment.glue.getDevEndpoint(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1328,12 +1492,12 @@ class AWSGlueGetDevEndpointCommand(val endpointName: String) : AmazonWebServiceC
 }
 
 
-fun AWSGlueFunctions.getDevEndpoints(init: AWSGlueGetDevEndpointsCommand.() -> Unit) {
-	this.block.declare(AWSGlueGetDevEndpointsCommand().apply(init))
+fun AWSGlueFunctions.getDevEndpoints(init: AWSGlueGetDevEndpointsCommand.() -> Unit): com.amazonaws.services.glue.model.GetDevEndpointsResult {
+	return this.block.declare(AWSGlueGetDevEndpointsCommand().apply(init)) as com.amazonaws.services.glue.model.GetDevEndpointsResult
 }
 
 @Generated
-class AWSGlueGetDevEndpointsCommand() : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetDevEndpointsRequest> {
+class AWSGlueGetDevEndpointsCommand() : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetDevEndpointsRequest, com.amazonaws.services.glue.model.GetDevEndpointsResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -1345,8 +1509,12 @@ class AWSGlueGetDevEndpointsCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.getDevEndpoints(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.GetDevEndpointsResult {
+	  return com.amazonaws.services.glue.model.GetDevEndpointsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetDevEndpointsResult {
+		return environment.glue.getDevEndpoints(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1358,12 +1526,12 @@ class AWSGlueGetDevEndpointsCommand() : AmazonWebServiceCommand<com.amazonaws.se
 }
 
 
-fun AWSGlueFunctions.getJob(jobName: String, init: AWSGlueGetJobCommand.() -> Unit) {
-	this.block.declare(AWSGlueGetJobCommand(jobName).apply(init))
+fun AWSGlueFunctions.getJob(jobName: String, init: AWSGlueGetJobCommand.() -> Unit): com.amazonaws.services.glue.model.GetJobResult {
+	return this.block.declare(AWSGlueGetJobCommand(jobName).apply(init)) as com.amazonaws.services.glue.model.GetJobResult
 }
 
 @Generated
-class AWSGlueGetJobCommand(val jobName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetJobRequest> {
+class AWSGlueGetJobCommand(val jobName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetJobRequest, com.amazonaws.services.glue.model.GetJobResult> {
 
 
 
@@ -1373,8 +1541,12 @@ class AWSGlueGetJobCommand(val jobName: String) : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.getJob(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.GetJobResult {
+	  return com.amazonaws.services.glue.model.GetJobResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetJobResult {
+		return environment.glue.getJob(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1385,12 +1557,12 @@ class AWSGlueGetJobCommand(val jobName: String) : AmazonWebServiceCommand<com.am
 }
 
 
-fun AWSGlueFunctions.getJobRun(jobName: String, runId: String, init: AWSGlueGetJobRunCommand.() -> Unit) {
-	this.block.declare(AWSGlueGetJobRunCommand(jobName, runId).apply(init))
+fun AWSGlueFunctions.getJobRun(jobName: String, runId: String, init: AWSGlueGetJobRunCommand.() -> Unit): com.amazonaws.services.glue.model.GetJobRunResult {
+	return this.block.declare(AWSGlueGetJobRunCommand(jobName, runId).apply(init)) as com.amazonaws.services.glue.model.GetJobRunResult
 }
 
 @Generated
-class AWSGlueGetJobRunCommand(val jobName: String, val runId: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetJobRunRequest> {
+class AWSGlueGetJobRunCommand(val jobName: String, val runId: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetJobRunRequest, com.amazonaws.services.glue.model.GetJobRunResult> {
 
 	var predecessorsIncluded: Boolean? = false
 
@@ -1402,8 +1574,12 @@ class AWSGlueGetJobRunCommand(val jobName: String, val runId: String) : AmazonWe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.getJobRun(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.GetJobRunResult {
+	  return com.amazonaws.services.glue.model.GetJobRunResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetJobRunResult {
+		return environment.glue.getJobRun(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1416,12 +1592,12 @@ class AWSGlueGetJobRunCommand(val jobName: String, val runId: String) : AmazonWe
 }
 
 
-fun AWSGlueFunctions.getJobRuns(jobName: String, init: AWSGlueGetJobRunsCommand.() -> Unit) {
-	this.block.declare(AWSGlueGetJobRunsCommand(jobName).apply(init))
+fun AWSGlueFunctions.getJobRuns(jobName: String, init: AWSGlueGetJobRunsCommand.() -> Unit): com.amazonaws.services.glue.model.GetJobRunsResult {
+	return this.block.declare(AWSGlueGetJobRunsCommand(jobName).apply(init)) as com.amazonaws.services.glue.model.GetJobRunsResult
 }
 
 @Generated
-class AWSGlueGetJobRunsCommand(val jobName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetJobRunsRequest> {
+class AWSGlueGetJobRunsCommand(val jobName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetJobRunsRequest, com.amazonaws.services.glue.model.GetJobRunsResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -1434,8 +1610,12 @@ class AWSGlueGetJobRunsCommand(val jobName: String) : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.getJobRuns(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.GetJobRunsResult {
+	  return com.amazonaws.services.glue.model.GetJobRunsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetJobRunsResult {
+		return environment.glue.getJobRuns(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1448,12 +1628,12 @@ class AWSGlueGetJobRunsCommand(val jobName: String) : AmazonWebServiceCommand<co
 }
 
 
-fun AWSGlueFunctions.getJobs(init: AWSGlueGetJobsCommand.() -> Unit) {
-	this.block.declare(AWSGlueGetJobsCommand().apply(init))
+fun AWSGlueFunctions.getJobs(init: AWSGlueGetJobsCommand.() -> Unit): com.amazonaws.services.glue.model.GetJobsResult {
+	return this.block.declare(AWSGlueGetJobsCommand().apply(init)) as com.amazonaws.services.glue.model.GetJobsResult
 }
 
 @Generated
-class AWSGlueGetJobsCommand() : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetJobsRequest> {
+class AWSGlueGetJobsCommand() : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetJobsRequest, com.amazonaws.services.glue.model.GetJobsResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -1465,8 +1645,12 @@ class AWSGlueGetJobsCommand() : AmazonWebServiceCommand<com.amazonaws.services.g
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.getJobs(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.GetJobsResult {
+	  return com.amazonaws.services.glue.model.GetJobsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetJobsResult {
+		return environment.glue.getJobs(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1478,12 +1662,12 @@ class AWSGlueGetJobsCommand() : AmazonWebServiceCommand<com.amazonaws.services.g
 }
 
 
-fun AWSGlueFunctions.getMapping(source: com.amazonaws.services.glue.model.CatalogEntry, init: AWSGlueGetMappingCommand.() -> Unit) {
-	this.block.declare(AWSGlueGetMappingCommand(source).apply(init))
+fun AWSGlueFunctions.getMapping(source: com.amazonaws.services.glue.model.CatalogEntry, init: AWSGlueGetMappingCommand.() -> Unit): com.amazonaws.services.glue.model.GetMappingResult {
+	return this.block.declare(AWSGlueGetMappingCommand(source).apply(init)) as com.amazonaws.services.glue.model.GetMappingResult
 }
 
 @Generated
-class AWSGlueGetMappingCommand(val source: com.amazonaws.services.glue.model.CatalogEntry) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetMappingRequest> {
+class AWSGlueGetMappingCommand(val source: com.amazonaws.services.glue.model.CatalogEntry) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetMappingRequest, com.amazonaws.services.glue.model.GetMappingResult> {
 
 	var sinks: List<com.amazonaws.services.glue.model.CatalogEntry>? = null
 	var location: com.amazonaws.services.glue.model.Location? = null
@@ -1496,8 +1680,12 @@ class AWSGlueGetMappingCommand(val source: com.amazonaws.services.glue.model.Cat
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.getMapping(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.GetMappingResult {
+	  return com.amazonaws.services.glue.model.GetMappingResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetMappingResult {
+		return environment.glue.getMapping(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1510,12 +1698,12 @@ class AWSGlueGetMappingCommand(val source: com.amazonaws.services.glue.model.Cat
 }
 
 
-fun AWSGlueFunctions.getPartition(databaseName: String, tableName: String, partitionValues: List<String>, init: AWSGlueGetPartitionCommand.() -> Unit) {
-	this.block.declare(AWSGlueGetPartitionCommand(databaseName, tableName, partitionValues).apply(init))
+fun AWSGlueFunctions.getPartition(databaseName: String, tableName: String, partitionValues: List<String>, init: AWSGlueGetPartitionCommand.() -> Unit): com.amazonaws.services.glue.model.GetPartitionResult {
+	return this.block.declare(AWSGlueGetPartitionCommand(databaseName, tableName, partitionValues).apply(init)) as com.amazonaws.services.glue.model.GetPartitionResult
 }
 
 @Generated
-class AWSGlueGetPartitionCommand(val databaseName: String, val tableName: String, val partitionValues: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetPartitionRequest> {
+class AWSGlueGetPartitionCommand(val databaseName: String, val tableName: String, val partitionValues: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetPartitionRequest, com.amazonaws.services.glue.model.GetPartitionResult> {
 
 	var catalogId: String? = null
 
@@ -1528,8 +1716,12 @@ class AWSGlueGetPartitionCommand(val databaseName: String, val tableName: String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.getPartition(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.GetPartitionResult {
+	  return com.amazonaws.services.glue.model.GetPartitionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetPartitionResult {
+		return environment.glue.getPartition(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1543,12 +1735,12 @@ class AWSGlueGetPartitionCommand(val databaseName: String, val tableName: String
 }
 
 
-fun AWSGlueFunctions.getPartitions(databaseName: String, tableName: String, init: AWSGlueGetPartitionsCommand.() -> Unit) {
-	this.block.declare(AWSGlueGetPartitionsCommand(databaseName, tableName).apply(init))
+fun AWSGlueFunctions.getPartitions(databaseName: String, tableName: String, init: AWSGlueGetPartitionsCommand.() -> Unit): com.amazonaws.services.glue.model.GetPartitionsResult {
+	return this.block.declare(AWSGlueGetPartitionsCommand(databaseName, tableName).apply(init)) as com.amazonaws.services.glue.model.GetPartitionsResult
 }
 
 @Generated
-class AWSGlueGetPartitionsCommand(val databaseName: String, val tableName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetPartitionsRequest> {
+class AWSGlueGetPartitionsCommand(val databaseName: String, val tableName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetPartitionsRequest, com.amazonaws.services.glue.model.GetPartitionsResult> {
 
 	var catalogId: String? = null
 	var expression: String? = null
@@ -1568,8 +1760,12 @@ class AWSGlueGetPartitionsCommand(val databaseName: String, val tableName: Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.getPartitions(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.GetPartitionsResult {
+	  return com.amazonaws.services.glue.model.GetPartitionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetPartitionsResult {
+		return environment.glue.getPartitions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1586,12 +1782,12 @@ class AWSGlueGetPartitionsCommand(val databaseName: String, val tableName: Strin
 }
 
 
-fun AWSGlueFunctions.getPlan(mapping: List<com.amazonaws.services.glue.model.MappingEntry>, source: com.amazonaws.services.glue.model.CatalogEntry, init: AWSGlueGetPlanCommand.() -> Unit) {
-	this.block.declare(AWSGlueGetPlanCommand(mapping, source).apply(init))
+fun AWSGlueFunctions.getPlan(mapping: List<com.amazonaws.services.glue.model.MappingEntry>, source: com.amazonaws.services.glue.model.CatalogEntry, init: AWSGlueGetPlanCommand.() -> Unit): com.amazonaws.services.glue.model.GetPlanResult {
+	return this.block.declare(AWSGlueGetPlanCommand(mapping, source).apply(init)) as com.amazonaws.services.glue.model.GetPlanResult
 }
 
 @Generated
-class AWSGlueGetPlanCommand(val mapping: List<com.amazonaws.services.glue.model.MappingEntry>, val source: com.amazonaws.services.glue.model.CatalogEntry) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetPlanRequest> {
+class AWSGlueGetPlanCommand(val mapping: List<com.amazonaws.services.glue.model.MappingEntry>, val source: com.amazonaws.services.glue.model.CatalogEntry) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetPlanRequest, com.amazonaws.services.glue.model.GetPlanResult> {
 
 	var sinks: List<com.amazonaws.services.glue.model.CatalogEntry>? = null
 	var location: com.amazonaws.services.glue.model.Location? = null
@@ -1607,8 +1803,12 @@ class AWSGlueGetPlanCommand(val mapping: List<com.amazonaws.services.glue.model.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.getPlan(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.GetPlanResult {
+	  return com.amazonaws.services.glue.model.GetPlanResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetPlanResult {
+		return environment.glue.getPlan(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1623,12 +1823,12 @@ class AWSGlueGetPlanCommand(val mapping: List<com.amazonaws.services.glue.model.
 }
 
 
-fun AWSGlueFunctions.getTable(databaseName: String, name: String, init: AWSGlueGetTableCommand.() -> Unit) {
-	this.block.declare(AWSGlueGetTableCommand(databaseName, name).apply(init))
+fun AWSGlueFunctions.getTable(databaseName: String, name: String, init: AWSGlueGetTableCommand.() -> Unit): com.amazonaws.services.glue.model.GetTableResult {
+	return this.block.declare(AWSGlueGetTableCommand(databaseName, name).apply(init)) as com.amazonaws.services.glue.model.GetTableResult
 }
 
 @Generated
-class AWSGlueGetTableCommand(val databaseName: String, val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetTableRequest> {
+class AWSGlueGetTableCommand(val databaseName: String, val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetTableRequest, com.amazonaws.services.glue.model.GetTableResult> {
 
 	var catalogId: String? = null
 
@@ -1640,8 +1840,12 @@ class AWSGlueGetTableCommand(val databaseName: String, val name: String) : Amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.getTable(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.GetTableResult {
+	  return com.amazonaws.services.glue.model.GetTableResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetTableResult {
+		return environment.glue.getTable(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1654,12 +1858,12 @@ class AWSGlueGetTableCommand(val databaseName: String, val name: String) : Amazo
 }
 
 
-fun AWSGlueFunctions.getTableVersion(databaseName: String, tableName: String, init: AWSGlueGetTableVersionCommand.() -> Unit) {
-	this.block.declare(AWSGlueGetTableVersionCommand(databaseName, tableName).apply(init))
+fun AWSGlueFunctions.getTableVersion(databaseName: String, tableName: String, init: AWSGlueGetTableVersionCommand.() -> Unit): com.amazonaws.services.glue.model.GetTableVersionResult {
+	return this.block.declare(AWSGlueGetTableVersionCommand(databaseName, tableName).apply(init)) as com.amazonaws.services.glue.model.GetTableVersionResult
 }
 
 @Generated
-class AWSGlueGetTableVersionCommand(val databaseName: String, val tableName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetTableVersionRequest> {
+class AWSGlueGetTableVersionCommand(val databaseName: String, val tableName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetTableVersionRequest, com.amazonaws.services.glue.model.GetTableVersionResult> {
 
 	var catalogId: String? = null
 	var versionId: String? = null
@@ -1673,8 +1877,12 @@ class AWSGlueGetTableVersionCommand(val databaseName: String, val tableName: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.getTableVersion(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.GetTableVersionResult {
+	  return com.amazonaws.services.glue.model.GetTableVersionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetTableVersionResult {
+		return environment.glue.getTableVersion(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1688,12 +1896,12 @@ class AWSGlueGetTableVersionCommand(val databaseName: String, val tableName: Str
 }
 
 
-fun AWSGlueFunctions.getTableVersions(databaseName: String, tableName: String, init: AWSGlueGetTableVersionsCommand.() -> Unit) {
-	this.block.declare(AWSGlueGetTableVersionsCommand(databaseName, tableName).apply(init))
+fun AWSGlueFunctions.getTableVersions(databaseName: String, tableName: String, init: AWSGlueGetTableVersionsCommand.() -> Unit): com.amazonaws.services.glue.model.GetTableVersionsResult {
+	return this.block.declare(AWSGlueGetTableVersionsCommand(databaseName, tableName).apply(init)) as com.amazonaws.services.glue.model.GetTableVersionsResult
 }
 
 @Generated
-class AWSGlueGetTableVersionsCommand(val databaseName: String, val tableName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetTableVersionsRequest> {
+class AWSGlueGetTableVersionsCommand(val databaseName: String, val tableName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetTableVersionsRequest, com.amazonaws.services.glue.model.GetTableVersionsResult> {
 
 	var catalogId: String? = null
 	var nextToken: String? = null
@@ -1709,8 +1917,12 @@ class AWSGlueGetTableVersionsCommand(val databaseName: String, val tableName: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.getTableVersions(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.GetTableVersionsResult {
+	  return com.amazonaws.services.glue.model.GetTableVersionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetTableVersionsResult {
+		return environment.glue.getTableVersions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1725,12 +1937,12 @@ class AWSGlueGetTableVersionsCommand(val databaseName: String, val tableName: St
 }
 
 
-fun AWSGlueFunctions.getTables(databaseName: String, init: AWSGlueGetTablesCommand.() -> Unit) {
-	this.block.declare(AWSGlueGetTablesCommand(databaseName).apply(init))
+fun AWSGlueFunctions.getTables(databaseName: String, init: AWSGlueGetTablesCommand.() -> Unit): com.amazonaws.services.glue.model.GetTablesResult {
+	return this.block.declare(AWSGlueGetTablesCommand(databaseName).apply(init)) as com.amazonaws.services.glue.model.GetTablesResult
 }
 
 @Generated
-class AWSGlueGetTablesCommand(val databaseName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetTablesRequest> {
+class AWSGlueGetTablesCommand(val databaseName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetTablesRequest, com.amazonaws.services.glue.model.GetTablesResult> {
 
 	var catalogId: String? = null
 	var expression: String? = null
@@ -1747,8 +1959,12 @@ class AWSGlueGetTablesCommand(val databaseName: String) : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.getTables(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.GetTablesResult {
+	  return com.amazonaws.services.glue.model.GetTablesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetTablesResult {
+		return environment.glue.getTables(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1763,12 +1979,12 @@ class AWSGlueGetTablesCommand(val databaseName: String) : AmazonWebServiceComman
 }
 
 
-fun AWSGlueFunctions.getTrigger(name: String, init: AWSGlueGetTriggerCommand.() -> Unit) {
-	this.block.declare(AWSGlueGetTriggerCommand(name).apply(init))
+fun AWSGlueFunctions.getTrigger(name: String, init: AWSGlueGetTriggerCommand.() -> Unit): com.amazonaws.services.glue.model.GetTriggerResult {
+	return this.block.declare(AWSGlueGetTriggerCommand(name).apply(init)) as com.amazonaws.services.glue.model.GetTriggerResult
 }
 
 @Generated
-class AWSGlueGetTriggerCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetTriggerRequest> {
+class AWSGlueGetTriggerCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetTriggerRequest, com.amazonaws.services.glue.model.GetTriggerResult> {
 
 
 
@@ -1778,8 +1994,12 @@ class AWSGlueGetTriggerCommand(val name: String) : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.getTrigger(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.GetTriggerResult {
+	  return com.amazonaws.services.glue.model.GetTriggerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetTriggerResult {
+		return environment.glue.getTrigger(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1790,12 +2010,12 @@ class AWSGlueGetTriggerCommand(val name: String) : AmazonWebServiceCommand<com.a
 }
 
 
-fun AWSGlueFunctions.getTriggers(init: AWSGlueGetTriggersCommand.() -> Unit) {
-	this.block.declare(AWSGlueGetTriggersCommand().apply(init))
+fun AWSGlueFunctions.getTriggers(init: AWSGlueGetTriggersCommand.() -> Unit): com.amazonaws.services.glue.model.GetTriggersResult {
+	return this.block.declare(AWSGlueGetTriggersCommand().apply(init)) as com.amazonaws.services.glue.model.GetTriggersResult
 }
 
 @Generated
-class AWSGlueGetTriggersCommand() : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetTriggersRequest> {
+class AWSGlueGetTriggersCommand() : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetTriggersRequest, com.amazonaws.services.glue.model.GetTriggersResult> {
 
 	var nextToken: String? = null
 	var dependentJobName: String? = null
@@ -1809,8 +2029,12 @@ class AWSGlueGetTriggersCommand() : AmazonWebServiceCommand<com.amazonaws.servic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.getTriggers(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.GetTriggersResult {
+	  return com.amazonaws.services.glue.model.GetTriggersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetTriggersResult {
+		return environment.glue.getTriggers(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1823,12 +2047,12 @@ class AWSGlueGetTriggersCommand() : AmazonWebServiceCommand<com.amazonaws.servic
 }
 
 
-fun AWSGlueFunctions.getUserDefinedFunction(databaseName: String, functionName: String, init: AWSGlueGetUserDefinedFunctionCommand.() -> Unit) {
-	this.block.declare(AWSGlueGetUserDefinedFunctionCommand(databaseName, functionName).apply(init))
+fun AWSGlueFunctions.getUserDefinedFunction(databaseName: String, functionName: String, init: AWSGlueGetUserDefinedFunctionCommand.() -> Unit): com.amazonaws.services.glue.model.GetUserDefinedFunctionResult {
+	return this.block.declare(AWSGlueGetUserDefinedFunctionCommand(databaseName, functionName).apply(init)) as com.amazonaws.services.glue.model.GetUserDefinedFunctionResult
 }
 
 @Generated
-class AWSGlueGetUserDefinedFunctionCommand(val databaseName: String, val functionName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetUserDefinedFunctionRequest> {
+class AWSGlueGetUserDefinedFunctionCommand(val databaseName: String, val functionName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetUserDefinedFunctionRequest, com.amazonaws.services.glue.model.GetUserDefinedFunctionResult> {
 
 	var catalogId: String? = null
 
@@ -1840,8 +2064,12 @@ class AWSGlueGetUserDefinedFunctionCommand(val databaseName: String, val functio
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.getUserDefinedFunction(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.GetUserDefinedFunctionResult {
+	  return com.amazonaws.services.glue.model.GetUserDefinedFunctionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetUserDefinedFunctionResult {
+		return environment.glue.getUserDefinedFunction(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1854,12 +2082,12 @@ class AWSGlueGetUserDefinedFunctionCommand(val databaseName: String, val functio
 }
 
 
-fun AWSGlueFunctions.getUserDefinedFunctions(databaseName: String, pattern: String, init: AWSGlueGetUserDefinedFunctionsCommand.() -> Unit) {
-	this.block.declare(AWSGlueGetUserDefinedFunctionsCommand(databaseName, pattern).apply(init))
+fun AWSGlueFunctions.getUserDefinedFunctions(databaseName: String, pattern: String, init: AWSGlueGetUserDefinedFunctionsCommand.() -> Unit): com.amazonaws.services.glue.model.GetUserDefinedFunctionsResult {
+	return this.block.declare(AWSGlueGetUserDefinedFunctionsCommand(databaseName, pattern).apply(init)) as com.amazonaws.services.glue.model.GetUserDefinedFunctionsResult
 }
 
 @Generated
-class AWSGlueGetUserDefinedFunctionsCommand(val databaseName: String, val pattern: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetUserDefinedFunctionsRequest> {
+class AWSGlueGetUserDefinedFunctionsCommand(val databaseName: String, val pattern: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.GetUserDefinedFunctionsRequest, com.amazonaws.services.glue.model.GetUserDefinedFunctionsResult> {
 
 	var catalogId: String? = null
 	var nextToken: String? = null
@@ -1875,8 +2103,12 @@ class AWSGlueGetUserDefinedFunctionsCommand(val databaseName: String, val patter
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.getUserDefinedFunctions(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.GetUserDefinedFunctionsResult {
+	  return com.amazonaws.services.glue.model.GetUserDefinedFunctionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.GetUserDefinedFunctionsResult {
+		return environment.glue.getUserDefinedFunctions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1891,12 +2123,12 @@ class AWSGlueGetUserDefinedFunctionsCommand(val databaseName: String, val patter
 }
 
 
-fun AWSGlueFunctions.importCatalogToGlue(init: AWSGlueImportCatalogToGlueCommand.() -> Unit) {
-	this.block.declare(AWSGlueImportCatalogToGlueCommand().apply(init))
+fun AWSGlueFunctions.importCatalogToGlue(init: AWSGlueImportCatalogToGlueCommand.() -> Unit): com.amazonaws.services.glue.model.ImportCatalogToGlueResult {
+	return this.block.declare(AWSGlueImportCatalogToGlueCommand().apply(init)) as com.amazonaws.services.glue.model.ImportCatalogToGlueResult
 }
 
 @Generated
-class AWSGlueImportCatalogToGlueCommand() : AmazonWebServiceCommand<com.amazonaws.services.glue.model.ImportCatalogToGlueRequest> {
+class AWSGlueImportCatalogToGlueCommand() : AmazonWebServiceCommand<com.amazonaws.services.glue.model.ImportCatalogToGlueRequest, com.amazonaws.services.glue.model.ImportCatalogToGlueResult> {
 
 	var catalogId: String? = null
 
@@ -1906,8 +2138,12 @@ class AWSGlueImportCatalogToGlueCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.importCatalogToGlue(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.ImportCatalogToGlueResult {
+	  return com.amazonaws.services.glue.model.ImportCatalogToGlueResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.ImportCatalogToGlueResult {
+		return environment.glue.importCatalogToGlue(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1918,12 +2154,12 @@ class AWSGlueImportCatalogToGlueCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AWSGlueFunctions.resetJobBookmark(jobName: String, init: AWSGlueResetJobBookmarkCommand.() -> Unit) {
-	this.block.declare(AWSGlueResetJobBookmarkCommand(jobName).apply(init))
+fun AWSGlueFunctions.resetJobBookmark(jobName: String, init: AWSGlueResetJobBookmarkCommand.() -> Unit): com.amazonaws.services.glue.model.ResetJobBookmarkResult {
+	return this.block.declare(AWSGlueResetJobBookmarkCommand(jobName).apply(init)) as com.amazonaws.services.glue.model.ResetJobBookmarkResult
 }
 
 @Generated
-class AWSGlueResetJobBookmarkCommand(val jobName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.ResetJobBookmarkRequest> {
+class AWSGlueResetJobBookmarkCommand(val jobName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.ResetJobBookmarkRequest, com.amazonaws.services.glue.model.ResetJobBookmarkResult> {
 
 
 
@@ -1933,8 +2169,12 @@ class AWSGlueResetJobBookmarkCommand(val jobName: String) : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.resetJobBookmark(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.ResetJobBookmarkResult {
+	  return com.amazonaws.services.glue.model.ResetJobBookmarkResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.ResetJobBookmarkResult {
+		return environment.glue.resetJobBookmark(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1945,12 +2185,12 @@ class AWSGlueResetJobBookmarkCommand(val jobName: String) : AmazonWebServiceComm
 }
 
 
-fun AWSGlueFunctions.startCrawler(name: String, init: AWSGlueStartCrawlerCommand.() -> Unit) {
-	this.block.declare(AWSGlueStartCrawlerCommand(name).apply(init))
+fun AWSGlueFunctions.startCrawler(name: String, init: AWSGlueStartCrawlerCommand.() -> Unit): com.amazonaws.services.glue.model.StartCrawlerResult {
+	return this.block.declare(AWSGlueStartCrawlerCommand(name).apply(init)) as com.amazonaws.services.glue.model.StartCrawlerResult
 }
 
 @Generated
-class AWSGlueStartCrawlerCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.StartCrawlerRequest> {
+class AWSGlueStartCrawlerCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.StartCrawlerRequest, com.amazonaws.services.glue.model.StartCrawlerResult> {
 
 
 
@@ -1960,8 +2200,12 @@ class AWSGlueStartCrawlerCommand(val name: String) : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.startCrawler(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.StartCrawlerResult {
+	  return com.amazonaws.services.glue.model.StartCrawlerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.StartCrawlerResult {
+		return environment.glue.startCrawler(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1972,12 +2216,12 @@ class AWSGlueStartCrawlerCommand(val name: String) : AmazonWebServiceCommand<com
 }
 
 
-fun AWSGlueFunctions.startCrawlerSchedule(crawlerName: String, init: AWSGlueStartCrawlerScheduleCommand.() -> Unit) {
-	this.block.declare(AWSGlueStartCrawlerScheduleCommand(crawlerName).apply(init))
+fun AWSGlueFunctions.startCrawlerSchedule(crawlerName: String, init: AWSGlueStartCrawlerScheduleCommand.() -> Unit): com.amazonaws.services.glue.model.StartCrawlerScheduleResult {
+	return this.block.declare(AWSGlueStartCrawlerScheduleCommand(crawlerName).apply(init)) as com.amazonaws.services.glue.model.StartCrawlerScheduleResult
 }
 
 @Generated
-class AWSGlueStartCrawlerScheduleCommand(val crawlerName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.StartCrawlerScheduleRequest> {
+class AWSGlueStartCrawlerScheduleCommand(val crawlerName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.StartCrawlerScheduleRequest, com.amazonaws.services.glue.model.StartCrawlerScheduleResult> {
 
 
 
@@ -1987,8 +2231,12 @@ class AWSGlueStartCrawlerScheduleCommand(val crawlerName: String) : AmazonWebSer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.startCrawlerSchedule(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.StartCrawlerScheduleResult {
+	  return com.amazonaws.services.glue.model.StartCrawlerScheduleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.StartCrawlerScheduleResult {
+		return environment.glue.startCrawlerSchedule(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1999,12 +2247,12 @@ class AWSGlueStartCrawlerScheduleCommand(val crawlerName: String) : AmazonWebSer
 }
 
 
-fun AWSGlueFunctions.startJobRun(jobName: String, init: AWSGlueStartJobRunCommand.() -> Unit) {
-	this.block.declare(AWSGlueStartJobRunCommand(jobName).apply(init))
+fun AWSGlueFunctions.startJobRun(jobName: String, init: AWSGlueStartJobRunCommand.() -> Unit): com.amazonaws.services.glue.model.StartJobRunResult {
+	return this.block.declare(AWSGlueStartJobRunCommand(jobName).apply(init)) as com.amazonaws.services.glue.model.StartJobRunResult
 }
 
 @Generated
-class AWSGlueStartJobRunCommand(val jobName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.StartJobRunRequest> {
+class AWSGlueStartJobRunCommand(val jobName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.StartJobRunRequest, com.amazonaws.services.glue.model.StartJobRunResult> {
 
 	var jobRunId: String? = null
 	var arguments: Map<String, String>? = null
@@ -2019,8 +2267,12 @@ class AWSGlueStartJobRunCommand(val jobName: String) : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.startJobRun(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.StartJobRunResult {
+	  return com.amazonaws.services.glue.model.StartJobRunResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.StartJobRunResult {
+		return environment.glue.startJobRun(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2034,12 +2286,12 @@ class AWSGlueStartJobRunCommand(val jobName: String) : AmazonWebServiceCommand<c
 }
 
 
-fun AWSGlueFunctions.startTrigger(name: String, init: AWSGlueStartTriggerCommand.() -> Unit) {
-	this.block.declare(AWSGlueStartTriggerCommand(name).apply(init))
+fun AWSGlueFunctions.startTrigger(name: String, init: AWSGlueStartTriggerCommand.() -> Unit): com.amazonaws.services.glue.model.StartTriggerResult {
+	return this.block.declare(AWSGlueStartTriggerCommand(name).apply(init)) as com.amazonaws.services.glue.model.StartTriggerResult
 }
 
 @Generated
-class AWSGlueStartTriggerCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.StartTriggerRequest> {
+class AWSGlueStartTriggerCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.StartTriggerRequest, com.amazonaws.services.glue.model.StartTriggerResult> {
 
 
 
@@ -2049,8 +2301,12 @@ class AWSGlueStartTriggerCommand(val name: String) : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.startTrigger(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.StartTriggerResult {
+	  return com.amazonaws.services.glue.model.StartTriggerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.StartTriggerResult {
+		return environment.glue.startTrigger(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2061,12 +2317,12 @@ class AWSGlueStartTriggerCommand(val name: String) : AmazonWebServiceCommand<com
 }
 
 
-fun AWSGlueFunctions.stopCrawler(name: String, init: AWSGlueStopCrawlerCommand.() -> Unit) {
-	this.block.declare(AWSGlueStopCrawlerCommand(name).apply(init))
+fun AWSGlueFunctions.stopCrawler(name: String, init: AWSGlueStopCrawlerCommand.() -> Unit): com.amazonaws.services.glue.model.StopCrawlerResult {
+	return this.block.declare(AWSGlueStopCrawlerCommand(name).apply(init)) as com.amazonaws.services.glue.model.StopCrawlerResult
 }
 
 @Generated
-class AWSGlueStopCrawlerCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.StopCrawlerRequest> {
+class AWSGlueStopCrawlerCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.StopCrawlerRequest, com.amazonaws.services.glue.model.StopCrawlerResult> {
 
 
 
@@ -2076,8 +2332,12 @@ class AWSGlueStopCrawlerCommand(val name: String) : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.stopCrawler(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.StopCrawlerResult {
+	  return com.amazonaws.services.glue.model.StopCrawlerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.StopCrawlerResult {
+		return environment.glue.stopCrawler(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2088,12 +2348,12 @@ class AWSGlueStopCrawlerCommand(val name: String) : AmazonWebServiceCommand<com.
 }
 
 
-fun AWSGlueFunctions.stopCrawlerSchedule(crawlerName: String, init: AWSGlueStopCrawlerScheduleCommand.() -> Unit) {
-	this.block.declare(AWSGlueStopCrawlerScheduleCommand(crawlerName).apply(init))
+fun AWSGlueFunctions.stopCrawlerSchedule(crawlerName: String, init: AWSGlueStopCrawlerScheduleCommand.() -> Unit): com.amazonaws.services.glue.model.StopCrawlerScheduleResult {
+	return this.block.declare(AWSGlueStopCrawlerScheduleCommand(crawlerName).apply(init)) as com.amazonaws.services.glue.model.StopCrawlerScheduleResult
 }
 
 @Generated
-class AWSGlueStopCrawlerScheduleCommand(val crawlerName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.StopCrawlerScheduleRequest> {
+class AWSGlueStopCrawlerScheduleCommand(val crawlerName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.StopCrawlerScheduleRequest, com.amazonaws.services.glue.model.StopCrawlerScheduleResult> {
 
 
 
@@ -2103,8 +2363,12 @@ class AWSGlueStopCrawlerScheduleCommand(val crawlerName: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.stopCrawlerSchedule(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.StopCrawlerScheduleResult {
+	  return com.amazonaws.services.glue.model.StopCrawlerScheduleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.StopCrawlerScheduleResult {
+		return environment.glue.stopCrawlerSchedule(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2115,12 +2379,12 @@ class AWSGlueStopCrawlerScheduleCommand(val crawlerName: String) : AmazonWebServ
 }
 
 
-fun AWSGlueFunctions.stopTrigger(name: String, init: AWSGlueStopTriggerCommand.() -> Unit) {
-	this.block.declare(AWSGlueStopTriggerCommand(name).apply(init))
+fun AWSGlueFunctions.stopTrigger(name: String, init: AWSGlueStopTriggerCommand.() -> Unit): com.amazonaws.services.glue.model.StopTriggerResult {
+	return this.block.declare(AWSGlueStopTriggerCommand(name).apply(init)) as com.amazonaws.services.glue.model.StopTriggerResult
 }
 
 @Generated
-class AWSGlueStopTriggerCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.StopTriggerRequest> {
+class AWSGlueStopTriggerCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.StopTriggerRequest, com.amazonaws.services.glue.model.StopTriggerResult> {
 
 
 
@@ -2130,8 +2394,12 @@ class AWSGlueStopTriggerCommand(val name: String) : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.stopTrigger(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.StopTriggerResult {
+	  return com.amazonaws.services.glue.model.StopTriggerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.StopTriggerResult {
+		return environment.glue.stopTrigger(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2142,12 +2410,12 @@ class AWSGlueStopTriggerCommand(val name: String) : AmazonWebServiceCommand<com.
 }
 
 
-fun AWSGlueFunctions.updateClassifier(init: AWSGlueUpdateClassifierCommand.() -> Unit) {
-	this.block.declare(AWSGlueUpdateClassifierCommand().apply(init))
+fun AWSGlueFunctions.updateClassifier(init: AWSGlueUpdateClassifierCommand.() -> Unit): com.amazonaws.services.glue.model.UpdateClassifierResult {
+	return this.block.declare(AWSGlueUpdateClassifierCommand().apply(init)) as com.amazonaws.services.glue.model.UpdateClassifierResult
 }
 
 @Generated
-class AWSGlueUpdateClassifierCommand() : AmazonWebServiceCommand<com.amazonaws.services.glue.model.UpdateClassifierRequest> {
+class AWSGlueUpdateClassifierCommand() : AmazonWebServiceCommand<com.amazonaws.services.glue.model.UpdateClassifierRequest, com.amazonaws.services.glue.model.UpdateClassifierResult> {
 
 	var grokClassifier: com.amazonaws.services.glue.model.UpdateGrokClassifierRequest? = null
 	var xMLClassifier: com.amazonaws.services.glue.model.UpdateXMLClassifierRequest? = null
@@ -2161,8 +2429,12 @@ class AWSGlueUpdateClassifierCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.updateClassifier(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.UpdateClassifierResult {
+	  return com.amazonaws.services.glue.model.UpdateClassifierResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.UpdateClassifierResult {
+		return environment.glue.updateClassifier(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2175,12 +2447,12 @@ class AWSGlueUpdateClassifierCommand() : AmazonWebServiceCommand<com.amazonaws.s
 }
 
 
-fun AWSGlueFunctions.updateConnection(name: String, connectionInput: com.amazonaws.services.glue.model.ConnectionInput, init: AWSGlueUpdateConnectionCommand.() -> Unit) {
-	this.block.declare(AWSGlueUpdateConnectionCommand(name, connectionInput).apply(init))
+fun AWSGlueFunctions.updateConnection(name: String, connectionInput: com.amazonaws.services.glue.model.ConnectionInput, init: AWSGlueUpdateConnectionCommand.() -> Unit): com.amazonaws.services.glue.model.UpdateConnectionResult {
+	return this.block.declare(AWSGlueUpdateConnectionCommand(name, connectionInput).apply(init)) as com.amazonaws.services.glue.model.UpdateConnectionResult
 }
 
 @Generated
-class AWSGlueUpdateConnectionCommand(val name: String, val connectionInput: com.amazonaws.services.glue.model.ConnectionInput) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.UpdateConnectionRequest> {
+class AWSGlueUpdateConnectionCommand(val name: String, val connectionInput: com.amazonaws.services.glue.model.ConnectionInput) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.UpdateConnectionRequest, com.amazonaws.services.glue.model.UpdateConnectionResult> {
 
 	var catalogId: String? = null
 
@@ -2192,8 +2464,12 @@ class AWSGlueUpdateConnectionCommand(val name: String, val connectionInput: com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.updateConnection(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.UpdateConnectionResult {
+	  return com.amazonaws.services.glue.model.UpdateConnectionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.UpdateConnectionResult {
+		return environment.glue.updateConnection(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2206,12 +2482,12 @@ class AWSGlueUpdateConnectionCommand(val name: String, val connectionInput: com.
 }
 
 
-fun AWSGlueFunctions.updateCrawler(name: String, init: AWSGlueUpdateCrawlerCommand.() -> Unit) {
-	this.block.declare(AWSGlueUpdateCrawlerCommand(name).apply(init))
+fun AWSGlueFunctions.updateCrawler(name: String, init: AWSGlueUpdateCrawlerCommand.() -> Unit): com.amazonaws.services.glue.model.UpdateCrawlerResult {
+	return this.block.declare(AWSGlueUpdateCrawlerCommand(name).apply(init)) as com.amazonaws.services.glue.model.UpdateCrawlerResult
 }
 
 @Generated
-class AWSGlueUpdateCrawlerCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.UpdateCrawlerRequest> {
+class AWSGlueUpdateCrawlerCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.UpdateCrawlerRequest, com.amazonaws.services.glue.model.UpdateCrawlerResult> {
 
 	var role: String? = null
 	var databaseName: String? = null
@@ -2238,8 +2514,12 @@ class AWSGlueUpdateCrawlerCommand(val name: String) : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.updateCrawler(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.UpdateCrawlerResult {
+	  return com.amazonaws.services.glue.model.UpdateCrawlerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.UpdateCrawlerResult {
+		return environment.glue.updateCrawler(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2259,12 +2539,12 @@ class AWSGlueUpdateCrawlerCommand(val name: String) : AmazonWebServiceCommand<co
 }
 
 
-fun AWSGlueFunctions.updateCrawlerSchedule(crawlerName: String, init: AWSGlueUpdateCrawlerScheduleCommand.() -> Unit) {
-	this.block.declare(AWSGlueUpdateCrawlerScheduleCommand(crawlerName).apply(init))
+fun AWSGlueFunctions.updateCrawlerSchedule(crawlerName: String, init: AWSGlueUpdateCrawlerScheduleCommand.() -> Unit): com.amazonaws.services.glue.model.UpdateCrawlerScheduleResult {
+	return this.block.declare(AWSGlueUpdateCrawlerScheduleCommand(crawlerName).apply(init)) as com.amazonaws.services.glue.model.UpdateCrawlerScheduleResult
 }
 
 @Generated
-class AWSGlueUpdateCrawlerScheduleCommand(val crawlerName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.UpdateCrawlerScheduleRequest> {
+class AWSGlueUpdateCrawlerScheduleCommand(val crawlerName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.UpdateCrawlerScheduleRequest, com.amazonaws.services.glue.model.UpdateCrawlerScheduleResult> {
 
 	var schedule: String? = null
 
@@ -2275,8 +2555,12 @@ class AWSGlueUpdateCrawlerScheduleCommand(val crawlerName: String) : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.updateCrawlerSchedule(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.UpdateCrawlerScheduleResult {
+	  return com.amazonaws.services.glue.model.UpdateCrawlerScheduleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.UpdateCrawlerScheduleResult {
+		return environment.glue.updateCrawlerSchedule(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2288,12 +2572,12 @@ class AWSGlueUpdateCrawlerScheduleCommand(val crawlerName: String) : AmazonWebSe
 }
 
 
-fun AWSGlueFunctions.updateDatabase(name: String, databaseInput: com.amazonaws.services.glue.model.DatabaseInput, init: AWSGlueUpdateDatabaseCommand.() -> Unit) {
-	this.block.declare(AWSGlueUpdateDatabaseCommand(name, databaseInput).apply(init))
+fun AWSGlueFunctions.updateDatabase(name: String, databaseInput: com.amazonaws.services.glue.model.DatabaseInput, init: AWSGlueUpdateDatabaseCommand.() -> Unit): com.amazonaws.services.glue.model.UpdateDatabaseResult {
+	return this.block.declare(AWSGlueUpdateDatabaseCommand(name, databaseInput).apply(init)) as com.amazonaws.services.glue.model.UpdateDatabaseResult
 }
 
 @Generated
-class AWSGlueUpdateDatabaseCommand(val name: String, val databaseInput: com.amazonaws.services.glue.model.DatabaseInput) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.UpdateDatabaseRequest> {
+class AWSGlueUpdateDatabaseCommand(val name: String, val databaseInput: com.amazonaws.services.glue.model.DatabaseInput) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.UpdateDatabaseRequest, com.amazonaws.services.glue.model.UpdateDatabaseResult> {
 
 	var catalogId: String? = null
 
@@ -2305,8 +2589,12 @@ class AWSGlueUpdateDatabaseCommand(val name: String, val databaseInput: com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.updateDatabase(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.UpdateDatabaseResult {
+	  return com.amazonaws.services.glue.model.UpdateDatabaseResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.UpdateDatabaseResult {
+		return environment.glue.updateDatabase(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2319,12 +2607,12 @@ class AWSGlueUpdateDatabaseCommand(val name: String, val databaseInput: com.amaz
 }
 
 
-fun AWSGlueFunctions.updateDevEndpoint(endpointName: String, init: AWSGlueUpdateDevEndpointCommand.() -> Unit) {
-	this.block.declare(AWSGlueUpdateDevEndpointCommand(endpointName).apply(init))
+fun AWSGlueFunctions.updateDevEndpoint(endpointName: String, init: AWSGlueUpdateDevEndpointCommand.() -> Unit): com.amazonaws.services.glue.model.UpdateDevEndpointResult {
+	return this.block.declare(AWSGlueUpdateDevEndpointCommand(endpointName).apply(init)) as com.amazonaws.services.glue.model.UpdateDevEndpointResult
 }
 
 @Generated
-class AWSGlueUpdateDevEndpointCommand(val endpointName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.UpdateDevEndpointRequest> {
+class AWSGlueUpdateDevEndpointCommand(val endpointName: String) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.UpdateDevEndpointRequest, com.amazonaws.services.glue.model.UpdateDevEndpointResult> {
 
 	var publicKey: String? = null
 	var customLibraries: com.amazonaws.services.glue.model.DevEndpointCustomLibraries? = null
@@ -2339,8 +2627,12 @@ class AWSGlueUpdateDevEndpointCommand(val endpointName: String) : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.updateDevEndpoint(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.UpdateDevEndpointResult {
+	  return com.amazonaws.services.glue.model.UpdateDevEndpointResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.UpdateDevEndpointResult {
+		return environment.glue.updateDevEndpoint(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2354,12 +2646,12 @@ class AWSGlueUpdateDevEndpointCommand(val endpointName: String) : AmazonWebServi
 }
 
 
-fun AWSGlueFunctions.updateJob(jobName: String, jobUpdate: com.amazonaws.services.glue.model.JobUpdate, init: AWSGlueUpdateJobCommand.() -> Unit) {
-	this.block.declare(AWSGlueUpdateJobCommand(jobName, jobUpdate).apply(init))
+fun AWSGlueFunctions.updateJob(jobName: String, jobUpdate: com.amazonaws.services.glue.model.JobUpdate, init: AWSGlueUpdateJobCommand.() -> Unit): com.amazonaws.services.glue.model.UpdateJobResult {
+	return this.block.declare(AWSGlueUpdateJobCommand(jobName, jobUpdate).apply(init)) as com.amazonaws.services.glue.model.UpdateJobResult
 }
 
 @Generated
-class AWSGlueUpdateJobCommand(val jobName: String, val jobUpdate: com.amazonaws.services.glue.model.JobUpdate) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.UpdateJobRequest> {
+class AWSGlueUpdateJobCommand(val jobName: String, val jobUpdate: com.amazonaws.services.glue.model.JobUpdate) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.UpdateJobRequest, com.amazonaws.services.glue.model.UpdateJobResult> {
 
 
 
@@ -2370,8 +2662,12 @@ class AWSGlueUpdateJobCommand(val jobName: String, val jobUpdate: com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.updateJob(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.UpdateJobResult {
+	  return com.amazonaws.services.glue.model.UpdateJobResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.UpdateJobResult {
+		return environment.glue.updateJob(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2383,12 +2679,12 @@ class AWSGlueUpdateJobCommand(val jobName: String, val jobUpdate: com.amazonaws.
 }
 
 
-fun AWSGlueFunctions.updatePartition(databaseName: String, tableName: String, partitionValueList: List<String>, partitionInput: com.amazonaws.services.glue.model.PartitionInput, init: AWSGlueUpdatePartitionCommand.() -> Unit) {
-	this.block.declare(AWSGlueUpdatePartitionCommand(databaseName, tableName, partitionValueList, partitionInput).apply(init))
+fun AWSGlueFunctions.updatePartition(databaseName: String, tableName: String, partitionValueList: List<String>, partitionInput: com.amazonaws.services.glue.model.PartitionInput, init: AWSGlueUpdatePartitionCommand.() -> Unit): com.amazonaws.services.glue.model.UpdatePartitionResult {
+	return this.block.declare(AWSGlueUpdatePartitionCommand(databaseName, tableName, partitionValueList, partitionInput).apply(init)) as com.amazonaws.services.glue.model.UpdatePartitionResult
 }
 
 @Generated
-class AWSGlueUpdatePartitionCommand(val databaseName: String, val tableName: String, val partitionValueList: List<String>, val partitionInput: com.amazonaws.services.glue.model.PartitionInput) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.UpdatePartitionRequest> {
+class AWSGlueUpdatePartitionCommand(val databaseName: String, val tableName: String, val partitionValueList: List<String>, val partitionInput: com.amazonaws.services.glue.model.PartitionInput) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.UpdatePartitionRequest, com.amazonaws.services.glue.model.UpdatePartitionResult> {
 
 	var catalogId: String? = null
 
@@ -2402,8 +2698,12 @@ class AWSGlueUpdatePartitionCommand(val databaseName: String, val tableName: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.updatePartition(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.UpdatePartitionResult {
+	  return com.amazonaws.services.glue.model.UpdatePartitionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.UpdatePartitionResult {
+		return environment.glue.updatePartition(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2418,12 +2718,12 @@ class AWSGlueUpdatePartitionCommand(val databaseName: String, val tableName: Str
 }
 
 
-fun AWSGlueFunctions.updateTable(databaseName: String, tableInput: com.amazonaws.services.glue.model.TableInput, init: AWSGlueUpdateTableCommand.() -> Unit) {
-	this.block.declare(AWSGlueUpdateTableCommand(databaseName, tableInput).apply(init))
+fun AWSGlueFunctions.updateTable(databaseName: String, tableInput: com.amazonaws.services.glue.model.TableInput, init: AWSGlueUpdateTableCommand.() -> Unit): com.amazonaws.services.glue.model.UpdateTableResult {
+	return this.block.declare(AWSGlueUpdateTableCommand(databaseName, tableInput).apply(init)) as com.amazonaws.services.glue.model.UpdateTableResult
 }
 
 @Generated
-class AWSGlueUpdateTableCommand(val databaseName: String, val tableInput: com.amazonaws.services.glue.model.TableInput) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.UpdateTableRequest> {
+class AWSGlueUpdateTableCommand(val databaseName: String, val tableInput: com.amazonaws.services.glue.model.TableInput) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.UpdateTableRequest, com.amazonaws.services.glue.model.UpdateTableResult> {
 
 	var catalogId: String? = null
 	var skipArchive: Boolean? = false
@@ -2437,8 +2737,12 @@ class AWSGlueUpdateTableCommand(val databaseName: String, val tableInput: com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.updateTable(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.UpdateTableResult {
+	  return com.amazonaws.services.glue.model.UpdateTableResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.UpdateTableResult {
+		return environment.glue.updateTable(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2452,12 +2756,12 @@ class AWSGlueUpdateTableCommand(val databaseName: String, val tableInput: com.am
 }
 
 
-fun AWSGlueFunctions.updateTrigger(name: String, triggerUpdate: com.amazonaws.services.glue.model.TriggerUpdate, init: AWSGlueUpdateTriggerCommand.() -> Unit) {
-	this.block.declare(AWSGlueUpdateTriggerCommand(name, triggerUpdate).apply(init))
+fun AWSGlueFunctions.updateTrigger(name: String, triggerUpdate: com.amazonaws.services.glue.model.TriggerUpdate, init: AWSGlueUpdateTriggerCommand.() -> Unit): com.amazonaws.services.glue.model.UpdateTriggerResult {
+	return this.block.declare(AWSGlueUpdateTriggerCommand(name, triggerUpdate).apply(init)) as com.amazonaws.services.glue.model.UpdateTriggerResult
 }
 
 @Generated
-class AWSGlueUpdateTriggerCommand(val name: String, val triggerUpdate: com.amazonaws.services.glue.model.TriggerUpdate) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.UpdateTriggerRequest> {
+class AWSGlueUpdateTriggerCommand(val name: String, val triggerUpdate: com.amazonaws.services.glue.model.TriggerUpdate) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.UpdateTriggerRequest, com.amazonaws.services.glue.model.UpdateTriggerResult> {
 
 
 
@@ -2468,8 +2772,12 @@ class AWSGlueUpdateTriggerCommand(val name: String, val triggerUpdate: com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.updateTrigger(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.UpdateTriggerResult {
+	  return com.amazonaws.services.glue.model.UpdateTriggerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.UpdateTriggerResult {
+		return environment.glue.updateTrigger(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2481,12 +2789,12 @@ class AWSGlueUpdateTriggerCommand(val name: String, val triggerUpdate: com.amazo
 }
 
 
-fun AWSGlueFunctions.updateUserDefinedFunction(databaseName: String, functionName: String, functionInput: com.amazonaws.services.glue.model.UserDefinedFunctionInput, init: AWSGlueUpdateUserDefinedFunctionCommand.() -> Unit) {
-	this.block.declare(AWSGlueUpdateUserDefinedFunctionCommand(databaseName, functionName, functionInput).apply(init))
+fun AWSGlueFunctions.updateUserDefinedFunction(databaseName: String, functionName: String, functionInput: com.amazonaws.services.glue.model.UserDefinedFunctionInput, init: AWSGlueUpdateUserDefinedFunctionCommand.() -> Unit): com.amazonaws.services.glue.model.UpdateUserDefinedFunctionResult {
+	return this.block.declare(AWSGlueUpdateUserDefinedFunctionCommand(databaseName, functionName, functionInput).apply(init)) as com.amazonaws.services.glue.model.UpdateUserDefinedFunctionResult
 }
 
 @Generated
-class AWSGlueUpdateUserDefinedFunctionCommand(val databaseName: String, val functionName: String, val functionInput: com.amazonaws.services.glue.model.UserDefinedFunctionInput) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.UpdateUserDefinedFunctionRequest> {
+class AWSGlueUpdateUserDefinedFunctionCommand(val databaseName: String, val functionName: String, val functionInput: com.amazonaws.services.glue.model.UserDefinedFunctionInput) : AmazonWebServiceCommand<com.amazonaws.services.glue.model.UpdateUserDefinedFunctionRequest, com.amazonaws.services.glue.model.UpdateUserDefinedFunctionResult> {
 
 	var catalogId: String? = null
 
@@ -2499,8 +2807,12 @@ class AWSGlueUpdateUserDefinedFunctionCommand(val databaseName: String, val func
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glue.updateUserDefinedFunction(build())
+	override fun dryResult(): com.amazonaws.services.glue.model.UpdateUserDefinedFunctionResult {
+	  return com.amazonaws.services.glue.model.UpdateUserDefinedFunctionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glue.model.UpdateUserDefinedFunctionResult {
+		return environment.glue.updateUserDefinedFunction(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

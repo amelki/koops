@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.athena: AmazonAthena
 @Generated
 class AmazonAthenaFunctions(val block: Block)
 
-infix fun AwsContinuation.athena(init: AmazonAthenaFunctions.() -> Unit) {
-	AmazonAthenaFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.athena(init: AmazonAthenaFunctions.() -> T): T {
+	return AmazonAthenaFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonAthenaFunctions.batchGetNamedQuery(namedQueryIds: List<String>, init: AmazonAthenaBatchGetNamedQueryCommand.() -> Unit) {
-	this.block.declare(AmazonAthenaBatchGetNamedQueryCommand(namedQueryIds).apply(init))
+fun AmazonAthenaFunctions.batchGetNamedQuery(namedQueryIds: List<String>, init: AmazonAthenaBatchGetNamedQueryCommand.() -> Unit): com.amazonaws.services.athena.model.BatchGetNamedQueryResult {
+	return this.block.declare(AmazonAthenaBatchGetNamedQueryCommand(namedQueryIds).apply(init)) as com.amazonaws.services.athena.model.BatchGetNamedQueryResult
 }
 
 @Generated
-class AmazonAthenaBatchGetNamedQueryCommand(val namedQueryIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.athena.model.BatchGetNamedQueryRequest> {
+class AmazonAthenaBatchGetNamedQueryCommand(val namedQueryIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.athena.model.BatchGetNamedQueryRequest, com.amazonaws.services.athena.model.BatchGetNamedQueryResult> {
 
 
 
@@ -41,8 +41,12 @@ class AmazonAthenaBatchGetNamedQueryCommand(val namedQueryIds: List<String>) : A
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.athena.batchGetNamedQuery(build())
+	override fun dryResult(): com.amazonaws.services.athena.model.BatchGetNamedQueryResult {
+	  return com.amazonaws.services.athena.model.BatchGetNamedQueryResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.athena.model.BatchGetNamedQueryResult {
+		return environment.athena.batchGetNamedQuery(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -53,12 +57,12 @@ class AmazonAthenaBatchGetNamedQueryCommand(val namedQueryIds: List<String>) : A
 }
 
 
-fun AmazonAthenaFunctions.batchGetQueryExecution(queryExecutionIds: List<String>, init: AmazonAthenaBatchGetQueryExecutionCommand.() -> Unit) {
-	this.block.declare(AmazonAthenaBatchGetQueryExecutionCommand(queryExecutionIds).apply(init))
+fun AmazonAthenaFunctions.batchGetQueryExecution(queryExecutionIds: List<String>, init: AmazonAthenaBatchGetQueryExecutionCommand.() -> Unit): com.amazonaws.services.athena.model.BatchGetQueryExecutionResult {
+	return this.block.declare(AmazonAthenaBatchGetQueryExecutionCommand(queryExecutionIds).apply(init)) as com.amazonaws.services.athena.model.BatchGetQueryExecutionResult
 }
 
 @Generated
-class AmazonAthenaBatchGetQueryExecutionCommand(val queryExecutionIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.athena.model.BatchGetQueryExecutionRequest> {
+class AmazonAthenaBatchGetQueryExecutionCommand(val queryExecutionIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.athena.model.BatchGetQueryExecutionRequest, com.amazonaws.services.athena.model.BatchGetQueryExecutionResult> {
 
 
 
@@ -68,8 +72,12 @@ class AmazonAthenaBatchGetQueryExecutionCommand(val queryExecutionIds: List<Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.athena.batchGetQueryExecution(build())
+	override fun dryResult(): com.amazonaws.services.athena.model.BatchGetQueryExecutionResult {
+	  return com.amazonaws.services.athena.model.BatchGetQueryExecutionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.athena.model.BatchGetQueryExecutionResult {
+		return environment.athena.batchGetQueryExecution(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -80,12 +88,12 @@ class AmazonAthenaBatchGetQueryExecutionCommand(val queryExecutionIds: List<Stri
 }
 
 
-fun AmazonAthenaFunctions.createNamedQuery(name: String, database: String, queryString: String, init: AmazonAthenaCreateNamedQueryCommand.() -> Unit) {
-	this.block.declare(AmazonAthenaCreateNamedQueryCommand(name, database, queryString).apply(init))
+fun AmazonAthenaFunctions.createNamedQuery(name: String, database: String, queryString: String, init: AmazonAthenaCreateNamedQueryCommand.() -> Unit): com.amazonaws.services.athena.model.CreateNamedQueryResult {
+	return this.block.declare(AmazonAthenaCreateNamedQueryCommand(name, database, queryString).apply(init)) as com.amazonaws.services.athena.model.CreateNamedQueryResult
 }
 
 @Generated
-class AmazonAthenaCreateNamedQueryCommand(val name: String, val database: String, val queryString: String) : AmazonWebServiceCommand<com.amazonaws.services.athena.model.CreateNamedQueryRequest> {
+class AmazonAthenaCreateNamedQueryCommand(val name: String, val database: String, val queryString: String) : AmazonWebServiceCommand<com.amazonaws.services.athena.model.CreateNamedQueryRequest, com.amazonaws.services.athena.model.CreateNamedQueryResult> {
 
 	var description: String? = null
 	var clientRequestToken: String? = null
@@ -100,8 +108,12 @@ class AmazonAthenaCreateNamedQueryCommand(val name: String, val database: String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.athena.createNamedQuery(build())
+	override fun dryResult(): com.amazonaws.services.athena.model.CreateNamedQueryResult {
+	  return com.amazonaws.services.athena.model.CreateNamedQueryResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.athena.model.CreateNamedQueryResult {
+		return environment.athena.createNamedQuery(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -116,12 +128,12 @@ class AmazonAthenaCreateNamedQueryCommand(val name: String, val database: String
 }
 
 
-fun AmazonAthenaFunctions.deleteNamedQuery(namedQueryId: String, init: AmazonAthenaDeleteNamedQueryCommand.() -> Unit) {
-	this.block.declare(AmazonAthenaDeleteNamedQueryCommand(namedQueryId).apply(init))
+fun AmazonAthenaFunctions.deleteNamedQuery(namedQueryId: String, init: AmazonAthenaDeleteNamedQueryCommand.() -> Unit): com.amazonaws.services.athena.model.DeleteNamedQueryResult {
+	return this.block.declare(AmazonAthenaDeleteNamedQueryCommand(namedQueryId).apply(init)) as com.amazonaws.services.athena.model.DeleteNamedQueryResult
 }
 
 @Generated
-class AmazonAthenaDeleteNamedQueryCommand(val namedQueryId: String) : AmazonWebServiceCommand<com.amazonaws.services.athena.model.DeleteNamedQueryRequest> {
+class AmazonAthenaDeleteNamedQueryCommand(val namedQueryId: String) : AmazonWebServiceCommand<com.amazonaws.services.athena.model.DeleteNamedQueryRequest, com.amazonaws.services.athena.model.DeleteNamedQueryResult> {
 
 
 
@@ -131,8 +143,12 @@ class AmazonAthenaDeleteNamedQueryCommand(val namedQueryId: String) : AmazonWebS
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.athena.deleteNamedQuery(build())
+	override fun dryResult(): com.amazonaws.services.athena.model.DeleteNamedQueryResult {
+	  return com.amazonaws.services.athena.model.DeleteNamedQueryResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.athena.model.DeleteNamedQueryResult {
+		return environment.athena.deleteNamedQuery(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -143,12 +159,12 @@ class AmazonAthenaDeleteNamedQueryCommand(val namedQueryId: String) : AmazonWebS
 }
 
 
-fun AmazonAthenaFunctions.getNamedQuery(namedQueryId: String, init: AmazonAthenaGetNamedQueryCommand.() -> Unit) {
-	this.block.declare(AmazonAthenaGetNamedQueryCommand(namedQueryId).apply(init))
+fun AmazonAthenaFunctions.getNamedQuery(namedQueryId: String, init: AmazonAthenaGetNamedQueryCommand.() -> Unit): com.amazonaws.services.athena.model.GetNamedQueryResult {
+	return this.block.declare(AmazonAthenaGetNamedQueryCommand(namedQueryId).apply(init)) as com.amazonaws.services.athena.model.GetNamedQueryResult
 }
 
 @Generated
-class AmazonAthenaGetNamedQueryCommand(val namedQueryId: String) : AmazonWebServiceCommand<com.amazonaws.services.athena.model.GetNamedQueryRequest> {
+class AmazonAthenaGetNamedQueryCommand(val namedQueryId: String) : AmazonWebServiceCommand<com.amazonaws.services.athena.model.GetNamedQueryRequest, com.amazonaws.services.athena.model.GetNamedQueryResult> {
 
 
 
@@ -158,8 +174,12 @@ class AmazonAthenaGetNamedQueryCommand(val namedQueryId: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.athena.getNamedQuery(build())
+	override fun dryResult(): com.amazonaws.services.athena.model.GetNamedQueryResult {
+	  return com.amazonaws.services.athena.model.GetNamedQueryResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.athena.model.GetNamedQueryResult {
+		return environment.athena.getNamedQuery(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -170,12 +190,12 @@ class AmazonAthenaGetNamedQueryCommand(val namedQueryId: String) : AmazonWebServ
 }
 
 
-fun AmazonAthenaFunctions.getQueryExecution(queryExecutionId: String, init: AmazonAthenaGetQueryExecutionCommand.() -> Unit) {
-	this.block.declare(AmazonAthenaGetQueryExecutionCommand(queryExecutionId).apply(init))
+fun AmazonAthenaFunctions.getQueryExecution(queryExecutionId: String, init: AmazonAthenaGetQueryExecutionCommand.() -> Unit): com.amazonaws.services.athena.model.GetQueryExecutionResult {
+	return this.block.declare(AmazonAthenaGetQueryExecutionCommand(queryExecutionId).apply(init)) as com.amazonaws.services.athena.model.GetQueryExecutionResult
 }
 
 @Generated
-class AmazonAthenaGetQueryExecutionCommand(val queryExecutionId: String) : AmazonWebServiceCommand<com.amazonaws.services.athena.model.GetQueryExecutionRequest> {
+class AmazonAthenaGetQueryExecutionCommand(val queryExecutionId: String) : AmazonWebServiceCommand<com.amazonaws.services.athena.model.GetQueryExecutionRequest, com.amazonaws.services.athena.model.GetQueryExecutionResult> {
 
 
 
@@ -185,8 +205,12 @@ class AmazonAthenaGetQueryExecutionCommand(val queryExecutionId: String) : Amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.athena.getQueryExecution(build())
+	override fun dryResult(): com.amazonaws.services.athena.model.GetQueryExecutionResult {
+	  return com.amazonaws.services.athena.model.GetQueryExecutionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.athena.model.GetQueryExecutionResult {
+		return environment.athena.getQueryExecution(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -197,12 +221,12 @@ class AmazonAthenaGetQueryExecutionCommand(val queryExecutionId: String) : Amazo
 }
 
 
-fun AmazonAthenaFunctions.getQueryResults(queryExecutionId: String, init: AmazonAthenaGetQueryResultsCommand.() -> Unit) {
-	this.block.declare(AmazonAthenaGetQueryResultsCommand(queryExecutionId).apply(init))
+fun AmazonAthenaFunctions.getQueryResults(queryExecutionId: String, init: AmazonAthenaGetQueryResultsCommand.() -> Unit): com.amazonaws.services.athena.model.GetQueryResultsResult {
+	return this.block.declare(AmazonAthenaGetQueryResultsCommand(queryExecutionId).apply(init)) as com.amazonaws.services.athena.model.GetQueryResultsResult
 }
 
 @Generated
-class AmazonAthenaGetQueryResultsCommand(val queryExecutionId: String) : AmazonWebServiceCommand<com.amazonaws.services.athena.model.GetQueryResultsRequest> {
+class AmazonAthenaGetQueryResultsCommand(val queryExecutionId: String) : AmazonWebServiceCommand<com.amazonaws.services.athena.model.GetQueryResultsRequest, com.amazonaws.services.athena.model.GetQueryResultsResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -215,8 +239,12 @@ class AmazonAthenaGetQueryResultsCommand(val queryExecutionId: String) : AmazonW
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.athena.getQueryResults(build())
+	override fun dryResult(): com.amazonaws.services.athena.model.GetQueryResultsResult {
+	  return com.amazonaws.services.athena.model.GetQueryResultsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.athena.model.GetQueryResultsResult {
+		return environment.athena.getQueryResults(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -229,12 +257,12 @@ class AmazonAthenaGetQueryResultsCommand(val queryExecutionId: String) : AmazonW
 }
 
 
-fun AmazonAthenaFunctions.listNamedQueries(init: AmazonAthenaListNamedQueriesCommand.() -> Unit) {
-	this.block.declare(AmazonAthenaListNamedQueriesCommand().apply(init))
+fun AmazonAthenaFunctions.listNamedQueries(init: AmazonAthenaListNamedQueriesCommand.() -> Unit): com.amazonaws.services.athena.model.ListNamedQueriesResult {
+	return this.block.declare(AmazonAthenaListNamedQueriesCommand().apply(init)) as com.amazonaws.services.athena.model.ListNamedQueriesResult
 }
 
 @Generated
-class AmazonAthenaListNamedQueriesCommand() : AmazonWebServiceCommand<com.amazonaws.services.athena.model.ListNamedQueriesRequest> {
+class AmazonAthenaListNamedQueriesCommand() : AmazonWebServiceCommand<com.amazonaws.services.athena.model.ListNamedQueriesRequest, com.amazonaws.services.athena.model.ListNamedQueriesResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -246,8 +274,12 @@ class AmazonAthenaListNamedQueriesCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.athena.listNamedQueries(build())
+	override fun dryResult(): com.amazonaws.services.athena.model.ListNamedQueriesResult {
+	  return com.amazonaws.services.athena.model.ListNamedQueriesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.athena.model.ListNamedQueriesResult {
+		return environment.athena.listNamedQueries(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -259,12 +291,12 @@ class AmazonAthenaListNamedQueriesCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonAthenaFunctions.listQueryExecutions(init: AmazonAthenaListQueryExecutionsCommand.() -> Unit) {
-	this.block.declare(AmazonAthenaListQueryExecutionsCommand().apply(init))
+fun AmazonAthenaFunctions.listQueryExecutions(init: AmazonAthenaListQueryExecutionsCommand.() -> Unit): com.amazonaws.services.athena.model.ListQueryExecutionsResult {
+	return this.block.declare(AmazonAthenaListQueryExecutionsCommand().apply(init)) as com.amazonaws.services.athena.model.ListQueryExecutionsResult
 }
 
 @Generated
-class AmazonAthenaListQueryExecutionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.athena.model.ListQueryExecutionsRequest> {
+class AmazonAthenaListQueryExecutionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.athena.model.ListQueryExecutionsRequest, com.amazonaws.services.athena.model.ListQueryExecutionsResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -276,8 +308,12 @@ class AmazonAthenaListQueryExecutionsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.athena.listQueryExecutions(build())
+	override fun dryResult(): com.amazonaws.services.athena.model.ListQueryExecutionsResult {
+	  return com.amazonaws.services.athena.model.ListQueryExecutionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.athena.model.ListQueryExecutionsResult {
+		return environment.athena.listQueryExecutions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -289,12 +325,12 @@ class AmazonAthenaListQueryExecutionsCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AmazonAthenaFunctions.startQueryExecution(queryString: String, resultConfiguration: com.amazonaws.services.athena.model.ResultConfiguration, init: AmazonAthenaStartQueryExecutionCommand.() -> Unit) {
-	this.block.declare(AmazonAthenaStartQueryExecutionCommand(queryString, resultConfiguration).apply(init))
+fun AmazonAthenaFunctions.startQueryExecution(queryString: String, resultConfiguration: com.amazonaws.services.athena.model.ResultConfiguration, init: AmazonAthenaStartQueryExecutionCommand.() -> Unit): com.amazonaws.services.athena.model.StartQueryExecutionResult {
+	return this.block.declare(AmazonAthenaStartQueryExecutionCommand(queryString, resultConfiguration).apply(init)) as com.amazonaws.services.athena.model.StartQueryExecutionResult
 }
 
 @Generated
-class AmazonAthenaStartQueryExecutionCommand(val queryString: String, val resultConfiguration: com.amazonaws.services.athena.model.ResultConfiguration) : AmazonWebServiceCommand<com.amazonaws.services.athena.model.StartQueryExecutionRequest> {
+class AmazonAthenaStartQueryExecutionCommand(val queryString: String, val resultConfiguration: com.amazonaws.services.athena.model.ResultConfiguration) : AmazonWebServiceCommand<com.amazonaws.services.athena.model.StartQueryExecutionRequest, com.amazonaws.services.athena.model.StartQueryExecutionResult> {
 
 	var clientRequestToken: String? = null
 	var queryExecutionContext: com.amazonaws.services.athena.model.QueryExecutionContext? = null
@@ -308,8 +344,12 @@ class AmazonAthenaStartQueryExecutionCommand(val queryString: String, val result
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.athena.startQueryExecution(build())
+	override fun dryResult(): com.amazonaws.services.athena.model.StartQueryExecutionResult {
+	  return com.amazonaws.services.athena.model.StartQueryExecutionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.athena.model.StartQueryExecutionResult {
+		return environment.athena.startQueryExecution(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -323,12 +363,12 @@ class AmazonAthenaStartQueryExecutionCommand(val queryString: String, val result
 }
 
 
-fun AmazonAthenaFunctions.stopQueryExecution(queryExecutionId: String, init: AmazonAthenaStopQueryExecutionCommand.() -> Unit) {
-	this.block.declare(AmazonAthenaStopQueryExecutionCommand(queryExecutionId).apply(init))
+fun AmazonAthenaFunctions.stopQueryExecution(queryExecutionId: String, init: AmazonAthenaStopQueryExecutionCommand.() -> Unit): com.amazonaws.services.athena.model.StopQueryExecutionResult {
+	return this.block.declare(AmazonAthenaStopQueryExecutionCommand(queryExecutionId).apply(init)) as com.amazonaws.services.athena.model.StopQueryExecutionResult
 }
 
 @Generated
-class AmazonAthenaStopQueryExecutionCommand(val queryExecutionId: String) : AmazonWebServiceCommand<com.amazonaws.services.athena.model.StopQueryExecutionRequest> {
+class AmazonAthenaStopQueryExecutionCommand(val queryExecutionId: String) : AmazonWebServiceCommand<com.amazonaws.services.athena.model.StopQueryExecutionRequest, com.amazonaws.services.athena.model.StopQueryExecutionResult> {
 
 
 
@@ -338,8 +378,12 @@ class AmazonAthenaStopQueryExecutionCommand(val queryExecutionId: String) : Amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.athena.stopQueryExecution(build())
+	override fun dryResult(): com.amazonaws.services.athena.model.StopQueryExecutionResult {
+	  return com.amazonaws.services.athena.model.StopQueryExecutionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.athena.model.StopQueryExecutionResult {
+		return environment.athena.stopQueryExecution(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

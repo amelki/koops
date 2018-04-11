@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.health: AWSHealth
 @Generated
 class AWSHealthFunctions(val block: Block)
 
-infix fun AwsContinuation.health(init: AWSHealthFunctions.() -> Unit) {
-	AWSHealthFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.health(init: AWSHealthFunctions.() -> T): T {
+	return AWSHealthFunctions(shell).run(init)
 }
 
 			
 
-fun AWSHealthFunctions.describeAffectedEntities(init: AWSHealthDescribeAffectedEntitiesCommand.() -> Unit) {
-	this.block.declare(AWSHealthDescribeAffectedEntitiesCommand().apply(init))
+fun AWSHealthFunctions.describeAffectedEntities(init: AWSHealthDescribeAffectedEntitiesCommand.() -> Unit): com.amazonaws.services.health.model.DescribeAffectedEntitiesResult {
+	return this.block.declare(AWSHealthDescribeAffectedEntitiesCommand().apply(init)) as com.amazonaws.services.health.model.DescribeAffectedEntitiesResult
 }
 
 @Generated
-class AWSHealthDescribeAffectedEntitiesCommand() : AmazonWebServiceCommand<com.amazonaws.services.health.model.DescribeAffectedEntitiesRequest> {
+class AWSHealthDescribeAffectedEntitiesCommand() : AmazonWebServiceCommand<com.amazonaws.services.health.model.DescribeAffectedEntitiesRequest, com.amazonaws.services.health.model.DescribeAffectedEntitiesResult> {
 
 	var filter: com.amazonaws.services.health.model.EntityFilter? = null
 	var locale: String? = null
@@ -47,8 +47,12 @@ class AWSHealthDescribeAffectedEntitiesCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.health.describeAffectedEntities(build())
+	override fun dryResult(): com.amazonaws.services.health.model.DescribeAffectedEntitiesResult {
+	  return com.amazonaws.services.health.model.DescribeAffectedEntitiesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.health.model.DescribeAffectedEntitiesResult {
+		return environment.health.describeAffectedEntities(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -62,12 +66,12 @@ class AWSHealthDescribeAffectedEntitiesCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AWSHealthFunctions.describeEntityAggregates(init: AWSHealthDescribeEntityAggregatesCommand.() -> Unit) {
-	this.block.declare(AWSHealthDescribeEntityAggregatesCommand().apply(init))
+fun AWSHealthFunctions.describeEntityAggregates(init: AWSHealthDescribeEntityAggregatesCommand.() -> Unit): com.amazonaws.services.health.model.DescribeEntityAggregatesResult {
+	return this.block.declare(AWSHealthDescribeEntityAggregatesCommand().apply(init)) as com.amazonaws.services.health.model.DescribeEntityAggregatesResult
 }
 
 @Generated
-class AWSHealthDescribeEntityAggregatesCommand() : AmazonWebServiceCommand<com.amazonaws.services.health.model.DescribeEntityAggregatesRequest> {
+class AWSHealthDescribeEntityAggregatesCommand() : AmazonWebServiceCommand<com.amazonaws.services.health.model.DescribeEntityAggregatesRequest, com.amazonaws.services.health.model.DescribeEntityAggregatesResult> {
 
 	var eventArns: List<String>? = null
 
@@ -77,8 +81,12 @@ class AWSHealthDescribeEntityAggregatesCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.health.describeEntityAggregates(build())
+	override fun dryResult(): com.amazonaws.services.health.model.DescribeEntityAggregatesResult {
+	  return com.amazonaws.services.health.model.DescribeEntityAggregatesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.health.model.DescribeEntityAggregatesResult {
+		return environment.health.describeEntityAggregates(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -89,12 +97,12 @@ class AWSHealthDescribeEntityAggregatesCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AWSHealthFunctions.describeEventAggregates(init: AWSHealthDescribeEventAggregatesCommand.() -> Unit) {
-	this.block.declare(AWSHealthDescribeEventAggregatesCommand().apply(init))
+fun AWSHealthFunctions.describeEventAggregates(init: AWSHealthDescribeEventAggregatesCommand.() -> Unit): com.amazonaws.services.health.model.DescribeEventAggregatesResult {
+	return this.block.declare(AWSHealthDescribeEventAggregatesCommand().apply(init)) as com.amazonaws.services.health.model.DescribeEventAggregatesResult
 }
 
 @Generated
-class AWSHealthDescribeEventAggregatesCommand() : AmazonWebServiceCommand<com.amazonaws.services.health.model.DescribeEventAggregatesRequest> {
+class AWSHealthDescribeEventAggregatesCommand() : AmazonWebServiceCommand<com.amazonaws.services.health.model.DescribeEventAggregatesRequest, com.amazonaws.services.health.model.DescribeEventAggregatesResult> {
 
 	var filter: com.amazonaws.services.health.model.EventFilter? = null
 	var aggregateField: String? = null
@@ -110,8 +118,12 @@ class AWSHealthDescribeEventAggregatesCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.health.describeEventAggregates(build())
+	override fun dryResult(): com.amazonaws.services.health.model.DescribeEventAggregatesResult {
+	  return com.amazonaws.services.health.model.DescribeEventAggregatesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.health.model.DescribeEventAggregatesResult {
+		return environment.health.describeEventAggregates(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -125,12 +137,12 @@ class AWSHealthDescribeEventAggregatesCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AWSHealthFunctions.describeEventDetails(init: AWSHealthDescribeEventDetailsCommand.() -> Unit) {
-	this.block.declare(AWSHealthDescribeEventDetailsCommand().apply(init))
+fun AWSHealthFunctions.describeEventDetails(init: AWSHealthDescribeEventDetailsCommand.() -> Unit): com.amazonaws.services.health.model.DescribeEventDetailsResult {
+	return this.block.declare(AWSHealthDescribeEventDetailsCommand().apply(init)) as com.amazonaws.services.health.model.DescribeEventDetailsResult
 }
 
 @Generated
-class AWSHealthDescribeEventDetailsCommand() : AmazonWebServiceCommand<com.amazonaws.services.health.model.DescribeEventDetailsRequest> {
+class AWSHealthDescribeEventDetailsCommand() : AmazonWebServiceCommand<com.amazonaws.services.health.model.DescribeEventDetailsRequest, com.amazonaws.services.health.model.DescribeEventDetailsResult> {
 
 	var eventArns: List<String>? = null
 	var locale: String? = null
@@ -142,8 +154,12 @@ class AWSHealthDescribeEventDetailsCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.health.describeEventDetails(build())
+	override fun dryResult(): com.amazonaws.services.health.model.DescribeEventDetailsResult {
+	  return com.amazonaws.services.health.model.DescribeEventDetailsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.health.model.DescribeEventDetailsResult {
+		return environment.health.describeEventDetails(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -155,12 +171,12 @@ class AWSHealthDescribeEventDetailsCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AWSHealthFunctions.describeEventTypes(init: AWSHealthDescribeEventTypesCommand.() -> Unit) {
-	this.block.declare(AWSHealthDescribeEventTypesCommand().apply(init))
+fun AWSHealthFunctions.describeEventTypes(init: AWSHealthDescribeEventTypesCommand.() -> Unit): com.amazonaws.services.health.model.DescribeEventTypesResult {
+	return this.block.declare(AWSHealthDescribeEventTypesCommand().apply(init)) as com.amazonaws.services.health.model.DescribeEventTypesResult
 }
 
 @Generated
-class AWSHealthDescribeEventTypesCommand() : AmazonWebServiceCommand<com.amazonaws.services.health.model.DescribeEventTypesRequest> {
+class AWSHealthDescribeEventTypesCommand() : AmazonWebServiceCommand<com.amazonaws.services.health.model.DescribeEventTypesRequest, com.amazonaws.services.health.model.DescribeEventTypesResult> {
 
 	var filter: com.amazonaws.services.health.model.EventTypeFilter? = null
 	var locale: String? = null
@@ -176,8 +192,12 @@ class AWSHealthDescribeEventTypesCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.health.describeEventTypes(build())
+	override fun dryResult(): com.amazonaws.services.health.model.DescribeEventTypesResult {
+	  return com.amazonaws.services.health.model.DescribeEventTypesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.health.model.DescribeEventTypesResult {
+		return environment.health.describeEventTypes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -191,12 +211,12 @@ class AWSHealthDescribeEventTypesCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AWSHealthFunctions.describeEvents(init: AWSHealthDescribeEventsCommand.() -> Unit) {
-	this.block.declare(AWSHealthDescribeEventsCommand().apply(init))
+fun AWSHealthFunctions.describeEvents(init: AWSHealthDescribeEventsCommand.() -> Unit): com.amazonaws.services.health.model.DescribeEventsResult {
+	return this.block.declare(AWSHealthDescribeEventsCommand().apply(init)) as com.amazonaws.services.health.model.DescribeEventsResult
 }
 
 @Generated
-class AWSHealthDescribeEventsCommand() : AmazonWebServiceCommand<com.amazonaws.services.health.model.DescribeEventsRequest> {
+class AWSHealthDescribeEventsCommand() : AmazonWebServiceCommand<com.amazonaws.services.health.model.DescribeEventsRequest, com.amazonaws.services.health.model.DescribeEventsResult> {
 
 	var filter: com.amazonaws.services.health.model.EventFilter? = null
 	var nextToken: String? = null
@@ -212,8 +232,12 @@ class AWSHealthDescribeEventsCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.health.describeEvents(build())
+	override fun dryResult(): com.amazonaws.services.health.model.DescribeEventsResult {
+	  return com.amazonaws.services.health.model.DescribeEventsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.health.model.DescribeEventsResult {
+		return environment.health.describeEvents(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

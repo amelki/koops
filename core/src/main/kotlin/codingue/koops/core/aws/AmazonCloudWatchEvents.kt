@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.events: AmazonCloudWatchEvents
 @Generated
 class AmazonCloudWatchEventsFunctions(val block: Block)
 
-infix fun AwsContinuation.events(init: AmazonCloudWatchEventsFunctions.() -> Unit) {
-	AmazonCloudWatchEventsFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.events(init: AmazonCloudWatchEventsFunctions.() -> T): T {
+	return AmazonCloudWatchEventsFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonCloudWatchEventsFunctions.deleteRule(name: String, init: AmazonCloudWatchEventsDeleteRuleCommand.() -> Unit) {
-	this.block.declare(AmazonCloudWatchEventsDeleteRuleCommand(name).apply(init))
+fun AmazonCloudWatchEventsFunctions.deleteRule(name: String, init: AmazonCloudWatchEventsDeleteRuleCommand.() -> Unit): com.amazonaws.services.cloudwatchevents.model.DeleteRuleResult {
+	return this.block.declare(AmazonCloudWatchEventsDeleteRuleCommand(name).apply(init)) as com.amazonaws.services.cloudwatchevents.model.DeleteRuleResult
 }
 
 @Generated
-class AmazonCloudWatchEventsDeleteRuleCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatchevents.model.DeleteRuleRequest> {
+class AmazonCloudWatchEventsDeleteRuleCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatchevents.model.DeleteRuleRequest, com.amazonaws.services.cloudwatchevents.model.DeleteRuleResult> {
 
 
 
@@ -41,8 +41,12 @@ class AmazonCloudWatchEventsDeleteRuleCommand(val name: String) : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.events.deleteRule(build())
+	override fun dryResult(): com.amazonaws.services.cloudwatchevents.model.DeleteRuleResult {
+	  return com.amazonaws.services.cloudwatchevents.model.DeleteRuleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatchevents.model.DeleteRuleResult {
+		return environment.events.deleteRule(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -53,12 +57,12 @@ class AmazonCloudWatchEventsDeleteRuleCommand(val name: String) : AmazonWebServi
 }
 
 
-fun AmazonCloudWatchEventsFunctions.describeEventBus(init: AmazonCloudWatchEventsDescribeEventBusCommand.() -> Unit) {
-	this.block.declare(AmazonCloudWatchEventsDescribeEventBusCommand().apply(init))
+fun AmazonCloudWatchEventsFunctions.describeEventBus(init: AmazonCloudWatchEventsDescribeEventBusCommand.() -> Unit): com.amazonaws.services.cloudwatchevents.model.DescribeEventBusResult {
+	return this.block.declare(AmazonCloudWatchEventsDescribeEventBusCommand().apply(init)) as com.amazonaws.services.cloudwatchevents.model.DescribeEventBusResult
 }
 
 @Generated
-class AmazonCloudWatchEventsDescribeEventBusCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudwatchevents.model.DescribeEventBusRequest> {
+class AmazonCloudWatchEventsDescribeEventBusCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudwatchevents.model.DescribeEventBusRequest, com.amazonaws.services.cloudwatchevents.model.DescribeEventBusResult> {
 
 
 
@@ -68,8 +72,12 @@ class AmazonCloudWatchEventsDescribeEventBusCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.events.describeEventBus(build())
+	override fun dryResult(): com.amazonaws.services.cloudwatchevents.model.DescribeEventBusResult {
+	  return com.amazonaws.services.cloudwatchevents.model.DescribeEventBusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatchevents.model.DescribeEventBusResult {
+		return environment.events.describeEventBus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -80,12 +88,12 @@ class AmazonCloudWatchEventsDescribeEventBusCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AmazonCloudWatchEventsFunctions.describeRule(name: String, init: AmazonCloudWatchEventsDescribeRuleCommand.() -> Unit) {
-	this.block.declare(AmazonCloudWatchEventsDescribeRuleCommand(name).apply(init))
+fun AmazonCloudWatchEventsFunctions.describeRule(name: String, init: AmazonCloudWatchEventsDescribeRuleCommand.() -> Unit): com.amazonaws.services.cloudwatchevents.model.DescribeRuleResult {
+	return this.block.declare(AmazonCloudWatchEventsDescribeRuleCommand(name).apply(init)) as com.amazonaws.services.cloudwatchevents.model.DescribeRuleResult
 }
 
 @Generated
-class AmazonCloudWatchEventsDescribeRuleCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatchevents.model.DescribeRuleRequest> {
+class AmazonCloudWatchEventsDescribeRuleCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatchevents.model.DescribeRuleRequest, com.amazonaws.services.cloudwatchevents.model.DescribeRuleResult> {
 
 
 
@@ -95,8 +103,12 @@ class AmazonCloudWatchEventsDescribeRuleCommand(val name: String) : AmazonWebSer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.events.describeRule(build())
+	override fun dryResult(): com.amazonaws.services.cloudwatchevents.model.DescribeRuleResult {
+	  return com.amazonaws.services.cloudwatchevents.model.DescribeRuleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatchevents.model.DescribeRuleResult {
+		return environment.events.describeRule(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -107,12 +119,12 @@ class AmazonCloudWatchEventsDescribeRuleCommand(val name: String) : AmazonWebSer
 }
 
 
-fun AmazonCloudWatchEventsFunctions.disableRule(name: String, init: AmazonCloudWatchEventsDisableRuleCommand.() -> Unit) {
-	this.block.declare(AmazonCloudWatchEventsDisableRuleCommand(name).apply(init))
+fun AmazonCloudWatchEventsFunctions.disableRule(name: String, init: AmazonCloudWatchEventsDisableRuleCommand.() -> Unit): com.amazonaws.services.cloudwatchevents.model.DisableRuleResult {
+	return this.block.declare(AmazonCloudWatchEventsDisableRuleCommand(name).apply(init)) as com.amazonaws.services.cloudwatchevents.model.DisableRuleResult
 }
 
 @Generated
-class AmazonCloudWatchEventsDisableRuleCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatchevents.model.DisableRuleRequest> {
+class AmazonCloudWatchEventsDisableRuleCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatchevents.model.DisableRuleRequest, com.amazonaws.services.cloudwatchevents.model.DisableRuleResult> {
 
 
 
@@ -122,8 +134,12 @@ class AmazonCloudWatchEventsDisableRuleCommand(val name: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.events.disableRule(build())
+	override fun dryResult(): com.amazonaws.services.cloudwatchevents.model.DisableRuleResult {
+	  return com.amazonaws.services.cloudwatchevents.model.DisableRuleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatchevents.model.DisableRuleResult {
+		return environment.events.disableRule(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -134,12 +150,12 @@ class AmazonCloudWatchEventsDisableRuleCommand(val name: String) : AmazonWebServ
 }
 
 
-fun AmazonCloudWatchEventsFunctions.enableRule(name: String, init: AmazonCloudWatchEventsEnableRuleCommand.() -> Unit) {
-	this.block.declare(AmazonCloudWatchEventsEnableRuleCommand(name).apply(init))
+fun AmazonCloudWatchEventsFunctions.enableRule(name: String, init: AmazonCloudWatchEventsEnableRuleCommand.() -> Unit): com.amazonaws.services.cloudwatchevents.model.EnableRuleResult {
+	return this.block.declare(AmazonCloudWatchEventsEnableRuleCommand(name).apply(init)) as com.amazonaws.services.cloudwatchevents.model.EnableRuleResult
 }
 
 @Generated
-class AmazonCloudWatchEventsEnableRuleCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatchevents.model.EnableRuleRequest> {
+class AmazonCloudWatchEventsEnableRuleCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatchevents.model.EnableRuleRequest, com.amazonaws.services.cloudwatchevents.model.EnableRuleResult> {
 
 
 
@@ -149,8 +165,12 @@ class AmazonCloudWatchEventsEnableRuleCommand(val name: String) : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.events.enableRule(build())
+	override fun dryResult(): com.amazonaws.services.cloudwatchevents.model.EnableRuleResult {
+	  return com.amazonaws.services.cloudwatchevents.model.EnableRuleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatchevents.model.EnableRuleResult {
+		return environment.events.enableRule(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -161,12 +181,12 @@ class AmazonCloudWatchEventsEnableRuleCommand(val name: String) : AmazonWebServi
 }
 
 
-fun AmazonCloudWatchEventsFunctions.listRuleNamesByTarget(targetArn: String, init: AmazonCloudWatchEventsListRuleNamesByTargetCommand.() -> Unit) {
-	this.block.declare(AmazonCloudWatchEventsListRuleNamesByTargetCommand(targetArn).apply(init))
+fun AmazonCloudWatchEventsFunctions.listRuleNamesByTarget(targetArn: String, init: AmazonCloudWatchEventsListRuleNamesByTargetCommand.() -> Unit): com.amazonaws.services.cloudwatchevents.model.ListRuleNamesByTargetResult {
+	return this.block.declare(AmazonCloudWatchEventsListRuleNamesByTargetCommand(targetArn).apply(init)) as com.amazonaws.services.cloudwatchevents.model.ListRuleNamesByTargetResult
 }
 
 @Generated
-class AmazonCloudWatchEventsListRuleNamesByTargetCommand(val targetArn: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatchevents.model.ListRuleNamesByTargetRequest> {
+class AmazonCloudWatchEventsListRuleNamesByTargetCommand(val targetArn: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatchevents.model.ListRuleNamesByTargetRequest, com.amazonaws.services.cloudwatchevents.model.ListRuleNamesByTargetResult> {
 
 	var nextToken: String? = null
 	var limit: Int? = 0
@@ -179,8 +199,12 @@ class AmazonCloudWatchEventsListRuleNamesByTargetCommand(val targetArn: String) 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.events.listRuleNamesByTarget(build())
+	override fun dryResult(): com.amazonaws.services.cloudwatchevents.model.ListRuleNamesByTargetResult {
+	  return com.amazonaws.services.cloudwatchevents.model.ListRuleNamesByTargetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatchevents.model.ListRuleNamesByTargetResult {
+		return environment.events.listRuleNamesByTarget(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -193,12 +217,12 @@ class AmazonCloudWatchEventsListRuleNamesByTargetCommand(val targetArn: String) 
 }
 
 
-fun AmazonCloudWatchEventsFunctions.listRules(init: AmazonCloudWatchEventsListRulesCommand.() -> Unit) {
-	this.block.declare(AmazonCloudWatchEventsListRulesCommand().apply(init))
+fun AmazonCloudWatchEventsFunctions.listRules(init: AmazonCloudWatchEventsListRulesCommand.() -> Unit): com.amazonaws.services.cloudwatchevents.model.ListRulesResult {
+	return this.block.declare(AmazonCloudWatchEventsListRulesCommand().apply(init)) as com.amazonaws.services.cloudwatchevents.model.ListRulesResult
 }
 
 @Generated
-class AmazonCloudWatchEventsListRulesCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudwatchevents.model.ListRulesRequest> {
+class AmazonCloudWatchEventsListRulesCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudwatchevents.model.ListRulesRequest, com.amazonaws.services.cloudwatchevents.model.ListRulesResult> {
 
 	var namePrefix: String? = null
 	var nextToken: String? = null
@@ -212,8 +236,12 @@ class AmazonCloudWatchEventsListRulesCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.events.listRules(build())
+	override fun dryResult(): com.amazonaws.services.cloudwatchevents.model.ListRulesResult {
+	  return com.amazonaws.services.cloudwatchevents.model.ListRulesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatchevents.model.ListRulesResult {
+		return environment.events.listRules(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -226,12 +254,12 @@ class AmazonCloudWatchEventsListRulesCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AmazonCloudWatchEventsFunctions.listTargetsByRule(rule: String, init: AmazonCloudWatchEventsListTargetsByRuleCommand.() -> Unit) {
-	this.block.declare(AmazonCloudWatchEventsListTargetsByRuleCommand(rule).apply(init))
+fun AmazonCloudWatchEventsFunctions.listTargetsByRule(rule: String, init: AmazonCloudWatchEventsListTargetsByRuleCommand.() -> Unit): com.amazonaws.services.cloudwatchevents.model.ListTargetsByRuleResult {
+	return this.block.declare(AmazonCloudWatchEventsListTargetsByRuleCommand(rule).apply(init)) as com.amazonaws.services.cloudwatchevents.model.ListTargetsByRuleResult
 }
 
 @Generated
-class AmazonCloudWatchEventsListTargetsByRuleCommand(val rule: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatchevents.model.ListTargetsByRuleRequest> {
+class AmazonCloudWatchEventsListTargetsByRuleCommand(val rule: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatchevents.model.ListTargetsByRuleRequest, com.amazonaws.services.cloudwatchevents.model.ListTargetsByRuleResult> {
 
 	var nextToken: String? = null
 	var limit: Int? = 0
@@ -244,8 +272,12 @@ class AmazonCloudWatchEventsListTargetsByRuleCommand(val rule: String) : AmazonW
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.events.listTargetsByRule(build())
+	override fun dryResult(): com.amazonaws.services.cloudwatchevents.model.ListTargetsByRuleResult {
+	  return com.amazonaws.services.cloudwatchevents.model.ListTargetsByRuleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatchevents.model.ListTargetsByRuleResult {
+		return environment.events.listTargetsByRule(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -258,12 +290,12 @@ class AmazonCloudWatchEventsListTargetsByRuleCommand(val rule: String) : AmazonW
 }
 
 
-fun AmazonCloudWatchEventsFunctions.putEvents(entries: List<com.amazonaws.services.cloudwatchevents.model.PutEventsRequestEntry>, init: AmazonCloudWatchEventsPutEventsCommand.() -> Unit) {
-	this.block.declare(AmazonCloudWatchEventsPutEventsCommand(entries).apply(init))
+fun AmazonCloudWatchEventsFunctions.putEvents(entries: List<com.amazonaws.services.cloudwatchevents.model.PutEventsRequestEntry>, init: AmazonCloudWatchEventsPutEventsCommand.() -> Unit): com.amazonaws.services.cloudwatchevents.model.PutEventsResult {
+	return this.block.declare(AmazonCloudWatchEventsPutEventsCommand(entries).apply(init)) as com.amazonaws.services.cloudwatchevents.model.PutEventsResult
 }
 
 @Generated
-class AmazonCloudWatchEventsPutEventsCommand(val entries: List<com.amazonaws.services.cloudwatchevents.model.PutEventsRequestEntry>) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatchevents.model.PutEventsRequest> {
+class AmazonCloudWatchEventsPutEventsCommand(val entries: List<com.amazonaws.services.cloudwatchevents.model.PutEventsRequestEntry>) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatchevents.model.PutEventsRequest, com.amazonaws.services.cloudwatchevents.model.PutEventsResult> {
 
 
 
@@ -273,8 +305,12 @@ class AmazonCloudWatchEventsPutEventsCommand(val entries: List<com.amazonaws.ser
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.events.putEvents(build())
+	override fun dryResult(): com.amazonaws.services.cloudwatchevents.model.PutEventsResult {
+	  return com.amazonaws.services.cloudwatchevents.model.PutEventsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatchevents.model.PutEventsResult {
+		return environment.events.putEvents(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -285,12 +321,12 @@ class AmazonCloudWatchEventsPutEventsCommand(val entries: List<com.amazonaws.ser
 }
 
 
-fun AmazonCloudWatchEventsFunctions.putPermission(action: String, principal: String, statementId: String, init: AmazonCloudWatchEventsPutPermissionCommand.() -> Unit) {
-	this.block.declare(AmazonCloudWatchEventsPutPermissionCommand(action, principal, statementId).apply(init))
+fun AmazonCloudWatchEventsFunctions.putPermission(action: String, principal: String, statementId: String, init: AmazonCloudWatchEventsPutPermissionCommand.() -> Unit): com.amazonaws.services.cloudwatchevents.model.PutPermissionResult {
+	return this.block.declare(AmazonCloudWatchEventsPutPermissionCommand(action, principal, statementId).apply(init)) as com.amazonaws.services.cloudwatchevents.model.PutPermissionResult
 }
 
 @Generated
-class AmazonCloudWatchEventsPutPermissionCommand(val action: String, val principal: String, val statementId: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatchevents.model.PutPermissionRequest> {
+class AmazonCloudWatchEventsPutPermissionCommand(val action: String, val principal: String, val statementId: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatchevents.model.PutPermissionRequest, com.amazonaws.services.cloudwatchevents.model.PutPermissionResult> {
 
 
 
@@ -302,8 +338,12 @@ class AmazonCloudWatchEventsPutPermissionCommand(val action: String, val princip
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.events.putPermission(build())
+	override fun dryResult(): com.amazonaws.services.cloudwatchevents.model.PutPermissionResult {
+	  return com.amazonaws.services.cloudwatchevents.model.PutPermissionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatchevents.model.PutPermissionResult {
+		return environment.events.putPermission(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -316,12 +356,12 @@ class AmazonCloudWatchEventsPutPermissionCommand(val action: String, val princip
 }
 
 
-fun AmazonCloudWatchEventsFunctions.putRule(name: String, init: AmazonCloudWatchEventsPutRuleCommand.() -> Unit) {
-	this.block.declare(AmazonCloudWatchEventsPutRuleCommand(name).apply(init))
+fun AmazonCloudWatchEventsFunctions.putRule(name: String, init: AmazonCloudWatchEventsPutRuleCommand.() -> Unit): com.amazonaws.services.cloudwatchevents.model.PutRuleResult {
+	return this.block.declare(AmazonCloudWatchEventsPutRuleCommand(name).apply(init)) as com.amazonaws.services.cloudwatchevents.model.PutRuleResult
 }
 
 @Generated
-class AmazonCloudWatchEventsPutRuleCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatchevents.model.PutRuleRequest> {
+class AmazonCloudWatchEventsPutRuleCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatchevents.model.PutRuleRequest, com.amazonaws.services.cloudwatchevents.model.PutRuleResult> {
 
 	var scheduleExpression: String? = null
 	var eventPattern: String? = null
@@ -340,8 +380,12 @@ class AmazonCloudWatchEventsPutRuleCommand(val name: String) : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.events.putRule(build())
+	override fun dryResult(): com.amazonaws.services.cloudwatchevents.model.PutRuleResult {
+	  return com.amazonaws.services.cloudwatchevents.model.PutRuleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatchevents.model.PutRuleResult {
+		return environment.events.putRule(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -357,12 +401,12 @@ class AmazonCloudWatchEventsPutRuleCommand(val name: String) : AmazonWebServiceC
 }
 
 
-fun AmazonCloudWatchEventsFunctions.putTargets(rule: String, targets: List<com.amazonaws.services.cloudwatchevents.model.Target>, init: AmazonCloudWatchEventsPutTargetsCommand.() -> Unit) {
-	this.block.declare(AmazonCloudWatchEventsPutTargetsCommand(rule, targets).apply(init))
+fun AmazonCloudWatchEventsFunctions.putTargets(rule: String, targets: List<com.amazonaws.services.cloudwatchevents.model.Target>, init: AmazonCloudWatchEventsPutTargetsCommand.() -> Unit): com.amazonaws.services.cloudwatchevents.model.PutTargetsResult {
+	return this.block.declare(AmazonCloudWatchEventsPutTargetsCommand(rule, targets).apply(init)) as com.amazonaws.services.cloudwatchevents.model.PutTargetsResult
 }
 
 @Generated
-class AmazonCloudWatchEventsPutTargetsCommand(val rule: String, val targets: List<com.amazonaws.services.cloudwatchevents.model.Target>) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatchevents.model.PutTargetsRequest> {
+class AmazonCloudWatchEventsPutTargetsCommand(val rule: String, val targets: List<com.amazonaws.services.cloudwatchevents.model.Target>) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatchevents.model.PutTargetsRequest, com.amazonaws.services.cloudwatchevents.model.PutTargetsResult> {
 
 
 
@@ -373,8 +417,12 @@ class AmazonCloudWatchEventsPutTargetsCommand(val rule: String, val targets: Lis
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.events.putTargets(build())
+	override fun dryResult(): com.amazonaws.services.cloudwatchevents.model.PutTargetsResult {
+	  return com.amazonaws.services.cloudwatchevents.model.PutTargetsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatchevents.model.PutTargetsResult {
+		return environment.events.putTargets(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -386,12 +434,12 @@ class AmazonCloudWatchEventsPutTargetsCommand(val rule: String, val targets: Lis
 }
 
 
-fun AmazonCloudWatchEventsFunctions.removePermission(statementId: String, init: AmazonCloudWatchEventsRemovePermissionCommand.() -> Unit) {
-	this.block.declare(AmazonCloudWatchEventsRemovePermissionCommand(statementId).apply(init))
+fun AmazonCloudWatchEventsFunctions.removePermission(statementId: String, init: AmazonCloudWatchEventsRemovePermissionCommand.() -> Unit): com.amazonaws.services.cloudwatchevents.model.RemovePermissionResult {
+	return this.block.declare(AmazonCloudWatchEventsRemovePermissionCommand(statementId).apply(init)) as com.amazonaws.services.cloudwatchevents.model.RemovePermissionResult
 }
 
 @Generated
-class AmazonCloudWatchEventsRemovePermissionCommand(val statementId: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatchevents.model.RemovePermissionRequest> {
+class AmazonCloudWatchEventsRemovePermissionCommand(val statementId: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatchevents.model.RemovePermissionRequest, com.amazonaws.services.cloudwatchevents.model.RemovePermissionResult> {
 
 
 
@@ -401,8 +449,12 @@ class AmazonCloudWatchEventsRemovePermissionCommand(val statementId: String) : A
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.events.removePermission(build())
+	override fun dryResult(): com.amazonaws.services.cloudwatchevents.model.RemovePermissionResult {
+	  return com.amazonaws.services.cloudwatchevents.model.RemovePermissionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatchevents.model.RemovePermissionResult {
+		return environment.events.removePermission(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -413,12 +465,12 @@ class AmazonCloudWatchEventsRemovePermissionCommand(val statementId: String) : A
 }
 
 
-fun AmazonCloudWatchEventsFunctions.removeTargets(rule: String, ids: List<String>, init: AmazonCloudWatchEventsRemoveTargetsCommand.() -> Unit) {
-	this.block.declare(AmazonCloudWatchEventsRemoveTargetsCommand(rule, ids).apply(init))
+fun AmazonCloudWatchEventsFunctions.removeTargets(rule: String, ids: List<String>, init: AmazonCloudWatchEventsRemoveTargetsCommand.() -> Unit): com.amazonaws.services.cloudwatchevents.model.RemoveTargetsResult {
+	return this.block.declare(AmazonCloudWatchEventsRemoveTargetsCommand(rule, ids).apply(init)) as com.amazonaws.services.cloudwatchevents.model.RemoveTargetsResult
 }
 
 @Generated
-class AmazonCloudWatchEventsRemoveTargetsCommand(val rule: String, val ids: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatchevents.model.RemoveTargetsRequest> {
+class AmazonCloudWatchEventsRemoveTargetsCommand(val rule: String, val ids: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatchevents.model.RemoveTargetsRequest, com.amazonaws.services.cloudwatchevents.model.RemoveTargetsResult> {
 
 
 
@@ -429,8 +481,12 @@ class AmazonCloudWatchEventsRemoveTargetsCommand(val rule: String, val ids: List
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.events.removeTargets(build())
+	override fun dryResult(): com.amazonaws.services.cloudwatchevents.model.RemoveTargetsResult {
+	  return com.amazonaws.services.cloudwatchevents.model.RemoveTargetsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatchevents.model.RemoveTargetsResult {
+		return environment.events.removeTargets(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -442,12 +498,12 @@ class AmazonCloudWatchEventsRemoveTargetsCommand(val rule: String, val ids: List
 }
 
 
-fun AmazonCloudWatchEventsFunctions.testEventPattern(eventPattern: String, event: String, init: AmazonCloudWatchEventsTestEventPatternCommand.() -> Unit) {
-	this.block.declare(AmazonCloudWatchEventsTestEventPatternCommand(eventPattern, event).apply(init))
+fun AmazonCloudWatchEventsFunctions.testEventPattern(eventPattern: String, event: String, init: AmazonCloudWatchEventsTestEventPatternCommand.() -> Unit): com.amazonaws.services.cloudwatchevents.model.TestEventPatternResult {
+	return this.block.declare(AmazonCloudWatchEventsTestEventPatternCommand(eventPattern, event).apply(init)) as com.amazonaws.services.cloudwatchevents.model.TestEventPatternResult
 }
 
 @Generated
-class AmazonCloudWatchEventsTestEventPatternCommand(val eventPattern: String, val event: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatchevents.model.TestEventPatternRequest> {
+class AmazonCloudWatchEventsTestEventPatternCommand(val eventPattern: String, val event: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatchevents.model.TestEventPatternRequest, com.amazonaws.services.cloudwatchevents.model.TestEventPatternResult> {
 
 
 
@@ -458,8 +514,12 @@ class AmazonCloudWatchEventsTestEventPatternCommand(val eventPattern: String, va
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.events.testEventPattern(build())
+	override fun dryResult(): com.amazonaws.services.cloudwatchevents.model.TestEventPatternResult {
+	  return com.amazonaws.services.cloudwatchevents.model.TestEventPatternResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatchevents.model.TestEventPatternResult {
+		return environment.events.testEventPattern(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

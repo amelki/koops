@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.guardduty: AmazonGuardDuty
 @Generated
 class AmazonGuardDutyFunctions(val block: Block)
 
-infix fun AwsContinuation.guardduty(init: AmazonGuardDutyFunctions.() -> Unit) {
-	AmazonGuardDutyFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.guardduty(init: AmazonGuardDutyFunctions.() -> T): T {
+	return AmazonGuardDutyFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonGuardDutyFunctions.acceptInvitation(detectorId: String, init: AmazonGuardDutyAcceptInvitationCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyAcceptInvitationCommand(detectorId).apply(init))
+fun AmazonGuardDutyFunctions.acceptInvitation(detectorId: String, init: AmazonGuardDutyAcceptInvitationCommand.() -> Unit): com.amazonaws.services.guardduty.model.AcceptInvitationResult {
+	return this.block.declare(AmazonGuardDutyAcceptInvitationCommand(detectorId).apply(init)) as com.amazonaws.services.guardduty.model.AcceptInvitationResult
 }
 
 @Generated
-class AmazonGuardDutyAcceptInvitationCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.AcceptInvitationRequest> {
+class AmazonGuardDutyAcceptInvitationCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.AcceptInvitationRequest, com.amazonaws.services.guardduty.model.AcceptInvitationResult> {
 
 	var invitationId: String? = null
 	var masterId: String? = null
@@ -44,8 +44,12 @@ class AmazonGuardDutyAcceptInvitationCommand(val detectorId: String) : AmazonWeb
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.acceptInvitation(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.AcceptInvitationResult {
+	  return com.amazonaws.services.guardduty.model.AcceptInvitationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.AcceptInvitationResult {
+		return environment.guardduty.acceptInvitation(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -58,12 +62,12 @@ class AmazonGuardDutyAcceptInvitationCommand(val detectorId: String) : AmazonWeb
 }
 
 
-fun AmazonGuardDutyFunctions.archiveFindings(detectorId: String, init: AmazonGuardDutyArchiveFindingsCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyArchiveFindingsCommand(detectorId).apply(init))
+fun AmazonGuardDutyFunctions.archiveFindings(detectorId: String, init: AmazonGuardDutyArchiveFindingsCommand.() -> Unit): com.amazonaws.services.guardduty.model.ArchiveFindingsResult {
+	return this.block.declare(AmazonGuardDutyArchiveFindingsCommand(detectorId).apply(init)) as com.amazonaws.services.guardduty.model.ArchiveFindingsResult
 }
 
 @Generated
-class AmazonGuardDutyArchiveFindingsCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.ArchiveFindingsRequest> {
+class AmazonGuardDutyArchiveFindingsCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.ArchiveFindingsRequest, com.amazonaws.services.guardduty.model.ArchiveFindingsResult> {
 
 	var findingIds: List<String>? = null
 
@@ -74,8 +78,12 @@ class AmazonGuardDutyArchiveFindingsCommand(val detectorId: String) : AmazonWebS
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.archiveFindings(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.ArchiveFindingsResult {
+	  return com.amazonaws.services.guardduty.model.ArchiveFindingsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.ArchiveFindingsResult {
+		return environment.guardduty.archiveFindings(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -87,12 +95,12 @@ class AmazonGuardDutyArchiveFindingsCommand(val detectorId: String) : AmazonWebS
 }
 
 
-fun AmazonGuardDutyFunctions.createDetector(init: AmazonGuardDutyCreateDetectorCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyCreateDetectorCommand().apply(init))
+fun AmazonGuardDutyFunctions.createDetector(init: AmazonGuardDutyCreateDetectorCommand.() -> Unit): com.amazonaws.services.guardduty.model.CreateDetectorResult {
+	return this.block.declare(AmazonGuardDutyCreateDetectorCommand().apply(init)) as com.amazonaws.services.guardduty.model.CreateDetectorResult
 }
 
 @Generated
-class AmazonGuardDutyCreateDetectorCommand() : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.CreateDetectorRequest> {
+class AmazonGuardDutyCreateDetectorCommand() : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.CreateDetectorRequest, com.amazonaws.services.guardduty.model.CreateDetectorResult> {
 
 	var enable: Boolean? = false
 
@@ -102,8 +110,12 @@ class AmazonGuardDutyCreateDetectorCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.createDetector(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.CreateDetectorResult {
+	  return com.amazonaws.services.guardduty.model.CreateDetectorResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.CreateDetectorResult {
+		return environment.guardduty.createDetector(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -114,12 +126,12 @@ class AmazonGuardDutyCreateDetectorCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AmazonGuardDutyFunctions.createIPSet(detectorId: String, init: AmazonGuardDutyCreateIPSetCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyCreateIPSetCommand(detectorId).apply(init))
+fun AmazonGuardDutyFunctions.createIPSet(detectorId: String, init: AmazonGuardDutyCreateIPSetCommand.() -> Unit): com.amazonaws.services.guardduty.model.CreateIPSetResult {
+	return this.block.declare(AmazonGuardDutyCreateIPSetCommand(detectorId).apply(init)) as com.amazonaws.services.guardduty.model.CreateIPSetResult
 }
 
 @Generated
-class AmazonGuardDutyCreateIPSetCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.CreateIPSetRequest> {
+class AmazonGuardDutyCreateIPSetCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.CreateIPSetRequest, com.amazonaws.services.guardduty.model.CreateIPSetResult> {
 
 	var activate: Boolean? = false
 	var format: IpSetFormat? = null
@@ -136,8 +148,12 @@ class AmazonGuardDutyCreateIPSetCommand(val detectorId: String) : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.createIPSet(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.CreateIPSetResult {
+	  return com.amazonaws.services.guardduty.model.CreateIPSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.CreateIPSetResult {
+		return environment.guardduty.createIPSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -152,12 +168,12 @@ class AmazonGuardDutyCreateIPSetCommand(val detectorId: String) : AmazonWebServi
 }
 
 
-fun AmazonGuardDutyFunctions.createMembers(detectorId: String, init: AmazonGuardDutyCreateMembersCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyCreateMembersCommand(detectorId).apply(init))
+fun AmazonGuardDutyFunctions.createMembers(detectorId: String, init: AmazonGuardDutyCreateMembersCommand.() -> Unit): com.amazonaws.services.guardduty.model.CreateMembersResult {
+	return this.block.declare(AmazonGuardDutyCreateMembersCommand(detectorId).apply(init)) as com.amazonaws.services.guardduty.model.CreateMembersResult
 }
 
 @Generated
-class AmazonGuardDutyCreateMembersCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.CreateMembersRequest> {
+class AmazonGuardDutyCreateMembersCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.CreateMembersRequest, com.amazonaws.services.guardduty.model.CreateMembersResult> {
 
 	var accountDetails: List<com.amazonaws.services.guardduty.model.AccountDetail>? = null
 
@@ -168,8 +184,12 @@ class AmazonGuardDutyCreateMembersCommand(val detectorId: String) : AmazonWebSer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.createMembers(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.CreateMembersResult {
+	  return com.amazonaws.services.guardduty.model.CreateMembersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.CreateMembersResult {
+		return environment.guardduty.createMembers(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -181,12 +201,12 @@ class AmazonGuardDutyCreateMembersCommand(val detectorId: String) : AmazonWebSer
 }
 
 
-fun AmazonGuardDutyFunctions.createSampleFindings(detectorId: String, init: AmazonGuardDutyCreateSampleFindingsCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyCreateSampleFindingsCommand(detectorId).apply(init))
+fun AmazonGuardDutyFunctions.createSampleFindings(detectorId: String, init: AmazonGuardDutyCreateSampleFindingsCommand.() -> Unit): com.amazonaws.services.guardduty.model.CreateSampleFindingsResult {
+	return this.block.declare(AmazonGuardDutyCreateSampleFindingsCommand(detectorId).apply(init)) as com.amazonaws.services.guardduty.model.CreateSampleFindingsResult
 }
 
 @Generated
-class AmazonGuardDutyCreateSampleFindingsCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.CreateSampleFindingsRequest> {
+class AmazonGuardDutyCreateSampleFindingsCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.CreateSampleFindingsRequest, com.amazonaws.services.guardduty.model.CreateSampleFindingsResult> {
 
 	var findingTypes: List<String>? = null
 
@@ -197,8 +217,12 @@ class AmazonGuardDutyCreateSampleFindingsCommand(val detectorId: String) : Amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.createSampleFindings(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.CreateSampleFindingsResult {
+	  return com.amazonaws.services.guardduty.model.CreateSampleFindingsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.CreateSampleFindingsResult {
+		return environment.guardduty.createSampleFindings(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -210,12 +234,12 @@ class AmazonGuardDutyCreateSampleFindingsCommand(val detectorId: String) : Amazo
 }
 
 
-fun AmazonGuardDutyFunctions.createThreatIntelSet(detectorId: String, init: AmazonGuardDutyCreateThreatIntelSetCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyCreateThreatIntelSetCommand(detectorId).apply(init))
+fun AmazonGuardDutyFunctions.createThreatIntelSet(detectorId: String, init: AmazonGuardDutyCreateThreatIntelSetCommand.() -> Unit): com.amazonaws.services.guardduty.model.CreateThreatIntelSetResult {
+	return this.block.declare(AmazonGuardDutyCreateThreatIntelSetCommand(detectorId).apply(init)) as com.amazonaws.services.guardduty.model.CreateThreatIntelSetResult
 }
 
 @Generated
-class AmazonGuardDutyCreateThreatIntelSetCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.CreateThreatIntelSetRequest> {
+class AmazonGuardDutyCreateThreatIntelSetCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.CreateThreatIntelSetRequest, com.amazonaws.services.guardduty.model.CreateThreatIntelSetResult> {
 
 	var activate: Boolean? = false
 	var format: ThreatIntelSetFormat? = null
@@ -232,8 +256,12 @@ class AmazonGuardDutyCreateThreatIntelSetCommand(val detectorId: String) : Amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.createThreatIntelSet(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.CreateThreatIntelSetResult {
+	  return com.amazonaws.services.guardduty.model.CreateThreatIntelSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.CreateThreatIntelSetResult {
+		return environment.guardduty.createThreatIntelSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -248,12 +276,12 @@ class AmazonGuardDutyCreateThreatIntelSetCommand(val detectorId: String) : Amazo
 }
 
 
-fun AmazonGuardDutyFunctions.declineInvitations(init: AmazonGuardDutyDeclineInvitationsCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyDeclineInvitationsCommand().apply(init))
+fun AmazonGuardDutyFunctions.declineInvitations(init: AmazonGuardDutyDeclineInvitationsCommand.() -> Unit): com.amazonaws.services.guardduty.model.DeclineInvitationsResult {
+	return this.block.declare(AmazonGuardDutyDeclineInvitationsCommand().apply(init)) as com.amazonaws.services.guardduty.model.DeclineInvitationsResult
 }
 
 @Generated
-class AmazonGuardDutyDeclineInvitationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.DeclineInvitationsRequest> {
+class AmazonGuardDutyDeclineInvitationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.DeclineInvitationsRequest, com.amazonaws.services.guardduty.model.DeclineInvitationsResult> {
 
 	var accountIds: List<String>? = null
 
@@ -263,8 +291,12 @@ class AmazonGuardDutyDeclineInvitationsCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.declineInvitations(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.DeclineInvitationsResult {
+	  return com.amazonaws.services.guardduty.model.DeclineInvitationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.DeclineInvitationsResult {
+		return environment.guardduty.declineInvitations(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -275,12 +307,12 @@ class AmazonGuardDutyDeclineInvitationsCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AmazonGuardDutyFunctions.deleteDetector(detectorId: String, init: AmazonGuardDutyDeleteDetectorCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyDeleteDetectorCommand(detectorId).apply(init))
+fun AmazonGuardDutyFunctions.deleteDetector(detectorId: String, init: AmazonGuardDutyDeleteDetectorCommand.() -> Unit): com.amazonaws.services.guardduty.model.DeleteDetectorResult {
+	return this.block.declare(AmazonGuardDutyDeleteDetectorCommand(detectorId).apply(init)) as com.amazonaws.services.guardduty.model.DeleteDetectorResult
 }
 
 @Generated
-class AmazonGuardDutyDeleteDetectorCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.DeleteDetectorRequest> {
+class AmazonGuardDutyDeleteDetectorCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.DeleteDetectorRequest, com.amazonaws.services.guardduty.model.DeleteDetectorResult> {
 
 
 
@@ -290,8 +322,12 @@ class AmazonGuardDutyDeleteDetectorCommand(val detectorId: String) : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.deleteDetector(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.DeleteDetectorResult {
+	  return com.amazonaws.services.guardduty.model.DeleteDetectorResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.DeleteDetectorResult {
+		return environment.guardduty.deleteDetector(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -302,12 +338,12 @@ class AmazonGuardDutyDeleteDetectorCommand(val detectorId: String) : AmazonWebSe
 }
 
 
-fun AmazonGuardDutyFunctions.deleteIPSet(detectorId: String, ipSetId: String, init: AmazonGuardDutyDeleteIPSetCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyDeleteIPSetCommand(detectorId, ipSetId).apply(init))
+fun AmazonGuardDutyFunctions.deleteIPSet(detectorId: String, ipSetId: String, init: AmazonGuardDutyDeleteIPSetCommand.() -> Unit): com.amazonaws.services.guardduty.model.DeleteIPSetResult {
+	return this.block.declare(AmazonGuardDutyDeleteIPSetCommand(detectorId, ipSetId).apply(init)) as com.amazonaws.services.guardduty.model.DeleteIPSetResult
 }
 
 @Generated
-class AmazonGuardDutyDeleteIPSetCommand(val detectorId: String, val ipSetId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.DeleteIPSetRequest> {
+class AmazonGuardDutyDeleteIPSetCommand(val detectorId: String, val ipSetId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.DeleteIPSetRequest, com.amazonaws.services.guardduty.model.DeleteIPSetResult> {
 
 
 
@@ -318,8 +354,12 @@ class AmazonGuardDutyDeleteIPSetCommand(val detectorId: String, val ipSetId: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.deleteIPSet(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.DeleteIPSetResult {
+	  return com.amazonaws.services.guardduty.model.DeleteIPSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.DeleteIPSetResult {
+		return environment.guardduty.deleteIPSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -331,12 +371,12 @@ class AmazonGuardDutyDeleteIPSetCommand(val detectorId: String, val ipSetId: Str
 }
 
 
-fun AmazonGuardDutyFunctions.deleteInvitations(init: AmazonGuardDutyDeleteInvitationsCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyDeleteInvitationsCommand().apply(init))
+fun AmazonGuardDutyFunctions.deleteInvitations(init: AmazonGuardDutyDeleteInvitationsCommand.() -> Unit): com.amazonaws.services.guardduty.model.DeleteInvitationsResult {
+	return this.block.declare(AmazonGuardDutyDeleteInvitationsCommand().apply(init)) as com.amazonaws.services.guardduty.model.DeleteInvitationsResult
 }
 
 @Generated
-class AmazonGuardDutyDeleteInvitationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.DeleteInvitationsRequest> {
+class AmazonGuardDutyDeleteInvitationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.DeleteInvitationsRequest, com.amazonaws.services.guardduty.model.DeleteInvitationsResult> {
 
 	var accountIds: List<String>? = null
 
@@ -346,8 +386,12 @@ class AmazonGuardDutyDeleteInvitationsCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.deleteInvitations(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.DeleteInvitationsResult {
+	  return com.amazonaws.services.guardduty.model.DeleteInvitationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.DeleteInvitationsResult {
+		return environment.guardduty.deleteInvitations(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -358,12 +402,12 @@ class AmazonGuardDutyDeleteInvitationsCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonGuardDutyFunctions.deleteMembers(detectorId: String, init: AmazonGuardDutyDeleteMembersCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyDeleteMembersCommand(detectorId).apply(init))
+fun AmazonGuardDutyFunctions.deleteMembers(detectorId: String, init: AmazonGuardDutyDeleteMembersCommand.() -> Unit): com.amazonaws.services.guardduty.model.DeleteMembersResult {
+	return this.block.declare(AmazonGuardDutyDeleteMembersCommand(detectorId).apply(init)) as com.amazonaws.services.guardduty.model.DeleteMembersResult
 }
 
 @Generated
-class AmazonGuardDutyDeleteMembersCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.DeleteMembersRequest> {
+class AmazonGuardDutyDeleteMembersCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.DeleteMembersRequest, com.amazonaws.services.guardduty.model.DeleteMembersResult> {
 
 	var accountIds: List<String>? = null
 
@@ -374,8 +418,12 @@ class AmazonGuardDutyDeleteMembersCommand(val detectorId: String) : AmazonWebSer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.deleteMembers(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.DeleteMembersResult {
+	  return com.amazonaws.services.guardduty.model.DeleteMembersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.DeleteMembersResult {
+		return environment.guardduty.deleteMembers(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -387,12 +435,12 @@ class AmazonGuardDutyDeleteMembersCommand(val detectorId: String) : AmazonWebSer
 }
 
 
-fun AmazonGuardDutyFunctions.deleteThreatIntelSet(detectorId: String, threatIntelSetId: String, init: AmazonGuardDutyDeleteThreatIntelSetCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyDeleteThreatIntelSetCommand(detectorId, threatIntelSetId).apply(init))
+fun AmazonGuardDutyFunctions.deleteThreatIntelSet(detectorId: String, threatIntelSetId: String, init: AmazonGuardDutyDeleteThreatIntelSetCommand.() -> Unit): com.amazonaws.services.guardduty.model.DeleteThreatIntelSetResult {
+	return this.block.declare(AmazonGuardDutyDeleteThreatIntelSetCommand(detectorId, threatIntelSetId).apply(init)) as com.amazonaws.services.guardduty.model.DeleteThreatIntelSetResult
 }
 
 @Generated
-class AmazonGuardDutyDeleteThreatIntelSetCommand(val detectorId: String, val threatIntelSetId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.DeleteThreatIntelSetRequest> {
+class AmazonGuardDutyDeleteThreatIntelSetCommand(val detectorId: String, val threatIntelSetId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.DeleteThreatIntelSetRequest, com.amazonaws.services.guardduty.model.DeleteThreatIntelSetResult> {
 
 
 
@@ -403,8 +451,12 @@ class AmazonGuardDutyDeleteThreatIntelSetCommand(val detectorId: String, val thr
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.deleteThreatIntelSet(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.DeleteThreatIntelSetResult {
+	  return com.amazonaws.services.guardduty.model.DeleteThreatIntelSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.DeleteThreatIntelSetResult {
+		return environment.guardduty.deleteThreatIntelSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -416,12 +468,12 @@ class AmazonGuardDutyDeleteThreatIntelSetCommand(val detectorId: String, val thr
 }
 
 
-fun AmazonGuardDutyFunctions.disassociateFromMasterAccount(detectorId: String, init: AmazonGuardDutyDisassociateFromMasterAccountCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyDisassociateFromMasterAccountCommand(detectorId).apply(init))
+fun AmazonGuardDutyFunctions.disassociateFromMasterAccount(detectorId: String, init: AmazonGuardDutyDisassociateFromMasterAccountCommand.() -> Unit): com.amazonaws.services.guardduty.model.DisassociateFromMasterAccountResult {
+	return this.block.declare(AmazonGuardDutyDisassociateFromMasterAccountCommand(detectorId).apply(init)) as com.amazonaws.services.guardduty.model.DisassociateFromMasterAccountResult
 }
 
 @Generated
-class AmazonGuardDutyDisassociateFromMasterAccountCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.DisassociateFromMasterAccountRequest> {
+class AmazonGuardDutyDisassociateFromMasterAccountCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.DisassociateFromMasterAccountRequest, com.amazonaws.services.guardduty.model.DisassociateFromMasterAccountResult> {
 
 
 
@@ -431,8 +483,12 @@ class AmazonGuardDutyDisassociateFromMasterAccountCommand(val detectorId: String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.disassociateFromMasterAccount(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.DisassociateFromMasterAccountResult {
+	  return com.amazonaws.services.guardduty.model.DisassociateFromMasterAccountResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.DisassociateFromMasterAccountResult {
+		return environment.guardduty.disassociateFromMasterAccount(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -443,12 +499,12 @@ class AmazonGuardDutyDisassociateFromMasterAccountCommand(val detectorId: String
 }
 
 
-fun AmazonGuardDutyFunctions.disassociateMembers(detectorId: String, init: AmazonGuardDutyDisassociateMembersCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyDisassociateMembersCommand(detectorId).apply(init))
+fun AmazonGuardDutyFunctions.disassociateMembers(detectorId: String, init: AmazonGuardDutyDisassociateMembersCommand.() -> Unit): com.amazonaws.services.guardduty.model.DisassociateMembersResult {
+	return this.block.declare(AmazonGuardDutyDisassociateMembersCommand(detectorId).apply(init)) as com.amazonaws.services.guardduty.model.DisassociateMembersResult
 }
 
 @Generated
-class AmazonGuardDutyDisassociateMembersCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.DisassociateMembersRequest> {
+class AmazonGuardDutyDisassociateMembersCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.DisassociateMembersRequest, com.amazonaws.services.guardduty.model.DisassociateMembersResult> {
 
 	var accountIds: List<String>? = null
 
@@ -459,8 +515,12 @@ class AmazonGuardDutyDisassociateMembersCommand(val detectorId: String) : Amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.disassociateMembers(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.DisassociateMembersResult {
+	  return com.amazonaws.services.guardduty.model.DisassociateMembersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.DisassociateMembersResult {
+		return environment.guardduty.disassociateMembers(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -472,12 +532,12 @@ class AmazonGuardDutyDisassociateMembersCommand(val detectorId: String) : Amazon
 }
 
 
-fun AmazonGuardDutyFunctions.getDetector(detectorId: String, init: AmazonGuardDutyGetDetectorCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyGetDetectorCommand(detectorId).apply(init))
+fun AmazonGuardDutyFunctions.getDetector(detectorId: String, init: AmazonGuardDutyGetDetectorCommand.() -> Unit): com.amazonaws.services.guardduty.model.GetDetectorResult {
+	return this.block.declare(AmazonGuardDutyGetDetectorCommand(detectorId).apply(init)) as com.amazonaws.services.guardduty.model.GetDetectorResult
 }
 
 @Generated
-class AmazonGuardDutyGetDetectorCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.GetDetectorRequest> {
+class AmazonGuardDutyGetDetectorCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.GetDetectorRequest, com.amazonaws.services.guardduty.model.GetDetectorResult> {
 
 
 
@@ -487,8 +547,12 @@ class AmazonGuardDutyGetDetectorCommand(val detectorId: String) : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.getDetector(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.GetDetectorResult {
+	  return com.amazonaws.services.guardduty.model.GetDetectorResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.GetDetectorResult {
+		return environment.guardduty.getDetector(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -499,12 +563,12 @@ class AmazonGuardDutyGetDetectorCommand(val detectorId: String) : AmazonWebServi
 }
 
 
-fun AmazonGuardDutyFunctions.getFindings(detectorId: String, init: AmazonGuardDutyGetFindingsCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyGetFindingsCommand(detectorId).apply(init))
+fun AmazonGuardDutyFunctions.getFindings(detectorId: String, init: AmazonGuardDutyGetFindingsCommand.() -> Unit): com.amazonaws.services.guardduty.model.GetFindingsResult {
+	return this.block.declare(AmazonGuardDutyGetFindingsCommand(detectorId).apply(init)) as com.amazonaws.services.guardduty.model.GetFindingsResult
 }
 
 @Generated
-class AmazonGuardDutyGetFindingsCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.GetFindingsRequest> {
+class AmazonGuardDutyGetFindingsCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.GetFindingsRequest, com.amazonaws.services.guardduty.model.GetFindingsResult> {
 
 	var findingIds: List<String>? = null
 	var sortCriteria: com.amazonaws.services.guardduty.model.SortCriteria? = null
@@ -517,8 +581,12 @@ class AmazonGuardDutyGetFindingsCommand(val detectorId: String) : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.getFindings(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.GetFindingsResult {
+	  return com.amazonaws.services.guardduty.model.GetFindingsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.GetFindingsResult {
+		return environment.guardduty.getFindings(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -531,12 +599,12 @@ class AmazonGuardDutyGetFindingsCommand(val detectorId: String) : AmazonWebServi
 }
 
 
-fun AmazonGuardDutyFunctions.getFindingsStatistics(detectorId: String, init: AmazonGuardDutyGetFindingsStatisticsCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyGetFindingsStatisticsCommand(detectorId).apply(init))
+fun AmazonGuardDutyFunctions.getFindingsStatistics(detectorId: String, init: AmazonGuardDutyGetFindingsStatisticsCommand.() -> Unit): com.amazonaws.services.guardduty.model.GetFindingsStatisticsResult {
+	return this.block.declare(AmazonGuardDutyGetFindingsStatisticsCommand(detectorId).apply(init)) as com.amazonaws.services.guardduty.model.GetFindingsStatisticsResult
 }
 
 @Generated
-class AmazonGuardDutyGetFindingsStatisticsCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.GetFindingsStatisticsRequest> {
+class AmazonGuardDutyGetFindingsStatisticsCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.GetFindingsStatisticsRequest, com.amazonaws.services.guardduty.model.GetFindingsStatisticsResult> {
 
 	var findingCriteria: com.amazonaws.services.guardduty.model.FindingCriteria? = null
 	var findingStatisticTypes: List<FindingStatisticType>? = null
@@ -549,8 +617,12 @@ class AmazonGuardDutyGetFindingsStatisticsCommand(val detectorId: String) : Amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.getFindingsStatistics(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.GetFindingsStatisticsResult {
+	  return com.amazonaws.services.guardduty.model.GetFindingsStatisticsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.GetFindingsStatisticsResult {
+		return environment.guardduty.getFindingsStatistics(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -563,12 +635,12 @@ class AmazonGuardDutyGetFindingsStatisticsCommand(val detectorId: String) : Amaz
 }
 
 
-fun AmazonGuardDutyFunctions.getIPSet(detectorId: String, ipSetId: String, init: AmazonGuardDutyGetIPSetCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyGetIPSetCommand(detectorId, ipSetId).apply(init))
+fun AmazonGuardDutyFunctions.getIPSet(detectorId: String, ipSetId: String, init: AmazonGuardDutyGetIPSetCommand.() -> Unit): com.amazonaws.services.guardduty.model.GetIPSetResult {
+	return this.block.declare(AmazonGuardDutyGetIPSetCommand(detectorId, ipSetId).apply(init)) as com.amazonaws.services.guardduty.model.GetIPSetResult
 }
 
 @Generated
-class AmazonGuardDutyGetIPSetCommand(val detectorId: String, val ipSetId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.GetIPSetRequest> {
+class AmazonGuardDutyGetIPSetCommand(val detectorId: String, val ipSetId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.GetIPSetRequest, com.amazonaws.services.guardduty.model.GetIPSetResult> {
 
 
 
@@ -579,8 +651,12 @@ class AmazonGuardDutyGetIPSetCommand(val detectorId: String, val ipSetId: String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.getIPSet(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.GetIPSetResult {
+	  return com.amazonaws.services.guardduty.model.GetIPSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.GetIPSetResult {
+		return environment.guardduty.getIPSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -592,12 +668,12 @@ class AmazonGuardDutyGetIPSetCommand(val detectorId: String, val ipSetId: String
 }
 
 
-fun AmazonGuardDutyFunctions.getInvitationsCount(init: AmazonGuardDutyGetInvitationsCountCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyGetInvitationsCountCommand().apply(init))
+fun AmazonGuardDutyFunctions.getInvitationsCount(init: AmazonGuardDutyGetInvitationsCountCommand.() -> Unit): com.amazonaws.services.guardduty.model.GetInvitationsCountResult {
+	return this.block.declare(AmazonGuardDutyGetInvitationsCountCommand().apply(init)) as com.amazonaws.services.guardduty.model.GetInvitationsCountResult
 }
 
 @Generated
-class AmazonGuardDutyGetInvitationsCountCommand() : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.GetInvitationsCountRequest> {
+class AmazonGuardDutyGetInvitationsCountCommand() : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.GetInvitationsCountRequest, com.amazonaws.services.guardduty.model.GetInvitationsCountResult> {
 
 
 
@@ -607,8 +683,12 @@ class AmazonGuardDutyGetInvitationsCountCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.getInvitationsCount(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.GetInvitationsCountResult {
+	  return com.amazonaws.services.guardduty.model.GetInvitationsCountResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.GetInvitationsCountResult {
+		return environment.guardduty.getInvitationsCount(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -619,12 +699,12 @@ class AmazonGuardDutyGetInvitationsCountCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonGuardDutyFunctions.getMasterAccount(detectorId: String, init: AmazonGuardDutyGetMasterAccountCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyGetMasterAccountCommand(detectorId).apply(init))
+fun AmazonGuardDutyFunctions.getMasterAccount(detectorId: String, init: AmazonGuardDutyGetMasterAccountCommand.() -> Unit): com.amazonaws.services.guardduty.model.GetMasterAccountResult {
+	return this.block.declare(AmazonGuardDutyGetMasterAccountCommand(detectorId).apply(init)) as com.amazonaws.services.guardduty.model.GetMasterAccountResult
 }
 
 @Generated
-class AmazonGuardDutyGetMasterAccountCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.GetMasterAccountRequest> {
+class AmazonGuardDutyGetMasterAccountCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.GetMasterAccountRequest, com.amazonaws.services.guardduty.model.GetMasterAccountResult> {
 
 
 
@@ -634,8 +714,12 @@ class AmazonGuardDutyGetMasterAccountCommand(val detectorId: String) : AmazonWeb
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.getMasterAccount(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.GetMasterAccountResult {
+	  return com.amazonaws.services.guardduty.model.GetMasterAccountResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.GetMasterAccountResult {
+		return environment.guardduty.getMasterAccount(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -646,12 +730,12 @@ class AmazonGuardDutyGetMasterAccountCommand(val detectorId: String) : AmazonWeb
 }
 
 
-fun AmazonGuardDutyFunctions.getMembers(detectorId: String, init: AmazonGuardDutyGetMembersCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyGetMembersCommand(detectorId).apply(init))
+fun AmazonGuardDutyFunctions.getMembers(detectorId: String, init: AmazonGuardDutyGetMembersCommand.() -> Unit): com.amazonaws.services.guardduty.model.GetMembersResult {
+	return this.block.declare(AmazonGuardDutyGetMembersCommand(detectorId).apply(init)) as com.amazonaws.services.guardduty.model.GetMembersResult
 }
 
 @Generated
-class AmazonGuardDutyGetMembersCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.GetMembersRequest> {
+class AmazonGuardDutyGetMembersCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.GetMembersRequest, com.amazonaws.services.guardduty.model.GetMembersResult> {
 
 	var accountIds: List<String>? = null
 
@@ -662,8 +746,12 @@ class AmazonGuardDutyGetMembersCommand(val detectorId: String) : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.getMembers(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.GetMembersResult {
+	  return com.amazonaws.services.guardduty.model.GetMembersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.GetMembersResult {
+		return environment.guardduty.getMembers(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -675,12 +763,12 @@ class AmazonGuardDutyGetMembersCommand(val detectorId: String) : AmazonWebServic
 }
 
 
-fun AmazonGuardDutyFunctions.getThreatIntelSet(detectorId: String, threatIntelSetId: String, init: AmazonGuardDutyGetThreatIntelSetCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyGetThreatIntelSetCommand(detectorId, threatIntelSetId).apply(init))
+fun AmazonGuardDutyFunctions.getThreatIntelSet(detectorId: String, threatIntelSetId: String, init: AmazonGuardDutyGetThreatIntelSetCommand.() -> Unit): com.amazonaws.services.guardduty.model.GetThreatIntelSetResult {
+	return this.block.declare(AmazonGuardDutyGetThreatIntelSetCommand(detectorId, threatIntelSetId).apply(init)) as com.amazonaws.services.guardduty.model.GetThreatIntelSetResult
 }
 
 @Generated
-class AmazonGuardDutyGetThreatIntelSetCommand(val detectorId: String, val threatIntelSetId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.GetThreatIntelSetRequest> {
+class AmazonGuardDutyGetThreatIntelSetCommand(val detectorId: String, val threatIntelSetId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.GetThreatIntelSetRequest, com.amazonaws.services.guardduty.model.GetThreatIntelSetResult> {
 
 
 
@@ -691,8 +779,12 @@ class AmazonGuardDutyGetThreatIntelSetCommand(val detectorId: String, val threat
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.getThreatIntelSet(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.GetThreatIntelSetResult {
+	  return com.amazonaws.services.guardduty.model.GetThreatIntelSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.GetThreatIntelSetResult {
+		return environment.guardduty.getThreatIntelSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -704,12 +796,12 @@ class AmazonGuardDutyGetThreatIntelSetCommand(val detectorId: String, val threat
 }
 
 
-fun AmazonGuardDutyFunctions.inviteMembers(detectorId: String, init: AmazonGuardDutyInviteMembersCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyInviteMembersCommand(detectorId).apply(init))
+fun AmazonGuardDutyFunctions.inviteMembers(detectorId: String, init: AmazonGuardDutyInviteMembersCommand.() -> Unit): com.amazonaws.services.guardduty.model.InviteMembersResult {
+	return this.block.declare(AmazonGuardDutyInviteMembersCommand(detectorId).apply(init)) as com.amazonaws.services.guardduty.model.InviteMembersResult
 }
 
 @Generated
-class AmazonGuardDutyInviteMembersCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.InviteMembersRequest> {
+class AmazonGuardDutyInviteMembersCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.InviteMembersRequest, com.amazonaws.services.guardduty.model.InviteMembersResult> {
 
 	var accountIds: List<String>? = null
 	var message: String? = null
@@ -722,8 +814,12 @@ class AmazonGuardDutyInviteMembersCommand(val detectorId: String) : AmazonWebSer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.inviteMembers(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.InviteMembersResult {
+	  return com.amazonaws.services.guardduty.model.InviteMembersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.InviteMembersResult {
+		return environment.guardduty.inviteMembers(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -736,12 +832,12 @@ class AmazonGuardDutyInviteMembersCommand(val detectorId: String) : AmazonWebSer
 }
 
 
-fun AmazonGuardDutyFunctions.listDetectors(init: AmazonGuardDutyListDetectorsCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyListDetectorsCommand().apply(init))
+fun AmazonGuardDutyFunctions.listDetectors(init: AmazonGuardDutyListDetectorsCommand.() -> Unit): com.amazonaws.services.guardduty.model.ListDetectorsResult {
+	return this.block.declare(AmazonGuardDutyListDetectorsCommand().apply(init)) as com.amazonaws.services.guardduty.model.ListDetectorsResult
 }
 
 @Generated
-class AmazonGuardDutyListDetectorsCommand() : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.ListDetectorsRequest> {
+class AmazonGuardDutyListDetectorsCommand() : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.ListDetectorsRequest, com.amazonaws.services.guardduty.model.ListDetectorsResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -753,8 +849,12 @@ class AmazonGuardDutyListDetectorsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.listDetectors(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.ListDetectorsResult {
+	  return com.amazonaws.services.guardduty.model.ListDetectorsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.ListDetectorsResult {
+		return environment.guardduty.listDetectors(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -766,12 +866,12 @@ class AmazonGuardDutyListDetectorsCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonGuardDutyFunctions.listFindings(detectorId: String, init: AmazonGuardDutyListFindingsCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyListFindingsCommand(detectorId).apply(init))
+fun AmazonGuardDutyFunctions.listFindings(detectorId: String, init: AmazonGuardDutyListFindingsCommand.() -> Unit): com.amazonaws.services.guardduty.model.ListFindingsResult {
+	return this.block.declare(AmazonGuardDutyListFindingsCommand(detectorId).apply(init)) as com.amazonaws.services.guardduty.model.ListFindingsResult
 }
 
 @Generated
-class AmazonGuardDutyListFindingsCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.ListFindingsRequest> {
+class AmazonGuardDutyListFindingsCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.ListFindingsRequest, com.amazonaws.services.guardduty.model.ListFindingsResult> {
 
 	var findingCriteria: com.amazonaws.services.guardduty.model.FindingCriteria? = null
 	var maxResults: Int? = 0
@@ -788,8 +888,12 @@ class AmazonGuardDutyListFindingsCommand(val detectorId: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.listFindings(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.ListFindingsResult {
+	  return com.amazonaws.services.guardduty.model.ListFindingsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.ListFindingsResult {
+		return environment.guardduty.listFindings(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -804,12 +908,12 @@ class AmazonGuardDutyListFindingsCommand(val detectorId: String) : AmazonWebServ
 }
 
 
-fun AmazonGuardDutyFunctions.listIPSets(detectorId: String, init: AmazonGuardDutyListIPSetsCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyListIPSetsCommand(detectorId).apply(init))
+fun AmazonGuardDutyFunctions.listIPSets(detectorId: String, init: AmazonGuardDutyListIPSetsCommand.() -> Unit): com.amazonaws.services.guardduty.model.ListIPSetsResult {
+	return this.block.declare(AmazonGuardDutyListIPSetsCommand(detectorId).apply(init)) as com.amazonaws.services.guardduty.model.ListIPSetsResult
 }
 
 @Generated
-class AmazonGuardDutyListIPSetsCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.ListIPSetsRequest> {
+class AmazonGuardDutyListIPSetsCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.ListIPSetsRequest, com.amazonaws.services.guardduty.model.ListIPSetsResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -822,8 +926,12 @@ class AmazonGuardDutyListIPSetsCommand(val detectorId: String) : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.listIPSets(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.ListIPSetsResult {
+	  return com.amazonaws.services.guardduty.model.ListIPSetsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.ListIPSetsResult {
+		return environment.guardduty.listIPSets(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -836,12 +944,12 @@ class AmazonGuardDutyListIPSetsCommand(val detectorId: String) : AmazonWebServic
 }
 
 
-fun AmazonGuardDutyFunctions.listInvitations(init: AmazonGuardDutyListInvitationsCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyListInvitationsCommand().apply(init))
+fun AmazonGuardDutyFunctions.listInvitations(init: AmazonGuardDutyListInvitationsCommand.() -> Unit): com.amazonaws.services.guardduty.model.ListInvitationsResult {
+	return this.block.declare(AmazonGuardDutyListInvitationsCommand().apply(init)) as com.amazonaws.services.guardduty.model.ListInvitationsResult
 }
 
 @Generated
-class AmazonGuardDutyListInvitationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.ListInvitationsRequest> {
+class AmazonGuardDutyListInvitationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.ListInvitationsRequest, com.amazonaws.services.guardduty.model.ListInvitationsResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -853,8 +961,12 @@ class AmazonGuardDutyListInvitationsCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.listInvitations(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.ListInvitationsResult {
+	  return com.amazonaws.services.guardduty.model.ListInvitationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.ListInvitationsResult {
+		return environment.guardduty.listInvitations(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -866,12 +978,12 @@ class AmazonGuardDutyListInvitationsCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AmazonGuardDutyFunctions.listMembers(detectorId: String, init: AmazonGuardDutyListMembersCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyListMembersCommand(detectorId).apply(init))
+fun AmazonGuardDutyFunctions.listMembers(detectorId: String, init: AmazonGuardDutyListMembersCommand.() -> Unit): com.amazonaws.services.guardduty.model.ListMembersResult {
+	return this.block.declare(AmazonGuardDutyListMembersCommand(detectorId).apply(init)) as com.amazonaws.services.guardduty.model.ListMembersResult
 }
 
 @Generated
-class AmazonGuardDutyListMembersCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.ListMembersRequest> {
+class AmazonGuardDutyListMembersCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.ListMembersRequest, com.amazonaws.services.guardduty.model.ListMembersResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -886,8 +998,12 @@ class AmazonGuardDutyListMembersCommand(val detectorId: String) : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.listMembers(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.ListMembersResult {
+	  return com.amazonaws.services.guardduty.model.ListMembersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.ListMembersResult {
+		return environment.guardduty.listMembers(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -901,12 +1017,12 @@ class AmazonGuardDutyListMembersCommand(val detectorId: String) : AmazonWebServi
 }
 
 
-fun AmazonGuardDutyFunctions.listThreatIntelSets(detectorId: String, init: AmazonGuardDutyListThreatIntelSetsCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyListThreatIntelSetsCommand(detectorId).apply(init))
+fun AmazonGuardDutyFunctions.listThreatIntelSets(detectorId: String, init: AmazonGuardDutyListThreatIntelSetsCommand.() -> Unit): com.amazonaws.services.guardduty.model.ListThreatIntelSetsResult {
+	return this.block.declare(AmazonGuardDutyListThreatIntelSetsCommand(detectorId).apply(init)) as com.amazonaws.services.guardduty.model.ListThreatIntelSetsResult
 }
 
 @Generated
-class AmazonGuardDutyListThreatIntelSetsCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.ListThreatIntelSetsRequest> {
+class AmazonGuardDutyListThreatIntelSetsCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.ListThreatIntelSetsRequest, com.amazonaws.services.guardduty.model.ListThreatIntelSetsResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -919,8 +1035,12 @@ class AmazonGuardDutyListThreatIntelSetsCommand(val detectorId: String) : Amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.listThreatIntelSets(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.ListThreatIntelSetsResult {
+	  return com.amazonaws.services.guardduty.model.ListThreatIntelSetsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.ListThreatIntelSetsResult {
+		return environment.guardduty.listThreatIntelSets(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -933,12 +1053,12 @@ class AmazonGuardDutyListThreatIntelSetsCommand(val detectorId: String) : Amazon
 }
 
 
-fun AmazonGuardDutyFunctions.startMonitoringMembers(detectorId: String, init: AmazonGuardDutyStartMonitoringMembersCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyStartMonitoringMembersCommand(detectorId).apply(init))
+fun AmazonGuardDutyFunctions.startMonitoringMembers(detectorId: String, init: AmazonGuardDutyStartMonitoringMembersCommand.() -> Unit): com.amazonaws.services.guardduty.model.StartMonitoringMembersResult {
+	return this.block.declare(AmazonGuardDutyStartMonitoringMembersCommand(detectorId).apply(init)) as com.amazonaws.services.guardduty.model.StartMonitoringMembersResult
 }
 
 @Generated
-class AmazonGuardDutyStartMonitoringMembersCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.StartMonitoringMembersRequest> {
+class AmazonGuardDutyStartMonitoringMembersCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.StartMonitoringMembersRequest, com.amazonaws.services.guardduty.model.StartMonitoringMembersResult> {
 
 	var accountIds: List<String>? = null
 
@@ -949,8 +1069,12 @@ class AmazonGuardDutyStartMonitoringMembersCommand(val detectorId: String) : Ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.startMonitoringMembers(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.StartMonitoringMembersResult {
+	  return com.amazonaws.services.guardduty.model.StartMonitoringMembersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.StartMonitoringMembersResult {
+		return environment.guardduty.startMonitoringMembers(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -962,12 +1086,12 @@ class AmazonGuardDutyStartMonitoringMembersCommand(val detectorId: String) : Ama
 }
 
 
-fun AmazonGuardDutyFunctions.stopMonitoringMembers(detectorId: String, init: AmazonGuardDutyStopMonitoringMembersCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyStopMonitoringMembersCommand(detectorId).apply(init))
+fun AmazonGuardDutyFunctions.stopMonitoringMembers(detectorId: String, init: AmazonGuardDutyStopMonitoringMembersCommand.() -> Unit): com.amazonaws.services.guardduty.model.StopMonitoringMembersResult {
+	return this.block.declare(AmazonGuardDutyStopMonitoringMembersCommand(detectorId).apply(init)) as com.amazonaws.services.guardduty.model.StopMonitoringMembersResult
 }
 
 @Generated
-class AmazonGuardDutyStopMonitoringMembersCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.StopMonitoringMembersRequest> {
+class AmazonGuardDutyStopMonitoringMembersCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.StopMonitoringMembersRequest, com.amazonaws.services.guardduty.model.StopMonitoringMembersResult> {
 
 	var accountIds: List<String>? = null
 
@@ -978,8 +1102,12 @@ class AmazonGuardDutyStopMonitoringMembersCommand(val detectorId: String) : Amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.stopMonitoringMembers(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.StopMonitoringMembersResult {
+	  return com.amazonaws.services.guardduty.model.StopMonitoringMembersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.StopMonitoringMembersResult {
+		return environment.guardduty.stopMonitoringMembers(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -991,12 +1119,12 @@ class AmazonGuardDutyStopMonitoringMembersCommand(val detectorId: String) : Amaz
 }
 
 
-fun AmazonGuardDutyFunctions.unarchiveFindings(detectorId: String, init: AmazonGuardDutyUnarchiveFindingsCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyUnarchiveFindingsCommand(detectorId).apply(init))
+fun AmazonGuardDutyFunctions.unarchiveFindings(detectorId: String, init: AmazonGuardDutyUnarchiveFindingsCommand.() -> Unit): com.amazonaws.services.guardduty.model.UnarchiveFindingsResult {
+	return this.block.declare(AmazonGuardDutyUnarchiveFindingsCommand(detectorId).apply(init)) as com.amazonaws.services.guardduty.model.UnarchiveFindingsResult
 }
 
 @Generated
-class AmazonGuardDutyUnarchiveFindingsCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.UnarchiveFindingsRequest> {
+class AmazonGuardDutyUnarchiveFindingsCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.UnarchiveFindingsRequest, com.amazonaws.services.guardduty.model.UnarchiveFindingsResult> {
 
 	var findingIds: List<String>? = null
 
@@ -1007,8 +1135,12 @@ class AmazonGuardDutyUnarchiveFindingsCommand(val detectorId: String) : AmazonWe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.unarchiveFindings(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.UnarchiveFindingsResult {
+	  return com.amazonaws.services.guardduty.model.UnarchiveFindingsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.UnarchiveFindingsResult {
+		return environment.guardduty.unarchiveFindings(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1020,12 +1152,12 @@ class AmazonGuardDutyUnarchiveFindingsCommand(val detectorId: String) : AmazonWe
 }
 
 
-fun AmazonGuardDutyFunctions.updateDetector(detectorId: String, init: AmazonGuardDutyUpdateDetectorCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyUpdateDetectorCommand(detectorId).apply(init))
+fun AmazonGuardDutyFunctions.updateDetector(detectorId: String, init: AmazonGuardDutyUpdateDetectorCommand.() -> Unit): com.amazonaws.services.guardduty.model.UpdateDetectorResult {
+	return this.block.declare(AmazonGuardDutyUpdateDetectorCommand(detectorId).apply(init)) as com.amazonaws.services.guardduty.model.UpdateDetectorResult
 }
 
 @Generated
-class AmazonGuardDutyUpdateDetectorCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.UpdateDetectorRequest> {
+class AmazonGuardDutyUpdateDetectorCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.UpdateDetectorRequest, com.amazonaws.services.guardduty.model.UpdateDetectorResult> {
 
 	var enable: Boolean? = false
 
@@ -1036,8 +1168,12 @@ class AmazonGuardDutyUpdateDetectorCommand(val detectorId: String) : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.updateDetector(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.UpdateDetectorResult {
+	  return com.amazonaws.services.guardduty.model.UpdateDetectorResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.UpdateDetectorResult {
+		return environment.guardduty.updateDetector(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1049,12 +1185,12 @@ class AmazonGuardDutyUpdateDetectorCommand(val detectorId: String) : AmazonWebSe
 }
 
 
-fun AmazonGuardDutyFunctions.updateFindingsFeedback(detectorId: String, init: AmazonGuardDutyUpdateFindingsFeedbackCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyUpdateFindingsFeedbackCommand(detectorId).apply(init))
+fun AmazonGuardDutyFunctions.updateFindingsFeedback(detectorId: String, init: AmazonGuardDutyUpdateFindingsFeedbackCommand.() -> Unit): com.amazonaws.services.guardduty.model.UpdateFindingsFeedbackResult {
+	return this.block.declare(AmazonGuardDutyUpdateFindingsFeedbackCommand(detectorId).apply(init)) as com.amazonaws.services.guardduty.model.UpdateFindingsFeedbackResult
 }
 
 @Generated
-class AmazonGuardDutyUpdateFindingsFeedbackCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.UpdateFindingsFeedbackRequest> {
+class AmazonGuardDutyUpdateFindingsFeedbackCommand(val detectorId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.UpdateFindingsFeedbackRequest, com.amazonaws.services.guardduty.model.UpdateFindingsFeedbackResult> {
 
 	var comments: String? = null
 	var feedback: Feedback? = null
@@ -1069,8 +1205,12 @@ class AmazonGuardDutyUpdateFindingsFeedbackCommand(val detectorId: String) : Ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.updateFindingsFeedback(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.UpdateFindingsFeedbackResult {
+	  return com.amazonaws.services.guardduty.model.UpdateFindingsFeedbackResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.UpdateFindingsFeedbackResult {
+		return environment.guardduty.updateFindingsFeedback(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1084,12 +1224,12 @@ class AmazonGuardDutyUpdateFindingsFeedbackCommand(val detectorId: String) : Ama
 }
 
 
-fun AmazonGuardDutyFunctions.updateIPSet(detectorId: String, ipSetId: String, init: AmazonGuardDutyUpdateIPSetCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyUpdateIPSetCommand(detectorId, ipSetId).apply(init))
+fun AmazonGuardDutyFunctions.updateIPSet(detectorId: String, ipSetId: String, init: AmazonGuardDutyUpdateIPSetCommand.() -> Unit): com.amazonaws.services.guardduty.model.UpdateIPSetResult {
+	return this.block.declare(AmazonGuardDutyUpdateIPSetCommand(detectorId, ipSetId).apply(init)) as com.amazonaws.services.guardduty.model.UpdateIPSetResult
 }
 
 @Generated
-class AmazonGuardDutyUpdateIPSetCommand(val detectorId: String, val ipSetId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.UpdateIPSetRequest> {
+class AmazonGuardDutyUpdateIPSetCommand(val detectorId: String, val ipSetId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.UpdateIPSetRequest, com.amazonaws.services.guardduty.model.UpdateIPSetResult> {
 
 	var activate: Boolean? = false
 	var location: String? = null
@@ -1105,8 +1245,12 @@ class AmazonGuardDutyUpdateIPSetCommand(val detectorId: String, val ipSetId: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.updateIPSet(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.UpdateIPSetResult {
+	  return com.amazonaws.services.guardduty.model.UpdateIPSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.UpdateIPSetResult {
+		return environment.guardduty.updateIPSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1121,12 +1265,12 @@ class AmazonGuardDutyUpdateIPSetCommand(val detectorId: String, val ipSetId: Str
 }
 
 
-fun AmazonGuardDutyFunctions.updateThreatIntelSet(detectorId: String, threatIntelSetId: String, init: AmazonGuardDutyUpdateThreatIntelSetCommand.() -> Unit) {
-	this.block.declare(AmazonGuardDutyUpdateThreatIntelSetCommand(detectorId, threatIntelSetId).apply(init))
+fun AmazonGuardDutyFunctions.updateThreatIntelSet(detectorId: String, threatIntelSetId: String, init: AmazonGuardDutyUpdateThreatIntelSetCommand.() -> Unit): com.amazonaws.services.guardduty.model.UpdateThreatIntelSetResult {
+	return this.block.declare(AmazonGuardDutyUpdateThreatIntelSetCommand(detectorId, threatIntelSetId).apply(init)) as com.amazonaws.services.guardduty.model.UpdateThreatIntelSetResult
 }
 
 @Generated
-class AmazonGuardDutyUpdateThreatIntelSetCommand(val detectorId: String, val threatIntelSetId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.UpdateThreatIntelSetRequest> {
+class AmazonGuardDutyUpdateThreatIntelSetCommand(val detectorId: String, val threatIntelSetId: String) : AmazonWebServiceCommand<com.amazonaws.services.guardduty.model.UpdateThreatIntelSetRequest, com.amazonaws.services.guardduty.model.UpdateThreatIntelSetResult> {
 
 	var activate: Boolean? = false
 	var location: String? = null
@@ -1142,8 +1286,12 @@ class AmazonGuardDutyUpdateThreatIntelSetCommand(val detectorId: String, val thr
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.guardduty.updateThreatIntelSet(build())
+	override fun dryResult(): com.amazonaws.services.guardduty.model.UpdateThreatIntelSetResult {
+	  return com.amazonaws.services.guardduty.model.UpdateThreatIntelSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.guardduty.model.UpdateThreatIntelSetResult {
+		return environment.guardduty.updateThreatIntelSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

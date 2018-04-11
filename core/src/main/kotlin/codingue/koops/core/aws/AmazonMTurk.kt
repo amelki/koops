@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.mturk_requester: AmazonMTurk
 @Generated
 class AmazonMTurkFunctions(val block: Block)
 
-infix fun AwsContinuation.mturk_requester(init: AmazonMTurkFunctions.() -> Unit) {
-	AmazonMTurkFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.mturk_requester(init: AmazonMTurkFunctions.() -> T): T {
+	return AmazonMTurkFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonMTurkFunctions.acceptQualificationRequest(qualificationRequestId: String, init: AmazonMTurkAcceptQualificationRequestCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkAcceptQualificationRequestCommand(qualificationRequestId).apply(init))
+fun AmazonMTurkFunctions.acceptQualificationRequest(qualificationRequestId: String, init: AmazonMTurkAcceptQualificationRequestCommand.() -> Unit): com.amazonaws.services.mturk.model.AcceptQualificationRequestResult {
+	return this.block.declare(AmazonMTurkAcceptQualificationRequestCommand(qualificationRequestId).apply(init)) as com.amazonaws.services.mturk.model.AcceptQualificationRequestResult
 }
 
 @Generated
-class AmazonMTurkAcceptQualificationRequestCommand(val qualificationRequestId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.AcceptQualificationRequestRequest> {
+class AmazonMTurkAcceptQualificationRequestCommand(val qualificationRequestId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.AcceptQualificationRequestRequest, com.amazonaws.services.mturk.model.AcceptQualificationRequestResult> {
 
 	var integerValue: Int? = 0
 
@@ -42,8 +42,12 @@ class AmazonMTurkAcceptQualificationRequestCommand(val qualificationRequestId: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.acceptQualificationRequest(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.AcceptQualificationRequestResult {
+	  return com.amazonaws.services.mturk.model.AcceptQualificationRequestResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.AcceptQualificationRequestResult {
+		return environment.mturk_requester.acceptQualificationRequest(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -55,12 +59,12 @@ class AmazonMTurkAcceptQualificationRequestCommand(val qualificationRequestId: S
 }
 
 
-fun AmazonMTurkFunctions.approveAssignment(assignmentId: String, init: AmazonMTurkApproveAssignmentCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkApproveAssignmentCommand(assignmentId).apply(init))
+fun AmazonMTurkFunctions.approveAssignment(assignmentId: String, init: AmazonMTurkApproveAssignmentCommand.() -> Unit): com.amazonaws.services.mturk.model.ApproveAssignmentResult {
+	return this.block.declare(AmazonMTurkApproveAssignmentCommand(assignmentId).apply(init)) as com.amazonaws.services.mturk.model.ApproveAssignmentResult
 }
 
 @Generated
-class AmazonMTurkApproveAssignmentCommand(val assignmentId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.ApproveAssignmentRequest> {
+class AmazonMTurkApproveAssignmentCommand(val assignmentId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.ApproveAssignmentRequest, com.amazonaws.services.mturk.model.ApproveAssignmentResult> {
 
 	var requesterFeedback: String? = null
 	var overrideRejection: Boolean? = false
@@ -73,8 +77,12 @@ class AmazonMTurkApproveAssignmentCommand(val assignmentId: String) : AmazonWebS
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.approveAssignment(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.ApproveAssignmentResult {
+	  return com.amazonaws.services.mturk.model.ApproveAssignmentResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.ApproveAssignmentResult {
+		return environment.mturk_requester.approveAssignment(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -87,12 +95,12 @@ class AmazonMTurkApproveAssignmentCommand(val assignmentId: String) : AmazonWebS
 }
 
 
-fun AmazonMTurkFunctions.associateQualificationWithWorker(qualificationTypeId: String, workerId: String, init: AmazonMTurkAssociateQualificationWithWorkerCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkAssociateQualificationWithWorkerCommand(qualificationTypeId, workerId).apply(init))
+fun AmazonMTurkFunctions.associateQualificationWithWorker(qualificationTypeId: String, workerId: String, init: AmazonMTurkAssociateQualificationWithWorkerCommand.() -> Unit): com.amazonaws.services.mturk.model.AssociateQualificationWithWorkerResult {
+	return this.block.declare(AmazonMTurkAssociateQualificationWithWorkerCommand(qualificationTypeId, workerId).apply(init)) as com.amazonaws.services.mturk.model.AssociateQualificationWithWorkerResult
 }
 
 @Generated
-class AmazonMTurkAssociateQualificationWithWorkerCommand(val qualificationTypeId: String, val workerId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.AssociateQualificationWithWorkerRequest> {
+class AmazonMTurkAssociateQualificationWithWorkerCommand(val qualificationTypeId: String, val workerId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.AssociateQualificationWithWorkerRequest, com.amazonaws.services.mturk.model.AssociateQualificationWithWorkerResult> {
 
 	var integerValue: Int? = 0
 	var sendNotification: Boolean? = false
@@ -106,8 +114,12 @@ class AmazonMTurkAssociateQualificationWithWorkerCommand(val qualificationTypeId
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.associateQualificationWithWorker(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.AssociateQualificationWithWorkerResult {
+	  return com.amazonaws.services.mturk.model.AssociateQualificationWithWorkerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.AssociateQualificationWithWorkerResult {
+		return environment.mturk_requester.associateQualificationWithWorker(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -121,12 +133,12 @@ class AmazonMTurkAssociateQualificationWithWorkerCommand(val qualificationTypeId
 }
 
 
-fun AmazonMTurkFunctions.createAdditionalAssignmentsForHIT(hITId: String, numberOfAdditionalAssignments: Int, init: AmazonMTurkCreateAdditionalAssignmentsForHITCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkCreateAdditionalAssignmentsForHITCommand(hITId, numberOfAdditionalAssignments).apply(init))
+fun AmazonMTurkFunctions.createAdditionalAssignmentsForHIT(hITId: String, numberOfAdditionalAssignments: Int, init: AmazonMTurkCreateAdditionalAssignmentsForHITCommand.() -> Unit): com.amazonaws.services.mturk.model.CreateAdditionalAssignmentsForHITResult {
+	return this.block.declare(AmazonMTurkCreateAdditionalAssignmentsForHITCommand(hITId, numberOfAdditionalAssignments).apply(init)) as com.amazonaws.services.mturk.model.CreateAdditionalAssignmentsForHITResult
 }
 
 @Generated
-class AmazonMTurkCreateAdditionalAssignmentsForHITCommand(val hITId: String, val numberOfAdditionalAssignments: Int) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.CreateAdditionalAssignmentsForHITRequest> {
+class AmazonMTurkCreateAdditionalAssignmentsForHITCommand(val hITId: String, val numberOfAdditionalAssignments: Int) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.CreateAdditionalAssignmentsForHITRequest, com.amazonaws.services.mturk.model.CreateAdditionalAssignmentsForHITResult> {
 
 	var uniqueRequestToken: String? = null
 
@@ -138,8 +150,12 @@ class AmazonMTurkCreateAdditionalAssignmentsForHITCommand(val hITId: String, val
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.createAdditionalAssignmentsForHIT(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.CreateAdditionalAssignmentsForHITResult {
+	  return com.amazonaws.services.mturk.model.CreateAdditionalAssignmentsForHITResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.CreateAdditionalAssignmentsForHITResult {
+		return environment.mturk_requester.createAdditionalAssignmentsForHIT(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -152,12 +168,12 @@ class AmazonMTurkCreateAdditionalAssignmentsForHITCommand(val hITId: String, val
 }
 
 
-fun AmazonMTurkFunctions.createHIT(lifetimeInSeconds: Long, assignmentDurationInSeconds: Long, reward: String, title: String, description: String, init: AmazonMTurkCreateHITCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkCreateHITCommand(lifetimeInSeconds, assignmentDurationInSeconds, reward, title, description).apply(init))
+fun AmazonMTurkFunctions.createHIT(lifetimeInSeconds: Long, assignmentDurationInSeconds: Long, reward: String, title: String, description: String, init: AmazonMTurkCreateHITCommand.() -> Unit): com.amazonaws.services.mturk.model.CreateHITResult {
+	return this.block.declare(AmazonMTurkCreateHITCommand(lifetimeInSeconds, assignmentDurationInSeconds, reward, title, description).apply(init)) as com.amazonaws.services.mturk.model.CreateHITResult
 }
 
 @Generated
-class AmazonMTurkCreateHITCommand(val lifetimeInSeconds: Long, val assignmentDurationInSeconds: Long, val reward: String, val title: String, val description: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.CreateHITRequest> {
+class AmazonMTurkCreateHITCommand(val lifetimeInSeconds: Long, val assignmentDurationInSeconds: Long, val reward: String, val title: String, val description: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.CreateHITRequest, com.amazonaws.services.mturk.model.CreateHITResult> {
 
 	var maxAssignments: Int? = 0
 	var autoApprovalDelayInSeconds: Long? = 0L
@@ -192,8 +208,12 @@ class AmazonMTurkCreateHITCommand(val lifetimeInSeconds: Long, val assignmentDur
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.createHIT(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.CreateHITResult {
+	  return com.amazonaws.services.mturk.model.CreateHITResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.CreateHITResult {
+		return environment.mturk_requester.createHIT(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -219,12 +239,12 @@ class AmazonMTurkCreateHITCommand(val lifetimeInSeconds: Long, val assignmentDur
 }
 
 
-fun AmazonMTurkFunctions.createHITType(assignmentDurationInSeconds: Long, reward: String, title: String, description: String, init: AmazonMTurkCreateHITTypeCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkCreateHITTypeCommand(assignmentDurationInSeconds, reward, title, description).apply(init))
+fun AmazonMTurkFunctions.createHITType(assignmentDurationInSeconds: Long, reward: String, title: String, description: String, init: AmazonMTurkCreateHITTypeCommand.() -> Unit): com.amazonaws.services.mturk.model.CreateHITTypeResult {
+	return this.block.declare(AmazonMTurkCreateHITTypeCommand(assignmentDurationInSeconds, reward, title, description).apply(init)) as com.amazonaws.services.mturk.model.CreateHITTypeResult
 }
 
 @Generated
-class AmazonMTurkCreateHITTypeCommand(val assignmentDurationInSeconds: Long, val reward: String, val title: String, val description: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.CreateHITTypeRequest> {
+class AmazonMTurkCreateHITTypeCommand(val assignmentDurationInSeconds: Long, val reward: String, val title: String, val description: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.CreateHITTypeRequest, com.amazonaws.services.mturk.model.CreateHITTypeResult> {
 
 	var autoApprovalDelayInSeconds: Long? = 0L
 	var keywords: String? = null
@@ -242,8 +262,12 @@ class AmazonMTurkCreateHITTypeCommand(val assignmentDurationInSeconds: Long, val
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.createHITType(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.CreateHITTypeResult {
+	  return com.amazonaws.services.mturk.model.CreateHITTypeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.CreateHITTypeResult {
+		return environment.mturk_requester.createHITType(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -260,12 +284,12 @@ class AmazonMTurkCreateHITTypeCommand(val assignmentDurationInSeconds: Long, val
 }
 
 
-fun AmazonMTurkFunctions.createHITWithHITType(hITTypeId: String, lifetimeInSeconds: Long, init: AmazonMTurkCreateHITWithHITTypeCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkCreateHITWithHITTypeCommand(hITTypeId, lifetimeInSeconds).apply(init))
+fun AmazonMTurkFunctions.createHITWithHITType(hITTypeId: String, lifetimeInSeconds: Long, init: AmazonMTurkCreateHITWithHITTypeCommand.() -> Unit): com.amazonaws.services.mturk.model.CreateHITWithHITTypeResult {
+	return this.block.declare(AmazonMTurkCreateHITWithHITTypeCommand(hITTypeId, lifetimeInSeconds).apply(init)) as com.amazonaws.services.mturk.model.CreateHITWithHITTypeResult
 }
 
 @Generated
-class AmazonMTurkCreateHITWithHITTypeCommand(val hITTypeId: String, val lifetimeInSeconds: Long) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.CreateHITWithHITTypeRequest> {
+class AmazonMTurkCreateHITWithHITTypeCommand(val hITTypeId: String, val lifetimeInSeconds: Long) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.CreateHITWithHITTypeRequest, com.amazonaws.services.mturk.model.CreateHITWithHITTypeResult> {
 
 	var maxAssignments: Int? = 0
 	var question: String? = null
@@ -291,8 +315,12 @@ class AmazonMTurkCreateHITWithHITTypeCommand(val hITTypeId: String, val lifetime
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.createHITWithHITType(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.CreateHITWithHITTypeResult {
+	  return com.amazonaws.services.mturk.model.CreateHITWithHITTypeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.CreateHITWithHITTypeResult {
+		return environment.mturk_requester.createHITWithHITType(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -312,12 +340,12 @@ class AmazonMTurkCreateHITWithHITTypeCommand(val hITTypeId: String, val lifetime
 }
 
 
-fun AmazonMTurkFunctions.createQualificationType(name: String, description: String, qualificationTypeStatus: QualificationTypeStatus, init: AmazonMTurkCreateQualificationTypeCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkCreateQualificationTypeCommand(name, description, qualificationTypeStatus).apply(init))
+fun AmazonMTurkFunctions.createQualificationType(name: String, description: String, qualificationTypeStatus: QualificationTypeStatus, init: AmazonMTurkCreateQualificationTypeCommand.() -> Unit): com.amazonaws.services.mturk.model.CreateQualificationTypeResult {
+	return this.block.declare(AmazonMTurkCreateQualificationTypeCommand(name, description, qualificationTypeStatus).apply(init)) as com.amazonaws.services.mturk.model.CreateQualificationTypeResult
 }
 
 @Generated
-class AmazonMTurkCreateQualificationTypeCommand(val name: String, val description: String, val qualificationTypeStatus: QualificationTypeStatus) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.CreateQualificationTypeRequest> {
+class AmazonMTurkCreateQualificationTypeCommand(val name: String, val description: String, val qualificationTypeStatus: QualificationTypeStatus) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.CreateQualificationTypeRequest, com.amazonaws.services.mturk.model.CreateQualificationTypeResult> {
 
 	var keywords: String? = null
 	var retryDelayInSeconds: Long? = 0L
@@ -342,8 +370,12 @@ class AmazonMTurkCreateQualificationTypeCommand(val name: String, val descriptio
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.createQualificationType(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.CreateQualificationTypeResult {
+	  return com.amazonaws.services.mturk.model.CreateQualificationTypeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.CreateQualificationTypeResult {
+		return environment.mturk_requester.createQualificationType(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -363,12 +395,12 @@ class AmazonMTurkCreateQualificationTypeCommand(val name: String, val descriptio
 }
 
 
-fun AmazonMTurkFunctions.createWorkerBlock(workerId: String, reason: String, init: AmazonMTurkCreateWorkerBlockCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkCreateWorkerBlockCommand(workerId, reason).apply(init))
+fun AmazonMTurkFunctions.createWorkerBlock(workerId: String, reason: String, init: AmazonMTurkCreateWorkerBlockCommand.() -> Unit): com.amazonaws.services.mturk.model.CreateWorkerBlockResult {
+	return this.block.declare(AmazonMTurkCreateWorkerBlockCommand(workerId, reason).apply(init)) as com.amazonaws.services.mturk.model.CreateWorkerBlockResult
 }
 
 @Generated
-class AmazonMTurkCreateWorkerBlockCommand(val workerId: String, val reason: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.CreateWorkerBlockRequest> {
+class AmazonMTurkCreateWorkerBlockCommand(val workerId: String, val reason: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.CreateWorkerBlockRequest, com.amazonaws.services.mturk.model.CreateWorkerBlockResult> {
 
 
 
@@ -379,8 +411,12 @@ class AmazonMTurkCreateWorkerBlockCommand(val workerId: String, val reason: Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.createWorkerBlock(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.CreateWorkerBlockResult {
+	  return com.amazonaws.services.mturk.model.CreateWorkerBlockResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.CreateWorkerBlockResult {
+		return environment.mturk_requester.createWorkerBlock(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -392,12 +428,12 @@ class AmazonMTurkCreateWorkerBlockCommand(val workerId: String, val reason: Stri
 }
 
 
-fun AmazonMTurkFunctions.deleteHIT(hITId: String, init: AmazonMTurkDeleteHITCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkDeleteHITCommand(hITId).apply(init))
+fun AmazonMTurkFunctions.deleteHIT(hITId: String, init: AmazonMTurkDeleteHITCommand.() -> Unit): com.amazonaws.services.mturk.model.DeleteHITResult {
+	return this.block.declare(AmazonMTurkDeleteHITCommand(hITId).apply(init)) as com.amazonaws.services.mturk.model.DeleteHITResult
 }
 
 @Generated
-class AmazonMTurkDeleteHITCommand(val hITId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.DeleteHITRequest> {
+class AmazonMTurkDeleteHITCommand(val hITId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.DeleteHITRequest, com.amazonaws.services.mturk.model.DeleteHITResult> {
 
 
 
@@ -407,8 +443,12 @@ class AmazonMTurkDeleteHITCommand(val hITId: String) : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.deleteHIT(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.DeleteHITResult {
+	  return com.amazonaws.services.mturk.model.DeleteHITResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.DeleteHITResult {
+		return environment.mturk_requester.deleteHIT(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -419,12 +459,12 @@ class AmazonMTurkDeleteHITCommand(val hITId: String) : AmazonWebServiceCommand<c
 }
 
 
-fun AmazonMTurkFunctions.deleteQualificationType(qualificationTypeId: String, init: AmazonMTurkDeleteQualificationTypeCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkDeleteQualificationTypeCommand(qualificationTypeId).apply(init))
+fun AmazonMTurkFunctions.deleteQualificationType(qualificationTypeId: String, init: AmazonMTurkDeleteQualificationTypeCommand.() -> Unit): com.amazonaws.services.mturk.model.DeleteQualificationTypeResult {
+	return this.block.declare(AmazonMTurkDeleteQualificationTypeCommand(qualificationTypeId).apply(init)) as com.amazonaws.services.mturk.model.DeleteQualificationTypeResult
 }
 
 @Generated
-class AmazonMTurkDeleteQualificationTypeCommand(val qualificationTypeId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.DeleteQualificationTypeRequest> {
+class AmazonMTurkDeleteQualificationTypeCommand(val qualificationTypeId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.DeleteQualificationTypeRequest, com.amazonaws.services.mturk.model.DeleteQualificationTypeResult> {
 
 
 
@@ -434,8 +474,12 @@ class AmazonMTurkDeleteQualificationTypeCommand(val qualificationTypeId: String)
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.deleteQualificationType(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.DeleteQualificationTypeResult {
+	  return com.amazonaws.services.mturk.model.DeleteQualificationTypeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.DeleteQualificationTypeResult {
+		return environment.mturk_requester.deleteQualificationType(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -446,12 +490,12 @@ class AmazonMTurkDeleteQualificationTypeCommand(val qualificationTypeId: String)
 }
 
 
-fun AmazonMTurkFunctions.deleteWorkerBlock(workerId: String, init: AmazonMTurkDeleteWorkerBlockCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkDeleteWorkerBlockCommand(workerId).apply(init))
+fun AmazonMTurkFunctions.deleteWorkerBlock(workerId: String, init: AmazonMTurkDeleteWorkerBlockCommand.() -> Unit): com.amazonaws.services.mturk.model.DeleteWorkerBlockResult {
+	return this.block.declare(AmazonMTurkDeleteWorkerBlockCommand(workerId).apply(init)) as com.amazonaws.services.mturk.model.DeleteWorkerBlockResult
 }
 
 @Generated
-class AmazonMTurkDeleteWorkerBlockCommand(val workerId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.DeleteWorkerBlockRequest> {
+class AmazonMTurkDeleteWorkerBlockCommand(val workerId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.DeleteWorkerBlockRequest, com.amazonaws.services.mturk.model.DeleteWorkerBlockResult> {
 
 	var reason: String? = null
 
@@ -462,8 +506,12 @@ class AmazonMTurkDeleteWorkerBlockCommand(val workerId: String) : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.deleteWorkerBlock(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.DeleteWorkerBlockResult {
+	  return com.amazonaws.services.mturk.model.DeleteWorkerBlockResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.DeleteWorkerBlockResult {
+		return environment.mturk_requester.deleteWorkerBlock(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -475,12 +523,12 @@ class AmazonMTurkDeleteWorkerBlockCommand(val workerId: String) : AmazonWebServi
 }
 
 
-fun AmazonMTurkFunctions.disassociateQualificationFromWorker(workerId: String, qualificationTypeId: String, init: AmazonMTurkDisassociateQualificationFromWorkerCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkDisassociateQualificationFromWorkerCommand(workerId, qualificationTypeId).apply(init))
+fun AmazonMTurkFunctions.disassociateQualificationFromWorker(workerId: String, qualificationTypeId: String, init: AmazonMTurkDisassociateQualificationFromWorkerCommand.() -> Unit): com.amazonaws.services.mturk.model.DisassociateQualificationFromWorkerResult {
+	return this.block.declare(AmazonMTurkDisassociateQualificationFromWorkerCommand(workerId, qualificationTypeId).apply(init)) as com.amazonaws.services.mturk.model.DisassociateQualificationFromWorkerResult
 }
 
 @Generated
-class AmazonMTurkDisassociateQualificationFromWorkerCommand(val workerId: String, val qualificationTypeId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.DisassociateQualificationFromWorkerRequest> {
+class AmazonMTurkDisassociateQualificationFromWorkerCommand(val workerId: String, val qualificationTypeId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.DisassociateQualificationFromWorkerRequest, com.amazonaws.services.mturk.model.DisassociateQualificationFromWorkerResult> {
 
 	var reason: String? = null
 
@@ -492,8 +540,12 @@ class AmazonMTurkDisassociateQualificationFromWorkerCommand(val workerId: String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.disassociateQualificationFromWorker(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.DisassociateQualificationFromWorkerResult {
+	  return com.amazonaws.services.mturk.model.DisassociateQualificationFromWorkerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.DisassociateQualificationFromWorkerResult {
+		return environment.mturk_requester.disassociateQualificationFromWorker(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -506,12 +558,12 @@ class AmazonMTurkDisassociateQualificationFromWorkerCommand(val workerId: String
 }
 
 
-fun AmazonMTurkFunctions.getAccountBalance(init: AmazonMTurkGetAccountBalanceCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkGetAccountBalanceCommand().apply(init))
+fun AmazonMTurkFunctions.getAccountBalance(init: AmazonMTurkGetAccountBalanceCommand.() -> Unit): com.amazonaws.services.mturk.model.GetAccountBalanceResult {
+	return this.block.declare(AmazonMTurkGetAccountBalanceCommand().apply(init)) as com.amazonaws.services.mturk.model.GetAccountBalanceResult
 }
 
 @Generated
-class AmazonMTurkGetAccountBalanceCommand() : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.GetAccountBalanceRequest> {
+class AmazonMTurkGetAccountBalanceCommand() : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.GetAccountBalanceRequest, com.amazonaws.services.mturk.model.GetAccountBalanceResult> {
 
 
 
@@ -521,8 +573,12 @@ class AmazonMTurkGetAccountBalanceCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.getAccountBalance(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.GetAccountBalanceResult {
+	  return com.amazonaws.services.mturk.model.GetAccountBalanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.GetAccountBalanceResult {
+		return environment.mturk_requester.getAccountBalance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -533,12 +589,12 @@ class AmazonMTurkGetAccountBalanceCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonMTurkFunctions.getAssignment(assignmentId: String, init: AmazonMTurkGetAssignmentCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkGetAssignmentCommand(assignmentId).apply(init))
+fun AmazonMTurkFunctions.getAssignment(assignmentId: String, init: AmazonMTurkGetAssignmentCommand.() -> Unit): com.amazonaws.services.mturk.model.GetAssignmentResult {
+	return this.block.declare(AmazonMTurkGetAssignmentCommand(assignmentId).apply(init)) as com.amazonaws.services.mturk.model.GetAssignmentResult
 }
 
 @Generated
-class AmazonMTurkGetAssignmentCommand(val assignmentId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.GetAssignmentRequest> {
+class AmazonMTurkGetAssignmentCommand(val assignmentId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.GetAssignmentRequest, com.amazonaws.services.mturk.model.GetAssignmentResult> {
 
 
 
@@ -548,8 +604,12 @@ class AmazonMTurkGetAssignmentCommand(val assignmentId: String) : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.getAssignment(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.GetAssignmentResult {
+	  return com.amazonaws.services.mturk.model.GetAssignmentResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.GetAssignmentResult {
+		return environment.mturk_requester.getAssignment(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -560,12 +620,12 @@ class AmazonMTurkGetAssignmentCommand(val assignmentId: String) : AmazonWebServi
 }
 
 
-fun AmazonMTurkFunctions.getFileUploadURL(assignmentId: String, questionIdentifier: String, init: AmazonMTurkGetFileUploadURLCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkGetFileUploadURLCommand(assignmentId, questionIdentifier).apply(init))
+fun AmazonMTurkFunctions.getFileUploadURL(assignmentId: String, questionIdentifier: String, init: AmazonMTurkGetFileUploadURLCommand.() -> Unit): com.amazonaws.services.mturk.model.GetFileUploadURLResult {
+	return this.block.declare(AmazonMTurkGetFileUploadURLCommand(assignmentId, questionIdentifier).apply(init)) as com.amazonaws.services.mturk.model.GetFileUploadURLResult
 }
 
 @Generated
-class AmazonMTurkGetFileUploadURLCommand(val assignmentId: String, val questionIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.GetFileUploadURLRequest> {
+class AmazonMTurkGetFileUploadURLCommand(val assignmentId: String, val questionIdentifier: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.GetFileUploadURLRequest, com.amazonaws.services.mturk.model.GetFileUploadURLResult> {
 
 
 
@@ -576,8 +636,12 @@ class AmazonMTurkGetFileUploadURLCommand(val assignmentId: String, val questionI
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.getFileUploadURL(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.GetFileUploadURLResult {
+	  return com.amazonaws.services.mturk.model.GetFileUploadURLResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.GetFileUploadURLResult {
+		return environment.mturk_requester.getFileUploadURL(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -589,12 +653,12 @@ class AmazonMTurkGetFileUploadURLCommand(val assignmentId: String, val questionI
 }
 
 
-fun AmazonMTurkFunctions.getHIT(hITId: String, init: AmazonMTurkGetHITCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkGetHITCommand(hITId).apply(init))
+fun AmazonMTurkFunctions.getHIT(hITId: String, init: AmazonMTurkGetHITCommand.() -> Unit): com.amazonaws.services.mturk.model.GetHITResult {
+	return this.block.declare(AmazonMTurkGetHITCommand(hITId).apply(init)) as com.amazonaws.services.mturk.model.GetHITResult
 }
 
 @Generated
-class AmazonMTurkGetHITCommand(val hITId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.GetHITRequest> {
+class AmazonMTurkGetHITCommand(val hITId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.GetHITRequest, com.amazonaws.services.mturk.model.GetHITResult> {
 
 
 
@@ -604,8 +668,12 @@ class AmazonMTurkGetHITCommand(val hITId: String) : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.getHIT(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.GetHITResult {
+	  return com.amazonaws.services.mturk.model.GetHITResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.GetHITResult {
+		return environment.mturk_requester.getHIT(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -616,12 +684,12 @@ class AmazonMTurkGetHITCommand(val hITId: String) : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonMTurkFunctions.getQualificationScore(qualificationTypeId: String, workerId: String, init: AmazonMTurkGetQualificationScoreCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkGetQualificationScoreCommand(qualificationTypeId, workerId).apply(init))
+fun AmazonMTurkFunctions.getQualificationScore(qualificationTypeId: String, workerId: String, init: AmazonMTurkGetQualificationScoreCommand.() -> Unit): com.amazonaws.services.mturk.model.GetQualificationScoreResult {
+	return this.block.declare(AmazonMTurkGetQualificationScoreCommand(qualificationTypeId, workerId).apply(init)) as com.amazonaws.services.mturk.model.GetQualificationScoreResult
 }
 
 @Generated
-class AmazonMTurkGetQualificationScoreCommand(val qualificationTypeId: String, val workerId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.GetQualificationScoreRequest> {
+class AmazonMTurkGetQualificationScoreCommand(val qualificationTypeId: String, val workerId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.GetQualificationScoreRequest, com.amazonaws.services.mturk.model.GetQualificationScoreResult> {
 
 
 
@@ -632,8 +700,12 @@ class AmazonMTurkGetQualificationScoreCommand(val qualificationTypeId: String, v
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.getQualificationScore(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.GetQualificationScoreResult {
+	  return com.amazonaws.services.mturk.model.GetQualificationScoreResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.GetQualificationScoreResult {
+		return environment.mturk_requester.getQualificationScore(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -645,12 +717,12 @@ class AmazonMTurkGetQualificationScoreCommand(val qualificationTypeId: String, v
 }
 
 
-fun AmazonMTurkFunctions.getQualificationType(qualificationTypeId: String, init: AmazonMTurkGetQualificationTypeCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkGetQualificationTypeCommand(qualificationTypeId).apply(init))
+fun AmazonMTurkFunctions.getQualificationType(qualificationTypeId: String, init: AmazonMTurkGetQualificationTypeCommand.() -> Unit): com.amazonaws.services.mturk.model.GetQualificationTypeResult {
+	return this.block.declare(AmazonMTurkGetQualificationTypeCommand(qualificationTypeId).apply(init)) as com.amazonaws.services.mturk.model.GetQualificationTypeResult
 }
 
 @Generated
-class AmazonMTurkGetQualificationTypeCommand(val qualificationTypeId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.GetQualificationTypeRequest> {
+class AmazonMTurkGetQualificationTypeCommand(val qualificationTypeId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.GetQualificationTypeRequest, com.amazonaws.services.mturk.model.GetQualificationTypeResult> {
 
 
 
@@ -660,8 +732,12 @@ class AmazonMTurkGetQualificationTypeCommand(val qualificationTypeId: String) : 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.getQualificationType(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.GetQualificationTypeResult {
+	  return com.amazonaws.services.mturk.model.GetQualificationTypeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.GetQualificationTypeResult {
+		return environment.mturk_requester.getQualificationType(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -672,12 +748,12 @@ class AmazonMTurkGetQualificationTypeCommand(val qualificationTypeId: String) : 
 }
 
 
-fun AmazonMTurkFunctions.listAssignmentsForHIT(hITId: String, init: AmazonMTurkListAssignmentsForHITCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkListAssignmentsForHITCommand(hITId).apply(init))
+fun AmazonMTurkFunctions.listAssignmentsForHIT(hITId: String, init: AmazonMTurkListAssignmentsForHITCommand.() -> Unit): com.amazonaws.services.mturk.model.ListAssignmentsForHITResult {
+	return this.block.declare(AmazonMTurkListAssignmentsForHITCommand(hITId).apply(init)) as com.amazonaws.services.mturk.model.ListAssignmentsForHITResult
 }
 
 @Generated
-class AmazonMTurkListAssignmentsForHITCommand(val hITId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.ListAssignmentsForHITRequest> {
+class AmazonMTurkListAssignmentsForHITCommand(val hITId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.ListAssignmentsForHITRequest, com.amazonaws.services.mturk.model.ListAssignmentsForHITResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -692,8 +768,12 @@ class AmazonMTurkListAssignmentsForHITCommand(val hITId: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.listAssignmentsForHIT(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.ListAssignmentsForHITResult {
+	  return com.amazonaws.services.mturk.model.ListAssignmentsForHITResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.ListAssignmentsForHITResult {
+		return environment.mturk_requester.listAssignmentsForHIT(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -707,12 +787,12 @@ class AmazonMTurkListAssignmentsForHITCommand(val hITId: String) : AmazonWebServ
 }
 
 
-fun AmazonMTurkFunctions.listBonusPayments(init: AmazonMTurkListBonusPaymentsCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkListBonusPaymentsCommand().apply(init))
+fun AmazonMTurkFunctions.listBonusPayments(init: AmazonMTurkListBonusPaymentsCommand.() -> Unit): com.amazonaws.services.mturk.model.ListBonusPaymentsResult {
+	return this.block.declare(AmazonMTurkListBonusPaymentsCommand().apply(init)) as com.amazonaws.services.mturk.model.ListBonusPaymentsResult
 }
 
 @Generated
-class AmazonMTurkListBonusPaymentsCommand() : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.ListBonusPaymentsRequest> {
+class AmazonMTurkListBonusPaymentsCommand() : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.ListBonusPaymentsRequest, com.amazonaws.services.mturk.model.ListBonusPaymentsResult> {
 
 	var hITId: String? = null
 	var assignmentId: String? = null
@@ -728,8 +808,12 @@ class AmazonMTurkListBonusPaymentsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.listBonusPayments(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.ListBonusPaymentsResult {
+	  return com.amazonaws.services.mturk.model.ListBonusPaymentsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.ListBonusPaymentsResult {
+		return environment.mturk_requester.listBonusPayments(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -743,12 +827,12 @@ class AmazonMTurkListBonusPaymentsCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonMTurkFunctions.listHITs(init: AmazonMTurkListHITsCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkListHITsCommand().apply(init))
+fun AmazonMTurkFunctions.listHITs(init: AmazonMTurkListHITsCommand.() -> Unit): com.amazonaws.services.mturk.model.ListHITsResult {
+	return this.block.declare(AmazonMTurkListHITsCommand().apply(init)) as com.amazonaws.services.mturk.model.ListHITsResult
 }
 
 @Generated
-class AmazonMTurkListHITsCommand() : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.ListHITsRequest> {
+class AmazonMTurkListHITsCommand() : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.ListHITsRequest, com.amazonaws.services.mturk.model.ListHITsResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -760,8 +844,12 @@ class AmazonMTurkListHITsCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.listHITs(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.ListHITsResult {
+	  return com.amazonaws.services.mturk.model.ListHITsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.ListHITsResult {
+		return environment.mturk_requester.listHITs(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -773,12 +861,12 @@ class AmazonMTurkListHITsCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 }
 
 
-fun AmazonMTurkFunctions.listHITsForQualificationType(qualificationTypeId: String, init: AmazonMTurkListHITsForQualificationTypeCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkListHITsForQualificationTypeCommand(qualificationTypeId).apply(init))
+fun AmazonMTurkFunctions.listHITsForQualificationType(qualificationTypeId: String, init: AmazonMTurkListHITsForQualificationTypeCommand.() -> Unit): com.amazonaws.services.mturk.model.ListHITsForQualificationTypeResult {
+	return this.block.declare(AmazonMTurkListHITsForQualificationTypeCommand(qualificationTypeId).apply(init)) as com.amazonaws.services.mturk.model.ListHITsForQualificationTypeResult
 }
 
 @Generated
-class AmazonMTurkListHITsForQualificationTypeCommand(val qualificationTypeId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.ListHITsForQualificationTypeRequest> {
+class AmazonMTurkListHITsForQualificationTypeCommand(val qualificationTypeId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.ListHITsForQualificationTypeRequest, com.amazonaws.services.mturk.model.ListHITsForQualificationTypeResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -791,8 +879,12 @@ class AmazonMTurkListHITsForQualificationTypeCommand(val qualificationTypeId: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.listHITsForQualificationType(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.ListHITsForQualificationTypeResult {
+	  return com.amazonaws.services.mturk.model.ListHITsForQualificationTypeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.ListHITsForQualificationTypeResult {
+		return environment.mturk_requester.listHITsForQualificationType(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -805,12 +897,12 @@ class AmazonMTurkListHITsForQualificationTypeCommand(val qualificationTypeId: St
 }
 
 
-fun AmazonMTurkFunctions.listQualificationRequests(init: AmazonMTurkListQualificationRequestsCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkListQualificationRequestsCommand().apply(init))
+fun AmazonMTurkFunctions.listQualificationRequests(init: AmazonMTurkListQualificationRequestsCommand.() -> Unit): com.amazonaws.services.mturk.model.ListQualificationRequestsResult {
+	return this.block.declare(AmazonMTurkListQualificationRequestsCommand().apply(init)) as com.amazonaws.services.mturk.model.ListQualificationRequestsResult
 }
 
 @Generated
-class AmazonMTurkListQualificationRequestsCommand() : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.ListQualificationRequestsRequest> {
+class AmazonMTurkListQualificationRequestsCommand() : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.ListQualificationRequestsRequest, com.amazonaws.services.mturk.model.ListQualificationRequestsResult> {
 
 	var qualificationTypeId: String? = null
 	var nextToken: String? = null
@@ -824,8 +916,12 @@ class AmazonMTurkListQualificationRequestsCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.listQualificationRequests(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.ListQualificationRequestsResult {
+	  return com.amazonaws.services.mturk.model.ListQualificationRequestsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.ListQualificationRequestsResult {
+		return environment.mturk_requester.listQualificationRequests(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -838,12 +934,12 @@ class AmazonMTurkListQualificationRequestsCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonMTurkFunctions.listQualificationTypes(mustBeRequestable: Boolean, init: AmazonMTurkListQualificationTypesCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkListQualificationTypesCommand(mustBeRequestable).apply(init))
+fun AmazonMTurkFunctions.listQualificationTypes(mustBeRequestable: Boolean, init: AmazonMTurkListQualificationTypesCommand.() -> Unit): com.amazonaws.services.mturk.model.ListQualificationTypesResult {
+	return this.block.declare(AmazonMTurkListQualificationTypesCommand(mustBeRequestable).apply(init)) as com.amazonaws.services.mturk.model.ListQualificationTypesResult
 }
 
 @Generated
-class AmazonMTurkListQualificationTypesCommand(val mustBeRequestable: Boolean) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.ListQualificationTypesRequest> {
+class AmazonMTurkListQualificationTypesCommand(val mustBeRequestable: Boolean) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.ListQualificationTypesRequest, com.amazonaws.services.mturk.model.ListQualificationTypesResult> {
 
 	var query: String? = null
 	var mustBeOwnedByCaller: Boolean? = false
@@ -860,8 +956,12 @@ class AmazonMTurkListQualificationTypesCommand(val mustBeRequestable: Boolean) :
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.listQualificationTypes(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.ListQualificationTypesResult {
+	  return com.amazonaws.services.mturk.model.ListQualificationTypesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.ListQualificationTypesResult {
+		return environment.mturk_requester.listQualificationTypes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -876,12 +976,12 @@ class AmazonMTurkListQualificationTypesCommand(val mustBeRequestable: Boolean) :
 }
 
 
-fun AmazonMTurkFunctions.listReviewPolicyResultsForHIT(hITId: String, init: AmazonMTurkListReviewPolicyResultsForHITCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkListReviewPolicyResultsForHITCommand(hITId).apply(init))
+fun AmazonMTurkFunctions.listReviewPolicyResultsForHIT(hITId: String, init: AmazonMTurkListReviewPolicyResultsForHITCommand.() -> Unit): com.amazonaws.services.mturk.model.ListReviewPolicyResultsForHITResult {
+	return this.block.declare(AmazonMTurkListReviewPolicyResultsForHITCommand(hITId).apply(init)) as com.amazonaws.services.mturk.model.ListReviewPolicyResultsForHITResult
 }
 
 @Generated
-class AmazonMTurkListReviewPolicyResultsForHITCommand(val hITId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.ListReviewPolicyResultsForHITRequest> {
+class AmazonMTurkListReviewPolicyResultsForHITCommand(val hITId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.ListReviewPolicyResultsForHITRequest, com.amazonaws.services.mturk.model.ListReviewPolicyResultsForHITResult> {
 
 	var policyLevels: List<ReviewPolicyLevel>? = null
 	var retrieveActions: Boolean? = false
@@ -900,8 +1000,12 @@ class AmazonMTurkListReviewPolicyResultsForHITCommand(val hITId: String) : Amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.listReviewPolicyResultsForHIT(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.ListReviewPolicyResultsForHITResult {
+	  return com.amazonaws.services.mturk.model.ListReviewPolicyResultsForHITResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.ListReviewPolicyResultsForHITResult {
+		return environment.mturk_requester.listReviewPolicyResultsForHIT(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -917,12 +1021,12 @@ class AmazonMTurkListReviewPolicyResultsForHITCommand(val hITId: String) : Amazo
 }
 
 
-fun AmazonMTurkFunctions.listReviewableHITs(init: AmazonMTurkListReviewableHITsCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkListReviewableHITsCommand().apply(init))
+fun AmazonMTurkFunctions.listReviewableHITs(init: AmazonMTurkListReviewableHITsCommand.() -> Unit): com.amazonaws.services.mturk.model.ListReviewableHITsResult {
+	return this.block.declare(AmazonMTurkListReviewableHITsCommand().apply(init)) as com.amazonaws.services.mturk.model.ListReviewableHITsResult
 }
 
 @Generated
-class AmazonMTurkListReviewableHITsCommand() : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.ListReviewableHITsRequest> {
+class AmazonMTurkListReviewableHITsCommand() : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.ListReviewableHITsRequest, com.amazonaws.services.mturk.model.ListReviewableHITsResult> {
 
 	var hITTypeId: String? = null
 	var status: ReviewableHITStatus? = null
@@ -938,8 +1042,12 @@ class AmazonMTurkListReviewableHITsCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.listReviewableHITs(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.ListReviewableHITsResult {
+	  return com.amazonaws.services.mturk.model.ListReviewableHITsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.ListReviewableHITsResult {
+		return environment.mturk_requester.listReviewableHITs(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -953,12 +1061,12 @@ class AmazonMTurkListReviewableHITsCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AmazonMTurkFunctions.listWorkerBlocks(init: AmazonMTurkListWorkerBlocksCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkListWorkerBlocksCommand().apply(init))
+fun AmazonMTurkFunctions.listWorkerBlocks(init: AmazonMTurkListWorkerBlocksCommand.() -> Unit): com.amazonaws.services.mturk.model.ListWorkerBlocksResult {
+	return this.block.declare(AmazonMTurkListWorkerBlocksCommand().apply(init)) as com.amazonaws.services.mturk.model.ListWorkerBlocksResult
 }
 
 @Generated
-class AmazonMTurkListWorkerBlocksCommand() : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.ListWorkerBlocksRequest> {
+class AmazonMTurkListWorkerBlocksCommand() : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.ListWorkerBlocksRequest, com.amazonaws.services.mturk.model.ListWorkerBlocksResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -970,8 +1078,12 @@ class AmazonMTurkListWorkerBlocksCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.listWorkerBlocks(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.ListWorkerBlocksResult {
+	  return com.amazonaws.services.mturk.model.ListWorkerBlocksResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.ListWorkerBlocksResult {
+		return environment.mturk_requester.listWorkerBlocks(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -983,12 +1095,12 @@ class AmazonMTurkListWorkerBlocksCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AmazonMTurkFunctions.listWorkersWithQualificationType(qualificationTypeId: String, init: AmazonMTurkListWorkersWithQualificationTypeCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkListWorkersWithQualificationTypeCommand(qualificationTypeId).apply(init))
+fun AmazonMTurkFunctions.listWorkersWithQualificationType(qualificationTypeId: String, init: AmazonMTurkListWorkersWithQualificationTypeCommand.() -> Unit): com.amazonaws.services.mturk.model.ListWorkersWithQualificationTypeResult {
+	return this.block.declare(AmazonMTurkListWorkersWithQualificationTypeCommand(qualificationTypeId).apply(init)) as com.amazonaws.services.mturk.model.ListWorkersWithQualificationTypeResult
 }
 
 @Generated
-class AmazonMTurkListWorkersWithQualificationTypeCommand(val qualificationTypeId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.ListWorkersWithQualificationTypeRequest> {
+class AmazonMTurkListWorkersWithQualificationTypeCommand(val qualificationTypeId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.ListWorkersWithQualificationTypeRequest, com.amazonaws.services.mturk.model.ListWorkersWithQualificationTypeResult> {
 
 	var status: QualificationStatus? = null
 	var nextToken: String? = null
@@ -1003,8 +1115,12 @@ class AmazonMTurkListWorkersWithQualificationTypeCommand(val qualificationTypeId
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.listWorkersWithQualificationType(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.ListWorkersWithQualificationTypeResult {
+	  return com.amazonaws.services.mturk.model.ListWorkersWithQualificationTypeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.ListWorkersWithQualificationTypeResult {
+		return environment.mturk_requester.listWorkersWithQualificationType(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1018,12 +1134,12 @@ class AmazonMTurkListWorkersWithQualificationTypeCommand(val qualificationTypeId
 }
 
 
-fun AmazonMTurkFunctions.notifyWorkers(subject: String, messageText: String, workerIds: List<String>, init: AmazonMTurkNotifyWorkersCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkNotifyWorkersCommand(subject, messageText, workerIds).apply(init))
+fun AmazonMTurkFunctions.notifyWorkers(subject: String, messageText: String, workerIds: List<String>, init: AmazonMTurkNotifyWorkersCommand.() -> Unit): com.amazonaws.services.mturk.model.NotifyWorkersResult {
+	return this.block.declare(AmazonMTurkNotifyWorkersCommand(subject, messageText, workerIds).apply(init)) as com.amazonaws.services.mturk.model.NotifyWorkersResult
 }
 
 @Generated
-class AmazonMTurkNotifyWorkersCommand(val subject: String, val messageText: String, val workerIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.NotifyWorkersRequest> {
+class AmazonMTurkNotifyWorkersCommand(val subject: String, val messageText: String, val workerIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.NotifyWorkersRequest, com.amazonaws.services.mturk.model.NotifyWorkersResult> {
 
 
 
@@ -1035,8 +1151,12 @@ class AmazonMTurkNotifyWorkersCommand(val subject: String, val messageText: Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.notifyWorkers(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.NotifyWorkersResult {
+	  return com.amazonaws.services.mturk.model.NotifyWorkersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.NotifyWorkersResult {
+		return environment.mturk_requester.notifyWorkers(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1049,12 +1169,12 @@ class AmazonMTurkNotifyWorkersCommand(val subject: String, val messageText: Stri
 }
 
 
-fun AmazonMTurkFunctions.rejectAssignment(assignmentId: String, requesterFeedback: String, init: AmazonMTurkRejectAssignmentCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkRejectAssignmentCommand(assignmentId, requesterFeedback).apply(init))
+fun AmazonMTurkFunctions.rejectAssignment(assignmentId: String, requesterFeedback: String, init: AmazonMTurkRejectAssignmentCommand.() -> Unit): com.amazonaws.services.mturk.model.RejectAssignmentResult {
+	return this.block.declare(AmazonMTurkRejectAssignmentCommand(assignmentId, requesterFeedback).apply(init)) as com.amazonaws.services.mturk.model.RejectAssignmentResult
 }
 
 @Generated
-class AmazonMTurkRejectAssignmentCommand(val assignmentId: String, val requesterFeedback: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.RejectAssignmentRequest> {
+class AmazonMTurkRejectAssignmentCommand(val assignmentId: String, val requesterFeedback: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.RejectAssignmentRequest, com.amazonaws.services.mturk.model.RejectAssignmentResult> {
 
 
 
@@ -1065,8 +1185,12 @@ class AmazonMTurkRejectAssignmentCommand(val assignmentId: String, val requester
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.rejectAssignment(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.RejectAssignmentResult {
+	  return com.amazonaws.services.mturk.model.RejectAssignmentResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.RejectAssignmentResult {
+		return environment.mturk_requester.rejectAssignment(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1078,12 +1202,12 @@ class AmazonMTurkRejectAssignmentCommand(val assignmentId: String, val requester
 }
 
 
-fun AmazonMTurkFunctions.rejectQualificationRequest(qualificationRequestId: String, init: AmazonMTurkRejectQualificationRequestCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkRejectQualificationRequestCommand(qualificationRequestId).apply(init))
+fun AmazonMTurkFunctions.rejectQualificationRequest(qualificationRequestId: String, init: AmazonMTurkRejectQualificationRequestCommand.() -> Unit): com.amazonaws.services.mturk.model.RejectQualificationRequestResult {
+	return this.block.declare(AmazonMTurkRejectQualificationRequestCommand(qualificationRequestId).apply(init)) as com.amazonaws.services.mturk.model.RejectQualificationRequestResult
 }
 
 @Generated
-class AmazonMTurkRejectQualificationRequestCommand(val qualificationRequestId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.RejectQualificationRequestRequest> {
+class AmazonMTurkRejectQualificationRequestCommand(val qualificationRequestId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.RejectQualificationRequestRequest, com.amazonaws.services.mturk.model.RejectQualificationRequestResult> {
 
 	var reason: String? = null
 
@@ -1094,8 +1218,12 @@ class AmazonMTurkRejectQualificationRequestCommand(val qualificationRequestId: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.rejectQualificationRequest(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.RejectQualificationRequestResult {
+	  return com.amazonaws.services.mturk.model.RejectQualificationRequestResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.RejectQualificationRequestResult {
+		return environment.mturk_requester.rejectQualificationRequest(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1107,12 +1235,12 @@ class AmazonMTurkRejectQualificationRequestCommand(val qualificationRequestId: S
 }
 
 
-fun AmazonMTurkFunctions.sendBonus(workerId: String, bonusAmount: String, assignmentId: String, reason: String, init: AmazonMTurkSendBonusCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkSendBonusCommand(workerId, bonusAmount, assignmentId, reason).apply(init))
+fun AmazonMTurkFunctions.sendBonus(workerId: String, bonusAmount: String, assignmentId: String, reason: String, init: AmazonMTurkSendBonusCommand.() -> Unit): com.amazonaws.services.mturk.model.SendBonusResult {
+	return this.block.declare(AmazonMTurkSendBonusCommand(workerId, bonusAmount, assignmentId, reason).apply(init)) as com.amazonaws.services.mturk.model.SendBonusResult
 }
 
 @Generated
-class AmazonMTurkSendBonusCommand(val workerId: String, val bonusAmount: String, val assignmentId: String, val reason: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.SendBonusRequest> {
+class AmazonMTurkSendBonusCommand(val workerId: String, val bonusAmount: String, val assignmentId: String, val reason: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.SendBonusRequest, com.amazonaws.services.mturk.model.SendBonusResult> {
 
 	var uniqueRequestToken: String? = null
 
@@ -1126,8 +1254,12 @@ class AmazonMTurkSendBonusCommand(val workerId: String, val bonusAmount: String,
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.sendBonus(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.SendBonusResult {
+	  return com.amazonaws.services.mturk.model.SendBonusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.SendBonusResult {
+		return environment.mturk_requester.sendBonus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1142,12 +1274,12 @@ class AmazonMTurkSendBonusCommand(val workerId: String, val bonusAmount: String,
 }
 
 
-fun AmazonMTurkFunctions.sendTestEventNotification(notification: com.amazonaws.services.mturk.model.NotificationSpecification, testEventType: EventType, init: AmazonMTurkSendTestEventNotificationCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkSendTestEventNotificationCommand(notification, testEventType).apply(init))
+fun AmazonMTurkFunctions.sendTestEventNotification(notification: com.amazonaws.services.mturk.model.NotificationSpecification, testEventType: EventType, init: AmazonMTurkSendTestEventNotificationCommand.() -> Unit): com.amazonaws.services.mturk.model.SendTestEventNotificationResult {
+	return this.block.declare(AmazonMTurkSendTestEventNotificationCommand(notification, testEventType).apply(init)) as com.amazonaws.services.mturk.model.SendTestEventNotificationResult
 }
 
 @Generated
-class AmazonMTurkSendTestEventNotificationCommand(val notification: com.amazonaws.services.mturk.model.NotificationSpecification, val testEventType: EventType) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.SendTestEventNotificationRequest> {
+class AmazonMTurkSendTestEventNotificationCommand(val notification: com.amazonaws.services.mturk.model.NotificationSpecification, val testEventType: EventType) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.SendTestEventNotificationRequest, com.amazonaws.services.mturk.model.SendTestEventNotificationResult> {
 
 
 
@@ -1158,8 +1290,12 @@ class AmazonMTurkSendTestEventNotificationCommand(val notification: com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.sendTestEventNotification(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.SendTestEventNotificationResult {
+	  return com.amazonaws.services.mturk.model.SendTestEventNotificationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.SendTestEventNotificationResult {
+		return environment.mturk_requester.sendTestEventNotification(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1171,12 +1307,12 @@ class AmazonMTurkSendTestEventNotificationCommand(val notification: com.amazonaw
 }
 
 
-fun AmazonMTurkFunctions.updateExpirationForHIT(hITId: String, expireAt: java.util.Date, init: AmazonMTurkUpdateExpirationForHITCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkUpdateExpirationForHITCommand(hITId, expireAt).apply(init))
+fun AmazonMTurkFunctions.updateExpirationForHIT(hITId: String, expireAt: java.util.Date, init: AmazonMTurkUpdateExpirationForHITCommand.() -> Unit): com.amazonaws.services.mturk.model.UpdateExpirationForHITResult {
+	return this.block.declare(AmazonMTurkUpdateExpirationForHITCommand(hITId, expireAt).apply(init)) as com.amazonaws.services.mturk.model.UpdateExpirationForHITResult
 }
 
 @Generated
-class AmazonMTurkUpdateExpirationForHITCommand(val hITId: String, val expireAt: java.util.Date) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.UpdateExpirationForHITRequest> {
+class AmazonMTurkUpdateExpirationForHITCommand(val hITId: String, val expireAt: java.util.Date) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.UpdateExpirationForHITRequest, com.amazonaws.services.mturk.model.UpdateExpirationForHITResult> {
 
 
 
@@ -1187,8 +1323,12 @@ class AmazonMTurkUpdateExpirationForHITCommand(val hITId: String, val expireAt: 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.updateExpirationForHIT(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.UpdateExpirationForHITResult {
+	  return com.amazonaws.services.mturk.model.UpdateExpirationForHITResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.UpdateExpirationForHITResult {
+		return environment.mturk_requester.updateExpirationForHIT(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1200,12 +1340,12 @@ class AmazonMTurkUpdateExpirationForHITCommand(val hITId: String, val expireAt: 
 }
 
 
-fun AmazonMTurkFunctions.updateHITReviewStatus(hITId: String, init: AmazonMTurkUpdateHITReviewStatusCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkUpdateHITReviewStatusCommand(hITId).apply(init))
+fun AmazonMTurkFunctions.updateHITReviewStatus(hITId: String, init: AmazonMTurkUpdateHITReviewStatusCommand.() -> Unit): com.amazonaws.services.mturk.model.UpdateHITReviewStatusResult {
+	return this.block.declare(AmazonMTurkUpdateHITReviewStatusCommand(hITId).apply(init)) as com.amazonaws.services.mturk.model.UpdateHITReviewStatusResult
 }
 
 @Generated
-class AmazonMTurkUpdateHITReviewStatusCommand(val hITId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.UpdateHITReviewStatusRequest> {
+class AmazonMTurkUpdateHITReviewStatusCommand(val hITId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.UpdateHITReviewStatusRequest, com.amazonaws.services.mturk.model.UpdateHITReviewStatusResult> {
 
 	var revert: Boolean? = false
 
@@ -1216,8 +1356,12 @@ class AmazonMTurkUpdateHITReviewStatusCommand(val hITId: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.updateHITReviewStatus(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.UpdateHITReviewStatusResult {
+	  return com.amazonaws.services.mturk.model.UpdateHITReviewStatusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.UpdateHITReviewStatusResult {
+		return environment.mturk_requester.updateHITReviewStatus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1229,12 +1373,12 @@ class AmazonMTurkUpdateHITReviewStatusCommand(val hITId: String) : AmazonWebServ
 }
 
 
-fun AmazonMTurkFunctions.updateHITTypeOfHIT(hITId: String, hITTypeId: String, init: AmazonMTurkUpdateHITTypeOfHITCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkUpdateHITTypeOfHITCommand(hITId, hITTypeId).apply(init))
+fun AmazonMTurkFunctions.updateHITTypeOfHIT(hITId: String, hITTypeId: String, init: AmazonMTurkUpdateHITTypeOfHITCommand.() -> Unit): com.amazonaws.services.mturk.model.UpdateHITTypeOfHITResult {
+	return this.block.declare(AmazonMTurkUpdateHITTypeOfHITCommand(hITId, hITTypeId).apply(init)) as com.amazonaws.services.mturk.model.UpdateHITTypeOfHITResult
 }
 
 @Generated
-class AmazonMTurkUpdateHITTypeOfHITCommand(val hITId: String, val hITTypeId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.UpdateHITTypeOfHITRequest> {
+class AmazonMTurkUpdateHITTypeOfHITCommand(val hITId: String, val hITTypeId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.UpdateHITTypeOfHITRequest, com.amazonaws.services.mturk.model.UpdateHITTypeOfHITResult> {
 
 
 
@@ -1245,8 +1389,12 @@ class AmazonMTurkUpdateHITTypeOfHITCommand(val hITId: String, val hITTypeId: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.updateHITTypeOfHIT(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.UpdateHITTypeOfHITResult {
+	  return com.amazonaws.services.mturk.model.UpdateHITTypeOfHITResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.UpdateHITTypeOfHITResult {
+		return environment.mturk_requester.updateHITTypeOfHIT(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1258,12 +1406,12 @@ class AmazonMTurkUpdateHITTypeOfHITCommand(val hITId: String, val hITTypeId: Str
 }
 
 
-fun AmazonMTurkFunctions.updateNotificationSettings(hITTypeId: String, init: AmazonMTurkUpdateNotificationSettingsCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkUpdateNotificationSettingsCommand(hITTypeId).apply(init))
+fun AmazonMTurkFunctions.updateNotificationSettings(hITTypeId: String, init: AmazonMTurkUpdateNotificationSettingsCommand.() -> Unit): com.amazonaws.services.mturk.model.UpdateNotificationSettingsResult {
+	return this.block.declare(AmazonMTurkUpdateNotificationSettingsCommand(hITTypeId).apply(init)) as com.amazonaws.services.mturk.model.UpdateNotificationSettingsResult
 }
 
 @Generated
-class AmazonMTurkUpdateNotificationSettingsCommand(val hITTypeId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.UpdateNotificationSettingsRequest> {
+class AmazonMTurkUpdateNotificationSettingsCommand(val hITTypeId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.UpdateNotificationSettingsRequest, com.amazonaws.services.mturk.model.UpdateNotificationSettingsResult> {
 
 	var notification: com.amazonaws.services.mturk.model.NotificationSpecification? = null
 	var active: Boolean? = false
@@ -1276,8 +1424,12 @@ class AmazonMTurkUpdateNotificationSettingsCommand(val hITTypeId: String) : Amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.updateNotificationSettings(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.UpdateNotificationSettingsResult {
+	  return com.amazonaws.services.mturk.model.UpdateNotificationSettingsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.UpdateNotificationSettingsResult {
+		return environment.mturk_requester.updateNotificationSettings(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1290,12 +1442,12 @@ class AmazonMTurkUpdateNotificationSettingsCommand(val hITTypeId: String) : Amaz
 }
 
 
-fun AmazonMTurkFunctions.updateQualificationType(qualificationTypeId: String, init: AmazonMTurkUpdateQualificationTypeCommand.() -> Unit) {
-	this.block.declare(AmazonMTurkUpdateQualificationTypeCommand(qualificationTypeId).apply(init))
+fun AmazonMTurkFunctions.updateQualificationType(qualificationTypeId: String, init: AmazonMTurkUpdateQualificationTypeCommand.() -> Unit): com.amazonaws.services.mturk.model.UpdateQualificationTypeResult {
+	return this.block.declare(AmazonMTurkUpdateQualificationTypeCommand(qualificationTypeId).apply(init)) as com.amazonaws.services.mturk.model.UpdateQualificationTypeResult
 }
 
 @Generated
-class AmazonMTurkUpdateQualificationTypeCommand(val qualificationTypeId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.UpdateQualificationTypeRequest> {
+class AmazonMTurkUpdateQualificationTypeCommand(val qualificationTypeId: String) : AmazonWebServiceCommand<com.amazonaws.services.mturk.model.UpdateQualificationTypeRequest, com.amazonaws.services.mturk.model.UpdateQualificationTypeResult> {
 
 	var description: String? = null
 	var qualificationTypeStatus: QualificationTypeStatus? = null
@@ -1320,8 +1472,12 @@ class AmazonMTurkUpdateQualificationTypeCommand(val qualificationTypeId: String)
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mturk_requester.updateQualificationType(build())
+	override fun dryResult(): com.amazonaws.services.mturk.model.UpdateQualificationTypeResult {
+	  return com.amazonaws.services.mturk.model.UpdateQualificationTypeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mturk.model.UpdateQualificationTypeResult {
+		return environment.mturk_requester.updateQualificationType(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

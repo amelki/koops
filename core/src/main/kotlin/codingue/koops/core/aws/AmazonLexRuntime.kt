@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.lexruntime: AmazonLexRuntime
 @Generated
 class AmazonLexRuntimeFunctions(val block: Block)
 
-infix fun AwsContinuation.lexruntime(init: AmazonLexRuntimeFunctions.() -> Unit) {
-	AmazonLexRuntimeFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.lexruntime(init: AmazonLexRuntimeFunctions.() -> T): T {
+	return AmazonLexRuntimeFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonLexRuntimeFunctions.postContent(init: AmazonLexRuntimePostContentCommand.() -> Unit) {
-	this.block.declare(AmazonLexRuntimePostContentCommand().apply(init))
+fun AmazonLexRuntimeFunctions.postContent(init: AmazonLexRuntimePostContentCommand.() -> Unit): com.amazonaws.services.lexruntime.model.PostContentResult {
+	return this.block.declare(AmazonLexRuntimePostContentCommand().apply(init)) as com.amazonaws.services.lexruntime.model.PostContentResult
 }
 
 @Generated
-class AmazonLexRuntimePostContentCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexruntime.model.PostContentRequest> {
+class AmazonLexRuntimePostContentCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexruntime.model.PostContentRequest, com.amazonaws.services.lexruntime.model.PostContentResult> {
 
 	var botName: String? = null
 	var botAlias: String? = null
@@ -55,8 +55,12 @@ class AmazonLexRuntimePostContentCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexruntime.postContent(build())
+	override fun dryResult(): com.amazonaws.services.lexruntime.model.PostContentResult {
+	  return com.amazonaws.services.lexruntime.model.PostContentResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexruntime.model.PostContentResult {
+		return environment.lexruntime.postContent(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -74,12 +78,12 @@ class AmazonLexRuntimePostContentCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AmazonLexRuntimeFunctions.postText(init: AmazonLexRuntimePostTextCommand.() -> Unit) {
-	this.block.declare(AmazonLexRuntimePostTextCommand().apply(init))
+fun AmazonLexRuntimeFunctions.postText(init: AmazonLexRuntimePostTextCommand.() -> Unit): com.amazonaws.services.lexruntime.model.PostTextResult {
+	return this.block.declare(AmazonLexRuntimePostTextCommand().apply(init)) as com.amazonaws.services.lexruntime.model.PostTextResult
 }
 
 @Generated
-class AmazonLexRuntimePostTextCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexruntime.model.PostTextRequest> {
+class AmazonLexRuntimePostTextCommand() : AmazonWebServiceCommand<com.amazonaws.services.lexruntime.model.PostTextRequest, com.amazonaws.services.lexruntime.model.PostTextResult> {
 
 	var botName: String? = null
 	var botAlias: String? = null
@@ -99,8 +103,12 @@ class AmazonLexRuntimePostTextCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.lexruntime.postText(build())
+	override fun dryResult(): com.amazonaws.services.lexruntime.model.PostTextResult {
+	  return com.amazonaws.services.lexruntime.model.PostTextResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.lexruntime.model.PostTextResult {
+		return environment.lexruntime.postText(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

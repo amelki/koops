@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.apigateway: AmazonApiGateway
 @Generated
 class AmazonApiGatewayFunctions(val block: Block)
 
-infix fun AwsContinuation.apigateway(init: AmazonApiGatewayFunctions.() -> Unit) {
-	AmazonApiGatewayFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.apigateway(init: AmazonApiGatewayFunctions.() -> T): T {
+	return AmazonApiGatewayFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonApiGatewayFunctions.createApiKey(init: AmazonApiGatewayCreateApiKeyCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayCreateApiKeyCommand().apply(init))
+fun AmazonApiGatewayFunctions.createApiKey(init: AmazonApiGatewayCreateApiKeyCommand.() -> Unit): com.amazonaws.services.apigateway.model.CreateApiKeyResult {
+	return this.block.declare(AmazonApiGatewayCreateApiKeyCommand().apply(init)) as com.amazonaws.services.apigateway.model.CreateApiKeyResult
 }
 
 @Generated
-class AmazonApiGatewayCreateApiKeyCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.CreateApiKeyRequest> {
+class AmazonApiGatewayCreateApiKeyCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.CreateApiKeyRequest, com.amazonaws.services.apigateway.model.CreateApiKeyResult> {
 
 	var name: String? = null
 	var description: String? = null
@@ -53,8 +53,12 @@ class AmazonApiGatewayCreateApiKeyCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.createApiKey(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.CreateApiKeyResult {
+	  return com.amazonaws.services.apigateway.model.CreateApiKeyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.CreateApiKeyResult {
+		return environment.apigateway.createApiKey(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -71,12 +75,12 @@ class AmazonApiGatewayCreateApiKeyCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonApiGatewayFunctions.createAuthorizer(init: AmazonApiGatewayCreateAuthorizerCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayCreateAuthorizerCommand().apply(init))
+fun AmazonApiGatewayFunctions.createAuthorizer(init: AmazonApiGatewayCreateAuthorizerCommand.() -> Unit): com.amazonaws.services.apigateway.model.CreateAuthorizerResult {
+	return this.block.declare(AmazonApiGatewayCreateAuthorizerCommand().apply(init)) as com.amazonaws.services.apigateway.model.CreateAuthorizerResult
 }
 
 @Generated
-class AmazonApiGatewayCreateAuthorizerCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.CreateAuthorizerRequest> {
+class AmazonApiGatewayCreateAuthorizerCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.CreateAuthorizerRequest, com.amazonaws.services.apigateway.model.CreateAuthorizerResult> {
 
 	var restApiId: String? = null
 	var name: String? = null
@@ -104,8 +108,12 @@ class AmazonApiGatewayCreateAuthorizerCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.createAuthorizer(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.CreateAuthorizerResult {
+	  return com.amazonaws.services.apigateway.model.CreateAuthorizerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.CreateAuthorizerResult {
+		return environment.apigateway.createAuthorizer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -125,12 +133,12 @@ class AmazonApiGatewayCreateAuthorizerCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonApiGatewayFunctions.createBasePathMapping(init: AmazonApiGatewayCreateBasePathMappingCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayCreateBasePathMappingCommand().apply(init))
+fun AmazonApiGatewayFunctions.createBasePathMapping(init: AmazonApiGatewayCreateBasePathMappingCommand.() -> Unit): com.amazonaws.services.apigateway.model.CreateBasePathMappingResult {
+	return this.block.declare(AmazonApiGatewayCreateBasePathMappingCommand().apply(init)) as com.amazonaws.services.apigateway.model.CreateBasePathMappingResult
 }
 
 @Generated
-class AmazonApiGatewayCreateBasePathMappingCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.CreateBasePathMappingRequest> {
+class AmazonApiGatewayCreateBasePathMappingCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.CreateBasePathMappingRequest, com.amazonaws.services.apigateway.model.CreateBasePathMappingResult> {
 
 	var domainName: String? = null
 	var basePath: String? = null
@@ -146,8 +154,12 @@ class AmazonApiGatewayCreateBasePathMappingCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.createBasePathMapping(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.CreateBasePathMappingResult {
+	  return com.amazonaws.services.apigateway.model.CreateBasePathMappingResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.CreateBasePathMappingResult {
+		return environment.apigateway.createBasePathMapping(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -161,12 +173,12 @@ class AmazonApiGatewayCreateBasePathMappingCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AmazonApiGatewayFunctions.createDeployment(init: AmazonApiGatewayCreateDeploymentCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayCreateDeploymentCommand().apply(init))
+fun AmazonApiGatewayFunctions.createDeployment(init: AmazonApiGatewayCreateDeploymentCommand.() -> Unit): com.amazonaws.services.apigateway.model.CreateDeploymentResult {
+	return this.block.declare(AmazonApiGatewayCreateDeploymentCommand().apply(init)) as com.amazonaws.services.apigateway.model.CreateDeploymentResult
 }
 
 @Generated
-class AmazonApiGatewayCreateDeploymentCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.CreateDeploymentRequest> {
+class AmazonApiGatewayCreateDeploymentCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.CreateDeploymentRequest, com.amazonaws.services.apigateway.model.CreateDeploymentResult> {
 
 	var restApiId: String? = null
 	var stageName: String? = null
@@ -190,8 +202,12 @@ class AmazonApiGatewayCreateDeploymentCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.createDeployment(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.CreateDeploymentResult {
+	  return com.amazonaws.services.apigateway.model.CreateDeploymentResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.CreateDeploymentResult {
+		return environment.apigateway.createDeployment(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -209,12 +225,12 @@ class AmazonApiGatewayCreateDeploymentCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonApiGatewayFunctions.createDocumentationPart(init: AmazonApiGatewayCreateDocumentationPartCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayCreateDocumentationPartCommand().apply(init))
+fun AmazonApiGatewayFunctions.createDocumentationPart(init: AmazonApiGatewayCreateDocumentationPartCommand.() -> Unit): com.amazonaws.services.apigateway.model.CreateDocumentationPartResult {
+	return this.block.declare(AmazonApiGatewayCreateDocumentationPartCommand().apply(init)) as com.amazonaws.services.apigateway.model.CreateDocumentationPartResult
 }
 
 @Generated
-class AmazonApiGatewayCreateDocumentationPartCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.CreateDocumentationPartRequest> {
+class AmazonApiGatewayCreateDocumentationPartCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.CreateDocumentationPartRequest, com.amazonaws.services.apigateway.model.CreateDocumentationPartResult> {
 
 	var restApiId: String? = null
 	var location: com.amazonaws.services.apigateway.model.DocumentationPartLocation? = null
@@ -228,8 +244,12 @@ class AmazonApiGatewayCreateDocumentationPartCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.createDocumentationPart(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.CreateDocumentationPartResult {
+	  return com.amazonaws.services.apigateway.model.CreateDocumentationPartResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.CreateDocumentationPartResult {
+		return environment.apigateway.createDocumentationPart(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -242,12 +262,12 @@ class AmazonApiGatewayCreateDocumentationPartCommand() : AmazonWebServiceCommand
 }
 
 
-fun AmazonApiGatewayFunctions.createDocumentationVersion(init: AmazonApiGatewayCreateDocumentationVersionCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayCreateDocumentationVersionCommand().apply(init))
+fun AmazonApiGatewayFunctions.createDocumentationVersion(init: AmazonApiGatewayCreateDocumentationVersionCommand.() -> Unit): com.amazonaws.services.apigateway.model.CreateDocumentationVersionResult {
+	return this.block.declare(AmazonApiGatewayCreateDocumentationVersionCommand().apply(init)) as com.amazonaws.services.apigateway.model.CreateDocumentationVersionResult
 }
 
 @Generated
-class AmazonApiGatewayCreateDocumentationVersionCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.CreateDocumentationVersionRequest> {
+class AmazonApiGatewayCreateDocumentationVersionCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.CreateDocumentationVersionRequest, com.amazonaws.services.apigateway.model.CreateDocumentationVersionResult> {
 
 	var restApiId: String? = null
 	var documentationVersion: String? = null
@@ -263,8 +283,12 @@ class AmazonApiGatewayCreateDocumentationVersionCommand() : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.createDocumentationVersion(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.CreateDocumentationVersionResult {
+	  return com.amazonaws.services.apigateway.model.CreateDocumentationVersionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.CreateDocumentationVersionResult {
+		return environment.apigateway.createDocumentationVersion(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -278,12 +302,12 @@ class AmazonApiGatewayCreateDocumentationVersionCommand() : AmazonWebServiceComm
 }
 
 
-fun AmazonApiGatewayFunctions.createDomainName(init: AmazonApiGatewayCreateDomainNameCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayCreateDomainNameCommand().apply(init))
+fun AmazonApiGatewayFunctions.createDomainName(init: AmazonApiGatewayCreateDomainNameCommand.() -> Unit): com.amazonaws.services.apigateway.model.CreateDomainNameResult {
+	return this.block.declare(AmazonApiGatewayCreateDomainNameCommand().apply(init)) as com.amazonaws.services.apigateway.model.CreateDomainNameResult
 }
 
 @Generated
-class AmazonApiGatewayCreateDomainNameCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.CreateDomainNameRequest> {
+class AmazonApiGatewayCreateDomainNameCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.CreateDomainNameRequest, com.amazonaws.services.apigateway.model.CreateDomainNameResult> {
 
 	var domainName: String? = null
 	var certificateName: String? = null
@@ -309,8 +333,12 @@ class AmazonApiGatewayCreateDomainNameCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.createDomainName(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.CreateDomainNameResult {
+	  return com.amazonaws.services.apigateway.model.CreateDomainNameResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.CreateDomainNameResult {
+		return environment.apigateway.createDomainName(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -329,12 +357,12 @@ class AmazonApiGatewayCreateDomainNameCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonApiGatewayFunctions.createModel(init: AmazonApiGatewayCreateModelCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayCreateModelCommand().apply(init))
+fun AmazonApiGatewayFunctions.createModel(init: AmazonApiGatewayCreateModelCommand.() -> Unit): com.amazonaws.services.apigateway.model.CreateModelResult {
+	return this.block.declare(AmazonApiGatewayCreateModelCommand().apply(init)) as com.amazonaws.services.apigateway.model.CreateModelResult
 }
 
 @Generated
-class AmazonApiGatewayCreateModelCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.CreateModelRequest> {
+class AmazonApiGatewayCreateModelCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.CreateModelRequest, com.amazonaws.services.apigateway.model.CreateModelResult> {
 
 	var restApiId: String? = null
 	var name: String? = null
@@ -352,8 +380,12 @@ class AmazonApiGatewayCreateModelCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.createModel(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.CreateModelResult {
+	  return com.amazonaws.services.apigateway.model.CreateModelResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.CreateModelResult {
+		return environment.apigateway.createModel(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -368,12 +400,12 @@ class AmazonApiGatewayCreateModelCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AmazonApiGatewayFunctions.createRequestValidator(init: AmazonApiGatewayCreateRequestValidatorCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayCreateRequestValidatorCommand().apply(init))
+fun AmazonApiGatewayFunctions.createRequestValidator(init: AmazonApiGatewayCreateRequestValidatorCommand.() -> Unit): com.amazonaws.services.apigateway.model.CreateRequestValidatorResult {
+	return this.block.declare(AmazonApiGatewayCreateRequestValidatorCommand().apply(init)) as com.amazonaws.services.apigateway.model.CreateRequestValidatorResult
 }
 
 @Generated
-class AmazonApiGatewayCreateRequestValidatorCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.CreateRequestValidatorRequest> {
+class AmazonApiGatewayCreateRequestValidatorCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.CreateRequestValidatorRequest, com.amazonaws.services.apigateway.model.CreateRequestValidatorResult> {
 
 	var restApiId: String? = null
 	var name: String? = null
@@ -389,8 +421,12 @@ class AmazonApiGatewayCreateRequestValidatorCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.createRequestValidator(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.CreateRequestValidatorResult {
+	  return com.amazonaws.services.apigateway.model.CreateRequestValidatorResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.CreateRequestValidatorResult {
+		return environment.apigateway.createRequestValidator(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -404,12 +440,12 @@ class AmazonApiGatewayCreateRequestValidatorCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AmazonApiGatewayFunctions.createResource(init: AmazonApiGatewayCreateResourceCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayCreateResourceCommand().apply(init))
+fun AmazonApiGatewayFunctions.createResource(init: AmazonApiGatewayCreateResourceCommand.() -> Unit): com.amazonaws.services.apigateway.model.CreateResourceResult {
+	return this.block.declare(AmazonApiGatewayCreateResourceCommand().apply(init)) as com.amazonaws.services.apigateway.model.CreateResourceResult
 }
 
 @Generated
-class AmazonApiGatewayCreateResourceCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.CreateResourceRequest> {
+class AmazonApiGatewayCreateResourceCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.CreateResourceRequest, com.amazonaws.services.apigateway.model.CreateResourceResult> {
 
 	var restApiId: String? = null
 	var parentId: String? = null
@@ -423,8 +459,12 @@ class AmazonApiGatewayCreateResourceCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.createResource(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.CreateResourceResult {
+	  return com.amazonaws.services.apigateway.model.CreateResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.CreateResourceResult {
+		return environment.apigateway.createResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -437,12 +477,12 @@ class AmazonApiGatewayCreateResourceCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AmazonApiGatewayFunctions.createRestApi(init: AmazonApiGatewayCreateRestApiCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayCreateRestApiCommand().apply(init))
+fun AmazonApiGatewayFunctions.createRestApi(init: AmazonApiGatewayCreateRestApiCommand.() -> Unit): com.amazonaws.services.apigateway.model.CreateRestApiResult {
+	return this.block.declare(AmazonApiGatewayCreateRestApiCommand().apply(init)) as com.amazonaws.services.apigateway.model.CreateRestApiResult
 }
 
 @Generated
-class AmazonApiGatewayCreateRestApiCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.CreateRestApiRequest> {
+class AmazonApiGatewayCreateRestApiCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.CreateRestApiRequest, com.amazonaws.services.apigateway.model.CreateRestApiResult> {
 
 	var name: String? = null
 	var description: String? = null
@@ -468,8 +508,12 @@ class AmazonApiGatewayCreateRestApiCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.createRestApi(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.CreateRestApiResult {
+	  return com.amazonaws.services.apigateway.model.CreateRestApiResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.CreateRestApiResult {
+		return environment.apigateway.createRestApi(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -488,12 +532,12 @@ class AmazonApiGatewayCreateRestApiCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AmazonApiGatewayFunctions.createStage(init: AmazonApiGatewayCreateStageCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayCreateStageCommand().apply(init))
+fun AmazonApiGatewayFunctions.createStage(init: AmazonApiGatewayCreateStageCommand.() -> Unit): com.amazonaws.services.apigateway.model.CreateStageResult {
+	return this.block.declare(AmazonApiGatewayCreateStageCommand().apply(init)) as com.amazonaws.services.apigateway.model.CreateStageResult
 }
 
 @Generated
-class AmazonApiGatewayCreateStageCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.CreateStageRequest> {
+class AmazonApiGatewayCreateStageCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.CreateStageRequest, com.amazonaws.services.apigateway.model.CreateStageResult> {
 
 	var restApiId: String? = null
 	var stageName: String? = null
@@ -521,8 +565,12 @@ class AmazonApiGatewayCreateStageCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.createStage(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.CreateStageResult {
+	  return com.amazonaws.services.apigateway.model.CreateStageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.CreateStageResult {
+		return environment.apigateway.createStage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -542,12 +590,12 @@ class AmazonApiGatewayCreateStageCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AmazonApiGatewayFunctions.createUsagePlan(init: AmazonApiGatewayCreateUsagePlanCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayCreateUsagePlanCommand().apply(init))
+fun AmazonApiGatewayFunctions.createUsagePlan(init: AmazonApiGatewayCreateUsagePlanCommand.() -> Unit): com.amazonaws.services.apigateway.model.CreateUsagePlanResult {
+	return this.block.declare(AmazonApiGatewayCreateUsagePlanCommand().apply(init)) as com.amazonaws.services.apigateway.model.CreateUsagePlanResult
 }
 
 @Generated
-class AmazonApiGatewayCreateUsagePlanCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.CreateUsagePlanRequest> {
+class AmazonApiGatewayCreateUsagePlanCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.CreateUsagePlanRequest, com.amazonaws.services.apigateway.model.CreateUsagePlanResult> {
 
 	var name: String? = null
 	var description: String? = null
@@ -565,8 +613,12 @@ class AmazonApiGatewayCreateUsagePlanCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.createUsagePlan(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.CreateUsagePlanResult {
+	  return com.amazonaws.services.apigateway.model.CreateUsagePlanResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.CreateUsagePlanResult {
+		return environment.apigateway.createUsagePlan(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -581,12 +633,12 @@ class AmazonApiGatewayCreateUsagePlanCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AmazonApiGatewayFunctions.createUsagePlanKey(init: AmazonApiGatewayCreateUsagePlanKeyCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayCreateUsagePlanKeyCommand().apply(init))
+fun AmazonApiGatewayFunctions.createUsagePlanKey(init: AmazonApiGatewayCreateUsagePlanKeyCommand.() -> Unit): com.amazonaws.services.apigateway.model.CreateUsagePlanKeyResult {
+	return this.block.declare(AmazonApiGatewayCreateUsagePlanKeyCommand().apply(init)) as com.amazonaws.services.apigateway.model.CreateUsagePlanKeyResult
 }
 
 @Generated
-class AmazonApiGatewayCreateUsagePlanKeyCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.CreateUsagePlanKeyRequest> {
+class AmazonApiGatewayCreateUsagePlanKeyCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.CreateUsagePlanKeyRequest, com.amazonaws.services.apigateway.model.CreateUsagePlanKeyResult> {
 
 	var usagePlanId: String? = null
 	var keyId: String? = null
@@ -600,8 +652,12 @@ class AmazonApiGatewayCreateUsagePlanKeyCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.createUsagePlanKey(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.CreateUsagePlanKeyResult {
+	  return com.amazonaws.services.apigateway.model.CreateUsagePlanKeyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.CreateUsagePlanKeyResult {
+		return environment.apigateway.createUsagePlanKey(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -614,12 +670,12 @@ class AmazonApiGatewayCreateUsagePlanKeyCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonApiGatewayFunctions.createVpcLink(init: AmazonApiGatewayCreateVpcLinkCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayCreateVpcLinkCommand().apply(init))
+fun AmazonApiGatewayFunctions.createVpcLink(init: AmazonApiGatewayCreateVpcLinkCommand.() -> Unit): com.amazonaws.services.apigateway.model.CreateVpcLinkResult {
+	return this.block.declare(AmazonApiGatewayCreateVpcLinkCommand().apply(init)) as com.amazonaws.services.apigateway.model.CreateVpcLinkResult
 }
 
 @Generated
-class AmazonApiGatewayCreateVpcLinkCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.CreateVpcLinkRequest> {
+class AmazonApiGatewayCreateVpcLinkCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.CreateVpcLinkRequest, com.amazonaws.services.apigateway.model.CreateVpcLinkResult> {
 
 	var name: String? = null
 	var description: String? = null
@@ -633,8 +689,12 @@ class AmazonApiGatewayCreateVpcLinkCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.createVpcLink(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.CreateVpcLinkResult {
+	  return com.amazonaws.services.apigateway.model.CreateVpcLinkResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.CreateVpcLinkResult {
+		return environment.apigateway.createVpcLink(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -647,12 +707,12 @@ class AmazonApiGatewayCreateVpcLinkCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AmazonApiGatewayFunctions.deleteApiKey(init: AmazonApiGatewayDeleteApiKeyCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayDeleteApiKeyCommand().apply(init))
+fun AmazonApiGatewayFunctions.deleteApiKey(init: AmazonApiGatewayDeleteApiKeyCommand.() -> Unit): com.amazonaws.services.apigateway.model.DeleteApiKeyResult {
+	return this.block.declare(AmazonApiGatewayDeleteApiKeyCommand().apply(init)) as com.amazonaws.services.apigateway.model.DeleteApiKeyResult
 }
 
 @Generated
-class AmazonApiGatewayDeleteApiKeyCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteApiKeyRequest> {
+class AmazonApiGatewayDeleteApiKeyCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteApiKeyRequest, com.amazonaws.services.apigateway.model.DeleteApiKeyResult> {
 
 	var apiKey: String? = null
 
@@ -662,8 +722,12 @@ class AmazonApiGatewayDeleteApiKeyCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.deleteApiKey(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteApiKeyResult {
+	  return com.amazonaws.services.apigateway.model.DeleteApiKeyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteApiKeyResult {
+		return environment.apigateway.deleteApiKey(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -674,12 +738,12 @@ class AmazonApiGatewayDeleteApiKeyCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonApiGatewayFunctions.deleteAuthorizer(init: AmazonApiGatewayDeleteAuthorizerCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayDeleteAuthorizerCommand().apply(init))
+fun AmazonApiGatewayFunctions.deleteAuthorizer(init: AmazonApiGatewayDeleteAuthorizerCommand.() -> Unit): com.amazonaws.services.apigateway.model.DeleteAuthorizerResult {
+	return this.block.declare(AmazonApiGatewayDeleteAuthorizerCommand().apply(init)) as com.amazonaws.services.apigateway.model.DeleteAuthorizerResult
 }
 
 @Generated
-class AmazonApiGatewayDeleteAuthorizerCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteAuthorizerRequest> {
+class AmazonApiGatewayDeleteAuthorizerCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteAuthorizerRequest, com.amazonaws.services.apigateway.model.DeleteAuthorizerResult> {
 
 	var restApiId: String? = null
 	var authorizerId: String? = null
@@ -691,8 +755,12 @@ class AmazonApiGatewayDeleteAuthorizerCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.deleteAuthorizer(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteAuthorizerResult {
+	  return com.amazonaws.services.apigateway.model.DeleteAuthorizerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteAuthorizerResult {
+		return environment.apigateway.deleteAuthorizer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -704,12 +772,12 @@ class AmazonApiGatewayDeleteAuthorizerCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonApiGatewayFunctions.deleteBasePathMapping(init: AmazonApiGatewayDeleteBasePathMappingCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayDeleteBasePathMappingCommand().apply(init))
+fun AmazonApiGatewayFunctions.deleteBasePathMapping(init: AmazonApiGatewayDeleteBasePathMappingCommand.() -> Unit): com.amazonaws.services.apigateway.model.DeleteBasePathMappingResult {
+	return this.block.declare(AmazonApiGatewayDeleteBasePathMappingCommand().apply(init)) as com.amazonaws.services.apigateway.model.DeleteBasePathMappingResult
 }
 
 @Generated
-class AmazonApiGatewayDeleteBasePathMappingCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteBasePathMappingRequest> {
+class AmazonApiGatewayDeleteBasePathMappingCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteBasePathMappingRequest, com.amazonaws.services.apigateway.model.DeleteBasePathMappingResult> {
 
 	var domainName: String? = null
 	var basePath: String? = null
@@ -721,8 +789,12 @@ class AmazonApiGatewayDeleteBasePathMappingCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.deleteBasePathMapping(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteBasePathMappingResult {
+	  return com.amazonaws.services.apigateway.model.DeleteBasePathMappingResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteBasePathMappingResult {
+		return environment.apigateway.deleteBasePathMapping(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -734,12 +806,12 @@ class AmazonApiGatewayDeleteBasePathMappingCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AmazonApiGatewayFunctions.deleteClientCertificate(init: AmazonApiGatewayDeleteClientCertificateCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayDeleteClientCertificateCommand().apply(init))
+fun AmazonApiGatewayFunctions.deleteClientCertificate(init: AmazonApiGatewayDeleteClientCertificateCommand.() -> Unit): com.amazonaws.services.apigateway.model.DeleteClientCertificateResult {
+	return this.block.declare(AmazonApiGatewayDeleteClientCertificateCommand().apply(init)) as com.amazonaws.services.apigateway.model.DeleteClientCertificateResult
 }
 
 @Generated
-class AmazonApiGatewayDeleteClientCertificateCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteClientCertificateRequest> {
+class AmazonApiGatewayDeleteClientCertificateCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteClientCertificateRequest, com.amazonaws.services.apigateway.model.DeleteClientCertificateResult> {
 
 	var clientCertificateId: String? = null
 
@@ -749,8 +821,12 @@ class AmazonApiGatewayDeleteClientCertificateCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.deleteClientCertificate(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteClientCertificateResult {
+	  return com.amazonaws.services.apigateway.model.DeleteClientCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteClientCertificateResult {
+		return environment.apigateway.deleteClientCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -761,12 +837,12 @@ class AmazonApiGatewayDeleteClientCertificateCommand() : AmazonWebServiceCommand
 }
 
 
-fun AmazonApiGatewayFunctions.deleteDeployment(init: AmazonApiGatewayDeleteDeploymentCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayDeleteDeploymentCommand().apply(init))
+fun AmazonApiGatewayFunctions.deleteDeployment(init: AmazonApiGatewayDeleteDeploymentCommand.() -> Unit): com.amazonaws.services.apigateway.model.DeleteDeploymentResult {
+	return this.block.declare(AmazonApiGatewayDeleteDeploymentCommand().apply(init)) as com.amazonaws.services.apigateway.model.DeleteDeploymentResult
 }
 
 @Generated
-class AmazonApiGatewayDeleteDeploymentCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteDeploymentRequest> {
+class AmazonApiGatewayDeleteDeploymentCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteDeploymentRequest, com.amazonaws.services.apigateway.model.DeleteDeploymentResult> {
 
 	var restApiId: String? = null
 	var deploymentId: String? = null
@@ -778,8 +854,12 @@ class AmazonApiGatewayDeleteDeploymentCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.deleteDeployment(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteDeploymentResult {
+	  return com.amazonaws.services.apigateway.model.DeleteDeploymentResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteDeploymentResult {
+		return environment.apigateway.deleteDeployment(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -791,12 +871,12 @@ class AmazonApiGatewayDeleteDeploymentCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonApiGatewayFunctions.deleteDocumentationPart(init: AmazonApiGatewayDeleteDocumentationPartCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayDeleteDocumentationPartCommand().apply(init))
+fun AmazonApiGatewayFunctions.deleteDocumentationPart(init: AmazonApiGatewayDeleteDocumentationPartCommand.() -> Unit): com.amazonaws.services.apigateway.model.DeleteDocumentationPartResult {
+	return this.block.declare(AmazonApiGatewayDeleteDocumentationPartCommand().apply(init)) as com.amazonaws.services.apigateway.model.DeleteDocumentationPartResult
 }
 
 @Generated
-class AmazonApiGatewayDeleteDocumentationPartCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteDocumentationPartRequest> {
+class AmazonApiGatewayDeleteDocumentationPartCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteDocumentationPartRequest, com.amazonaws.services.apigateway.model.DeleteDocumentationPartResult> {
 
 	var restApiId: String? = null
 	var documentationPartId: String? = null
@@ -808,8 +888,12 @@ class AmazonApiGatewayDeleteDocumentationPartCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.deleteDocumentationPart(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteDocumentationPartResult {
+	  return com.amazonaws.services.apigateway.model.DeleteDocumentationPartResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteDocumentationPartResult {
+		return environment.apigateway.deleteDocumentationPart(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -821,12 +905,12 @@ class AmazonApiGatewayDeleteDocumentationPartCommand() : AmazonWebServiceCommand
 }
 
 
-fun AmazonApiGatewayFunctions.deleteDocumentationVersion(init: AmazonApiGatewayDeleteDocumentationVersionCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayDeleteDocumentationVersionCommand().apply(init))
+fun AmazonApiGatewayFunctions.deleteDocumentationVersion(init: AmazonApiGatewayDeleteDocumentationVersionCommand.() -> Unit): com.amazonaws.services.apigateway.model.DeleteDocumentationVersionResult {
+	return this.block.declare(AmazonApiGatewayDeleteDocumentationVersionCommand().apply(init)) as com.amazonaws.services.apigateway.model.DeleteDocumentationVersionResult
 }
 
 @Generated
-class AmazonApiGatewayDeleteDocumentationVersionCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteDocumentationVersionRequest> {
+class AmazonApiGatewayDeleteDocumentationVersionCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteDocumentationVersionRequest, com.amazonaws.services.apigateway.model.DeleteDocumentationVersionResult> {
 
 	var restApiId: String? = null
 	var documentationVersion: String? = null
@@ -838,8 +922,12 @@ class AmazonApiGatewayDeleteDocumentationVersionCommand() : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.deleteDocumentationVersion(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteDocumentationVersionResult {
+	  return com.amazonaws.services.apigateway.model.DeleteDocumentationVersionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteDocumentationVersionResult {
+		return environment.apigateway.deleteDocumentationVersion(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -851,12 +939,12 @@ class AmazonApiGatewayDeleteDocumentationVersionCommand() : AmazonWebServiceComm
 }
 
 
-fun AmazonApiGatewayFunctions.deleteDomainName(init: AmazonApiGatewayDeleteDomainNameCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayDeleteDomainNameCommand().apply(init))
+fun AmazonApiGatewayFunctions.deleteDomainName(init: AmazonApiGatewayDeleteDomainNameCommand.() -> Unit): com.amazonaws.services.apigateway.model.DeleteDomainNameResult {
+	return this.block.declare(AmazonApiGatewayDeleteDomainNameCommand().apply(init)) as com.amazonaws.services.apigateway.model.DeleteDomainNameResult
 }
 
 @Generated
-class AmazonApiGatewayDeleteDomainNameCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteDomainNameRequest> {
+class AmazonApiGatewayDeleteDomainNameCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteDomainNameRequest, com.amazonaws.services.apigateway.model.DeleteDomainNameResult> {
 
 	var domainName: String? = null
 
@@ -866,8 +954,12 @@ class AmazonApiGatewayDeleteDomainNameCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.deleteDomainName(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteDomainNameResult {
+	  return com.amazonaws.services.apigateway.model.DeleteDomainNameResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteDomainNameResult {
+		return environment.apigateway.deleteDomainName(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -878,12 +970,12 @@ class AmazonApiGatewayDeleteDomainNameCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonApiGatewayFunctions.deleteGatewayResponse(init: AmazonApiGatewayDeleteGatewayResponseCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayDeleteGatewayResponseCommand().apply(init))
+fun AmazonApiGatewayFunctions.deleteGatewayResponse(init: AmazonApiGatewayDeleteGatewayResponseCommand.() -> Unit): com.amazonaws.services.apigateway.model.DeleteGatewayResponseResult {
+	return this.block.declare(AmazonApiGatewayDeleteGatewayResponseCommand().apply(init)) as com.amazonaws.services.apigateway.model.DeleteGatewayResponseResult
 }
 
 @Generated
-class AmazonApiGatewayDeleteGatewayResponseCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteGatewayResponseRequest> {
+class AmazonApiGatewayDeleteGatewayResponseCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteGatewayResponseRequest, com.amazonaws.services.apigateway.model.DeleteGatewayResponseResult> {
 
 	var restApiId: String? = null
 	var responseType: GatewayResponseType? = null
@@ -895,8 +987,12 @@ class AmazonApiGatewayDeleteGatewayResponseCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.deleteGatewayResponse(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteGatewayResponseResult {
+	  return com.amazonaws.services.apigateway.model.DeleteGatewayResponseResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteGatewayResponseResult {
+		return environment.apigateway.deleteGatewayResponse(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -908,12 +1004,12 @@ class AmazonApiGatewayDeleteGatewayResponseCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AmazonApiGatewayFunctions.deleteIntegration(init: AmazonApiGatewayDeleteIntegrationCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayDeleteIntegrationCommand().apply(init))
+fun AmazonApiGatewayFunctions.deleteIntegration(init: AmazonApiGatewayDeleteIntegrationCommand.() -> Unit): com.amazonaws.services.apigateway.model.DeleteIntegrationResult {
+	return this.block.declare(AmazonApiGatewayDeleteIntegrationCommand().apply(init)) as com.amazonaws.services.apigateway.model.DeleteIntegrationResult
 }
 
 @Generated
-class AmazonApiGatewayDeleteIntegrationCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteIntegrationRequest> {
+class AmazonApiGatewayDeleteIntegrationCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteIntegrationRequest, com.amazonaws.services.apigateway.model.DeleteIntegrationResult> {
 
 	var restApiId: String? = null
 	var resourceId: String? = null
@@ -927,8 +1023,12 @@ class AmazonApiGatewayDeleteIntegrationCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.deleteIntegration(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteIntegrationResult {
+	  return com.amazonaws.services.apigateway.model.DeleteIntegrationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteIntegrationResult {
+		return environment.apigateway.deleteIntegration(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -941,12 +1041,12 @@ class AmazonApiGatewayDeleteIntegrationCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AmazonApiGatewayFunctions.deleteIntegrationResponse(init: AmazonApiGatewayDeleteIntegrationResponseCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayDeleteIntegrationResponseCommand().apply(init))
+fun AmazonApiGatewayFunctions.deleteIntegrationResponse(init: AmazonApiGatewayDeleteIntegrationResponseCommand.() -> Unit): com.amazonaws.services.apigateway.model.DeleteIntegrationResponseResult {
+	return this.block.declare(AmazonApiGatewayDeleteIntegrationResponseCommand().apply(init)) as com.amazonaws.services.apigateway.model.DeleteIntegrationResponseResult
 }
 
 @Generated
-class AmazonApiGatewayDeleteIntegrationResponseCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteIntegrationResponseRequest> {
+class AmazonApiGatewayDeleteIntegrationResponseCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteIntegrationResponseRequest, com.amazonaws.services.apigateway.model.DeleteIntegrationResponseResult> {
 
 	var restApiId: String? = null
 	var resourceId: String? = null
@@ -962,8 +1062,12 @@ class AmazonApiGatewayDeleteIntegrationResponseCommand() : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.deleteIntegrationResponse(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteIntegrationResponseResult {
+	  return com.amazonaws.services.apigateway.model.DeleteIntegrationResponseResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteIntegrationResponseResult {
+		return environment.apigateway.deleteIntegrationResponse(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -977,12 +1081,12 @@ class AmazonApiGatewayDeleteIntegrationResponseCommand() : AmazonWebServiceComma
 }
 
 
-fun AmazonApiGatewayFunctions.deleteMethod(init: AmazonApiGatewayDeleteMethodCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayDeleteMethodCommand().apply(init))
+fun AmazonApiGatewayFunctions.deleteMethod(init: AmazonApiGatewayDeleteMethodCommand.() -> Unit): com.amazonaws.services.apigateway.model.DeleteMethodResult {
+	return this.block.declare(AmazonApiGatewayDeleteMethodCommand().apply(init)) as com.amazonaws.services.apigateway.model.DeleteMethodResult
 }
 
 @Generated
-class AmazonApiGatewayDeleteMethodCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteMethodRequest> {
+class AmazonApiGatewayDeleteMethodCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteMethodRequest, com.amazonaws.services.apigateway.model.DeleteMethodResult> {
 
 	var restApiId: String? = null
 	var resourceId: String? = null
@@ -996,8 +1100,12 @@ class AmazonApiGatewayDeleteMethodCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.deleteMethod(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteMethodResult {
+	  return com.amazonaws.services.apigateway.model.DeleteMethodResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteMethodResult {
+		return environment.apigateway.deleteMethod(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1010,12 +1118,12 @@ class AmazonApiGatewayDeleteMethodCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonApiGatewayFunctions.deleteMethodResponse(init: AmazonApiGatewayDeleteMethodResponseCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayDeleteMethodResponseCommand().apply(init))
+fun AmazonApiGatewayFunctions.deleteMethodResponse(init: AmazonApiGatewayDeleteMethodResponseCommand.() -> Unit): com.amazonaws.services.apigateway.model.DeleteMethodResponseResult {
+	return this.block.declare(AmazonApiGatewayDeleteMethodResponseCommand().apply(init)) as com.amazonaws.services.apigateway.model.DeleteMethodResponseResult
 }
 
 @Generated
-class AmazonApiGatewayDeleteMethodResponseCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteMethodResponseRequest> {
+class AmazonApiGatewayDeleteMethodResponseCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteMethodResponseRequest, com.amazonaws.services.apigateway.model.DeleteMethodResponseResult> {
 
 	var restApiId: String? = null
 	var resourceId: String? = null
@@ -1031,8 +1139,12 @@ class AmazonApiGatewayDeleteMethodResponseCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.deleteMethodResponse(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteMethodResponseResult {
+	  return com.amazonaws.services.apigateway.model.DeleteMethodResponseResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteMethodResponseResult {
+		return environment.apigateway.deleteMethodResponse(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1046,12 +1158,12 @@ class AmazonApiGatewayDeleteMethodResponseCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonApiGatewayFunctions.deleteModel(init: AmazonApiGatewayDeleteModelCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayDeleteModelCommand().apply(init))
+fun AmazonApiGatewayFunctions.deleteModel(init: AmazonApiGatewayDeleteModelCommand.() -> Unit): com.amazonaws.services.apigateway.model.DeleteModelResult {
+	return this.block.declare(AmazonApiGatewayDeleteModelCommand().apply(init)) as com.amazonaws.services.apigateway.model.DeleteModelResult
 }
 
 @Generated
-class AmazonApiGatewayDeleteModelCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteModelRequest> {
+class AmazonApiGatewayDeleteModelCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteModelRequest, com.amazonaws.services.apigateway.model.DeleteModelResult> {
 
 	var restApiId: String? = null
 	var modelName: String? = null
@@ -1063,8 +1175,12 @@ class AmazonApiGatewayDeleteModelCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.deleteModel(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteModelResult {
+	  return com.amazonaws.services.apigateway.model.DeleteModelResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteModelResult {
+		return environment.apigateway.deleteModel(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1076,12 +1192,12 @@ class AmazonApiGatewayDeleteModelCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AmazonApiGatewayFunctions.deleteRequestValidator(init: AmazonApiGatewayDeleteRequestValidatorCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayDeleteRequestValidatorCommand().apply(init))
+fun AmazonApiGatewayFunctions.deleteRequestValidator(init: AmazonApiGatewayDeleteRequestValidatorCommand.() -> Unit): com.amazonaws.services.apigateway.model.DeleteRequestValidatorResult {
+	return this.block.declare(AmazonApiGatewayDeleteRequestValidatorCommand().apply(init)) as com.amazonaws.services.apigateway.model.DeleteRequestValidatorResult
 }
 
 @Generated
-class AmazonApiGatewayDeleteRequestValidatorCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteRequestValidatorRequest> {
+class AmazonApiGatewayDeleteRequestValidatorCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteRequestValidatorRequest, com.amazonaws.services.apigateway.model.DeleteRequestValidatorResult> {
 
 	var restApiId: String? = null
 	var requestValidatorId: String? = null
@@ -1093,8 +1209,12 @@ class AmazonApiGatewayDeleteRequestValidatorCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.deleteRequestValidator(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteRequestValidatorResult {
+	  return com.amazonaws.services.apigateway.model.DeleteRequestValidatorResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteRequestValidatorResult {
+		return environment.apigateway.deleteRequestValidator(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1106,12 +1226,12 @@ class AmazonApiGatewayDeleteRequestValidatorCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AmazonApiGatewayFunctions.deleteResource(init: AmazonApiGatewayDeleteResourceCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayDeleteResourceCommand().apply(init))
+fun AmazonApiGatewayFunctions.deleteResource(init: AmazonApiGatewayDeleteResourceCommand.() -> Unit): com.amazonaws.services.apigateway.model.DeleteResourceResult {
+	return this.block.declare(AmazonApiGatewayDeleteResourceCommand().apply(init)) as com.amazonaws.services.apigateway.model.DeleteResourceResult
 }
 
 @Generated
-class AmazonApiGatewayDeleteResourceCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteResourceRequest> {
+class AmazonApiGatewayDeleteResourceCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteResourceRequest, com.amazonaws.services.apigateway.model.DeleteResourceResult> {
 
 	var restApiId: String? = null
 	var resourceId: String? = null
@@ -1123,8 +1243,12 @@ class AmazonApiGatewayDeleteResourceCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.deleteResource(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteResourceResult {
+	  return com.amazonaws.services.apigateway.model.DeleteResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteResourceResult {
+		return environment.apigateway.deleteResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1136,12 +1260,12 @@ class AmazonApiGatewayDeleteResourceCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AmazonApiGatewayFunctions.deleteRestApi(init: AmazonApiGatewayDeleteRestApiCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayDeleteRestApiCommand().apply(init))
+fun AmazonApiGatewayFunctions.deleteRestApi(init: AmazonApiGatewayDeleteRestApiCommand.() -> Unit): com.amazonaws.services.apigateway.model.DeleteRestApiResult {
+	return this.block.declare(AmazonApiGatewayDeleteRestApiCommand().apply(init)) as com.amazonaws.services.apigateway.model.DeleteRestApiResult
 }
 
 @Generated
-class AmazonApiGatewayDeleteRestApiCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteRestApiRequest> {
+class AmazonApiGatewayDeleteRestApiCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteRestApiRequest, com.amazonaws.services.apigateway.model.DeleteRestApiResult> {
 
 	var restApiId: String? = null
 
@@ -1151,8 +1275,12 @@ class AmazonApiGatewayDeleteRestApiCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.deleteRestApi(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteRestApiResult {
+	  return com.amazonaws.services.apigateway.model.DeleteRestApiResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteRestApiResult {
+		return environment.apigateway.deleteRestApi(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1163,12 +1291,12 @@ class AmazonApiGatewayDeleteRestApiCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AmazonApiGatewayFunctions.deleteStage(init: AmazonApiGatewayDeleteStageCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayDeleteStageCommand().apply(init))
+fun AmazonApiGatewayFunctions.deleteStage(init: AmazonApiGatewayDeleteStageCommand.() -> Unit): com.amazonaws.services.apigateway.model.DeleteStageResult {
+	return this.block.declare(AmazonApiGatewayDeleteStageCommand().apply(init)) as com.amazonaws.services.apigateway.model.DeleteStageResult
 }
 
 @Generated
-class AmazonApiGatewayDeleteStageCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteStageRequest> {
+class AmazonApiGatewayDeleteStageCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteStageRequest, com.amazonaws.services.apigateway.model.DeleteStageResult> {
 
 	var restApiId: String? = null
 	var stageName: String? = null
@@ -1180,8 +1308,12 @@ class AmazonApiGatewayDeleteStageCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.deleteStage(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteStageResult {
+	  return com.amazonaws.services.apigateway.model.DeleteStageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteStageResult {
+		return environment.apigateway.deleteStage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1193,12 +1325,12 @@ class AmazonApiGatewayDeleteStageCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AmazonApiGatewayFunctions.deleteUsagePlan(init: AmazonApiGatewayDeleteUsagePlanCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayDeleteUsagePlanCommand().apply(init))
+fun AmazonApiGatewayFunctions.deleteUsagePlan(init: AmazonApiGatewayDeleteUsagePlanCommand.() -> Unit): com.amazonaws.services.apigateway.model.DeleteUsagePlanResult {
+	return this.block.declare(AmazonApiGatewayDeleteUsagePlanCommand().apply(init)) as com.amazonaws.services.apigateway.model.DeleteUsagePlanResult
 }
 
 @Generated
-class AmazonApiGatewayDeleteUsagePlanCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteUsagePlanRequest> {
+class AmazonApiGatewayDeleteUsagePlanCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteUsagePlanRequest, com.amazonaws.services.apigateway.model.DeleteUsagePlanResult> {
 
 	var usagePlanId: String? = null
 
@@ -1208,8 +1340,12 @@ class AmazonApiGatewayDeleteUsagePlanCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.deleteUsagePlan(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteUsagePlanResult {
+	  return com.amazonaws.services.apigateway.model.DeleteUsagePlanResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteUsagePlanResult {
+		return environment.apigateway.deleteUsagePlan(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1220,12 +1356,12 @@ class AmazonApiGatewayDeleteUsagePlanCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AmazonApiGatewayFunctions.deleteUsagePlanKey(init: AmazonApiGatewayDeleteUsagePlanKeyCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayDeleteUsagePlanKeyCommand().apply(init))
+fun AmazonApiGatewayFunctions.deleteUsagePlanKey(init: AmazonApiGatewayDeleteUsagePlanKeyCommand.() -> Unit): com.amazonaws.services.apigateway.model.DeleteUsagePlanKeyResult {
+	return this.block.declare(AmazonApiGatewayDeleteUsagePlanKeyCommand().apply(init)) as com.amazonaws.services.apigateway.model.DeleteUsagePlanKeyResult
 }
 
 @Generated
-class AmazonApiGatewayDeleteUsagePlanKeyCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteUsagePlanKeyRequest> {
+class AmazonApiGatewayDeleteUsagePlanKeyCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteUsagePlanKeyRequest, com.amazonaws.services.apigateway.model.DeleteUsagePlanKeyResult> {
 
 	var usagePlanId: String? = null
 	var keyId: String? = null
@@ -1237,8 +1373,12 @@ class AmazonApiGatewayDeleteUsagePlanKeyCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.deleteUsagePlanKey(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteUsagePlanKeyResult {
+	  return com.amazonaws.services.apigateway.model.DeleteUsagePlanKeyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteUsagePlanKeyResult {
+		return environment.apigateway.deleteUsagePlanKey(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1250,12 +1390,12 @@ class AmazonApiGatewayDeleteUsagePlanKeyCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonApiGatewayFunctions.deleteVpcLink(init: AmazonApiGatewayDeleteVpcLinkCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayDeleteVpcLinkCommand().apply(init))
+fun AmazonApiGatewayFunctions.deleteVpcLink(init: AmazonApiGatewayDeleteVpcLinkCommand.() -> Unit): com.amazonaws.services.apigateway.model.DeleteVpcLinkResult {
+	return this.block.declare(AmazonApiGatewayDeleteVpcLinkCommand().apply(init)) as com.amazonaws.services.apigateway.model.DeleteVpcLinkResult
 }
 
 @Generated
-class AmazonApiGatewayDeleteVpcLinkCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteVpcLinkRequest> {
+class AmazonApiGatewayDeleteVpcLinkCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.DeleteVpcLinkRequest, com.amazonaws.services.apigateway.model.DeleteVpcLinkResult> {
 
 	var vpcLinkId: String? = null
 
@@ -1265,8 +1405,12 @@ class AmazonApiGatewayDeleteVpcLinkCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.deleteVpcLink(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.DeleteVpcLinkResult {
+	  return com.amazonaws.services.apigateway.model.DeleteVpcLinkResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.DeleteVpcLinkResult {
+		return environment.apigateway.deleteVpcLink(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1277,12 +1421,12 @@ class AmazonApiGatewayDeleteVpcLinkCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AmazonApiGatewayFunctions.flushStageAuthorizersCache(init: AmazonApiGatewayFlushStageAuthorizersCacheCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayFlushStageAuthorizersCacheCommand().apply(init))
+fun AmazonApiGatewayFunctions.flushStageAuthorizersCache(init: AmazonApiGatewayFlushStageAuthorizersCacheCommand.() -> Unit): com.amazonaws.services.apigateway.model.FlushStageAuthorizersCacheResult {
+	return this.block.declare(AmazonApiGatewayFlushStageAuthorizersCacheCommand().apply(init)) as com.amazonaws.services.apigateway.model.FlushStageAuthorizersCacheResult
 }
 
 @Generated
-class AmazonApiGatewayFlushStageAuthorizersCacheCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.FlushStageAuthorizersCacheRequest> {
+class AmazonApiGatewayFlushStageAuthorizersCacheCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.FlushStageAuthorizersCacheRequest, com.amazonaws.services.apigateway.model.FlushStageAuthorizersCacheResult> {
 
 	var restApiId: String? = null
 	var stageName: String? = null
@@ -1294,8 +1438,12 @@ class AmazonApiGatewayFlushStageAuthorizersCacheCommand() : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.flushStageAuthorizersCache(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.FlushStageAuthorizersCacheResult {
+	  return com.amazonaws.services.apigateway.model.FlushStageAuthorizersCacheResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.FlushStageAuthorizersCacheResult {
+		return environment.apigateway.flushStageAuthorizersCache(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1307,12 +1455,12 @@ class AmazonApiGatewayFlushStageAuthorizersCacheCommand() : AmazonWebServiceComm
 }
 
 
-fun AmazonApiGatewayFunctions.flushStageCache(init: AmazonApiGatewayFlushStageCacheCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayFlushStageCacheCommand().apply(init))
+fun AmazonApiGatewayFunctions.flushStageCache(init: AmazonApiGatewayFlushStageCacheCommand.() -> Unit): com.amazonaws.services.apigateway.model.FlushStageCacheResult {
+	return this.block.declare(AmazonApiGatewayFlushStageCacheCommand().apply(init)) as com.amazonaws.services.apigateway.model.FlushStageCacheResult
 }
 
 @Generated
-class AmazonApiGatewayFlushStageCacheCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.FlushStageCacheRequest> {
+class AmazonApiGatewayFlushStageCacheCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.FlushStageCacheRequest, com.amazonaws.services.apigateway.model.FlushStageCacheResult> {
 
 	var restApiId: String? = null
 	var stageName: String? = null
@@ -1324,8 +1472,12 @@ class AmazonApiGatewayFlushStageCacheCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.flushStageCache(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.FlushStageCacheResult {
+	  return com.amazonaws.services.apigateway.model.FlushStageCacheResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.FlushStageCacheResult {
+		return environment.apigateway.flushStageCache(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1337,12 +1489,12 @@ class AmazonApiGatewayFlushStageCacheCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AmazonApiGatewayFunctions.generateClientCertificate(init: AmazonApiGatewayGenerateClientCertificateCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGenerateClientCertificateCommand().apply(init))
+fun AmazonApiGatewayFunctions.generateClientCertificate(init: AmazonApiGatewayGenerateClientCertificateCommand.() -> Unit): com.amazonaws.services.apigateway.model.GenerateClientCertificateResult {
+	return this.block.declare(AmazonApiGatewayGenerateClientCertificateCommand().apply(init)) as com.amazonaws.services.apigateway.model.GenerateClientCertificateResult
 }
 
 @Generated
-class AmazonApiGatewayGenerateClientCertificateCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GenerateClientCertificateRequest> {
+class AmazonApiGatewayGenerateClientCertificateCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GenerateClientCertificateRequest, com.amazonaws.services.apigateway.model.GenerateClientCertificateResult> {
 
 	var description: String? = null
 
@@ -1352,8 +1504,12 @@ class AmazonApiGatewayGenerateClientCertificateCommand() : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.generateClientCertificate(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GenerateClientCertificateResult {
+	  return com.amazonaws.services.apigateway.model.GenerateClientCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GenerateClientCertificateResult {
+		return environment.apigateway.generateClientCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1364,12 +1520,12 @@ class AmazonApiGatewayGenerateClientCertificateCommand() : AmazonWebServiceComma
 }
 
 
-fun AmazonApiGatewayFunctions.getAccount(init: AmazonApiGatewayGetAccountCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetAccountCommand().apply(init))
+fun AmazonApiGatewayFunctions.getAccount(init: AmazonApiGatewayGetAccountCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetAccountResult {
+	return this.block.declare(AmazonApiGatewayGetAccountCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetAccountResult
 }
 
 @Generated
-class AmazonApiGatewayGetAccountCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetAccountRequest> {
+class AmazonApiGatewayGetAccountCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetAccountRequest, com.amazonaws.services.apigateway.model.GetAccountResult> {
 
 
 
@@ -1379,8 +1535,12 @@ class AmazonApiGatewayGetAccountCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getAccount(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetAccountResult {
+	  return com.amazonaws.services.apigateway.model.GetAccountResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetAccountResult {
+		return environment.apigateway.getAccount(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1391,12 +1551,12 @@ class AmazonApiGatewayGetAccountCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AmazonApiGatewayFunctions.getApiKey(init: AmazonApiGatewayGetApiKeyCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetApiKeyCommand().apply(init))
+fun AmazonApiGatewayFunctions.getApiKey(init: AmazonApiGatewayGetApiKeyCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetApiKeyResult {
+	return this.block.declare(AmazonApiGatewayGetApiKeyCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetApiKeyResult
 }
 
 @Generated
-class AmazonApiGatewayGetApiKeyCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetApiKeyRequest> {
+class AmazonApiGatewayGetApiKeyCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetApiKeyRequest, com.amazonaws.services.apigateway.model.GetApiKeyResult> {
 
 	var apiKey: String? = null
 	var includeValue: Boolean? = false
@@ -1408,8 +1568,12 @@ class AmazonApiGatewayGetApiKeyCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getApiKey(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetApiKeyResult {
+	  return com.amazonaws.services.apigateway.model.GetApiKeyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetApiKeyResult {
+		return environment.apigateway.getApiKey(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1421,12 +1585,12 @@ class AmazonApiGatewayGetApiKeyCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AmazonApiGatewayFunctions.getApiKeys(init: AmazonApiGatewayGetApiKeysCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetApiKeysCommand().apply(init))
+fun AmazonApiGatewayFunctions.getApiKeys(init: AmazonApiGatewayGetApiKeysCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetApiKeysResult {
+	return this.block.declare(AmazonApiGatewayGetApiKeysCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetApiKeysResult
 }
 
 @Generated
-class AmazonApiGatewayGetApiKeysCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetApiKeysRequest> {
+class AmazonApiGatewayGetApiKeysCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetApiKeysRequest, com.amazonaws.services.apigateway.model.GetApiKeysResult> {
 
 	var position: String? = null
 	var limit: Int? = 0
@@ -1444,8 +1608,12 @@ class AmazonApiGatewayGetApiKeysCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getApiKeys(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetApiKeysResult {
+	  return com.amazonaws.services.apigateway.model.GetApiKeysResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetApiKeysResult {
+		return environment.apigateway.getApiKeys(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1460,12 +1628,12 @@ class AmazonApiGatewayGetApiKeysCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AmazonApiGatewayFunctions.getAuthorizer(init: AmazonApiGatewayGetAuthorizerCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetAuthorizerCommand().apply(init))
+fun AmazonApiGatewayFunctions.getAuthorizer(init: AmazonApiGatewayGetAuthorizerCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetAuthorizerResult {
+	return this.block.declare(AmazonApiGatewayGetAuthorizerCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetAuthorizerResult
 }
 
 @Generated
-class AmazonApiGatewayGetAuthorizerCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetAuthorizerRequest> {
+class AmazonApiGatewayGetAuthorizerCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetAuthorizerRequest, com.amazonaws.services.apigateway.model.GetAuthorizerResult> {
 
 	var restApiId: String? = null
 	var authorizerId: String? = null
@@ -1477,8 +1645,12 @@ class AmazonApiGatewayGetAuthorizerCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getAuthorizer(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetAuthorizerResult {
+	  return com.amazonaws.services.apigateway.model.GetAuthorizerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetAuthorizerResult {
+		return environment.apigateway.getAuthorizer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1490,12 +1662,12 @@ class AmazonApiGatewayGetAuthorizerCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AmazonApiGatewayFunctions.getAuthorizers(init: AmazonApiGatewayGetAuthorizersCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetAuthorizersCommand().apply(init))
+fun AmazonApiGatewayFunctions.getAuthorizers(init: AmazonApiGatewayGetAuthorizersCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetAuthorizersResult {
+	return this.block.declare(AmazonApiGatewayGetAuthorizersCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetAuthorizersResult
 }
 
 @Generated
-class AmazonApiGatewayGetAuthorizersCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetAuthorizersRequest> {
+class AmazonApiGatewayGetAuthorizersCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetAuthorizersRequest, com.amazonaws.services.apigateway.model.GetAuthorizersResult> {
 
 	var restApiId: String? = null
 	var position: String? = null
@@ -1509,8 +1681,12 @@ class AmazonApiGatewayGetAuthorizersCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getAuthorizers(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetAuthorizersResult {
+	  return com.amazonaws.services.apigateway.model.GetAuthorizersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetAuthorizersResult {
+		return environment.apigateway.getAuthorizers(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1523,12 +1699,12 @@ class AmazonApiGatewayGetAuthorizersCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AmazonApiGatewayFunctions.getBasePathMapping(init: AmazonApiGatewayGetBasePathMappingCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetBasePathMappingCommand().apply(init))
+fun AmazonApiGatewayFunctions.getBasePathMapping(init: AmazonApiGatewayGetBasePathMappingCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetBasePathMappingResult {
+	return this.block.declare(AmazonApiGatewayGetBasePathMappingCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetBasePathMappingResult
 }
 
 @Generated
-class AmazonApiGatewayGetBasePathMappingCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetBasePathMappingRequest> {
+class AmazonApiGatewayGetBasePathMappingCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetBasePathMappingRequest, com.amazonaws.services.apigateway.model.GetBasePathMappingResult> {
 
 	var domainName: String? = null
 	var basePath: String? = null
@@ -1540,8 +1716,12 @@ class AmazonApiGatewayGetBasePathMappingCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getBasePathMapping(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetBasePathMappingResult {
+	  return com.amazonaws.services.apigateway.model.GetBasePathMappingResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetBasePathMappingResult {
+		return environment.apigateway.getBasePathMapping(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1553,12 +1733,12 @@ class AmazonApiGatewayGetBasePathMappingCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonApiGatewayFunctions.getBasePathMappings(init: AmazonApiGatewayGetBasePathMappingsCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetBasePathMappingsCommand().apply(init))
+fun AmazonApiGatewayFunctions.getBasePathMappings(init: AmazonApiGatewayGetBasePathMappingsCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetBasePathMappingsResult {
+	return this.block.declare(AmazonApiGatewayGetBasePathMappingsCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetBasePathMappingsResult
 }
 
 @Generated
-class AmazonApiGatewayGetBasePathMappingsCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetBasePathMappingsRequest> {
+class AmazonApiGatewayGetBasePathMappingsCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetBasePathMappingsRequest, com.amazonaws.services.apigateway.model.GetBasePathMappingsResult> {
 
 	var domainName: String? = null
 	var position: String? = null
@@ -1572,8 +1752,12 @@ class AmazonApiGatewayGetBasePathMappingsCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getBasePathMappings(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetBasePathMappingsResult {
+	  return com.amazonaws.services.apigateway.model.GetBasePathMappingsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetBasePathMappingsResult {
+		return environment.apigateway.getBasePathMappings(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1586,12 +1770,12 @@ class AmazonApiGatewayGetBasePathMappingsCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AmazonApiGatewayFunctions.getClientCertificate(init: AmazonApiGatewayGetClientCertificateCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetClientCertificateCommand().apply(init))
+fun AmazonApiGatewayFunctions.getClientCertificate(init: AmazonApiGatewayGetClientCertificateCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetClientCertificateResult {
+	return this.block.declare(AmazonApiGatewayGetClientCertificateCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetClientCertificateResult
 }
 
 @Generated
-class AmazonApiGatewayGetClientCertificateCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetClientCertificateRequest> {
+class AmazonApiGatewayGetClientCertificateCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetClientCertificateRequest, com.amazonaws.services.apigateway.model.GetClientCertificateResult> {
 
 	var clientCertificateId: String? = null
 
@@ -1601,8 +1785,12 @@ class AmazonApiGatewayGetClientCertificateCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getClientCertificate(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetClientCertificateResult {
+	  return com.amazonaws.services.apigateway.model.GetClientCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetClientCertificateResult {
+		return environment.apigateway.getClientCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1613,12 +1801,12 @@ class AmazonApiGatewayGetClientCertificateCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonApiGatewayFunctions.getClientCertificates(init: AmazonApiGatewayGetClientCertificatesCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetClientCertificatesCommand().apply(init))
+fun AmazonApiGatewayFunctions.getClientCertificates(init: AmazonApiGatewayGetClientCertificatesCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetClientCertificatesResult {
+	return this.block.declare(AmazonApiGatewayGetClientCertificatesCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetClientCertificatesResult
 }
 
 @Generated
-class AmazonApiGatewayGetClientCertificatesCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetClientCertificatesRequest> {
+class AmazonApiGatewayGetClientCertificatesCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetClientCertificatesRequest, com.amazonaws.services.apigateway.model.GetClientCertificatesResult> {
 
 	var position: String? = null
 	var limit: Int? = 0
@@ -1630,8 +1818,12 @@ class AmazonApiGatewayGetClientCertificatesCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getClientCertificates(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetClientCertificatesResult {
+	  return com.amazonaws.services.apigateway.model.GetClientCertificatesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetClientCertificatesResult {
+		return environment.apigateway.getClientCertificates(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1643,12 +1835,12 @@ class AmazonApiGatewayGetClientCertificatesCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AmazonApiGatewayFunctions.getDeployment(init: AmazonApiGatewayGetDeploymentCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetDeploymentCommand().apply(init))
+fun AmazonApiGatewayFunctions.getDeployment(init: AmazonApiGatewayGetDeploymentCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetDeploymentResult {
+	return this.block.declare(AmazonApiGatewayGetDeploymentCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetDeploymentResult
 }
 
 @Generated
-class AmazonApiGatewayGetDeploymentCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetDeploymentRequest> {
+class AmazonApiGatewayGetDeploymentCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetDeploymentRequest, com.amazonaws.services.apigateway.model.GetDeploymentResult> {
 
 	var restApiId: String? = null
 	var deploymentId: String? = null
@@ -1662,8 +1854,12 @@ class AmazonApiGatewayGetDeploymentCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getDeployment(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetDeploymentResult {
+	  return com.amazonaws.services.apigateway.model.GetDeploymentResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetDeploymentResult {
+		return environment.apigateway.getDeployment(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1676,12 +1872,12 @@ class AmazonApiGatewayGetDeploymentCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AmazonApiGatewayFunctions.getDeployments(init: AmazonApiGatewayGetDeploymentsCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetDeploymentsCommand().apply(init))
+fun AmazonApiGatewayFunctions.getDeployments(init: AmazonApiGatewayGetDeploymentsCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetDeploymentsResult {
+	return this.block.declare(AmazonApiGatewayGetDeploymentsCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetDeploymentsResult
 }
 
 @Generated
-class AmazonApiGatewayGetDeploymentsCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetDeploymentsRequest> {
+class AmazonApiGatewayGetDeploymentsCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetDeploymentsRequest, com.amazonaws.services.apigateway.model.GetDeploymentsResult> {
 
 	var restApiId: String? = null
 	var position: String? = null
@@ -1695,8 +1891,12 @@ class AmazonApiGatewayGetDeploymentsCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getDeployments(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetDeploymentsResult {
+	  return com.amazonaws.services.apigateway.model.GetDeploymentsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetDeploymentsResult {
+		return environment.apigateway.getDeployments(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1709,12 +1909,12 @@ class AmazonApiGatewayGetDeploymentsCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AmazonApiGatewayFunctions.getDocumentationPart(init: AmazonApiGatewayGetDocumentationPartCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetDocumentationPartCommand().apply(init))
+fun AmazonApiGatewayFunctions.getDocumentationPart(init: AmazonApiGatewayGetDocumentationPartCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetDocumentationPartResult {
+	return this.block.declare(AmazonApiGatewayGetDocumentationPartCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetDocumentationPartResult
 }
 
 @Generated
-class AmazonApiGatewayGetDocumentationPartCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetDocumentationPartRequest> {
+class AmazonApiGatewayGetDocumentationPartCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetDocumentationPartRequest, com.amazonaws.services.apigateway.model.GetDocumentationPartResult> {
 
 	var restApiId: String? = null
 	var documentationPartId: String? = null
@@ -1726,8 +1926,12 @@ class AmazonApiGatewayGetDocumentationPartCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getDocumentationPart(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetDocumentationPartResult {
+	  return com.amazonaws.services.apigateway.model.GetDocumentationPartResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetDocumentationPartResult {
+		return environment.apigateway.getDocumentationPart(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1739,12 +1943,12 @@ class AmazonApiGatewayGetDocumentationPartCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonApiGatewayFunctions.getDocumentationParts(init: AmazonApiGatewayGetDocumentationPartsCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetDocumentationPartsCommand().apply(init))
+fun AmazonApiGatewayFunctions.getDocumentationParts(init: AmazonApiGatewayGetDocumentationPartsCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetDocumentationPartsResult {
+	return this.block.declare(AmazonApiGatewayGetDocumentationPartsCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetDocumentationPartsResult
 }
 
 @Generated
-class AmazonApiGatewayGetDocumentationPartsCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetDocumentationPartsRequest> {
+class AmazonApiGatewayGetDocumentationPartsCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetDocumentationPartsRequest, com.amazonaws.services.apigateway.model.GetDocumentationPartsResult> {
 
 	var restApiId: String? = null
 	var type: DocumentationPartType? = null
@@ -1766,8 +1970,12 @@ class AmazonApiGatewayGetDocumentationPartsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getDocumentationParts(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetDocumentationPartsResult {
+	  return com.amazonaws.services.apigateway.model.GetDocumentationPartsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetDocumentationPartsResult {
+		return environment.apigateway.getDocumentationParts(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1784,12 +1992,12 @@ class AmazonApiGatewayGetDocumentationPartsCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AmazonApiGatewayFunctions.getDocumentationVersion(init: AmazonApiGatewayGetDocumentationVersionCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetDocumentationVersionCommand().apply(init))
+fun AmazonApiGatewayFunctions.getDocumentationVersion(init: AmazonApiGatewayGetDocumentationVersionCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetDocumentationVersionResult {
+	return this.block.declare(AmazonApiGatewayGetDocumentationVersionCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetDocumentationVersionResult
 }
 
 @Generated
-class AmazonApiGatewayGetDocumentationVersionCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetDocumentationVersionRequest> {
+class AmazonApiGatewayGetDocumentationVersionCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetDocumentationVersionRequest, com.amazonaws.services.apigateway.model.GetDocumentationVersionResult> {
 
 	var restApiId: String? = null
 	var documentationVersion: String? = null
@@ -1801,8 +2009,12 @@ class AmazonApiGatewayGetDocumentationVersionCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getDocumentationVersion(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetDocumentationVersionResult {
+	  return com.amazonaws.services.apigateway.model.GetDocumentationVersionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetDocumentationVersionResult {
+		return environment.apigateway.getDocumentationVersion(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1814,12 +2026,12 @@ class AmazonApiGatewayGetDocumentationVersionCommand() : AmazonWebServiceCommand
 }
 
 
-fun AmazonApiGatewayFunctions.getDocumentationVersions(init: AmazonApiGatewayGetDocumentationVersionsCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetDocumentationVersionsCommand().apply(init))
+fun AmazonApiGatewayFunctions.getDocumentationVersions(init: AmazonApiGatewayGetDocumentationVersionsCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetDocumentationVersionsResult {
+	return this.block.declare(AmazonApiGatewayGetDocumentationVersionsCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetDocumentationVersionsResult
 }
 
 @Generated
-class AmazonApiGatewayGetDocumentationVersionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetDocumentationVersionsRequest> {
+class AmazonApiGatewayGetDocumentationVersionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetDocumentationVersionsRequest, com.amazonaws.services.apigateway.model.GetDocumentationVersionsResult> {
 
 	var restApiId: String? = null
 	var position: String? = null
@@ -1833,8 +2045,12 @@ class AmazonApiGatewayGetDocumentationVersionsCommand() : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getDocumentationVersions(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetDocumentationVersionsResult {
+	  return com.amazonaws.services.apigateway.model.GetDocumentationVersionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetDocumentationVersionsResult {
+		return environment.apigateway.getDocumentationVersions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1847,12 +2063,12 @@ class AmazonApiGatewayGetDocumentationVersionsCommand() : AmazonWebServiceComman
 }
 
 
-fun AmazonApiGatewayFunctions.getDomainName(init: AmazonApiGatewayGetDomainNameCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetDomainNameCommand().apply(init))
+fun AmazonApiGatewayFunctions.getDomainName(init: AmazonApiGatewayGetDomainNameCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetDomainNameResult {
+	return this.block.declare(AmazonApiGatewayGetDomainNameCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetDomainNameResult
 }
 
 @Generated
-class AmazonApiGatewayGetDomainNameCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetDomainNameRequest> {
+class AmazonApiGatewayGetDomainNameCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetDomainNameRequest, com.amazonaws.services.apigateway.model.GetDomainNameResult> {
 
 	var domainName: String? = null
 
@@ -1862,8 +2078,12 @@ class AmazonApiGatewayGetDomainNameCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getDomainName(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetDomainNameResult {
+	  return com.amazonaws.services.apigateway.model.GetDomainNameResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetDomainNameResult {
+		return environment.apigateway.getDomainName(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1874,12 +2094,12 @@ class AmazonApiGatewayGetDomainNameCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AmazonApiGatewayFunctions.getDomainNames(init: AmazonApiGatewayGetDomainNamesCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetDomainNamesCommand().apply(init))
+fun AmazonApiGatewayFunctions.getDomainNames(init: AmazonApiGatewayGetDomainNamesCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetDomainNamesResult {
+	return this.block.declare(AmazonApiGatewayGetDomainNamesCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetDomainNamesResult
 }
 
 @Generated
-class AmazonApiGatewayGetDomainNamesCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetDomainNamesRequest> {
+class AmazonApiGatewayGetDomainNamesCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetDomainNamesRequest, com.amazonaws.services.apigateway.model.GetDomainNamesResult> {
 
 	var position: String? = null
 	var limit: Int? = 0
@@ -1891,8 +2111,12 @@ class AmazonApiGatewayGetDomainNamesCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getDomainNames(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetDomainNamesResult {
+	  return com.amazonaws.services.apigateway.model.GetDomainNamesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetDomainNamesResult {
+		return environment.apigateway.getDomainNames(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1904,12 +2128,12 @@ class AmazonApiGatewayGetDomainNamesCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AmazonApiGatewayFunctions.getExport(init: AmazonApiGatewayGetExportCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetExportCommand().apply(init))
+fun AmazonApiGatewayFunctions.getExport(init: AmazonApiGatewayGetExportCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetExportResult {
+	return this.block.declare(AmazonApiGatewayGetExportCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetExportResult
 }
 
 @Generated
-class AmazonApiGatewayGetExportCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetExportRequest> {
+class AmazonApiGatewayGetExportCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetExportRequest, com.amazonaws.services.apigateway.model.GetExportResult> {
 
 	var restApiId: String? = null
 	var stageName: String? = null
@@ -1927,8 +2151,12 @@ class AmazonApiGatewayGetExportCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getExport(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetExportResult {
+	  return com.amazonaws.services.apigateway.model.GetExportResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetExportResult {
+		return environment.apigateway.getExport(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1943,12 +2171,12 @@ class AmazonApiGatewayGetExportCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AmazonApiGatewayFunctions.getGatewayResponse(init: AmazonApiGatewayGetGatewayResponseCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetGatewayResponseCommand().apply(init))
+fun AmazonApiGatewayFunctions.getGatewayResponse(init: AmazonApiGatewayGetGatewayResponseCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetGatewayResponseResult {
+	return this.block.declare(AmazonApiGatewayGetGatewayResponseCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetGatewayResponseResult
 }
 
 @Generated
-class AmazonApiGatewayGetGatewayResponseCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetGatewayResponseRequest> {
+class AmazonApiGatewayGetGatewayResponseCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetGatewayResponseRequest, com.amazonaws.services.apigateway.model.GetGatewayResponseResult> {
 
 	var restApiId: String? = null
 	var responseType: GatewayResponseType? = null
@@ -1960,8 +2188,12 @@ class AmazonApiGatewayGetGatewayResponseCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getGatewayResponse(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetGatewayResponseResult {
+	  return com.amazonaws.services.apigateway.model.GetGatewayResponseResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetGatewayResponseResult {
+		return environment.apigateway.getGatewayResponse(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1973,12 +2205,12 @@ class AmazonApiGatewayGetGatewayResponseCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonApiGatewayFunctions.getGatewayResponses(init: AmazonApiGatewayGetGatewayResponsesCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetGatewayResponsesCommand().apply(init))
+fun AmazonApiGatewayFunctions.getGatewayResponses(init: AmazonApiGatewayGetGatewayResponsesCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetGatewayResponsesResult {
+	return this.block.declare(AmazonApiGatewayGetGatewayResponsesCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetGatewayResponsesResult
 }
 
 @Generated
-class AmazonApiGatewayGetGatewayResponsesCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetGatewayResponsesRequest> {
+class AmazonApiGatewayGetGatewayResponsesCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetGatewayResponsesRequest, com.amazonaws.services.apigateway.model.GetGatewayResponsesResult> {
 
 	var restApiId: String? = null
 	var position: String? = null
@@ -1992,8 +2224,12 @@ class AmazonApiGatewayGetGatewayResponsesCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getGatewayResponses(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetGatewayResponsesResult {
+	  return com.amazonaws.services.apigateway.model.GetGatewayResponsesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetGatewayResponsesResult {
+		return environment.apigateway.getGatewayResponses(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2006,12 +2242,12 @@ class AmazonApiGatewayGetGatewayResponsesCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AmazonApiGatewayFunctions.getIntegration(init: AmazonApiGatewayGetIntegrationCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetIntegrationCommand().apply(init))
+fun AmazonApiGatewayFunctions.getIntegration(init: AmazonApiGatewayGetIntegrationCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetIntegrationResult {
+	return this.block.declare(AmazonApiGatewayGetIntegrationCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetIntegrationResult
 }
 
 @Generated
-class AmazonApiGatewayGetIntegrationCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetIntegrationRequest> {
+class AmazonApiGatewayGetIntegrationCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetIntegrationRequest, com.amazonaws.services.apigateway.model.GetIntegrationResult> {
 
 	var restApiId: String? = null
 	var resourceId: String? = null
@@ -2025,8 +2261,12 @@ class AmazonApiGatewayGetIntegrationCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getIntegration(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetIntegrationResult {
+	  return com.amazonaws.services.apigateway.model.GetIntegrationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetIntegrationResult {
+		return environment.apigateway.getIntegration(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2039,12 +2279,12 @@ class AmazonApiGatewayGetIntegrationCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AmazonApiGatewayFunctions.getIntegrationResponse(init: AmazonApiGatewayGetIntegrationResponseCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetIntegrationResponseCommand().apply(init))
+fun AmazonApiGatewayFunctions.getIntegrationResponse(init: AmazonApiGatewayGetIntegrationResponseCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetIntegrationResponseResult {
+	return this.block.declare(AmazonApiGatewayGetIntegrationResponseCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetIntegrationResponseResult
 }
 
 @Generated
-class AmazonApiGatewayGetIntegrationResponseCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetIntegrationResponseRequest> {
+class AmazonApiGatewayGetIntegrationResponseCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetIntegrationResponseRequest, com.amazonaws.services.apigateway.model.GetIntegrationResponseResult> {
 
 	var restApiId: String? = null
 	var resourceId: String? = null
@@ -2060,8 +2300,12 @@ class AmazonApiGatewayGetIntegrationResponseCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getIntegrationResponse(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetIntegrationResponseResult {
+	  return com.amazonaws.services.apigateway.model.GetIntegrationResponseResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetIntegrationResponseResult {
+		return environment.apigateway.getIntegrationResponse(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2075,12 +2319,12 @@ class AmazonApiGatewayGetIntegrationResponseCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AmazonApiGatewayFunctions.getMethod(init: AmazonApiGatewayGetMethodCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetMethodCommand().apply(init))
+fun AmazonApiGatewayFunctions.getMethod(init: AmazonApiGatewayGetMethodCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetMethodResult {
+	return this.block.declare(AmazonApiGatewayGetMethodCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetMethodResult
 }
 
 @Generated
-class AmazonApiGatewayGetMethodCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetMethodRequest> {
+class AmazonApiGatewayGetMethodCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetMethodRequest, com.amazonaws.services.apigateway.model.GetMethodResult> {
 
 	var restApiId: String? = null
 	var resourceId: String? = null
@@ -2094,8 +2338,12 @@ class AmazonApiGatewayGetMethodCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getMethod(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetMethodResult {
+	  return com.amazonaws.services.apigateway.model.GetMethodResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetMethodResult {
+		return environment.apigateway.getMethod(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2108,12 +2356,12 @@ class AmazonApiGatewayGetMethodCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AmazonApiGatewayFunctions.getMethodResponse(init: AmazonApiGatewayGetMethodResponseCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetMethodResponseCommand().apply(init))
+fun AmazonApiGatewayFunctions.getMethodResponse(init: AmazonApiGatewayGetMethodResponseCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetMethodResponseResult {
+	return this.block.declare(AmazonApiGatewayGetMethodResponseCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetMethodResponseResult
 }
 
 @Generated
-class AmazonApiGatewayGetMethodResponseCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetMethodResponseRequest> {
+class AmazonApiGatewayGetMethodResponseCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetMethodResponseRequest, com.amazonaws.services.apigateway.model.GetMethodResponseResult> {
 
 	var restApiId: String? = null
 	var resourceId: String? = null
@@ -2129,8 +2377,12 @@ class AmazonApiGatewayGetMethodResponseCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getMethodResponse(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetMethodResponseResult {
+	  return com.amazonaws.services.apigateway.model.GetMethodResponseResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetMethodResponseResult {
+		return environment.apigateway.getMethodResponse(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2144,12 +2396,12 @@ class AmazonApiGatewayGetMethodResponseCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AmazonApiGatewayFunctions.getModel(init: AmazonApiGatewayGetModelCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetModelCommand().apply(init))
+fun AmazonApiGatewayFunctions.getModel(init: AmazonApiGatewayGetModelCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetModelResult {
+	return this.block.declare(AmazonApiGatewayGetModelCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetModelResult
 }
 
 @Generated
-class AmazonApiGatewayGetModelCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetModelRequest> {
+class AmazonApiGatewayGetModelCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetModelRequest, com.amazonaws.services.apigateway.model.GetModelResult> {
 
 	var restApiId: String? = null
 	var modelName: String? = null
@@ -2163,8 +2415,12 @@ class AmazonApiGatewayGetModelCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getModel(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetModelResult {
+	  return com.amazonaws.services.apigateway.model.GetModelResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetModelResult {
+		return environment.apigateway.getModel(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2177,12 +2433,12 @@ class AmazonApiGatewayGetModelCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AmazonApiGatewayFunctions.getModelTemplate(init: AmazonApiGatewayGetModelTemplateCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetModelTemplateCommand().apply(init))
+fun AmazonApiGatewayFunctions.getModelTemplate(init: AmazonApiGatewayGetModelTemplateCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetModelTemplateResult {
+	return this.block.declare(AmazonApiGatewayGetModelTemplateCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetModelTemplateResult
 }
 
 @Generated
-class AmazonApiGatewayGetModelTemplateCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetModelTemplateRequest> {
+class AmazonApiGatewayGetModelTemplateCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetModelTemplateRequest, com.amazonaws.services.apigateway.model.GetModelTemplateResult> {
 
 	var restApiId: String? = null
 	var modelName: String? = null
@@ -2194,8 +2450,12 @@ class AmazonApiGatewayGetModelTemplateCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getModelTemplate(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetModelTemplateResult {
+	  return com.amazonaws.services.apigateway.model.GetModelTemplateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetModelTemplateResult {
+		return environment.apigateway.getModelTemplate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2207,12 +2467,12 @@ class AmazonApiGatewayGetModelTemplateCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonApiGatewayFunctions.getModels(init: AmazonApiGatewayGetModelsCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetModelsCommand().apply(init))
+fun AmazonApiGatewayFunctions.getModels(init: AmazonApiGatewayGetModelsCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetModelsResult {
+	return this.block.declare(AmazonApiGatewayGetModelsCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetModelsResult
 }
 
 @Generated
-class AmazonApiGatewayGetModelsCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetModelsRequest> {
+class AmazonApiGatewayGetModelsCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetModelsRequest, com.amazonaws.services.apigateway.model.GetModelsResult> {
 
 	var restApiId: String? = null
 	var position: String? = null
@@ -2226,8 +2486,12 @@ class AmazonApiGatewayGetModelsCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getModels(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetModelsResult {
+	  return com.amazonaws.services.apigateway.model.GetModelsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetModelsResult {
+		return environment.apigateway.getModels(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2240,12 +2504,12 @@ class AmazonApiGatewayGetModelsCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AmazonApiGatewayFunctions.getRequestValidator(init: AmazonApiGatewayGetRequestValidatorCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetRequestValidatorCommand().apply(init))
+fun AmazonApiGatewayFunctions.getRequestValidator(init: AmazonApiGatewayGetRequestValidatorCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetRequestValidatorResult {
+	return this.block.declare(AmazonApiGatewayGetRequestValidatorCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetRequestValidatorResult
 }
 
 @Generated
-class AmazonApiGatewayGetRequestValidatorCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetRequestValidatorRequest> {
+class AmazonApiGatewayGetRequestValidatorCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetRequestValidatorRequest, com.amazonaws.services.apigateway.model.GetRequestValidatorResult> {
 
 	var restApiId: String? = null
 	var requestValidatorId: String? = null
@@ -2257,8 +2521,12 @@ class AmazonApiGatewayGetRequestValidatorCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getRequestValidator(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetRequestValidatorResult {
+	  return com.amazonaws.services.apigateway.model.GetRequestValidatorResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetRequestValidatorResult {
+		return environment.apigateway.getRequestValidator(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2270,12 +2538,12 @@ class AmazonApiGatewayGetRequestValidatorCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AmazonApiGatewayFunctions.getRequestValidators(init: AmazonApiGatewayGetRequestValidatorsCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetRequestValidatorsCommand().apply(init))
+fun AmazonApiGatewayFunctions.getRequestValidators(init: AmazonApiGatewayGetRequestValidatorsCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetRequestValidatorsResult {
+	return this.block.declare(AmazonApiGatewayGetRequestValidatorsCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetRequestValidatorsResult
 }
 
 @Generated
-class AmazonApiGatewayGetRequestValidatorsCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetRequestValidatorsRequest> {
+class AmazonApiGatewayGetRequestValidatorsCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetRequestValidatorsRequest, com.amazonaws.services.apigateway.model.GetRequestValidatorsResult> {
 
 	var restApiId: String? = null
 	var position: String? = null
@@ -2289,8 +2557,12 @@ class AmazonApiGatewayGetRequestValidatorsCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getRequestValidators(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetRequestValidatorsResult {
+	  return com.amazonaws.services.apigateway.model.GetRequestValidatorsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetRequestValidatorsResult {
+		return environment.apigateway.getRequestValidators(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2303,12 +2575,12 @@ class AmazonApiGatewayGetRequestValidatorsCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonApiGatewayFunctions.getResource(init: AmazonApiGatewayGetResourceCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetResourceCommand().apply(init))
+fun AmazonApiGatewayFunctions.getResource(init: AmazonApiGatewayGetResourceCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetResourceResult {
+	return this.block.declare(AmazonApiGatewayGetResourceCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetResourceResult
 }
 
 @Generated
-class AmazonApiGatewayGetResourceCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetResourceRequest> {
+class AmazonApiGatewayGetResourceCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetResourceRequest, com.amazonaws.services.apigateway.model.GetResourceResult> {
 
 	var restApiId: String? = null
 	var resourceId: String? = null
@@ -2322,8 +2594,12 @@ class AmazonApiGatewayGetResourceCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getResource(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetResourceResult {
+	  return com.amazonaws.services.apigateway.model.GetResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetResourceResult {
+		return environment.apigateway.getResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2336,12 +2612,12 @@ class AmazonApiGatewayGetResourceCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AmazonApiGatewayFunctions.getResources(init: AmazonApiGatewayGetResourcesCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetResourcesCommand().apply(init))
+fun AmazonApiGatewayFunctions.getResources(init: AmazonApiGatewayGetResourcesCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetResourcesResult {
+	return this.block.declare(AmazonApiGatewayGetResourcesCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetResourcesResult
 }
 
 @Generated
-class AmazonApiGatewayGetResourcesCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetResourcesRequest> {
+class AmazonApiGatewayGetResourcesCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetResourcesRequest, com.amazonaws.services.apigateway.model.GetResourcesResult> {
 
 	var restApiId: String? = null
 	var position: String? = null
@@ -2357,8 +2633,12 @@ class AmazonApiGatewayGetResourcesCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getResources(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetResourcesResult {
+	  return com.amazonaws.services.apigateway.model.GetResourcesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetResourcesResult {
+		return environment.apigateway.getResources(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2372,12 +2652,12 @@ class AmazonApiGatewayGetResourcesCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonApiGatewayFunctions.getRestApi(init: AmazonApiGatewayGetRestApiCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetRestApiCommand().apply(init))
+fun AmazonApiGatewayFunctions.getRestApi(init: AmazonApiGatewayGetRestApiCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetRestApiResult {
+	return this.block.declare(AmazonApiGatewayGetRestApiCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetRestApiResult
 }
 
 @Generated
-class AmazonApiGatewayGetRestApiCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetRestApiRequest> {
+class AmazonApiGatewayGetRestApiCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetRestApiRequest, com.amazonaws.services.apigateway.model.GetRestApiResult> {
 
 	var restApiId: String? = null
 
@@ -2387,8 +2667,12 @@ class AmazonApiGatewayGetRestApiCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getRestApi(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetRestApiResult {
+	  return com.amazonaws.services.apigateway.model.GetRestApiResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetRestApiResult {
+		return environment.apigateway.getRestApi(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2399,12 +2683,12 @@ class AmazonApiGatewayGetRestApiCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AmazonApiGatewayFunctions.getRestApis(init: AmazonApiGatewayGetRestApisCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetRestApisCommand().apply(init))
+fun AmazonApiGatewayFunctions.getRestApis(init: AmazonApiGatewayGetRestApisCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetRestApisResult {
+	return this.block.declare(AmazonApiGatewayGetRestApisCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetRestApisResult
 }
 
 @Generated
-class AmazonApiGatewayGetRestApisCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetRestApisRequest> {
+class AmazonApiGatewayGetRestApisCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetRestApisRequest, com.amazonaws.services.apigateway.model.GetRestApisResult> {
 
 	var position: String? = null
 	var limit: Int? = 0
@@ -2416,8 +2700,12 @@ class AmazonApiGatewayGetRestApisCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getRestApis(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetRestApisResult {
+	  return com.amazonaws.services.apigateway.model.GetRestApisResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetRestApisResult {
+		return environment.apigateway.getRestApis(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2429,12 +2717,12 @@ class AmazonApiGatewayGetRestApisCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AmazonApiGatewayFunctions.getSdk(init: AmazonApiGatewayGetSdkCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetSdkCommand().apply(init))
+fun AmazonApiGatewayFunctions.getSdk(init: AmazonApiGatewayGetSdkCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetSdkResult {
+	return this.block.declare(AmazonApiGatewayGetSdkCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetSdkResult
 }
 
 @Generated
-class AmazonApiGatewayGetSdkCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetSdkRequest> {
+class AmazonApiGatewayGetSdkCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetSdkRequest, com.amazonaws.services.apigateway.model.GetSdkResult> {
 
 	var restApiId: String? = null
 	var stageName: String? = null
@@ -2450,8 +2738,12 @@ class AmazonApiGatewayGetSdkCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getSdk(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetSdkResult {
+	  return com.amazonaws.services.apigateway.model.GetSdkResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetSdkResult {
+		return environment.apigateway.getSdk(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2465,12 +2757,12 @@ class AmazonApiGatewayGetSdkCommand() : AmazonWebServiceCommand<com.amazonaws.se
 }
 
 
-fun AmazonApiGatewayFunctions.getSdkType(init: AmazonApiGatewayGetSdkTypeCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetSdkTypeCommand().apply(init))
+fun AmazonApiGatewayFunctions.getSdkType(init: AmazonApiGatewayGetSdkTypeCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetSdkTypeResult {
+	return this.block.declare(AmazonApiGatewayGetSdkTypeCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetSdkTypeResult
 }
 
 @Generated
-class AmazonApiGatewayGetSdkTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetSdkTypeRequest> {
+class AmazonApiGatewayGetSdkTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetSdkTypeRequest, com.amazonaws.services.apigateway.model.GetSdkTypeResult> {
 
 	var id: String? = null
 
@@ -2480,8 +2772,12 @@ class AmazonApiGatewayGetSdkTypeCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getSdkType(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetSdkTypeResult {
+	  return com.amazonaws.services.apigateway.model.GetSdkTypeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetSdkTypeResult {
+		return environment.apigateway.getSdkType(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2492,12 +2788,12 @@ class AmazonApiGatewayGetSdkTypeCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AmazonApiGatewayFunctions.getSdkTypes(init: AmazonApiGatewayGetSdkTypesCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetSdkTypesCommand().apply(init))
+fun AmazonApiGatewayFunctions.getSdkTypes(init: AmazonApiGatewayGetSdkTypesCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetSdkTypesResult {
+	return this.block.declare(AmazonApiGatewayGetSdkTypesCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetSdkTypesResult
 }
 
 @Generated
-class AmazonApiGatewayGetSdkTypesCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetSdkTypesRequest> {
+class AmazonApiGatewayGetSdkTypesCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetSdkTypesRequest, com.amazonaws.services.apigateway.model.GetSdkTypesResult> {
 
 	var position: String? = null
 	var limit: Int? = 0
@@ -2509,8 +2805,12 @@ class AmazonApiGatewayGetSdkTypesCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getSdkTypes(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetSdkTypesResult {
+	  return com.amazonaws.services.apigateway.model.GetSdkTypesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetSdkTypesResult {
+		return environment.apigateway.getSdkTypes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2522,12 +2822,12 @@ class AmazonApiGatewayGetSdkTypesCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AmazonApiGatewayFunctions.getStage(init: AmazonApiGatewayGetStageCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetStageCommand().apply(init))
+fun AmazonApiGatewayFunctions.getStage(init: AmazonApiGatewayGetStageCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetStageResult {
+	return this.block.declare(AmazonApiGatewayGetStageCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetStageResult
 }
 
 @Generated
-class AmazonApiGatewayGetStageCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetStageRequest> {
+class AmazonApiGatewayGetStageCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetStageRequest, com.amazonaws.services.apigateway.model.GetStageResult> {
 
 	var restApiId: String? = null
 	var stageName: String? = null
@@ -2539,8 +2839,12 @@ class AmazonApiGatewayGetStageCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getStage(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetStageResult {
+	  return com.amazonaws.services.apigateway.model.GetStageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetStageResult {
+		return environment.apigateway.getStage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2552,12 +2856,12 @@ class AmazonApiGatewayGetStageCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AmazonApiGatewayFunctions.getStages(init: AmazonApiGatewayGetStagesCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetStagesCommand().apply(init))
+fun AmazonApiGatewayFunctions.getStages(init: AmazonApiGatewayGetStagesCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetStagesResult {
+	return this.block.declare(AmazonApiGatewayGetStagesCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetStagesResult
 }
 
 @Generated
-class AmazonApiGatewayGetStagesCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetStagesRequest> {
+class AmazonApiGatewayGetStagesCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetStagesRequest, com.amazonaws.services.apigateway.model.GetStagesResult> {
 
 	var restApiId: String? = null
 	var deploymentId: String? = null
@@ -2569,8 +2873,12 @@ class AmazonApiGatewayGetStagesCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getStages(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetStagesResult {
+	  return com.amazonaws.services.apigateway.model.GetStagesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetStagesResult {
+		return environment.apigateway.getStages(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2582,12 +2890,12 @@ class AmazonApiGatewayGetStagesCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AmazonApiGatewayFunctions.getTags(init: AmazonApiGatewayGetTagsCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetTagsCommand().apply(init))
+fun AmazonApiGatewayFunctions.getTags(init: AmazonApiGatewayGetTagsCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetTagsResult {
+	return this.block.declare(AmazonApiGatewayGetTagsCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetTagsResult
 }
 
 @Generated
-class AmazonApiGatewayGetTagsCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetTagsRequest> {
+class AmazonApiGatewayGetTagsCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetTagsRequest, com.amazonaws.services.apigateway.model.GetTagsResult> {
 
 	var resourceArn: String? = null
 	var position: String? = null
@@ -2601,8 +2909,12 @@ class AmazonApiGatewayGetTagsCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getTags(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetTagsResult {
+	  return com.amazonaws.services.apigateway.model.GetTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetTagsResult {
+		return environment.apigateway.getTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2615,12 +2927,12 @@ class AmazonApiGatewayGetTagsCommand() : AmazonWebServiceCommand<com.amazonaws.s
 }
 
 
-fun AmazonApiGatewayFunctions.getUsage(init: AmazonApiGatewayGetUsageCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetUsageCommand().apply(init))
+fun AmazonApiGatewayFunctions.getUsage(init: AmazonApiGatewayGetUsageCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetUsageResult {
+	return this.block.declare(AmazonApiGatewayGetUsageCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetUsageResult
 }
 
 @Generated
-class AmazonApiGatewayGetUsageCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetUsageRequest> {
+class AmazonApiGatewayGetUsageCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetUsageRequest, com.amazonaws.services.apigateway.model.GetUsageResult> {
 
 	var usagePlanId: String? = null
 	var keyId: String? = null
@@ -2640,8 +2952,12 @@ class AmazonApiGatewayGetUsageCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getUsage(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetUsageResult {
+	  return com.amazonaws.services.apigateway.model.GetUsageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetUsageResult {
+		return environment.apigateway.getUsage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2657,12 +2973,12 @@ class AmazonApiGatewayGetUsageCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AmazonApiGatewayFunctions.getUsagePlan(init: AmazonApiGatewayGetUsagePlanCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetUsagePlanCommand().apply(init))
+fun AmazonApiGatewayFunctions.getUsagePlan(init: AmazonApiGatewayGetUsagePlanCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetUsagePlanResult {
+	return this.block.declare(AmazonApiGatewayGetUsagePlanCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetUsagePlanResult
 }
 
 @Generated
-class AmazonApiGatewayGetUsagePlanCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetUsagePlanRequest> {
+class AmazonApiGatewayGetUsagePlanCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetUsagePlanRequest, com.amazonaws.services.apigateway.model.GetUsagePlanResult> {
 
 	var usagePlanId: String? = null
 
@@ -2672,8 +2988,12 @@ class AmazonApiGatewayGetUsagePlanCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getUsagePlan(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetUsagePlanResult {
+	  return com.amazonaws.services.apigateway.model.GetUsagePlanResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetUsagePlanResult {
+		return environment.apigateway.getUsagePlan(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2684,12 +3004,12 @@ class AmazonApiGatewayGetUsagePlanCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonApiGatewayFunctions.getUsagePlanKey(init: AmazonApiGatewayGetUsagePlanKeyCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetUsagePlanKeyCommand().apply(init))
+fun AmazonApiGatewayFunctions.getUsagePlanKey(init: AmazonApiGatewayGetUsagePlanKeyCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetUsagePlanKeyResult {
+	return this.block.declare(AmazonApiGatewayGetUsagePlanKeyCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetUsagePlanKeyResult
 }
 
 @Generated
-class AmazonApiGatewayGetUsagePlanKeyCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetUsagePlanKeyRequest> {
+class AmazonApiGatewayGetUsagePlanKeyCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetUsagePlanKeyRequest, com.amazonaws.services.apigateway.model.GetUsagePlanKeyResult> {
 
 	var usagePlanId: String? = null
 	var keyId: String? = null
@@ -2701,8 +3021,12 @@ class AmazonApiGatewayGetUsagePlanKeyCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getUsagePlanKey(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetUsagePlanKeyResult {
+	  return com.amazonaws.services.apigateway.model.GetUsagePlanKeyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetUsagePlanKeyResult {
+		return environment.apigateway.getUsagePlanKey(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2714,12 +3038,12 @@ class AmazonApiGatewayGetUsagePlanKeyCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AmazonApiGatewayFunctions.getUsagePlanKeys(init: AmazonApiGatewayGetUsagePlanKeysCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetUsagePlanKeysCommand().apply(init))
+fun AmazonApiGatewayFunctions.getUsagePlanKeys(init: AmazonApiGatewayGetUsagePlanKeysCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetUsagePlanKeysResult {
+	return this.block.declare(AmazonApiGatewayGetUsagePlanKeysCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetUsagePlanKeysResult
 }
 
 @Generated
-class AmazonApiGatewayGetUsagePlanKeysCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetUsagePlanKeysRequest> {
+class AmazonApiGatewayGetUsagePlanKeysCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetUsagePlanKeysRequest, com.amazonaws.services.apigateway.model.GetUsagePlanKeysResult> {
 
 	var usagePlanId: String? = null
 	var position: String? = null
@@ -2735,8 +3059,12 @@ class AmazonApiGatewayGetUsagePlanKeysCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getUsagePlanKeys(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetUsagePlanKeysResult {
+	  return com.amazonaws.services.apigateway.model.GetUsagePlanKeysResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetUsagePlanKeysResult {
+		return environment.apigateway.getUsagePlanKeys(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2750,12 +3078,12 @@ class AmazonApiGatewayGetUsagePlanKeysCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonApiGatewayFunctions.getUsagePlans(init: AmazonApiGatewayGetUsagePlansCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetUsagePlansCommand().apply(init))
+fun AmazonApiGatewayFunctions.getUsagePlans(init: AmazonApiGatewayGetUsagePlansCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetUsagePlansResult {
+	return this.block.declare(AmazonApiGatewayGetUsagePlansCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetUsagePlansResult
 }
 
 @Generated
-class AmazonApiGatewayGetUsagePlansCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetUsagePlansRequest> {
+class AmazonApiGatewayGetUsagePlansCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetUsagePlansRequest, com.amazonaws.services.apigateway.model.GetUsagePlansResult> {
 
 	var position: String? = null
 	var keyId: String? = null
@@ -2769,8 +3097,12 @@ class AmazonApiGatewayGetUsagePlansCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getUsagePlans(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetUsagePlansResult {
+	  return com.amazonaws.services.apigateway.model.GetUsagePlansResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetUsagePlansResult {
+		return environment.apigateway.getUsagePlans(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2783,12 +3115,12 @@ class AmazonApiGatewayGetUsagePlansCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AmazonApiGatewayFunctions.getVpcLink(init: AmazonApiGatewayGetVpcLinkCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetVpcLinkCommand().apply(init))
+fun AmazonApiGatewayFunctions.getVpcLink(init: AmazonApiGatewayGetVpcLinkCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetVpcLinkResult {
+	return this.block.declare(AmazonApiGatewayGetVpcLinkCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetVpcLinkResult
 }
 
 @Generated
-class AmazonApiGatewayGetVpcLinkCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetVpcLinkRequest> {
+class AmazonApiGatewayGetVpcLinkCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetVpcLinkRequest, com.amazonaws.services.apigateway.model.GetVpcLinkResult> {
 
 	var vpcLinkId: String? = null
 
@@ -2798,8 +3130,12 @@ class AmazonApiGatewayGetVpcLinkCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getVpcLink(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetVpcLinkResult {
+	  return com.amazonaws.services.apigateway.model.GetVpcLinkResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetVpcLinkResult {
+		return environment.apigateway.getVpcLink(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2810,12 +3146,12 @@ class AmazonApiGatewayGetVpcLinkCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AmazonApiGatewayFunctions.getVpcLinks(init: AmazonApiGatewayGetVpcLinksCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayGetVpcLinksCommand().apply(init))
+fun AmazonApiGatewayFunctions.getVpcLinks(init: AmazonApiGatewayGetVpcLinksCommand.() -> Unit): com.amazonaws.services.apigateway.model.GetVpcLinksResult {
+	return this.block.declare(AmazonApiGatewayGetVpcLinksCommand().apply(init)) as com.amazonaws.services.apigateway.model.GetVpcLinksResult
 }
 
 @Generated
-class AmazonApiGatewayGetVpcLinksCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetVpcLinksRequest> {
+class AmazonApiGatewayGetVpcLinksCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.GetVpcLinksRequest, com.amazonaws.services.apigateway.model.GetVpcLinksResult> {
 
 	var position: String? = null
 	var limit: Int? = 0
@@ -2827,8 +3163,12 @@ class AmazonApiGatewayGetVpcLinksCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.getVpcLinks(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.GetVpcLinksResult {
+	  return com.amazonaws.services.apigateway.model.GetVpcLinksResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.GetVpcLinksResult {
+		return environment.apigateway.getVpcLinks(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2840,12 +3180,12 @@ class AmazonApiGatewayGetVpcLinksCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AmazonApiGatewayFunctions.importApiKeys(init: AmazonApiGatewayImportApiKeysCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayImportApiKeysCommand().apply(init))
+fun AmazonApiGatewayFunctions.importApiKeys(init: AmazonApiGatewayImportApiKeysCommand.() -> Unit): com.amazonaws.services.apigateway.model.ImportApiKeysResult {
+	return this.block.declare(AmazonApiGatewayImportApiKeysCommand().apply(init)) as com.amazonaws.services.apigateway.model.ImportApiKeysResult
 }
 
 @Generated
-class AmazonApiGatewayImportApiKeysCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.ImportApiKeysRequest> {
+class AmazonApiGatewayImportApiKeysCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.ImportApiKeysRequest, com.amazonaws.services.apigateway.model.ImportApiKeysResult> {
 
 	var body: java.nio.ByteBuffer? = null
 	var format: ApiKeysFormat? = null
@@ -2859,8 +3199,12 @@ class AmazonApiGatewayImportApiKeysCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.importApiKeys(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.ImportApiKeysResult {
+	  return com.amazonaws.services.apigateway.model.ImportApiKeysResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.ImportApiKeysResult {
+		return environment.apigateway.importApiKeys(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2873,12 +3217,12 @@ class AmazonApiGatewayImportApiKeysCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AmazonApiGatewayFunctions.importDocumentationParts(init: AmazonApiGatewayImportDocumentationPartsCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayImportDocumentationPartsCommand().apply(init))
+fun AmazonApiGatewayFunctions.importDocumentationParts(init: AmazonApiGatewayImportDocumentationPartsCommand.() -> Unit): com.amazonaws.services.apigateway.model.ImportDocumentationPartsResult {
+	return this.block.declare(AmazonApiGatewayImportDocumentationPartsCommand().apply(init)) as com.amazonaws.services.apigateway.model.ImportDocumentationPartsResult
 }
 
 @Generated
-class AmazonApiGatewayImportDocumentationPartsCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.ImportDocumentationPartsRequest> {
+class AmazonApiGatewayImportDocumentationPartsCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.ImportDocumentationPartsRequest, com.amazonaws.services.apigateway.model.ImportDocumentationPartsResult> {
 
 	var restApiId: String? = null
 	var mode: PutMode? = null
@@ -2894,8 +3238,12 @@ class AmazonApiGatewayImportDocumentationPartsCommand() : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.importDocumentationParts(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.ImportDocumentationPartsResult {
+	  return com.amazonaws.services.apigateway.model.ImportDocumentationPartsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.ImportDocumentationPartsResult {
+		return environment.apigateway.importDocumentationParts(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2909,12 +3257,12 @@ class AmazonApiGatewayImportDocumentationPartsCommand() : AmazonWebServiceComman
 }
 
 
-fun AmazonApiGatewayFunctions.importRestApi(init: AmazonApiGatewayImportRestApiCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayImportRestApiCommand().apply(init))
+fun AmazonApiGatewayFunctions.importRestApi(init: AmazonApiGatewayImportRestApiCommand.() -> Unit): com.amazonaws.services.apigateway.model.ImportRestApiResult {
+	return this.block.declare(AmazonApiGatewayImportRestApiCommand().apply(init)) as com.amazonaws.services.apigateway.model.ImportRestApiResult
 }
 
 @Generated
-class AmazonApiGatewayImportRestApiCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.ImportRestApiRequest> {
+class AmazonApiGatewayImportRestApiCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.ImportRestApiRequest, com.amazonaws.services.apigateway.model.ImportRestApiResult> {
 
 	var failOnWarnings: Boolean? = false
 	var parameters: Map<String, String>? = null
@@ -2928,8 +3276,12 @@ class AmazonApiGatewayImportRestApiCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.importRestApi(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.ImportRestApiResult {
+	  return com.amazonaws.services.apigateway.model.ImportRestApiResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.ImportRestApiResult {
+		return environment.apigateway.importRestApi(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2942,12 +3294,12 @@ class AmazonApiGatewayImportRestApiCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AmazonApiGatewayFunctions.putGatewayResponse(init: AmazonApiGatewayPutGatewayResponseCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayPutGatewayResponseCommand().apply(init))
+fun AmazonApiGatewayFunctions.putGatewayResponse(init: AmazonApiGatewayPutGatewayResponseCommand.() -> Unit): com.amazonaws.services.apigateway.model.PutGatewayResponseResult {
+	return this.block.declare(AmazonApiGatewayPutGatewayResponseCommand().apply(init)) as com.amazonaws.services.apigateway.model.PutGatewayResponseResult
 }
 
 @Generated
-class AmazonApiGatewayPutGatewayResponseCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.PutGatewayResponseRequest> {
+class AmazonApiGatewayPutGatewayResponseCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.PutGatewayResponseRequest, com.amazonaws.services.apigateway.model.PutGatewayResponseResult> {
 
 	var restApiId: String? = null
 	var responseType: GatewayResponseType? = null
@@ -2965,8 +3317,12 @@ class AmazonApiGatewayPutGatewayResponseCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.putGatewayResponse(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.PutGatewayResponseResult {
+	  return com.amazonaws.services.apigateway.model.PutGatewayResponseResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.PutGatewayResponseResult {
+		return environment.apigateway.putGatewayResponse(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2981,12 +3337,12 @@ class AmazonApiGatewayPutGatewayResponseCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonApiGatewayFunctions.putIntegration(init: AmazonApiGatewayPutIntegrationCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayPutIntegrationCommand().apply(init))
+fun AmazonApiGatewayFunctions.putIntegration(init: AmazonApiGatewayPutIntegrationCommand.() -> Unit): com.amazonaws.services.apigateway.model.PutIntegrationResult {
+	return this.block.declare(AmazonApiGatewayPutIntegrationCommand().apply(init)) as com.amazonaws.services.apigateway.model.PutIntegrationResult
 }
 
 @Generated
-class AmazonApiGatewayPutIntegrationCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.PutIntegrationRequest> {
+class AmazonApiGatewayPutIntegrationCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.PutIntegrationRequest, com.amazonaws.services.apigateway.model.PutIntegrationResult> {
 
 	var restApiId: String? = null
 	var resourceId: String? = null
@@ -3026,8 +3382,12 @@ class AmazonApiGatewayPutIntegrationCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.putIntegration(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.PutIntegrationResult {
+	  return com.amazonaws.services.apigateway.model.PutIntegrationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.PutIntegrationResult {
+		return environment.apigateway.putIntegration(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3053,12 +3413,12 @@ class AmazonApiGatewayPutIntegrationCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AmazonApiGatewayFunctions.putIntegrationResponse(init: AmazonApiGatewayPutIntegrationResponseCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayPutIntegrationResponseCommand().apply(init))
+fun AmazonApiGatewayFunctions.putIntegrationResponse(init: AmazonApiGatewayPutIntegrationResponseCommand.() -> Unit): com.amazonaws.services.apigateway.model.PutIntegrationResponseResult {
+	return this.block.declare(AmazonApiGatewayPutIntegrationResponseCommand().apply(init)) as com.amazonaws.services.apigateway.model.PutIntegrationResponseResult
 }
 
 @Generated
-class AmazonApiGatewayPutIntegrationResponseCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.PutIntegrationResponseRequest> {
+class AmazonApiGatewayPutIntegrationResponseCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.PutIntegrationResponseRequest, com.amazonaws.services.apigateway.model.PutIntegrationResponseResult> {
 
 	var restApiId: String? = null
 	var resourceId: String? = null
@@ -3082,8 +3442,12 @@ class AmazonApiGatewayPutIntegrationResponseCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.putIntegrationResponse(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.PutIntegrationResponseResult {
+	  return com.amazonaws.services.apigateway.model.PutIntegrationResponseResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.PutIntegrationResponseResult {
+		return environment.apigateway.putIntegrationResponse(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3101,12 +3465,12 @@ class AmazonApiGatewayPutIntegrationResponseCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AmazonApiGatewayFunctions.putMethod(init: AmazonApiGatewayPutMethodCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayPutMethodCommand().apply(init))
+fun AmazonApiGatewayFunctions.putMethod(init: AmazonApiGatewayPutMethodCommand.() -> Unit): com.amazonaws.services.apigateway.model.PutMethodResult {
+	return this.block.declare(AmazonApiGatewayPutMethodCommand().apply(init)) as com.amazonaws.services.apigateway.model.PutMethodResult
 }
 
 @Generated
-class AmazonApiGatewayPutMethodCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.PutMethodRequest> {
+class AmazonApiGatewayPutMethodCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.PutMethodRequest, com.amazonaws.services.apigateway.model.PutMethodResult> {
 
 	var restApiId: String? = null
 	var resourceId: String? = null
@@ -3136,8 +3500,12 @@ class AmazonApiGatewayPutMethodCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.putMethod(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.PutMethodResult {
+	  return com.amazonaws.services.apigateway.model.PutMethodResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.PutMethodResult {
+		return environment.apigateway.putMethod(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3158,12 +3526,12 @@ class AmazonApiGatewayPutMethodCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AmazonApiGatewayFunctions.putMethodResponse(init: AmazonApiGatewayPutMethodResponseCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayPutMethodResponseCommand().apply(init))
+fun AmazonApiGatewayFunctions.putMethodResponse(init: AmazonApiGatewayPutMethodResponseCommand.() -> Unit): com.amazonaws.services.apigateway.model.PutMethodResponseResult {
+	return this.block.declare(AmazonApiGatewayPutMethodResponseCommand().apply(init)) as com.amazonaws.services.apigateway.model.PutMethodResponseResult
 }
 
 @Generated
-class AmazonApiGatewayPutMethodResponseCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.PutMethodResponseRequest> {
+class AmazonApiGatewayPutMethodResponseCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.PutMethodResponseRequest, com.amazonaws.services.apigateway.model.PutMethodResponseResult> {
 
 	var restApiId: String? = null
 	var resourceId: String? = null
@@ -3183,8 +3551,12 @@ class AmazonApiGatewayPutMethodResponseCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.putMethodResponse(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.PutMethodResponseResult {
+	  return com.amazonaws.services.apigateway.model.PutMethodResponseResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.PutMethodResponseResult {
+		return environment.apigateway.putMethodResponse(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3200,12 +3572,12 @@ class AmazonApiGatewayPutMethodResponseCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AmazonApiGatewayFunctions.putRestApi(init: AmazonApiGatewayPutRestApiCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayPutRestApiCommand().apply(init))
+fun AmazonApiGatewayFunctions.putRestApi(init: AmazonApiGatewayPutRestApiCommand.() -> Unit): com.amazonaws.services.apigateway.model.PutRestApiResult {
+	return this.block.declare(AmazonApiGatewayPutRestApiCommand().apply(init)) as com.amazonaws.services.apigateway.model.PutRestApiResult
 }
 
 @Generated
-class AmazonApiGatewayPutRestApiCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.PutRestApiRequest> {
+class AmazonApiGatewayPutRestApiCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.PutRestApiRequest, com.amazonaws.services.apigateway.model.PutRestApiResult> {
 
 	var restApiId: String? = null
 	var mode: PutMode? = null
@@ -3223,8 +3595,12 @@ class AmazonApiGatewayPutRestApiCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.putRestApi(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.PutRestApiResult {
+	  return com.amazonaws.services.apigateway.model.PutRestApiResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.PutRestApiResult {
+		return environment.apigateway.putRestApi(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3239,12 +3615,12 @@ class AmazonApiGatewayPutRestApiCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AmazonApiGatewayFunctions.tagResource(init: AmazonApiGatewayTagResourceCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayTagResourceCommand().apply(init))
+fun AmazonApiGatewayFunctions.tagResource(init: AmazonApiGatewayTagResourceCommand.() -> Unit): com.amazonaws.services.apigateway.model.TagResourceResult {
+	return this.block.declare(AmazonApiGatewayTagResourceCommand().apply(init)) as com.amazonaws.services.apigateway.model.TagResourceResult
 }
 
 @Generated
-class AmazonApiGatewayTagResourceCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.TagResourceRequest> {
+class AmazonApiGatewayTagResourceCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.TagResourceRequest, com.amazonaws.services.apigateway.model.TagResourceResult> {
 
 	var resourceArn: String? = null
 	var tags: Map<String, String>? = null
@@ -3256,8 +3632,12 @@ class AmazonApiGatewayTagResourceCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.tagResource(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.TagResourceResult {
+	  return com.amazonaws.services.apigateway.model.TagResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.TagResourceResult {
+		return environment.apigateway.tagResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3269,12 +3649,12 @@ class AmazonApiGatewayTagResourceCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AmazonApiGatewayFunctions.testInvokeAuthorizer(init: AmazonApiGatewayTestInvokeAuthorizerCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayTestInvokeAuthorizerCommand().apply(init))
+fun AmazonApiGatewayFunctions.testInvokeAuthorizer(init: AmazonApiGatewayTestInvokeAuthorizerCommand.() -> Unit): com.amazonaws.services.apigateway.model.TestInvokeAuthorizerResult {
+	return this.block.declare(AmazonApiGatewayTestInvokeAuthorizerCommand().apply(init)) as com.amazonaws.services.apigateway.model.TestInvokeAuthorizerResult
 }
 
 @Generated
-class AmazonApiGatewayTestInvokeAuthorizerCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.TestInvokeAuthorizerRequest> {
+class AmazonApiGatewayTestInvokeAuthorizerCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.TestInvokeAuthorizerRequest, com.amazonaws.services.apigateway.model.TestInvokeAuthorizerResult> {
 
 	var restApiId: String? = null
 	var authorizerId: String? = null
@@ -3296,8 +3676,12 @@ class AmazonApiGatewayTestInvokeAuthorizerCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.testInvokeAuthorizer(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.TestInvokeAuthorizerResult {
+	  return com.amazonaws.services.apigateway.model.TestInvokeAuthorizerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.TestInvokeAuthorizerResult {
+		return environment.apigateway.testInvokeAuthorizer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3314,12 +3698,12 @@ class AmazonApiGatewayTestInvokeAuthorizerCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonApiGatewayFunctions.testInvokeMethod(init: AmazonApiGatewayTestInvokeMethodCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayTestInvokeMethodCommand().apply(init))
+fun AmazonApiGatewayFunctions.testInvokeMethod(init: AmazonApiGatewayTestInvokeMethodCommand.() -> Unit): com.amazonaws.services.apigateway.model.TestInvokeMethodResult {
+	return this.block.declare(AmazonApiGatewayTestInvokeMethodCommand().apply(init)) as com.amazonaws.services.apigateway.model.TestInvokeMethodResult
 }
 
 @Generated
-class AmazonApiGatewayTestInvokeMethodCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.TestInvokeMethodRequest> {
+class AmazonApiGatewayTestInvokeMethodCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.TestInvokeMethodRequest, com.amazonaws.services.apigateway.model.TestInvokeMethodResult> {
 
 	var restApiId: String? = null
 	var resourceId: String? = null
@@ -3343,8 +3727,12 @@ class AmazonApiGatewayTestInvokeMethodCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.testInvokeMethod(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.TestInvokeMethodResult {
+	  return com.amazonaws.services.apigateway.model.TestInvokeMethodResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.TestInvokeMethodResult {
+		return environment.apigateway.testInvokeMethod(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3362,12 +3750,12 @@ class AmazonApiGatewayTestInvokeMethodCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonApiGatewayFunctions.untagResource(init: AmazonApiGatewayUntagResourceCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayUntagResourceCommand().apply(init))
+fun AmazonApiGatewayFunctions.untagResource(init: AmazonApiGatewayUntagResourceCommand.() -> Unit): com.amazonaws.services.apigateway.model.UntagResourceResult {
+	return this.block.declare(AmazonApiGatewayUntagResourceCommand().apply(init)) as com.amazonaws.services.apigateway.model.UntagResourceResult
 }
 
 @Generated
-class AmazonApiGatewayUntagResourceCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UntagResourceRequest> {
+class AmazonApiGatewayUntagResourceCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UntagResourceRequest, com.amazonaws.services.apigateway.model.UntagResourceResult> {
 
 	var resourceArn: String? = null
 	var tagKeys: List<String>? = null
@@ -3379,8 +3767,12 @@ class AmazonApiGatewayUntagResourceCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.untagResource(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.UntagResourceResult {
+	  return com.amazonaws.services.apigateway.model.UntagResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UntagResourceResult {
+		return environment.apigateway.untagResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3392,12 +3784,12 @@ class AmazonApiGatewayUntagResourceCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AmazonApiGatewayFunctions.updateAccount(init: AmazonApiGatewayUpdateAccountCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayUpdateAccountCommand().apply(init))
+fun AmazonApiGatewayFunctions.updateAccount(init: AmazonApiGatewayUpdateAccountCommand.() -> Unit): com.amazonaws.services.apigateway.model.UpdateAccountResult {
+	return this.block.declare(AmazonApiGatewayUpdateAccountCommand().apply(init)) as com.amazonaws.services.apigateway.model.UpdateAccountResult
 }
 
 @Generated
-class AmazonApiGatewayUpdateAccountCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateAccountRequest> {
+class AmazonApiGatewayUpdateAccountCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateAccountRequest, com.amazonaws.services.apigateway.model.UpdateAccountResult> {
 
 	var patchOperations: List<com.amazonaws.services.apigateway.model.PatchOperation>? = null
 
@@ -3407,8 +3799,12 @@ class AmazonApiGatewayUpdateAccountCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.updateAccount(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateAccountResult {
+	  return com.amazonaws.services.apigateway.model.UpdateAccountResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateAccountResult {
+		return environment.apigateway.updateAccount(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3419,12 +3815,12 @@ class AmazonApiGatewayUpdateAccountCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AmazonApiGatewayFunctions.updateApiKey(init: AmazonApiGatewayUpdateApiKeyCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayUpdateApiKeyCommand().apply(init))
+fun AmazonApiGatewayFunctions.updateApiKey(init: AmazonApiGatewayUpdateApiKeyCommand.() -> Unit): com.amazonaws.services.apigateway.model.UpdateApiKeyResult {
+	return this.block.declare(AmazonApiGatewayUpdateApiKeyCommand().apply(init)) as com.amazonaws.services.apigateway.model.UpdateApiKeyResult
 }
 
 @Generated
-class AmazonApiGatewayUpdateApiKeyCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateApiKeyRequest> {
+class AmazonApiGatewayUpdateApiKeyCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateApiKeyRequest, com.amazonaws.services.apigateway.model.UpdateApiKeyResult> {
 
 	var apiKey: String? = null
 	var patchOperations: List<com.amazonaws.services.apigateway.model.PatchOperation>? = null
@@ -3436,8 +3832,12 @@ class AmazonApiGatewayUpdateApiKeyCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.updateApiKey(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateApiKeyResult {
+	  return com.amazonaws.services.apigateway.model.UpdateApiKeyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateApiKeyResult {
+		return environment.apigateway.updateApiKey(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3449,12 +3849,12 @@ class AmazonApiGatewayUpdateApiKeyCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonApiGatewayFunctions.updateAuthorizer(init: AmazonApiGatewayUpdateAuthorizerCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayUpdateAuthorizerCommand().apply(init))
+fun AmazonApiGatewayFunctions.updateAuthorizer(init: AmazonApiGatewayUpdateAuthorizerCommand.() -> Unit): com.amazonaws.services.apigateway.model.UpdateAuthorizerResult {
+	return this.block.declare(AmazonApiGatewayUpdateAuthorizerCommand().apply(init)) as com.amazonaws.services.apigateway.model.UpdateAuthorizerResult
 }
 
 @Generated
-class AmazonApiGatewayUpdateAuthorizerCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateAuthorizerRequest> {
+class AmazonApiGatewayUpdateAuthorizerCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateAuthorizerRequest, com.amazonaws.services.apigateway.model.UpdateAuthorizerResult> {
 
 	var restApiId: String? = null
 	var authorizerId: String? = null
@@ -3468,8 +3868,12 @@ class AmazonApiGatewayUpdateAuthorizerCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.updateAuthorizer(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateAuthorizerResult {
+	  return com.amazonaws.services.apigateway.model.UpdateAuthorizerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateAuthorizerResult {
+		return environment.apigateway.updateAuthorizer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3482,12 +3886,12 @@ class AmazonApiGatewayUpdateAuthorizerCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonApiGatewayFunctions.updateBasePathMapping(init: AmazonApiGatewayUpdateBasePathMappingCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayUpdateBasePathMappingCommand().apply(init))
+fun AmazonApiGatewayFunctions.updateBasePathMapping(init: AmazonApiGatewayUpdateBasePathMappingCommand.() -> Unit): com.amazonaws.services.apigateway.model.UpdateBasePathMappingResult {
+	return this.block.declare(AmazonApiGatewayUpdateBasePathMappingCommand().apply(init)) as com.amazonaws.services.apigateway.model.UpdateBasePathMappingResult
 }
 
 @Generated
-class AmazonApiGatewayUpdateBasePathMappingCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateBasePathMappingRequest> {
+class AmazonApiGatewayUpdateBasePathMappingCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateBasePathMappingRequest, com.amazonaws.services.apigateway.model.UpdateBasePathMappingResult> {
 
 	var domainName: String? = null
 	var basePath: String? = null
@@ -3501,8 +3905,12 @@ class AmazonApiGatewayUpdateBasePathMappingCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.updateBasePathMapping(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateBasePathMappingResult {
+	  return com.amazonaws.services.apigateway.model.UpdateBasePathMappingResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateBasePathMappingResult {
+		return environment.apigateway.updateBasePathMapping(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3515,12 +3923,12 @@ class AmazonApiGatewayUpdateBasePathMappingCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AmazonApiGatewayFunctions.updateClientCertificate(init: AmazonApiGatewayUpdateClientCertificateCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayUpdateClientCertificateCommand().apply(init))
+fun AmazonApiGatewayFunctions.updateClientCertificate(init: AmazonApiGatewayUpdateClientCertificateCommand.() -> Unit): com.amazonaws.services.apigateway.model.UpdateClientCertificateResult {
+	return this.block.declare(AmazonApiGatewayUpdateClientCertificateCommand().apply(init)) as com.amazonaws.services.apigateway.model.UpdateClientCertificateResult
 }
 
 @Generated
-class AmazonApiGatewayUpdateClientCertificateCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateClientCertificateRequest> {
+class AmazonApiGatewayUpdateClientCertificateCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateClientCertificateRequest, com.amazonaws.services.apigateway.model.UpdateClientCertificateResult> {
 
 	var clientCertificateId: String? = null
 	var patchOperations: List<com.amazonaws.services.apigateway.model.PatchOperation>? = null
@@ -3532,8 +3940,12 @@ class AmazonApiGatewayUpdateClientCertificateCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.updateClientCertificate(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateClientCertificateResult {
+	  return com.amazonaws.services.apigateway.model.UpdateClientCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateClientCertificateResult {
+		return environment.apigateway.updateClientCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3545,12 +3957,12 @@ class AmazonApiGatewayUpdateClientCertificateCommand() : AmazonWebServiceCommand
 }
 
 
-fun AmazonApiGatewayFunctions.updateDeployment(init: AmazonApiGatewayUpdateDeploymentCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayUpdateDeploymentCommand().apply(init))
+fun AmazonApiGatewayFunctions.updateDeployment(init: AmazonApiGatewayUpdateDeploymentCommand.() -> Unit): com.amazonaws.services.apigateway.model.UpdateDeploymentResult {
+	return this.block.declare(AmazonApiGatewayUpdateDeploymentCommand().apply(init)) as com.amazonaws.services.apigateway.model.UpdateDeploymentResult
 }
 
 @Generated
-class AmazonApiGatewayUpdateDeploymentCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateDeploymentRequest> {
+class AmazonApiGatewayUpdateDeploymentCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateDeploymentRequest, com.amazonaws.services.apigateway.model.UpdateDeploymentResult> {
 
 	var restApiId: String? = null
 	var deploymentId: String? = null
@@ -3564,8 +3976,12 @@ class AmazonApiGatewayUpdateDeploymentCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.updateDeployment(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateDeploymentResult {
+	  return com.amazonaws.services.apigateway.model.UpdateDeploymentResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateDeploymentResult {
+		return environment.apigateway.updateDeployment(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3578,12 +3994,12 @@ class AmazonApiGatewayUpdateDeploymentCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonApiGatewayFunctions.updateDocumentationPart(init: AmazonApiGatewayUpdateDocumentationPartCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayUpdateDocumentationPartCommand().apply(init))
+fun AmazonApiGatewayFunctions.updateDocumentationPart(init: AmazonApiGatewayUpdateDocumentationPartCommand.() -> Unit): com.amazonaws.services.apigateway.model.UpdateDocumentationPartResult {
+	return this.block.declare(AmazonApiGatewayUpdateDocumentationPartCommand().apply(init)) as com.amazonaws.services.apigateway.model.UpdateDocumentationPartResult
 }
 
 @Generated
-class AmazonApiGatewayUpdateDocumentationPartCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateDocumentationPartRequest> {
+class AmazonApiGatewayUpdateDocumentationPartCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateDocumentationPartRequest, com.amazonaws.services.apigateway.model.UpdateDocumentationPartResult> {
 
 	var restApiId: String? = null
 	var documentationPartId: String? = null
@@ -3597,8 +4013,12 @@ class AmazonApiGatewayUpdateDocumentationPartCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.updateDocumentationPart(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateDocumentationPartResult {
+	  return com.amazonaws.services.apigateway.model.UpdateDocumentationPartResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateDocumentationPartResult {
+		return environment.apigateway.updateDocumentationPart(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3611,12 +4031,12 @@ class AmazonApiGatewayUpdateDocumentationPartCommand() : AmazonWebServiceCommand
 }
 
 
-fun AmazonApiGatewayFunctions.updateDocumentationVersion(init: AmazonApiGatewayUpdateDocumentationVersionCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayUpdateDocumentationVersionCommand().apply(init))
+fun AmazonApiGatewayFunctions.updateDocumentationVersion(init: AmazonApiGatewayUpdateDocumentationVersionCommand.() -> Unit): com.amazonaws.services.apigateway.model.UpdateDocumentationVersionResult {
+	return this.block.declare(AmazonApiGatewayUpdateDocumentationVersionCommand().apply(init)) as com.amazonaws.services.apigateway.model.UpdateDocumentationVersionResult
 }
 
 @Generated
-class AmazonApiGatewayUpdateDocumentationVersionCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateDocumentationVersionRequest> {
+class AmazonApiGatewayUpdateDocumentationVersionCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateDocumentationVersionRequest, com.amazonaws.services.apigateway.model.UpdateDocumentationVersionResult> {
 
 	var restApiId: String? = null
 	var documentationVersion: String? = null
@@ -3630,8 +4050,12 @@ class AmazonApiGatewayUpdateDocumentationVersionCommand() : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.updateDocumentationVersion(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateDocumentationVersionResult {
+	  return com.amazonaws.services.apigateway.model.UpdateDocumentationVersionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateDocumentationVersionResult {
+		return environment.apigateway.updateDocumentationVersion(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3644,12 +4068,12 @@ class AmazonApiGatewayUpdateDocumentationVersionCommand() : AmazonWebServiceComm
 }
 
 
-fun AmazonApiGatewayFunctions.updateDomainName(init: AmazonApiGatewayUpdateDomainNameCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayUpdateDomainNameCommand().apply(init))
+fun AmazonApiGatewayFunctions.updateDomainName(init: AmazonApiGatewayUpdateDomainNameCommand.() -> Unit): com.amazonaws.services.apigateway.model.UpdateDomainNameResult {
+	return this.block.declare(AmazonApiGatewayUpdateDomainNameCommand().apply(init)) as com.amazonaws.services.apigateway.model.UpdateDomainNameResult
 }
 
 @Generated
-class AmazonApiGatewayUpdateDomainNameCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateDomainNameRequest> {
+class AmazonApiGatewayUpdateDomainNameCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateDomainNameRequest, com.amazonaws.services.apigateway.model.UpdateDomainNameResult> {
 
 	var domainName: String? = null
 	var patchOperations: List<com.amazonaws.services.apigateway.model.PatchOperation>? = null
@@ -3661,8 +4085,12 @@ class AmazonApiGatewayUpdateDomainNameCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.updateDomainName(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateDomainNameResult {
+	  return com.amazonaws.services.apigateway.model.UpdateDomainNameResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateDomainNameResult {
+		return environment.apigateway.updateDomainName(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3674,12 +4102,12 @@ class AmazonApiGatewayUpdateDomainNameCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonApiGatewayFunctions.updateGatewayResponse(init: AmazonApiGatewayUpdateGatewayResponseCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayUpdateGatewayResponseCommand().apply(init))
+fun AmazonApiGatewayFunctions.updateGatewayResponse(init: AmazonApiGatewayUpdateGatewayResponseCommand.() -> Unit): com.amazonaws.services.apigateway.model.UpdateGatewayResponseResult {
+	return this.block.declare(AmazonApiGatewayUpdateGatewayResponseCommand().apply(init)) as com.amazonaws.services.apigateway.model.UpdateGatewayResponseResult
 }
 
 @Generated
-class AmazonApiGatewayUpdateGatewayResponseCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateGatewayResponseRequest> {
+class AmazonApiGatewayUpdateGatewayResponseCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateGatewayResponseRequest, com.amazonaws.services.apigateway.model.UpdateGatewayResponseResult> {
 
 	var restApiId: String? = null
 	var responseType: GatewayResponseType? = null
@@ -3693,8 +4121,12 @@ class AmazonApiGatewayUpdateGatewayResponseCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.updateGatewayResponse(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateGatewayResponseResult {
+	  return com.amazonaws.services.apigateway.model.UpdateGatewayResponseResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateGatewayResponseResult {
+		return environment.apigateway.updateGatewayResponse(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3707,12 +4139,12 @@ class AmazonApiGatewayUpdateGatewayResponseCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AmazonApiGatewayFunctions.updateIntegration(init: AmazonApiGatewayUpdateIntegrationCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayUpdateIntegrationCommand().apply(init))
+fun AmazonApiGatewayFunctions.updateIntegration(init: AmazonApiGatewayUpdateIntegrationCommand.() -> Unit): com.amazonaws.services.apigateway.model.UpdateIntegrationResult {
+	return this.block.declare(AmazonApiGatewayUpdateIntegrationCommand().apply(init)) as com.amazonaws.services.apigateway.model.UpdateIntegrationResult
 }
 
 @Generated
-class AmazonApiGatewayUpdateIntegrationCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateIntegrationRequest> {
+class AmazonApiGatewayUpdateIntegrationCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateIntegrationRequest, com.amazonaws.services.apigateway.model.UpdateIntegrationResult> {
 
 	var restApiId: String? = null
 	var resourceId: String? = null
@@ -3728,8 +4160,12 @@ class AmazonApiGatewayUpdateIntegrationCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.updateIntegration(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateIntegrationResult {
+	  return com.amazonaws.services.apigateway.model.UpdateIntegrationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateIntegrationResult {
+		return environment.apigateway.updateIntegration(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3743,12 +4179,12 @@ class AmazonApiGatewayUpdateIntegrationCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AmazonApiGatewayFunctions.updateIntegrationResponse(init: AmazonApiGatewayUpdateIntegrationResponseCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayUpdateIntegrationResponseCommand().apply(init))
+fun AmazonApiGatewayFunctions.updateIntegrationResponse(init: AmazonApiGatewayUpdateIntegrationResponseCommand.() -> Unit): com.amazonaws.services.apigateway.model.UpdateIntegrationResponseResult {
+	return this.block.declare(AmazonApiGatewayUpdateIntegrationResponseCommand().apply(init)) as com.amazonaws.services.apigateway.model.UpdateIntegrationResponseResult
 }
 
 @Generated
-class AmazonApiGatewayUpdateIntegrationResponseCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateIntegrationResponseRequest> {
+class AmazonApiGatewayUpdateIntegrationResponseCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateIntegrationResponseRequest, com.amazonaws.services.apigateway.model.UpdateIntegrationResponseResult> {
 
 	var restApiId: String? = null
 	var resourceId: String? = null
@@ -3766,8 +4202,12 @@ class AmazonApiGatewayUpdateIntegrationResponseCommand() : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.updateIntegrationResponse(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateIntegrationResponseResult {
+	  return com.amazonaws.services.apigateway.model.UpdateIntegrationResponseResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateIntegrationResponseResult {
+		return environment.apigateway.updateIntegrationResponse(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3782,12 +4222,12 @@ class AmazonApiGatewayUpdateIntegrationResponseCommand() : AmazonWebServiceComma
 }
 
 
-fun AmazonApiGatewayFunctions.updateMethod(init: AmazonApiGatewayUpdateMethodCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayUpdateMethodCommand().apply(init))
+fun AmazonApiGatewayFunctions.updateMethod(init: AmazonApiGatewayUpdateMethodCommand.() -> Unit): com.amazonaws.services.apigateway.model.UpdateMethodResult {
+	return this.block.declare(AmazonApiGatewayUpdateMethodCommand().apply(init)) as com.amazonaws.services.apigateway.model.UpdateMethodResult
 }
 
 @Generated
-class AmazonApiGatewayUpdateMethodCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateMethodRequest> {
+class AmazonApiGatewayUpdateMethodCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateMethodRequest, com.amazonaws.services.apigateway.model.UpdateMethodResult> {
 
 	var restApiId: String? = null
 	var resourceId: String? = null
@@ -3803,8 +4243,12 @@ class AmazonApiGatewayUpdateMethodCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.updateMethod(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateMethodResult {
+	  return com.amazonaws.services.apigateway.model.UpdateMethodResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateMethodResult {
+		return environment.apigateway.updateMethod(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3818,12 +4262,12 @@ class AmazonApiGatewayUpdateMethodCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonApiGatewayFunctions.updateMethodResponse(init: AmazonApiGatewayUpdateMethodResponseCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayUpdateMethodResponseCommand().apply(init))
+fun AmazonApiGatewayFunctions.updateMethodResponse(init: AmazonApiGatewayUpdateMethodResponseCommand.() -> Unit): com.amazonaws.services.apigateway.model.UpdateMethodResponseResult {
+	return this.block.declare(AmazonApiGatewayUpdateMethodResponseCommand().apply(init)) as com.amazonaws.services.apigateway.model.UpdateMethodResponseResult
 }
 
 @Generated
-class AmazonApiGatewayUpdateMethodResponseCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateMethodResponseRequest> {
+class AmazonApiGatewayUpdateMethodResponseCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateMethodResponseRequest, com.amazonaws.services.apigateway.model.UpdateMethodResponseResult> {
 
 	var restApiId: String? = null
 	var resourceId: String? = null
@@ -3841,8 +4285,12 @@ class AmazonApiGatewayUpdateMethodResponseCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.updateMethodResponse(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateMethodResponseResult {
+	  return com.amazonaws.services.apigateway.model.UpdateMethodResponseResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateMethodResponseResult {
+		return environment.apigateway.updateMethodResponse(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3857,12 +4305,12 @@ class AmazonApiGatewayUpdateMethodResponseCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonApiGatewayFunctions.updateModel(init: AmazonApiGatewayUpdateModelCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayUpdateModelCommand().apply(init))
+fun AmazonApiGatewayFunctions.updateModel(init: AmazonApiGatewayUpdateModelCommand.() -> Unit): com.amazonaws.services.apigateway.model.UpdateModelResult {
+	return this.block.declare(AmazonApiGatewayUpdateModelCommand().apply(init)) as com.amazonaws.services.apigateway.model.UpdateModelResult
 }
 
 @Generated
-class AmazonApiGatewayUpdateModelCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateModelRequest> {
+class AmazonApiGatewayUpdateModelCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateModelRequest, com.amazonaws.services.apigateway.model.UpdateModelResult> {
 
 	var restApiId: String? = null
 	var modelName: String? = null
@@ -3876,8 +4324,12 @@ class AmazonApiGatewayUpdateModelCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.updateModel(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateModelResult {
+	  return com.amazonaws.services.apigateway.model.UpdateModelResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateModelResult {
+		return environment.apigateway.updateModel(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3890,12 +4342,12 @@ class AmazonApiGatewayUpdateModelCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AmazonApiGatewayFunctions.updateRequestValidator(init: AmazonApiGatewayUpdateRequestValidatorCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayUpdateRequestValidatorCommand().apply(init))
+fun AmazonApiGatewayFunctions.updateRequestValidator(init: AmazonApiGatewayUpdateRequestValidatorCommand.() -> Unit): com.amazonaws.services.apigateway.model.UpdateRequestValidatorResult {
+	return this.block.declare(AmazonApiGatewayUpdateRequestValidatorCommand().apply(init)) as com.amazonaws.services.apigateway.model.UpdateRequestValidatorResult
 }
 
 @Generated
-class AmazonApiGatewayUpdateRequestValidatorCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateRequestValidatorRequest> {
+class AmazonApiGatewayUpdateRequestValidatorCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateRequestValidatorRequest, com.amazonaws.services.apigateway.model.UpdateRequestValidatorResult> {
 
 	var restApiId: String? = null
 	var requestValidatorId: String? = null
@@ -3909,8 +4361,12 @@ class AmazonApiGatewayUpdateRequestValidatorCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.updateRequestValidator(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateRequestValidatorResult {
+	  return com.amazonaws.services.apigateway.model.UpdateRequestValidatorResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateRequestValidatorResult {
+		return environment.apigateway.updateRequestValidator(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3923,12 +4379,12 @@ class AmazonApiGatewayUpdateRequestValidatorCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AmazonApiGatewayFunctions.updateResource(init: AmazonApiGatewayUpdateResourceCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayUpdateResourceCommand().apply(init))
+fun AmazonApiGatewayFunctions.updateResource(init: AmazonApiGatewayUpdateResourceCommand.() -> Unit): com.amazonaws.services.apigateway.model.UpdateResourceResult {
+	return this.block.declare(AmazonApiGatewayUpdateResourceCommand().apply(init)) as com.amazonaws.services.apigateway.model.UpdateResourceResult
 }
 
 @Generated
-class AmazonApiGatewayUpdateResourceCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateResourceRequest> {
+class AmazonApiGatewayUpdateResourceCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateResourceRequest, com.amazonaws.services.apigateway.model.UpdateResourceResult> {
 
 	var restApiId: String? = null
 	var resourceId: String? = null
@@ -3942,8 +4398,12 @@ class AmazonApiGatewayUpdateResourceCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.updateResource(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateResourceResult {
+	  return com.amazonaws.services.apigateway.model.UpdateResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateResourceResult {
+		return environment.apigateway.updateResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3956,12 +4416,12 @@ class AmazonApiGatewayUpdateResourceCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AmazonApiGatewayFunctions.updateRestApi(init: AmazonApiGatewayUpdateRestApiCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayUpdateRestApiCommand().apply(init))
+fun AmazonApiGatewayFunctions.updateRestApi(init: AmazonApiGatewayUpdateRestApiCommand.() -> Unit): com.amazonaws.services.apigateway.model.UpdateRestApiResult {
+	return this.block.declare(AmazonApiGatewayUpdateRestApiCommand().apply(init)) as com.amazonaws.services.apigateway.model.UpdateRestApiResult
 }
 
 @Generated
-class AmazonApiGatewayUpdateRestApiCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateRestApiRequest> {
+class AmazonApiGatewayUpdateRestApiCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateRestApiRequest, com.amazonaws.services.apigateway.model.UpdateRestApiResult> {
 
 	var restApiId: String? = null
 	var patchOperations: List<com.amazonaws.services.apigateway.model.PatchOperation>? = null
@@ -3973,8 +4433,12 @@ class AmazonApiGatewayUpdateRestApiCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.updateRestApi(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateRestApiResult {
+	  return com.amazonaws.services.apigateway.model.UpdateRestApiResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateRestApiResult {
+		return environment.apigateway.updateRestApi(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3986,12 +4450,12 @@ class AmazonApiGatewayUpdateRestApiCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AmazonApiGatewayFunctions.updateStage(init: AmazonApiGatewayUpdateStageCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayUpdateStageCommand().apply(init))
+fun AmazonApiGatewayFunctions.updateStage(init: AmazonApiGatewayUpdateStageCommand.() -> Unit): com.amazonaws.services.apigateway.model.UpdateStageResult {
+	return this.block.declare(AmazonApiGatewayUpdateStageCommand().apply(init)) as com.amazonaws.services.apigateway.model.UpdateStageResult
 }
 
 @Generated
-class AmazonApiGatewayUpdateStageCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateStageRequest> {
+class AmazonApiGatewayUpdateStageCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateStageRequest, com.amazonaws.services.apigateway.model.UpdateStageResult> {
 
 	var restApiId: String? = null
 	var stageName: String? = null
@@ -4005,8 +4469,12 @@ class AmazonApiGatewayUpdateStageCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.updateStage(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateStageResult {
+	  return com.amazonaws.services.apigateway.model.UpdateStageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateStageResult {
+		return environment.apigateway.updateStage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -4019,12 +4487,12 @@ class AmazonApiGatewayUpdateStageCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AmazonApiGatewayFunctions.updateUsage(init: AmazonApiGatewayUpdateUsageCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayUpdateUsageCommand().apply(init))
+fun AmazonApiGatewayFunctions.updateUsage(init: AmazonApiGatewayUpdateUsageCommand.() -> Unit): com.amazonaws.services.apigateway.model.UpdateUsageResult {
+	return this.block.declare(AmazonApiGatewayUpdateUsageCommand().apply(init)) as com.amazonaws.services.apigateway.model.UpdateUsageResult
 }
 
 @Generated
-class AmazonApiGatewayUpdateUsageCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateUsageRequest> {
+class AmazonApiGatewayUpdateUsageCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateUsageRequest, com.amazonaws.services.apigateway.model.UpdateUsageResult> {
 
 	var usagePlanId: String? = null
 	var keyId: String? = null
@@ -4038,8 +4506,12 @@ class AmazonApiGatewayUpdateUsageCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.updateUsage(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateUsageResult {
+	  return com.amazonaws.services.apigateway.model.UpdateUsageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateUsageResult {
+		return environment.apigateway.updateUsage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -4052,12 +4524,12 @@ class AmazonApiGatewayUpdateUsageCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AmazonApiGatewayFunctions.updateUsagePlan(init: AmazonApiGatewayUpdateUsagePlanCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayUpdateUsagePlanCommand().apply(init))
+fun AmazonApiGatewayFunctions.updateUsagePlan(init: AmazonApiGatewayUpdateUsagePlanCommand.() -> Unit): com.amazonaws.services.apigateway.model.UpdateUsagePlanResult {
+	return this.block.declare(AmazonApiGatewayUpdateUsagePlanCommand().apply(init)) as com.amazonaws.services.apigateway.model.UpdateUsagePlanResult
 }
 
 @Generated
-class AmazonApiGatewayUpdateUsagePlanCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateUsagePlanRequest> {
+class AmazonApiGatewayUpdateUsagePlanCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateUsagePlanRequest, com.amazonaws.services.apigateway.model.UpdateUsagePlanResult> {
 
 	var usagePlanId: String? = null
 	var patchOperations: List<com.amazonaws.services.apigateway.model.PatchOperation>? = null
@@ -4069,8 +4541,12 @@ class AmazonApiGatewayUpdateUsagePlanCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.updateUsagePlan(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateUsagePlanResult {
+	  return com.amazonaws.services.apigateway.model.UpdateUsagePlanResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateUsagePlanResult {
+		return environment.apigateway.updateUsagePlan(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -4082,12 +4558,12 @@ class AmazonApiGatewayUpdateUsagePlanCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AmazonApiGatewayFunctions.updateVpcLink(init: AmazonApiGatewayUpdateVpcLinkCommand.() -> Unit) {
-	this.block.declare(AmazonApiGatewayUpdateVpcLinkCommand().apply(init))
+fun AmazonApiGatewayFunctions.updateVpcLink(init: AmazonApiGatewayUpdateVpcLinkCommand.() -> Unit): com.amazonaws.services.apigateway.model.UpdateVpcLinkResult {
+	return this.block.declare(AmazonApiGatewayUpdateVpcLinkCommand().apply(init)) as com.amazonaws.services.apigateway.model.UpdateVpcLinkResult
 }
 
 @Generated
-class AmazonApiGatewayUpdateVpcLinkCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateVpcLinkRequest> {
+class AmazonApiGatewayUpdateVpcLinkCommand() : AmazonWebServiceCommand<com.amazonaws.services.apigateway.model.UpdateVpcLinkRequest, com.amazonaws.services.apigateway.model.UpdateVpcLinkResult> {
 
 	var vpcLinkId: String? = null
 	var patchOperations: List<com.amazonaws.services.apigateway.model.PatchOperation>? = null
@@ -4099,8 +4575,12 @@ class AmazonApiGatewayUpdateVpcLinkCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.apigateway.updateVpcLink(build())
+	override fun dryResult(): com.amazonaws.services.apigateway.model.UpdateVpcLinkResult {
+	  return com.amazonaws.services.apigateway.model.UpdateVpcLinkResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.apigateway.model.UpdateVpcLinkResult {
+		return environment.apigateway.updateVpcLink(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

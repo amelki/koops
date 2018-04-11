@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.mediastoredata: AWSMediaStoreData
 @Generated
 class AWSMediaStoreDataFunctions(val block: Block)
 
-infix fun AwsContinuation.mediastoredata(init: AWSMediaStoreDataFunctions.() -> Unit) {
-	AWSMediaStoreDataFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.mediastoredata(init: AWSMediaStoreDataFunctions.() -> T): T {
+	return AWSMediaStoreDataFunctions(shell).run(init)
 }
 
 			
 
-fun AWSMediaStoreDataFunctions.deleteObject(path: String, init: AWSMediaStoreDataDeleteObjectCommand.() -> Unit) {
-	this.block.declare(AWSMediaStoreDataDeleteObjectCommand(path).apply(init))
+fun AWSMediaStoreDataFunctions.deleteObject(path: String, init: AWSMediaStoreDataDeleteObjectCommand.() -> Unit): com.amazonaws.services.mediastoredata.model.DeleteObjectResult {
+	return this.block.declare(AWSMediaStoreDataDeleteObjectCommand(path).apply(init)) as com.amazonaws.services.mediastoredata.model.DeleteObjectResult
 }
 
 @Generated
-class AWSMediaStoreDataDeleteObjectCommand(val path: String) : AmazonWebServiceCommand<com.amazonaws.services.mediastoredata.model.DeleteObjectRequest> {
+class AWSMediaStoreDataDeleteObjectCommand(val path: String) : AmazonWebServiceCommand<com.amazonaws.services.mediastoredata.model.DeleteObjectRequest, com.amazonaws.services.mediastoredata.model.DeleteObjectResult> {
 
 
 
@@ -41,8 +41,12 @@ class AWSMediaStoreDataDeleteObjectCommand(val path: String) : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mediastoredata.deleteObject(build())
+	override fun dryResult(): com.amazonaws.services.mediastoredata.model.DeleteObjectResult {
+	  return com.amazonaws.services.mediastoredata.model.DeleteObjectResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediastoredata.model.DeleteObjectResult {
+		return environment.mediastoredata.deleteObject(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -53,12 +57,12 @@ class AWSMediaStoreDataDeleteObjectCommand(val path: String) : AmazonWebServiceC
 }
 
 
-fun AWSMediaStoreDataFunctions.describeObject(path: String, init: AWSMediaStoreDataDescribeObjectCommand.() -> Unit) {
-	this.block.declare(AWSMediaStoreDataDescribeObjectCommand(path).apply(init))
+fun AWSMediaStoreDataFunctions.describeObject(path: String, init: AWSMediaStoreDataDescribeObjectCommand.() -> Unit): com.amazonaws.services.mediastoredata.model.DescribeObjectResult {
+	return this.block.declare(AWSMediaStoreDataDescribeObjectCommand(path).apply(init)) as com.amazonaws.services.mediastoredata.model.DescribeObjectResult
 }
 
 @Generated
-class AWSMediaStoreDataDescribeObjectCommand(val path: String) : AmazonWebServiceCommand<com.amazonaws.services.mediastoredata.model.DescribeObjectRequest> {
+class AWSMediaStoreDataDescribeObjectCommand(val path: String) : AmazonWebServiceCommand<com.amazonaws.services.mediastoredata.model.DescribeObjectRequest, com.amazonaws.services.mediastoredata.model.DescribeObjectResult> {
 
 
 
@@ -68,8 +72,12 @@ class AWSMediaStoreDataDescribeObjectCommand(val path: String) : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mediastoredata.describeObject(build())
+	override fun dryResult(): com.amazonaws.services.mediastoredata.model.DescribeObjectResult {
+	  return com.amazonaws.services.mediastoredata.model.DescribeObjectResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediastoredata.model.DescribeObjectResult {
+		return environment.mediastoredata.describeObject(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -80,12 +88,12 @@ class AWSMediaStoreDataDescribeObjectCommand(val path: String) : AmazonWebServic
 }
 
 
-fun AWSMediaStoreDataFunctions.getObject(path: String, init: AWSMediaStoreDataGetObjectCommand.() -> Unit) {
-	this.block.declare(AWSMediaStoreDataGetObjectCommand(path).apply(init))
+fun AWSMediaStoreDataFunctions.getObject(path: String, init: AWSMediaStoreDataGetObjectCommand.() -> Unit): com.amazonaws.services.mediastoredata.model.GetObjectResult {
+	return this.block.declare(AWSMediaStoreDataGetObjectCommand(path).apply(init)) as com.amazonaws.services.mediastoredata.model.GetObjectResult
 }
 
 @Generated
-class AWSMediaStoreDataGetObjectCommand(val path: String) : AmazonWebServiceCommand<com.amazonaws.services.mediastoredata.model.GetObjectRequest> {
+class AWSMediaStoreDataGetObjectCommand(val path: String) : AmazonWebServiceCommand<com.amazonaws.services.mediastoredata.model.GetObjectRequest, com.amazonaws.services.mediastoredata.model.GetObjectResult> {
 
 	var range: String? = null
 
@@ -96,8 +104,12 @@ class AWSMediaStoreDataGetObjectCommand(val path: String) : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mediastoredata.getObject(build())
+	override fun dryResult(): com.amazonaws.services.mediastoredata.model.GetObjectResult {
+	  return com.amazonaws.services.mediastoredata.model.GetObjectResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediastoredata.model.GetObjectResult {
+		return environment.mediastoredata.getObject(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -109,12 +121,12 @@ class AWSMediaStoreDataGetObjectCommand(val path: String) : AmazonWebServiceComm
 }
 
 
-fun AWSMediaStoreDataFunctions.listItems(init: AWSMediaStoreDataListItemsCommand.() -> Unit) {
-	this.block.declare(AWSMediaStoreDataListItemsCommand().apply(init))
+fun AWSMediaStoreDataFunctions.listItems(init: AWSMediaStoreDataListItemsCommand.() -> Unit): com.amazonaws.services.mediastoredata.model.ListItemsResult {
+	return this.block.declare(AWSMediaStoreDataListItemsCommand().apply(init)) as com.amazonaws.services.mediastoredata.model.ListItemsResult
 }
 
 @Generated
-class AWSMediaStoreDataListItemsCommand() : AmazonWebServiceCommand<com.amazonaws.services.mediastoredata.model.ListItemsRequest> {
+class AWSMediaStoreDataListItemsCommand() : AmazonWebServiceCommand<com.amazonaws.services.mediastoredata.model.ListItemsRequest, com.amazonaws.services.mediastoredata.model.ListItemsResult> {
 
 	var path: String? = null
 	var maxResults: Int? = 0
@@ -128,8 +140,12 @@ class AWSMediaStoreDataListItemsCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mediastoredata.listItems(build())
+	override fun dryResult(): com.amazonaws.services.mediastoredata.model.ListItemsResult {
+	  return com.amazonaws.services.mediastoredata.model.ListItemsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediastoredata.model.ListItemsResult {
+		return environment.mediastoredata.listItems(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -142,12 +158,12 @@ class AWSMediaStoreDataListItemsCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AWSMediaStoreDataFunctions.putObject(body: java.io.InputStream, path: String, init: AWSMediaStoreDataPutObjectCommand.() -> Unit) {
-	this.block.declare(AWSMediaStoreDataPutObjectCommand(body, path).apply(init))
+fun AWSMediaStoreDataFunctions.putObject(body: java.io.InputStream, path: String, init: AWSMediaStoreDataPutObjectCommand.() -> Unit): com.amazonaws.services.mediastoredata.model.PutObjectResult {
+	return this.block.declare(AWSMediaStoreDataPutObjectCommand(body, path).apply(init)) as com.amazonaws.services.mediastoredata.model.PutObjectResult
 }
 
 @Generated
-class AWSMediaStoreDataPutObjectCommand(val body: java.io.InputStream, val path: String) : AmazonWebServiceCommand<com.amazonaws.services.mediastoredata.model.PutObjectRequest> {
+class AWSMediaStoreDataPutObjectCommand(val body: java.io.InputStream, val path: String) : AmazonWebServiceCommand<com.amazonaws.services.mediastoredata.model.PutObjectRequest, com.amazonaws.services.mediastoredata.model.PutObjectResult> {
 
 	var contentType: String? = null
 	var cacheControl: String? = null
@@ -163,8 +179,12 @@ class AWSMediaStoreDataPutObjectCommand(val body: java.io.InputStream, val path:
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.mediastoredata.putObject(build())
+	override fun dryResult(): com.amazonaws.services.mediastoredata.model.PutObjectResult {
+	  return com.amazonaws.services.mediastoredata.model.PutObjectResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.mediastoredata.model.PutObjectResult {
+		return environment.mediastoredata.putObject(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

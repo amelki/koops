@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.application_autoscaling: AWSApplicationAutoS
 @Generated
 class AWSApplicationAutoScalingFunctions(val block: Block)
 
-infix fun AwsContinuation.application_autoscaling(init: AWSApplicationAutoScalingFunctions.() -> Unit) {
-	AWSApplicationAutoScalingFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.application_autoscaling(init: AWSApplicationAutoScalingFunctions.() -> T): T {
+	return AWSApplicationAutoScalingFunctions(shell).run(init)
 }
 
 			
 
-fun AWSApplicationAutoScalingFunctions.deleteScalingPolicy(policyName: String, serviceNamespace: ServiceNamespace, resourceId: String, scalableDimension: ScalableDimension, init: AWSApplicationAutoScalingDeleteScalingPolicyCommand.() -> Unit) {
-	this.block.declare(AWSApplicationAutoScalingDeleteScalingPolicyCommand(policyName, serviceNamespace, resourceId, scalableDimension).apply(init))
+fun AWSApplicationAutoScalingFunctions.deleteScalingPolicy(policyName: String, serviceNamespace: ServiceNamespace, resourceId: String, scalableDimension: ScalableDimension, init: AWSApplicationAutoScalingDeleteScalingPolicyCommand.() -> Unit): com.amazonaws.services.applicationautoscaling.model.DeleteScalingPolicyResult {
+	return this.block.declare(AWSApplicationAutoScalingDeleteScalingPolicyCommand(policyName, serviceNamespace, resourceId, scalableDimension).apply(init)) as com.amazonaws.services.applicationautoscaling.model.DeleteScalingPolicyResult
 }
 
 @Generated
-class AWSApplicationAutoScalingDeleteScalingPolicyCommand(val policyName: String, val serviceNamespace: ServiceNamespace, val resourceId: String, val scalableDimension: ScalableDimension) : AmazonWebServiceCommand<com.amazonaws.services.applicationautoscaling.model.DeleteScalingPolicyRequest> {
+class AWSApplicationAutoScalingDeleteScalingPolicyCommand(val policyName: String, val serviceNamespace: ServiceNamespace, val resourceId: String, val scalableDimension: ScalableDimension) : AmazonWebServiceCommand<com.amazonaws.services.applicationautoscaling.model.DeleteScalingPolicyRequest, com.amazonaws.services.applicationautoscaling.model.DeleteScalingPolicyResult> {
 
 
 
@@ -44,8 +44,12 @@ class AWSApplicationAutoScalingDeleteScalingPolicyCommand(val policyName: String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.application_autoscaling.deleteScalingPolicy(build())
+	override fun dryResult(): com.amazonaws.services.applicationautoscaling.model.DeleteScalingPolicyResult {
+	  return com.amazonaws.services.applicationautoscaling.model.DeleteScalingPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationautoscaling.model.DeleteScalingPolicyResult {
+		return environment.application_autoscaling.deleteScalingPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -59,12 +63,12 @@ class AWSApplicationAutoScalingDeleteScalingPolicyCommand(val policyName: String
 }
 
 
-fun AWSApplicationAutoScalingFunctions.deleteScheduledAction(serviceNamespace: ServiceNamespace, scheduledActionName: String, resourceId: String, init: AWSApplicationAutoScalingDeleteScheduledActionCommand.() -> Unit) {
-	this.block.declare(AWSApplicationAutoScalingDeleteScheduledActionCommand(serviceNamespace, scheduledActionName, resourceId).apply(init))
+fun AWSApplicationAutoScalingFunctions.deleteScheduledAction(serviceNamespace: ServiceNamespace, scheduledActionName: String, resourceId: String, init: AWSApplicationAutoScalingDeleteScheduledActionCommand.() -> Unit): com.amazonaws.services.applicationautoscaling.model.DeleteScheduledActionResult {
+	return this.block.declare(AWSApplicationAutoScalingDeleteScheduledActionCommand(serviceNamespace, scheduledActionName, resourceId).apply(init)) as com.amazonaws.services.applicationautoscaling.model.DeleteScheduledActionResult
 }
 
 @Generated
-class AWSApplicationAutoScalingDeleteScheduledActionCommand(val serviceNamespace: ServiceNamespace, val scheduledActionName: String, val resourceId: String) : AmazonWebServiceCommand<com.amazonaws.services.applicationautoscaling.model.DeleteScheduledActionRequest> {
+class AWSApplicationAutoScalingDeleteScheduledActionCommand(val serviceNamespace: ServiceNamespace, val scheduledActionName: String, val resourceId: String) : AmazonWebServiceCommand<com.amazonaws.services.applicationautoscaling.model.DeleteScheduledActionRequest, com.amazonaws.services.applicationautoscaling.model.DeleteScheduledActionResult> {
 
 	var scalableDimension: ScalableDimension? = null
 
@@ -77,8 +81,12 @@ class AWSApplicationAutoScalingDeleteScheduledActionCommand(val serviceNamespace
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.application_autoscaling.deleteScheduledAction(build())
+	override fun dryResult(): com.amazonaws.services.applicationautoscaling.model.DeleteScheduledActionResult {
+	  return com.amazonaws.services.applicationautoscaling.model.DeleteScheduledActionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationautoscaling.model.DeleteScheduledActionResult {
+		return environment.application_autoscaling.deleteScheduledAction(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -92,12 +100,12 @@ class AWSApplicationAutoScalingDeleteScheduledActionCommand(val serviceNamespace
 }
 
 
-fun AWSApplicationAutoScalingFunctions.deregisterScalableTarget(serviceNamespace: ServiceNamespace, resourceId: String, scalableDimension: ScalableDimension, init: AWSApplicationAutoScalingDeregisterScalableTargetCommand.() -> Unit) {
-	this.block.declare(AWSApplicationAutoScalingDeregisterScalableTargetCommand(serviceNamespace, resourceId, scalableDimension).apply(init))
+fun AWSApplicationAutoScalingFunctions.deregisterScalableTarget(serviceNamespace: ServiceNamespace, resourceId: String, scalableDimension: ScalableDimension, init: AWSApplicationAutoScalingDeregisterScalableTargetCommand.() -> Unit): com.amazonaws.services.applicationautoscaling.model.DeregisterScalableTargetResult {
+	return this.block.declare(AWSApplicationAutoScalingDeregisterScalableTargetCommand(serviceNamespace, resourceId, scalableDimension).apply(init)) as com.amazonaws.services.applicationautoscaling.model.DeregisterScalableTargetResult
 }
 
 @Generated
-class AWSApplicationAutoScalingDeregisterScalableTargetCommand(val serviceNamespace: ServiceNamespace, val resourceId: String, val scalableDimension: ScalableDimension) : AmazonWebServiceCommand<com.amazonaws.services.applicationautoscaling.model.DeregisterScalableTargetRequest> {
+class AWSApplicationAutoScalingDeregisterScalableTargetCommand(val serviceNamespace: ServiceNamespace, val resourceId: String, val scalableDimension: ScalableDimension) : AmazonWebServiceCommand<com.amazonaws.services.applicationautoscaling.model.DeregisterScalableTargetRequest, com.amazonaws.services.applicationautoscaling.model.DeregisterScalableTargetResult> {
 
 
 
@@ -109,8 +117,12 @@ class AWSApplicationAutoScalingDeregisterScalableTargetCommand(val serviceNamesp
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.application_autoscaling.deregisterScalableTarget(build())
+	override fun dryResult(): com.amazonaws.services.applicationautoscaling.model.DeregisterScalableTargetResult {
+	  return com.amazonaws.services.applicationautoscaling.model.DeregisterScalableTargetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationautoscaling.model.DeregisterScalableTargetResult {
+		return environment.application_autoscaling.deregisterScalableTarget(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -123,12 +135,12 @@ class AWSApplicationAutoScalingDeregisterScalableTargetCommand(val serviceNamesp
 }
 
 
-fun AWSApplicationAutoScalingFunctions.describeScalableTargets(serviceNamespace: ServiceNamespace, init: AWSApplicationAutoScalingDescribeScalableTargetsCommand.() -> Unit) {
-	this.block.declare(AWSApplicationAutoScalingDescribeScalableTargetsCommand(serviceNamespace).apply(init))
+fun AWSApplicationAutoScalingFunctions.describeScalableTargets(serviceNamespace: ServiceNamespace, init: AWSApplicationAutoScalingDescribeScalableTargetsCommand.() -> Unit): com.amazonaws.services.applicationautoscaling.model.DescribeScalableTargetsResult {
+	return this.block.declare(AWSApplicationAutoScalingDescribeScalableTargetsCommand(serviceNamespace).apply(init)) as com.amazonaws.services.applicationautoscaling.model.DescribeScalableTargetsResult
 }
 
 @Generated
-class AWSApplicationAutoScalingDescribeScalableTargetsCommand(val serviceNamespace: ServiceNamespace) : AmazonWebServiceCommand<com.amazonaws.services.applicationautoscaling.model.DescribeScalableTargetsRequest> {
+class AWSApplicationAutoScalingDescribeScalableTargetsCommand(val serviceNamespace: ServiceNamespace) : AmazonWebServiceCommand<com.amazonaws.services.applicationautoscaling.model.DescribeScalableTargetsRequest, com.amazonaws.services.applicationautoscaling.model.DescribeScalableTargetsResult> {
 
 	var resourceIds: List<String>? = null
 	var scalableDimension: ScalableDimension? = null
@@ -145,8 +157,12 @@ class AWSApplicationAutoScalingDescribeScalableTargetsCommand(val serviceNamespa
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.application_autoscaling.describeScalableTargets(build())
+	override fun dryResult(): com.amazonaws.services.applicationautoscaling.model.DescribeScalableTargetsResult {
+	  return com.amazonaws.services.applicationautoscaling.model.DescribeScalableTargetsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationautoscaling.model.DescribeScalableTargetsResult {
+		return environment.application_autoscaling.describeScalableTargets(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -161,12 +177,12 @@ class AWSApplicationAutoScalingDescribeScalableTargetsCommand(val serviceNamespa
 }
 
 
-fun AWSApplicationAutoScalingFunctions.describeScalingActivities(serviceNamespace: ServiceNamespace, init: AWSApplicationAutoScalingDescribeScalingActivitiesCommand.() -> Unit) {
-	this.block.declare(AWSApplicationAutoScalingDescribeScalingActivitiesCommand(serviceNamespace).apply(init))
+fun AWSApplicationAutoScalingFunctions.describeScalingActivities(serviceNamespace: ServiceNamespace, init: AWSApplicationAutoScalingDescribeScalingActivitiesCommand.() -> Unit): com.amazonaws.services.applicationautoscaling.model.DescribeScalingActivitiesResult {
+	return this.block.declare(AWSApplicationAutoScalingDescribeScalingActivitiesCommand(serviceNamespace).apply(init)) as com.amazonaws.services.applicationautoscaling.model.DescribeScalingActivitiesResult
 }
 
 @Generated
-class AWSApplicationAutoScalingDescribeScalingActivitiesCommand(val serviceNamespace: ServiceNamespace) : AmazonWebServiceCommand<com.amazonaws.services.applicationautoscaling.model.DescribeScalingActivitiesRequest> {
+class AWSApplicationAutoScalingDescribeScalingActivitiesCommand(val serviceNamespace: ServiceNamespace) : AmazonWebServiceCommand<com.amazonaws.services.applicationautoscaling.model.DescribeScalingActivitiesRequest, com.amazonaws.services.applicationautoscaling.model.DescribeScalingActivitiesResult> {
 
 	var resourceId: String? = null
 	var scalableDimension: ScalableDimension? = null
@@ -183,8 +199,12 @@ class AWSApplicationAutoScalingDescribeScalingActivitiesCommand(val serviceNames
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.application_autoscaling.describeScalingActivities(build())
+	override fun dryResult(): com.amazonaws.services.applicationautoscaling.model.DescribeScalingActivitiesResult {
+	  return com.amazonaws.services.applicationautoscaling.model.DescribeScalingActivitiesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationautoscaling.model.DescribeScalingActivitiesResult {
+		return environment.application_autoscaling.describeScalingActivities(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -199,12 +219,12 @@ class AWSApplicationAutoScalingDescribeScalingActivitiesCommand(val serviceNames
 }
 
 
-fun AWSApplicationAutoScalingFunctions.describeScalingPolicies(serviceNamespace: ServiceNamespace, init: AWSApplicationAutoScalingDescribeScalingPoliciesCommand.() -> Unit) {
-	this.block.declare(AWSApplicationAutoScalingDescribeScalingPoliciesCommand(serviceNamespace).apply(init))
+fun AWSApplicationAutoScalingFunctions.describeScalingPolicies(serviceNamespace: ServiceNamespace, init: AWSApplicationAutoScalingDescribeScalingPoliciesCommand.() -> Unit): com.amazonaws.services.applicationautoscaling.model.DescribeScalingPoliciesResult {
+	return this.block.declare(AWSApplicationAutoScalingDescribeScalingPoliciesCommand(serviceNamespace).apply(init)) as com.amazonaws.services.applicationautoscaling.model.DescribeScalingPoliciesResult
 }
 
 @Generated
-class AWSApplicationAutoScalingDescribeScalingPoliciesCommand(val serviceNamespace: ServiceNamespace) : AmazonWebServiceCommand<com.amazonaws.services.applicationautoscaling.model.DescribeScalingPoliciesRequest> {
+class AWSApplicationAutoScalingDescribeScalingPoliciesCommand(val serviceNamespace: ServiceNamespace) : AmazonWebServiceCommand<com.amazonaws.services.applicationautoscaling.model.DescribeScalingPoliciesRequest, com.amazonaws.services.applicationautoscaling.model.DescribeScalingPoliciesResult> {
 
 	var policyNames: List<String>? = null
 	var resourceId: String? = null
@@ -223,8 +243,12 @@ class AWSApplicationAutoScalingDescribeScalingPoliciesCommand(val serviceNamespa
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.application_autoscaling.describeScalingPolicies(build())
+	override fun dryResult(): com.amazonaws.services.applicationautoscaling.model.DescribeScalingPoliciesResult {
+	  return com.amazonaws.services.applicationautoscaling.model.DescribeScalingPoliciesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationautoscaling.model.DescribeScalingPoliciesResult {
+		return environment.application_autoscaling.describeScalingPolicies(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -240,12 +264,12 @@ class AWSApplicationAutoScalingDescribeScalingPoliciesCommand(val serviceNamespa
 }
 
 
-fun AWSApplicationAutoScalingFunctions.describeScheduledActions(serviceNamespace: ServiceNamespace, init: AWSApplicationAutoScalingDescribeScheduledActionsCommand.() -> Unit) {
-	this.block.declare(AWSApplicationAutoScalingDescribeScheduledActionsCommand(serviceNamespace).apply(init))
+fun AWSApplicationAutoScalingFunctions.describeScheduledActions(serviceNamespace: ServiceNamespace, init: AWSApplicationAutoScalingDescribeScheduledActionsCommand.() -> Unit): com.amazonaws.services.applicationautoscaling.model.DescribeScheduledActionsResult {
+	return this.block.declare(AWSApplicationAutoScalingDescribeScheduledActionsCommand(serviceNamespace).apply(init)) as com.amazonaws.services.applicationautoscaling.model.DescribeScheduledActionsResult
 }
 
 @Generated
-class AWSApplicationAutoScalingDescribeScheduledActionsCommand(val serviceNamespace: ServiceNamespace) : AmazonWebServiceCommand<com.amazonaws.services.applicationautoscaling.model.DescribeScheduledActionsRequest> {
+class AWSApplicationAutoScalingDescribeScheduledActionsCommand(val serviceNamespace: ServiceNamespace) : AmazonWebServiceCommand<com.amazonaws.services.applicationautoscaling.model.DescribeScheduledActionsRequest, com.amazonaws.services.applicationautoscaling.model.DescribeScheduledActionsResult> {
 
 	var scheduledActionNames: List<String>? = null
 	var resourceId: String? = null
@@ -264,8 +288,12 @@ class AWSApplicationAutoScalingDescribeScheduledActionsCommand(val serviceNamesp
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.application_autoscaling.describeScheduledActions(build())
+	override fun dryResult(): com.amazonaws.services.applicationautoscaling.model.DescribeScheduledActionsResult {
+	  return com.amazonaws.services.applicationautoscaling.model.DescribeScheduledActionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationautoscaling.model.DescribeScheduledActionsResult {
+		return environment.application_autoscaling.describeScheduledActions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -281,12 +309,12 @@ class AWSApplicationAutoScalingDescribeScheduledActionsCommand(val serviceNamesp
 }
 
 
-fun AWSApplicationAutoScalingFunctions.putScalingPolicy(policyName: String, serviceNamespace: ServiceNamespace, resourceId: String, scalableDimension: ScalableDimension, init: AWSApplicationAutoScalingPutScalingPolicyCommand.() -> Unit) {
-	this.block.declare(AWSApplicationAutoScalingPutScalingPolicyCommand(policyName, serviceNamespace, resourceId, scalableDimension).apply(init))
+fun AWSApplicationAutoScalingFunctions.putScalingPolicy(policyName: String, serviceNamespace: ServiceNamespace, resourceId: String, scalableDimension: ScalableDimension, init: AWSApplicationAutoScalingPutScalingPolicyCommand.() -> Unit): com.amazonaws.services.applicationautoscaling.model.PutScalingPolicyResult {
+	return this.block.declare(AWSApplicationAutoScalingPutScalingPolicyCommand(policyName, serviceNamespace, resourceId, scalableDimension).apply(init)) as com.amazonaws.services.applicationautoscaling.model.PutScalingPolicyResult
 }
 
 @Generated
-class AWSApplicationAutoScalingPutScalingPolicyCommand(val policyName: String, val serviceNamespace: ServiceNamespace, val resourceId: String, val scalableDimension: ScalableDimension) : AmazonWebServiceCommand<com.amazonaws.services.applicationautoscaling.model.PutScalingPolicyRequest> {
+class AWSApplicationAutoScalingPutScalingPolicyCommand(val policyName: String, val serviceNamespace: ServiceNamespace, val resourceId: String, val scalableDimension: ScalableDimension) : AmazonWebServiceCommand<com.amazonaws.services.applicationautoscaling.model.PutScalingPolicyRequest, com.amazonaws.services.applicationautoscaling.model.PutScalingPolicyResult> {
 
 	var policyType: PolicyType? = null
 	var stepScalingPolicyConfiguration: com.amazonaws.services.applicationautoscaling.model.StepScalingPolicyConfiguration? = null
@@ -304,8 +332,12 @@ class AWSApplicationAutoScalingPutScalingPolicyCommand(val policyName: String, v
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.application_autoscaling.putScalingPolicy(build())
+	override fun dryResult(): com.amazonaws.services.applicationautoscaling.model.PutScalingPolicyResult {
+	  return com.amazonaws.services.applicationautoscaling.model.PutScalingPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationautoscaling.model.PutScalingPolicyResult {
+		return environment.application_autoscaling.putScalingPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -322,12 +354,12 @@ class AWSApplicationAutoScalingPutScalingPolicyCommand(val policyName: String, v
 }
 
 
-fun AWSApplicationAutoScalingFunctions.putScheduledAction(serviceNamespace: ServiceNamespace, scheduledActionName: String, resourceId: String, init: AWSApplicationAutoScalingPutScheduledActionCommand.() -> Unit) {
-	this.block.declare(AWSApplicationAutoScalingPutScheduledActionCommand(serviceNamespace, scheduledActionName, resourceId).apply(init))
+fun AWSApplicationAutoScalingFunctions.putScheduledAction(serviceNamespace: ServiceNamespace, scheduledActionName: String, resourceId: String, init: AWSApplicationAutoScalingPutScheduledActionCommand.() -> Unit): com.amazonaws.services.applicationautoscaling.model.PutScheduledActionResult {
+	return this.block.declare(AWSApplicationAutoScalingPutScheduledActionCommand(serviceNamespace, scheduledActionName, resourceId).apply(init)) as com.amazonaws.services.applicationautoscaling.model.PutScheduledActionResult
 }
 
 @Generated
-class AWSApplicationAutoScalingPutScheduledActionCommand(val serviceNamespace: ServiceNamespace, val scheduledActionName: String, val resourceId: String) : AmazonWebServiceCommand<com.amazonaws.services.applicationautoscaling.model.PutScheduledActionRequest> {
+class AWSApplicationAutoScalingPutScheduledActionCommand(val serviceNamespace: ServiceNamespace, val scheduledActionName: String, val resourceId: String) : AmazonWebServiceCommand<com.amazonaws.services.applicationautoscaling.model.PutScheduledActionRequest, com.amazonaws.services.applicationautoscaling.model.PutScheduledActionResult> {
 
 	var schedule: String? = null
 	var scalableDimension: ScalableDimension? = null
@@ -348,8 +380,12 @@ class AWSApplicationAutoScalingPutScheduledActionCommand(val serviceNamespace: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.application_autoscaling.putScheduledAction(build())
+	override fun dryResult(): com.amazonaws.services.applicationautoscaling.model.PutScheduledActionResult {
+	  return com.amazonaws.services.applicationautoscaling.model.PutScheduledActionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationautoscaling.model.PutScheduledActionResult {
+		return environment.application_autoscaling.putScheduledAction(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -367,12 +403,12 @@ class AWSApplicationAutoScalingPutScheduledActionCommand(val serviceNamespace: S
 }
 
 
-fun AWSApplicationAutoScalingFunctions.registerScalableTarget(serviceNamespace: ServiceNamespace, resourceId: String, scalableDimension: ScalableDimension, init: AWSApplicationAutoScalingRegisterScalableTargetCommand.() -> Unit) {
-	this.block.declare(AWSApplicationAutoScalingRegisterScalableTargetCommand(serviceNamespace, resourceId, scalableDimension).apply(init))
+fun AWSApplicationAutoScalingFunctions.registerScalableTarget(serviceNamespace: ServiceNamespace, resourceId: String, scalableDimension: ScalableDimension, init: AWSApplicationAutoScalingRegisterScalableTargetCommand.() -> Unit): com.amazonaws.services.applicationautoscaling.model.RegisterScalableTargetResult {
+	return this.block.declare(AWSApplicationAutoScalingRegisterScalableTargetCommand(serviceNamespace, resourceId, scalableDimension).apply(init)) as com.amazonaws.services.applicationautoscaling.model.RegisterScalableTargetResult
 }
 
 @Generated
-class AWSApplicationAutoScalingRegisterScalableTargetCommand(val serviceNamespace: ServiceNamespace, val resourceId: String, val scalableDimension: ScalableDimension) : AmazonWebServiceCommand<com.amazonaws.services.applicationautoscaling.model.RegisterScalableTargetRequest> {
+class AWSApplicationAutoScalingRegisterScalableTargetCommand(val serviceNamespace: ServiceNamespace, val resourceId: String, val scalableDimension: ScalableDimension) : AmazonWebServiceCommand<com.amazonaws.services.applicationautoscaling.model.RegisterScalableTargetRequest, com.amazonaws.services.applicationautoscaling.model.RegisterScalableTargetResult> {
 
 	var minCapacity: Int? = 0
 	var maxCapacity: Int? = 0
@@ -389,8 +425,12 @@ class AWSApplicationAutoScalingRegisterScalableTargetCommand(val serviceNamespac
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.application_autoscaling.registerScalableTarget(build())
+	override fun dryResult(): com.amazonaws.services.applicationautoscaling.model.RegisterScalableTargetResult {
+	  return com.amazonaws.services.applicationautoscaling.model.RegisterScalableTargetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.applicationautoscaling.model.RegisterScalableTargetResult {
+		return environment.application_autoscaling.registerScalableTarget(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

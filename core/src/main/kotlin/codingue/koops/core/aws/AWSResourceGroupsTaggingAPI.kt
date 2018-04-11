@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.tagging: AWSResourceGroupsTaggingAPI
 @Generated
 class AWSResourceGroupsTaggingAPIFunctions(val block: Block)
 
-infix fun AwsContinuation.tagging(init: AWSResourceGroupsTaggingAPIFunctions.() -> Unit) {
-	AWSResourceGroupsTaggingAPIFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.tagging(init: AWSResourceGroupsTaggingAPIFunctions.() -> T): T {
+	return AWSResourceGroupsTaggingAPIFunctions(shell).run(init)
 }
 
 			
 
-fun AWSResourceGroupsTaggingAPIFunctions.getResources(init: AWSResourceGroupsTaggingAPIGetResourcesCommand.() -> Unit) {
-	this.block.declare(AWSResourceGroupsTaggingAPIGetResourcesCommand().apply(init))
+fun AWSResourceGroupsTaggingAPIFunctions.getResources(init: AWSResourceGroupsTaggingAPIGetResourcesCommand.() -> Unit): com.amazonaws.services.resourcegroupstaggingapi.model.GetResourcesResult {
+	return this.block.declare(AWSResourceGroupsTaggingAPIGetResourcesCommand().apply(init)) as com.amazonaws.services.resourcegroupstaggingapi.model.GetResourcesResult
 }
 
 @Generated
-class AWSResourceGroupsTaggingAPIGetResourcesCommand() : AmazonWebServiceCommand<com.amazonaws.services.resourcegroupstaggingapi.model.GetResourcesRequest> {
+class AWSResourceGroupsTaggingAPIGetResourcesCommand() : AmazonWebServiceCommand<com.amazonaws.services.resourcegroupstaggingapi.model.GetResourcesRequest, com.amazonaws.services.resourcegroupstaggingapi.model.GetResourcesResult> {
 
 	var paginationToken: String? = null
 	var tagFilters: List<com.amazonaws.services.resourcegroupstaggingapi.model.TagFilter>? = null
@@ -49,8 +49,12 @@ class AWSResourceGroupsTaggingAPIGetResourcesCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.tagging.getResources(build())
+	override fun dryResult(): com.amazonaws.services.resourcegroupstaggingapi.model.GetResourcesResult {
+	  return com.amazonaws.services.resourcegroupstaggingapi.model.GetResourcesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.resourcegroupstaggingapi.model.GetResourcesResult {
+		return environment.tagging.getResources(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -65,12 +69,12 @@ class AWSResourceGroupsTaggingAPIGetResourcesCommand() : AmazonWebServiceCommand
 }
 
 
-fun AWSResourceGroupsTaggingAPIFunctions.getTagKeys(init: AWSResourceGroupsTaggingAPIGetTagKeysCommand.() -> Unit) {
-	this.block.declare(AWSResourceGroupsTaggingAPIGetTagKeysCommand().apply(init))
+fun AWSResourceGroupsTaggingAPIFunctions.getTagKeys(init: AWSResourceGroupsTaggingAPIGetTagKeysCommand.() -> Unit): com.amazonaws.services.resourcegroupstaggingapi.model.GetTagKeysResult {
+	return this.block.declare(AWSResourceGroupsTaggingAPIGetTagKeysCommand().apply(init)) as com.amazonaws.services.resourcegroupstaggingapi.model.GetTagKeysResult
 }
 
 @Generated
-class AWSResourceGroupsTaggingAPIGetTagKeysCommand() : AmazonWebServiceCommand<com.amazonaws.services.resourcegroupstaggingapi.model.GetTagKeysRequest> {
+class AWSResourceGroupsTaggingAPIGetTagKeysCommand() : AmazonWebServiceCommand<com.amazonaws.services.resourcegroupstaggingapi.model.GetTagKeysRequest, com.amazonaws.services.resourcegroupstaggingapi.model.GetTagKeysResult> {
 
 	var paginationToken: String? = null
 
@@ -80,8 +84,12 @@ class AWSResourceGroupsTaggingAPIGetTagKeysCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.tagging.getTagKeys(build())
+	override fun dryResult(): com.amazonaws.services.resourcegroupstaggingapi.model.GetTagKeysResult {
+	  return com.amazonaws.services.resourcegroupstaggingapi.model.GetTagKeysResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.resourcegroupstaggingapi.model.GetTagKeysResult {
+		return environment.tagging.getTagKeys(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -92,12 +100,12 @@ class AWSResourceGroupsTaggingAPIGetTagKeysCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AWSResourceGroupsTaggingAPIFunctions.getTagValues(key: String, init: AWSResourceGroupsTaggingAPIGetTagValuesCommand.() -> Unit) {
-	this.block.declare(AWSResourceGroupsTaggingAPIGetTagValuesCommand(key).apply(init))
+fun AWSResourceGroupsTaggingAPIFunctions.getTagValues(key: String, init: AWSResourceGroupsTaggingAPIGetTagValuesCommand.() -> Unit): com.amazonaws.services.resourcegroupstaggingapi.model.GetTagValuesResult {
+	return this.block.declare(AWSResourceGroupsTaggingAPIGetTagValuesCommand(key).apply(init)) as com.amazonaws.services.resourcegroupstaggingapi.model.GetTagValuesResult
 }
 
 @Generated
-class AWSResourceGroupsTaggingAPIGetTagValuesCommand(val key: String) : AmazonWebServiceCommand<com.amazonaws.services.resourcegroupstaggingapi.model.GetTagValuesRequest> {
+class AWSResourceGroupsTaggingAPIGetTagValuesCommand(val key: String) : AmazonWebServiceCommand<com.amazonaws.services.resourcegroupstaggingapi.model.GetTagValuesRequest, com.amazonaws.services.resourcegroupstaggingapi.model.GetTagValuesResult> {
 
 	var paginationToken: String? = null
 
@@ -108,8 +116,12 @@ class AWSResourceGroupsTaggingAPIGetTagValuesCommand(val key: String) : AmazonWe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.tagging.getTagValues(build())
+	override fun dryResult(): com.amazonaws.services.resourcegroupstaggingapi.model.GetTagValuesResult {
+	  return com.amazonaws.services.resourcegroupstaggingapi.model.GetTagValuesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.resourcegroupstaggingapi.model.GetTagValuesResult {
+		return environment.tagging.getTagValues(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -121,12 +133,12 @@ class AWSResourceGroupsTaggingAPIGetTagValuesCommand(val key: String) : AmazonWe
 }
 
 
-fun AWSResourceGroupsTaggingAPIFunctions.tagResources(resourceARNList: List<String>, tags: Map<String, String>, init: AWSResourceGroupsTaggingAPITagResourcesCommand.() -> Unit) {
-	this.block.declare(AWSResourceGroupsTaggingAPITagResourcesCommand(resourceARNList, tags).apply(init))
+fun AWSResourceGroupsTaggingAPIFunctions.tagResources(resourceARNList: List<String>, tags: Map<String, String>, init: AWSResourceGroupsTaggingAPITagResourcesCommand.() -> Unit): com.amazonaws.services.resourcegroupstaggingapi.model.TagResourcesResult {
+	return this.block.declare(AWSResourceGroupsTaggingAPITagResourcesCommand(resourceARNList, tags).apply(init)) as com.amazonaws.services.resourcegroupstaggingapi.model.TagResourcesResult
 }
 
 @Generated
-class AWSResourceGroupsTaggingAPITagResourcesCommand(val resourceARNList: List<String>, val tags: Map<String, String>) : AmazonWebServiceCommand<com.amazonaws.services.resourcegroupstaggingapi.model.TagResourcesRequest> {
+class AWSResourceGroupsTaggingAPITagResourcesCommand(val resourceARNList: List<String>, val tags: Map<String, String>) : AmazonWebServiceCommand<com.amazonaws.services.resourcegroupstaggingapi.model.TagResourcesRequest, com.amazonaws.services.resourcegroupstaggingapi.model.TagResourcesResult> {
 
 
 
@@ -137,8 +149,12 @@ class AWSResourceGroupsTaggingAPITagResourcesCommand(val resourceARNList: List<S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.tagging.tagResources(build())
+	override fun dryResult(): com.amazonaws.services.resourcegroupstaggingapi.model.TagResourcesResult {
+	  return com.amazonaws.services.resourcegroupstaggingapi.model.TagResourcesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.resourcegroupstaggingapi.model.TagResourcesResult {
+		return environment.tagging.tagResources(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -150,12 +166,12 @@ class AWSResourceGroupsTaggingAPITagResourcesCommand(val resourceARNList: List<S
 }
 
 
-fun AWSResourceGroupsTaggingAPIFunctions.untagResources(resourceARNList: List<String>, tagKeys: List<String>, init: AWSResourceGroupsTaggingAPIUntagResourcesCommand.() -> Unit) {
-	this.block.declare(AWSResourceGroupsTaggingAPIUntagResourcesCommand(resourceARNList, tagKeys).apply(init))
+fun AWSResourceGroupsTaggingAPIFunctions.untagResources(resourceARNList: List<String>, tagKeys: List<String>, init: AWSResourceGroupsTaggingAPIUntagResourcesCommand.() -> Unit): com.amazonaws.services.resourcegroupstaggingapi.model.UntagResourcesResult {
+	return this.block.declare(AWSResourceGroupsTaggingAPIUntagResourcesCommand(resourceARNList, tagKeys).apply(init)) as com.amazonaws.services.resourcegroupstaggingapi.model.UntagResourcesResult
 }
 
 @Generated
-class AWSResourceGroupsTaggingAPIUntagResourcesCommand(val resourceARNList: List<String>, val tagKeys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.resourcegroupstaggingapi.model.UntagResourcesRequest> {
+class AWSResourceGroupsTaggingAPIUntagResourcesCommand(val resourceARNList: List<String>, val tagKeys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.resourcegroupstaggingapi.model.UntagResourcesRequest, com.amazonaws.services.resourcegroupstaggingapi.model.UntagResourcesResult> {
 
 
 
@@ -166,8 +182,12 @@ class AWSResourceGroupsTaggingAPIUntagResourcesCommand(val resourceARNList: List
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.tagging.untagResources(build())
+	override fun dryResult(): com.amazonaws.services.resourcegroupstaggingapi.model.UntagResourcesResult {
+	  return com.amazonaws.services.resourcegroupstaggingapi.model.UntagResourcesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.resourcegroupstaggingapi.model.UntagResourcesResult {
+		return environment.tagging.untagResources(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

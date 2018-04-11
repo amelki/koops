@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.monitoring: AmazonCloudWatch
 @Generated
 class AmazonCloudWatchFunctions(val block: Block)
 
-infix fun AwsContinuation.monitoring(init: AmazonCloudWatchFunctions.() -> Unit) {
-	AmazonCloudWatchFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.monitoring(init: AmazonCloudWatchFunctions.() -> T): T {
+	return AmazonCloudWatchFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonCloudWatchFunctions.deleteAlarms(alarmNames: List<String>, init: AmazonCloudWatchDeleteAlarmsCommand.() -> Unit) {
-	this.block.declare(AmazonCloudWatchDeleteAlarmsCommand(alarmNames).apply(init))
+fun AmazonCloudWatchFunctions.deleteAlarms(alarmNames: List<String>, init: AmazonCloudWatchDeleteAlarmsCommand.() -> Unit): com.amazonaws.services.cloudwatch.model.DeleteAlarmsResult {
+	return this.block.declare(AmazonCloudWatchDeleteAlarmsCommand(alarmNames).apply(init)) as com.amazonaws.services.cloudwatch.model.DeleteAlarmsResult
 }
 
 @Generated
-class AmazonCloudWatchDeleteAlarmsCommand(val alarmNames: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.DeleteAlarmsRequest> {
+class AmazonCloudWatchDeleteAlarmsCommand(val alarmNames: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.DeleteAlarmsRequest, com.amazonaws.services.cloudwatch.model.DeleteAlarmsResult> {
 
 
 
@@ -41,8 +41,12 @@ class AmazonCloudWatchDeleteAlarmsCommand(val alarmNames: List<String>) : Amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.monitoring.deleteAlarms(build())
+	override fun dryResult(): com.amazonaws.services.cloudwatch.model.DeleteAlarmsResult {
+	  return com.amazonaws.services.cloudwatch.model.DeleteAlarmsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.DeleteAlarmsResult {
+		return environment.monitoring.deleteAlarms(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -53,12 +57,12 @@ class AmazonCloudWatchDeleteAlarmsCommand(val alarmNames: List<String>) : Amazon
 }
 
 
-fun AmazonCloudWatchFunctions.deleteDashboards(dashboardNames: List<String>, init: AmazonCloudWatchDeleteDashboardsCommand.() -> Unit) {
-	this.block.declare(AmazonCloudWatchDeleteDashboardsCommand(dashboardNames).apply(init))
+fun AmazonCloudWatchFunctions.deleteDashboards(dashboardNames: List<String>, init: AmazonCloudWatchDeleteDashboardsCommand.() -> Unit): com.amazonaws.services.cloudwatch.model.DeleteDashboardsResult {
+	return this.block.declare(AmazonCloudWatchDeleteDashboardsCommand(dashboardNames).apply(init)) as com.amazonaws.services.cloudwatch.model.DeleteDashboardsResult
 }
 
 @Generated
-class AmazonCloudWatchDeleteDashboardsCommand(val dashboardNames: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.DeleteDashboardsRequest> {
+class AmazonCloudWatchDeleteDashboardsCommand(val dashboardNames: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.DeleteDashboardsRequest, com.amazonaws.services.cloudwatch.model.DeleteDashboardsResult> {
 
 
 
@@ -68,8 +72,12 @@ class AmazonCloudWatchDeleteDashboardsCommand(val dashboardNames: List<String>) 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.monitoring.deleteDashboards(build())
+	override fun dryResult(): com.amazonaws.services.cloudwatch.model.DeleteDashboardsResult {
+	  return com.amazonaws.services.cloudwatch.model.DeleteDashboardsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.DeleteDashboardsResult {
+		return environment.monitoring.deleteDashboards(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -80,12 +88,12 @@ class AmazonCloudWatchDeleteDashboardsCommand(val dashboardNames: List<String>) 
 }
 
 
-fun AmazonCloudWatchFunctions.describeAlarmHistory(init: AmazonCloudWatchDescribeAlarmHistoryCommand.() -> Unit) {
-	this.block.declare(AmazonCloudWatchDescribeAlarmHistoryCommand().apply(init))
+fun AmazonCloudWatchFunctions.describeAlarmHistory(init: AmazonCloudWatchDescribeAlarmHistoryCommand.() -> Unit): com.amazonaws.services.cloudwatch.model.DescribeAlarmHistoryResult {
+	return this.block.declare(AmazonCloudWatchDescribeAlarmHistoryCommand().apply(init)) as com.amazonaws.services.cloudwatch.model.DescribeAlarmHistoryResult
 }
 
 @Generated
-class AmazonCloudWatchDescribeAlarmHistoryCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.DescribeAlarmHistoryRequest> {
+class AmazonCloudWatchDescribeAlarmHistoryCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.DescribeAlarmHistoryRequest, com.amazonaws.services.cloudwatch.model.DescribeAlarmHistoryResult> {
 
 	var alarmName: String? = null
 	var historyItemType: HistoryItemType? = null
@@ -105,8 +113,12 @@ class AmazonCloudWatchDescribeAlarmHistoryCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.monitoring.describeAlarmHistory(build())
+	override fun dryResult(): com.amazonaws.services.cloudwatch.model.DescribeAlarmHistoryResult {
+	  return com.amazonaws.services.cloudwatch.model.DescribeAlarmHistoryResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.DescribeAlarmHistoryResult {
+		return environment.monitoring.describeAlarmHistory(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -122,12 +134,12 @@ class AmazonCloudWatchDescribeAlarmHistoryCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonCloudWatchFunctions.describeAlarms(init: AmazonCloudWatchDescribeAlarmsCommand.() -> Unit) {
-	this.block.declare(AmazonCloudWatchDescribeAlarmsCommand().apply(init))
+fun AmazonCloudWatchFunctions.describeAlarms(init: AmazonCloudWatchDescribeAlarmsCommand.() -> Unit): com.amazonaws.services.cloudwatch.model.DescribeAlarmsResult {
+	return this.block.declare(AmazonCloudWatchDescribeAlarmsCommand().apply(init)) as com.amazonaws.services.cloudwatch.model.DescribeAlarmsResult
 }
 
 @Generated
-class AmazonCloudWatchDescribeAlarmsCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.DescribeAlarmsRequest> {
+class AmazonCloudWatchDescribeAlarmsCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.DescribeAlarmsRequest, com.amazonaws.services.cloudwatch.model.DescribeAlarmsResult> {
 
 	var alarmNames: List<String>? = null
 	var alarmNamePrefix: String? = null
@@ -147,8 +159,12 @@ class AmazonCloudWatchDescribeAlarmsCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.monitoring.describeAlarms(build())
+	override fun dryResult(): com.amazonaws.services.cloudwatch.model.DescribeAlarmsResult {
+	  return com.amazonaws.services.cloudwatch.model.DescribeAlarmsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.DescribeAlarmsResult {
+		return environment.monitoring.describeAlarms(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -164,12 +180,12 @@ class AmazonCloudWatchDescribeAlarmsCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AmazonCloudWatchFunctions.describeAlarmsForMetric(metricName: String, namespace: String, init: AmazonCloudWatchDescribeAlarmsForMetricCommand.() -> Unit) {
-	this.block.declare(AmazonCloudWatchDescribeAlarmsForMetricCommand(metricName, namespace).apply(init))
+fun AmazonCloudWatchFunctions.describeAlarmsForMetric(metricName: String, namespace: String, init: AmazonCloudWatchDescribeAlarmsForMetricCommand.() -> Unit): com.amazonaws.services.cloudwatch.model.DescribeAlarmsForMetricResult {
+	return this.block.declare(AmazonCloudWatchDescribeAlarmsForMetricCommand(metricName, namespace).apply(init)) as com.amazonaws.services.cloudwatch.model.DescribeAlarmsForMetricResult
 }
 
 @Generated
-class AmazonCloudWatchDescribeAlarmsForMetricCommand(val metricName: String, val namespace: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.DescribeAlarmsForMetricRequest> {
+class AmazonCloudWatchDescribeAlarmsForMetricCommand(val metricName: String, val namespace: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.DescribeAlarmsForMetricRequest, com.amazonaws.services.cloudwatch.model.DescribeAlarmsForMetricResult> {
 
 	var statistic: Statistic? = null
 	var extendedStatistic: String? = null
@@ -189,8 +205,12 @@ class AmazonCloudWatchDescribeAlarmsForMetricCommand(val metricName: String, val
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.monitoring.describeAlarmsForMetric(build())
+	override fun dryResult(): com.amazonaws.services.cloudwatch.model.DescribeAlarmsForMetricResult {
+	  return com.amazonaws.services.cloudwatch.model.DescribeAlarmsForMetricResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.DescribeAlarmsForMetricResult {
+		return environment.monitoring.describeAlarmsForMetric(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -207,12 +227,12 @@ class AmazonCloudWatchDescribeAlarmsForMetricCommand(val metricName: String, val
 }
 
 
-fun AmazonCloudWatchFunctions.disableAlarmActions(alarmNames: List<String>, init: AmazonCloudWatchDisableAlarmActionsCommand.() -> Unit) {
-	this.block.declare(AmazonCloudWatchDisableAlarmActionsCommand(alarmNames).apply(init))
+fun AmazonCloudWatchFunctions.disableAlarmActions(alarmNames: List<String>, init: AmazonCloudWatchDisableAlarmActionsCommand.() -> Unit): com.amazonaws.services.cloudwatch.model.DisableAlarmActionsResult {
+	return this.block.declare(AmazonCloudWatchDisableAlarmActionsCommand(alarmNames).apply(init)) as com.amazonaws.services.cloudwatch.model.DisableAlarmActionsResult
 }
 
 @Generated
-class AmazonCloudWatchDisableAlarmActionsCommand(val alarmNames: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.DisableAlarmActionsRequest> {
+class AmazonCloudWatchDisableAlarmActionsCommand(val alarmNames: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.DisableAlarmActionsRequest, com.amazonaws.services.cloudwatch.model.DisableAlarmActionsResult> {
 
 
 
@@ -222,8 +242,12 @@ class AmazonCloudWatchDisableAlarmActionsCommand(val alarmNames: List<String>) :
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.monitoring.disableAlarmActions(build())
+	override fun dryResult(): com.amazonaws.services.cloudwatch.model.DisableAlarmActionsResult {
+	  return com.amazonaws.services.cloudwatch.model.DisableAlarmActionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.DisableAlarmActionsResult {
+		return environment.monitoring.disableAlarmActions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -234,12 +258,12 @@ class AmazonCloudWatchDisableAlarmActionsCommand(val alarmNames: List<String>) :
 }
 
 
-fun AmazonCloudWatchFunctions.enableAlarmActions(alarmNames: List<String>, init: AmazonCloudWatchEnableAlarmActionsCommand.() -> Unit) {
-	this.block.declare(AmazonCloudWatchEnableAlarmActionsCommand(alarmNames).apply(init))
+fun AmazonCloudWatchFunctions.enableAlarmActions(alarmNames: List<String>, init: AmazonCloudWatchEnableAlarmActionsCommand.() -> Unit): com.amazonaws.services.cloudwatch.model.EnableAlarmActionsResult {
+	return this.block.declare(AmazonCloudWatchEnableAlarmActionsCommand(alarmNames).apply(init)) as com.amazonaws.services.cloudwatch.model.EnableAlarmActionsResult
 }
 
 @Generated
-class AmazonCloudWatchEnableAlarmActionsCommand(val alarmNames: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.EnableAlarmActionsRequest> {
+class AmazonCloudWatchEnableAlarmActionsCommand(val alarmNames: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.EnableAlarmActionsRequest, com.amazonaws.services.cloudwatch.model.EnableAlarmActionsResult> {
 
 
 
@@ -249,8 +273,12 @@ class AmazonCloudWatchEnableAlarmActionsCommand(val alarmNames: List<String>) : 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.monitoring.enableAlarmActions(build())
+	override fun dryResult(): com.amazonaws.services.cloudwatch.model.EnableAlarmActionsResult {
+	  return com.amazonaws.services.cloudwatch.model.EnableAlarmActionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.EnableAlarmActionsResult {
+		return environment.monitoring.enableAlarmActions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -261,12 +289,12 @@ class AmazonCloudWatchEnableAlarmActionsCommand(val alarmNames: List<String>) : 
 }
 
 
-fun AmazonCloudWatchFunctions.getDashboard(dashboardName: String, init: AmazonCloudWatchGetDashboardCommand.() -> Unit) {
-	this.block.declare(AmazonCloudWatchGetDashboardCommand(dashboardName).apply(init))
+fun AmazonCloudWatchFunctions.getDashboard(dashboardName: String, init: AmazonCloudWatchGetDashboardCommand.() -> Unit): com.amazonaws.services.cloudwatch.model.GetDashboardResult {
+	return this.block.declare(AmazonCloudWatchGetDashboardCommand(dashboardName).apply(init)) as com.amazonaws.services.cloudwatch.model.GetDashboardResult
 }
 
 @Generated
-class AmazonCloudWatchGetDashboardCommand(val dashboardName: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.GetDashboardRequest> {
+class AmazonCloudWatchGetDashboardCommand(val dashboardName: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.GetDashboardRequest, com.amazonaws.services.cloudwatch.model.GetDashboardResult> {
 
 
 
@@ -276,8 +304,12 @@ class AmazonCloudWatchGetDashboardCommand(val dashboardName: String) : AmazonWeb
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.monitoring.getDashboard(build())
+	override fun dryResult(): com.amazonaws.services.cloudwatch.model.GetDashboardResult {
+	  return com.amazonaws.services.cloudwatch.model.GetDashboardResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.GetDashboardResult {
+		return environment.monitoring.getDashboard(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -288,12 +320,12 @@ class AmazonCloudWatchGetDashboardCommand(val dashboardName: String) : AmazonWeb
 }
 
 
-fun AmazonCloudWatchFunctions.getMetricData(metricDataQueries: List<com.amazonaws.services.cloudwatch.model.MetricDataQuery>, startTime: java.util.Date, endTime: java.util.Date, init: AmazonCloudWatchGetMetricDataCommand.() -> Unit) {
-	this.block.declare(AmazonCloudWatchGetMetricDataCommand(metricDataQueries, startTime, endTime).apply(init))
+fun AmazonCloudWatchFunctions.getMetricData(metricDataQueries: List<com.amazonaws.services.cloudwatch.model.MetricDataQuery>, startTime: java.util.Date, endTime: java.util.Date, init: AmazonCloudWatchGetMetricDataCommand.() -> Unit): com.amazonaws.services.cloudwatch.model.GetMetricDataResult {
+	return this.block.declare(AmazonCloudWatchGetMetricDataCommand(metricDataQueries, startTime, endTime).apply(init)) as com.amazonaws.services.cloudwatch.model.GetMetricDataResult
 }
 
 @Generated
-class AmazonCloudWatchGetMetricDataCommand(val metricDataQueries: List<com.amazonaws.services.cloudwatch.model.MetricDataQuery>, val startTime: java.util.Date, val endTime: java.util.Date) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.GetMetricDataRequest> {
+class AmazonCloudWatchGetMetricDataCommand(val metricDataQueries: List<com.amazonaws.services.cloudwatch.model.MetricDataQuery>, val startTime: java.util.Date, val endTime: java.util.Date) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.GetMetricDataRequest, com.amazonaws.services.cloudwatch.model.GetMetricDataResult> {
 
 	var nextToken: String? = null
 	var scanBy: ScanBy? = null
@@ -310,8 +342,12 @@ class AmazonCloudWatchGetMetricDataCommand(val metricDataQueries: List<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.monitoring.getMetricData(build())
+	override fun dryResult(): com.amazonaws.services.cloudwatch.model.GetMetricDataResult {
+	  return com.amazonaws.services.cloudwatch.model.GetMetricDataResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.GetMetricDataResult {
+		return environment.monitoring.getMetricData(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -327,12 +363,12 @@ class AmazonCloudWatchGetMetricDataCommand(val metricDataQueries: List<com.amazo
 }
 
 
-fun AmazonCloudWatchFunctions.getMetricStatistics(namespace: String, metricName: String, startTime: java.util.Date, endTime: java.util.Date, period: Int, init: AmazonCloudWatchGetMetricStatisticsCommand.() -> Unit) {
-	this.block.declare(AmazonCloudWatchGetMetricStatisticsCommand(namespace, metricName, startTime, endTime, period).apply(init))
+fun AmazonCloudWatchFunctions.getMetricStatistics(namespace: String, metricName: String, startTime: java.util.Date, endTime: java.util.Date, period: Int, init: AmazonCloudWatchGetMetricStatisticsCommand.() -> Unit): com.amazonaws.services.cloudwatch.model.GetMetricStatisticsResult {
+	return this.block.declare(AmazonCloudWatchGetMetricStatisticsCommand(namespace, metricName, startTime, endTime, period).apply(init)) as com.amazonaws.services.cloudwatch.model.GetMetricStatisticsResult
 }
 
 @Generated
-class AmazonCloudWatchGetMetricStatisticsCommand(val namespace: String, val metricName: String, val startTime: java.util.Date, val endTime: java.util.Date, val period: Int) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.GetMetricStatisticsRequest> {
+class AmazonCloudWatchGetMetricStatisticsCommand(val namespace: String, val metricName: String, val startTime: java.util.Date, val endTime: java.util.Date, val period: Int) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.GetMetricStatisticsRequest, com.amazonaws.services.cloudwatch.model.GetMetricStatisticsResult> {
 
 	var dimensions: List<com.amazonaws.services.cloudwatch.model.Dimension>? = null
 	var statistics: List<Statistic>? = null
@@ -353,8 +389,12 @@ class AmazonCloudWatchGetMetricStatisticsCommand(val namespace: String, val metr
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.monitoring.getMetricStatistics(build())
+	override fun dryResult(): com.amazonaws.services.cloudwatch.model.GetMetricStatisticsResult {
+	  return com.amazonaws.services.cloudwatch.model.GetMetricStatisticsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.GetMetricStatisticsResult {
+		return environment.monitoring.getMetricStatistics(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -373,12 +413,12 @@ class AmazonCloudWatchGetMetricStatisticsCommand(val namespace: String, val metr
 }
 
 
-fun AmazonCloudWatchFunctions.listDashboards(init: AmazonCloudWatchListDashboardsCommand.() -> Unit) {
-	this.block.declare(AmazonCloudWatchListDashboardsCommand().apply(init))
+fun AmazonCloudWatchFunctions.listDashboards(init: AmazonCloudWatchListDashboardsCommand.() -> Unit): com.amazonaws.services.cloudwatch.model.ListDashboardsResult {
+	return this.block.declare(AmazonCloudWatchListDashboardsCommand().apply(init)) as com.amazonaws.services.cloudwatch.model.ListDashboardsResult
 }
 
 @Generated
-class AmazonCloudWatchListDashboardsCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.ListDashboardsRequest> {
+class AmazonCloudWatchListDashboardsCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.ListDashboardsRequest, com.amazonaws.services.cloudwatch.model.ListDashboardsResult> {
 
 	var dashboardNamePrefix: String? = null
 	var nextToken: String? = null
@@ -390,8 +430,12 @@ class AmazonCloudWatchListDashboardsCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.monitoring.listDashboards(build())
+	override fun dryResult(): com.amazonaws.services.cloudwatch.model.ListDashboardsResult {
+	  return com.amazonaws.services.cloudwatch.model.ListDashboardsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.ListDashboardsResult {
+		return environment.monitoring.listDashboards(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -403,12 +447,12 @@ class AmazonCloudWatchListDashboardsCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AmazonCloudWatchFunctions.listMetrics(init: AmazonCloudWatchListMetricsCommand.() -> Unit) {
-	this.block.declare(AmazonCloudWatchListMetricsCommand().apply(init))
+fun AmazonCloudWatchFunctions.listMetrics(init: AmazonCloudWatchListMetricsCommand.() -> Unit): com.amazonaws.services.cloudwatch.model.ListMetricsResult {
+	return this.block.declare(AmazonCloudWatchListMetricsCommand().apply(init)) as com.amazonaws.services.cloudwatch.model.ListMetricsResult
 }
 
 @Generated
-class AmazonCloudWatchListMetricsCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.ListMetricsRequest> {
+class AmazonCloudWatchListMetricsCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.ListMetricsRequest, com.amazonaws.services.cloudwatch.model.ListMetricsResult> {
 
 	var namespace: String? = null
 	var metricName: String? = null
@@ -424,8 +468,12 @@ class AmazonCloudWatchListMetricsCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.monitoring.listMetrics(build())
+	override fun dryResult(): com.amazonaws.services.cloudwatch.model.ListMetricsResult {
+	  return com.amazonaws.services.cloudwatch.model.ListMetricsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.ListMetricsResult {
+		return environment.monitoring.listMetrics(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -439,12 +487,12 @@ class AmazonCloudWatchListMetricsCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AmazonCloudWatchFunctions.putDashboard(dashboardName: String, dashboardBody: String, init: AmazonCloudWatchPutDashboardCommand.() -> Unit) {
-	this.block.declare(AmazonCloudWatchPutDashboardCommand(dashboardName, dashboardBody).apply(init))
+fun AmazonCloudWatchFunctions.putDashboard(dashboardName: String, dashboardBody: String, init: AmazonCloudWatchPutDashboardCommand.() -> Unit): com.amazonaws.services.cloudwatch.model.PutDashboardResult {
+	return this.block.declare(AmazonCloudWatchPutDashboardCommand(dashboardName, dashboardBody).apply(init)) as com.amazonaws.services.cloudwatch.model.PutDashboardResult
 }
 
 @Generated
-class AmazonCloudWatchPutDashboardCommand(val dashboardName: String, val dashboardBody: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.PutDashboardRequest> {
+class AmazonCloudWatchPutDashboardCommand(val dashboardName: String, val dashboardBody: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.PutDashboardRequest, com.amazonaws.services.cloudwatch.model.PutDashboardResult> {
 
 
 
@@ -455,8 +503,12 @@ class AmazonCloudWatchPutDashboardCommand(val dashboardName: String, val dashboa
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.monitoring.putDashboard(build())
+	override fun dryResult(): com.amazonaws.services.cloudwatch.model.PutDashboardResult {
+	  return com.amazonaws.services.cloudwatch.model.PutDashboardResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.PutDashboardResult {
+		return environment.monitoring.putDashboard(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -468,12 +520,12 @@ class AmazonCloudWatchPutDashboardCommand(val dashboardName: String, val dashboa
 }
 
 
-fun AmazonCloudWatchFunctions.putMetricAlarm(alarmName: String, metricName: String, namespace: String, period: Int, evaluationPeriods: Int, threshold: Double, comparisonOperator: ComparisonOperator, init: AmazonCloudWatchPutMetricAlarmCommand.() -> Unit) {
-	this.block.declare(AmazonCloudWatchPutMetricAlarmCommand(alarmName, metricName, namespace, period, evaluationPeriods, threshold, comparisonOperator).apply(init))
+fun AmazonCloudWatchFunctions.putMetricAlarm(alarmName: String, metricName: String, namespace: String, period: Int, evaluationPeriods: Int, threshold: Double, comparisonOperator: ComparisonOperator, init: AmazonCloudWatchPutMetricAlarmCommand.() -> Unit): com.amazonaws.services.cloudwatch.model.PutMetricAlarmResult {
+	return this.block.declare(AmazonCloudWatchPutMetricAlarmCommand(alarmName, metricName, namespace, period, evaluationPeriods, threshold, comparisonOperator).apply(init)) as com.amazonaws.services.cloudwatch.model.PutMetricAlarmResult
 }
 
 @Generated
-class AmazonCloudWatchPutMetricAlarmCommand(val alarmName: String, val metricName: String, val namespace: String, val period: Int, val evaluationPeriods: Int, val threshold: Double, val comparisonOperator: ComparisonOperator) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.PutMetricAlarmRequest> {
+class AmazonCloudWatchPutMetricAlarmCommand(val alarmName: String, val metricName: String, val namespace: String, val period: Int, val evaluationPeriods: Int, val threshold: Double, val comparisonOperator: ComparisonOperator) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.PutMetricAlarmRequest, com.amazonaws.services.cloudwatch.model.PutMetricAlarmResult> {
 
 	var alarmDescription: String? = null
 	var actionsEnabled: Boolean? = false
@@ -512,8 +564,12 @@ class AmazonCloudWatchPutMetricAlarmCommand(val alarmName: String, val metricNam
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.monitoring.putMetricAlarm(build())
+	override fun dryResult(): com.amazonaws.services.cloudwatch.model.PutMetricAlarmResult {
+	  return com.amazonaws.services.cloudwatch.model.PutMetricAlarmResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.PutMetricAlarmResult {
+		return environment.monitoring.putMetricAlarm(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -542,12 +598,12 @@ class AmazonCloudWatchPutMetricAlarmCommand(val alarmName: String, val metricNam
 }
 
 
-fun AmazonCloudWatchFunctions.putMetricData(namespace: String, metricData: List<com.amazonaws.services.cloudwatch.model.MetricDatum>, init: AmazonCloudWatchPutMetricDataCommand.() -> Unit) {
-	this.block.declare(AmazonCloudWatchPutMetricDataCommand(namespace, metricData).apply(init))
+fun AmazonCloudWatchFunctions.putMetricData(namespace: String, metricData: List<com.amazonaws.services.cloudwatch.model.MetricDatum>, init: AmazonCloudWatchPutMetricDataCommand.() -> Unit): com.amazonaws.services.cloudwatch.model.PutMetricDataResult {
+	return this.block.declare(AmazonCloudWatchPutMetricDataCommand(namespace, metricData).apply(init)) as com.amazonaws.services.cloudwatch.model.PutMetricDataResult
 }
 
 @Generated
-class AmazonCloudWatchPutMetricDataCommand(val namespace: String, val metricData: List<com.amazonaws.services.cloudwatch.model.MetricDatum>) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.PutMetricDataRequest> {
+class AmazonCloudWatchPutMetricDataCommand(val namespace: String, val metricData: List<com.amazonaws.services.cloudwatch.model.MetricDatum>) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.PutMetricDataRequest, com.amazonaws.services.cloudwatch.model.PutMetricDataResult> {
 
 
 
@@ -558,8 +614,12 @@ class AmazonCloudWatchPutMetricDataCommand(val namespace: String, val metricData
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.monitoring.putMetricData(build())
+	override fun dryResult(): com.amazonaws.services.cloudwatch.model.PutMetricDataResult {
+	  return com.amazonaws.services.cloudwatch.model.PutMetricDataResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.PutMetricDataResult {
+		return environment.monitoring.putMetricData(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -571,12 +631,12 @@ class AmazonCloudWatchPutMetricDataCommand(val namespace: String, val metricData
 }
 
 
-fun AmazonCloudWatchFunctions.setAlarmState(alarmName: String, stateValue: StateValue, stateReason: String, init: AmazonCloudWatchSetAlarmStateCommand.() -> Unit) {
-	this.block.declare(AmazonCloudWatchSetAlarmStateCommand(alarmName, stateValue, stateReason).apply(init))
+fun AmazonCloudWatchFunctions.setAlarmState(alarmName: String, stateValue: StateValue, stateReason: String, init: AmazonCloudWatchSetAlarmStateCommand.() -> Unit): com.amazonaws.services.cloudwatch.model.SetAlarmStateResult {
+	return this.block.declare(AmazonCloudWatchSetAlarmStateCommand(alarmName, stateValue, stateReason).apply(init)) as com.amazonaws.services.cloudwatch.model.SetAlarmStateResult
 }
 
 @Generated
-class AmazonCloudWatchSetAlarmStateCommand(val alarmName: String, val stateValue: StateValue, val stateReason: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.SetAlarmStateRequest> {
+class AmazonCloudWatchSetAlarmStateCommand(val alarmName: String, val stateValue: StateValue, val stateReason: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudwatch.model.SetAlarmStateRequest, com.amazonaws.services.cloudwatch.model.SetAlarmStateResult> {
 
 	var stateReasonData: String? = null
 
@@ -589,8 +649,12 @@ class AmazonCloudWatchSetAlarmStateCommand(val alarmName: String, val stateValue
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.monitoring.setAlarmState(build())
+	override fun dryResult(): com.amazonaws.services.cloudwatch.model.SetAlarmStateResult {
+	  return com.amazonaws.services.cloudwatch.model.SetAlarmStateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudwatch.model.SetAlarmStateResult {
+		return environment.monitoring.setAlarmState(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

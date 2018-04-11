@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.config: AmazonConfig
 @Generated
 class AmazonConfigFunctions(val block: Block)
 
-infix fun AwsContinuation.config(init: AmazonConfigFunctions.() -> Unit) {
-	AmazonConfigFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.config(init: AmazonConfigFunctions.() -> T): T {
+	return AmazonConfigFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonConfigFunctions.batchGetResourceConfig(init: AmazonConfigBatchGetResourceConfigCommand.() -> Unit) {
-	this.block.declare(AmazonConfigBatchGetResourceConfigCommand().apply(init))
+fun AmazonConfigFunctions.batchGetResourceConfig(init: AmazonConfigBatchGetResourceConfigCommand.() -> Unit): com.amazonaws.services.config.model.BatchGetResourceConfigResult {
+	return this.block.declare(AmazonConfigBatchGetResourceConfigCommand().apply(init)) as com.amazonaws.services.config.model.BatchGetResourceConfigResult
 }
 
 @Generated
-class AmazonConfigBatchGetResourceConfigCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.BatchGetResourceConfigRequest> {
+class AmazonConfigBatchGetResourceConfigCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.BatchGetResourceConfigRequest, com.amazonaws.services.config.model.BatchGetResourceConfigResult> {
 
 	var resourceKeys: List<com.amazonaws.services.config.model.ResourceKey>? = null
 
@@ -41,8 +41,12 @@ class AmazonConfigBatchGetResourceConfigCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.batchGetResourceConfig(build())
+	override fun dryResult(): com.amazonaws.services.config.model.BatchGetResourceConfigResult {
+	  return com.amazonaws.services.config.model.BatchGetResourceConfigResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.BatchGetResourceConfigResult {
+		return environment.config.batchGetResourceConfig(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -53,12 +57,12 @@ class AmazonConfigBatchGetResourceConfigCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonConfigFunctions.deleteAggregationAuthorization(authorizedAccountId: String, authorizedAwsRegion: String, init: AmazonConfigDeleteAggregationAuthorizationCommand.() -> Unit) {
-	this.block.declare(AmazonConfigDeleteAggregationAuthorizationCommand(authorizedAccountId, authorizedAwsRegion).apply(init))
+fun AmazonConfigFunctions.deleteAggregationAuthorization(authorizedAccountId: String, authorizedAwsRegion: String, init: AmazonConfigDeleteAggregationAuthorizationCommand.() -> Unit): com.amazonaws.services.config.model.DeleteAggregationAuthorizationResult {
+	return this.block.declare(AmazonConfigDeleteAggregationAuthorizationCommand(authorizedAccountId, authorizedAwsRegion).apply(init)) as com.amazonaws.services.config.model.DeleteAggregationAuthorizationResult
 }
 
 @Generated
-class AmazonConfigDeleteAggregationAuthorizationCommand(val authorizedAccountId: String, val authorizedAwsRegion: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.DeleteAggregationAuthorizationRequest> {
+class AmazonConfigDeleteAggregationAuthorizationCommand(val authorizedAccountId: String, val authorizedAwsRegion: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.DeleteAggregationAuthorizationRequest, com.amazonaws.services.config.model.DeleteAggregationAuthorizationResult> {
 
 
 
@@ -69,8 +73,12 @@ class AmazonConfigDeleteAggregationAuthorizationCommand(val authorizedAccountId:
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.deleteAggregationAuthorization(build())
+	override fun dryResult(): com.amazonaws.services.config.model.DeleteAggregationAuthorizationResult {
+	  return com.amazonaws.services.config.model.DeleteAggregationAuthorizationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DeleteAggregationAuthorizationResult {
+		return environment.config.deleteAggregationAuthorization(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -82,12 +90,12 @@ class AmazonConfigDeleteAggregationAuthorizationCommand(val authorizedAccountId:
 }
 
 
-fun AmazonConfigFunctions.deleteConfigRule(configRuleName: String, init: AmazonConfigDeleteConfigRuleCommand.() -> Unit) {
-	this.block.declare(AmazonConfigDeleteConfigRuleCommand(configRuleName).apply(init))
+fun AmazonConfigFunctions.deleteConfigRule(configRuleName: String, init: AmazonConfigDeleteConfigRuleCommand.() -> Unit): com.amazonaws.services.config.model.DeleteConfigRuleResult {
+	return this.block.declare(AmazonConfigDeleteConfigRuleCommand(configRuleName).apply(init)) as com.amazonaws.services.config.model.DeleteConfigRuleResult
 }
 
 @Generated
-class AmazonConfigDeleteConfigRuleCommand(val configRuleName: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.DeleteConfigRuleRequest> {
+class AmazonConfigDeleteConfigRuleCommand(val configRuleName: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.DeleteConfigRuleRequest, com.amazonaws.services.config.model.DeleteConfigRuleResult> {
 
 
 
@@ -97,8 +105,12 @@ class AmazonConfigDeleteConfigRuleCommand(val configRuleName: String) : AmazonWe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.deleteConfigRule(build())
+	override fun dryResult(): com.amazonaws.services.config.model.DeleteConfigRuleResult {
+	  return com.amazonaws.services.config.model.DeleteConfigRuleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DeleteConfigRuleResult {
+		return environment.config.deleteConfigRule(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -109,12 +121,12 @@ class AmazonConfigDeleteConfigRuleCommand(val configRuleName: String) : AmazonWe
 }
 
 
-fun AmazonConfigFunctions.deleteConfigurationAggregator(configurationAggregatorName: String, init: AmazonConfigDeleteConfigurationAggregatorCommand.() -> Unit) {
-	this.block.declare(AmazonConfigDeleteConfigurationAggregatorCommand(configurationAggregatorName).apply(init))
+fun AmazonConfigFunctions.deleteConfigurationAggregator(configurationAggregatorName: String, init: AmazonConfigDeleteConfigurationAggregatorCommand.() -> Unit): com.amazonaws.services.config.model.DeleteConfigurationAggregatorResult {
+	return this.block.declare(AmazonConfigDeleteConfigurationAggregatorCommand(configurationAggregatorName).apply(init)) as com.amazonaws.services.config.model.DeleteConfigurationAggregatorResult
 }
 
 @Generated
-class AmazonConfigDeleteConfigurationAggregatorCommand(val configurationAggregatorName: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.DeleteConfigurationAggregatorRequest> {
+class AmazonConfigDeleteConfigurationAggregatorCommand(val configurationAggregatorName: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.DeleteConfigurationAggregatorRequest, com.amazonaws.services.config.model.DeleteConfigurationAggregatorResult> {
 
 
 
@@ -124,8 +136,12 @@ class AmazonConfigDeleteConfigurationAggregatorCommand(val configurationAggregat
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.deleteConfigurationAggregator(build())
+	override fun dryResult(): com.amazonaws.services.config.model.DeleteConfigurationAggregatorResult {
+	  return com.amazonaws.services.config.model.DeleteConfigurationAggregatorResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DeleteConfigurationAggregatorResult {
+		return environment.config.deleteConfigurationAggregator(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -136,12 +152,12 @@ class AmazonConfigDeleteConfigurationAggregatorCommand(val configurationAggregat
 }
 
 
-fun AmazonConfigFunctions.deleteConfigurationRecorder(configurationRecorderName: String, init: AmazonConfigDeleteConfigurationRecorderCommand.() -> Unit) {
-	this.block.declare(AmazonConfigDeleteConfigurationRecorderCommand(configurationRecorderName).apply(init))
+fun AmazonConfigFunctions.deleteConfigurationRecorder(configurationRecorderName: String, init: AmazonConfigDeleteConfigurationRecorderCommand.() -> Unit): com.amazonaws.services.config.model.DeleteConfigurationRecorderResult {
+	return this.block.declare(AmazonConfigDeleteConfigurationRecorderCommand(configurationRecorderName).apply(init)) as com.amazonaws.services.config.model.DeleteConfigurationRecorderResult
 }
 
 @Generated
-class AmazonConfigDeleteConfigurationRecorderCommand(val configurationRecorderName: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.DeleteConfigurationRecorderRequest> {
+class AmazonConfigDeleteConfigurationRecorderCommand(val configurationRecorderName: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.DeleteConfigurationRecorderRequest, com.amazonaws.services.config.model.DeleteConfigurationRecorderResult> {
 
 
 
@@ -151,8 +167,12 @@ class AmazonConfigDeleteConfigurationRecorderCommand(val configurationRecorderNa
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.deleteConfigurationRecorder(build())
+	override fun dryResult(): com.amazonaws.services.config.model.DeleteConfigurationRecorderResult {
+	  return com.amazonaws.services.config.model.DeleteConfigurationRecorderResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DeleteConfigurationRecorderResult {
+		return environment.config.deleteConfigurationRecorder(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -163,12 +183,12 @@ class AmazonConfigDeleteConfigurationRecorderCommand(val configurationRecorderNa
 }
 
 
-fun AmazonConfigFunctions.deleteDeliveryChannel(deliveryChannelName: String, init: AmazonConfigDeleteDeliveryChannelCommand.() -> Unit) {
-	this.block.declare(AmazonConfigDeleteDeliveryChannelCommand(deliveryChannelName).apply(init))
+fun AmazonConfigFunctions.deleteDeliveryChannel(deliveryChannelName: String, init: AmazonConfigDeleteDeliveryChannelCommand.() -> Unit): com.amazonaws.services.config.model.DeleteDeliveryChannelResult {
+	return this.block.declare(AmazonConfigDeleteDeliveryChannelCommand(deliveryChannelName).apply(init)) as com.amazonaws.services.config.model.DeleteDeliveryChannelResult
 }
 
 @Generated
-class AmazonConfigDeleteDeliveryChannelCommand(val deliveryChannelName: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.DeleteDeliveryChannelRequest> {
+class AmazonConfigDeleteDeliveryChannelCommand(val deliveryChannelName: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.DeleteDeliveryChannelRequest, com.amazonaws.services.config.model.DeleteDeliveryChannelResult> {
 
 
 
@@ -178,8 +198,12 @@ class AmazonConfigDeleteDeliveryChannelCommand(val deliveryChannelName: String) 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.deleteDeliveryChannel(build())
+	override fun dryResult(): com.amazonaws.services.config.model.DeleteDeliveryChannelResult {
+	  return com.amazonaws.services.config.model.DeleteDeliveryChannelResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DeleteDeliveryChannelResult {
+		return environment.config.deleteDeliveryChannel(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -190,12 +214,12 @@ class AmazonConfigDeleteDeliveryChannelCommand(val deliveryChannelName: String) 
 }
 
 
-fun AmazonConfigFunctions.deleteEvaluationResults(configRuleName: String, init: AmazonConfigDeleteEvaluationResultsCommand.() -> Unit) {
-	this.block.declare(AmazonConfigDeleteEvaluationResultsCommand(configRuleName).apply(init))
+fun AmazonConfigFunctions.deleteEvaluationResults(configRuleName: String, init: AmazonConfigDeleteEvaluationResultsCommand.() -> Unit): com.amazonaws.services.config.model.DeleteEvaluationResultsResult {
+	return this.block.declare(AmazonConfigDeleteEvaluationResultsCommand(configRuleName).apply(init)) as com.amazonaws.services.config.model.DeleteEvaluationResultsResult
 }
 
 @Generated
-class AmazonConfigDeleteEvaluationResultsCommand(val configRuleName: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.DeleteEvaluationResultsRequest> {
+class AmazonConfigDeleteEvaluationResultsCommand(val configRuleName: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.DeleteEvaluationResultsRequest, com.amazonaws.services.config.model.DeleteEvaluationResultsResult> {
 
 
 
@@ -205,8 +229,12 @@ class AmazonConfigDeleteEvaluationResultsCommand(val configRuleName: String) : A
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.deleteEvaluationResults(build())
+	override fun dryResult(): com.amazonaws.services.config.model.DeleteEvaluationResultsResult {
+	  return com.amazonaws.services.config.model.DeleteEvaluationResultsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DeleteEvaluationResultsResult {
+		return environment.config.deleteEvaluationResults(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -217,12 +245,12 @@ class AmazonConfigDeleteEvaluationResultsCommand(val configRuleName: String) : A
 }
 
 
-fun AmazonConfigFunctions.deletePendingAggregationRequest(requesterAccountId: String, requesterAwsRegion: String, init: AmazonConfigDeletePendingAggregationRequestCommand.() -> Unit) {
-	this.block.declare(AmazonConfigDeletePendingAggregationRequestCommand(requesterAccountId, requesterAwsRegion).apply(init))
+fun AmazonConfigFunctions.deletePendingAggregationRequest(requesterAccountId: String, requesterAwsRegion: String, init: AmazonConfigDeletePendingAggregationRequestCommand.() -> Unit): com.amazonaws.services.config.model.DeletePendingAggregationRequestResult {
+	return this.block.declare(AmazonConfigDeletePendingAggregationRequestCommand(requesterAccountId, requesterAwsRegion).apply(init)) as com.amazonaws.services.config.model.DeletePendingAggregationRequestResult
 }
 
 @Generated
-class AmazonConfigDeletePendingAggregationRequestCommand(val requesterAccountId: String, val requesterAwsRegion: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.DeletePendingAggregationRequestRequest> {
+class AmazonConfigDeletePendingAggregationRequestCommand(val requesterAccountId: String, val requesterAwsRegion: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.DeletePendingAggregationRequestRequest, com.amazonaws.services.config.model.DeletePendingAggregationRequestResult> {
 
 
 
@@ -233,8 +261,12 @@ class AmazonConfigDeletePendingAggregationRequestCommand(val requesterAccountId:
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.deletePendingAggregationRequest(build())
+	override fun dryResult(): com.amazonaws.services.config.model.DeletePendingAggregationRequestResult {
+	  return com.amazonaws.services.config.model.DeletePendingAggregationRequestResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DeletePendingAggregationRequestResult {
+		return environment.config.deletePendingAggregationRequest(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -246,12 +278,12 @@ class AmazonConfigDeletePendingAggregationRequestCommand(val requesterAccountId:
 }
 
 
-fun AmazonConfigFunctions.deliverConfigSnapshot(init: AmazonConfigDeliverConfigSnapshotCommand.() -> Unit) {
-	this.block.declare(AmazonConfigDeliverConfigSnapshotCommand().apply(init))
+fun AmazonConfigFunctions.deliverConfigSnapshot(init: AmazonConfigDeliverConfigSnapshotCommand.() -> Unit): com.amazonaws.services.config.model.DeliverConfigSnapshotResult {
+	return this.block.declare(AmazonConfigDeliverConfigSnapshotCommand().apply(init)) as com.amazonaws.services.config.model.DeliverConfigSnapshotResult
 }
 
 @Generated
-class AmazonConfigDeliverConfigSnapshotCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.DeliverConfigSnapshotRequest> {
+class AmazonConfigDeliverConfigSnapshotCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.DeliverConfigSnapshotRequest, com.amazonaws.services.config.model.DeliverConfigSnapshotResult> {
 
 	var deliveryChannelName: String? = null
 
@@ -261,8 +293,12 @@ class AmazonConfigDeliverConfigSnapshotCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.deliverConfigSnapshot(build())
+	override fun dryResult(): com.amazonaws.services.config.model.DeliverConfigSnapshotResult {
+	  return com.amazonaws.services.config.model.DeliverConfigSnapshotResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DeliverConfigSnapshotResult {
+		return environment.config.deliverConfigSnapshot(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -273,12 +309,12 @@ class AmazonConfigDeliverConfigSnapshotCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AmazonConfigFunctions.describeAggregateComplianceByConfigRules(configurationAggregatorName: String, init: AmazonConfigDescribeAggregateComplianceByConfigRulesCommand.() -> Unit) {
-	this.block.declare(AmazonConfigDescribeAggregateComplianceByConfigRulesCommand(configurationAggregatorName).apply(init))
+fun AmazonConfigFunctions.describeAggregateComplianceByConfigRules(configurationAggregatorName: String, init: AmazonConfigDescribeAggregateComplianceByConfigRulesCommand.() -> Unit): com.amazonaws.services.config.model.DescribeAggregateComplianceByConfigRulesResult {
+	return this.block.declare(AmazonConfigDescribeAggregateComplianceByConfigRulesCommand(configurationAggregatorName).apply(init)) as com.amazonaws.services.config.model.DescribeAggregateComplianceByConfigRulesResult
 }
 
 @Generated
-class AmazonConfigDescribeAggregateComplianceByConfigRulesCommand(val configurationAggregatorName: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.DescribeAggregateComplianceByConfigRulesRequest> {
+class AmazonConfigDescribeAggregateComplianceByConfigRulesCommand(val configurationAggregatorName: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.DescribeAggregateComplianceByConfigRulesRequest, com.amazonaws.services.config.model.DescribeAggregateComplianceByConfigRulesResult> {
 
 	var filters: com.amazonaws.services.config.model.ConfigRuleComplianceFilters? = null
 	var limit: Int? = 0
@@ -293,8 +329,12 @@ class AmazonConfigDescribeAggregateComplianceByConfigRulesCommand(val configurat
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.describeAggregateComplianceByConfigRules(build())
+	override fun dryResult(): com.amazonaws.services.config.model.DescribeAggregateComplianceByConfigRulesResult {
+	  return com.amazonaws.services.config.model.DescribeAggregateComplianceByConfigRulesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DescribeAggregateComplianceByConfigRulesResult {
+		return environment.config.describeAggregateComplianceByConfigRules(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -308,12 +348,12 @@ class AmazonConfigDescribeAggregateComplianceByConfigRulesCommand(val configurat
 }
 
 
-fun AmazonConfigFunctions.describeAggregationAuthorizations(init: AmazonConfigDescribeAggregationAuthorizationsCommand.() -> Unit) {
-	this.block.declare(AmazonConfigDescribeAggregationAuthorizationsCommand().apply(init))
+fun AmazonConfigFunctions.describeAggregationAuthorizations(init: AmazonConfigDescribeAggregationAuthorizationsCommand.() -> Unit): com.amazonaws.services.config.model.DescribeAggregationAuthorizationsResult {
+	return this.block.declare(AmazonConfigDescribeAggregationAuthorizationsCommand().apply(init)) as com.amazonaws.services.config.model.DescribeAggregationAuthorizationsResult
 }
 
 @Generated
-class AmazonConfigDescribeAggregationAuthorizationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.DescribeAggregationAuthorizationsRequest> {
+class AmazonConfigDescribeAggregationAuthorizationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.DescribeAggregationAuthorizationsRequest, com.amazonaws.services.config.model.DescribeAggregationAuthorizationsResult> {
 
 	var limit: Int? = 0
 	var nextToken: String? = null
@@ -325,8 +365,12 @@ class AmazonConfigDescribeAggregationAuthorizationsCommand() : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.describeAggregationAuthorizations(build())
+	override fun dryResult(): com.amazonaws.services.config.model.DescribeAggregationAuthorizationsResult {
+	  return com.amazonaws.services.config.model.DescribeAggregationAuthorizationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DescribeAggregationAuthorizationsResult {
+		return environment.config.describeAggregationAuthorizations(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -338,12 +382,12 @@ class AmazonConfigDescribeAggregationAuthorizationsCommand() : AmazonWebServiceC
 }
 
 
-fun AmazonConfigFunctions.describeComplianceByConfigRule(init: AmazonConfigDescribeComplianceByConfigRuleCommand.() -> Unit) {
-	this.block.declare(AmazonConfigDescribeComplianceByConfigRuleCommand().apply(init))
+fun AmazonConfigFunctions.describeComplianceByConfigRule(init: AmazonConfigDescribeComplianceByConfigRuleCommand.() -> Unit): com.amazonaws.services.config.model.DescribeComplianceByConfigRuleResult {
+	return this.block.declare(AmazonConfigDescribeComplianceByConfigRuleCommand().apply(init)) as com.amazonaws.services.config.model.DescribeComplianceByConfigRuleResult
 }
 
 @Generated
-class AmazonConfigDescribeComplianceByConfigRuleCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.DescribeComplianceByConfigRuleRequest> {
+class AmazonConfigDescribeComplianceByConfigRuleCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.DescribeComplianceByConfigRuleRequest, com.amazonaws.services.config.model.DescribeComplianceByConfigRuleResult> {
 
 	var configRuleNames: List<String>? = null
 	var complianceTypes: List<ComplianceType>? = null
@@ -357,8 +401,12 @@ class AmazonConfigDescribeComplianceByConfigRuleCommand() : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.describeComplianceByConfigRule(build())
+	override fun dryResult(): com.amazonaws.services.config.model.DescribeComplianceByConfigRuleResult {
+	  return com.amazonaws.services.config.model.DescribeComplianceByConfigRuleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DescribeComplianceByConfigRuleResult {
+		return environment.config.describeComplianceByConfigRule(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -371,12 +419,12 @@ class AmazonConfigDescribeComplianceByConfigRuleCommand() : AmazonWebServiceComm
 }
 
 
-fun AmazonConfigFunctions.describeComplianceByResource(init: AmazonConfigDescribeComplianceByResourceCommand.() -> Unit) {
-	this.block.declare(AmazonConfigDescribeComplianceByResourceCommand().apply(init))
+fun AmazonConfigFunctions.describeComplianceByResource(init: AmazonConfigDescribeComplianceByResourceCommand.() -> Unit): com.amazonaws.services.config.model.DescribeComplianceByResourceResult {
+	return this.block.declare(AmazonConfigDescribeComplianceByResourceCommand().apply(init)) as com.amazonaws.services.config.model.DescribeComplianceByResourceResult
 }
 
 @Generated
-class AmazonConfigDescribeComplianceByResourceCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.DescribeComplianceByResourceRequest> {
+class AmazonConfigDescribeComplianceByResourceCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.DescribeComplianceByResourceRequest, com.amazonaws.services.config.model.DescribeComplianceByResourceResult> {
 
 	var resourceType: String? = null
 	var resourceId: String? = null
@@ -394,8 +442,12 @@ class AmazonConfigDescribeComplianceByResourceCommand() : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.describeComplianceByResource(build())
+	override fun dryResult(): com.amazonaws.services.config.model.DescribeComplianceByResourceResult {
+	  return com.amazonaws.services.config.model.DescribeComplianceByResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DescribeComplianceByResourceResult {
+		return environment.config.describeComplianceByResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -410,12 +462,12 @@ class AmazonConfigDescribeComplianceByResourceCommand() : AmazonWebServiceComman
 }
 
 
-fun AmazonConfigFunctions.describeConfigRuleEvaluationStatus(init: AmazonConfigDescribeConfigRuleEvaluationStatusCommand.() -> Unit) {
-	this.block.declare(AmazonConfigDescribeConfigRuleEvaluationStatusCommand().apply(init))
+fun AmazonConfigFunctions.describeConfigRuleEvaluationStatus(init: AmazonConfigDescribeConfigRuleEvaluationStatusCommand.() -> Unit): com.amazonaws.services.config.model.DescribeConfigRuleEvaluationStatusResult {
+	return this.block.declare(AmazonConfigDescribeConfigRuleEvaluationStatusCommand().apply(init)) as com.amazonaws.services.config.model.DescribeConfigRuleEvaluationStatusResult
 }
 
 @Generated
-class AmazonConfigDescribeConfigRuleEvaluationStatusCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.DescribeConfigRuleEvaluationStatusRequest> {
+class AmazonConfigDescribeConfigRuleEvaluationStatusCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.DescribeConfigRuleEvaluationStatusRequest, com.amazonaws.services.config.model.DescribeConfigRuleEvaluationStatusResult> {
 
 	var configRuleNames: List<String>? = null
 	var nextToken: String? = null
@@ -429,8 +481,12 @@ class AmazonConfigDescribeConfigRuleEvaluationStatusCommand() : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.describeConfigRuleEvaluationStatus(build())
+	override fun dryResult(): com.amazonaws.services.config.model.DescribeConfigRuleEvaluationStatusResult {
+	  return com.amazonaws.services.config.model.DescribeConfigRuleEvaluationStatusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DescribeConfigRuleEvaluationStatusResult {
+		return environment.config.describeConfigRuleEvaluationStatus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -443,12 +499,12 @@ class AmazonConfigDescribeConfigRuleEvaluationStatusCommand() : AmazonWebService
 }
 
 
-fun AmazonConfigFunctions.describeConfigRules(init: AmazonConfigDescribeConfigRulesCommand.() -> Unit) {
-	this.block.declare(AmazonConfigDescribeConfigRulesCommand().apply(init))
+fun AmazonConfigFunctions.describeConfigRules(init: AmazonConfigDescribeConfigRulesCommand.() -> Unit): com.amazonaws.services.config.model.DescribeConfigRulesResult {
+	return this.block.declare(AmazonConfigDescribeConfigRulesCommand().apply(init)) as com.amazonaws.services.config.model.DescribeConfigRulesResult
 }
 
 @Generated
-class AmazonConfigDescribeConfigRulesCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.DescribeConfigRulesRequest> {
+class AmazonConfigDescribeConfigRulesCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.DescribeConfigRulesRequest, com.amazonaws.services.config.model.DescribeConfigRulesResult> {
 
 	var configRuleNames: List<String>? = null
 	var nextToken: String? = null
@@ -460,8 +516,12 @@ class AmazonConfigDescribeConfigRulesCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.describeConfigRules(build())
+	override fun dryResult(): com.amazonaws.services.config.model.DescribeConfigRulesResult {
+	  return com.amazonaws.services.config.model.DescribeConfigRulesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DescribeConfigRulesResult {
+		return environment.config.describeConfigRules(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -473,12 +533,12 @@ class AmazonConfigDescribeConfigRulesCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AmazonConfigFunctions.describeConfigurationAggregatorSourcesStatus(configurationAggregatorName: String, init: AmazonConfigDescribeConfigurationAggregatorSourcesStatusCommand.() -> Unit) {
-	this.block.declare(AmazonConfigDescribeConfigurationAggregatorSourcesStatusCommand(configurationAggregatorName).apply(init))
+fun AmazonConfigFunctions.describeConfigurationAggregatorSourcesStatus(configurationAggregatorName: String, init: AmazonConfigDescribeConfigurationAggregatorSourcesStatusCommand.() -> Unit): com.amazonaws.services.config.model.DescribeConfigurationAggregatorSourcesStatusResult {
+	return this.block.declare(AmazonConfigDescribeConfigurationAggregatorSourcesStatusCommand(configurationAggregatorName).apply(init)) as com.amazonaws.services.config.model.DescribeConfigurationAggregatorSourcesStatusResult
 }
 
 @Generated
-class AmazonConfigDescribeConfigurationAggregatorSourcesStatusCommand(val configurationAggregatorName: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.DescribeConfigurationAggregatorSourcesStatusRequest> {
+class AmazonConfigDescribeConfigurationAggregatorSourcesStatusCommand(val configurationAggregatorName: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.DescribeConfigurationAggregatorSourcesStatusRequest, com.amazonaws.services.config.model.DescribeConfigurationAggregatorSourcesStatusResult> {
 
 	var updateStatus: List<AggregatedSourceStatusType>? = null
 	var nextToken: String? = null
@@ -493,8 +553,12 @@ class AmazonConfigDescribeConfigurationAggregatorSourcesStatusCommand(val config
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.describeConfigurationAggregatorSourcesStatus(build())
+	override fun dryResult(): com.amazonaws.services.config.model.DescribeConfigurationAggregatorSourcesStatusResult {
+	  return com.amazonaws.services.config.model.DescribeConfigurationAggregatorSourcesStatusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DescribeConfigurationAggregatorSourcesStatusResult {
+		return environment.config.describeConfigurationAggregatorSourcesStatus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -508,12 +572,12 @@ class AmazonConfigDescribeConfigurationAggregatorSourcesStatusCommand(val config
 }
 
 
-fun AmazonConfigFunctions.describeConfigurationAggregators(init: AmazonConfigDescribeConfigurationAggregatorsCommand.() -> Unit) {
-	this.block.declare(AmazonConfigDescribeConfigurationAggregatorsCommand().apply(init))
+fun AmazonConfigFunctions.describeConfigurationAggregators(init: AmazonConfigDescribeConfigurationAggregatorsCommand.() -> Unit): com.amazonaws.services.config.model.DescribeConfigurationAggregatorsResult {
+	return this.block.declare(AmazonConfigDescribeConfigurationAggregatorsCommand().apply(init)) as com.amazonaws.services.config.model.DescribeConfigurationAggregatorsResult
 }
 
 @Generated
-class AmazonConfigDescribeConfigurationAggregatorsCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.DescribeConfigurationAggregatorsRequest> {
+class AmazonConfigDescribeConfigurationAggregatorsCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.DescribeConfigurationAggregatorsRequest, com.amazonaws.services.config.model.DescribeConfigurationAggregatorsResult> {
 
 	var configurationAggregatorNames: List<String>? = null
 	var nextToken: String? = null
@@ -527,8 +591,12 @@ class AmazonConfigDescribeConfigurationAggregatorsCommand() : AmazonWebServiceCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.describeConfigurationAggregators(build())
+	override fun dryResult(): com.amazonaws.services.config.model.DescribeConfigurationAggregatorsResult {
+	  return com.amazonaws.services.config.model.DescribeConfigurationAggregatorsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DescribeConfigurationAggregatorsResult {
+		return environment.config.describeConfigurationAggregators(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -541,12 +609,12 @@ class AmazonConfigDescribeConfigurationAggregatorsCommand() : AmazonWebServiceCo
 }
 
 
-fun AmazonConfigFunctions.describeConfigurationRecorderStatus(init: AmazonConfigDescribeConfigurationRecorderStatusCommand.() -> Unit) {
-	this.block.declare(AmazonConfigDescribeConfigurationRecorderStatusCommand().apply(init))
+fun AmazonConfigFunctions.describeConfigurationRecorderStatus(init: AmazonConfigDescribeConfigurationRecorderStatusCommand.() -> Unit): com.amazonaws.services.config.model.DescribeConfigurationRecorderStatusResult {
+	return this.block.declare(AmazonConfigDescribeConfigurationRecorderStatusCommand().apply(init)) as com.amazonaws.services.config.model.DescribeConfigurationRecorderStatusResult
 }
 
 @Generated
-class AmazonConfigDescribeConfigurationRecorderStatusCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.DescribeConfigurationRecorderStatusRequest> {
+class AmazonConfigDescribeConfigurationRecorderStatusCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.DescribeConfigurationRecorderStatusRequest, com.amazonaws.services.config.model.DescribeConfigurationRecorderStatusResult> {
 
 	var configurationRecorderNames: List<String>? = null
 
@@ -556,8 +624,12 @@ class AmazonConfigDescribeConfigurationRecorderStatusCommand() : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.describeConfigurationRecorderStatus(build())
+	override fun dryResult(): com.amazonaws.services.config.model.DescribeConfigurationRecorderStatusResult {
+	  return com.amazonaws.services.config.model.DescribeConfigurationRecorderStatusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DescribeConfigurationRecorderStatusResult {
+		return environment.config.describeConfigurationRecorderStatus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -568,12 +640,12 @@ class AmazonConfigDescribeConfigurationRecorderStatusCommand() : AmazonWebServic
 }
 
 
-fun AmazonConfigFunctions.describeConfigurationRecorders(init: AmazonConfigDescribeConfigurationRecordersCommand.() -> Unit) {
-	this.block.declare(AmazonConfigDescribeConfigurationRecordersCommand().apply(init))
+fun AmazonConfigFunctions.describeConfigurationRecorders(init: AmazonConfigDescribeConfigurationRecordersCommand.() -> Unit): com.amazonaws.services.config.model.DescribeConfigurationRecordersResult {
+	return this.block.declare(AmazonConfigDescribeConfigurationRecordersCommand().apply(init)) as com.amazonaws.services.config.model.DescribeConfigurationRecordersResult
 }
 
 @Generated
-class AmazonConfigDescribeConfigurationRecordersCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.DescribeConfigurationRecordersRequest> {
+class AmazonConfigDescribeConfigurationRecordersCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.DescribeConfigurationRecordersRequest, com.amazonaws.services.config.model.DescribeConfigurationRecordersResult> {
 
 	var configurationRecorderNames: List<String>? = null
 
@@ -583,8 +655,12 @@ class AmazonConfigDescribeConfigurationRecordersCommand() : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.describeConfigurationRecorders(build())
+	override fun dryResult(): com.amazonaws.services.config.model.DescribeConfigurationRecordersResult {
+	  return com.amazonaws.services.config.model.DescribeConfigurationRecordersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DescribeConfigurationRecordersResult {
+		return environment.config.describeConfigurationRecorders(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -595,12 +671,12 @@ class AmazonConfigDescribeConfigurationRecordersCommand() : AmazonWebServiceComm
 }
 
 
-fun AmazonConfigFunctions.describeDeliveryChannelStatus(init: AmazonConfigDescribeDeliveryChannelStatusCommand.() -> Unit) {
-	this.block.declare(AmazonConfigDescribeDeliveryChannelStatusCommand().apply(init))
+fun AmazonConfigFunctions.describeDeliveryChannelStatus(init: AmazonConfigDescribeDeliveryChannelStatusCommand.() -> Unit): com.amazonaws.services.config.model.DescribeDeliveryChannelStatusResult {
+	return this.block.declare(AmazonConfigDescribeDeliveryChannelStatusCommand().apply(init)) as com.amazonaws.services.config.model.DescribeDeliveryChannelStatusResult
 }
 
 @Generated
-class AmazonConfigDescribeDeliveryChannelStatusCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.DescribeDeliveryChannelStatusRequest> {
+class AmazonConfigDescribeDeliveryChannelStatusCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.DescribeDeliveryChannelStatusRequest, com.amazonaws.services.config.model.DescribeDeliveryChannelStatusResult> {
 
 	var deliveryChannelNames: List<String>? = null
 
@@ -610,8 +686,12 @@ class AmazonConfigDescribeDeliveryChannelStatusCommand() : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.describeDeliveryChannelStatus(build())
+	override fun dryResult(): com.amazonaws.services.config.model.DescribeDeliveryChannelStatusResult {
+	  return com.amazonaws.services.config.model.DescribeDeliveryChannelStatusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DescribeDeliveryChannelStatusResult {
+		return environment.config.describeDeliveryChannelStatus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -622,12 +702,12 @@ class AmazonConfigDescribeDeliveryChannelStatusCommand() : AmazonWebServiceComma
 }
 
 
-fun AmazonConfigFunctions.describeDeliveryChannels(init: AmazonConfigDescribeDeliveryChannelsCommand.() -> Unit) {
-	this.block.declare(AmazonConfigDescribeDeliveryChannelsCommand().apply(init))
+fun AmazonConfigFunctions.describeDeliveryChannels(init: AmazonConfigDescribeDeliveryChannelsCommand.() -> Unit): com.amazonaws.services.config.model.DescribeDeliveryChannelsResult {
+	return this.block.declare(AmazonConfigDescribeDeliveryChannelsCommand().apply(init)) as com.amazonaws.services.config.model.DescribeDeliveryChannelsResult
 }
 
 @Generated
-class AmazonConfigDescribeDeliveryChannelsCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.DescribeDeliveryChannelsRequest> {
+class AmazonConfigDescribeDeliveryChannelsCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.DescribeDeliveryChannelsRequest, com.amazonaws.services.config.model.DescribeDeliveryChannelsResult> {
 
 	var deliveryChannelNames: List<String>? = null
 
@@ -637,8 +717,12 @@ class AmazonConfigDescribeDeliveryChannelsCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.describeDeliveryChannels(build())
+	override fun dryResult(): com.amazonaws.services.config.model.DescribeDeliveryChannelsResult {
+	  return com.amazonaws.services.config.model.DescribeDeliveryChannelsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DescribeDeliveryChannelsResult {
+		return environment.config.describeDeliveryChannels(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -649,12 +733,12 @@ class AmazonConfigDescribeDeliveryChannelsCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonConfigFunctions.describePendingAggregationRequests(init: AmazonConfigDescribePendingAggregationRequestsCommand.() -> Unit) {
-	this.block.declare(AmazonConfigDescribePendingAggregationRequestsCommand().apply(init))
+fun AmazonConfigFunctions.describePendingAggregationRequests(init: AmazonConfigDescribePendingAggregationRequestsCommand.() -> Unit): com.amazonaws.services.config.model.DescribePendingAggregationRequestsResult {
+	return this.block.declare(AmazonConfigDescribePendingAggregationRequestsCommand().apply(init)) as com.amazonaws.services.config.model.DescribePendingAggregationRequestsResult
 }
 
 @Generated
-class AmazonConfigDescribePendingAggregationRequestsCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.DescribePendingAggregationRequestsRequest> {
+class AmazonConfigDescribePendingAggregationRequestsCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.DescribePendingAggregationRequestsRequest, com.amazonaws.services.config.model.DescribePendingAggregationRequestsResult> {
 
 	var limit: Int? = 0
 	var nextToken: String? = null
@@ -666,8 +750,12 @@ class AmazonConfigDescribePendingAggregationRequestsCommand() : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.describePendingAggregationRequests(build())
+	override fun dryResult(): com.amazonaws.services.config.model.DescribePendingAggregationRequestsResult {
+	  return com.amazonaws.services.config.model.DescribePendingAggregationRequestsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.DescribePendingAggregationRequestsResult {
+		return environment.config.describePendingAggregationRequests(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -679,12 +767,12 @@ class AmazonConfigDescribePendingAggregationRequestsCommand() : AmazonWebService
 }
 
 
-fun AmazonConfigFunctions.getAggregateComplianceDetailsByConfigRule(configurationAggregatorName: String, configRuleName: String, accountId: String, awsRegion: String, init: AmazonConfigGetAggregateComplianceDetailsByConfigRuleCommand.() -> Unit) {
-	this.block.declare(AmazonConfigGetAggregateComplianceDetailsByConfigRuleCommand(configurationAggregatorName, configRuleName, accountId, awsRegion).apply(init))
+fun AmazonConfigFunctions.getAggregateComplianceDetailsByConfigRule(configurationAggregatorName: String, configRuleName: String, accountId: String, awsRegion: String, init: AmazonConfigGetAggregateComplianceDetailsByConfigRuleCommand.() -> Unit): com.amazonaws.services.config.model.GetAggregateComplianceDetailsByConfigRuleResult {
+	return this.block.declare(AmazonConfigGetAggregateComplianceDetailsByConfigRuleCommand(configurationAggregatorName, configRuleName, accountId, awsRegion).apply(init)) as com.amazonaws.services.config.model.GetAggregateComplianceDetailsByConfigRuleResult
 }
 
 @Generated
-class AmazonConfigGetAggregateComplianceDetailsByConfigRuleCommand(val configurationAggregatorName: String, val configRuleName: String, val accountId: String, val awsRegion: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.GetAggregateComplianceDetailsByConfigRuleRequest> {
+class AmazonConfigGetAggregateComplianceDetailsByConfigRuleCommand(val configurationAggregatorName: String, val configRuleName: String, val accountId: String, val awsRegion: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.GetAggregateComplianceDetailsByConfigRuleRequest, com.amazonaws.services.config.model.GetAggregateComplianceDetailsByConfigRuleResult> {
 
 	var complianceType: ComplianceType? = null
 	var limit: Int? = 0
@@ -702,8 +790,12 @@ class AmazonConfigGetAggregateComplianceDetailsByConfigRuleCommand(val configura
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.getAggregateComplianceDetailsByConfigRule(build())
+	override fun dryResult(): com.amazonaws.services.config.model.GetAggregateComplianceDetailsByConfigRuleResult {
+	  return com.amazonaws.services.config.model.GetAggregateComplianceDetailsByConfigRuleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.GetAggregateComplianceDetailsByConfigRuleResult {
+		return environment.config.getAggregateComplianceDetailsByConfigRule(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -720,12 +812,12 @@ class AmazonConfigGetAggregateComplianceDetailsByConfigRuleCommand(val configura
 }
 
 
-fun AmazonConfigFunctions.getAggregateConfigRuleComplianceSummary(configurationAggregatorName: String, init: AmazonConfigGetAggregateConfigRuleComplianceSummaryCommand.() -> Unit) {
-	this.block.declare(AmazonConfigGetAggregateConfigRuleComplianceSummaryCommand(configurationAggregatorName).apply(init))
+fun AmazonConfigFunctions.getAggregateConfigRuleComplianceSummary(configurationAggregatorName: String, init: AmazonConfigGetAggregateConfigRuleComplianceSummaryCommand.() -> Unit): com.amazonaws.services.config.model.GetAggregateConfigRuleComplianceSummaryResult {
+	return this.block.declare(AmazonConfigGetAggregateConfigRuleComplianceSummaryCommand(configurationAggregatorName).apply(init)) as com.amazonaws.services.config.model.GetAggregateConfigRuleComplianceSummaryResult
 }
 
 @Generated
-class AmazonConfigGetAggregateConfigRuleComplianceSummaryCommand(val configurationAggregatorName: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.GetAggregateConfigRuleComplianceSummaryRequest> {
+class AmazonConfigGetAggregateConfigRuleComplianceSummaryCommand(val configurationAggregatorName: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.GetAggregateConfigRuleComplianceSummaryRequest, com.amazonaws.services.config.model.GetAggregateConfigRuleComplianceSummaryResult> {
 
 	var filters: com.amazonaws.services.config.model.ConfigRuleComplianceSummaryFilters? = null
 	var groupByKey: ConfigRuleComplianceSummaryGroupKey? = null
@@ -742,8 +834,12 @@ class AmazonConfigGetAggregateConfigRuleComplianceSummaryCommand(val configurati
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.getAggregateConfigRuleComplianceSummary(build())
+	override fun dryResult(): com.amazonaws.services.config.model.GetAggregateConfigRuleComplianceSummaryResult {
+	  return com.amazonaws.services.config.model.GetAggregateConfigRuleComplianceSummaryResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.GetAggregateConfigRuleComplianceSummaryResult {
+		return environment.config.getAggregateConfigRuleComplianceSummary(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -758,12 +854,12 @@ class AmazonConfigGetAggregateConfigRuleComplianceSummaryCommand(val configurati
 }
 
 
-fun AmazonConfigFunctions.getComplianceDetailsByConfigRule(configRuleName: String, init: AmazonConfigGetComplianceDetailsByConfigRuleCommand.() -> Unit) {
-	this.block.declare(AmazonConfigGetComplianceDetailsByConfigRuleCommand(configRuleName).apply(init))
+fun AmazonConfigFunctions.getComplianceDetailsByConfigRule(configRuleName: String, init: AmazonConfigGetComplianceDetailsByConfigRuleCommand.() -> Unit): com.amazonaws.services.config.model.GetComplianceDetailsByConfigRuleResult {
+	return this.block.declare(AmazonConfigGetComplianceDetailsByConfigRuleCommand(configRuleName).apply(init)) as com.amazonaws.services.config.model.GetComplianceDetailsByConfigRuleResult
 }
 
 @Generated
-class AmazonConfigGetComplianceDetailsByConfigRuleCommand(val configRuleName: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.GetComplianceDetailsByConfigRuleRequest> {
+class AmazonConfigGetComplianceDetailsByConfigRuleCommand(val configRuleName: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.GetComplianceDetailsByConfigRuleRequest, com.amazonaws.services.config.model.GetComplianceDetailsByConfigRuleResult> {
 
 	var complianceTypes: List<ComplianceType>? = null
 	var limit: Int? = 0
@@ -778,8 +874,12 @@ class AmazonConfigGetComplianceDetailsByConfigRuleCommand(val configRuleName: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.getComplianceDetailsByConfigRule(build())
+	override fun dryResult(): com.amazonaws.services.config.model.GetComplianceDetailsByConfigRuleResult {
+	  return com.amazonaws.services.config.model.GetComplianceDetailsByConfigRuleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.GetComplianceDetailsByConfigRuleResult {
+		return environment.config.getComplianceDetailsByConfigRule(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -793,12 +893,12 @@ class AmazonConfigGetComplianceDetailsByConfigRuleCommand(val configRuleName: St
 }
 
 
-fun AmazonConfigFunctions.getComplianceDetailsByResource(resourceType: String, resourceId: String, init: AmazonConfigGetComplianceDetailsByResourceCommand.() -> Unit) {
-	this.block.declare(AmazonConfigGetComplianceDetailsByResourceCommand(resourceType, resourceId).apply(init))
+fun AmazonConfigFunctions.getComplianceDetailsByResource(resourceType: String, resourceId: String, init: AmazonConfigGetComplianceDetailsByResourceCommand.() -> Unit): com.amazonaws.services.config.model.GetComplianceDetailsByResourceResult {
+	return this.block.declare(AmazonConfigGetComplianceDetailsByResourceCommand(resourceType, resourceId).apply(init)) as com.amazonaws.services.config.model.GetComplianceDetailsByResourceResult
 }
 
 @Generated
-class AmazonConfigGetComplianceDetailsByResourceCommand(val resourceType: String, val resourceId: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.GetComplianceDetailsByResourceRequest> {
+class AmazonConfigGetComplianceDetailsByResourceCommand(val resourceType: String, val resourceId: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.GetComplianceDetailsByResourceRequest, com.amazonaws.services.config.model.GetComplianceDetailsByResourceResult> {
 
 	var complianceTypes: List<ComplianceType>? = null
 	var nextToken: String? = null
@@ -812,8 +912,12 @@ class AmazonConfigGetComplianceDetailsByResourceCommand(val resourceType: String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.getComplianceDetailsByResource(build())
+	override fun dryResult(): com.amazonaws.services.config.model.GetComplianceDetailsByResourceResult {
+	  return com.amazonaws.services.config.model.GetComplianceDetailsByResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.GetComplianceDetailsByResourceResult {
+		return environment.config.getComplianceDetailsByResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -827,12 +931,12 @@ class AmazonConfigGetComplianceDetailsByResourceCommand(val resourceType: String
 }
 
 
-fun AmazonConfigFunctions.getComplianceSummaryByConfigRule(init: AmazonConfigGetComplianceSummaryByConfigRuleCommand.() -> Unit) {
-	this.block.declare(AmazonConfigGetComplianceSummaryByConfigRuleCommand().apply(init))
+fun AmazonConfigFunctions.getComplianceSummaryByConfigRule(init: AmazonConfigGetComplianceSummaryByConfigRuleCommand.() -> Unit): com.amazonaws.services.config.model.GetComplianceSummaryByConfigRuleResult {
+	return this.block.declare(AmazonConfigGetComplianceSummaryByConfigRuleCommand().apply(init)) as com.amazonaws.services.config.model.GetComplianceSummaryByConfigRuleResult
 }
 
 @Generated
-class AmazonConfigGetComplianceSummaryByConfigRuleCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.GetComplianceSummaryByConfigRuleRequest> {
+class AmazonConfigGetComplianceSummaryByConfigRuleCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.GetComplianceSummaryByConfigRuleRequest, com.amazonaws.services.config.model.GetComplianceSummaryByConfigRuleResult> {
 
 
 
@@ -842,8 +946,12 @@ class AmazonConfigGetComplianceSummaryByConfigRuleCommand() : AmazonWebServiceCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.getComplianceSummaryByConfigRule(build())
+	override fun dryResult(): com.amazonaws.services.config.model.GetComplianceSummaryByConfigRuleResult {
+	  return com.amazonaws.services.config.model.GetComplianceSummaryByConfigRuleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.GetComplianceSummaryByConfigRuleResult {
+		return environment.config.getComplianceSummaryByConfigRule(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -854,12 +962,12 @@ class AmazonConfigGetComplianceSummaryByConfigRuleCommand() : AmazonWebServiceCo
 }
 
 
-fun AmazonConfigFunctions.getComplianceSummaryByResourceType(init: AmazonConfigGetComplianceSummaryByResourceTypeCommand.() -> Unit) {
-	this.block.declare(AmazonConfigGetComplianceSummaryByResourceTypeCommand().apply(init))
+fun AmazonConfigFunctions.getComplianceSummaryByResourceType(init: AmazonConfigGetComplianceSummaryByResourceTypeCommand.() -> Unit): com.amazonaws.services.config.model.GetComplianceSummaryByResourceTypeResult {
+	return this.block.declare(AmazonConfigGetComplianceSummaryByResourceTypeCommand().apply(init)) as com.amazonaws.services.config.model.GetComplianceSummaryByResourceTypeResult
 }
 
 @Generated
-class AmazonConfigGetComplianceSummaryByResourceTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.GetComplianceSummaryByResourceTypeRequest> {
+class AmazonConfigGetComplianceSummaryByResourceTypeCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.GetComplianceSummaryByResourceTypeRequest, com.amazonaws.services.config.model.GetComplianceSummaryByResourceTypeResult> {
 
 	var resourceTypes: List<String>? = null
 
@@ -869,8 +977,12 @@ class AmazonConfigGetComplianceSummaryByResourceTypeCommand() : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.getComplianceSummaryByResourceType(build())
+	override fun dryResult(): com.amazonaws.services.config.model.GetComplianceSummaryByResourceTypeResult {
+	  return com.amazonaws.services.config.model.GetComplianceSummaryByResourceTypeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.GetComplianceSummaryByResourceTypeResult {
+		return environment.config.getComplianceSummaryByResourceType(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -881,12 +993,12 @@ class AmazonConfigGetComplianceSummaryByResourceTypeCommand() : AmazonWebService
 }
 
 
-fun AmazonConfigFunctions.getDiscoveredResourceCounts(init: AmazonConfigGetDiscoveredResourceCountsCommand.() -> Unit) {
-	this.block.declare(AmazonConfigGetDiscoveredResourceCountsCommand().apply(init))
+fun AmazonConfigFunctions.getDiscoveredResourceCounts(init: AmazonConfigGetDiscoveredResourceCountsCommand.() -> Unit): com.amazonaws.services.config.model.GetDiscoveredResourceCountsResult {
+	return this.block.declare(AmazonConfigGetDiscoveredResourceCountsCommand().apply(init)) as com.amazonaws.services.config.model.GetDiscoveredResourceCountsResult
 }
 
 @Generated
-class AmazonConfigGetDiscoveredResourceCountsCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.GetDiscoveredResourceCountsRequest> {
+class AmazonConfigGetDiscoveredResourceCountsCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.GetDiscoveredResourceCountsRequest, com.amazonaws.services.config.model.GetDiscoveredResourceCountsResult> {
 
 	var resourceTypes: List<String>? = null
 	var limit: Int? = 0
@@ -900,8 +1012,12 @@ class AmazonConfigGetDiscoveredResourceCountsCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.getDiscoveredResourceCounts(build())
+	override fun dryResult(): com.amazonaws.services.config.model.GetDiscoveredResourceCountsResult {
+	  return com.amazonaws.services.config.model.GetDiscoveredResourceCountsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.GetDiscoveredResourceCountsResult {
+		return environment.config.getDiscoveredResourceCounts(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -914,12 +1030,12 @@ class AmazonConfigGetDiscoveredResourceCountsCommand() : AmazonWebServiceCommand
 }
 
 
-fun AmazonConfigFunctions.getResourceConfigHistory(init: AmazonConfigGetResourceConfigHistoryCommand.() -> Unit) {
-	this.block.declare(AmazonConfigGetResourceConfigHistoryCommand().apply(init))
+fun AmazonConfigFunctions.getResourceConfigHistory(init: AmazonConfigGetResourceConfigHistoryCommand.() -> Unit): com.amazonaws.services.config.model.GetResourceConfigHistoryResult {
+	return this.block.declare(AmazonConfigGetResourceConfigHistoryCommand().apply(init)) as com.amazonaws.services.config.model.GetResourceConfigHistoryResult
 }
 
 @Generated
-class AmazonConfigGetResourceConfigHistoryCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.GetResourceConfigHistoryRequest> {
+class AmazonConfigGetResourceConfigHistoryCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.GetResourceConfigHistoryRequest, com.amazonaws.services.config.model.GetResourceConfigHistoryResult> {
 
 	var resourceType: ResourceType? = null
 	var resourceId: String? = null
@@ -941,8 +1057,12 @@ class AmazonConfigGetResourceConfigHistoryCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.getResourceConfigHistory(build())
+	override fun dryResult(): com.amazonaws.services.config.model.GetResourceConfigHistoryResult {
+	  return com.amazonaws.services.config.model.GetResourceConfigHistoryResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.GetResourceConfigHistoryResult {
+		return environment.config.getResourceConfigHistory(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -959,12 +1079,12 @@ class AmazonConfigGetResourceConfigHistoryCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonConfigFunctions.listDiscoveredResources(init: AmazonConfigListDiscoveredResourcesCommand.() -> Unit) {
-	this.block.declare(AmazonConfigListDiscoveredResourcesCommand().apply(init))
+fun AmazonConfigFunctions.listDiscoveredResources(init: AmazonConfigListDiscoveredResourcesCommand.() -> Unit): com.amazonaws.services.config.model.ListDiscoveredResourcesResult {
+	return this.block.declare(AmazonConfigListDiscoveredResourcesCommand().apply(init)) as com.amazonaws.services.config.model.ListDiscoveredResourcesResult
 }
 
 @Generated
-class AmazonConfigListDiscoveredResourcesCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.ListDiscoveredResourcesRequest> {
+class AmazonConfigListDiscoveredResourcesCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.ListDiscoveredResourcesRequest, com.amazonaws.services.config.model.ListDiscoveredResourcesResult> {
 
 	var resourceType: ResourceType? = null
 	var resourceIds: List<String>? = null
@@ -984,8 +1104,12 @@ class AmazonConfigListDiscoveredResourcesCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.listDiscoveredResources(build())
+	override fun dryResult(): com.amazonaws.services.config.model.ListDiscoveredResourcesResult {
+	  return com.amazonaws.services.config.model.ListDiscoveredResourcesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.ListDiscoveredResourcesResult {
+		return environment.config.listDiscoveredResources(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1001,12 +1125,12 @@ class AmazonConfigListDiscoveredResourcesCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AmazonConfigFunctions.putAggregationAuthorization(authorizedAccountId: String, authorizedAwsRegion: String, init: AmazonConfigPutAggregationAuthorizationCommand.() -> Unit) {
-	this.block.declare(AmazonConfigPutAggregationAuthorizationCommand(authorizedAccountId, authorizedAwsRegion).apply(init))
+fun AmazonConfigFunctions.putAggregationAuthorization(authorizedAccountId: String, authorizedAwsRegion: String, init: AmazonConfigPutAggregationAuthorizationCommand.() -> Unit): com.amazonaws.services.config.model.PutAggregationAuthorizationResult {
+	return this.block.declare(AmazonConfigPutAggregationAuthorizationCommand(authorizedAccountId, authorizedAwsRegion).apply(init)) as com.amazonaws.services.config.model.PutAggregationAuthorizationResult
 }
 
 @Generated
-class AmazonConfigPutAggregationAuthorizationCommand(val authorizedAccountId: String, val authorizedAwsRegion: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.PutAggregationAuthorizationRequest> {
+class AmazonConfigPutAggregationAuthorizationCommand(val authorizedAccountId: String, val authorizedAwsRegion: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.PutAggregationAuthorizationRequest, com.amazonaws.services.config.model.PutAggregationAuthorizationResult> {
 
 
 
@@ -1017,8 +1141,12 @@ class AmazonConfigPutAggregationAuthorizationCommand(val authorizedAccountId: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.putAggregationAuthorization(build())
+	override fun dryResult(): com.amazonaws.services.config.model.PutAggregationAuthorizationResult {
+	  return com.amazonaws.services.config.model.PutAggregationAuthorizationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.PutAggregationAuthorizationResult {
+		return environment.config.putAggregationAuthorization(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1030,12 +1158,12 @@ class AmazonConfigPutAggregationAuthorizationCommand(val authorizedAccountId: St
 }
 
 
-fun AmazonConfigFunctions.putConfigRule(configRule: com.amazonaws.services.config.model.ConfigRule, init: AmazonConfigPutConfigRuleCommand.() -> Unit) {
-	this.block.declare(AmazonConfigPutConfigRuleCommand(configRule).apply(init))
+fun AmazonConfigFunctions.putConfigRule(configRule: com.amazonaws.services.config.model.ConfigRule, init: AmazonConfigPutConfigRuleCommand.() -> Unit): com.amazonaws.services.config.model.PutConfigRuleResult {
+	return this.block.declare(AmazonConfigPutConfigRuleCommand(configRule).apply(init)) as com.amazonaws.services.config.model.PutConfigRuleResult
 }
 
 @Generated
-class AmazonConfigPutConfigRuleCommand(val configRule: com.amazonaws.services.config.model.ConfigRule) : AmazonWebServiceCommand<com.amazonaws.services.config.model.PutConfigRuleRequest> {
+class AmazonConfigPutConfigRuleCommand(val configRule: com.amazonaws.services.config.model.ConfigRule) : AmazonWebServiceCommand<com.amazonaws.services.config.model.PutConfigRuleRequest, com.amazonaws.services.config.model.PutConfigRuleResult> {
 
 
 
@@ -1045,8 +1173,12 @@ class AmazonConfigPutConfigRuleCommand(val configRule: com.amazonaws.services.co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.putConfigRule(build())
+	override fun dryResult(): com.amazonaws.services.config.model.PutConfigRuleResult {
+	  return com.amazonaws.services.config.model.PutConfigRuleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.PutConfigRuleResult {
+		return environment.config.putConfigRule(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1057,12 +1189,12 @@ class AmazonConfigPutConfigRuleCommand(val configRule: com.amazonaws.services.co
 }
 
 
-fun AmazonConfigFunctions.putConfigurationAggregator(configurationAggregatorName: String, init: AmazonConfigPutConfigurationAggregatorCommand.() -> Unit) {
-	this.block.declare(AmazonConfigPutConfigurationAggregatorCommand(configurationAggregatorName).apply(init))
+fun AmazonConfigFunctions.putConfigurationAggregator(configurationAggregatorName: String, init: AmazonConfigPutConfigurationAggregatorCommand.() -> Unit): com.amazonaws.services.config.model.PutConfigurationAggregatorResult {
+	return this.block.declare(AmazonConfigPutConfigurationAggregatorCommand(configurationAggregatorName).apply(init)) as com.amazonaws.services.config.model.PutConfigurationAggregatorResult
 }
 
 @Generated
-class AmazonConfigPutConfigurationAggregatorCommand(val configurationAggregatorName: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.PutConfigurationAggregatorRequest> {
+class AmazonConfigPutConfigurationAggregatorCommand(val configurationAggregatorName: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.PutConfigurationAggregatorRequest, com.amazonaws.services.config.model.PutConfigurationAggregatorResult> {
 
 	var accountAggregationSources: List<com.amazonaws.services.config.model.AccountAggregationSource>? = null
 	var organizationAggregationSource: com.amazonaws.services.config.model.OrganizationAggregationSource? = null
@@ -1075,8 +1207,12 @@ class AmazonConfigPutConfigurationAggregatorCommand(val configurationAggregatorN
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.putConfigurationAggregator(build())
+	override fun dryResult(): com.amazonaws.services.config.model.PutConfigurationAggregatorResult {
+	  return com.amazonaws.services.config.model.PutConfigurationAggregatorResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.PutConfigurationAggregatorResult {
+		return environment.config.putConfigurationAggregator(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1089,12 +1225,12 @@ class AmazonConfigPutConfigurationAggregatorCommand(val configurationAggregatorN
 }
 
 
-fun AmazonConfigFunctions.putConfigurationRecorder(configurationRecorder: com.amazonaws.services.config.model.ConfigurationRecorder, init: AmazonConfigPutConfigurationRecorderCommand.() -> Unit) {
-	this.block.declare(AmazonConfigPutConfigurationRecorderCommand(configurationRecorder).apply(init))
+fun AmazonConfigFunctions.putConfigurationRecorder(configurationRecorder: com.amazonaws.services.config.model.ConfigurationRecorder, init: AmazonConfigPutConfigurationRecorderCommand.() -> Unit): com.amazonaws.services.config.model.PutConfigurationRecorderResult {
+	return this.block.declare(AmazonConfigPutConfigurationRecorderCommand(configurationRecorder).apply(init)) as com.amazonaws.services.config.model.PutConfigurationRecorderResult
 }
 
 @Generated
-class AmazonConfigPutConfigurationRecorderCommand(val configurationRecorder: com.amazonaws.services.config.model.ConfigurationRecorder) : AmazonWebServiceCommand<com.amazonaws.services.config.model.PutConfigurationRecorderRequest> {
+class AmazonConfigPutConfigurationRecorderCommand(val configurationRecorder: com.amazonaws.services.config.model.ConfigurationRecorder) : AmazonWebServiceCommand<com.amazonaws.services.config.model.PutConfigurationRecorderRequest, com.amazonaws.services.config.model.PutConfigurationRecorderResult> {
 
 
 
@@ -1104,8 +1240,12 @@ class AmazonConfigPutConfigurationRecorderCommand(val configurationRecorder: com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.putConfigurationRecorder(build())
+	override fun dryResult(): com.amazonaws.services.config.model.PutConfigurationRecorderResult {
+	  return com.amazonaws.services.config.model.PutConfigurationRecorderResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.PutConfigurationRecorderResult {
+		return environment.config.putConfigurationRecorder(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1116,12 +1256,12 @@ class AmazonConfigPutConfigurationRecorderCommand(val configurationRecorder: com
 }
 
 
-fun AmazonConfigFunctions.putDeliveryChannel(deliveryChannel: com.amazonaws.services.config.model.DeliveryChannel, init: AmazonConfigPutDeliveryChannelCommand.() -> Unit) {
-	this.block.declare(AmazonConfigPutDeliveryChannelCommand(deliveryChannel).apply(init))
+fun AmazonConfigFunctions.putDeliveryChannel(deliveryChannel: com.amazonaws.services.config.model.DeliveryChannel, init: AmazonConfigPutDeliveryChannelCommand.() -> Unit): com.amazonaws.services.config.model.PutDeliveryChannelResult {
+	return this.block.declare(AmazonConfigPutDeliveryChannelCommand(deliveryChannel).apply(init)) as com.amazonaws.services.config.model.PutDeliveryChannelResult
 }
 
 @Generated
-class AmazonConfigPutDeliveryChannelCommand(val deliveryChannel: com.amazonaws.services.config.model.DeliveryChannel) : AmazonWebServiceCommand<com.amazonaws.services.config.model.PutDeliveryChannelRequest> {
+class AmazonConfigPutDeliveryChannelCommand(val deliveryChannel: com.amazonaws.services.config.model.DeliveryChannel) : AmazonWebServiceCommand<com.amazonaws.services.config.model.PutDeliveryChannelRequest, com.amazonaws.services.config.model.PutDeliveryChannelResult> {
 
 
 
@@ -1131,8 +1271,12 @@ class AmazonConfigPutDeliveryChannelCommand(val deliveryChannel: com.amazonaws.s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.putDeliveryChannel(build())
+	override fun dryResult(): com.amazonaws.services.config.model.PutDeliveryChannelResult {
+	  return com.amazonaws.services.config.model.PutDeliveryChannelResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.PutDeliveryChannelResult {
+		return environment.config.putDeliveryChannel(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1143,12 +1287,12 @@ class AmazonConfigPutDeliveryChannelCommand(val deliveryChannel: com.amazonaws.s
 }
 
 
-fun AmazonConfigFunctions.putEvaluations(resultToken: String, init: AmazonConfigPutEvaluationsCommand.() -> Unit) {
-	this.block.declare(AmazonConfigPutEvaluationsCommand(resultToken).apply(init))
+fun AmazonConfigFunctions.putEvaluations(resultToken: String, init: AmazonConfigPutEvaluationsCommand.() -> Unit): com.amazonaws.services.config.model.PutEvaluationsResult {
+	return this.block.declare(AmazonConfigPutEvaluationsCommand(resultToken).apply(init)) as com.amazonaws.services.config.model.PutEvaluationsResult
 }
 
 @Generated
-class AmazonConfigPutEvaluationsCommand(val resultToken: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.PutEvaluationsRequest> {
+class AmazonConfigPutEvaluationsCommand(val resultToken: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.PutEvaluationsRequest, com.amazonaws.services.config.model.PutEvaluationsResult> {
 
 	var evaluations: List<com.amazonaws.services.config.model.Evaluation>? = null
 	var testMode: Boolean? = false
@@ -1161,8 +1305,12 @@ class AmazonConfigPutEvaluationsCommand(val resultToken: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.putEvaluations(build())
+	override fun dryResult(): com.amazonaws.services.config.model.PutEvaluationsResult {
+	  return com.amazonaws.services.config.model.PutEvaluationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.PutEvaluationsResult {
+		return environment.config.putEvaluations(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1175,12 +1323,12 @@ class AmazonConfigPutEvaluationsCommand(val resultToken: String) : AmazonWebServ
 }
 
 
-fun AmazonConfigFunctions.startConfigRulesEvaluation(init: AmazonConfigStartConfigRulesEvaluationCommand.() -> Unit) {
-	this.block.declare(AmazonConfigStartConfigRulesEvaluationCommand().apply(init))
+fun AmazonConfigFunctions.startConfigRulesEvaluation(init: AmazonConfigStartConfigRulesEvaluationCommand.() -> Unit): com.amazonaws.services.config.model.StartConfigRulesEvaluationResult {
+	return this.block.declare(AmazonConfigStartConfigRulesEvaluationCommand().apply(init)) as com.amazonaws.services.config.model.StartConfigRulesEvaluationResult
 }
 
 @Generated
-class AmazonConfigStartConfigRulesEvaluationCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.StartConfigRulesEvaluationRequest> {
+class AmazonConfigStartConfigRulesEvaluationCommand() : AmazonWebServiceCommand<com.amazonaws.services.config.model.StartConfigRulesEvaluationRequest, com.amazonaws.services.config.model.StartConfigRulesEvaluationResult> {
 
 	var configRuleNames: List<String>? = null
 
@@ -1190,8 +1338,12 @@ class AmazonConfigStartConfigRulesEvaluationCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.startConfigRulesEvaluation(build())
+	override fun dryResult(): com.amazonaws.services.config.model.StartConfigRulesEvaluationResult {
+	  return com.amazonaws.services.config.model.StartConfigRulesEvaluationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.StartConfigRulesEvaluationResult {
+		return environment.config.startConfigRulesEvaluation(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1202,12 +1354,12 @@ class AmazonConfigStartConfigRulesEvaluationCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AmazonConfigFunctions.startConfigurationRecorder(configurationRecorderName: String, init: AmazonConfigStartConfigurationRecorderCommand.() -> Unit) {
-	this.block.declare(AmazonConfigStartConfigurationRecorderCommand(configurationRecorderName).apply(init))
+fun AmazonConfigFunctions.startConfigurationRecorder(configurationRecorderName: String, init: AmazonConfigStartConfigurationRecorderCommand.() -> Unit): com.amazonaws.services.config.model.StartConfigurationRecorderResult {
+	return this.block.declare(AmazonConfigStartConfigurationRecorderCommand(configurationRecorderName).apply(init)) as com.amazonaws.services.config.model.StartConfigurationRecorderResult
 }
 
 @Generated
-class AmazonConfigStartConfigurationRecorderCommand(val configurationRecorderName: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.StartConfigurationRecorderRequest> {
+class AmazonConfigStartConfigurationRecorderCommand(val configurationRecorderName: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.StartConfigurationRecorderRequest, com.amazonaws.services.config.model.StartConfigurationRecorderResult> {
 
 
 
@@ -1217,8 +1369,12 @@ class AmazonConfigStartConfigurationRecorderCommand(val configurationRecorderNam
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.startConfigurationRecorder(build())
+	override fun dryResult(): com.amazonaws.services.config.model.StartConfigurationRecorderResult {
+	  return com.amazonaws.services.config.model.StartConfigurationRecorderResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.StartConfigurationRecorderResult {
+		return environment.config.startConfigurationRecorder(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1229,12 +1385,12 @@ class AmazonConfigStartConfigurationRecorderCommand(val configurationRecorderNam
 }
 
 
-fun AmazonConfigFunctions.stopConfigurationRecorder(configurationRecorderName: String, init: AmazonConfigStopConfigurationRecorderCommand.() -> Unit) {
-	this.block.declare(AmazonConfigStopConfigurationRecorderCommand(configurationRecorderName).apply(init))
+fun AmazonConfigFunctions.stopConfigurationRecorder(configurationRecorderName: String, init: AmazonConfigStopConfigurationRecorderCommand.() -> Unit): com.amazonaws.services.config.model.StopConfigurationRecorderResult {
+	return this.block.declare(AmazonConfigStopConfigurationRecorderCommand(configurationRecorderName).apply(init)) as com.amazonaws.services.config.model.StopConfigurationRecorderResult
 }
 
 @Generated
-class AmazonConfigStopConfigurationRecorderCommand(val configurationRecorderName: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.StopConfigurationRecorderRequest> {
+class AmazonConfigStopConfigurationRecorderCommand(val configurationRecorderName: String) : AmazonWebServiceCommand<com.amazonaws.services.config.model.StopConfigurationRecorderRequest, com.amazonaws.services.config.model.StopConfigurationRecorderResult> {
 
 
 
@@ -1244,8 +1400,12 @@ class AmazonConfigStopConfigurationRecorderCommand(val configurationRecorderName
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.config.stopConfigurationRecorder(build())
+	override fun dryResult(): com.amazonaws.services.config.model.StopConfigurationRecorderResult {
+	  return com.amazonaws.services.config.model.StopConfigurationRecorderResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.config.model.StopConfigurationRecorderResult {
+		return environment.config.stopConfigurationRecorder(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

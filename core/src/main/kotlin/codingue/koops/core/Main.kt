@@ -29,6 +29,10 @@ fun main(args: Array<String>) {
 	block(environment) {
 		system cd "/mydir/mysubdir"
 		aws s3 {
+			listObjects("mybucket")
+			putObject("mybucket", "the key", File("foo.jar"))
+		}
+		aws s3 {
 			putObject("mybucket", "the key", File("foo.jar"))
 		}
 		aws lambda {

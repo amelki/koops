@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.organizations: AWSOrganizations
 @Generated
 class AWSOrganizationsFunctions(val block: Block)
 
-infix fun AwsContinuation.organizations(init: AWSOrganizationsFunctions.() -> Unit) {
-	AWSOrganizationsFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.organizations(init: AWSOrganizationsFunctions.() -> T): T {
+	return AWSOrganizationsFunctions(shell).run(init)
 }
 
 			
 
-fun AWSOrganizationsFunctions.acceptHandshake(handshakeId: String, init: AWSOrganizationsAcceptHandshakeCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsAcceptHandshakeCommand(handshakeId).apply(init))
+fun AWSOrganizationsFunctions.acceptHandshake(handshakeId: String, init: AWSOrganizationsAcceptHandshakeCommand.() -> Unit): com.amazonaws.services.organizations.model.AcceptHandshakeResult {
+	return this.block.declare(AWSOrganizationsAcceptHandshakeCommand(handshakeId).apply(init)) as com.amazonaws.services.organizations.model.AcceptHandshakeResult
 }
 
 @Generated
-class AWSOrganizationsAcceptHandshakeCommand(val handshakeId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.AcceptHandshakeRequest> {
+class AWSOrganizationsAcceptHandshakeCommand(val handshakeId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.AcceptHandshakeRequest, com.amazonaws.services.organizations.model.AcceptHandshakeResult> {
 
 
 
@@ -41,8 +41,12 @@ class AWSOrganizationsAcceptHandshakeCommand(val handshakeId: String) : AmazonWe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.acceptHandshake(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.AcceptHandshakeResult {
+	  return com.amazonaws.services.organizations.model.AcceptHandshakeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.AcceptHandshakeResult {
+		return environment.organizations.acceptHandshake(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -53,12 +57,12 @@ class AWSOrganizationsAcceptHandshakeCommand(val handshakeId: String) : AmazonWe
 }
 
 
-fun AWSOrganizationsFunctions.attachPolicy(policyId: String, targetId: String, init: AWSOrganizationsAttachPolicyCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsAttachPolicyCommand(policyId, targetId).apply(init))
+fun AWSOrganizationsFunctions.attachPolicy(policyId: String, targetId: String, init: AWSOrganizationsAttachPolicyCommand.() -> Unit): com.amazonaws.services.organizations.model.AttachPolicyResult {
+	return this.block.declare(AWSOrganizationsAttachPolicyCommand(policyId, targetId).apply(init)) as com.amazonaws.services.organizations.model.AttachPolicyResult
 }
 
 @Generated
-class AWSOrganizationsAttachPolicyCommand(val policyId: String, val targetId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.AttachPolicyRequest> {
+class AWSOrganizationsAttachPolicyCommand(val policyId: String, val targetId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.AttachPolicyRequest, com.amazonaws.services.organizations.model.AttachPolicyResult> {
 
 
 
@@ -69,8 +73,12 @@ class AWSOrganizationsAttachPolicyCommand(val policyId: String, val targetId: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.attachPolicy(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.AttachPolicyResult {
+	  return com.amazonaws.services.organizations.model.AttachPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.AttachPolicyResult {
+		return environment.organizations.attachPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -82,12 +90,12 @@ class AWSOrganizationsAttachPolicyCommand(val policyId: String, val targetId: St
 }
 
 
-fun AWSOrganizationsFunctions.cancelHandshake(handshakeId: String, init: AWSOrganizationsCancelHandshakeCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsCancelHandshakeCommand(handshakeId).apply(init))
+fun AWSOrganizationsFunctions.cancelHandshake(handshakeId: String, init: AWSOrganizationsCancelHandshakeCommand.() -> Unit): com.amazonaws.services.organizations.model.CancelHandshakeResult {
+	return this.block.declare(AWSOrganizationsCancelHandshakeCommand(handshakeId).apply(init)) as com.amazonaws.services.organizations.model.CancelHandshakeResult
 }
 
 @Generated
-class AWSOrganizationsCancelHandshakeCommand(val handshakeId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.CancelHandshakeRequest> {
+class AWSOrganizationsCancelHandshakeCommand(val handshakeId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.CancelHandshakeRequest, com.amazonaws.services.organizations.model.CancelHandshakeResult> {
 
 
 
@@ -97,8 +105,12 @@ class AWSOrganizationsCancelHandshakeCommand(val handshakeId: String) : AmazonWe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.cancelHandshake(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.CancelHandshakeResult {
+	  return com.amazonaws.services.organizations.model.CancelHandshakeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.CancelHandshakeResult {
+		return environment.organizations.cancelHandshake(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -109,12 +121,12 @@ class AWSOrganizationsCancelHandshakeCommand(val handshakeId: String) : AmazonWe
 }
 
 
-fun AWSOrganizationsFunctions.createAccount(email: String, accountName: String, init: AWSOrganizationsCreateAccountCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsCreateAccountCommand(email, accountName).apply(init))
+fun AWSOrganizationsFunctions.createAccount(email: String, accountName: String, init: AWSOrganizationsCreateAccountCommand.() -> Unit): com.amazonaws.services.organizations.model.CreateAccountResult {
+	return this.block.declare(AWSOrganizationsCreateAccountCommand(email, accountName).apply(init)) as com.amazonaws.services.organizations.model.CreateAccountResult
 }
 
 @Generated
-class AWSOrganizationsCreateAccountCommand(val email: String, val accountName: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.CreateAccountRequest> {
+class AWSOrganizationsCreateAccountCommand(val email: String, val accountName: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.CreateAccountRequest, com.amazonaws.services.organizations.model.CreateAccountResult> {
 
 	var roleName: String? = null
 	var iamUserAccessToBilling: IAMUserAccessToBilling? = null
@@ -128,8 +140,12 @@ class AWSOrganizationsCreateAccountCommand(val email: String, val accountName: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.createAccount(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.CreateAccountResult {
+	  return com.amazonaws.services.organizations.model.CreateAccountResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.CreateAccountResult {
+		return environment.organizations.createAccount(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -143,12 +159,12 @@ class AWSOrganizationsCreateAccountCommand(val email: String, val accountName: S
 }
 
 
-fun AWSOrganizationsFunctions.createOrganization(init: AWSOrganizationsCreateOrganizationCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsCreateOrganizationCommand().apply(init))
+fun AWSOrganizationsFunctions.createOrganization(init: AWSOrganizationsCreateOrganizationCommand.() -> Unit): com.amazonaws.services.organizations.model.CreateOrganizationResult {
+	return this.block.declare(AWSOrganizationsCreateOrganizationCommand().apply(init)) as com.amazonaws.services.organizations.model.CreateOrganizationResult
 }
 
 @Generated
-class AWSOrganizationsCreateOrganizationCommand() : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.CreateOrganizationRequest> {
+class AWSOrganizationsCreateOrganizationCommand() : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.CreateOrganizationRequest, com.amazonaws.services.organizations.model.CreateOrganizationResult> {
 
 	var featureSet: OrganizationFeatureSet? = null
 
@@ -158,8 +174,12 @@ class AWSOrganizationsCreateOrganizationCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.createOrganization(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.CreateOrganizationResult {
+	  return com.amazonaws.services.organizations.model.CreateOrganizationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.CreateOrganizationResult {
+		return environment.organizations.createOrganization(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -170,12 +190,12 @@ class AWSOrganizationsCreateOrganizationCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AWSOrganizationsFunctions.createOrganizationalUnit(parentId: String, name: String, init: AWSOrganizationsCreateOrganizationalUnitCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsCreateOrganizationalUnitCommand(parentId, name).apply(init))
+fun AWSOrganizationsFunctions.createOrganizationalUnit(parentId: String, name: String, init: AWSOrganizationsCreateOrganizationalUnitCommand.() -> Unit): com.amazonaws.services.organizations.model.CreateOrganizationalUnitResult {
+	return this.block.declare(AWSOrganizationsCreateOrganizationalUnitCommand(parentId, name).apply(init)) as com.amazonaws.services.organizations.model.CreateOrganizationalUnitResult
 }
 
 @Generated
-class AWSOrganizationsCreateOrganizationalUnitCommand(val parentId: String, val name: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.CreateOrganizationalUnitRequest> {
+class AWSOrganizationsCreateOrganizationalUnitCommand(val parentId: String, val name: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.CreateOrganizationalUnitRequest, com.amazonaws.services.organizations.model.CreateOrganizationalUnitResult> {
 
 
 
@@ -186,8 +206,12 @@ class AWSOrganizationsCreateOrganizationalUnitCommand(val parentId: String, val 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.createOrganizationalUnit(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.CreateOrganizationalUnitResult {
+	  return com.amazonaws.services.organizations.model.CreateOrganizationalUnitResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.CreateOrganizationalUnitResult {
+		return environment.organizations.createOrganizationalUnit(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -199,12 +223,12 @@ class AWSOrganizationsCreateOrganizationalUnitCommand(val parentId: String, val 
 }
 
 
-fun AWSOrganizationsFunctions.createPolicy(content: String, description: String, name: String, type: PolicyType, init: AWSOrganizationsCreatePolicyCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsCreatePolicyCommand(content, description, name, type).apply(init))
+fun AWSOrganizationsFunctions.createPolicy(content: String, description: String, name: String, type: PolicyType, init: AWSOrganizationsCreatePolicyCommand.() -> Unit): com.amazonaws.services.organizations.model.CreatePolicyResult {
+	return this.block.declare(AWSOrganizationsCreatePolicyCommand(content, description, name, type).apply(init)) as com.amazonaws.services.organizations.model.CreatePolicyResult
 }
 
 @Generated
-class AWSOrganizationsCreatePolicyCommand(val content: String, val description: String, val name: String, val type: PolicyType) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.CreatePolicyRequest> {
+class AWSOrganizationsCreatePolicyCommand(val content: String, val description: String, val name: String, val type: PolicyType) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.CreatePolicyRequest, com.amazonaws.services.organizations.model.CreatePolicyResult> {
 
 
 
@@ -217,8 +241,12 @@ class AWSOrganizationsCreatePolicyCommand(val content: String, val description: 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.createPolicy(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.CreatePolicyResult {
+	  return com.amazonaws.services.organizations.model.CreatePolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.CreatePolicyResult {
+		return environment.organizations.createPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -232,12 +260,12 @@ class AWSOrganizationsCreatePolicyCommand(val content: String, val description: 
 }
 
 
-fun AWSOrganizationsFunctions.declineHandshake(handshakeId: String, init: AWSOrganizationsDeclineHandshakeCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsDeclineHandshakeCommand(handshakeId).apply(init))
+fun AWSOrganizationsFunctions.declineHandshake(handshakeId: String, init: AWSOrganizationsDeclineHandshakeCommand.() -> Unit): com.amazonaws.services.organizations.model.DeclineHandshakeResult {
+	return this.block.declare(AWSOrganizationsDeclineHandshakeCommand(handshakeId).apply(init)) as com.amazonaws.services.organizations.model.DeclineHandshakeResult
 }
 
 @Generated
-class AWSOrganizationsDeclineHandshakeCommand(val handshakeId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.DeclineHandshakeRequest> {
+class AWSOrganizationsDeclineHandshakeCommand(val handshakeId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.DeclineHandshakeRequest, com.amazonaws.services.organizations.model.DeclineHandshakeResult> {
 
 
 
@@ -247,8 +275,12 @@ class AWSOrganizationsDeclineHandshakeCommand(val handshakeId: String) : AmazonW
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.declineHandshake(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.DeclineHandshakeResult {
+	  return com.amazonaws.services.organizations.model.DeclineHandshakeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.DeclineHandshakeResult {
+		return environment.organizations.declineHandshake(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -259,12 +291,12 @@ class AWSOrganizationsDeclineHandshakeCommand(val handshakeId: String) : AmazonW
 }
 
 
-fun AWSOrganizationsFunctions.deleteOrganization(init: AWSOrganizationsDeleteOrganizationCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsDeleteOrganizationCommand().apply(init))
+fun AWSOrganizationsFunctions.deleteOrganization(init: AWSOrganizationsDeleteOrganizationCommand.() -> Unit): com.amazonaws.services.organizations.model.DeleteOrganizationResult {
+	return this.block.declare(AWSOrganizationsDeleteOrganizationCommand().apply(init)) as com.amazonaws.services.organizations.model.DeleteOrganizationResult
 }
 
 @Generated
-class AWSOrganizationsDeleteOrganizationCommand() : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.DeleteOrganizationRequest> {
+class AWSOrganizationsDeleteOrganizationCommand() : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.DeleteOrganizationRequest, com.amazonaws.services.organizations.model.DeleteOrganizationResult> {
 
 
 
@@ -274,8 +306,12 @@ class AWSOrganizationsDeleteOrganizationCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.deleteOrganization(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.DeleteOrganizationResult {
+	  return com.amazonaws.services.organizations.model.DeleteOrganizationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.DeleteOrganizationResult {
+		return environment.organizations.deleteOrganization(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -286,12 +322,12 @@ class AWSOrganizationsDeleteOrganizationCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AWSOrganizationsFunctions.deleteOrganizationalUnit(organizationalUnitId: String, init: AWSOrganizationsDeleteOrganizationalUnitCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsDeleteOrganizationalUnitCommand(organizationalUnitId).apply(init))
+fun AWSOrganizationsFunctions.deleteOrganizationalUnit(organizationalUnitId: String, init: AWSOrganizationsDeleteOrganizationalUnitCommand.() -> Unit): com.amazonaws.services.organizations.model.DeleteOrganizationalUnitResult {
+	return this.block.declare(AWSOrganizationsDeleteOrganizationalUnitCommand(organizationalUnitId).apply(init)) as com.amazonaws.services.organizations.model.DeleteOrganizationalUnitResult
 }
 
 @Generated
-class AWSOrganizationsDeleteOrganizationalUnitCommand(val organizationalUnitId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.DeleteOrganizationalUnitRequest> {
+class AWSOrganizationsDeleteOrganizationalUnitCommand(val organizationalUnitId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.DeleteOrganizationalUnitRequest, com.amazonaws.services.organizations.model.DeleteOrganizationalUnitResult> {
 
 
 
@@ -301,8 +337,12 @@ class AWSOrganizationsDeleteOrganizationalUnitCommand(val organizationalUnitId: 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.deleteOrganizationalUnit(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.DeleteOrganizationalUnitResult {
+	  return com.amazonaws.services.organizations.model.DeleteOrganizationalUnitResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.DeleteOrganizationalUnitResult {
+		return environment.organizations.deleteOrganizationalUnit(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -313,12 +353,12 @@ class AWSOrganizationsDeleteOrganizationalUnitCommand(val organizationalUnitId: 
 }
 
 
-fun AWSOrganizationsFunctions.deletePolicy(policyId: String, init: AWSOrganizationsDeletePolicyCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsDeletePolicyCommand(policyId).apply(init))
+fun AWSOrganizationsFunctions.deletePolicy(policyId: String, init: AWSOrganizationsDeletePolicyCommand.() -> Unit): com.amazonaws.services.organizations.model.DeletePolicyResult {
+	return this.block.declare(AWSOrganizationsDeletePolicyCommand(policyId).apply(init)) as com.amazonaws.services.organizations.model.DeletePolicyResult
 }
 
 @Generated
-class AWSOrganizationsDeletePolicyCommand(val policyId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.DeletePolicyRequest> {
+class AWSOrganizationsDeletePolicyCommand(val policyId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.DeletePolicyRequest, com.amazonaws.services.organizations.model.DeletePolicyResult> {
 
 
 
@@ -328,8 +368,12 @@ class AWSOrganizationsDeletePolicyCommand(val policyId: String) : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.deletePolicy(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.DeletePolicyResult {
+	  return com.amazonaws.services.organizations.model.DeletePolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.DeletePolicyResult {
+		return environment.organizations.deletePolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -340,12 +384,12 @@ class AWSOrganizationsDeletePolicyCommand(val policyId: String) : AmazonWebServi
 }
 
 
-fun AWSOrganizationsFunctions.describeAccount(accountId: String, init: AWSOrganizationsDescribeAccountCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsDescribeAccountCommand(accountId).apply(init))
+fun AWSOrganizationsFunctions.describeAccount(accountId: String, init: AWSOrganizationsDescribeAccountCommand.() -> Unit): com.amazonaws.services.organizations.model.DescribeAccountResult {
+	return this.block.declare(AWSOrganizationsDescribeAccountCommand(accountId).apply(init)) as com.amazonaws.services.organizations.model.DescribeAccountResult
 }
 
 @Generated
-class AWSOrganizationsDescribeAccountCommand(val accountId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.DescribeAccountRequest> {
+class AWSOrganizationsDescribeAccountCommand(val accountId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.DescribeAccountRequest, com.amazonaws.services.organizations.model.DescribeAccountResult> {
 
 
 
@@ -355,8 +399,12 @@ class AWSOrganizationsDescribeAccountCommand(val accountId: String) : AmazonWebS
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.describeAccount(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.DescribeAccountResult {
+	  return com.amazonaws.services.organizations.model.DescribeAccountResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.DescribeAccountResult {
+		return environment.organizations.describeAccount(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -367,12 +415,12 @@ class AWSOrganizationsDescribeAccountCommand(val accountId: String) : AmazonWebS
 }
 
 
-fun AWSOrganizationsFunctions.describeCreateAccountStatus(createAccountRequestId: String, init: AWSOrganizationsDescribeCreateAccountStatusCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsDescribeCreateAccountStatusCommand(createAccountRequestId).apply(init))
+fun AWSOrganizationsFunctions.describeCreateAccountStatus(createAccountRequestId: String, init: AWSOrganizationsDescribeCreateAccountStatusCommand.() -> Unit): com.amazonaws.services.organizations.model.DescribeCreateAccountStatusResult {
+	return this.block.declare(AWSOrganizationsDescribeCreateAccountStatusCommand(createAccountRequestId).apply(init)) as com.amazonaws.services.organizations.model.DescribeCreateAccountStatusResult
 }
 
 @Generated
-class AWSOrganizationsDescribeCreateAccountStatusCommand(val createAccountRequestId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.DescribeCreateAccountStatusRequest> {
+class AWSOrganizationsDescribeCreateAccountStatusCommand(val createAccountRequestId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.DescribeCreateAccountStatusRequest, com.amazonaws.services.organizations.model.DescribeCreateAccountStatusResult> {
 
 
 
@@ -382,8 +430,12 @@ class AWSOrganizationsDescribeCreateAccountStatusCommand(val createAccountReques
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.describeCreateAccountStatus(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.DescribeCreateAccountStatusResult {
+	  return com.amazonaws.services.organizations.model.DescribeCreateAccountStatusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.DescribeCreateAccountStatusResult {
+		return environment.organizations.describeCreateAccountStatus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -394,12 +446,12 @@ class AWSOrganizationsDescribeCreateAccountStatusCommand(val createAccountReques
 }
 
 
-fun AWSOrganizationsFunctions.describeHandshake(handshakeId: String, init: AWSOrganizationsDescribeHandshakeCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsDescribeHandshakeCommand(handshakeId).apply(init))
+fun AWSOrganizationsFunctions.describeHandshake(handshakeId: String, init: AWSOrganizationsDescribeHandshakeCommand.() -> Unit): com.amazonaws.services.organizations.model.DescribeHandshakeResult {
+	return this.block.declare(AWSOrganizationsDescribeHandshakeCommand(handshakeId).apply(init)) as com.amazonaws.services.organizations.model.DescribeHandshakeResult
 }
 
 @Generated
-class AWSOrganizationsDescribeHandshakeCommand(val handshakeId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.DescribeHandshakeRequest> {
+class AWSOrganizationsDescribeHandshakeCommand(val handshakeId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.DescribeHandshakeRequest, com.amazonaws.services.organizations.model.DescribeHandshakeResult> {
 
 
 
@@ -409,8 +461,12 @@ class AWSOrganizationsDescribeHandshakeCommand(val handshakeId: String) : Amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.describeHandshake(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.DescribeHandshakeResult {
+	  return com.amazonaws.services.organizations.model.DescribeHandshakeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.DescribeHandshakeResult {
+		return environment.organizations.describeHandshake(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -421,12 +477,12 @@ class AWSOrganizationsDescribeHandshakeCommand(val handshakeId: String) : Amazon
 }
 
 
-fun AWSOrganizationsFunctions.describeOrganization(init: AWSOrganizationsDescribeOrganizationCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsDescribeOrganizationCommand().apply(init))
+fun AWSOrganizationsFunctions.describeOrganization(init: AWSOrganizationsDescribeOrganizationCommand.() -> Unit): com.amazonaws.services.organizations.model.DescribeOrganizationResult {
+	return this.block.declare(AWSOrganizationsDescribeOrganizationCommand().apply(init)) as com.amazonaws.services.organizations.model.DescribeOrganizationResult
 }
 
 @Generated
-class AWSOrganizationsDescribeOrganizationCommand() : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.DescribeOrganizationRequest> {
+class AWSOrganizationsDescribeOrganizationCommand() : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.DescribeOrganizationRequest, com.amazonaws.services.organizations.model.DescribeOrganizationResult> {
 
 
 
@@ -436,8 +492,12 @@ class AWSOrganizationsDescribeOrganizationCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.describeOrganization(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.DescribeOrganizationResult {
+	  return com.amazonaws.services.organizations.model.DescribeOrganizationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.DescribeOrganizationResult {
+		return environment.organizations.describeOrganization(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -448,12 +508,12 @@ class AWSOrganizationsDescribeOrganizationCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AWSOrganizationsFunctions.describeOrganizationalUnit(organizationalUnitId: String, init: AWSOrganizationsDescribeOrganizationalUnitCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsDescribeOrganizationalUnitCommand(organizationalUnitId).apply(init))
+fun AWSOrganizationsFunctions.describeOrganizationalUnit(organizationalUnitId: String, init: AWSOrganizationsDescribeOrganizationalUnitCommand.() -> Unit): com.amazonaws.services.organizations.model.DescribeOrganizationalUnitResult {
+	return this.block.declare(AWSOrganizationsDescribeOrganizationalUnitCommand(organizationalUnitId).apply(init)) as com.amazonaws.services.organizations.model.DescribeOrganizationalUnitResult
 }
 
 @Generated
-class AWSOrganizationsDescribeOrganizationalUnitCommand(val organizationalUnitId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.DescribeOrganizationalUnitRequest> {
+class AWSOrganizationsDescribeOrganizationalUnitCommand(val organizationalUnitId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.DescribeOrganizationalUnitRequest, com.amazonaws.services.organizations.model.DescribeOrganizationalUnitResult> {
 
 
 
@@ -463,8 +523,12 @@ class AWSOrganizationsDescribeOrganizationalUnitCommand(val organizationalUnitId
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.describeOrganizationalUnit(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.DescribeOrganizationalUnitResult {
+	  return com.amazonaws.services.organizations.model.DescribeOrganizationalUnitResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.DescribeOrganizationalUnitResult {
+		return environment.organizations.describeOrganizationalUnit(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -475,12 +539,12 @@ class AWSOrganizationsDescribeOrganizationalUnitCommand(val organizationalUnitId
 }
 
 
-fun AWSOrganizationsFunctions.describePolicy(policyId: String, init: AWSOrganizationsDescribePolicyCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsDescribePolicyCommand(policyId).apply(init))
+fun AWSOrganizationsFunctions.describePolicy(policyId: String, init: AWSOrganizationsDescribePolicyCommand.() -> Unit): com.amazonaws.services.organizations.model.DescribePolicyResult {
+	return this.block.declare(AWSOrganizationsDescribePolicyCommand(policyId).apply(init)) as com.amazonaws.services.organizations.model.DescribePolicyResult
 }
 
 @Generated
-class AWSOrganizationsDescribePolicyCommand(val policyId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.DescribePolicyRequest> {
+class AWSOrganizationsDescribePolicyCommand(val policyId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.DescribePolicyRequest, com.amazonaws.services.organizations.model.DescribePolicyResult> {
 
 
 
@@ -490,8 +554,12 @@ class AWSOrganizationsDescribePolicyCommand(val policyId: String) : AmazonWebSer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.describePolicy(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.DescribePolicyResult {
+	  return com.amazonaws.services.organizations.model.DescribePolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.DescribePolicyResult {
+		return environment.organizations.describePolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -502,12 +570,12 @@ class AWSOrganizationsDescribePolicyCommand(val policyId: String) : AmazonWebSer
 }
 
 
-fun AWSOrganizationsFunctions.detachPolicy(policyId: String, targetId: String, init: AWSOrganizationsDetachPolicyCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsDetachPolicyCommand(policyId, targetId).apply(init))
+fun AWSOrganizationsFunctions.detachPolicy(policyId: String, targetId: String, init: AWSOrganizationsDetachPolicyCommand.() -> Unit): com.amazonaws.services.organizations.model.DetachPolicyResult {
+	return this.block.declare(AWSOrganizationsDetachPolicyCommand(policyId, targetId).apply(init)) as com.amazonaws.services.organizations.model.DetachPolicyResult
 }
 
 @Generated
-class AWSOrganizationsDetachPolicyCommand(val policyId: String, val targetId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.DetachPolicyRequest> {
+class AWSOrganizationsDetachPolicyCommand(val policyId: String, val targetId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.DetachPolicyRequest, com.amazonaws.services.organizations.model.DetachPolicyResult> {
 
 
 
@@ -518,8 +586,12 @@ class AWSOrganizationsDetachPolicyCommand(val policyId: String, val targetId: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.detachPolicy(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.DetachPolicyResult {
+	  return com.amazonaws.services.organizations.model.DetachPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.DetachPolicyResult {
+		return environment.organizations.detachPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -531,12 +603,12 @@ class AWSOrganizationsDetachPolicyCommand(val policyId: String, val targetId: St
 }
 
 
-fun AWSOrganizationsFunctions.disableAWSServiceAccess(servicePrincipal: String, init: AWSOrganizationsDisableAWSServiceAccessCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsDisableAWSServiceAccessCommand(servicePrincipal).apply(init))
+fun AWSOrganizationsFunctions.disableAWSServiceAccess(servicePrincipal: String, init: AWSOrganizationsDisableAWSServiceAccessCommand.() -> Unit): com.amazonaws.services.organizations.model.DisableAWSServiceAccessResult {
+	return this.block.declare(AWSOrganizationsDisableAWSServiceAccessCommand(servicePrincipal).apply(init)) as com.amazonaws.services.organizations.model.DisableAWSServiceAccessResult
 }
 
 @Generated
-class AWSOrganizationsDisableAWSServiceAccessCommand(val servicePrincipal: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.DisableAWSServiceAccessRequest> {
+class AWSOrganizationsDisableAWSServiceAccessCommand(val servicePrincipal: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.DisableAWSServiceAccessRequest, com.amazonaws.services.organizations.model.DisableAWSServiceAccessResult> {
 
 
 
@@ -546,8 +618,12 @@ class AWSOrganizationsDisableAWSServiceAccessCommand(val servicePrincipal: Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.disableAWSServiceAccess(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.DisableAWSServiceAccessResult {
+	  return com.amazonaws.services.organizations.model.DisableAWSServiceAccessResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.DisableAWSServiceAccessResult {
+		return environment.organizations.disableAWSServiceAccess(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -558,12 +634,12 @@ class AWSOrganizationsDisableAWSServiceAccessCommand(val servicePrincipal: Strin
 }
 
 
-fun AWSOrganizationsFunctions.disablePolicyType(rootId: String, policyType: PolicyType, init: AWSOrganizationsDisablePolicyTypeCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsDisablePolicyTypeCommand(rootId, policyType).apply(init))
+fun AWSOrganizationsFunctions.disablePolicyType(rootId: String, policyType: PolicyType, init: AWSOrganizationsDisablePolicyTypeCommand.() -> Unit): com.amazonaws.services.organizations.model.DisablePolicyTypeResult {
+	return this.block.declare(AWSOrganizationsDisablePolicyTypeCommand(rootId, policyType).apply(init)) as com.amazonaws.services.organizations.model.DisablePolicyTypeResult
 }
 
 @Generated
-class AWSOrganizationsDisablePolicyTypeCommand(val rootId: String, val policyType: PolicyType) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.DisablePolicyTypeRequest> {
+class AWSOrganizationsDisablePolicyTypeCommand(val rootId: String, val policyType: PolicyType) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.DisablePolicyTypeRequest, com.amazonaws.services.organizations.model.DisablePolicyTypeResult> {
 
 
 
@@ -574,8 +650,12 @@ class AWSOrganizationsDisablePolicyTypeCommand(val rootId: String, val policyTyp
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.disablePolicyType(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.DisablePolicyTypeResult {
+	  return com.amazonaws.services.organizations.model.DisablePolicyTypeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.DisablePolicyTypeResult {
+		return environment.organizations.disablePolicyType(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -587,12 +667,12 @@ class AWSOrganizationsDisablePolicyTypeCommand(val rootId: String, val policyTyp
 }
 
 
-fun AWSOrganizationsFunctions.enableAWSServiceAccess(servicePrincipal: String, init: AWSOrganizationsEnableAWSServiceAccessCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsEnableAWSServiceAccessCommand(servicePrincipal).apply(init))
+fun AWSOrganizationsFunctions.enableAWSServiceAccess(servicePrincipal: String, init: AWSOrganizationsEnableAWSServiceAccessCommand.() -> Unit): com.amazonaws.services.organizations.model.EnableAWSServiceAccessResult {
+	return this.block.declare(AWSOrganizationsEnableAWSServiceAccessCommand(servicePrincipal).apply(init)) as com.amazonaws.services.organizations.model.EnableAWSServiceAccessResult
 }
 
 @Generated
-class AWSOrganizationsEnableAWSServiceAccessCommand(val servicePrincipal: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.EnableAWSServiceAccessRequest> {
+class AWSOrganizationsEnableAWSServiceAccessCommand(val servicePrincipal: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.EnableAWSServiceAccessRequest, com.amazonaws.services.organizations.model.EnableAWSServiceAccessResult> {
 
 
 
@@ -602,8 +682,12 @@ class AWSOrganizationsEnableAWSServiceAccessCommand(val servicePrincipal: String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.enableAWSServiceAccess(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.EnableAWSServiceAccessResult {
+	  return com.amazonaws.services.organizations.model.EnableAWSServiceAccessResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.EnableAWSServiceAccessResult {
+		return environment.organizations.enableAWSServiceAccess(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -614,12 +698,12 @@ class AWSOrganizationsEnableAWSServiceAccessCommand(val servicePrincipal: String
 }
 
 
-fun AWSOrganizationsFunctions.enableAllFeatures(init: AWSOrganizationsEnableAllFeaturesCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsEnableAllFeaturesCommand().apply(init))
+fun AWSOrganizationsFunctions.enableAllFeatures(init: AWSOrganizationsEnableAllFeaturesCommand.() -> Unit): com.amazonaws.services.organizations.model.EnableAllFeaturesResult {
+	return this.block.declare(AWSOrganizationsEnableAllFeaturesCommand().apply(init)) as com.amazonaws.services.organizations.model.EnableAllFeaturesResult
 }
 
 @Generated
-class AWSOrganizationsEnableAllFeaturesCommand() : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.EnableAllFeaturesRequest> {
+class AWSOrganizationsEnableAllFeaturesCommand() : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.EnableAllFeaturesRequest, com.amazonaws.services.organizations.model.EnableAllFeaturesResult> {
 
 
 
@@ -629,8 +713,12 @@ class AWSOrganizationsEnableAllFeaturesCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.enableAllFeatures(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.EnableAllFeaturesResult {
+	  return com.amazonaws.services.organizations.model.EnableAllFeaturesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.EnableAllFeaturesResult {
+		return environment.organizations.enableAllFeatures(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -641,12 +729,12 @@ class AWSOrganizationsEnableAllFeaturesCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AWSOrganizationsFunctions.enablePolicyType(rootId: String, policyType: PolicyType, init: AWSOrganizationsEnablePolicyTypeCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsEnablePolicyTypeCommand(rootId, policyType).apply(init))
+fun AWSOrganizationsFunctions.enablePolicyType(rootId: String, policyType: PolicyType, init: AWSOrganizationsEnablePolicyTypeCommand.() -> Unit): com.amazonaws.services.organizations.model.EnablePolicyTypeResult {
+	return this.block.declare(AWSOrganizationsEnablePolicyTypeCommand(rootId, policyType).apply(init)) as com.amazonaws.services.organizations.model.EnablePolicyTypeResult
 }
 
 @Generated
-class AWSOrganizationsEnablePolicyTypeCommand(val rootId: String, val policyType: PolicyType) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.EnablePolicyTypeRequest> {
+class AWSOrganizationsEnablePolicyTypeCommand(val rootId: String, val policyType: PolicyType) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.EnablePolicyTypeRequest, com.amazonaws.services.organizations.model.EnablePolicyTypeResult> {
 
 
 
@@ -657,8 +745,12 @@ class AWSOrganizationsEnablePolicyTypeCommand(val rootId: String, val policyType
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.enablePolicyType(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.EnablePolicyTypeResult {
+	  return com.amazonaws.services.organizations.model.EnablePolicyTypeResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.EnablePolicyTypeResult {
+		return environment.organizations.enablePolicyType(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -670,12 +762,12 @@ class AWSOrganizationsEnablePolicyTypeCommand(val rootId: String, val policyType
 }
 
 
-fun AWSOrganizationsFunctions.inviteAccountToOrganization(target: com.amazonaws.services.organizations.model.HandshakeParty, init: AWSOrganizationsInviteAccountToOrganizationCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsInviteAccountToOrganizationCommand(target).apply(init))
+fun AWSOrganizationsFunctions.inviteAccountToOrganization(target: com.amazonaws.services.organizations.model.HandshakeParty, init: AWSOrganizationsInviteAccountToOrganizationCommand.() -> Unit): com.amazonaws.services.organizations.model.InviteAccountToOrganizationResult {
+	return this.block.declare(AWSOrganizationsInviteAccountToOrganizationCommand(target).apply(init)) as com.amazonaws.services.organizations.model.InviteAccountToOrganizationResult
 }
 
 @Generated
-class AWSOrganizationsInviteAccountToOrganizationCommand(val target: com.amazonaws.services.organizations.model.HandshakeParty) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.InviteAccountToOrganizationRequest> {
+class AWSOrganizationsInviteAccountToOrganizationCommand(val target: com.amazonaws.services.organizations.model.HandshakeParty) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.InviteAccountToOrganizationRequest, com.amazonaws.services.organizations.model.InviteAccountToOrganizationResult> {
 
 	var notes: String? = null
 
@@ -686,8 +778,12 @@ class AWSOrganizationsInviteAccountToOrganizationCommand(val target: com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.inviteAccountToOrganization(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.InviteAccountToOrganizationResult {
+	  return com.amazonaws.services.organizations.model.InviteAccountToOrganizationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.InviteAccountToOrganizationResult {
+		return environment.organizations.inviteAccountToOrganization(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -699,12 +795,12 @@ class AWSOrganizationsInviteAccountToOrganizationCommand(val target: com.amazona
 }
 
 
-fun AWSOrganizationsFunctions.leaveOrganization(init: AWSOrganizationsLeaveOrganizationCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsLeaveOrganizationCommand().apply(init))
+fun AWSOrganizationsFunctions.leaveOrganization(init: AWSOrganizationsLeaveOrganizationCommand.() -> Unit): com.amazonaws.services.organizations.model.LeaveOrganizationResult {
+	return this.block.declare(AWSOrganizationsLeaveOrganizationCommand().apply(init)) as com.amazonaws.services.organizations.model.LeaveOrganizationResult
 }
 
 @Generated
-class AWSOrganizationsLeaveOrganizationCommand() : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.LeaveOrganizationRequest> {
+class AWSOrganizationsLeaveOrganizationCommand() : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.LeaveOrganizationRequest, com.amazonaws.services.organizations.model.LeaveOrganizationResult> {
 
 
 
@@ -714,8 +810,12 @@ class AWSOrganizationsLeaveOrganizationCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.leaveOrganization(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.LeaveOrganizationResult {
+	  return com.amazonaws.services.organizations.model.LeaveOrganizationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.LeaveOrganizationResult {
+		return environment.organizations.leaveOrganization(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -726,12 +826,12 @@ class AWSOrganizationsLeaveOrganizationCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AWSOrganizationsFunctions.listAWSServiceAccessForOrganization(init: AWSOrganizationsListAWSServiceAccessForOrganizationCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsListAWSServiceAccessForOrganizationCommand().apply(init))
+fun AWSOrganizationsFunctions.listAWSServiceAccessForOrganization(init: AWSOrganizationsListAWSServiceAccessForOrganizationCommand.() -> Unit): com.amazonaws.services.organizations.model.ListAWSServiceAccessForOrganizationResult {
+	return this.block.declare(AWSOrganizationsListAWSServiceAccessForOrganizationCommand().apply(init)) as com.amazonaws.services.organizations.model.ListAWSServiceAccessForOrganizationResult
 }
 
 @Generated
-class AWSOrganizationsListAWSServiceAccessForOrganizationCommand() : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.ListAWSServiceAccessForOrganizationRequest> {
+class AWSOrganizationsListAWSServiceAccessForOrganizationCommand() : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.ListAWSServiceAccessForOrganizationRequest, com.amazonaws.services.organizations.model.ListAWSServiceAccessForOrganizationResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -743,8 +843,12 @@ class AWSOrganizationsListAWSServiceAccessForOrganizationCommand() : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.listAWSServiceAccessForOrganization(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.ListAWSServiceAccessForOrganizationResult {
+	  return com.amazonaws.services.organizations.model.ListAWSServiceAccessForOrganizationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.ListAWSServiceAccessForOrganizationResult {
+		return environment.organizations.listAWSServiceAccessForOrganization(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -756,12 +860,12 @@ class AWSOrganizationsListAWSServiceAccessForOrganizationCommand() : AmazonWebSe
 }
 
 
-fun AWSOrganizationsFunctions.listAccounts(init: AWSOrganizationsListAccountsCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsListAccountsCommand().apply(init))
+fun AWSOrganizationsFunctions.listAccounts(init: AWSOrganizationsListAccountsCommand.() -> Unit): com.amazonaws.services.organizations.model.ListAccountsResult {
+	return this.block.declare(AWSOrganizationsListAccountsCommand().apply(init)) as com.amazonaws.services.organizations.model.ListAccountsResult
 }
 
 @Generated
-class AWSOrganizationsListAccountsCommand() : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.ListAccountsRequest> {
+class AWSOrganizationsListAccountsCommand() : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.ListAccountsRequest, com.amazonaws.services.organizations.model.ListAccountsResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -773,8 +877,12 @@ class AWSOrganizationsListAccountsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.listAccounts(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.ListAccountsResult {
+	  return com.amazonaws.services.organizations.model.ListAccountsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.ListAccountsResult {
+		return environment.organizations.listAccounts(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -786,12 +894,12 @@ class AWSOrganizationsListAccountsCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AWSOrganizationsFunctions.listAccountsForParent(parentId: String, init: AWSOrganizationsListAccountsForParentCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsListAccountsForParentCommand(parentId).apply(init))
+fun AWSOrganizationsFunctions.listAccountsForParent(parentId: String, init: AWSOrganizationsListAccountsForParentCommand.() -> Unit): com.amazonaws.services.organizations.model.ListAccountsForParentResult {
+	return this.block.declare(AWSOrganizationsListAccountsForParentCommand(parentId).apply(init)) as com.amazonaws.services.organizations.model.ListAccountsForParentResult
 }
 
 @Generated
-class AWSOrganizationsListAccountsForParentCommand(val parentId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.ListAccountsForParentRequest> {
+class AWSOrganizationsListAccountsForParentCommand(val parentId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.ListAccountsForParentRequest, com.amazonaws.services.organizations.model.ListAccountsForParentResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -804,8 +912,12 @@ class AWSOrganizationsListAccountsForParentCommand(val parentId: String) : Amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.listAccountsForParent(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.ListAccountsForParentResult {
+	  return com.amazonaws.services.organizations.model.ListAccountsForParentResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.ListAccountsForParentResult {
+		return environment.organizations.listAccountsForParent(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -818,12 +930,12 @@ class AWSOrganizationsListAccountsForParentCommand(val parentId: String) : Amazo
 }
 
 
-fun AWSOrganizationsFunctions.listChildren(parentId: String, childType: ChildType, init: AWSOrganizationsListChildrenCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsListChildrenCommand(parentId, childType).apply(init))
+fun AWSOrganizationsFunctions.listChildren(parentId: String, childType: ChildType, init: AWSOrganizationsListChildrenCommand.() -> Unit): com.amazonaws.services.organizations.model.ListChildrenResult {
+	return this.block.declare(AWSOrganizationsListChildrenCommand(parentId, childType).apply(init)) as com.amazonaws.services.organizations.model.ListChildrenResult
 }
 
 @Generated
-class AWSOrganizationsListChildrenCommand(val parentId: String, val childType: ChildType) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.ListChildrenRequest> {
+class AWSOrganizationsListChildrenCommand(val parentId: String, val childType: ChildType) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.ListChildrenRequest, com.amazonaws.services.organizations.model.ListChildrenResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -837,8 +949,12 @@ class AWSOrganizationsListChildrenCommand(val parentId: String, val childType: C
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.listChildren(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.ListChildrenResult {
+	  return com.amazonaws.services.organizations.model.ListChildrenResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.ListChildrenResult {
+		return environment.organizations.listChildren(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -852,12 +968,12 @@ class AWSOrganizationsListChildrenCommand(val parentId: String, val childType: C
 }
 
 
-fun AWSOrganizationsFunctions.listCreateAccountStatus(init: AWSOrganizationsListCreateAccountStatusCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsListCreateAccountStatusCommand().apply(init))
+fun AWSOrganizationsFunctions.listCreateAccountStatus(init: AWSOrganizationsListCreateAccountStatusCommand.() -> Unit): com.amazonaws.services.organizations.model.ListCreateAccountStatusResult {
+	return this.block.declare(AWSOrganizationsListCreateAccountStatusCommand().apply(init)) as com.amazonaws.services.organizations.model.ListCreateAccountStatusResult
 }
 
 @Generated
-class AWSOrganizationsListCreateAccountStatusCommand() : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.ListCreateAccountStatusRequest> {
+class AWSOrganizationsListCreateAccountStatusCommand() : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.ListCreateAccountStatusRequest, com.amazonaws.services.organizations.model.ListCreateAccountStatusResult> {
 
 	var states: List<CreateAccountState>? = null
 	var nextToken: String? = null
@@ -871,8 +987,12 @@ class AWSOrganizationsListCreateAccountStatusCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.listCreateAccountStatus(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.ListCreateAccountStatusResult {
+	  return com.amazonaws.services.organizations.model.ListCreateAccountStatusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.ListCreateAccountStatusResult {
+		return environment.organizations.listCreateAccountStatus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -885,12 +1005,12 @@ class AWSOrganizationsListCreateAccountStatusCommand() : AmazonWebServiceCommand
 }
 
 
-fun AWSOrganizationsFunctions.listHandshakesForAccount(init: AWSOrganizationsListHandshakesForAccountCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsListHandshakesForAccountCommand().apply(init))
+fun AWSOrganizationsFunctions.listHandshakesForAccount(init: AWSOrganizationsListHandshakesForAccountCommand.() -> Unit): com.amazonaws.services.organizations.model.ListHandshakesForAccountResult {
+	return this.block.declare(AWSOrganizationsListHandshakesForAccountCommand().apply(init)) as com.amazonaws.services.organizations.model.ListHandshakesForAccountResult
 }
 
 @Generated
-class AWSOrganizationsListHandshakesForAccountCommand() : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.ListHandshakesForAccountRequest> {
+class AWSOrganizationsListHandshakesForAccountCommand() : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.ListHandshakesForAccountRequest, com.amazonaws.services.organizations.model.ListHandshakesForAccountResult> {
 
 	var filter: com.amazonaws.services.organizations.model.HandshakeFilter? = null
 	var nextToken: String? = null
@@ -904,8 +1024,12 @@ class AWSOrganizationsListHandshakesForAccountCommand() : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.listHandshakesForAccount(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.ListHandshakesForAccountResult {
+	  return com.amazonaws.services.organizations.model.ListHandshakesForAccountResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.ListHandshakesForAccountResult {
+		return environment.organizations.listHandshakesForAccount(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -918,12 +1042,12 @@ class AWSOrganizationsListHandshakesForAccountCommand() : AmazonWebServiceComman
 }
 
 
-fun AWSOrganizationsFunctions.listHandshakesForOrganization(init: AWSOrganizationsListHandshakesForOrganizationCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsListHandshakesForOrganizationCommand().apply(init))
+fun AWSOrganizationsFunctions.listHandshakesForOrganization(init: AWSOrganizationsListHandshakesForOrganizationCommand.() -> Unit): com.amazonaws.services.organizations.model.ListHandshakesForOrganizationResult {
+	return this.block.declare(AWSOrganizationsListHandshakesForOrganizationCommand().apply(init)) as com.amazonaws.services.organizations.model.ListHandshakesForOrganizationResult
 }
 
 @Generated
-class AWSOrganizationsListHandshakesForOrganizationCommand() : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.ListHandshakesForOrganizationRequest> {
+class AWSOrganizationsListHandshakesForOrganizationCommand() : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.ListHandshakesForOrganizationRequest, com.amazonaws.services.organizations.model.ListHandshakesForOrganizationResult> {
 
 	var filter: com.amazonaws.services.organizations.model.HandshakeFilter? = null
 	var nextToken: String? = null
@@ -937,8 +1061,12 @@ class AWSOrganizationsListHandshakesForOrganizationCommand() : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.listHandshakesForOrganization(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.ListHandshakesForOrganizationResult {
+	  return com.amazonaws.services.organizations.model.ListHandshakesForOrganizationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.ListHandshakesForOrganizationResult {
+		return environment.organizations.listHandshakesForOrganization(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -951,12 +1079,12 @@ class AWSOrganizationsListHandshakesForOrganizationCommand() : AmazonWebServiceC
 }
 
 
-fun AWSOrganizationsFunctions.listOrganizationalUnitsForParent(parentId: String, init: AWSOrganizationsListOrganizationalUnitsForParentCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsListOrganizationalUnitsForParentCommand(parentId).apply(init))
+fun AWSOrganizationsFunctions.listOrganizationalUnitsForParent(parentId: String, init: AWSOrganizationsListOrganizationalUnitsForParentCommand.() -> Unit): com.amazonaws.services.organizations.model.ListOrganizationalUnitsForParentResult {
+	return this.block.declare(AWSOrganizationsListOrganizationalUnitsForParentCommand(parentId).apply(init)) as com.amazonaws.services.organizations.model.ListOrganizationalUnitsForParentResult
 }
 
 @Generated
-class AWSOrganizationsListOrganizationalUnitsForParentCommand(val parentId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.ListOrganizationalUnitsForParentRequest> {
+class AWSOrganizationsListOrganizationalUnitsForParentCommand(val parentId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.ListOrganizationalUnitsForParentRequest, com.amazonaws.services.organizations.model.ListOrganizationalUnitsForParentResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -969,8 +1097,12 @@ class AWSOrganizationsListOrganizationalUnitsForParentCommand(val parentId: Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.listOrganizationalUnitsForParent(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.ListOrganizationalUnitsForParentResult {
+	  return com.amazonaws.services.organizations.model.ListOrganizationalUnitsForParentResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.ListOrganizationalUnitsForParentResult {
+		return environment.organizations.listOrganizationalUnitsForParent(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -983,12 +1115,12 @@ class AWSOrganizationsListOrganizationalUnitsForParentCommand(val parentId: Stri
 }
 
 
-fun AWSOrganizationsFunctions.listParents(childId: String, init: AWSOrganizationsListParentsCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsListParentsCommand(childId).apply(init))
+fun AWSOrganizationsFunctions.listParents(childId: String, init: AWSOrganizationsListParentsCommand.() -> Unit): com.amazonaws.services.organizations.model.ListParentsResult {
+	return this.block.declare(AWSOrganizationsListParentsCommand(childId).apply(init)) as com.amazonaws.services.organizations.model.ListParentsResult
 }
 
 @Generated
-class AWSOrganizationsListParentsCommand(val childId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.ListParentsRequest> {
+class AWSOrganizationsListParentsCommand(val childId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.ListParentsRequest, com.amazonaws.services.organizations.model.ListParentsResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -1001,8 +1133,12 @@ class AWSOrganizationsListParentsCommand(val childId: String) : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.listParents(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.ListParentsResult {
+	  return com.amazonaws.services.organizations.model.ListParentsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.ListParentsResult {
+		return environment.organizations.listParents(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1015,12 +1151,12 @@ class AWSOrganizationsListParentsCommand(val childId: String) : AmazonWebService
 }
 
 
-fun AWSOrganizationsFunctions.listPolicies(filter: PolicyType, init: AWSOrganizationsListPoliciesCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsListPoliciesCommand(filter).apply(init))
+fun AWSOrganizationsFunctions.listPolicies(filter: PolicyType, init: AWSOrganizationsListPoliciesCommand.() -> Unit): com.amazonaws.services.organizations.model.ListPoliciesResult {
+	return this.block.declare(AWSOrganizationsListPoliciesCommand(filter).apply(init)) as com.amazonaws.services.organizations.model.ListPoliciesResult
 }
 
 @Generated
-class AWSOrganizationsListPoliciesCommand(val filter: PolicyType) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.ListPoliciesRequest> {
+class AWSOrganizationsListPoliciesCommand(val filter: PolicyType) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.ListPoliciesRequest, com.amazonaws.services.organizations.model.ListPoliciesResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -1033,8 +1169,12 @@ class AWSOrganizationsListPoliciesCommand(val filter: PolicyType) : AmazonWebSer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.listPolicies(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.ListPoliciesResult {
+	  return com.amazonaws.services.organizations.model.ListPoliciesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.ListPoliciesResult {
+		return environment.organizations.listPolicies(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1047,12 +1187,12 @@ class AWSOrganizationsListPoliciesCommand(val filter: PolicyType) : AmazonWebSer
 }
 
 
-fun AWSOrganizationsFunctions.listPoliciesForTarget(targetId: String, filter: PolicyType, init: AWSOrganizationsListPoliciesForTargetCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsListPoliciesForTargetCommand(targetId, filter).apply(init))
+fun AWSOrganizationsFunctions.listPoliciesForTarget(targetId: String, filter: PolicyType, init: AWSOrganizationsListPoliciesForTargetCommand.() -> Unit): com.amazonaws.services.organizations.model.ListPoliciesForTargetResult {
+	return this.block.declare(AWSOrganizationsListPoliciesForTargetCommand(targetId, filter).apply(init)) as com.amazonaws.services.organizations.model.ListPoliciesForTargetResult
 }
 
 @Generated
-class AWSOrganizationsListPoliciesForTargetCommand(val targetId: String, val filter: PolicyType) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.ListPoliciesForTargetRequest> {
+class AWSOrganizationsListPoliciesForTargetCommand(val targetId: String, val filter: PolicyType) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.ListPoliciesForTargetRequest, com.amazonaws.services.organizations.model.ListPoliciesForTargetResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -1066,8 +1206,12 @@ class AWSOrganizationsListPoliciesForTargetCommand(val targetId: String, val fil
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.listPoliciesForTarget(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.ListPoliciesForTargetResult {
+	  return com.amazonaws.services.organizations.model.ListPoliciesForTargetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.ListPoliciesForTargetResult {
+		return environment.organizations.listPoliciesForTarget(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1081,12 +1225,12 @@ class AWSOrganizationsListPoliciesForTargetCommand(val targetId: String, val fil
 }
 
 
-fun AWSOrganizationsFunctions.listRoots(init: AWSOrganizationsListRootsCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsListRootsCommand().apply(init))
+fun AWSOrganizationsFunctions.listRoots(init: AWSOrganizationsListRootsCommand.() -> Unit): com.amazonaws.services.organizations.model.ListRootsResult {
+	return this.block.declare(AWSOrganizationsListRootsCommand().apply(init)) as com.amazonaws.services.organizations.model.ListRootsResult
 }
 
 @Generated
-class AWSOrganizationsListRootsCommand() : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.ListRootsRequest> {
+class AWSOrganizationsListRootsCommand() : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.ListRootsRequest, com.amazonaws.services.organizations.model.ListRootsResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -1098,8 +1242,12 @@ class AWSOrganizationsListRootsCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.listRoots(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.ListRootsResult {
+	  return com.amazonaws.services.organizations.model.ListRootsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.ListRootsResult {
+		return environment.organizations.listRoots(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1111,12 +1259,12 @@ class AWSOrganizationsListRootsCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AWSOrganizationsFunctions.listTargetsForPolicy(policyId: String, init: AWSOrganizationsListTargetsForPolicyCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsListTargetsForPolicyCommand(policyId).apply(init))
+fun AWSOrganizationsFunctions.listTargetsForPolicy(policyId: String, init: AWSOrganizationsListTargetsForPolicyCommand.() -> Unit): com.amazonaws.services.organizations.model.ListTargetsForPolicyResult {
+	return this.block.declare(AWSOrganizationsListTargetsForPolicyCommand(policyId).apply(init)) as com.amazonaws.services.organizations.model.ListTargetsForPolicyResult
 }
 
 @Generated
-class AWSOrganizationsListTargetsForPolicyCommand(val policyId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.ListTargetsForPolicyRequest> {
+class AWSOrganizationsListTargetsForPolicyCommand(val policyId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.ListTargetsForPolicyRequest, com.amazonaws.services.organizations.model.ListTargetsForPolicyResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -1129,8 +1277,12 @@ class AWSOrganizationsListTargetsForPolicyCommand(val policyId: String) : Amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.listTargetsForPolicy(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.ListTargetsForPolicyResult {
+	  return com.amazonaws.services.organizations.model.ListTargetsForPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.ListTargetsForPolicyResult {
+		return environment.organizations.listTargetsForPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1143,12 +1295,12 @@ class AWSOrganizationsListTargetsForPolicyCommand(val policyId: String) : Amazon
 }
 
 
-fun AWSOrganizationsFunctions.moveAccount(accountId: String, sourceParentId: String, destinationParentId: String, init: AWSOrganizationsMoveAccountCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsMoveAccountCommand(accountId, sourceParentId, destinationParentId).apply(init))
+fun AWSOrganizationsFunctions.moveAccount(accountId: String, sourceParentId: String, destinationParentId: String, init: AWSOrganizationsMoveAccountCommand.() -> Unit): com.amazonaws.services.organizations.model.MoveAccountResult {
+	return this.block.declare(AWSOrganizationsMoveAccountCommand(accountId, sourceParentId, destinationParentId).apply(init)) as com.amazonaws.services.organizations.model.MoveAccountResult
 }
 
 @Generated
-class AWSOrganizationsMoveAccountCommand(val accountId: String, val sourceParentId: String, val destinationParentId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.MoveAccountRequest> {
+class AWSOrganizationsMoveAccountCommand(val accountId: String, val sourceParentId: String, val destinationParentId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.MoveAccountRequest, com.amazonaws.services.organizations.model.MoveAccountResult> {
 
 
 
@@ -1160,8 +1312,12 @@ class AWSOrganizationsMoveAccountCommand(val accountId: String, val sourceParent
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.moveAccount(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.MoveAccountResult {
+	  return com.amazonaws.services.organizations.model.MoveAccountResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.MoveAccountResult {
+		return environment.organizations.moveAccount(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1174,12 +1330,12 @@ class AWSOrganizationsMoveAccountCommand(val accountId: String, val sourceParent
 }
 
 
-fun AWSOrganizationsFunctions.removeAccountFromOrganization(accountId: String, init: AWSOrganizationsRemoveAccountFromOrganizationCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsRemoveAccountFromOrganizationCommand(accountId).apply(init))
+fun AWSOrganizationsFunctions.removeAccountFromOrganization(accountId: String, init: AWSOrganizationsRemoveAccountFromOrganizationCommand.() -> Unit): com.amazonaws.services.organizations.model.RemoveAccountFromOrganizationResult {
+	return this.block.declare(AWSOrganizationsRemoveAccountFromOrganizationCommand(accountId).apply(init)) as com.amazonaws.services.organizations.model.RemoveAccountFromOrganizationResult
 }
 
 @Generated
-class AWSOrganizationsRemoveAccountFromOrganizationCommand(val accountId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.RemoveAccountFromOrganizationRequest> {
+class AWSOrganizationsRemoveAccountFromOrganizationCommand(val accountId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.RemoveAccountFromOrganizationRequest, com.amazonaws.services.organizations.model.RemoveAccountFromOrganizationResult> {
 
 
 
@@ -1189,8 +1345,12 @@ class AWSOrganizationsRemoveAccountFromOrganizationCommand(val accountId: String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.removeAccountFromOrganization(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.RemoveAccountFromOrganizationResult {
+	  return com.amazonaws.services.organizations.model.RemoveAccountFromOrganizationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.RemoveAccountFromOrganizationResult {
+		return environment.organizations.removeAccountFromOrganization(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1201,12 +1361,12 @@ class AWSOrganizationsRemoveAccountFromOrganizationCommand(val accountId: String
 }
 
 
-fun AWSOrganizationsFunctions.updateOrganizationalUnit(organizationalUnitId: String, init: AWSOrganizationsUpdateOrganizationalUnitCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsUpdateOrganizationalUnitCommand(organizationalUnitId).apply(init))
+fun AWSOrganizationsFunctions.updateOrganizationalUnit(organizationalUnitId: String, init: AWSOrganizationsUpdateOrganizationalUnitCommand.() -> Unit): com.amazonaws.services.organizations.model.UpdateOrganizationalUnitResult {
+	return this.block.declare(AWSOrganizationsUpdateOrganizationalUnitCommand(organizationalUnitId).apply(init)) as com.amazonaws.services.organizations.model.UpdateOrganizationalUnitResult
 }
 
 @Generated
-class AWSOrganizationsUpdateOrganizationalUnitCommand(val organizationalUnitId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.UpdateOrganizationalUnitRequest> {
+class AWSOrganizationsUpdateOrganizationalUnitCommand(val organizationalUnitId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.UpdateOrganizationalUnitRequest, com.amazonaws.services.organizations.model.UpdateOrganizationalUnitResult> {
 
 	var name: String? = null
 
@@ -1217,8 +1377,12 @@ class AWSOrganizationsUpdateOrganizationalUnitCommand(val organizationalUnitId: 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.updateOrganizationalUnit(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.UpdateOrganizationalUnitResult {
+	  return com.amazonaws.services.organizations.model.UpdateOrganizationalUnitResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.UpdateOrganizationalUnitResult {
+		return environment.organizations.updateOrganizationalUnit(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1230,12 +1394,12 @@ class AWSOrganizationsUpdateOrganizationalUnitCommand(val organizationalUnitId: 
 }
 
 
-fun AWSOrganizationsFunctions.updatePolicy(policyId: String, init: AWSOrganizationsUpdatePolicyCommand.() -> Unit) {
-	this.block.declare(AWSOrganizationsUpdatePolicyCommand(policyId).apply(init))
+fun AWSOrganizationsFunctions.updatePolicy(policyId: String, init: AWSOrganizationsUpdatePolicyCommand.() -> Unit): com.amazonaws.services.organizations.model.UpdatePolicyResult {
+	return this.block.declare(AWSOrganizationsUpdatePolicyCommand(policyId).apply(init)) as com.amazonaws.services.organizations.model.UpdatePolicyResult
 }
 
 @Generated
-class AWSOrganizationsUpdatePolicyCommand(val policyId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.UpdatePolicyRequest> {
+class AWSOrganizationsUpdatePolicyCommand(val policyId: String) : AmazonWebServiceCommand<com.amazonaws.services.organizations.model.UpdatePolicyRequest, com.amazonaws.services.organizations.model.UpdatePolicyResult> {
 
 	var name: String? = null
 	var description: String? = null
@@ -1250,8 +1414,12 @@ class AWSOrganizationsUpdatePolicyCommand(val policyId: String) : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.organizations.updatePolicy(build())
+	override fun dryResult(): com.amazonaws.services.organizations.model.UpdatePolicyResult {
+	  return com.amazonaws.services.organizations.model.UpdatePolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.organizations.model.UpdatePolicyResult {
+		return environment.organizations.updatePolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

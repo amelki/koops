@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.es: AWSElasticsearch
 @Generated
 class AWSElasticsearchFunctions(val block: Block)
 
-infix fun AwsContinuation.es(init: AWSElasticsearchFunctions.() -> Unit) {
-	AWSElasticsearchFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.es(init: AWSElasticsearchFunctions.() -> T): T {
+	return AWSElasticsearchFunctions(shell).run(init)
 }
 
 			
 
-fun AWSElasticsearchFunctions.addTags(aRN: String, tagList: List<com.amazonaws.services.elasticsearch.model.Tag>, init: AWSElasticsearchAddTagsCommand.() -> Unit) {
-	this.block.declare(AWSElasticsearchAddTagsCommand(aRN, tagList).apply(init))
+fun AWSElasticsearchFunctions.addTags(aRN: String, tagList: List<com.amazonaws.services.elasticsearch.model.Tag>, init: AWSElasticsearchAddTagsCommand.() -> Unit): com.amazonaws.services.elasticsearch.model.AddTagsResult {
+	return this.block.declare(AWSElasticsearchAddTagsCommand(aRN, tagList).apply(init)) as com.amazonaws.services.elasticsearch.model.AddTagsResult
 }
 
 @Generated
-class AWSElasticsearchAddTagsCommand(val aRN: String, val tagList: List<com.amazonaws.services.elasticsearch.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.elasticsearch.model.AddTagsRequest> {
+class AWSElasticsearchAddTagsCommand(val aRN: String, val tagList: List<com.amazonaws.services.elasticsearch.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.elasticsearch.model.AddTagsRequest, com.amazonaws.services.elasticsearch.model.AddTagsResult> {
 
 
 
@@ -42,8 +42,12 @@ class AWSElasticsearchAddTagsCommand(val aRN: String, val tagList: List<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.es.addTags(build())
+	override fun dryResult(): com.amazonaws.services.elasticsearch.model.AddTagsResult {
+	  return com.amazonaws.services.elasticsearch.model.AddTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticsearch.model.AddTagsResult {
+		return environment.es.addTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -55,12 +59,12 @@ class AWSElasticsearchAddTagsCommand(val aRN: String, val tagList: List<com.amaz
 }
 
 
-fun AWSElasticsearchFunctions.createElasticsearchDomain(domainName: String, init: AWSElasticsearchCreateElasticsearchDomainCommand.() -> Unit) {
-	this.block.declare(AWSElasticsearchCreateElasticsearchDomainCommand(domainName).apply(init))
+fun AWSElasticsearchFunctions.createElasticsearchDomain(domainName: String, init: AWSElasticsearchCreateElasticsearchDomainCommand.() -> Unit): com.amazonaws.services.elasticsearch.model.CreateElasticsearchDomainResult {
+	return this.block.declare(AWSElasticsearchCreateElasticsearchDomainCommand(domainName).apply(init)) as com.amazonaws.services.elasticsearch.model.CreateElasticsearchDomainResult
 }
 
 @Generated
-class AWSElasticsearchCreateElasticsearchDomainCommand(val domainName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticsearch.model.CreateElasticsearchDomainRequest> {
+class AWSElasticsearchCreateElasticsearchDomainCommand(val domainName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticsearch.model.CreateElasticsearchDomainRequest, com.amazonaws.services.elasticsearch.model.CreateElasticsearchDomainResult> {
 
 	var elasticsearchVersion: String? = null
 	var elasticsearchClusterConfig: com.amazonaws.services.elasticsearch.model.ElasticsearchClusterConfig? = null
@@ -89,8 +93,12 @@ class AWSElasticsearchCreateElasticsearchDomainCommand(val domainName: String) :
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.es.createElasticsearchDomain(build())
+	override fun dryResult(): com.amazonaws.services.elasticsearch.model.CreateElasticsearchDomainResult {
+	  return com.amazonaws.services.elasticsearch.model.CreateElasticsearchDomainResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticsearch.model.CreateElasticsearchDomainResult {
+		return environment.es.createElasticsearchDomain(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -111,12 +119,12 @@ class AWSElasticsearchCreateElasticsearchDomainCommand(val domainName: String) :
 }
 
 
-fun AWSElasticsearchFunctions.deleteElasticsearchDomain(domainName: String, init: AWSElasticsearchDeleteElasticsearchDomainCommand.() -> Unit) {
-	this.block.declare(AWSElasticsearchDeleteElasticsearchDomainCommand(domainName).apply(init))
+fun AWSElasticsearchFunctions.deleteElasticsearchDomain(domainName: String, init: AWSElasticsearchDeleteElasticsearchDomainCommand.() -> Unit): com.amazonaws.services.elasticsearch.model.DeleteElasticsearchDomainResult {
+	return this.block.declare(AWSElasticsearchDeleteElasticsearchDomainCommand(domainName).apply(init)) as com.amazonaws.services.elasticsearch.model.DeleteElasticsearchDomainResult
 }
 
 @Generated
-class AWSElasticsearchDeleteElasticsearchDomainCommand(val domainName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticsearch.model.DeleteElasticsearchDomainRequest> {
+class AWSElasticsearchDeleteElasticsearchDomainCommand(val domainName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticsearch.model.DeleteElasticsearchDomainRequest, com.amazonaws.services.elasticsearch.model.DeleteElasticsearchDomainResult> {
 
 
 
@@ -126,8 +134,12 @@ class AWSElasticsearchDeleteElasticsearchDomainCommand(val domainName: String) :
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.es.deleteElasticsearchDomain(build())
+	override fun dryResult(): com.amazonaws.services.elasticsearch.model.DeleteElasticsearchDomainResult {
+	  return com.amazonaws.services.elasticsearch.model.DeleteElasticsearchDomainResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticsearch.model.DeleteElasticsearchDomainResult {
+		return environment.es.deleteElasticsearchDomain(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -138,12 +150,12 @@ class AWSElasticsearchDeleteElasticsearchDomainCommand(val domainName: String) :
 }
 
 
-fun AWSElasticsearchFunctions.deleteElasticsearchServiceRole(init: AWSElasticsearchDeleteElasticsearchServiceRoleCommand.() -> Unit) {
-	this.block.declare(AWSElasticsearchDeleteElasticsearchServiceRoleCommand().apply(init))
+fun AWSElasticsearchFunctions.deleteElasticsearchServiceRole(init: AWSElasticsearchDeleteElasticsearchServiceRoleCommand.() -> Unit): com.amazonaws.services.elasticsearch.model.DeleteElasticsearchServiceRoleResult {
+	return this.block.declare(AWSElasticsearchDeleteElasticsearchServiceRoleCommand().apply(init)) as com.amazonaws.services.elasticsearch.model.DeleteElasticsearchServiceRoleResult
 }
 
 @Generated
-class AWSElasticsearchDeleteElasticsearchServiceRoleCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticsearch.model.DeleteElasticsearchServiceRoleRequest> {
+class AWSElasticsearchDeleteElasticsearchServiceRoleCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticsearch.model.DeleteElasticsearchServiceRoleRequest, com.amazonaws.services.elasticsearch.model.DeleteElasticsearchServiceRoleResult> {
 
 
 
@@ -153,8 +165,12 @@ class AWSElasticsearchDeleteElasticsearchServiceRoleCommand() : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.es.deleteElasticsearchServiceRole(build())
+	override fun dryResult(): com.amazonaws.services.elasticsearch.model.DeleteElasticsearchServiceRoleResult {
+	  return com.amazonaws.services.elasticsearch.model.DeleteElasticsearchServiceRoleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticsearch.model.DeleteElasticsearchServiceRoleResult {
+		return environment.es.deleteElasticsearchServiceRole(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -165,12 +181,12 @@ class AWSElasticsearchDeleteElasticsearchServiceRoleCommand() : AmazonWebService
 }
 
 
-fun AWSElasticsearchFunctions.describeElasticsearchDomain(domainName: String, init: AWSElasticsearchDescribeElasticsearchDomainCommand.() -> Unit) {
-	this.block.declare(AWSElasticsearchDescribeElasticsearchDomainCommand(domainName).apply(init))
+fun AWSElasticsearchFunctions.describeElasticsearchDomain(domainName: String, init: AWSElasticsearchDescribeElasticsearchDomainCommand.() -> Unit): com.amazonaws.services.elasticsearch.model.DescribeElasticsearchDomainResult {
+	return this.block.declare(AWSElasticsearchDescribeElasticsearchDomainCommand(domainName).apply(init)) as com.amazonaws.services.elasticsearch.model.DescribeElasticsearchDomainResult
 }
 
 @Generated
-class AWSElasticsearchDescribeElasticsearchDomainCommand(val domainName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticsearch.model.DescribeElasticsearchDomainRequest> {
+class AWSElasticsearchDescribeElasticsearchDomainCommand(val domainName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticsearch.model.DescribeElasticsearchDomainRequest, com.amazonaws.services.elasticsearch.model.DescribeElasticsearchDomainResult> {
 
 
 
@@ -180,8 +196,12 @@ class AWSElasticsearchDescribeElasticsearchDomainCommand(val domainName: String)
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.es.describeElasticsearchDomain(build())
+	override fun dryResult(): com.amazonaws.services.elasticsearch.model.DescribeElasticsearchDomainResult {
+	  return com.amazonaws.services.elasticsearch.model.DescribeElasticsearchDomainResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticsearch.model.DescribeElasticsearchDomainResult {
+		return environment.es.describeElasticsearchDomain(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -192,12 +212,12 @@ class AWSElasticsearchDescribeElasticsearchDomainCommand(val domainName: String)
 }
 
 
-fun AWSElasticsearchFunctions.describeElasticsearchDomainConfig(domainName: String, init: AWSElasticsearchDescribeElasticsearchDomainConfigCommand.() -> Unit) {
-	this.block.declare(AWSElasticsearchDescribeElasticsearchDomainConfigCommand(domainName).apply(init))
+fun AWSElasticsearchFunctions.describeElasticsearchDomainConfig(domainName: String, init: AWSElasticsearchDescribeElasticsearchDomainConfigCommand.() -> Unit): com.amazonaws.services.elasticsearch.model.DescribeElasticsearchDomainConfigResult {
+	return this.block.declare(AWSElasticsearchDescribeElasticsearchDomainConfigCommand(domainName).apply(init)) as com.amazonaws.services.elasticsearch.model.DescribeElasticsearchDomainConfigResult
 }
 
 @Generated
-class AWSElasticsearchDescribeElasticsearchDomainConfigCommand(val domainName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticsearch.model.DescribeElasticsearchDomainConfigRequest> {
+class AWSElasticsearchDescribeElasticsearchDomainConfigCommand(val domainName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticsearch.model.DescribeElasticsearchDomainConfigRequest, com.amazonaws.services.elasticsearch.model.DescribeElasticsearchDomainConfigResult> {
 
 
 
@@ -207,8 +227,12 @@ class AWSElasticsearchDescribeElasticsearchDomainConfigCommand(val domainName: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.es.describeElasticsearchDomainConfig(build())
+	override fun dryResult(): com.amazonaws.services.elasticsearch.model.DescribeElasticsearchDomainConfigResult {
+	  return com.amazonaws.services.elasticsearch.model.DescribeElasticsearchDomainConfigResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticsearch.model.DescribeElasticsearchDomainConfigResult {
+		return environment.es.describeElasticsearchDomainConfig(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -219,12 +243,12 @@ class AWSElasticsearchDescribeElasticsearchDomainConfigCommand(val domainName: S
 }
 
 
-fun AWSElasticsearchFunctions.describeElasticsearchDomains(domainNames: List<String>, init: AWSElasticsearchDescribeElasticsearchDomainsCommand.() -> Unit) {
-	this.block.declare(AWSElasticsearchDescribeElasticsearchDomainsCommand(domainNames).apply(init))
+fun AWSElasticsearchFunctions.describeElasticsearchDomains(domainNames: List<String>, init: AWSElasticsearchDescribeElasticsearchDomainsCommand.() -> Unit): com.amazonaws.services.elasticsearch.model.DescribeElasticsearchDomainsResult {
+	return this.block.declare(AWSElasticsearchDescribeElasticsearchDomainsCommand(domainNames).apply(init)) as com.amazonaws.services.elasticsearch.model.DescribeElasticsearchDomainsResult
 }
 
 @Generated
-class AWSElasticsearchDescribeElasticsearchDomainsCommand(val domainNames: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.elasticsearch.model.DescribeElasticsearchDomainsRequest> {
+class AWSElasticsearchDescribeElasticsearchDomainsCommand(val domainNames: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.elasticsearch.model.DescribeElasticsearchDomainsRequest, com.amazonaws.services.elasticsearch.model.DescribeElasticsearchDomainsResult> {
 
 
 
@@ -234,8 +258,12 @@ class AWSElasticsearchDescribeElasticsearchDomainsCommand(val domainNames: List<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.es.describeElasticsearchDomains(build())
+	override fun dryResult(): com.amazonaws.services.elasticsearch.model.DescribeElasticsearchDomainsResult {
+	  return com.amazonaws.services.elasticsearch.model.DescribeElasticsearchDomainsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticsearch.model.DescribeElasticsearchDomainsResult {
+		return environment.es.describeElasticsearchDomains(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -246,12 +274,12 @@ class AWSElasticsearchDescribeElasticsearchDomainsCommand(val domainNames: List<
 }
 
 
-fun AWSElasticsearchFunctions.describeElasticsearchInstanceTypeLimits(instanceType: ESPartitionInstanceType, elasticsearchVersion: String, init: AWSElasticsearchDescribeElasticsearchInstanceTypeLimitsCommand.() -> Unit) {
-	this.block.declare(AWSElasticsearchDescribeElasticsearchInstanceTypeLimitsCommand(instanceType, elasticsearchVersion).apply(init))
+fun AWSElasticsearchFunctions.describeElasticsearchInstanceTypeLimits(instanceType: ESPartitionInstanceType, elasticsearchVersion: String, init: AWSElasticsearchDescribeElasticsearchInstanceTypeLimitsCommand.() -> Unit): com.amazonaws.services.elasticsearch.model.DescribeElasticsearchInstanceTypeLimitsResult {
+	return this.block.declare(AWSElasticsearchDescribeElasticsearchInstanceTypeLimitsCommand(instanceType, elasticsearchVersion).apply(init)) as com.amazonaws.services.elasticsearch.model.DescribeElasticsearchInstanceTypeLimitsResult
 }
 
 @Generated
-class AWSElasticsearchDescribeElasticsearchInstanceTypeLimitsCommand(val instanceType: ESPartitionInstanceType, val elasticsearchVersion: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticsearch.model.DescribeElasticsearchInstanceTypeLimitsRequest> {
+class AWSElasticsearchDescribeElasticsearchInstanceTypeLimitsCommand(val instanceType: ESPartitionInstanceType, val elasticsearchVersion: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticsearch.model.DescribeElasticsearchInstanceTypeLimitsRequest, com.amazonaws.services.elasticsearch.model.DescribeElasticsearchInstanceTypeLimitsResult> {
 
 	var domainName: String? = null
 
@@ -263,8 +291,12 @@ class AWSElasticsearchDescribeElasticsearchInstanceTypeLimitsCommand(val instanc
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.es.describeElasticsearchInstanceTypeLimits(build())
+	override fun dryResult(): com.amazonaws.services.elasticsearch.model.DescribeElasticsearchInstanceTypeLimitsResult {
+	  return com.amazonaws.services.elasticsearch.model.DescribeElasticsearchInstanceTypeLimitsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticsearch.model.DescribeElasticsearchInstanceTypeLimitsResult {
+		return environment.es.describeElasticsearchInstanceTypeLimits(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -277,12 +309,12 @@ class AWSElasticsearchDescribeElasticsearchInstanceTypeLimitsCommand(val instanc
 }
 
 
-fun AWSElasticsearchFunctions.listDomainNames(init: AWSElasticsearchListDomainNamesCommand.() -> Unit) {
-	this.block.declare(AWSElasticsearchListDomainNamesCommand().apply(init))
+fun AWSElasticsearchFunctions.listDomainNames(init: AWSElasticsearchListDomainNamesCommand.() -> Unit): com.amazonaws.services.elasticsearch.model.ListDomainNamesResult {
+	return this.block.declare(AWSElasticsearchListDomainNamesCommand().apply(init)) as com.amazonaws.services.elasticsearch.model.ListDomainNamesResult
 }
 
 @Generated
-class AWSElasticsearchListDomainNamesCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticsearch.model.ListDomainNamesRequest> {
+class AWSElasticsearchListDomainNamesCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticsearch.model.ListDomainNamesRequest, com.amazonaws.services.elasticsearch.model.ListDomainNamesResult> {
 
 
 
@@ -292,8 +324,12 @@ class AWSElasticsearchListDomainNamesCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.es.listDomainNames(build())
+	override fun dryResult(): com.amazonaws.services.elasticsearch.model.ListDomainNamesResult {
+	  return com.amazonaws.services.elasticsearch.model.ListDomainNamesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticsearch.model.ListDomainNamesResult {
+		return environment.es.listDomainNames(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -304,12 +340,12 @@ class AWSElasticsearchListDomainNamesCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AWSElasticsearchFunctions.listElasticsearchInstanceTypes(elasticsearchVersion: String, init: AWSElasticsearchListElasticsearchInstanceTypesCommand.() -> Unit) {
-	this.block.declare(AWSElasticsearchListElasticsearchInstanceTypesCommand(elasticsearchVersion).apply(init))
+fun AWSElasticsearchFunctions.listElasticsearchInstanceTypes(elasticsearchVersion: String, init: AWSElasticsearchListElasticsearchInstanceTypesCommand.() -> Unit): com.amazonaws.services.elasticsearch.model.ListElasticsearchInstanceTypesResult {
+	return this.block.declare(AWSElasticsearchListElasticsearchInstanceTypesCommand(elasticsearchVersion).apply(init)) as com.amazonaws.services.elasticsearch.model.ListElasticsearchInstanceTypesResult
 }
 
 @Generated
-class AWSElasticsearchListElasticsearchInstanceTypesCommand(val elasticsearchVersion: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticsearch.model.ListElasticsearchInstanceTypesRequest> {
+class AWSElasticsearchListElasticsearchInstanceTypesCommand(val elasticsearchVersion: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticsearch.model.ListElasticsearchInstanceTypesRequest, com.amazonaws.services.elasticsearch.model.ListElasticsearchInstanceTypesResult> {
 
 	var domainName: String? = null
 	var maxResults: Int? = 0
@@ -324,8 +360,12 @@ class AWSElasticsearchListElasticsearchInstanceTypesCommand(val elasticsearchVer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.es.listElasticsearchInstanceTypes(build())
+	override fun dryResult(): com.amazonaws.services.elasticsearch.model.ListElasticsearchInstanceTypesResult {
+	  return com.amazonaws.services.elasticsearch.model.ListElasticsearchInstanceTypesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticsearch.model.ListElasticsearchInstanceTypesResult {
+		return environment.es.listElasticsearchInstanceTypes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -339,12 +379,12 @@ class AWSElasticsearchListElasticsearchInstanceTypesCommand(val elasticsearchVer
 }
 
 
-fun AWSElasticsearchFunctions.listElasticsearchVersions(init: AWSElasticsearchListElasticsearchVersionsCommand.() -> Unit) {
-	this.block.declare(AWSElasticsearchListElasticsearchVersionsCommand().apply(init))
+fun AWSElasticsearchFunctions.listElasticsearchVersions(init: AWSElasticsearchListElasticsearchVersionsCommand.() -> Unit): com.amazonaws.services.elasticsearch.model.ListElasticsearchVersionsResult {
+	return this.block.declare(AWSElasticsearchListElasticsearchVersionsCommand().apply(init)) as com.amazonaws.services.elasticsearch.model.ListElasticsearchVersionsResult
 }
 
 @Generated
-class AWSElasticsearchListElasticsearchVersionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticsearch.model.ListElasticsearchVersionsRequest> {
+class AWSElasticsearchListElasticsearchVersionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticsearch.model.ListElasticsearchVersionsRequest, com.amazonaws.services.elasticsearch.model.ListElasticsearchVersionsResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -356,8 +396,12 @@ class AWSElasticsearchListElasticsearchVersionsCommand() : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.es.listElasticsearchVersions(build())
+	override fun dryResult(): com.amazonaws.services.elasticsearch.model.ListElasticsearchVersionsResult {
+	  return com.amazonaws.services.elasticsearch.model.ListElasticsearchVersionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticsearch.model.ListElasticsearchVersionsResult {
+		return environment.es.listElasticsearchVersions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -369,12 +413,12 @@ class AWSElasticsearchListElasticsearchVersionsCommand() : AmazonWebServiceComma
 }
 
 
-fun AWSElasticsearchFunctions.listTags(aRN: String, init: AWSElasticsearchListTagsCommand.() -> Unit) {
-	this.block.declare(AWSElasticsearchListTagsCommand(aRN).apply(init))
+fun AWSElasticsearchFunctions.listTags(aRN: String, init: AWSElasticsearchListTagsCommand.() -> Unit): com.amazonaws.services.elasticsearch.model.ListTagsResult {
+	return this.block.declare(AWSElasticsearchListTagsCommand(aRN).apply(init)) as com.amazonaws.services.elasticsearch.model.ListTagsResult
 }
 
 @Generated
-class AWSElasticsearchListTagsCommand(val aRN: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticsearch.model.ListTagsRequest> {
+class AWSElasticsearchListTagsCommand(val aRN: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticsearch.model.ListTagsRequest, com.amazonaws.services.elasticsearch.model.ListTagsResult> {
 
 
 
@@ -384,8 +428,12 @@ class AWSElasticsearchListTagsCommand(val aRN: String) : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.es.listTags(build())
+	override fun dryResult(): com.amazonaws.services.elasticsearch.model.ListTagsResult {
+	  return com.amazonaws.services.elasticsearch.model.ListTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticsearch.model.ListTagsResult {
+		return environment.es.listTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -396,12 +444,12 @@ class AWSElasticsearchListTagsCommand(val aRN: String) : AmazonWebServiceCommand
 }
 
 
-fun AWSElasticsearchFunctions.removeTags(aRN: String, tagKeys: List<String>, init: AWSElasticsearchRemoveTagsCommand.() -> Unit) {
-	this.block.declare(AWSElasticsearchRemoveTagsCommand(aRN, tagKeys).apply(init))
+fun AWSElasticsearchFunctions.removeTags(aRN: String, tagKeys: List<String>, init: AWSElasticsearchRemoveTagsCommand.() -> Unit): com.amazonaws.services.elasticsearch.model.RemoveTagsResult {
+	return this.block.declare(AWSElasticsearchRemoveTagsCommand(aRN, tagKeys).apply(init)) as com.amazonaws.services.elasticsearch.model.RemoveTagsResult
 }
 
 @Generated
-class AWSElasticsearchRemoveTagsCommand(val aRN: String, val tagKeys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.elasticsearch.model.RemoveTagsRequest> {
+class AWSElasticsearchRemoveTagsCommand(val aRN: String, val tagKeys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.elasticsearch.model.RemoveTagsRequest, com.amazonaws.services.elasticsearch.model.RemoveTagsResult> {
 
 
 
@@ -412,8 +460,12 @@ class AWSElasticsearchRemoveTagsCommand(val aRN: String, val tagKeys: List<Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.es.removeTags(build())
+	override fun dryResult(): com.amazonaws.services.elasticsearch.model.RemoveTagsResult {
+	  return com.amazonaws.services.elasticsearch.model.RemoveTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticsearch.model.RemoveTagsResult {
+		return environment.es.removeTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -425,12 +477,12 @@ class AWSElasticsearchRemoveTagsCommand(val aRN: String, val tagKeys: List<Strin
 }
 
 
-fun AWSElasticsearchFunctions.updateElasticsearchDomainConfig(domainName: String, init: AWSElasticsearchUpdateElasticsearchDomainConfigCommand.() -> Unit) {
-	this.block.declare(AWSElasticsearchUpdateElasticsearchDomainConfigCommand(domainName).apply(init))
+fun AWSElasticsearchFunctions.updateElasticsearchDomainConfig(domainName: String, init: AWSElasticsearchUpdateElasticsearchDomainConfigCommand.() -> Unit): com.amazonaws.services.elasticsearch.model.UpdateElasticsearchDomainConfigResult {
+	return this.block.declare(AWSElasticsearchUpdateElasticsearchDomainConfigCommand(domainName).apply(init)) as com.amazonaws.services.elasticsearch.model.UpdateElasticsearchDomainConfigResult
 }
 
 @Generated
-class AWSElasticsearchUpdateElasticsearchDomainConfigCommand(val domainName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticsearch.model.UpdateElasticsearchDomainConfigRequest> {
+class AWSElasticsearchUpdateElasticsearchDomainConfigCommand(val domainName: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticsearch.model.UpdateElasticsearchDomainConfigRequest, com.amazonaws.services.elasticsearch.model.UpdateElasticsearchDomainConfigResult> {
 
 	var elasticsearchClusterConfig: com.amazonaws.services.elasticsearch.model.ElasticsearchClusterConfig? = null
 	var eBSOptions: com.amazonaws.services.elasticsearch.model.EBSOptions? = null
@@ -455,8 +507,12 @@ class AWSElasticsearchUpdateElasticsearchDomainConfigCommand(val domainName: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.es.updateElasticsearchDomainConfig(build())
+	override fun dryResult(): com.amazonaws.services.elasticsearch.model.UpdateElasticsearchDomainConfigResult {
+	  return com.amazonaws.services.elasticsearch.model.UpdateElasticsearchDomainConfigResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticsearch.model.UpdateElasticsearchDomainConfigResult {
+		return environment.es.updateElasticsearchDomainConfig(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

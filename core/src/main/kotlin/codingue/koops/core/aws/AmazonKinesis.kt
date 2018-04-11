@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.kinesis: AmazonKinesis
 @Generated
 class AmazonKinesisFunctions(val block: Block)
 
-infix fun AwsContinuation.kinesis(init: AmazonKinesisFunctions.() -> Unit) {
-	AmazonKinesisFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.kinesis(init: AmazonKinesisFunctions.() -> T): T {
+	return AmazonKinesisFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonKinesisFunctions.addTagsToStream(streamName: String, tags: Map<String, String>, init: AmazonKinesisAddTagsToStreamCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisAddTagsToStreamCommand(streamName, tags).apply(init))
+fun AmazonKinesisFunctions.addTagsToStream(streamName: String, tags: Map<String, String>, init: AmazonKinesisAddTagsToStreamCommand.() -> Unit): com.amazonaws.services.kinesis.model.AddTagsToStreamResult {
+	return this.block.declare(AmazonKinesisAddTagsToStreamCommand(streamName, tags).apply(init)) as com.amazonaws.services.kinesis.model.AddTagsToStreamResult
 }
 
 @Generated
-class AmazonKinesisAddTagsToStreamCommand(val streamName: String, val tags: Map<String, String>) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.AddTagsToStreamRequest> {
+class AmazonKinesisAddTagsToStreamCommand(val streamName: String, val tags: Map<String, String>) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.AddTagsToStreamRequest, com.amazonaws.services.kinesis.model.AddTagsToStreamResult> {
 
 
 
@@ -42,8 +42,12 @@ class AmazonKinesisAddTagsToStreamCommand(val streamName: String, val tags: Map<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesis.addTagsToStream(build())
+	override fun dryResult(): com.amazonaws.services.kinesis.model.AddTagsToStreamResult {
+	  return com.amazonaws.services.kinesis.model.AddTagsToStreamResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesis.model.AddTagsToStreamResult {
+		return environment.kinesis.addTagsToStream(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -55,12 +59,12 @@ class AmazonKinesisAddTagsToStreamCommand(val streamName: String, val tags: Map<
 }
 
 
-fun AmazonKinesisFunctions.createStream(streamName: String, shardCount: Int, init: AmazonKinesisCreateStreamCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisCreateStreamCommand(streamName, shardCount).apply(init))
+fun AmazonKinesisFunctions.createStream(streamName: String, shardCount: Int, init: AmazonKinesisCreateStreamCommand.() -> Unit): com.amazonaws.services.kinesis.model.CreateStreamResult {
+	return this.block.declare(AmazonKinesisCreateStreamCommand(streamName, shardCount).apply(init)) as com.amazonaws.services.kinesis.model.CreateStreamResult
 }
 
 @Generated
-class AmazonKinesisCreateStreamCommand(val streamName: String, val shardCount: Int) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.CreateStreamRequest> {
+class AmazonKinesisCreateStreamCommand(val streamName: String, val shardCount: Int) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.CreateStreamRequest, com.amazonaws.services.kinesis.model.CreateStreamResult> {
 
 
 
@@ -71,8 +75,12 @@ class AmazonKinesisCreateStreamCommand(val streamName: String, val shardCount: I
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesis.createStream(build())
+	override fun dryResult(): com.amazonaws.services.kinesis.model.CreateStreamResult {
+	  return com.amazonaws.services.kinesis.model.CreateStreamResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesis.model.CreateStreamResult {
+		return environment.kinesis.createStream(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -84,12 +92,12 @@ class AmazonKinesisCreateStreamCommand(val streamName: String, val shardCount: I
 }
 
 
-fun AmazonKinesisFunctions.decreaseStreamRetentionPeriod(streamName: String, retentionPeriodHours: Int, init: AmazonKinesisDecreaseStreamRetentionPeriodCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisDecreaseStreamRetentionPeriodCommand(streamName, retentionPeriodHours).apply(init))
+fun AmazonKinesisFunctions.decreaseStreamRetentionPeriod(streamName: String, retentionPeriodHours: Int, init: AmazonKinesisDecreaseStreamRetentionPeriodCommand.() -> Unit): com.amazonaws.services.kinesis.model.DecreaseStreamRetentionPeriodResult {
+	return this.block.declare(AmazonKinesisDecreaseStreamRetentionPeriodCommand(streamName, retentionPeriodHours).apply(init)) as com.amazonaws.services.kinesis.model.DecreaseStreamRetentionPeriodResult
 }
 
 @Generated
-class AmazonKinesisDecreaseStreamRetentionPeriodCommand(val streamName: String, val retentionPeriodHours: Int) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.DecreaseStreamRetentionPeriodRequest> {
+class AmazonKinesisDecreaseStreamRetentionPeriodCommand(val streamName: String, val retentionPeriodHours: Int) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.DecreaseStreamRetentionPeriodRequest, com.amazonaws.services.kinesis.model.DecreaseStreamRetentionPeriodResult> {
 
 
 
@@ -100,8 +108,12 @@ class AmazonKinesisDecreaseStreamRetentionPeriodCommand(val streamName: String, 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesis.decreaseStreamRetentionPeriod(build())
+	override fun dryResult(): com.amazonaws.services.kinesis.model.DecreaseStreamRetentionPeriodResult {
+	  return com.amazonaws.services.kinesis.model.DecreaseStreamRetentionPeriodResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesis.model.DecreaseStreamRetentionPeriodResult {
+		return environment.kinesis.decreaseStreamRetentionPeriod(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -113,12 +125,12 @@ class AmazonKinesisDecreaseStreamRetentionPeriodCommand(val streamName: String, 
 }
 
 
-fun AmazonKinesisFunctions.deleteStream(streamName: String, init: AmazonKinesisDeleteStreamCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisDeleteStreamCommand(streamName).apply(init))
+fun AmazonKinesisFunctions.deleteStream(streamName: String, init: AmazonKinesisDeleteStreamCommand.() -> Unit): com.amazonaws.services.kinesis.model.DeleteStreamResult {
+	return this.block.declare(AmazonKinesisDeleteStreamCommand(streamName).apply(init)) as com.amazonaws.services.kinesis.model.DeleteStreamResult
 }
 
 @Generated
-class AmazonKinesisDeleteStreamCommand(val streamName: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.DeleteStreamRequest> {
+class AmazonKinesisDeleteStreamCommand(val streamName: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.DeleteStreamRequest, com.amazonaws.services.kinesis.model.DeleteStreamResult> {
 
 
 
@@ -128,8 +140,12 @@ class AmazonKinesisDeleteStreamCommand(val streamName: String) : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesis.deleteStream(build())
+	override fun dryResult(): com.amazonaws.services.kinesis.model.DeleteStreamResult {
+	  return com.amazonaws.services.kinesis.model.DeleteStreamResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesis.model.DeleteStreamResult {
+		return environment.kinesis.deleteStream(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -140,12 +156,12 @@ class AmazonKinesisDeleteStreamCommand(val streamName: String) : AmazonWebServic
 }
 
 
-fun AmazonKinesisFunctions.describeLimits(init: AmazonKinesisDescribeLimitsCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisDescribeLimitsCommand().apply(init))
+fun AmazonKinesisFunctions.describeLimits(init: AmazonKinesisDescribeLimitsCommand.() -> Unit): com.amazonaws.services.kinesis.model.DescribeLimitsResult {
+	return this.block.declare(AmazonKinesisDescribeLimitsCommand().apply(init)) as com.amazonaws.services.kinesis.model.DescribeLimitsResult
 }
 
 @Generated
-class AmazonKinesisDescribeLimitsCommand() : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.DescribeLimitsRequest> {
+class AmazonKinesisDescribeLimitsCommand() : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.DescribeLimitsRequest, com.amazonaws.services.kinesis.model.DescribeLimitsResult> {
 
 
 
@@ -155,8 +171,12 @@ class AmazonKinesisDescribeLimitsCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesis.describeLimits(build())
+	override fun dryResult(): com.amazonaws.services.kinesis.model.DescribeLimitsResult {
+	  return com.amazonaws.services.kinesis.model.DescribeLimitsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesis.model.DescribeLimitsResult {
+		return environment.kinesis.describeLimits(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -167,12 +187,12 @@ class AmazonKinesisDescribeLimitsCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AmazonKinesisFunctions.describeStream(streamName: String, init: AmazonKinesisDescribeStreamCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisDescribeStreamCommand(streamName).apply(init))
+fun AmazonKinesisFunctions.describeStream(streamName: String, init: AmazonKinesisDescribeStreamCommand.() -> Unit): com.amazonaws.services.kinesis.model.DescribeStreamResult {
+	return this.block.declare(AmazonKinesisDescribeStreamCommand(streamName).apply(init)) as com.amazonaws.services.kinesis.model.DescribeStreamResult
 }
 
 @Generated
-class AmazonKinesisDescribeStreamCommand(val streamName: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.DescribeStreamRequest> {
+class AmazonKinesisDescribeStreamCommand(val streamName: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.DescribeStreamRequest, com.amazonaws.services.kinesis.model.DescribeStreamResult> {
 
 	var limit: Int? = 0
 	var exclusiveStartShardId: String? = null
@@ -185,8 +205,12 @@ class AmazonKinesisDescribeStreamCommand(val streamName: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesis.describeStream(build())
+	override fun dryResult(): com.amazonaws.services.kinesis.model.DescribeStreamResult {
+	  return com.amazonaws.services.kinesis.model.DescribeStreamResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesis.model.DescribeStreamResult {
+		return environment.kinesis.describeStream(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -199,12 +223,12 @@ class AmazonKinesisDescribeStreamCommand(val streamName: String) : AmazonWebServ
 }
 
 
-fun AmazonKinesisFunctions.describeStreamSummary(streamName: String, init: AmazonKinesisDescribeStreamSummaryCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisDescribeStreamSummaryCommand(streamName).apply(init))
+fun AmazonKinesisFunctions.describeStreamSummary(streamName: String, init: AmazonKinesisDescribeStreamSummaryCommand.() -> Unit): com.amazonaws.services.kinesis.model.DescribeStreamSummaryResult {
+	return this.block.declare(AmazonKinesisDescribeStreamSummaryCommand(streamName).apply(init)) as com.amazonaws.services.kinesis.model.DescribeStreamSummaryResult
 }
 
 @Generated
-class AmazonKinesisDescribeStreamSummaryCommand(val streamName: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.DescribeStreamSummaryRequest> {
+class AmazonKinesisDescribeStreamSummaryCommand(val streamName: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.DescribeStreamSummaryRequest, com.amazonaws.services.kinesis.model.DescribeStreamSummaryResult> {
 
 
 
@@ -214,8 +238,12 @@ class AmazonKinesisDescribeStreamSummaryCommand(val streamName: String) : Amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesis.describeStreamSummary(build())
+	override fun dryResult(): com.amazonaws.services.kinesis.model.DescribeStreamSummaryResult {
+	  return com.amazonaws.services.kinesis.model.DescribeStreamSummaryResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesis.model.DescribeStreamSummaryResult {
+		return environment.kinesis.describeStreamSummary(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -226,12 +254,12 @@ class AmazonKinesisDescribeStreamSummaryCommand(val streamName: String) : Amazon
 }
 
 
-fun AmazonKinesisFunctions.disableEnhancedMonitoring(streamName: String, shardLevelMetrics: List<MetricsName>, init: AmazonKinesisDisableEnhancedMonitoringCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisDisableEnhancedMonitoringCommand(streamName, shardLevelMetrics).apply(init))
+fun AmazonKinesisFunctions.disableEnhancedMonitoring(streamName: String, shardLevelMetrics: List<MetricsName>, init: AmazonKinesisDisableEnhancedMonitoringCommand.() -> Unit): com.amazonaws.services.kinesis.model.DisableEnhancedMonitoringResult {
+	return this.block.declare(AmazonKinesisDisableEnhancedMonitoringCommand(streamName, shardLevelMetrics).apply(init)) as com.amazonaws.services.kinesis.model.DisableEnhancedMonitoringResult
 }
 
 @Generated
-class AmazonKinesisDisableEnhancedMonitoringCommand(val streamName: String, val shardLevelMetrics: List<MetricsName>) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.DisableEnhancedMonitoringRequest> {
+class AmazonKinesisDisableEnhancedMonitoringCommand(val streamName: String, val shardLevelMetrics: List<MetricsName>) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.DisableEnhancedMonitoringRequest, com.amazonaws.services.kinesis.model.DisableEnhancedMonitoringResult> {
 
 
 
@@ -242,8 +270,12 @@ class AmazonKinesisDisableEnhancedMonitoringCommand(val streamName: String, val 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesis.disableEnhancedMonitoring(build())
+	override fun dryResult(): com.amazonaws.services.kinesis.model.DisableEnhancedMonitoringResult {
+	  return com.amazonaws.services.kinesis.model.DisableEnhancedMonitoringResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesis.model.DisableEnhancedMonitoringResult {
+		return environment.kinesis.disableEnhancedMonitoring(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -255,12 +287,12 @@ class AmazonKinesisDisableEnhancedMonitoringCommand(val streamName: String, val 
 }
 
 
-fun AmazonKinesisFunctions.enableEnhancedMonitoring(streamName: String, shardLevelMetrics: List<MetricsName>, init: AmazonKinesisEnableEnhancedMonitoringCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisEnableEnhancedMonitoringCommand(streamName, shardLevelMetrics).apply(init))
+fun AmazonKinesisFunctions.enableEnhancedMonitoring(streamName: String, shardLevelMetrics: List<MetricsName>, init: AmazonKinesisEnableEnhancedMonitoringCommand.() -> Unit): com.amazonaws.services.kinesis.model.EnableEnhancedMonitoringResult {
+	return this.block.declare(AmazonKinesisEnableEnhancedMonitoringCommand(streamName, shardLevelMetrics).apply(init)) as com.amazonaws.services.kinesis.model.EnableEnhancedMonitoringResult
 }
 
 @Generated
-class AmazonKinesisEnableEnhancedMonitoringCommand(val streamName: String, val shardLevelMetrics: List<MetricsName>) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.EnableEnhancedMonitoringRequest> {
+class AmazonKinesisEnableEnhancedMonitoringCommand(val streamName: String, val shardLevelMetrics: List<MetricsName>) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.EnableEnhancedMonitoringRequest, com.amazonaws.services.kinesis.model.EnableEnhancedMonitoringResult> {
 
 
 
@@ -271,8 +303,12 @@ class AmazonKinesisEnableEnhancedMonitoringCommand(val streamName: String, val s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesis.enableEnhancedMonitoring(build())
+	override fun dryResult(): com.amazonaws.services.kinesis.model.EnableEnhancedMonitoringResult {
+	  return com.amazonaws.services.kinesis.model.EnableEnhancedMonitoringResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesis.model.EnableEnhancedMonitoringResult {
+		return environment.kinesis.enableEnhancedMonitoring(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -284,12 +320,12 @@ class AmazonKinesisEnableEnhancedMonitoringCommand(val streamName: String, val s
 }
 
 
-fun AmazonKinesisFunctions.getRecords(shardIterator: String, init: AmazonKinesisGetRecordsCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisGetRecordsCommand(shardIterator).apply(init))
+fun AmazonKinesisFunctions.getRecords(shardIterator: String, init: AmazonKinesisGetRecordsCommand.() -> Unit): com.amazonaws.services.kinesis.model.GetRecordsResult {
+	return this.block.declare(AmazonKinesisGetRecordsCommand(shardIterator).apply(init)) as com.amazonaws.services.kinesis.model.GetRecordsResult
 }
 
 @Generated
-class AmazonKinesisGetRecordsCommand(val shardIterator: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.GetRecordsRequest> {
+class AmazonKinesisGetRecordsCommand(val shardIterator: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.GetRecordsRequest, com.amazonaws.services.kinesis.model.GetRecordsResult> {
 
 	var limit: Int? = 0
 
@@ -300,8 +336,12 @@ class AmazonKinesisGetRecordsCommand(val shardIterator: String) : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesis.getRecords(build())
+	override fun dryResult(): com.amazonaws.services.kinesis.model.GetRecordsResult {
+	  return com.amazonaws.services.kinesis.model.GetRecordsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesis.model.GetRecordsResult {
+		return environment.kinesis.getRecords(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -313,12 +353,12 @@ class AmazonKinesisGetRecordsCommand(val shardIterator: String) : AmazonWebServi
 }
 
 
-fun AmazonKinesisFunctions.getShardIterator(streamName: String, shardId: String, shardIteratorType: ShardIteratorType, init: AmazonKinesisGetShardIteratorCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisGetShardIteratorCommand(streamName, shardId, shardIteratorType).apply(init))
+fun AmazonKinesisFunctions.getShardIterator(streamName: String, shardId: String, shardIteratorType: ShardIteratorType, init: AmazonKinesisGetShardIteratorCommand.() -> Unit): com.amazonaws.services.kinesis.model.GetShardIteratorResult {
+	return this.block.declare(AmazonKinesisGetShardIteratorCommand(streamName, shardId, shardIteratorType).apply(init)) as com.amazonaws.services.kinesis.model.GetShardIteratorResult
 }
 
 @Generated
-class AmazonKinesisGetShardIteratorCommand(val streamName: String, val shardId: String, val shardIteratorType: ShardIteratorType) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.GetShardIteratorRequest> {
+class AmazonKinesisGetShardIteratorCommand(val streamName: String, val shardId: String, val shardIteratorType: ShardIteratorType) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.GetShardIteratorRequest, com.amazonaws.services.kinesis.model.GetShardIteratorResult> {
 
 	var startingSequenceNumber: String? = null
 	var timestamp: java.util.Date? = null
@@ -333,8 +373,12 @@ class AmazonKinesisGetShardIteratorCommand(val streamName: String, val shardId: 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesis.getShardIterator(build())
+	override fun dryResult(): com.amazonaws.services.kinesis.model.GetShardIteratorResult {
+	  return com.amazonaws.services.kinesis.model.GetShardIteratorResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesis.model.GetShardIteratorResult {
+		return environment.kinesis.getShardIterator(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -349,12 +393,12 @@ class AmazonKinesisGetShardIteratorCommand(val streamName: String, val shardId: 
 }
 
 
-fun AmazonKinesisFunctions.increaseStreamRetentionPeriod(streamName: String, retentionPeriodHours: Int, init: AmazonKinesisIncreaseStreamRetentionPeriodCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisIncreaseStreamRetentionPeriodCommand(streamName, retentionPeriodHours).apply(init))
+fun AmazonKinesisFunctions.increaseStreamRetentionPeriod(streamName: String, retentionPeriodHours: Int, init: AmazonKinesisIncreaseStreamRetentionPeriodCommand.() -> Unit): com.amazonaws.services.kinesis.model.IncreaseStreamRetentionPeriodResult {
+	return this.block.declare(AmazonKinesisIncreaseStreamRetentionPeriodCommand(streamName, retentionPeriodHours).apply(init)) as com.amazonaws.services.kinesis.model.IncreaseStreamRetentionPeriodResult
 }
 
 @Generated
-class AmazonKinesisIncreaseStreamRetentionPeriodCommand(val streamName: String, val retentionPeriodHours: Int) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.IncreaseStreamRetentionPeriodRequest> {
+class AmazonKinesisIncreaseStreamRetentionPeriodCommand(val streamName: String, val retentionPeriodHours: Int) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.IncreaseStreamRetentionPeriodRequest, com.amazonaws.services.kinesis.model.IncreaseStreamRetentionPeriodResult> {
 
 
 
@@ -365,8 +409,12 @@ class AmazonKinesisIncreaseStreamRetentionPeriodCommand(val streamName: String, 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesis.increaseStreamRetentionPeriod(build())
+	override fun dryResult(): com.amazonaws.services.kinesis.model.IncreaseStreamRetentionPeriodResult {
+	  return com.amazonaws.services.kinesis.model.IncreaseStreamRetentionPeriodResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesis.model.IncreaseStreamRetentionPeriodResult {
+		return environment.kinesis.increaseStreamRetentionPeriod(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -378,12 +426,12 @@ class AmazonKinesisIncreaseStreamRetentionPeriodCommand(val streamName: String, 
 }
 
 
-fun AmazonKinesisFunctions.listShards(init: AmazonKinesisListShardsCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisListShardsCommand().apply(init))
+fun AmazonKinesisFunctions.listShards(init: AmazonKinesisListShardsCommand.() -> Unit): com.amazonaws.services.kinesis.model.ListShardsResult {
+	return this.block.declare(AmazonKinesisListShardsCommand().apply(init)) as com.amazonaws.services.kinesis.model.ListShardsResult
 }
 
 @Generated
-class AmazonKinesisListShardsCommand() : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.ListShardsRequest> {
+class AmazonKinesisListShardsCommand() : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.ListShardsRequest, com.amazonaws.services.kinesis.model.ListShardsResult> {
 
 	var streamName: String? = null
 	var nextToken: String? = null
@@ -401,8 +449,12 @@ class AmazonKinesisListShardsCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesis.listShards(build())
+	override fun dryResult(): com.amazonaws.services.kinesis.model.ListShardsResult {
+	  return com.amazonaws.services.kinesis.model.ListShardsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesis.model.ListShardsResult {
+		return environment.kinesis.listShards(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -417,12 +469,12 @@ class AmazonKinesisListShardsCommand() : AmazonWebServiceCommand<com.amazonaws.s
 }
 
 
-fun AmazonKinesisFunctions.listStreams(init: AmazonKinesisListStreamsCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisListStreamsCommand().apply(init))
+fun AmazonKinesisFunctions.listStreams(init: AmazonKinesisListStreamsCommand.() -> Unit): com.amazonaws.services.kinesis.model.ListStreamsResult {
+	return this.block.declare(AmazonKinesisListStreamsCommand().apply(init)) as com.amazonaws.services.kinesis.model.ListStreamsResult
 }
 
 @Generated
-class AmazonKinesisListStreamsCommand() : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.ListStreamsRequest> {
+class AmazonKinesisListStreamsCommand() : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.ListStreamsRequest, com.amazonaws.services.kinesis.model.ListStreamsResult> {
 
 	var limit: Int? = 0
 	var exclusiveStartStreamName: String? = null
@@ -434,8 +486,12 @@ class AmazonKinesisListStreamsCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesis.listStreams(build())
+	override fun dryResult(): com.amazonaws.services.kinesis.model.ListStreamsResult {
+	  return com.amazonaws.services.kinesis.model.ListStreamsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesis.model.ListStreamsResult {
+		return environment.kinesis.listStreams(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -447,12 +503,12 @@ class AmazonKinesisListStreamsCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AmazonKinesisFunctions.listTagsForStream(streamName: String, init: AmazonKinesisListTagsForStreamCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisListTagsForStreamCommand(streamName).apply(init))
+fun AmazonKinesisFunctions.listTagsForStream(streamName: String, init: AmazonKinesisListTagsForStreamCommand.() -> Unit): com.amazonaws.services.kinesis.model.ListTagsForStreamResult {
+	return this.block.declare(AmazonKinesisListTagsForStreamCommand(streamName).apply(init)) as com.amazonaws.services.kinesis.model.ListTagsForStreamResult
 }
 
 @Generated
-class AmazonKinesisListTagsForStreamCommand(val streamName: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.ListTagsForStreamRequest> {
+class AmazonKinesisListTagsForStreamCommand(val streamName: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.ListTagsForStreamRequest, com.amazonaws.services.kinesis.model.ListTagsForStreamResult> {
 
 	var exclusiveStartTagKey: String? = null
 	var limit: Int? = 0
@@ -465,8 +521,12 @@ class AmazonKinesisListTagsForStreamCommand(val streamName: String) : AmazonWebS
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesis.listTagsForStream(build())
+	override fun dryResult(): com.amazonaws.services.kinesis.model.ListTagsForStreamResult {
+	  return com.amazonaws.services.kinesis.model.ListTagsForStreamResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesis.model.ListTagsForStreamResult {
+		return environment.kinesis.listTagsForStream(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -479,12 +539,12 @@ class AmazonKinesisListTagsForStreamCommand(val streamName: String) : AmazonWebS
 }
 
 
-fun AmazonKinesisFunctions.mergeShards(streamName: String, shardToMerge: String, adjacentShardToMerge: String, init: AmazonKinesisMergeShardsCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisMergeShardsCommand(streamName, shardToMerge, adjacentShardToMerge).apply(init))
+fun AmazonKinesisFunctions.mergeShards(streamName: String, shardToMerge: String, adjacentShardToMerge: String, init: AmazonKinesisMergeShardsCommand.() -> Unit): com.amazonaws.services.kinesis.model.MergeShardsResult {
+	return this.block.declare(AmazonKinesisMergeShardsCommand(streamName, shardToMerge, adjacentShardToMerge).apply(init)) as com.amazonaws.services.kinesis.model.MergeShardsResult
 }
 
 @Generated
-class AmazonKinesisMergeShardsCommand(val streamName: String, val shardToMerge: String, val adjacentShardToMerge: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.MergeShardsRequest> {
+class AmazonKinesisMergeShardsCommand(val streamName: String, val shardToMerge: String, val adjacentShardToMerge: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.MergeShardsRequest, com.amazonaws.services.kinesis.model.MergeShardsResult> {
 
 
 
@@ -496,8 +556,12 @@ class AmazonKinesisMergeShardsCommand(val streamName: String, val shardToMerge: 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesis.mergeShards(build())
+	override fun dryResult(): com.amazonaws.services.kinesis.model.MergeShardsResult {
+	  return com.amazonaws.services.kinesis.model.MergeShardsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesis.model.MergeShardsResult {
+		return environment.kinesis.mergeShards(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -510,12 +574,12 @@ class AmazonKinesisMergeShardsCommand(val streamName: String, val shardToMerge: 
 }
 
 
-fun AmazonKinesisFunctions.putRecord(streamName: String, data: java.nio.ByteBuffer, partitionKey: String, init: AmazonKinesisPutRecordCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisPutRecordCommand(streamName, data, partitionKey).apply(init))
+fun AmazonKinesisFunctions.putRecord(streamName: String, data: java.nio.ByteBuffer, partitionKey: String, init: AmazonKinesisPutRecordCommand.() -> Unit): com.amazonaws.services.kinesis.model.PutRecordResult {
+	return this.block.declare(AmazonKinesisPutRecordCommand(streamName, data, partitionKey).apply(init)) as com.amazonaws.services.kinesis.model.PutRecordResult
 }
 
 @Generated
-class AmazonKinesisPutRecordCommand(val streamName: String, val data: java.nio.ByteBuffer, val partitionKey: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.PutRecordRequest> {
+class AmazonKinesisPutRecordCommand(val streamName: String, val data: java.nio.ByteBuffer, val partitionKey: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.PutRecordRequest, com.amazonaws.services.kinesis.model.PutRecordResult> {
 
 	var explicitHashKey: String? = null
 	var sequenceNumberForOrdering: String? = null
@@ -530,8 +594,12 @@ class AmazonKinesisPutRecordCommand(val streamName: String, val data: java.nio.B
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesis.putRecord(build())
+	override fun dryResult(): com.amazonaws.services.kinesis.model.PutRecordResult {
+	  return com.amazonaws.services.kinesis.model.PutRecordResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesis.model.PutRecordResult {
+		return environment.kinesis.putRecord(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -546,12 +614,12 @@ class AmazonKinesisPutRecordCommand(val streamName: String, val data: java.nio.B
 }
 
 
-fun AmazonKinesisFunctions.putRecords(records: List<com.amazonaws.services.kinesis.model.PutRecordsRequestEntry>, streamName: String, init: AmazonKinesisPutRecordsCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisPutRecordsCommand(records, streamName).apply(init))
+fun AmazonKinesisFunctions.putRecords(records: List<com.amazonaws.services.kinesis.model.PutRecordsRequestEntry>, streamName: String, init: AmazonKinesisPutRecordsCommand.() -> Unit): com.amazonaws.services.kinesis.model.PutRecordsResult {
+	return this.block.declare(AmazonKinesisPutRecordsCommand(records, streamName).apply(init)) as com.amazonaws.services.kinesis.model.PutRecordsResult
 }
 
 @Generated
-class AmazonKinesisPutRecordsCommand(val records: List<com.amazonaws.services.kinesis.model.PutRecordsRequestEntry>, val streamName: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.PutRecordsRequest> {
+class AmazonKinesisPutRecordsCommand(val records: List<com.amazonaws.services.kinesis.model.PutRecordsRequestEntry>, val streamName: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.PutRecordsRequest, com.amazonaws.services.kinesis.model.PutRecordsResult> {
 
 
 
@@ -562,8 +630,12 @@ class AmazonKinesisPutRecordsCommand(val records: List<com.amazonaws.services.ki
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesis.putRecords(build())
+	override fun dryResult(): com.amazonaws.services.kinesis.model.PutRecordsResult {
+	  return com.amazonaws.services.kinesis.model.PutRecordsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesis.model.PutRecordsResult {
+		return environment.kinesis.putRecords(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -575,12 +647,12 @@ class AmazonKinesisPutRecordsCommand(val records: List<com.amazonaws.services.ki
 }
 
 
-fun AmazonKinesisFunctions.removeTagsFromStream(streamName: String, tagKeys: List<String>, init: AmazonKinesisRemoveTagsFromStreamCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisRemoveTagsFromStreamCommand(streamName, tagKeys).apply(init))
+fun AmazonKinesisFunctions.removeTagsFromStream(streamName: String, tagKeys: List<String>, init: AmazonKinesisRemoveTagsFromStreamCommand.() -> Unit): com.amazonaws.services.kinesis.model.RemoveTagsFromStreamResult {
+	return this.block.declare(AmazonKinesisRemoveTagsFromStreamCommand(streamName, tagKeys).apply(init)) as com.amazonaws.services.kinesis.model.RemoveTagsFromStreamResult
 }
 
 @Generated
-class AmazonKinesisRemoveTagsFromStreamCommand(val streamName: String, val tagKeys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.RemoveTagsFromStreamRequest> {
+class AmazonKinesisRemoveTagsFromStreamCommand(val streamName: String, val tagKeys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.RemoveTagsFromStreamRequest, com.amazonaws.services.kinesis.model.RemoveTagsFromStreamResult> {
 
 
 
@@ -591,8 +663,12 @@ class AmazonKinesisRemoveTagsFromStreamCommand(val streamName: String, val tagKe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesis.removeTagsFromStream(build())
+	override fun dryResult(): com.amazonaws.services.kinesis.model.RemoveTagsFromStreamResult {
+	  return com.amazonaws.services.kinesis.model.RemoveTagsFromStreamResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesis.model.RemoveTagsFromStreamResult {
+		return environment.kinesis.removeTagsFromStream(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -604,12 +680,12 @@ class AmazonKinesisRemoveTagsFromStreamCommand(val streamName: String, val tagKe
 }
 
 
-fun AmazonKinesisFunctions.splitShard(streamName: String, shardToSplit: String, newStartingHashKey: String, init: AmazonKinesisSplitShardCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisSplitShardCommand(streamName, shardToSplit, newStartingHashKey).apply(init))
+fun AmazonKinesisFunctions.splitShard(streamName: String, shardToSplit: String, newStartingHashKey: String, init: AmazonKinesisSplitShardCommand.() -> Unit): com.amazonaws.services.kinesis.model.SplitShardResult {
+	return this.block.declare(AmazonKinesisSplitShardCommand(streamName, shardToSplit, newStartingHashKey).apply(init)) as com.amazonaws.services.kinesis.model.SplitShardResult
 }
 
 @Generated
-class AmazonKinesisSplitShardCommand(val streamName: String, val shardToSplit: String, val newStartingHashKey: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.SplitShardRequest> {
+class AmazonKinesisSplitShardCommand(val streamName: String, val shardToSplit: String, val newStartingHashKey: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.SplitShardRequest, com.amazonaws.services.kinesis.model.SplitShardResult> {
 
 
 
@@ -621,8 +697,12 @@ class AmazonKinesisSplitShardCommand(val streamName: String, val shardToSplit: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesis.splitShard(build())
+	override fun dryResult(): com.amazonaws.services.kinesis.model.SplitShardResult {
+	  return com.amazonaws.services.kinesis.model.SplitShardResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesis.model.SplitShardResult {
+		return environment.kinesis.splitShard(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -635,12 +715,12 @@ class AmazonKinesisSplitShardCommand(val streamName: String, val shardToSplit: S
 }
 
 
-fun AmazonKinesisFunctions.startStreamEncryption(streamName: String, encryptionType: EncryptionType, keyId: String, init: AmazonKinesisStartStreamEncryptionCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisStartStreamEncryptionCommand(streamName, encryptionType, keyId).apply(init))
+fun AmazonKinesisFunctions.startStreamEncryption(streamName: String, encryptionType: EncryptionType, keyId: String, init: AmazonKinesisStartStreamEncryptionCommand.() -> Unit): com.amazonaws.services.kinesis.model.StartStreamEncryptionResult {
+	return this.block.declare(AmazonKinesisStartStreamEncryptionCommand(streamName, encryptionType, keyId).apply(init)) as com.amazonaws.services.kinesis.model.StartStreamEncryptionResult
 }
 
 @Generated
-class AmazonKinesisStartStreamEncryptionCommand(val streamName: String, val encryptionType: EncryptionType, val keyId: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.StartStreamEncryptionRequest> {
+class AmazonKinesisStartStreamEncryptionCommand(val streamName: String, val encryptionType: EncryptionType, val keyId: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.StartStreamEncryptionRequest, com.amazonaws.services.kinesis.model.StartStreamEncryptionResult> {
 
 
 
@@ -652,8 +732,12 @@ class AmazonKinesisStartStreamEncryptionCommand(val streamName: String, val encr
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesis.startStreamEncryption(build())
+	override fun dryResult(): com.amazonaws.services.kinesis.model.StartStreamEncryptionResult {
+	  return com.amazonaws.services.kinesis.model.StartStreamEncryptionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesis.model.StartStreamEncryptionResult {
+		return environment.kinesis.startStreamEncryption(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -666,12 +750,12 @@ class AmazonKinesisStartStreamEncryptionCommand(val streamName: String, val encr
 }
 
 
-fun AmazonKinesisFunctions.stopStreamEncryption(streamName: String, encryptionType: EncryptionType, keyId: String, init: AmazonKinesisStopStreamEncryptionCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisStopStreamEncryptionCommand(streamName, encryptionType, keyId).apply(init))
+fun AmazonKinesisFunctions.stopStreamEncryption(streamName: String, encryptionType: EncryptionType, keyId: String, init: AmazonKinesisStopStreamEncryptionCommand.() -> Unit): com.amazonaws.services.kinesis.model.StopStreamEncryptionResult {
+	return this.block.declare(AmazonKinesisStopStreamEncryptionCommand(streamName, encryptionType, keyId).apply(init)) as com.amazonaws.services.kinesis.model.StopStreamEncryptionResult
 }
 
 @Generated
-class AmazonKinesisStopStreamEncryptionCommand(val streamName: String, val encryptionType: EncryptionType, val keyId: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.StopStreamEncryptionRequest> {
+class AmazonKinesisStopStreamEncryptionCommand(val streamName: String, val encryptionType: EncryptionType, val keyId: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.StopStreamEncryptionRequest, com.amazonaws.services.kinesis.model.StopStreamEncryptionResult> {
 
 
 
@@ -683,8 +767,12 @@ class AmazonKinesisStopStreamEncryptionCommand(val streamName: String, val encry
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesis.stopStreamEncryption(build())
+	override fun dryResult(): com.amazonaws.services.kinesis.model.StopStreamEncryptionResult {
+	  return com.amazonaws.services.kinesis.model.StopStreamEncryptionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesis.model.StopStreamEncryptionResult {
+		return environment.kinesis.stopStreamEncryption(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -697,12 +785,12 @@ class AmazonKinesisStopStreamEncryptionCommand(val streamName: String, val encry
 }
 
 
-fun AmazonKinesisFunctions.updateShardCount(streamName: String, targetShardCount: Int, scalingType: ScalingType, init: AmazonKinesisUpdateShardCountCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisUpdateShardCountCommand(streamName, targetShardCount, scalingType).apply(init))
+fun AmazonKinesisFunctions.updateShardCount(streamName: String, targetShardCount: Int, scalingType: ScalingType, init: AmazonKinesisUpdateShardCountCommand.() -> Unit): com.amazonaws.services.kinesis.model.UpdateShardCountResult {
+	return this.block.declare(AmazonKinesisUpdateShardCountCommand(streamName, targetShardCount, scalingType).apply(init)) as com.amazonaws.services.kinesis.model.UpdateShardCountResult
 }
 
 @Generated
-class AmazonKinesisUpdateShardCountCommand(val streamName: String, val targetShardCount: Int, val scalingType: ScalingType) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.UpdateShardCountRequest> {
+class AmazonKinesisUpdateShardCountCommand(val streamName: String, val targetShardCount: Int, val scalingType: ScalingType) : AmazonWebServiceCommand<com.amazonaws.services.kinesis.model.UpdateShardCountRequest, com.amazonaws.services.kinesis.model.UpdateShardCountResult> {
 
 
 
@@ -714,8 +802,12 @@ class AmazonKinesisUpdateShardCountCommand(val streamName: String, val targetSha
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesis.updateShardCount(build())
+	override fun dryResult(): com.amazonaws.services.kinesis.model.UpdateShardCountResult {
+	  return com.amazonaws.services.kinesis.model.UpdateShardCountResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesis.model.UpdateShardCountResult {
+		return environment.kinesis.updateShardCount(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

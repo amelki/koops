@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.elastictranscoder: AmazonElasticTranscoder
 @Generated
 class AmazonElasticTranscoderFunctions(val block: Block)
 
-infix fun AwsContinuation.elastictranscoder(init: AmazonElasticTranscoderFunctions.() -> Unit) {
-	AmazonElasticTranscoderFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.elastictranscoder(init: AmazonElasticTranscoderFunctions.() -> T): T {
+	return AmazonElasticTranscoderFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonElasticTranscoderFunctions.cancelJob(id: String, init: AmazonElasticTranscoderCancelJobCommand.() -> Unit) {
-	this.block.declare(AmazonElasticTranscoderCancelJobCommand(id).apply(init))
+fun AmazonElasticTranscoderFunctions.cancelJob(id: String, init: AmazonElasticTranscoderCancelJobCommand.() -> Unit): com.amazonaws.services.elastictranscoder.model.CancelJobResult {
+	return this.block.declare(AmazonElasticTranscoderCancelJobCommand(id).apply(init)) as com.amazonaws.services.elastictranscoder.model.CancelJobResult
 }
 
 @Generated
-class AmazonElasticTranscoderCancelJobCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.CancelJobRequest> {
+class AmazonElasticTranscoderCancelJobCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.CancelJobRequest, com.amazonaws.services.elastictranscoder.model.CancelJobResult> {
 
 
 
@@ -41,8 +41,12 @@ class AmazonElasticTranscoderCancelJobCommand(val id: String) : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elastictranscoder.cancelJob(build())
+	override fun dryResult(): com.amazonaws.services.elastictranscoder.model.CancelJobResult {
+	  return com.amazonaws.services.elastictranscoder.model.CancelJobResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elastictranscoder.model.CancelJobResult {
+		return environment.elastictranscoder.cancelJob(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -53,12 +57,12 @@ class AmazonElasticTranscoderCancelJobCommand(val id: String) : AmazonWebService
 }
 
 
-fun AmazonElasticTranscoderFunctions.createJob(pipelineId: String, init: AmazonElasticTranscoderCreateJobCommand.() -> Unit) {
-	this.block.declare(AmazonElasticTranscoderCreateJobCommand(pipelineId).apply(init))
+fun AmazonElasticTranscoderFunctions.createJob(pipelineId: String, init: AmazonElasticTranscoderCreateJobCommand.() -> Unit): com.amazonaws.services.elastictranscoder.model.CreateJobResult {
+	return this.block.declare(AmazonElasticTranscoderCreateJobCommand(pipelineId).apply(init)) as com.amazonaws.services.elastictranscoder.model.CreateJobResult
 }
 
 @Generated
-class AmazonElasticTranscoderCreateJobCommand(val pipelineId: String) : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.CreateJobRequest> {
+class AmazonElasticTranscoderCreateJobCommand(val pipelineId: String) : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.CreateJobRequest, com.amazonaws.services.elastictranscoder.model.CreateJobResult> {
 
 	var input: com.amazonaws.services.elastictranscoder.model.JobInput? = null
 	var inputs: List<com.amazonaws.services.elastictranscoder.model.JobInput>? = null
@@ -81,8 +85,12 @@ class AmazonElasticTranscoderCreateJobCommand(val pipelineId: String) : AmazonWe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elastictranscoder.createJob(build())
+	override fun dryResult(): com.amazonaws.services.elastictranscoder.model.CreateJobResult {
+	  return com.amazonaws.services.elastictranscoder.model.CreateJobResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elastictranscoder.model.CreateJobResult {
+		return environment.elastictranscoder.createJob(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -100,12 +108,12 @@ class AmazonElasticTranscoderCreateJobCommand(val pipelineId: String) : AmazonWe
 }
 
 
-fun AmazonElasticTranscoderFunctions.createPipeline(name: String, inputBucket: String, role: String, init: AmazonElasticTranscoderCreatePipelineCommand.() -> Unit) {
-	this.block.declare(AmazonElasticTranscoderCreatePipelineCommand(name, inputBucket, role).apply(init))
+fun AmazonElasticTranscoderFunctions.createPipeline(name: String, inputBucket: String, role: String, init: AmazonElasticTranscoderCreatePipelineCommand.() -> Unit): com.amazonaws.services.elastictranscoder.model.CreatePipelineResult {
+	return this.block.declare(AmazonElasticTranscoderCreatePipelineCommand(name, inputBucket, role).apply(init)) as com.amazonaws.services.elastictranscoder.model.CreatePipelineResult
 }
 
 @Generated
-class AmazonElasticTranscoderCreatePipelineCommand(val name: String, val inputBucket: String, val role: String) : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.CreatePipelineRequest> {
+class AmazonElasticTranscoderCreatePipelineCommand(val name: String, val inputBucket: String, val role: String) : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.CreatePipelineRequest, com.amazonaws.services.elastictranscoder.model.CreatePipelineResult> {
 
 	var outputBucket: String? = null
 	var awsKmsKeyArn: String? = null
@@ -126,8 +134,12 @@ class AmazonElasticTranscoderCreatePipelineCommand(val name: String, val inputBu
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elastictranscoder.createPipeline(build())
+	override fun dryResult(): com.amazonaws.services.elastictranscoder.model.CreatePipelineResult {
+	  return com.amazonaws.services.elastictranscoder.model.CreatePipelineResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elastictranscoder.model.CreatePipelineResult {
+		return environment.elastictranscoder.createPipeline(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -145,12 +157,12 @@ class AmazonElasticTranscoderCreatePipelineCommand(val name: String, val inputBu
 }
 
 
-fun AmazonElasticTranscoderFunctions.createPreset(name: String, container: String, init: AmazonElasticTranscoderCreatePresetCommand.() -> Unit) {
-	this.block.declare(AmazonElasticTranscoderCreatePresetCommand(name, container).apply(init))
+fun AmazonElasticTranscoderFunctions.createPreset(name: String, container: String, init: AmazonElasticTranscoderCreatePresetCommand.() -> Unit): com.amazonaws.services.elastictranscoder.model.CreatePresetResult {
+	return this.block.declare(AmazonElasticTranscoderCreatePresetCommand(name, container).apply(init)) as com.amazonaws.services.elastictranscoder.model.CreatePresetResult
 }
 
 @Generated
-class AmazonElasticTranscoderCreatePresetCommand(val name: String, val container: String) : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.CreatePresetRequest> {
+class AmazonElasticTranscoderCreatePresetCommand(val name: String, val container: String) : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.CreatePresetRequest, com.amazonaws.services.elastictranscoder.model.CreatePresetResult> {
 
 	var description: String? = null
 	var video: com.amazonaws.services.elastictranscoder.model.VideoParameters? = null
@@ -168,8 +180,12 @@ class AmazonElasticTranscoderCreatePresetCommand(val name: String, val container
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elastictranscoder.createPreset(build())
+	override fun dryResult(): com.amazonaws.services.elastictranscoder.model.CreatePresetResult {
+	  return com.amazonaws.services.elastictranscoder.model.CreatePresetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elastictranscoder.model.CreatePresetResult {
+		return environment.elastictranscoder.createPreset(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -185,12 +201,12 @@ class AmazonElasticTranscoderCreatePresetCommand(val name: String, val container
 }
 
 
-fun AmazonElasticTranscoderFunctions.deletePipeline(id: String, init: AmazonElasticTranscoderDeletePipelineCommand.() -> Unit) {
-	this.block.declare(AmazonElasticTranscoderDeletePipelineCommand(id).apply(init))
+fun AmazonElasticTranscoderFunctions.deletePipeline(id: String, init: AmazonElasticTranscoderDeletePipelineCommand.() -> Unit): com.amazonaws.services.elastictranscoder.model.DeletePipelineResult {
+	return this.block.declare(AmazonElasticTranscoderDeletePipelineCommand(id).apply(init)) as com.amazonaws.services.elastictranscoder.model.DeletePipelineResult
 }
 
 @Generated
-class AmazonElasticTranscoderDeletePipelineCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.DeletePipelineRequest> {
+class AmazonElasticTranscoderDeletePipelineCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.DeletePipelineRequest, com.amazonaws.services.elastictranscoder.model.DeletePipelineResult> {
 
 
 
@@ -200,8 +216,12 @@ class AmazonElasticTranscoderDeletePipelineCommand(val id: String) : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elastictranscoder.deletePipeline(build())
+	override fun dryResult(): com.amazonaws.services.elastictranscoder.model.DeletePipelineResult {
+	  return com.amazonaws.services.elastictranscoder.model.DeletePipelineResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elastictranscoder.model.DeletePipelineResult {
+		return environment.elastictranscoder.deletePipeline(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -212,12 +232,12 @@ class AmazonElasticTranscoderDeletePipelineCommand(val id: String) : AmazonWebSe
 }
 
 
-fun AmazonElasticTranscoderFunctions.deletePreset(id: String, init: AmazonElasticTranscoderDeletePresetCommand.() -> Unit) {
-	this.block.declare(AmazonElasticTranscoderDeletePresetCommand(id).apply(init))
+fun AmazonElasticTranscoderFunctions.deletePreset(id: String, init: AmazonElasticTranscoderDeletePresetCommand.() -> Unit): com.amazonaws.services.elastictranscoder.model.DeletePresetResult {
+	return this.block.declare(AmazonElasticTranscoderDeletePresetCommand(id).apply(init)) as com.amazonaws.services.elastictranscoder.model.DeletePresetResult
 }
 
 @Generated
-class AmazonElasticTranscoderDeletePresetCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.DeletePresetRequest> {
+class AmazonElasticTranscoderDeletePresetCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.DeletePresetRequest, com.amazonaws.services.elastictranscoder.model.DeletePresetResult> {
 
 
 
@@ -227,8 +247,12 @@ class AmazonElasticTranscoderDeletePresetCommand(val id: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elastictranscoder.deletePreset(build())
+	override fun dryResult(): com.amazonaws.services.elastictranscoder.model.DeletePresetResult {
+	  return com.amazonaws.services.elastictranscoder.model.DeletePresetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elastictranscoder.model.DeletePresetResult {
+		return environment.elastictranscoder.deletePreset(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -239,12 +263,12 @@ class AmazonElasticTranscoderDeletePresetCommand(val id: String) : AmazonWebServ
 }
 
 
-fun AmazonElasticTranscoderFunctions.listJobsByPipeline(pipelineId: String, init: AmazonElasticTranscoderListJobsByPipelineCommand.() -> Unit) {
-	this.block.declare(AmazonElasticTranscoderListJobsByPipelineCommand(pipelineId).apply(init))
+fun AmazonElasticTranscoderFunctions.listJobsByPipeline(pipelineId: String, init: AmazonElasticTranscoderListJobsByPipelineCommand.() -> Unit): com.amazonaws.services.elastictranscoder.model.ListJobsByPipelineResult {
+	return this.block.declare(AmazonElasticTranscoderListJobsByPipelineCommand(pipelineId).apply(init)) as com.amazonaws.services.elastictranscoder.model.ListJobsByPipelineResult
 }
 
 @Generated
-class AmazonElasticTranscoderListJobsByPipelineCommand(val pipelineId: String) : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.ListJobsByPipelineRequest> {
+class AmazonElasticTranscoderListJobsByPipelineCommand(val pipelineId: String) : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.ListJobsByPipelineRequest, com.amazonaws.services.elastictranscoder.model.ListJobsByPipelineResult> {
 
 	var ascending: String? = null
 	var pageToken: String? = null
@@ -257,8 +281,12 @@ class AmazonElasticTranscoderListJobsByPipelineCommand(val pipelineId: String) :
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elastictranscoder.listJobsByPipeline(build())
+	override fun dryResult(): com.amazonaws.services.elastictranscoder.model.ListJobsByPipelineResult {
+	  return com.amazonaws.services.elastictranscoder.model.ListJobsByPipelineResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elastictranscoder.model.ListJobsByPipelineResult {
+		return environment.elastictranscoder.listJobsByPipeline(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -271,12 +299,12 @@ class AmazonElasticTranscoderListJobsByPipelineCommand(val pipelineId: String) :
 }
 
 
-fun AmazonElasticTranscoderFunctions.listJobsByStatus(status: String, init: AmazonElasticTranscoderListJobsByStatusCommand.() -> Unit) {
-	this.block.declare(AmazonElasticTranscoderListJobsByStatusCommand(status).apply(init))
+fun AmazonElasticTranscoderFunctions.listJobsByStatus(status: String, init: AmazonElasticTranscoderListJobsByStatusCommand.() -> Unit): com.amazonaws.services.elastictranscoder.model.ListJobsByStatusResult {
+	return this.block.declare(AmazonElasticTranscoderListJobsByStatusCommand(status).apply(init)) as com.amazonaws.services.elastictranscoder.model.ListJobsByStatusResult
 }
 
 @Generated
-class AmazonElasticTranscoderListJobsByStatusCommand(val status: String) : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.ListJobsByStatusRequest> {
+class AmazonElasticTranscoderListJobsByStatusCommand(val status: String) : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.ListJobsByStatusRequest, com.amazonaws.services.elastictranscoder.model.ListJobsByStatusResult> {
 
 	var ascending: String? = null
 	var pageToken: String? = null
@@ -289,8 +317,12 @@ class AmazonElasticTranscoderListJobsByStatusCommand(val status: String) : Amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elastictranscoder.listJobsByStatus(build())
+	override fun dryResult(): com.amazonaws.services.elastictranscoder.model.ListJobsByStatusResult {
+	  return com.amazonaws.services.elastictranscoder.model.ListJobsByStatusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elastictranscoder.model.ListJobsByStatusResult {
+		return environment.elastictranscoder.listJobsByStatus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -303,12 +335,12 @@ class AmazonElasticTranscoderListJobsByStatusCommand(val status: String) : Amazo
 }
 
 
-fun AmazonElasticTranscoderFunctions.listPipelines(init: AmazonElasticTranscoderListPipelinesCommand.() -> Unit) {
-	this.block.declare(AmazonElasticTranscoderListPipelinesCommand().apply(init))
+fun AmazonElasticTranscoderFunctions.listPipelines(init: AmazonElasticTranscoderListPipelinesCommand.() -> Unit): com.amazonaws.services.elastictranscoder.model.ListPipelinesResult {
+	return this.block.declare(AmazonElasticTranscoderListPipelinesCommand().apply(init)) as com.amazonaws.services.elastictranscoder.model.ListPipelinesResult
 }
 
 @Generated
-class AmazonElasticTranscoderListPipelinesCommand() : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.ListPipelinesRequest> {
+class AmazonElasticTranscoderListPipelinesCommand() : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.ListPipelinesRequest, com.amazonaws.services.elastictranscoder.model.ListPipelinesResult> {
 
 	var ascending: String? = null
 	var pageToken: String? = null
@@ -320,8 +352,12 @@ class AmazonElasticTranscoderListPipelinesCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elastictranscoder.listPipelines(build())
+	override fun dryResult(): com.amazonaws.services.elastictranscoder.model.ListPipelinesResult {
+	  return com.amazonaws.services.elastictranscoder.model.ListPipelinesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elastictranscoder.model.ListPipelinesResult {
+		return environment.elastictranscoder.listPipelines(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -333,12 +369,12 @@ class AmazonElasticTranscoderListPipelinesCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonElasticTranscoderFunctions.listPresets(init: AmazonElasticTranscoderListPresetsCommand.() -> Unit) {
-	this.block.declare(AmazonElasticTranscoderListPresetsCommand().apply(init))
+fun AmazonElasticTranscoderFunctions.listPresets(init: AmazonElasticTranscoderListPresetsCommand.() -> Unit): com.amazonaws.services.elastictranscoder.model.ListPresetsResult {
+	return this.block.declare(AmazonElasticTranscoderListPresetsCommand().apply(init)) as com.amazonaws.services.elastictranscoder.model.ListPresetsResult
 }
 
 @Generated
-class AmazonElasticTranscoderListPresetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.ListPresetsRequest> {
+class AmazonElasticTranscoderListPresetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.ListPresetsRequest, com.amazonaws.services.elastictranscoder.model.ListPresetsResult> {
 
 	var ascending: String? = null
 	var pageToken: String? = null
@@ -350,8 +386,12 @@ class AmazonElasticTranscoderListPresetsCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elastictranscoder.listPresets(build())
+	override fun dryResult(): com.amazonaws.services.elastictranscoder.model.ListPresetsResult {
+	  return com.amazonaws.services.elastictranscoder.model.ListPresetsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elastictranscoder.model.ListPresetsResult {
+		return environment.elastictranscoder.listPresets(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -363,12 +403,12 @@ class AmazonElasticTranscoderListPresetsCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonElasticTranscoderFunctions.readJob(id: String, init: AmazonElasticTranscoderReadJobCommand.() -> Unit) {
-	this.block.declare(AmazonElasticTranscoderReadJobCommand(id).apply(init))
+fun AmazonElasticTranscoderFunctions.readJob(id: String, init: AmazonElasticTranscoderReadJobCommand.() -> Unit): com.amazonaws.services.elastictranscoder.model.ReadJobResult {
+	return this.block.declare(AmazonElasticTranscoderReadJobCommand(id).apply(init)) as com.amazonaws.services.elastictranscoder.model.ReadJobResult
 }
 
 @Generated
-class AmazonElasticTranscoderReadJobCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.ReadJobRequest> {
+class AmazonElasticTranscoderReadJobCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.ReadJobRequest, com.amazonaws.services.elastictranscoder.model.ReadJobResult> {
 
 
 
@@ -378,8 +418,12 @@ class AmazonElasticTranscoderReadJobCommand(val id: String) : AmazonWebServiceCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elastictranscoder.readJob(build())
+	override fun dryResult(): com.amazonaws.services.elastictranscoder.model.ReadJobResult {
+	  return com.amazonaws.services.elastictranscoder.model.ReadJobResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elastictranscoder.model.ReadJobResult {
+		return environment.elastictranscoder.readJob(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -390,12 +434,12 @@ class AmazonElasticTranscoderReadJobCommand(val id: String) : AmazonWebServiceCo
 }
 
 
-fun AmazonElasticTranscoderFunctions.readPipeline(id: String, init: AmazonElasticTranscoderReadPipelineCommand.() -> Unit) {
-	this.block.declare(AmazonElasticTranscoderReadPipelineCommand(id).apply(init))
+fun AmazonElasticTranscoderFunctions.readPipeline(id: String, init: AmazonElasticTranscoderReadPipelineCommand.() -> Unit): com.amazonaws.services.elastictranscoder.model.ReadPipelineResult {
+	return this.block.declare(AmazonElasticTranscoderReadPipelineCommand(id).apply(init)) as com.amazonaws.services.elastictranscoder.model.ReadPipelineResult
 }
 
 @Generated
-class AmazonElasticTranscoderReadPipelineCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.ReadPipelineRequest> {
+class AmazonElasticTranscoderReadPipelineCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.ReadPipelineRequest, com.amazonaws.services.elastictranscoder.model.ReadPipelineResult> {
 
 
 
@@ -405,8 +449,12 @@ class AmazonElasticTranscoderReadPipelineCommand(val id: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elastictranscoder.readPipeline(build())
+	override fun dryResult(): com.amazonaws.services.elastictranscoder.model.ReadPipelineResult {
+	  return com.amazonaws.services.elastictranscoder.model.ReadPipelineResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elastictranscoder.model.ReadPipelineResult {
+		return environment.elastictranscoder.readPipeline(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -417,12 +465,12 @@ class AmazonElasticTranscoderReadPipelineCommand(val id: String) : AmazonWebServ
 }
 
 
-fun AmazonElasticTranscoderFunctions.readPreset(id: String, init: AmazonElasticTranscoderReadPresetCommand.() -> Unit) {
-	this.block.declare(AmazonElasticTranscoderReadPresetCommand(id).apply(init))
+fun AmazonElasticTranscoderFunctions.readPreset(id: String, init: AmazonElasticTranscoderReadPresetCommand.() -> Unit): com.amazonaws.services.elastictranscoder.model.ReadPresetResult {
+	return this.block.declare(AmazonElasticTranscoderReadPresetCommand(id).apply(init)) as com.amazonaws.services.elastictranscoder.model.ReadPresetResult
 }
 
 @Generated
-class AmazonElasticTranscoderReadPresetCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.ReadPresetRequest> {
+class AmazonElasticTranscoderReadPresetCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.ReadPresetRequest, com.amazonaws.services.elastictranscoder.model.ReadPresetResult> {
 
 
 
@@ -432,8 +480,12 @@ class AmazonElasticTranscoderReadPresetCommand(val id: String) : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elastictranscoder.readPreset(build())
+	override fun dryResult(): com.amazonaws.services.elastictranscoder.model.ReadPresetResult {
+	  return com.amazonaws.services.elastictranscoder.model.ReadPresetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elastictranscoder.model.ReadPresetResult {
+		return environment.elastictranscoder.readPreset(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -444,12 +496,12 @@ class AmazonElasticTranscoderReadPresetCommand(val id: String) : AmazonWebServic
 }
 
 
-fun AmazonElasticTranscoderFunctions.testRole(role: String, inputBucket: String, outputBucket: String, topics: List<String>, init: AmazonElasticTranscoderTestRoleCommand.() -> Unit) {
-	this.block.declare(AmazonElasticTranscoderTestRoleCommand(role, inputBucket, outputBucket, topics).apply(init))
+fun AmazonElasticTranscoderFunctions.testRole(role: String, inputBucket: String, outputBucket: String, topics: List<String>, init: AmazonElasticTranscoderTestRoleCommand.() -> Unit): com.amazonaws.services.elastictranscoder.model.TestRoleResult {
+	return this.block.declare(AmazonElasticTranscoderTestRoleCommand(role, inputBucket, outputBucket, topics).apply(init)) as com.amazonaws.services.elastictranscoder.model.TestRoleResult
 }
 
 @Generated
-class AmazonElasticTranscoderTestRoleCommand(val role: String, val inputBucket: String, val outputBucket: String, val topics: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.TestRoleRequest> {
+class AmazonElasticTranscoderTestRoleCommand(val role: String, val inputBucket: String, val outputBucket: String, val topics: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.TestRoleRequest, com.amazonaws.services.elastictranscoder.model.TestRoleResult> {
 
 
 
@@ -462,8 +514,12 @@ class AmazonElasticTranscoderTestRoleCommand(val role: String, val inputBucket: 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elastictranscoder.testRole(build())
+	override fun dryResult(): com.amazonaws.services.elastictranscoder.model.TestRoleResult {
+	  return com.amazonaws.services.elastictranscoder.model.TestRoleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elastictranscoder.model.TestRoleResult {
+		return environment.elastictranscoder.testRole(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -477,12 +533,12 @@ class AmazonElasticTranscoderTestRoleCommand(val role: String, val inputBucket: 
 }
 
 
-fun AmazonElasticTranscoderFunctions.updatePipeline(id: String, init: AmazonElasticTranscoderUpdatePipelineCommand.() -> Unit) {
-	this.block.declare(AmazonElasticTranscoderUpdatePipelineCommand(id).apply(init))
+fun AmazonElasticTranscoderFunctions.updatePipeline(id: String, init: AmazonElasticTranscoderUpdatePipelineCommand.() -> Unit): com.amazonaws.services.elastictranscoder.model.UpdatePipelineResult {
+	return this.block.declare(AmazonElasticTranscoderUpdatePipelineCommand(id).apply(init)) as com.amazonaws.services.elastictranscoder.model.UpdatePipelineResult
 }
 
 @Generated
-class AmazonElasticTranscoderUpdatePipelineCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.UpdatePipelineRequest> {
+class AmazonElasticTranscoderUpdatePipelineCommand(val id: String) : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.UpdatePipelineRequest, com.amazonaws.services.elastictranscoder.model.UpdatePipelineResult> {
 
 	var name: String? = null
 	var inputBucket: String? = null
@@ -505,8 +561,12 @@ class AmazonElasticTranscoderUpdatePipelineCommand(val id: String) : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elastictranscoder.updatePipeline(build())
+	override fun dryResult(): com.amazonaws.services.elastictranscoder.model.UpdatePipelineResult {
+	  return com.amazonaws.services.elastictranscoder.model.UpdatePipelineResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elastictranscoder.model.UpdatePipelineResult {
+		return environment.elastictranscoder.updatePipeline(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -524,12 +584,12 @@ class AmazonElasticTranscoderUpdatePipelineCommand(val id: String) : AmazonWebSe
 }
 
 
-fun AmazonElasticTranscoderFunctions.updatePipelineNotifications(id: String, notifications: com.amazonaws.services.elastictranscoder.model.Notifications, init: AmazonElasticTranscoderUpdatePipelineNotificationsCommand.() -> Unit) {
-	this.block.declare(AmazonElasticTranscoderUpdatePipelineNotificationsCommand(id, notifications).apply(init))
+fun AmazonElasticTranscoderFunctions.updatePipelineNotifications(id: String, notifications: com.amazonaws.services.elastictranscoder.model.Notifications, init: AmazonElasticTranscoderUpdatePipelineNotificationsCommand.() -> Unit): com.amazonaws.services.elastictranscoder.model.UpdatePipelineNotificationsResult {
+	return this.block.declare(AmazonElasticTranscoderUpdatePipelineNotificationsCommand(id, notifications).apply(init)) as com.amazonaws.services.elastictranscoder.model.UpdatePipelineNotificationsResult
 }
 
 @Generated
-class AmazonElasticTranscoderUpdatePipelineNotificationsCommand(val id: String, val notifications: com.amazonaws.services.elastictranscoder.model.Notifications) : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.UpdatePipelineNotificationsRequest> {
+class AmazonElasticTranscoderUpdatePipelineNotificationsCommand(val id: String, val notifications: com.amazonaws.services.elastictranscoder.model.Notifications) : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.UpdatePipelineNotificationsRequest, com.amazonaws.services.elastictranscoder.model.UpdatePipelineNotificationsResult> {
 
 
 
@@ -540,8 +600,12 @@ class AmazonElasticTranscoderUpdatePipelineNotificationsCommand(val id: String, 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elastictranscoder.updatePipelineNotifications(build())
+	override fun dryResult(): com.amazonaws.services.elastictranscoder.model.UpdatePipelineNotificationsResult {
+	  return com.amazonaws.services.elastictranscoder.model.UpdatePipelineNotificationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elastictranscoder.model.UpdatePipelineNotificationsResult {
+		return environment.elastictranscoder.updatePipelineNotifications(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -553,12 +617,12 @@ class AmazonElasticTranscoderUpdatePipelineNotificationsCommand(val id: String, 
 }
 
 
-fun AmazonElasticTranscoderFunctions.updatePipelineStatus(id: String, status: String, init: AmazonElasticTranscoderUpdatePipelineStatusCommand.() -> Unit) {
-	this.block.declare(AmazonElasticTranscoderUpdatePipelineStatusCommand(id, status).apply(init))
+fun AmazonElasticTranscoderFunctions.updatePipelineStatus(id: String, status: String, init: AmazonElasticTranscoderUpdatePipelineStatusCommand.() -> Unit): com.amazonaws.services.elastictranscoder.model.UpdatePipelineStatusResult {
+	return this.block.declare(AmazonElasticTranscoderUpdatePipelineStatusCommand(id, status).apply(init)) as com.amazonaws.services.elastictranscoder.model.UpdatePipelineStatusResult
 }
 
 @Generated
-class AmazonElasticTranscoderUpdatePipelineStatusCommand(val id: String, val status: String) : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.UpdatePipelineStatusRequest> {
+class AmazonElasticTranscoderUpdatePipelineStatusCommand(val id: String, val status: String) : AmazonWebServiceCommand<com.amazonaws.services.elastictranscoder.model.UpdatePipelineStatusRequest, com.amazonaws.services.elastictranscoder.model.UpdatePipelineStatusResult> {
 
 
 
@@ -569,8 +633,12 @@ class AmazonElasticTranscoderUpdatePipelineStatusCommand(val id: String, val sta
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elastictranscoder.updatePipelineStatus(build())
+	override fun dryResult(): com.amazonaws.services.elastictranscoder.model.UpdatePipelineStatusResult {
+	  return com.amazonaws.services.elastictranscoder.model.UpdatePipelineStatusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elastictranscoder.model.UpdatePipelineStatusResult {
+		return environment.elastictranscoder.updatePipelineStatus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

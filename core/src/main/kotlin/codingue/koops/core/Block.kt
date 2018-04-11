@@ -8,23 +8,23 @@ open class Environment(var dryRun: Boolean = false) {
 }
 
 @CliMarker
-interface Command {
-	fun eval(environment: Environment)
-	fun dryRun()
+interface Command<out T: Any> {
+	fun eval(environment: Environment): T
+	fun dryRun(): T
 }
 
 @CliMarker
-class Block(var environment: Environment): Command {
-	private val commands = mutableListOf<Command>()
+class Block(var environment: Environment): Command<Any> {
+	private val commands = mutableListOf<Command<*>>()
 
 	override fun toString(): String {
 		return "block { $commands }"
 	}
 
-	fun declare(anonymousBlock: () -> Unit, anonymousDryRun: (() -> Unit)? = null) {
-		declare(object: Command {
-			override fun eval(environment: Environment) {
-				anonymousBlock()
+	fun declare(anonymousBlock: () -> Any, anonymousDryRun: (() -> Unit)? = null): Any? {
+		return declare(object: Command<Any> {
+			override fun eval(environment: Environment): Any {
+				return anonymousBlock()
 			}
 			override fun dryRun() {
 				if (anonymousDryRun == null) {
@@ -36,12 +36,12 @@ class Block(var environment: Environment): Command {
 		})
 	}
 
-	fun declare(command: Command) {
+	fun declare(command: Command<*>): Any {
 		commands.add(command)
 		if (environment.dryRun) {
-			command.dryRun()
+			return command.dryRun()
 		} else {
-			command.eval(environment)
+			return command.eval(environment)
 		}
 	}
 
@@ -56,7 +56,7 @@ class Block(var environment: Environment): Command {
 }
 
 @CliMarker
-class Deferred(private val init: Block.() -> Unit): Command {
+class Deferred(private val init: Block.() -> Unit): Command<Any> {
 
 	override fun eval(environment: Environment) {
 		// Eval does nothing => must be explicitely run when needed
@@ -66,7 +66,7 @@ class Deferred(private val init: Block.() -> Unit): Command {
 		// Does nothing
 	}
 
-	fun run(environment: Environment) = Block(environment).apply(init)
+	fun run(environment: Environment): Any = Block(environment).apply(init)
 
 }
 

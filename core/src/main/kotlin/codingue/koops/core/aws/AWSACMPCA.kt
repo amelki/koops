@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.acm_pca: AWSACMPCA
 @Generated
 class AWSACMPCAFunctions(val block: Block)
 
-infix fun AwsContinuation.acm_pca(init: AWSACMPCAFunctions.() -> Unit) {
-	AWSACMPCAFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.acm_pca(init: AWSACMPCAFunctions.() -> T): T {
+	return AWSACMPCAFunctions(shell).run(init)
 }
 
 			
 
-fun AWSACMPCAFunctions.createCertificateAuthority(certificateAuthorityConfiguration: com.amazonaws.services.acmpca.model.CertificateAuthorityConfiguration, certificateAuthorityType: CertificateAuthorityType, init: AWSACMPCACreateCertificateAuthorityCommand.() -> Unit) {
-	this.block.declare(AWSACMPCACreateCertificateAuthorityCommand(certificateAuthorityConfiguration, certificateAuthorityType).apply(init))
+fun AWSACMPCAFunctions.createCertificateAuthority(certificateAuthorityConfiguration: com.amazonaws.services.acmpca.model.CertificateAuthorityConfiguration, certificateAuthorityType: CertificateAuthorityType, init: AWSACMPCACreateCertificateAuthorityCommand.() -> Unit): com.amazonaws.services.acmpca.model.CreateCertificateAuthorityResult {
+	return this.block.declare(AWSACMPCACreateCertificateAuthorityCommand(certificateAuthorityConfiguration, certificateAuthorityType).apply(init)) as com.amazonaws.services.acmpca.model.CreateCertificateAuthorityResult
 }
 
 @Generated
-class AWSACMPCACreateCertificateAuthorityCommand(val certificateAuthorityConfiguration: com.amazonaws.services.acmpca.model.CertificateAuthorityConfiguration, val certificateAuthorityType: CertificateAuthorityType) : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.CreateCertificateAuthorityRequest> {
+class AWSACMPCACreateCertificateAuthorityCommand(val certificateAuthorityConfiguration: com.amazonaws.services.acmpca.model.CertificateAuthorityConfiguration, val certificateAuthorityType: CertificateAuthorityType) : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.CreateCertificateAuthorityRequest, com.amazonaws.services.acmpca.model.CreateCertificateAuthorityResult> {
 
 	var revocationConfiguration: com.amazonaws.services.acmpca.model.RevocationConfiguration? = null
 	var idempotencyToken: String? = null
@@ -45,8 +45,12 @@ class AWSACMPCACreateCertificateAuthorityCommand(val certificateAuthorityConfigu
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.acm_pca.createCertificateAuthority(build())
+	override fun dryResult(): com.amazonaws.services.acmpca.model.CreateCertificateAuthorityResult {
+	  return com.amazonaws.services.acmpca.model.CreateCertificateAuthorityResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.acmpca.model.CreateCertificateAuthorityResult {
+		return environment.acm_pca.createCertificateAuthority(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -60,12 +64,12 @@ class AWSACMPCACreateCertificateAuthorityCommand(val certificateAuthorityConfigu
 }
 
 
-fun AWSACMPCAFunctions.createCertificateAuthorityAuditReport(certificateAuthorityArn: String, s3BucketName: String, auditReportResponseFormat: AuditReportResponseFormat, init: AWSACMPCACreateCertificateAuthorityAuditReportCommand.() -> Unit) {
-	this.block.declare(AWSACMPCACreateCertificateAuthorityAuditReportCommand(certificateAuthorityArn, s3BucketName, auditReportResponseFormat).apply(init))
+fun AWSACMPCAFunctions.createCertificateAuthorityAuditReport(certificateAuthorityArn: String, s3BucketName: String, auditReportResponseFormat: AuditReportResponseFormat, init: AWSACMPCACreateCertificateAuthorityAuditReportCommand.() -> Unit): com.amazonaws.services.acmpca.model.CreateCertificateAuthorityAuditReportResult {
+	return this.block.declare(AWSACMPCACreateCertificateAuthorityAuditReportCommand(certificateAuthorityArn, s3BucketName, auditReportResponseFormat).apply(init)) as com.amazonaws.services.acmpca.model.CreateCertificateAuthorityAuditReportResult
 }
 
 @Generated
-class AWSACMPCACreateCertificateAuthorityAuditReportCommand(val certificateAuthorityArn: String, val s3BucketName: String, val auditReportResponseFormat: AuditReportResponseFormat) : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.CreateCertificateAuthorityAuditReportRequest> {
+class AWSACMPCACreateCertificateAuthorityAuditReportCommand(val certificateAuthorityArn: String, val s3BucketName: String, val auditReportResponseFormat: AuditReportResponseFormat) : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.CreateCertificateAuthorityAuditReportRequest, com.amazonaws.services.acmpca.model.CreateCertificateAuthorityAuditReportResult> {
 
 
 
@@ -77,8 +81,12 @@ class AWSACMPCACreateCertificateAuthorityAuditReportCommand(val certificateAutho
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.acm_pca.createCertificateAuthorityAuditReport(build())
+	override fun dryResult(): com.amazonaws.services.acmpca.model.CreateCertificateAuthorityAuditReportResult {
+	  return com.amazonaws.services.acmpca.model.CreateCertificateAuthorityAuditReportResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.acmpca.model.CreateCertificateAuthorityAuditReportResult {
+		return environment.acm_pca.createCertificateAuthorityAuditReport(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -91,12 +99,12 @@ class AWSACMPCACreateCertificateAuthorityAuditReportCommand(val certificateAutho
 }
 
 
-fun AWSACMPCAFunctions.deleteCertificateAuthority(certificateAuthorityArn: String, init: AWSACMPCADeleteCertificateAuthorityCommand.() -> Unit) {
-	this.block.declare(AWSACMPCADeleteCertificateAuthorityCommand(certificateAuthorityArn).apply(init))
+fun AWSACMPCAFunctions.deleteCertificateAuthority(certificateAuthorityArn: String, init: AWSACMPCADeleteCertificateAuthorityCommand.() -> Unit): com.amazonaws.services.acmpca.model.DeleteCertificateAuthorityResult {
+	return this.block.declare(AWSACMPCADeleteCertificateAuthorityCommand(certificateAuthorityArn).apply(init)) as com.amazonaws.services.acmpca.model.DeleteCertificateAuthorityResult
 }
 
 @Generated
-class AWSACMPCADeleteCertificateAuthorityCommand(val certificateAuthorityArn: String) : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.DeleteCertificateAuthorityRequest> {
+class AWSACMPCADeleteCertificateAuthorityCommand(val certificateAuthorityArn: String) : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.DeleteCertificateAuthorityRequest, com.amazonaws.services.acmpca.model.DeleteCertificateAuthorityResult> {
 
 
 
@@ -106,8 +114,12 @@ class AWSACMPCADeleteCertificateAuthorityCommand(val certificateAuthorityArn: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.acm_pca.deleteCertificateAuthority(build())
+	override fun dryResult(): com.amazonaws.services.acmpca.model.DeleteCertificateAuthorityResult {
+	  return com.amazonaws.services.acmpca.model.DeleteCertificateAuthorityResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.acmpca.model.DeleteCertificateAuthorityResult {
+		return environment.acm_pca.deleteCertificateAuthority(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -118,12 +130,12 @@ class AWSACMPCADeleteCertificateAuthorityCommand(val certificateAuthorityArn: St
 }
 
 
-fun AWSACMPCAFunctions.describeCertificateAuthority(certificateAuthorityArn: String, init: AWSACMPCADescribeCertificateAuthorityCommand.() -> Unit) {
-	this.block.declare(AWSACMPCADescribeCertificateAuthorityCommand(certificateAuthorityArn).apply(init))
+fun AWSACMPCAFunctions.describeCertificateAuthority(certificateAuthorityArn: String, init: AWSACMPCADescribeCertificateAuthorityCommand.() -> Unit): com.amazonaws.services.acmpca.model.DescribeCertificateAuthorityResult {
+	return this.block.declare(AWSACMPCADescribeCertificateAuthorityCommand(certificateAuthorityArn).apply(init)) as com.amazonaws.services.acmpca.model.DescribeCertificateAuthorityResult
 }
 
 @Generated
-class AWSACMPCADescribeCertificateAuthorityCommand(val certificateAuthorityArn: String) : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.DescribeCertificateAuthorityRequest> {
+class AWSACMPCADescribeCertificateAuthorityCommand(val certificateAuthorityArn: String) : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.DescribeCertificateAuthorityRequest, com.amazonaws.services.acmpca.model.DescribeCertificateAuthorityResult> {
 
 
 
@@ -133,8 +145,12 @@ class AWSACMPCADescribeCertificateAuthorityCommand(val certificateAuthorityArn: 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.acm_pca.describeCertificateAuthority(build())
+	override fun dryResult(): com.amazonaws.services.acmpca.model.DescribeCertificateAuthorityResult {
+	  return com.amazonaws.services.acmpca.model.DescribeCertificateAuthorityResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.acmpca.model.DescribeCertificateAuthorityResult {
+		return environment.acm_pca.describeCertificateAuthority(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -145,12 +161,12 @@ class AWSACMPCADescribeCertificateAuthorityCommand(val certificateAuthorityArn: 
 }
 
 
-fun AWSACMPCAFunctions.describeCertificateAuthorityAuditReport(certificateAuthorityArn: String, auditReportId: String, init: AWSACMPCADescribeCertificateAuthorityAuditReportCommand.() -> Unit) {
-	this.block.declare(AWSACMPCADescribeCertificateAuthorityAuditReportCommand(certificateAuthorityArn, auditReportId).apply(init))
+fun AWSACMPCAFunctions.describeCertificateAuthorityAuditReport(certificateAuthorityArn: String, auditReportId: String, init: AWSACMPCADescribeCertificateAuthorityAuditReportCommand.() -> Unit): com.amazonaws.services.acmpca.model.DescribeCertificateAuthorityAuditReportResult {
+	return this.block.declare(AWSACMPCADescribeCertificateAuthorityAuditReportCommand(certificateAuthorityArn, auditReportId).apply(init)) as com.amazonaws.services.acmpca.model.DescribeCertificateAuthorityAuditReportResult
 }
 
 @Generated
-class AWSACMPCADescribeCertificateAuthorityAuditReportCommand(val certificateAuthorityArn: String, val auditReportId: String) : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.DescribeCertificateAuthorityAuditReportRequest> {
+class AWSACMPCADescribeCertificateAuthorityAuditReportCommand(val certificateAuthorityArn: String, val auditReportId: String) : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.DescribeCertificateAuthorityAuditReportRequest, com.amazonaws.services.acmpca.model.DescribeCertificateAuthorityAuditReportResult> {
 
 
 
@@ -161,8 +177,12 @@ class AWSACMPCADescribeCertificateAuthorityAuditReportCommand(val certificateAut
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.acm_pca.describeCertificateAuthorityAuditReport(build())
+	override fun dryResult(): com.amazonaws.services.acmpca.model.DescribeCertificateAuthorityAuditReportResult {
+	  return com.amazonaws.services.acmpca.model.DescribeCertificateAuthorityAuditReportResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.acmpca.model.DescribeCertificateAuthorityAuditReportResult {
+		return environment.acm_pca.describeCertificateAuthorityAuditReport(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -174,12 +194,12 @@ class AWSACMPCADescribeCertificateAuthorityAuditReportCommand(val certificateAut
 }
 
 
-fun AWSACMPCAFunctions.getCertificate(certificateAuthorityArn: String, certificateArn: String, init: AWSACMPCAGetCertificateCommand.() -> Unit) {
-	this.block.declare(AWSACMPCAGetCertificateCommand(certificateAuthorityArn, certificateArn).apply(init))
+fun AWSACMPCAFunctions.getCertificate(certificateAuthorityArn: String, certificateArn: String, init: AWSACMPCAGetCertificateCommand.() -> Unit): com.amazonaws.services.acmpca.model.GetCertificateResult {
+	return this.block.declare(AWSACMPCAGetCertificateCommand(certificateAuthorityArn, certificateArn).apply(init)) as com.amazonaws.services.acmpca.model.GetCertificateResult
 }
 
 @Generated
-class AWSACMPCAGetCertificateCommand(val certificateAuthorityArn: String, val certificateArn: String) : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.GetCertificateRequest> {
+class AWSACMPCAGetCertificateCommand(val certificateAuthorityArn: String, val certificateArn: String) : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.GetCertificateRequest, com.amazonaws.services.acmpca.model.GetCertificateResult> {
 
 
 
@@ -190,8 +210,12 @@ class AWSACMPCAGetCertificateCommand(val certificateAuthorityArn: String, val ce
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.acm_pca.getCertificate(build())
+	override fun dryResult(): com.amazonaws.services.acmpca.model.GetCertificateResult {
+	  return com.amazonaws.services.acmpca.model.GetCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.acmpca.model.GetCertificateResult {
+		return environment.acm_pca.getCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -203,12 +227,12 @@ class AWSACMPCAGetCertificateCommand(val certificateAuthorityArn: String, val ce
 }
 
 
-fun AWSACMPCAFunctions.getCertificateAuthorityCertificate(certificateAuthorityArn: String, init: AWSACMPCAGetCertificateAuthorityCertificateCommand.() -> Unit) {
-	this.block.declare(AWSACMPCAGetCertificateAuthorityCertificateCommand(certificateAuthorityArn).apply(init))
+fun AWSACMPCAFunctions.getCertificateAuthorityCertificate(certificateAuthorityArn: String, init: AWSACMPCAGetCertificateAuthorityCertificateCommand.() -> Unit): com.amazonaws.services.acmpca.model.GetCertificateAuthorityCertificateResult {
+	return this.block.declare(AWSACMPCAGetCertificateAuthorityCertificateCommand(certificateAuthorityArn).apply(init)) as com.amazonaws.services.acmpca.model.GetCertificateAuthorityCertificateResult
 }
 
 @Generated
-class AWSACMPCAGetCertificateAuthorityCertificateCommand(val certificateAuthorityArn: String) : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.GetCertificateAuthorityCertificateRequest> {
+class AWSACMPCAGetCertificateAuthorityCertificateCommand(val certificateAuthorityArn: String) : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.GetCertificateAuthorityCertificateRequest, com.amazonaws.services.acmpca.model.GetCertificateAuthorityCertificateResult> {
 
 
 
@@ -218,8 +242,12 @@ class AWSACMPCAGetCertificateAuthorityCertificateCommand(val certificateAuthorit
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.acm_pca.getCertificateAuthorityCertificate(build())
+	override fun dryResult(): com.amazonaws.services.acmpca.model.GetCertificateAuthorityCertificateResult {
+	  return com.amazonaws.services.acmpca.model.GetCertificateAuthorityCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.acmpca.model.GetCertificateAuthorityCertificateResult {
+		return environment.acm_pca.getCertificateAuthorityCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -230,12 +258,12 @@ class AWSACMPCAGetCertificateAuthorityCertificateCommand(val certificateAuthorit
 }
 
 
-fun AWSACMPCAFunctions.getCertificateAuthorityCsr(certificateAuthorityArn: String, init: AWSACMPCAGetCertificateAuthorityCsrCommand.() -> Unit) {
-	this.block.declare(AWSACMPCAGetCertificateAuthorityCsrCommand(certificateAuthorityArn).apply(init))
+fun AWSACMPCAFunctions.getCertificateAuthorityCsr(certificateAuthorityArn: String, init: AWSACMPCAGetCertificateAuthorityCsrCommand.() -> Unit): com.amazonaws.services.acmpca.model.GetCertificateAuthorityCsrResult {
+	return this.block.declare(AWSACMPCAGetCertificateAuthorityCsrCommand(certificateAuthorityArn).apply(init)) as com.amazonaws.services.acmpca.model.GetCertificateAuthorityCsrResult
 }
 
 @Generated
-class AWSACMPCAGetCertificateAuthorityCsrCommand(val certificateAuthorityArn: String) : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.GetCertificateAuthorityCsrRequest> {
+class AWSACMPCAGetCertificateAuthorityCsrCommand(val certificateAuthorityArn: String) : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.GetCertificateAuthorityCsrRequest, com.amazonaws.services.acmpca.model.GetCertificateAuthorityCsrResult> {
 
 
 
@@ -245,8 +273,12 @@ class AWSACMPCAGetCertificateAuthorityCsrCommand(val certificateAuthorityArn: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.acm_pca.getCertificateAuthorityCsr(build())
+	override fun dryResult(): com.amazonaws.services.acmpca.model.GetCertificateAuthorityCsrResult {
+	  return com.amazonaws.services.acmpca.model.GetCertificateAuthorityCsrResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.acmpca.model.GetCertificateAuthorityCsrResult {
+		return environment.acm_pca.getCertificateAuthorityCsr(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -257,12 +289,12 @@ class AWSACMPCAGetCertificateAuthorityCsrCommand(val certificateAuthorityArn: St
 }
 
 
-fun AWSACMPCAFunctions.importCertificateAuthorityCertificate(certificateAuthorityArn: String, certificate: java.nio.ByteBuffer, certificateChain: java.nio.ByteBuffer, init: AWSACMPCAImportCertificateAuthorityCertificateCommand.() -> Unit) {
-	this.block.declare(AWSACMPCAImportCertificateAuthorityCertificateCommand(certificateAuthorityArn, certificate, certificateChain).apply(init))
+fun AWSACMPCAFunctions.importCertificateAuthorityCertificate(certificateAuthorityArn: String, certificate: java.nio.ByteBuffer, certificateChain: java.nio.ByteBuffer, init: AWSACMPCAImportCertificateAuthorityCertificateCommand.() -> Unit): com.amazonaws.services.acmpca.model.ImportCertificateAuthorityCertificateResult {
+	return this.block.declare(AWSACMPCAImportCertificateAuthorityCertificateCommand(certificateAuthorityArn, certificate, certificateChain).apply(init)) as com.amazonaws.services.acmpca.model.ImportCertificateAuthorityCertificateResult
 }
 
 @Generated
-class AWSACMPCAImportCertificateAuthorityCertificateCommand(val certificateAuthorityArn: String, val certificate: java.nio.ByteBuffer, val certificateChain: java.nio.ByteBuffer) : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.ImportCertificateAuthorityCertificateRequest> {
+class AWSACMPCAImportCertificateAuthorityCertificateCommand(val certificateAuthorityArn: String, val certificate: java.nio.ByteBuffer, val certificateChain: java.nio.ByteBuffer) : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.ImportCertificateAuthorityCertificateRequest, com.amazonaws.services.acmpca.model.ImportCertificateAuthorityCertificateResult> {
 
 
 
@@ -274,8 +306,12 @@ class AWSACMPCAImportCertificateAuthorityCertificateCommand(val certificateAutho
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.acm_pca.importCertificateAuthorityCertificate(build())
+	override fun dryResult(): com.amazonaws.services.acmpca.model.ImportCertificateAuthorityCertificateResult {
+	  return com.amazonaws.services.acmpca.model.ImportCertificateAuthorityCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.acmpca.model.ImportCertificateAuthorityCertificateResult {
+		return environment.acm_pca.importCertificateAuthorityCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -288,12 +324,12 @@ class AWSACMPCAImportCertificateAuthorityCertificateCommand(val certificateAutho
 }
 
 
-fun AWSACMPCAFunctions.issueCertificate(certificateAuthorityArn: String, csr: java.nio.ByteBuffer, signingAlgorithm: SigningAlgorithm, validity: com.amazonaws.services.acmpca.model.Validity, init: AWSACMPCAIssueCertificateCommand.() -> Unit) {
-	this.block.declare(AWSACMPCAIssueCertificateCommand(certificateAuthorityArn, csr, signingAlgorithm, validity).apply(init))
+fun AWSACMPCAFunctions.issueCertificate(certificateAuthorityArn: String, csr: java.nio.ByteBuffer, signingAlgorithm: SigningAlgorithm, validity: com.amazonaws.services.acmpca.model.Validity, init: AWSACMPCAIssueCertificateCommand.() -> Unit): com.amazonaws.services.acmpca.model.IssueCertificateResult {
+	return this.block.declare(AWSACMPCAIssueCertificateCommand(certificateAuthorityArn, csr, signingAlgorithm, validity).apply(init)) as com.amazonaws.services.acmpca.model.IssueCertificateResult
 }
 
 @Generated
-class AWSACMPCAIssueCertificateCommand(val certificateAuthorityArn: String, val csr: java.nio.ByteBuffer, val signingAlgorithm: SigningAlgorithm, val validity: com.amazonaws.services.acmpca.model.Validity) : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.IssueCertificateRequest> {
+class AWSACMPCAIssueCertificateCommand(val certificateAuthorityArn: String, val csr: java.nio.ByteBuffer, val signingAlgorithm: SigningAlgorithm, val validity: com.amazonaws.services.acmpca.model.Validity) : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.IssueCertificateRequest, com.amazonaws.services.acmpca.model.IssueCertificateResult> {
 
 	var idempotencyToken: String? = null
 
@@ -307,8 +343,12 @@ class AWSACMPCAIssueCertificateCommand(val certificateAuthorityArn: String, val 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.acm_pca.issueCertificate(build())
+	override fun dryResult(): com.amazonaws.services.acmpca.model.IssueCertificateResult {
+	  return com.amazonaws.services.acmpca.model.IssueCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.acmpca.model.IssueCertificateResult {
+		return environment.acm_pca.issueCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -323,12 +363,12 @@ class AWSACMPCAIssueCertificateCommand(val certificateAuthorityArn: String, val 
 }
 
 
-fun AWSACMPCAFunctions.listCertificateAuthorities(init: AWSACMPCAListCertificateAuthoritiesCommand.() -> Unit) {
-	this.block.declare(AWSACMPCAListCertificateAuthoritiesCommand().apply(init))
+fun AWSACMPCAFunctions.listCertificateAuthorities(init: AWSACMPCAListCertificateAuthoritiesCommand.() -> Unit): com.amazonaws.services.acmpca.model.ListCertificateAuthoritiesResult {
+	return this.block.declare(AWSACMPCAListCertificateAuthoritiesCommand().apply(init)) as com.amazonaws.services.acmpca.model.ListCertificateAuthoritiesResult
 }
 
 @Generated
-class AWSACMPCAListCertificateAuthoritiesCommand() : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.ListCertificateAuthoritiesRequest> {
+class AWSACMPCAListCertificateAuthoritiesCommand() : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.ListCertificateAuthoritiesRequest, com.amazonaws.services.acmpca.model.ListCertificateAuthoritiesResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -340,8 +380,12 @@ class AWSACMPCAListCertificateAuthoritiesCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.acm_pca.listCertificateAuthorities(build())
+	override fun dryResult(): com.amazonaws.services.acmpca.model.ListCertificateAuthoritiesResult {
+	  return com.amazonaws.services.acmpca.model.ListCertificateAuthoritiesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.acmpca.model.ListCertificateAuthoritiesResult {
+		return environment.acm_pca.listCertificateAuthorities(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -353,12 +397,12 @@ class AWSACMPCAListCertificateAuthoritiesCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AWSACMPCAFunctions.listTags(certificateAuthorityArn: String, init: AWSACMPCAListTagsCommand.() -> Unit) {
-	this.block.declare(AWSACMPCAListTagsCommand(certificateAuthorityArn).apply(init))
+fun AWSACMPCAFunctions.listTags(certificateAuthorityArn: String, init: AWSACMPCAListTagsCommand.() -> Unit): com.amazonaws.services.acmpca.model.ListTagsResult {
+	return this.block.declare(AWSACMPCAListTagsCommand(certificateAuthorityArn).apply(init)) as com.amazonaws.services.acmpca.model.ListTagsResult
 }
 
 @Generated
-class AWSACMPCAListTagsCommand(val certificateAuthorityArn: String) : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.ListTagsRequest> {
+class AWSACMPCAListTagsCommand(val certificateAuthorityArn: String) : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.ListTagsRequest, com.amazonaws.services.acmpca.model.ListTagsResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -371,8 +415,12 @@ class AWSACMPCAListTagsCommand(val certificateAuthorityArn: String) : AmazonWebS
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.acm_pca.listTags(build())
+	override fun dryResult(): com.amazonaws.services.acmpca.model.ListTagsResult {
+	  return com.amazonaws.services.acmpca.model.ListTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.acmpca.model.ListTagsResult {
+		return environment.acm_pca.listTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -385,12 +433,12 @@ class AWSACMPCAListTagsCommand(val certificateAuthorityArn: String) : AmazonWebS
 }
 
 
-fun AWSACMPCAFunctions.revokeCertificate(certificateAuthorityArn: String, certificateSerial: String, revocationReason: RevocationReason, init: AWSACMPCARevokeCertificateCommand.() -> Unit) {
-	this.block.declare(AWSACMPCARevokeCertificateCommand(certificateAuthorityArn, certificateSerial, revocationReason).apply(init))
+fun AWSACMPCAFunctions.revokeCertificate(certificateAuthorityArn: String, certificateSerial: String, revocationReason: RevocationReason, init: AWSACMPCARevokeCertificateCommand.() -> Unit): com.amazonaws.services.acmpca.model.RevokeCertificateResult {
+	return this.block.declare(AWSACMPCARevokeCertificateCommand(certificateAuthorityArn, certificateSerial, revocationReason).apply(init)) as com.amazonaws.services.acmpca.model.RevokeCertificateResult
 }
 
 @Generated
-class AWSACMPCARevokeCertificateCommand(val certificateAuthorityArn: String, val certificateSerial: String, val revocationReason: RevocationReason) : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.RevokeCertificateRequest> {
+class AWSACMPCARevokeCertificateCommand(val certificateAuthorityArn: String, val certificateSerial: String, val revocationReason: RevocationReason) : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.RevokeCertificateRequest, com.amazonaws.services.acmpca.model.RevokeCertificateResult> {
 
 
 
@@ -402,8 +450,12 @@ class AWSACMPCARevokeCertificateCommand(val certificateAuthorityArn: String, val
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.acm_pca.revokeCertificate(build())
+	override fun dryResult(): com.amazonaws.services.acmpca.model.RevokeCertificateResult {
+	  return com.amazonaws.services.acmpca.model.RevokeCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.acmpca.model.RevokeCertificateResult {
+		return environment.acm_pca.revokeCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -416,12 +468,12 @@ class AWSACMPCARevokeCertificateCommand(val certificateAuthorityArn: String, val
 }
 
 
-fun AWSACMPCAFunctions.tagCertificateAuthority(certificateAuthorityArn: String, tags: List<com.amazonaws.services.acmpca.model.Tag>, init: AWSACMPCATagCertificateAuthorityCommand.() -> Unit) {
-	this.block.declare(AWSACMPCATagCertificateAuthorityCommand(certificateAuthorityArn, tags).apply(init))
+fun AWSACMPCAFunctions.tagCertificateAuthority(certificateAuthorityArn: String, tags: List<com.amazonaws.services.acmpca.model.Tag>, init: AWSACMPCATagCertificateAuthorityCommand.() -> Unit): com.amazonaws.services.acmpca.model.TagCertificateAuthorityResult {
+	return this.block.declare(AWSACMPCATagCertificateAuthorityCommand(certificateAuthorityArn, tags).apply(init)) as com.amazonaws.services.acmpca.model.TagCertificateAuthorityResult
 }
 
 @Generated
-class AWSACMPCATagCertificateAuthorityCommand(val certificateAuthorityArn: String, val tags: List<com.amazonaws.services.acmpca.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.TagCertificateAuthorityRequest> {
+class AWSACMPCATagCertificateAuthorityCommand(val certificateAuthorityArn: String, val tags: List<com.amazonaws.services.acmpca.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.TagCertificateAuthorityRequest, com.amazonaws.services.acmpca.model.TagCertificateAuthorityResult> {
 
 
 
@@ -432,8 +484,12 @@ class AWSACMPCATagCertificateAuthorityCommand(val certificateAuthorityArn: Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.acm_pca.tagCertificateAuthority(build())
+	override fun dryResult(): com.amazonaws.services.acmpca.model.TagCertificateAuthorityResult {
+	  return com.amazonaws.services.acmpca.model.TagCertificateAuthorityResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.acmpca.model.TagCertificateAuthorityResult {
+		return environment.acm_pca.tagCertificateAuthority(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -445,12 +501,12 @@ class AWSACMPCATagCertificateAuthorityCommand(val certificateAuthorityArn: Strin
 }
 
 
-fun AWSACMPCAFunctions.untagCertificateAuthority(certificateAuthorityArn: String, tags: List<com.amazonaws.services.acmpca.model.Tag>, init: AWSACMPCAUntagCertificateAuthorityCommand.() -> Unit) {
-	this.block.declare(AWSACMPCAUntagCertificateAuthorityCommand(certificateAuthorityArn, tags).apply(init))
+fun AWSACMPCAFunctions.untagCertificateAuthority(certificateAuthorityArn: String, tags: List<com.amazonaws.services.acmpca.model.Tag>, init: AWSACMPCAUntagCertificateAuthorityCommand.() -> Unit): com.amazonaws.services.acmpca.model.UntagCertificateAuthorityResult {
+	return this.block.declare(AWSACMPCAUntagCertificateAuthorityCommand(certificateAuthorityArn, tags).apply(init)) as com.amazonaws.services.acmpca.model.UntagCertificateAuthorityResult
 }
 
 @Generated
-class AWSACMPCAUntagCertificateAuthorityCommand(val certificateAuthorityArn: String, val tags: List<com.amazonaws.services.acmpca.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.UntagCertificateAuthorityRequest> {
+class AWSACMPCAUntagCertificateAuthorityCommand(val certificateAuthorityArn: String, val tags: List<com.amazonaws.services.acmpca.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.UntagCertificateAuthorityRequest, com.amazonaws.services.acmpca.model.UntagCertificateAuthorityResult> {
 
 
 
@@ -461,8 +517,12 @@ class AWSACMPCAUntagCertificateAuthorityCommand(val certificateAuthorityArn: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.acm_pca.untagCertificateAuthority(build())
+	override fun dryResult(): com.amazonaws.services.acmpca.model.UntagCertificateAuthorityResult {
+	  return com.amazonaws.services.acmpca.model.UntagCertificateAuthorityResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.acmpca.model.UntagCertificateAuthorityResult {
+		return environment.acm_pca.untagCertificateAuthority(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -474,12 +534,12 @@ class AWSACMPCAUntagCertificateAuthorityCommand(val certificateAuthorityArn: Str
 }
 
 
-fun AWSACMPCAFunctions.updateCertificateAuthority(certificateAuthorityArn: String, init: AWSACMPCAUpdateCertificateAuthorityCommand.() -> Unit) {
-	this.block.declare(AWSACMPCAUpdateCertificateAuthorityCommand(certificateAuthorityArn).apply(init))
+fun AWSACMPCAFunctions.updateCertificateAuthority(certificateAuthorityArn: String, init: AWSACMPCAUpdateCertificateAuthorityCommand.() -> Unit): com.amazonaws.services.acmpca.model.UpdateCertificateAuthorityResult {
+	return this.block.declare(AWSACMPCAUpdateCertificateAuthorityCommand(certificateAuthorityArn).apply(init)) as com.amazonaws.services.acmpca.model.UpdateCertificateAuthorityResult
 }
 
 @Generated
-class AWSACMPCAUpdateCertificateAuthorityCommand(val certificateAuthorityArn: String) : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.UpdateCertificateAuthorityRequest> {
+class AWSACMPCAUpdateCertificateAuthorityCommand(val certificateAuthorityArn: String) : AmazonWebServiceCommand<com.amazonaws.services.acmpca.model.UpdateCertificateAuthorityRequest, com.amazonaws.services.acmpca.model.UpdateCertificateAuthorityResult> {
 
 	var revocationConfiguration: com.amazonaws.services.acmpca.model.RevocationConfiguration? = null
 	var status: CertificateAuthorityStatus? = null
@@ -492,8 +552,12 @@ class AWSACMPCAUpdateCertificateAuthorityCommand(val certificateAuthorityArn: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.acm_pca.updateCertificateAuthority(build())
+	override fun dryResult(): com.amazonaws.services.acmpca.model.UpdateCertificateAuthorityResult {
+	  return com.amazonaws.services.acmpca.model.UpdateCertificateAuthorityResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.acmpca.model.UpdateCertificateAuthorityResult {
+		return environment.acm_pca.updateCertificateAuthority(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.gamelift: AmazonGameLift
 @Generated
 class AmazonGameLiftFunctions(val block: Block)
 
-infix fun AwsContinuation.gamelift(init: AmazonGameLiftFunctions.() -> Unit) {
-	AmazonGameLiftFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.gamelift(init: AmazonGameLiftFunctions.() -> T): T {
+	return AmazonGameLiftFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonGameLiftFunctions.acceptMatch(ticketId: String, playerIds: List<String>, acceptanceType: AcceptanceType, init: AmazonGameLiftAcceptMatchCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftAcceptMatchCommand(ticketId, playerIds, acceptanceType).apply(init))
+fun AmazonGameLiftFunctions.acceptMatch(ticketId: String, playerIds: List<String>, acceptanceType: AcceptanceType, init: AmazonGameLiftAcceptMatchCommand.() -> Unit): com.amazonaws.services.gamelift.model.AcceptMatchResult {
+	return this.block.declare(AmazonGameLiftAcceptMatchCommand(ticketId, playerIds, acceptanceType).apply(init)) as com.amazonaws.services.gamelift.model.AcceptMatchResult
 }
 
 @Generated
-class AmazonGameLiftAcceptMatchCommand(val ticketId: String, val playerIds: List<String>, val acceptanceType: AcceptanceType) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.AcceptMatchRequest> {
+class AmazonGameLiftAcceptMatchCommand(val ticketId: String, val playerIds: List<String>, val acceptanceType: AcceptanceType) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.AcceptMatchRequest, com.amazonaws.services.gamelift.model.AcceptMatchResult> {
 
 
 
@@ -43,8 +43,12 @@ class AmazonGameLiftAcceptMatchCommand(val ticketId: String, val playerIds: List
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.acceptMatch(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.AcceptMatchResult {
+	  return com.amazonaws.services.gamelift.model.AcceptMatchResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.AcceptMatchResult {
+		return environment.gamelift.acceptMatch(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -57,12 +61,12 @@ class AmazonGameLiftAcceptMatchCommand(val ticketId: String, val playerIds: List
 }
 
 
-fun AmazonGameLiftFunctions.createAlias(name: String, routingStrategy: com.amazonaws.services.gamelift.model.RoutingStrategy, init: AmazonGameLiftCreateAliasCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftCreateAliasCommand(name, routingStrategy).apply(init))
+fun AmazonGameLiftFunctions.createAlias(name: String, routingStrategy: com.amazonaws.services.gamelift.model.RoutingStrategy, init: AmazonGameLiftCreateAliasCommand.() -> Unit): com.amazonaws.services.gamelift.model.CreateAliasResult {
+	return this.block.declare(AmazonGameLiftCreateAliasCommand(name, routingStrategy).apply(init)) as com.amazonaws.services.gamelift.model.CreateAliasResult
 }
 
 @Generated
-class AmazonGameLiftCreateAliasCommand(val name: String, val routingStrategy: com.amazonaws.services.gamelift.model.RoutingStrategy) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.CreateAliasRequest> {
+class AmazonGameLiftCreateAliasCommand(val name: String, val routingStrategy: com.amazonaws.services.gamelift.model.RoutingStrategy) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.CreateAliasRequest, com.amazonaws.services.gamelift.model.CreateAliasResult> {
 
 	var description: String? = null
 
@@ -74,8 +78,12 @@ class AmazonGameLiftCreateAliasCommand(val name: String, val routingStrategy: co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.createAlias(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.CreateAliasResult {
+	  return com.amazonaws.services.gamelift.model.CreateAliasResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.CreateAliasResult {
+		return environment.gamelift.createAlias(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -88,12 +96,12 @@ class AmazonGameLiftCreateAliasCommand(val name: String, val routingStrategy: co
 }
 
 
-fun AmazonGameLiftFunctions.createBuild(init: AmazonGameLiftCreateBuildCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftCreateBuildCommand().apply(init))
+fun AmazonGameLiftFunctions.createBuild(init: AmazonGameLiftCreateBuildCommand.() -> Unit): com.amazonaws.services.gamelift.model.CreateBuildResult {
+	return this.block.declare(AmazonGameLiftCreateBuildCommand().apply(init)) as com.amazonaws.services.gamelift.model.CreateBuildResult
 }
 
 @Generated
-class AmazonGameLiftCreateBuildCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.CreateBuildRequest> {
+class AmazonGameLiftCreateBuildCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.CreateBuildRequest, com.amazonaws.services.gamelift.model.CreateBuildResult> {
 
 	var name: String? = null
 	var version: String? = null
@@ -109,8 +117,12 @@ class AmazonGameLiftCreateBuildCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.createBuild(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.CreateBuildResult {
+	  return com.amazonaws.services.gamelift.model.CreateBuildResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.CreateBuildResult {
+		return environment.gamelift.createBuild(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -124,12 +136,12 @@ class AmazonGameLiftCreateBuildCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AmazonGameLiftFunctions.createFleet(name: String, buildId: String, eC2InstanceType: EC2InstanceType, init: AmazonGameLiftCreateFleetCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftCreateFleetCommand(name, buildId, eC2InstanceType).apply(init))
+fun AmazonGameLiftFunctions.createFleet(name: String, buildId: String, eC2InstanceType: EC2InstanceType, init: AmazonGameLiftCreateFleetCommand.() -> Unit): com.amazonaws.services.gamelift.model.CreateFleetResult {
+	return this.block.declare(AmazonGameLiftCreateFleetCommand(name, buildId, eC2InstanceType).apply(init)) as com.amazonaws.services.gamelift.model.CreateFleetResult
 }
 
 @Generated
-class AmazonGameLiftCreateFleetCommand(val name: String, val buildId: String, val eC2InstanceType: EC2InstanceType) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.CreateFleetRequest> {
+class AmazonGameLiftCreateFleetCommand(val name: String, val buildId: String, val eC2InstanceType: EC2InstanceType) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.CreateFleetRequest, com.amazonaws.services.gamelift.model.CreateFleetResult> {
 
 	var description: String? = null
 	var serverLaunchPath: String? = null
@@ -164,8 +176,12 @@ class AmazonGameLiftCreateFleetCommand(val name: String, val buildId: String, va
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.createFleet(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.CreateFleetResult {
+	  return com.amazonaws.services.gamelift.model.CreateFleetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.CreateFleetResult {
+		return environment.gamelift.createFleet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -190,12 +206,12 @@ class AmazonGameLiftCreateFleetCommand(val name: String, val buildId: String, va
 }
 
 
-fun AmazonGameLiftFunctions.createGameSession(maximumPlayerSessionCount: Int, init: AmazonGameLiftCreateGameSessionCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftCreateGameSessionCommand(maximumPlayerSessionCount).apply(init))
+fun AmazonGameLiftFunctions.createGameSession(maximumPlayerSessionCount: Int, init: AmazonGameLiftCreateGameSessionCommand.() -> Unit): com.amazonaws.services.gamelift.model.CreateGameSessionResult {
+	return this.block.declare(AmazonGameLiftCreateGameSessionCommand(maximumPlayerSessionCount).apply(init)) as com.amazonaws.services.gamelift.model.CreateGameSessionResult
 }
 
 @Generated
-class AmazonGameLiftCreateGameSessionCommand(val maximumPlayerSessionCount: Int) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.CreateGameSessionRequest> {
+class AmazonGameLiftCreateGameSessionCommand(val maximumPlayerSessionCount: Int) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.CreateGameSessionRequest, com.amazonaws.services.gamelift.model.CreateGameSessionResult> {
 
 	var fleetId: String? = null
 	var aliasId: String? = null
@@ -220,8 +236,12 @@ class AmazonGameLiftCreateGameSessionCommand(val maximumPlayerSessionCount: Int)
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.createGameSession(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.CreateGameSessionResult {
+	  return com.amazonaws.services.gamelift.model.CreateGameSessionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.CreateGameSessionResult {
+		return environment.gamelift.createGameSession(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -240,12 +260,12 @@ class AmazonGameLiftCreateGameSessionCommand(val maximumPlayerSessionCount: Int)
 }
 
 
-fun AmazonGameLiftFunctions.createGameSessionQueue(name: String, init: AmazonGameLiftCreateGameSessionQueueCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftCreateGameSessionQueueCommand(name).apply(init))
+fun AmazonGameLiftFunctions.createGameSessionQueue(name: String, init: AmazonGameLiftCreateGameSessionQueueCommand.() -> Unit): com.amazonaws.services.gamelift.model.CreateGameSessionQueueResult {
+	return this.block.declare(AmazonGameLiftCreateGameSessionQueueCommand(name).apply(init)) as com.amazonaws.services.gamelift.model.CreateGameSessionQueueResult
 }
 
 @Generated
-class AmazonGameLiftCreateGameSessionQueueCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.CreateGameSessionQueueRequest> {
+class AmazonGameLiftCreateGameSessionQueueCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.CreateGameSessionQueueRequest, com.amazonaws.services.gamelift.model.CreateGameSessionQueueResult> {
 
 	var timeoutInSeconds: Int? = 0
 	var playerLatencyPolicies: List<com.amazonaws.services.gamelift.model.PlayerLatencyPolicy>? = null
@@ -260,8 +280,12 @@ class AmazonGameLiftCreateGameSessionQueueCommand(val name: String) : AmazonWebS
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.createGameSessionQueue(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.CreateGameSessionQueueResult {
+	  return com.amazonaws.services.gamelift.model.CreateGameSessionQueueResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.CreateGameSessionQueueResult {
+		return environment.gamelift.createGameSessionQueue(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -275,12 +299,12 @@ class AmazonGameLiftCreateGameSessionQueueCommand(val name: String) : AmazonWebS
 }
 
 
-fun AmazonGameLiftFunctions.createMatchmakingConfiguration(name: String, gameSessionQueueArns: List<String>, requestTimeoutSeconds: Int, acceptanceRequired: Boolean, ruleSetName: String, init: AmazonGameLiftCreateMatchmakingConfigurationCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftCreateMatchmakingConfigurationCommand(name, gameSessionQueueArns, requestTimeoutSeconds, acceptanceRequired, ruleSetName).apply(init))
+fun AmazonGameLiftFunctions.createMatchmakingConfiguration(name: String, gameSessionQueueArns: List<String>, requestTimeoutSeconds: Int, acceptanceRequired: Boolean, ruleSetName: String, init: AmazonGameLiftCreateMatchmakingConfigurationCommand.() -> Unit): com.amazonaws.services.gamelift.model.CreateMatchmakingConfigurationResult {
+	return this.block.declare(AmazonGameLiftCreateMatchmakingConfigurationCommand(name, gameSessionQueueArns, requestTimeoutSeconds, acceptanceRequired, ruleSetName).apply(init)) as com.amazonaws.services.gamelift.model.CreateMatchmakingConfigurationResult
 }
 
 @Generated
-class AmazonGameLiftCreateMatchmakingConfigurationCommand(val name: String, val gameSessionQueueArns: List<String>, val requestTimeoutSeconds: Int, val acceptanceRequired: Boolean, val ruleSetName: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.CreateMatchmakingConfigurationRequest> {
+class AmazonGameLiftCreateMatchmakingConfigurationCommand(val name: String, val gameSessionQueueArns: List<String>, val requestTimeoutSeconds: Int, val acceptanceRequired: Boolean, val ruleSetName: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.CreateMatchmakingConfigurationRequest, com.amazonaws.services.gamelift.model.CreateMatchmakingConfigurationResult> {
 
 	var description: String? = null
 	var acceptanceTimeoutSeconds: Int? = 0
@@ -307,8 +331,12 @@ class AmazonGameLiftCreateMatchmakingConfigurationCommand(val name: String, val 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.createMatchmakingConfiguration(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.CreateMatchmakingConfigurationResult {
+	  return com.amazonaws.services.gamelift.model.CreateMatchmakingConfigurationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.CreateMatchmakingConfigurationResult {
+		return environment.gamelift.createMatchmakingConfiguration(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -330,12 +358,12 @@ class AmazonGameLiftCreateMatchmakingConfigurationCommand(val name: String, val 
 }
 
 
-fun AmazonGameLiftFunctions.createMatchmakingRuleSet(name: String, ruleSetBody: String, init: AmazonGameLiftCreateMatchmakingRuleSetCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftCreateMatchmakingRuleSetCommand(name, ruleSetBody).apply(init))
+fun AmazonGameLiftFunctions.createMatchmakingRuleSet(name: String, ruleSetBody: String, init: AmazonGameLiftCreateMatchmakingRuleSetCommand.() -> Unit): com.amazonaws.services.gamelift.model.CreateMatchmakingRuleSetResult {
+	return this.block.declare(AmazonGameLiftCreateMatchmakingRuleSetCommand(name, ruleSetBody).apply(init)) as com.amazonaws.services.gamelift.model.CreateMatchmakingRuleSetResult
 }
 
 @Generated
-class AmazonGameLiftCreateMatchmakingRuleSetCommand(val name: String, val ruleSetBody: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.CreateMatchmakingRuleSetRequest> {
+class AmazonGameLiftCreateMatchmakingRuleSetCommand(val name: String, val ruleSetBody: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.CreateMatchmakingRuleSetRequest, com.amazonaws.services.gamelift.model.CreateMatchmakingRuleSetResult> {
 
 
 
@@ -346,8 +374,12 @@ class AmazonGameLiftCreateMatchmakingRuleSetCommand(val name: String, val ruleSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.createMatchmakingRuleSet(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.CreateMatchmakingRuleSetResult {
+	  return com.amazonaws.services.gamelift.model.CreateMatchmakingRuleSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.CreateMatchmakingRuleSetResult {
+		return environment.gamelift.createMatchmakingRuleSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -359,12 +391,12 @@ class AmazonGameLiftCreateMatchmakingRuleSetCommand(val name: String, val ruleSe
 }
 
 
-fun AmazonGameLiftFunctions.createPlayerSession(gameSessionId: String, playerId: String, init: AmazonGameLiftCreatePlayerSessionCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftCreatePlayerSessionCommand(gameSessionId, playerId).apply(init))
+fun AmazonGameLiftFunctions.createPlayerSession(gameSessionId: String, playerId: String, init: AmazonGameLiftCreatePlayerSessionCommand.() -> Unit): com.amazonaws.services.gamelift.model.CreatePlayerSessionResult {
+	return this.block.declare(AmazonGameLiftCreatePlayerSessionCommand(gameSessionId, playerId).apply(init)) as com.amazonaws.services.gamelift.model.CreatePlayerSessionResult
 }
 
 @Generated
-class AmazonGameLiftCreatePlayerSessionCommand(val gameSessionId: String, val playerId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.CreatePlayerSessionRequest> {
+class AmazonGameLiftCreatePlayerSessionCommand(val gameSessionId: String, val playerId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.CreatePlayerSessionRequest, com.amazonaws.services.gamelift.model.CreatePlayerSessionResult> {
 
 	var playerData: String? = null
 
@@ -376,8 +408,12 @@ class AmazonGameLiftCreatePlayerSessionCommand(val gameSessionId: String, val pl
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.createPlayerSession(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.CreatePlayerSessionResult {
+	  return com.amazonaws.services.gamelift.model.CreatePlayerSessionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.CreatePlayerSessionResult {
+		return environment.gamelift.createPlayerSession(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -390,12 +426,12 @@ class AmazonGameLiftCreatePlayerSessionCommand(val gameSessionId: String, val pl
 }
 
 
-fun AmazonGameLiftFunctions.createPlayerSessions(gameSessionId: String, playerIds: List<String>, init: AmazonGameLiftCreatePlayerSessionsCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftCreatePlayerSessionsCommand(gameSessionId, playerIds).apply(init))
+fun AmazonGameLiftFunctions.createPlayerSessions(gameSessionId: String, playerIds: List<String>, init: AmazonGameLiftCreatePlayerSessionsCommand.() -> Unit): com.amazonaws.services.gamelift.model.CreatePlayerSessionsResult {
+	return this.block.declare(AmazonGameLiftCreatePlayerSessionsCommand(gameSessionId, playerIds).apply(init)) as com.amazonaws.services.gamelift.model.CreatePlayerSessionsResult
 }
 
 @Generated
-class AmazonGameLiftCreatePlayerSessionsCommand(val gameSessionId: String, val playerIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.CreatePlayerSessionsRequest> {
+class AmazonGameLiftCreatePlayerSessionsCommand(val gameSessionId: String, val playerIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.CreatePlayerSessionsRequest, com.amazonaws.services.gamelift.model.CreatePlayerSessionsResult> {
 
 	var playerDataMap: Map<String, String>? = null
 
@@ -407,8 +443,12 @@ class AmazonGameLiftCreatePlayerSessionsCommand(val gameSessionId: String, val p
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.createPlayerSessions(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.CreatePlayerSessionsResult {
+	  return com.amazonaws.services.gamelift.model.CreatePlayerSessionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.CreatePlayerSessionsResult {
+		return environment.gamelift.createPlayerSessions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -421,12 +461,12 @@ class AmazonGameLiftCreatePlayerSessionsCommand(val gameSessionId: String, val p
 }
 
 
-fun AmazonGameLiftFunctions.createVpcPeeringAuthorization(gameLiftAwsAccountId: String, peerVpcId: String, init: AmazonGameLiftCreateVpcPeeringAuthorizationCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftCreateVpcPeeringAuthorizationCommand(gameLiftAwsAccountId, peerVpcId).apply(init))
+fun AmazonGameLiftFunctions.createVpcPeeringAuthorization(gameLiftAwsAccountId: String, peerVpcId: String, init: AmazonGameLiftCreateVpcPeeringAuthorizationCommand.() -> Unit): com.amazonaws.services.gamelift.model.CreateVpcPeeringAuthorizationResult {
+	return this.block.declare(AmazonGameLiftCreateVpcPeeringAuthorizationCommand(gameLiftAwsAccountId, peerVpcId).apply(init)) as com.amazonaws.services.gamelift.model.CreateVpcPeeringAuthorizationResult
 }
 
 @Generated
-class AmazonGameLiftCreateVpcPeeringAuthorizationCommand(val gameLiftAwsAccountId: String, val peerVpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.CreateVpcPeeringAuthorizationRequest> {
+class AmazonGameLiftCreateVpcPeeringAuthorizationCommand(val gameLiftAwsAccountId: String, val peerVpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.CreateVpcPeeringAuthorizationRequest, com.amazonaws.services.gamelift.model.CreateVpcPeeringAuthorizationResult> {
 
 
 
@@ -437,8 +477,12 @@ class AmazonGameLiftCreateVpcPeeringAuthorizationCommand(val gameLiftAwsAccountI
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.createVpcPeeringAuthorization(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.CreateVpcPeeringAuthorizationResult {
+	  return com.amazonaws.services.gamelift.model.CreateVpcPeeringAuthorizationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.CreateVpcPeeringAuthorizationResult {
+		return environment.gamelift.createVpcPeeringAuthorization(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -450,12 +494,12 @@ class AmazonGameLiftCreateVpcPeeringAuthorizationCommand(val gameLiftAwsAccountI
 }
 
 
-fun AmazonGameLiftFunctions.createVpcPeeringConnection(fleetId: String, peerVpcAwsAccountId: String, peerVpcId: String, init: AmazonGameLiftCreateVpcPeeringConnectionCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftCreateVpcPeeringConnectionCommand(fleetId, peerVpcAwsAccountId, peerVpcId).apply(init))
+fun AmazonGameLiftFunctions.createVpcPeeringConnection(fleetId: String, peerVpcAwsAccountId: String, peerVpcId: String, init: AmazonGameLiftCreateVpcPeeringConnectionCommand.() -> Unit): com.amazonaws.services.gamelift.model.CreateVpcPeeringConnectionResult {
+	return this.block.declare(AmazonGameLiftCreateVpcPeeringConnectionCommand(fleetId, peerVpcAwsAccountId, peerVpcId).apply(init)) as com.amazonaws.services.gamelift.model.CreateVpcPeeringConnectionResult
 }
 
 @Generated
-class AmazonGameLiftCreateVpcPeeringConnectionCommand(val fleetId: String, val peerVpcAwsAccountId: String, val peerVpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.CreateVpcPeeringConnectionRequest> {
+class AmazonGameLiftCreateVpcPeeringConnectionCommand(val fleetId: String, val peerVpcAwsAccountId: String, val peerVpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.CreateVpcPeeringConnectionRequest, com.amazonaws.services.gamelift.model.CreateVpcPeeringConnectionResult> {
 
 
 
@@ -467,8 +511,12 @@ class AmazonGameLiftCreateVpcPeeringConnectionCommand(val fleetId: String, val p
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.createVpcPeeringConnection(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.CreateVpcPeeringConnectionResult {
+	  return com.amazonaws.services.gamelift.model.CreateVpcPeeringConnectionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.CreateVpcPeeringConnectionResult {
+		return environment.gamelift.createVpcPeeringConnection(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -481,12 +529,12 @@ class AmazonGameLiftCreateVpcPeeringConnectionCommand(val fleetId: String, val p
 }
 
 
-fun AmazonGameLiftFunctions.deleteAlias(aliasId: String, init: AmazonGameLiftDeleteAliasCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftDeleteAliasCommand(aliasId).apply(init))
+fun AmazonGameLiftFunctions.deleteAlias(aliasId: String, init: AmazonGameLiftDeleteAliasCommand.() -> Unit): com.amazonaws.services.gamelift.model.DeleteAliasResult {
+	return this.block.declare(AmazonGameLiftDeleteAliasCommand(aliasId).apply(init)) as com.amazonaws.services.gamelift.model.DeleteAliasResult
 }
 
 @Generated
-class AmazonGameLiftDeleteAliasCommand(val aliasId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DeleteAliasRequest> {
+class AmazonGameLiftDeleteAliasCommand(val aliasId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DeleteAliasRequest, com.amazonaws.services.gamelift.model.DeleteAliasResult> {
 
 
 
@@ -496,8 +544,12 @@ class AmazonGameLiftDeleteAliasCommand(val aliasId: String) : AmazonWebServiceCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.deleteAlias(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.DeleteAliasResult {
+	  return com.amazonaws.services.gamelift.model.DeleteAliasResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.DeleteAliasResult {
+		return environment.gamelift.deleteAlias(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -508,12 +560,12 @@ class AmazonGameLiftDeleteAliasCommand(val aliasId: String) : AmazonWebServiceCo
 }
 
 
-fun AmazonGameLiftFunctions.deleteBuild(buildId: String, init: AmazonGameLiftDeleteBuildCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftDeleteBuildCommand(buildId).apply(init))
+fun AmazonGameLiftFunctions.deleteBuild(buildId: String, init: AmazonGameLiftDeleteBuildCommand.() -> Unit): com.amazonaws.services.gamelift.model.DeleteBuildResult {
+	return this.block.declare(AmazonGameLiftDeleteBuildCommand(buildId).apply(init)) as com.amazonaws.services.gamelift.model.DeleteBuildResult
 }
 
 @Generated
-class AmazonGameLiftDeleteBuildCommand(val buildId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DeleteBuildRequest> {
+class AmazonGameLiftDeleteBuildCommand(val buildId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DeleteBuildRequest, com.amazonaws.services.gamelift.model.DeleteBuildResult> {
 
 
 
@@ -523,8 +575,12 @@ class AmazonGameLiftDeleteBuildCommand(val buildId: String) : AmazonWebServiceCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.deleteBuild(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.DeleteBuildResult {
+	  return com.amazonaws.services.gamelift.model.DeleteBuildResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.DeleteBuildResult {
+		return environment.gamelift.deleteBuild(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -535,12 +591,12 @@ class AmazonGameLiftDeleteBuildCommand(val buildId: String) : AmazonWebServiceCo
 }
 
 
-fun AmazonGameLiftFunctions.deleteFleet(fleetId: String, init: AmazonGameLiftDeleteFleetCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftDeleteFleetCommand(fleetId).apply(init))
+fun AmazonGameLiftFunctions.deleteFleet(fleetId: String, init: AmazonGameLiftDeleteFleetCommand.() -> Unit): com.amazonaws.services.gamelift.model.DeleteFleetResult {
+	return this.block.declare(AmazonGameLiftDeleteFleetCommand(fleetId).apply(init)) as com.amazonaws.services.gamelift.model.DeleteFleetResult
 }
 
 @Generated
-class AmazonGameLiftDeleteFleetCommand(val fleetId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DeleteFleetRequest> {
+class AmazonGameLiftDeleteFleetCommand(val fleetId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DeleteFleetRequest, com.amazonaws.services.gamelift.model.DeleteFleetResult> {
 
 
 
@@ -550,8 +606,12 @@ class AmazonGameLiftDeleteFleetCommand(val fleetId: String) : AmazonWebServiceCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.deleteFleet(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.DeleteFleetResult {
+	  return com.amazonaws.services.gamelift.model.DeleteFleetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.DeleteFleetResult {
+		return environment.gamelift.deleteFleet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -562,12 +622,12 @@ class AmazonGameLiftDeleteFleetCommand(val fleetId: String) : AmazonWebServiceCo
 }
 
 
-fun AmazonGameLiftFunctions.deleteGameSessionQueue(name: String, init: AmazonGameLiftDeleteGameSessionQueueCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftDeleteGameSessionQueueCommand(name).apply(init))
+fun AmazonGameLiftFunctions.deleteGameSessionQueue(name: String, init: AmazonGameLiftDeleteGameSessionQueueCommand.() -> Unit): com.amazonaws.services.gamelift.model.DeleteGameSessionQueueResult {
+	return this.block.declare(AmazonGameLiftDeleteGameSessionQueueCommand(name).apply(init)) as com.amazonaws.services.gamelift.model.DeleteGameSessionQueueResult
 }
 
 @Generated
-class AmazonGameLiftDeleteGameSessionQueueCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DeleteGameSessionQueueRequest> {
+class AmazonGameLiftDeleteGameSessionQueueCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DeleteGameSessionQueueRequest, com.amazonaws.services.gamelift.model.DeleteGameSessionQueueResult> {
 
 
 
@@ -577,8 +637,12 @@ class AmazonGameLiftDeleteGameSessionQueueCommand(val name: String) : AmazonWebS
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.deleteGameSessionQueue(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.DeleteGameSessionQueueResult {
+	  return com.amazonaws.services.gamelift.model.DeleteGameSessionQueueResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.DeleteGameSessionQueueResult {
+		return environment.gamelift.deleteGameSessionQueue(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -589,12 +653,12 @@ class AmazonGameLiftDeleteGameSessionQueueCommand(val name: String) : AmazonWebS
 }
 
 
-fun AmazonGameLiftFunctions.deleteMatchmakingConfiguration(name: String, init: AmazonGameLiftDeleteMatchmakingConfigurationCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftDeleteMatchmakingConfigurationCommand(name).apply(init))
+fun AmazonGameLiftFunctions.deleteMatchmakingConfiguration(name: String, init: AmazonGameLiftDeleteMatchmakingConfigurationCommand.() -> Unit): com.amazonaws.services.gamelift.model.DeleteMatchmakingConfigurationResult {
+	return this.block.declare(AmazonGameLiftDeleteMatchmakingConfigurationCommand(name).apply(init)) as com.amazonaws.services.gamelift.model.DeleteMatchmakingConfigurationResult
 }
 
 @Generated
-class AmazonGameLiftDeleteMatchmakingConfigurationCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DeleteMatchmakingConfigurationRequest> {
+class AmazonGameLiftDeleteMatchmakingConfigurationCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DeleteMatchmakingConfigurationRequest, com.amazonaws.services.gamelift.model.DeleteMatchmakingConfigurationResult> {
 
 
 
@@ -604,8 +668,12 @@ class AmazonGameLiftDeleteMatchmakingConfigurationCommand(val name: String) : Am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.deleteMatchmakingConfiguration(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.DeleteMatchmakingConfigurationResult {
+	  return com.amazonaws.services.gamelift.model.DeleteMatchmakingConfigurationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.DeleteMatchmakingConfigurationResult {
+		return environment.gamelift.deleteMatchmakingConfiguration(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -616,12 +684,12 @@ class AmazonGameLiftDeleteMatchmakingConfigurationCommand(val name: String) : Am
 }
 
 
-fun AmazonGameLiftFunctions.deleteScalingPolicy(name: String, fleetId: String, init: AmazonGameLiftDeleteScalingPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftDeleteScalingPolicyCommand(name, fleetId).apply(init))
+fun AmazonGameLiftFunctions.deleteScalingPolicy(name: String, fleetId: String, init: AmazonGameLiftDeleteScalingPolicyCommand.() -> Unit): com.amazonaws.services.gamelift.model.DeleteScalingPolicyResult {
+	return this.block.declare(AmazonGameLiftDeleteScalingPolicyCommand(name, fleetId).apply(init)) as com.amazonaws.services.gamelift.model.DeleteScalingPolicyResult
 }
 
 @Generated
-class AmazonGameLiftDeleteScalingPolicyCommand(val name: String, val fleetId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DeleteScalingPolicyRequest> {
+class AmazonGameLiftDeleteScalingPolicyCommand(val name: String, val fleetId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DeleteScalingPolicyRequest, com.amazonaws.services.gamelift.model.DeleteScalingPolicyResult> {
 
 
 
@@ -632,8 +700,12 @@ class AmazonGameLiftDeleteScalingPolicyCommand(val name: String, val fleetId: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.deleteScalingPolicy(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.DeleteScalingPolicyResult {
+	  return com.amazonaws.services.gamelift.model.DeleteScalingPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.DeleteScalingPolicyResult {
+		return environment.gamelift.deleteScalingPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -645,12 +717,12 @@ class AmazonGameLiftDeleteScalingPolicyCommand(val name: String, val fleetId: St
 }
 
 
-fun AmazonGameLiftFunctions.deleteVpcPeeringAuthorization(gameLiftAwsAccountId: String, peerVpcId: String, init: AmazonGameLiftDeleteVpcPeeringAuthorizationCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftDeleteVpcPeeringAuthorizationCommand(gameLiftAwsAccountId, peerVpcId).apply(init))
+fun AmazonGameLiftFunctions.deleteVpcPeeringAuthorization(gameLiftAwsAccountId: String, peerVpcId: String, init: AmazonGameLiftDeleteVpcPeeringAuthorizationCommand.() -> Unit): com.amazonaws.services.gamelift.model.DeleteVpcPeeringAuthorizationResult {
+	return this.block.declare(AmazonGameLiftDeleteVpcPeeringAuthorizationCommand(gameLiftAwsAccountId, peerVpcId).apply(init)) as com.amazonaws.services.gamelift.model.DeleteVpcPeeringAuthorizationResult
 }
 
 @Generated
-class AmazonGameLiftDeleteVpcPeeringAuthorizationCommand(val gameLiftAwsAccountId: String, val peerVpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DeleteVpcPeeringAuthorizationRequest> {
+class AmazonGameLiftDeleteVpcPeeringAuthorizationCommand(val gameLiftAwsAccountId: String, val peerVpcId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DeleteVpcPeeringAuthorizationRequest, com.amazonaws.services.gamelift.model.DeleteVpcPeeringAuthorizationResult> {
 
 
 
@@ -661,8 +733,12 @@ class AmazonGameLiftDeleteVpcPeeringAuthorizationCommand(val gameLiftAwsAccountI
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.deleteVpcPeeringAuthorization(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.DeleteVpcPeeringAuthorizationResult {
+	  return com.amazonaws.services.gamelift.model.DeleteVpcPeeringAuthorizationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.DeleteVpcPeeringAuthorizationResult {
+		return environment.gamelift.deleteVpcPeeringAuthorization(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -674,12 +750,12 @@ class AmazonGameLiftDeleteVpcPeeringAuthorizationCommand(val gameLiftAwsAccountI
 }
 
 
-fun AmazonGameLiftFunctions.deleteVpcPeeringConnection(fleetId: String, vpcPeeringConnectionId: String, init: AmazonGameLiftDeleteVpcPeeringConnectionCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftDeleteVpcPeeringConnectionCommand(fleetId, vpcPeeringConnectionId).apply(init))
+fun AmazonGameLiftFunctions.deleteVpcPeeringConnection(fleetId: String, vpcPeeringConnectionId: String, init: AmazonGameLiftDeleteVpcPeeringConnectionCommand.() -> Unit): com.amazonaws.services.gamelift.model.DeleteVpcPeeringConnectionResult {
+	return this.block.declare(AmazonGameLiftDeleteVpcPeeringConnectionCommand(fleetId, vpcPeeringConnectionId).apply(init)) as com.amazonaws.services.gamelift.model.DeleteVpcPeeringConnectionResult
 }
 
 @Generated
-class AmazonGameLiftDeleteVpcPeeringConnectionCommand(val fleetId: String, val vpcPeeringConnectionId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DeleteVpcPeeringConnectionRequest> {
+class AmazonGameLiftDeleteVpcPeeringConnectionCommand(val fleetId: String, val vpcPeeringConnectionId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DeleteVpcPeeringConnectionRequest, com.amazonaws.services.gamelift.model.DeleteVpcPeeringConnectionResult> {
 
 
 
@@ -690,8 +766,12 @@ class AmazonGameLiftDeleteVpcPeeringConnectionCommand(val fleetId: String, val v
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.deleteVpcPeeringConnection(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.DeleteVpcPeeringConnectionResult {
+	  return com.amazonaws.services.gamelift.model.DeleteVpcPeeringConnectionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.DeleteVpcPeeringConnectionResult {
+		return environment.gamelift.deleteVpcPeeringConnection(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -703,12 +783,12 @@ class AmazonGameLiftDeleteVpcPeeringConnectionCommand(val fleetId: String, val v
 }
 
 
-fun AmazonGameLiftFunctions.describeAlias(aliasId: String, init: AmazonGameLiftDescribeAliasCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftDescribeAliasCommand(aliasId).apply(init))
+fun AmazonGameLiftFunctions.describeAlias(aliasId: String, init: AmazonGameLiftDescribeAliasCommand.() -> Unit): com.amazonaws.services.gamelift.model.DescribeAliasResult {
+	return this.block.declare(AmazonGameLiftDescribeAliasCommand(aliasId).apply(init)) as com.amazonaws.services.gamelift.model.DescribeAliasResult
 }
 
 @Generated
-class AmazonGameLiftDescribeAliasCommand(val aliasId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeAliasRequest> {
+class AmazonGameLiftDescribeAliasCommand(val aliasId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeAliasRequest, com.amazonaws.services.gamelift.model.DescribeAliasResult> {
 
 
 
@@ -718,8 +798,12 @@ class AmazonGameLiftDescribeAliasCommand(val aliasId: String) : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.describeAlias(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.DescribeAliasResult {
+	  return com.amazonaws.services.gamelift.model.DescribeAliasResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.DescribeAliasResult {
+		return environment.gamelift.describeAlias(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -730,12 +814,12 @@ class AmazonGameLiftDescribeAliasCommand(val aliasId: String) : AmazonWebService
 }
 
 
-fun AmazonGameLiftFunctions.describeBuild(buildId: String, init: AmazonGameLiftDescribeBuildCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftDescribeBuildCommand(buildId).apply(init))
+fun AmazonGameLiftFunctions.describeBuild(buildId: String, init: AmazonGameLiftDescribeBuildCommand.() -> Unit): com.amazonaws.services.gamelift.model.DescribeBuildResult {
+	return this.block.declare(AmazonGameLiftDescribeBuildCommand(buildId).apply(init)) as com.amazonaws.services.gamelift.model.DescribeBuildResult
 }
 
 @Generated
-class AmazonGameLiftDescribeBuildCommand(val buildId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeBuildRequest> {
+class AmazonGameLiftDescribeBuildCommand(val buildId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeBuildRequest, com.amazonaws.services.gamelift.model.DescribeBuildResult> {
 
 
 
@@ -745,8 +829,12 @@ class AmazonGameLiftDescribeBuildCommand(val buildId: String) : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.describeBuild(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.DescribeBuildResult {
+	  return com.amazonaws.services.gamelift.model.DescribeBuildResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.DescribeBuildResult {
+		return environment.gamelift.describeBuild(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -757,12 +845,12 @@ class AmazonGameLiftDescribeBuildCommand(val buildId: String) : AmazonWebService
 }
 
 
-fun AmazonGameLiftFunctions.describeEC2InstanceLimits(init: AmazonGameLiftDescribeEC2InstanceLimitsCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftDescribeEC2InstanceLimitsCommand().apply(init))
+fun AmazonGameLiftFunctions.describeEC2InstanceLimits(init: AmazonGameLiftDescribeEC2InstanceLimitsCommand.() -> Unit): com.amazonaws.services.gamelift.model.DescribeEC2InstanceLimitsResult {
+	return this.block.declare(AmazonGameLiftDescribeEC2InstanceLimitsCommand().apply(init)) as com.amazonaws.services.gamelift.model.DescribeEC2InstanceLimitsResult
 }
 
 @Generated
-class AmazonGameLiftDescribeEC2InstanceLimitsCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeEC2InstanceLimitsRequest> {
+class AmazonGameLiftDescribeEC2InstanceLimitsCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeEC2InstanceLimitsRequest, com.amazonaws.services.gamelift.model.DescribeEC2InstanceLimitsResult> {
 
 	var eC2InstanceType: EC2InstanceType? = null
 
@@ -772,8 +860,12 @@ class AmazonGameLiftDescribeEC2InstanceLimitsCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.describeEC2InstanceLimits(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.DescribeEC2InstanceLimitsResult {
+	  return com.amazonaws.services.gamelift.model.DescribeEC2InstanceLimitsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.DescribeEC2InstanceLimitsResult {
+		return environment.gamelift.describeEC2InstanceLimits(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -784,12 +876,12 @@ class AmazonGameLiftDescribeEC2InstanceLimitsCommand() : AmazonWebServiceCommand
 }
 
 
-fun AmazonGameLiftFunctions.describeFleetAttributes(init: AmazonGameLiftDescribeFleetAttributesCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftDescribeFleetAttributesCommand().apply(init))
+fun AmazonGameLiftFunctions.describeFleetAttributes(init: AmazonGameLiftDescribeFleetAttributesCommand.() -> Unit): com.amazonaws.services.gamelift.model.DescribeFleetAttributesResult {
+	return this.block.declare(AmazonGameLiftDescribeFleetAttributesCommand().apply(init)) as com.amazonaws.services.gamelift.model.DescribeFleetAttributesResult
 }
 
 @Generated
-class AmazonGameLiftDescribeFleetAttributesCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeFleetAttributesRequest> {
+class AmazonGameLiftDescribeFleetAttributesCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeFleetAttributesRequest, com.amazonaws.services.gamelift.model.DescribeFleetAttributesResult> {
 
 	var fleetIds: List<String>? = null
 	var limit: Int? = 0
@@ -803,8 +895,12 @@ class AmazonGameLiftDescribeFleetAttributesCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.describeFleetAttributes(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.DescribeFleetAttributesResult {
+	  return com.amazonaws.services.gamelift.model.DescribeFleetAttributesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.DescribeFleetAttributesResult {
+		return environment.gamelift.describeFleetAttributes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -817,12 +913,12 @@ class AmazonGameLiftDescribeFleetAttributesCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AmazonGameLiftFunctions.describeFleetCapacity(init: AmazonGameLiftDescribeFleetCapacityCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftDescribeFleetCapacityCommand().apply(init))
+fun AmazonGameLiftFunctions.describeFleetCapacity(init: AmazonGameLiftDescribeFleetCapacityCommand.() -> Unit): com.amazonaws.services.gamelift.model.DescribeFleetCapacityResult {
+	return this.block.declare(AmazonGameLiftDescribeFleetCapacityCommand().apply(init)) as com.amazonaws.services.gamelift.model.DescribeFleetCapacityResult
 }
 
 @Generated
-class AmazonGameLiftDescribeFleetCapacityCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeFleetCapacityRequest> {
+class AmazonGameLiftDescribeFleetCapacityCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeFleetCapacityRequest, com.amazonaws.services.gamelift.model.DescribeFleetCapacityResult> {
 
 	var fleetIds: List<String>? = null
 	var limit: Int? = 0
@@ -836,8 +932,12 @@ class AmazonGameLiftDescribeFleetCapacityCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.describeFleetCapacity(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.DescribeFleetCapacityResult {
+	  return com.amazonaws.services.gamelift.model.DescribeFleetCapacityResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.DescribeFleetCapacityResult {
+		return environment.gamelift.describeFleetCapacity(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -850,12 +950,12 @@ class AmazonGameLiftDescribeFleetCapacityCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AmazonGameLiftFunctions.describeFleetEvents(fleetId: String, init: AmazonGameLiftDescribeFleetEventsCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftDescribeFleetEventsCommand(fleetId).apply(init))
+fun AmazonGameLiftFunctions.describeFleetEvents(fleetId: String, init: AmazonGameLiftDescribeFleetEventsCommand.() -> Unit): com.amazonaws.services.gamelift.model.DescribeFleetEventsResult {
+	return this.block.declare(AmazonGameLiftDescribeFleetEventsCommand(fleetId).apply(init)) as com.amazonaws.services.gamelift.model.DescribeFleetEventsResult
 }
 
 @Generated
-class AmazonGameLiftDescribeFleetEventsCommand(val fleetId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeFleetEventsRequest> {
+class AmazonGameLiftDescribeFleetEventsCommand(val fleetId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeFleetEventsRequest, com.amazonaws.services.gamelift.model.DescribeFleetEventsResult> {
 
 	var startTime: java.util.Date? = null
 	var endTime: java.util.Date? = null
@@ -872,8 +972,12 @@ class AmazonGameLiftDescribeFleetEventsCommand(val fleetId: String) : AmazonWebS
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.describeFleetEvents(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.DescribeFleetEventsResult {
+	  return com.amazonaws.services.gamelift.model.DescribeFleetEventsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.DescribeFleetEventsResult {
+		return environment.gamelift.describeFleetEvents(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -888,12 +992,12 @@ class AmazonGameLiftDescribeFleetEventsCommand(val fleetId: String) : AmazonWebS
 }
 
 
-fun AmazonGameLiftFunctions.describeFleetPortSettings(fleetId: String, init: AmazonGameLiftDescribeFleetPortSettingsCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftDescribeFleetPortSettingsCommand(fleetId).apply(init))
+fun AmazonGameLiftFunctions.describeFleetPortSettings(fleetId: String, init: AmazonGameLiftDescribeFleetPortSettingsCommand.() -> Unit): com.amazonaws.services.gamelift.model.DescribeFleetPortSettingsResult {
+	return this.block.declare(AmazonGameLiftDescribeFleetPortSettingsCommand(fleetId).apply(init)) as com.amazonaws.services.gamelift.model.DescribeFleetPortSettingsResult
 }
 
 @Generated
-class AmazonGameLiftDescribeFleetPortSettingsCommand(val fleetId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeFleetPortSettingsRequest> {
+class AmazonGameLiftDescribeFleetPortSettingsCommand(val fleetId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeFleetPortSettingsRequest, com.amazonaws.services.gamelift.model.DescribeFleetPortSettingsResult> {
 
 
 
@@ -903,8 +1007,12 @@ class AmazonGameLiftDescribeFleetPortSettingsCommand(val fleetId: String) : Amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.describeFleetPortSettings(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.DescribeFleetPortSettingsResult {
+	  return com.amazonaws.services.gamelift.model.DescribeFleetPortSettingsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.DescribeFleetPortSettingsResult {
+		return environment.gamelift.describeFleetPortSettings(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -915,12 +1023,12 @@ class AmazonGameLiftDescribeFleetPortSettingsCommand(val fleetId: String) : Amaz
 }
 
 
-fun AmazonGameLiftFunctions.describeFleetUtilization(init: AmazonGameLiftDescribeFleetUtilizationCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftDescribeFleetUtilizationCommand().apply(init))
+fun AmazonGameLiftFunctions.describeFleetUtilization(init: AmazonGameLiftDescribeFleetUtilizationCommand.() -> Unit): com.amazonaws.services.gamelift.model.DescribeFleetUtilizationResult {
+	return this.block.declare(AmazonGameLiftDescribeFleetUtilizationCommand().apply(init)) as com.amazonaws.services.gamelift.model.DescribeFleetUtilizationResult
 }
 
 @Generated
-class AmazonGameLiftDescribeFleetUtilizationCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeFleetUtilizationRequest> {
+class AmazonGameLiftDescribeFleetUtilizationCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeFleetUtilizationRequest, com.amazonaws.services.gamelift.model.DescribeFleetUtilizationResult> {
 
 	var fleetIds: List<String>? = null
 	var limit: Int? = 0
@@ -934,8 +1042,12 @@ class AmazonGameLiftDescribeFleetUtilizationCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.describeFleetUtilization(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.DescribeFleetUtilizationResult {
+	  return com.amazonaws.services.gamelift.model.DescribeFleetUtilizationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.DescribeFleetUtilizationResult {
+		return environment.gamelift.describeFleetUtilization(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -948,12 +1060,12 @@ class AmazonGameLiftDescribeFleetUtilizationCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AmazonGameLiftFunctions.describeGameSessionDetails(init: AmazonGameLiftDescribeGameSessionDetailsCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftDescribeGameSessionDetailsCommand().apply(init))
+fun AmazonGameLiftFunctions.describeGameSessionDetails(init: AmazonGameLiftDescribeGameSessionDetailsCommand.() -> Unit): com.amazonaws.services.gamelift.model.DescribeGameSessionDetailsResult {
+	return this.block.declare(AmazonGameLiftDescribeGameSessionDetailsCommand().apply(init)) as com.amazonaws.services.gamelift.model.DescribeGameSessionDetailsResult
 }
 
 @Generated
-class AmazonGameLiftDescribeGameSessionDetailsCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeGameSessionDetailsRequest> {
+class AmazonGameLiftDescribeGameSessionDetailsCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeGameSessionDetailsRequest, com.amazonaws.services.gamelift.model.DescribeGameSessionDetailsResult> {
 
 	var fleetId: String? = null
 	var gameSessionId: String? = null
@@ -973,8 +1085,12 @@ class AmazonGameLiftDescribeGameSessionDetailsCommand() : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.describeGameSessionDetails(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.DescribeGameSessionDetailsResult {
+	  return com.amazonaws.services.gamelift.model.DescribeGameSessionDetailsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.DescribeGameSessionDetailsResult {
+		return environment.gamelift.describeGameSessionDetails(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -990,12 +1106,12 @@ class AmazonGameLiftDescribeGameSessionDetailsCommand() : AmazonWebServiceComman
 }
 
 
-fun AmazonGameLiftFunctions.describeGameSessionPlacement(placementId: String, init: AmazonGameLiftDescribeGameSessionPlacementCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftDescribeGameSessionPlacementCommand(placementId).apply(init))
+fun AmazonGameLiftFunctions.describeGameSessionPlacement(placementId: String, init: AmazonGameLiftDescribeGameSessionPlacementCommand.() -> Unit): com.amazonaws.services.gamelift.model.DescribeGameSessionPlacementResult {
+	return this.block.declare(AmazonGameLiftDescribeGameSessionPlacementCommand(placementId).apply(init)) as com.amazonaws.services.gamelift.model.DescribeGameSessionPlacementResult
 }
 
 @Generated
-class AmazonGameLiftDescribeGameSessionPlacementCommand(val placementId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeGameSessionPlacementRequest> {
+class AmazonGameLiftDescribeGameSessionPlacementCommand(val placementId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeGameSessionPlacementRequest, com.amazonaws.services.gamelift.model.DescribeGameSessionPlacementResult> {
 
 
 
@@ -1005,8 +1121,12 @@ class AmazonGameLiftDescribeGameSessionPlacementCommand(val placementId: String)
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.describeGameSessionPlacement(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.DescribeGameSessionPlacementResult {
+	  return com.amazonaws.services.gamelift.model.DescribeGameSessionPlacementResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.DescribeGameSessionPlacementResult {
+		return environment.gamelift.describeGameSessionPlacement(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1017,12 +1137,12 @@ class AmazonGameLiftDescribeGameSessionPlacementCommand(val placementId: String)
 }
 
 
-fun AmazonGameLiftFunctions.describeGameSessionQueues(init: AmazonGameLiftDescribeGameSessionQueuesCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftDescribeGameSessionQueuesCommand().apply(init))
+fun AmazonGameLiftFunctions.describeGameSessionQueues(init: AmazonGameLiftDescribeGameSessionQueuesCommand.() -> Unit): com.amazonaws.services.gamelift.model.DescribeGameSessionQueuesResult {
+	return this.block.declare(AmazonGameLiftDescribeGameSessionQueuesCommand().apply(init)) as com.amazonaws.services.gamelift.model.DescribeGameSessionQueuesResult
 }
 
 @Generated
-class AmazonGameLiftDescribeGameSessionQueuesCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeGameSessionQueuesRequest> {
+class AmazonGameLiftDescribeGameSessionQueuesCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeGameSessionQueuesRequest, com.amazonaws.services.gamelift.model.DescribeGameSessionQueuesResult> {
 
 	var names: List<String>? = null
 	var limit: Int? = 0
@@ -1036,8 +1156,12 @@ class AmazonGameLiftDescribeGameSessionQueuesCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.describeGameSessionQueues(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.DescribeGameSessionQueuesResult {
+	  return com.amazonaws.services.gamelift.model.DescribeGameSessionQueuesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.DescribeGameSessionQueuesResult {
+		return environment.gamelift.describeGameSessionQueues(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1050,12 +1174,12 @@ class AmazonGameLiftDescribeGameSessionQueuesCommand() : AmazonWebServiceCommand
 }
 
 
-fun AmazonGameLiftFunctions.describeGameSessions(init: AmazonGameLiftDescribeGameSessionsCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftDescribeGameSessionsCommand().apply(init))
+fun AmazonGameLiftFunctions.describeGameSessions(init: AmazonGameLiftDescribeGameSessionsCommand.() -> Unit): com.amazonaws.services.gamelift.model.DescribeGameSessionsResult {
+	return this.block.declare(AmazonGameLiftDescribeGameSessionsCommand().apply(init)) as com.amazonaws.services.gamelift.model.DescribeGameSessionsResult
 }
 
 @Generated
-class AmazonGameLiftDescribeGameSessionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeGameSessionsRequest> {
+class AmazonGameLiftDescribeGameSessionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeGameSessionsRequest, com.amazonaws.services.gamelift.model.DescribeGameSessionsResult> {
 
 	var fleetId: String? = null
 	var gameSessionId: String? = null
@@ -1075,8 +1199,12 @@ class AmazonGameLiftDescribeGameSessionsCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.describeGameSessions(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.DescribeGameSessionsResult {
+	  return com.amazonaws.services.gamelift.model.DescribeGameSessionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.DescribeGameSessionsResult {
+		return environment.gamelift.describeGameSessions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1092,12 +1220,12 @@ class AmazonGameLiftDescribeGameSessionsCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonGameLiftFunctions.describeInstances(fleetId: String, init: AmazonGameLiftDescribeInstancesCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftDescribeInstancesCommand(fleetId).apply(init))
+fun AmazonGameLiftFunctions.describeInstances(fleetId: String, init: AmazonGameLiftDescribeInstancesCommand.() -> Unit): com.amazonaws.services.gamelift.model.DescribeInstancesResult {
+	return this.block.declare(AmazonGameLiftDescribeInstancesCommand(fleetId).apply(init)) as com.amazonaws.services.gamelift.model.DescribeInstancesResult
 }
 
 @Generated
-class AmazonGameLiftDescribeInstancesCommand(val fleetId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeInstancesRequest> {
+class AmazonGameLiftDescribeInstancesCommand(val fleetId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeInstancesRequest, com.amazonaws.services.gamelift.model.DescribeInstancesResult> {
 
 	var instanceId: String? = null
 	var limit: Int? = 0
@@ -1112,8 +1240,12 @@ class AmazonGameLiftDescribeInstancesCommand(val fleetId: String) : AmazonWebSer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.describeInstances(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.DescribeInstancesResult {
+	  return com.amazonaws.services.gamelift.model.DescribeInstancesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.DescribeInstancesResult {
+		return environment.gamelift.describeInstances(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1127,12 +1259,12 @@ class AmazonGameLiftDescribeInstancesCommand(val fleetId: String) : AmazonWebSer
 }
 
 
-fun AmazonGameLiftFunctions.describeMatchmaking(ticketIds: List<String>, init: AmazonGameLiftDescribeMatchmakingCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftDescribeMatchmakingCommand(ticketIds).apply(init))
+fun AmazonGameLiftFunctions.describeMatchmaking(ticketIds: List<String>, init: AmazonGameLiftDescribeMatchmakingCommand.() -> Unit): com.amazonaws.services.gamelift.model.DescribeMatchmakingResult {
+	return this.block.declare(AmazonGameLiftDescribeMatchmakingCommand(ticketIds).apply(init)) as com.amazonaws.services.gamelift.model.DescribeMatchmakingResult
 }
 
 @Generated
-class AmazonGameLiftDescribeMatchmakingCommand(val ticketIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeMatchmakingRequest> {
+class AmazonGameLiftDescribeMatchmakingCommand(val ticketIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeMatchmakingRequest, com.amazonaws.services.gamelift.model.DescribeMatchmakingResult> {
 
 
 
@@ -1142,8 +1274,12 @@ class AmazonGameLiftDescribeMatchmakingCommand(val ticketIds: List<String>) : Am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.describeMatchmaking(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.DescribeMatchmakingResult {
+	  return com.amazonaws.services.gamelift.model.DescribeMatchmakingResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.DescribeMatchmakingResult {
+		return environment.gamelift.describeMatchmaking(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1154,12 +1290,12 @@ class AmazonGameLiftDescribeMatchmakingCommand(val ticketIds: List<String>) : Am
 }
 
 
-fun AmazonGameLiftFunctions.describeMatchmakingConfigurations(init: AmazonGameLiftDescribeMatchmakingConfigurationsCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftDescribeMatchmakingConfigurationsCommand().apply(init))
+fun AmazonGameLiftFunctions.describeMatchmakingConfigurations(init: AmazonGameLiftDescribeMatchmakingConfigurationsCommand.() -> Unit): com.amazonaws.services.gamelift.model.DescribeMatchmakingConfigurationsResult {
+	return this.block.declare(AmazonGameLiftDescribeMatchmakingConfigurationsCommand().apply(init)) as com.amazonaws.services.gamelift.model.DescribeMatchmakingConfigurationsResult
 }
 
 @Generated
-class AmazonGameLiftDescribeMatchmakingConfigurationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeMatchmakingConfigurationsRequest> {
+class AmazonGameLiftDescribeMatchmakingConfigurationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeMatchmakingConfigurationsRequest, com.amazonaws.services.gamelift.model.DescribeMatchmakingConfigurationsResult> {
 
 	var names: List<String>? = null
 	var ruleSetName: String? = null
@@ -1175,8 +1311,12 @@ class AmazonGameLiftDescribeMatchmakingConfigurationsCommand() : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.describeMatchmakingConfigurations(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.DescribeMatchmakingConfigurationsResult {
+	  return com.amazonaws.services.gamelift.model.DescribeMatchmakingConfigurationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.DescribeMatchmakingConfigurationsResult {
+		return environment.gamelift.describeMatchmakingConfigurations(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1190,12 +1330,12 @@ class AmazonGameLiftDescribeMatchmakingConfigurationsCommand() : AmazonWebServic
 }
 
 
-fun AmazonGameLiftFunctions.describeMatchmakingRuleSets(init: AmazonGameLiftDescribeMatchmakingRuleSetsCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftDescribeMatchmakingRuleSetsCommand().apply(init))
+fun AmazonGameLiftFunctions.describeMatchmakingRuleSets(init: AmazonGameLiftDescribeMatchmakingRuleSetsCommand.() -> Unit): com.amazonaws.services.gamelift.model.DescribeMatchmakingRuleSetsResult {
+	return this.block.declare(AmazonGameLiftDescribeMatchmakingRuleSetsCommand().apply(init)) as com.amazonaws.services.gamelift.model.DescribeMatchmakingRuleSetsResult
 }
 
 @Generated
-class AmazonGameLiftDescribeMatchmakingRuleSetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeMatchmakingRuleSetsRequest> {
+class AmazonGameLiftDescribeMatchmakingRuleSetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeMatchmakingRuleSetsRequest, com.amazonaws.services.gamelift.model.DescribeMatchmakingRuleSetsResult> {
 
 	var names: List<String>? = null
 	var limit: Int? = 0
@@ -1209,8 +1349,12 @@ class AmazonGameLiftDescribeMatchmakingRuleSetsCommand() : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.describeMatchmakingRuleSets(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.DescribeMatchmakingRuleSetsResult {
+	  return com.amazonaws.services.gamelift.model.DescribeMatchmakingRuleSetsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.DescribeMatchmakingRuleSetsResult {
+		return environment.gamelift.describeMatchmakingRuleSets(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1223,12 +1367,12 @@ class AmazonGameLiftDescribeMatchmakingRuleSetsCommand() : AmazonWebServiceComma
 }
 
 
-fun AmazonGameLiftFunctions.describePlayerSessions(init: AmazonGameLiftDescribePlayerSessionsCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftDescribePlayerSessionsCommand().apply(init))
+fun AmazonGameLiftFunctions.describePlayerSessions(init: AmazonGameLiftDescribePlayerSessionsCommand.() -> Unit): com.amazonaws.services.gamelift.model.DescribePlayerSessionsResult {
+	return this.block.declare(AmazonGameLiftDescribePlayerSessionsCommand().apply(init)) as com.amazonaws.services.gamelift.model.DescribePlayerSessionsResult
 }
 
 @Generated
-class AmazonGameLiftDescribePlayerSessionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribePlayerSessionsRequest> {
+class AmazonGameLiftDescribePlayerSessionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribePlayerSessionsRequest, com.amazonaws.services.gamelift.model.DescribePlayerSessionsResult> {
 
 	var gameSessionId: String? = null
 	var playerId: String? = null
@@ -1248,8 +1392,12 @@ class AmazonGameLiftDescribePlayerSessionsCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.describePlayerSessions(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.DescribePlayerSessionsResult {
+	  return com.amazonaws.services.gamelift.model.DescribePlayerSessionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.DescribePlayerSessionsResult {
+		return environment.gamelift.describePlayerSessions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1265,12 +1413,12 @@ class AmazonGameLiftDescribePlayerSessionsCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonGameLiftFunctions.describeRuntimeConfiguration(fleetId: String, init: AmazonGameLiftDescribeRuntimeConfigurationCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftDescribeRuntimeConfigurationCommand(fleetId).apply(init))
+fun AmazonGameLiftFunctions.describeRuntimeConfiguration(fleetId: String, init: AmazonGameLiftDescribeRuntimeConfigurationCommand.() -> Unit): com.amazonaws.services.gamelift.model.DescribeRuntimeConfigurationResult {
+	return this.block.declare(AmazonGameLiftDescribeRuntimeConfigurationCommand(fleetId).apply(init)) as com.amazonaws.services.gamelift.model.DescribeRuntimeConfigurationResult
 }
 
 @Generated
-class AmazonGameLiftDescribeRuntimeConfigurationCommand(val fleetId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeRuntimeConfigurationRequest> {
+class AmazonGameLiftDescribeRuntimeConfigurationCommand(val fleetId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeRuntimeConfigurationRequest, com.amazonaws.services.gamelift.model.DescribeRuntimeConfigurationResult> {
 
 
 
@@ -1280,8 +1428,12 @@ class AmazonGameLiftDescribeRuntimeConfigurationCommand(val fleetId: String) : A
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.describeRuntimeConfiguration(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.DescribeRuntimeConfigurationResult {
+	  return com.amazonaws.services.gamelift.model.DescribeRuntimeConfigurationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.DescribeRuntimeConfigurationResult {
+		return environment.gamelift.describeRuntimeConfiguration(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1292,12 +1444,12 @@ class AmazonGameLiftDescribeRuntimeConfigurationCommand(val fleetId: String) : A
 }
 
 
-fun AmazonGameLiftFunctions.describeScalingPolicies(fleetId: String, init: AmazonGameLiftDescribeScalingPoliciesCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftDescribeScalingPoliciesCommand(fleetId).apply(init))
+fun AmazonGameLiftFunctions.describeScalingPolicies(fleetId: String, init: AmazonGameLiftDescribeScalingPoliciesCommand.() -> Unit): com.amazonaws.services.gamelift.model.DescribeScalingPoliciesResult {
+	return this.block.declare(AmazonGameLiftDescribeScalingPoliciesCommand(fleetId).apply(init)) as com.amazonaws.services.gamelift.model.DescribeScalingPoliciesResult
 }
 
 @Generated
-class AmazonGameLiftDescribeScalingPoliciesCommand(val fleetId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeScalingPoliciesRequest> {
+class AmazonGameLiftDescribeScalingPoliciesCommand(val fleetId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeScalingPoliciesRequest, com.amazonaws.services.gamelift.model.DescribeScalingPoliciesResult> {
 
 	var statusFilter: ScalingStatusType? = null
 	var limit: Int? = 0
@@ -1312,8 +1464,12 @@ class AmazonGameLiftDescribeScalingPoliciesCommand(val fleetId: String) : Amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.describeScalingPolicies(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.DescribeScalingPoliciesResult {
+	  return com.amazonaws.services.gamelift.model.DescribeScalingPoliciesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.DescribeScalingPoliciesResult {
+		return environment.gamelift.describeScalingPolicies(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1327,12 +1483,12 @@ class AmazonGameLiftDescribeScalingPoliciesCommand(val fleetId: String) : Amazon
 }
 
 
-fun AmazonGameLiftFunctions.describeVpcPeeringAuthorizations(init: AmazonGameLiftDescribeVpcPeeringAuthorizationsCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftDescribeVpcPeeringAuthorizationsCommand().apply(init))
+fun AmazonGameLiftFunctions.describeVpcPeeringAuthorizations(init: AmazonGameLiftDescribeVpcPeeringAuthorizationsCommand.() -> Unit): com.amazonaws.services.gamelift.model.DescribeVpcPeeringAuthorizationsResult {
+	return this.block.declare(AmazonGameLiftDescribeVpcPeeringAuthorizationsCommand().apply(init)) as com.amazonaws.services.gamelift.model.DescribeVpcPeeringAuthorizationsResult
 }
 
 @Generated
-class AmazonGameLiftDescribeVpcPeeringAuthorizationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeVpcPeeringAuthorizationsRequest> {
+class AmazonGameLiftDescribeVpcPeeringAuthorizationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeVpcPeeringAuthorizationsRequest, com.amazonaws.services.gamelift.model.DescribeVpcPeeringAuthorizationsResult> {
 
 
 
@@ -1342,8 +1498,12 @@ class AmazonGameLiftDescribeVpcPeeringAuthorizationsCommand() : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.describeVpcPeeringAuthorizations(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.DescribeVpcPeeringAuthorizationsResult {
+	  return com.amazonaws.services.gamelift.model.DescribeVpcPeeringAuthorizationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.DescribeVpcPeeringAuthorizationsResult {
+		return environment.gamelift.describeVpcPeeringAuthorizations(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1354,12 +1514,12 @@ class AmazonGameLiftDescribeVpcPeeringAuthorizationsCommand() : AmazonWebService
 }
 
 
-fun AmazonGameLiftFunctions.describeVpcPeeringConnections(init: AmazonGameLiftDescribeVpcPeeringConnectionsCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftDescribeVpcPeeringConnectionsCommand().apply(init))
+fun AmazonGameLiftFunctions.describeVpcPeeringConnections(init: AmazonGameLiftDescribeVpcPeeringConnectionsCommand.() -> Unit): com.amazonaws.services.gamelift.model.DescribeVpcPeeringConnectionsResult {
+	return this.block.declare(AmazonGameLiftDescribeVpcPeeringConnectionsCommand().apply(init)) as com.amazonaws.services.gamelift.model.DescribeVpcPeeringConnectionsResult
 }
 
 @Generated
-class AmazonGameLiftDescribeVpcPeeringConnectionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeVpcPeeringConnectionsRequest> {
+class AmazonGameLiftDescribeVpcPeeringConnectionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.DescribeVpcPeeringConnectionsRequest, com.amazonaws.services.gamelift.model.DescribeVpcPeeringConnectionsResult> {
 
 	var fleetId: String? = null
 
@@ -1369,8 +1529,12 @@ class AmazonGameLiftDescribeVpcPeeringConnectionsCommand() : AmazonWebServiceCom
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.describeVpcPeeringConnections(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.DescribeVpcPeeringConnectionsResult {
+	  return com.amazonaws.services.gamelift.model.DescribeVpcPeeringConnectionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.DescribeVpcPeeringConnectionsResult {
+		return environment.gamelift.describeVpcPeeringConnections(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1381,12 +1545,12 @@ class AmazonGameLiftDescribeVpcPeeringConnectionsCommand() : AmazonWebServiceCom
 }
 
 
-fun AmazonGameLiftFunctions.getGameSessionLogUrl(gameSessionId: String, init: AmazonGameLiftGetGameSessionLogUrlCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftGetGameSessionLogUrlCommand(gameSessionId).apply(init))
+fun AmazonGameLiftFunctions.getGameSessionLogUrl(gameSessionId: String, init: AmazonGameLiftGetGameSessionLogUrlCommand.() -> Unit): com.amazonaws.services.gamelift.model.GetGameSessionLogUrlResult {
+	return this.block.declare(AmazonGameLiftGetGameSessionLogUrlCommand(gameSessionId).apply(init)) as com.amazonaws.services.gamelift.model.GetGameSessionLogUrlResult
 }
 
 @Generated
-class AmazonGameLiftGetGameSessionLogUrlCommand(val gameSessionId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.GetGameSessionLogUrlRequest> {
+class AmazonGameLiftGetGameSessionLogUrlCommand(val gameSessionId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.GetGameSessionLogUrlRequest, com.amazonaws.services.gamelift.model.GetGameSessionLogUrlResult> {
 
 
 
@@ -1396,8 +1560,12 @@ class AmazonGameLiftGetGameSessionLogUrlCommand(val gameSessionId: String) : Ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.getGameSessionLogUrl(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.GetGameSessionLogUrlResult {
+	  return com.amazonaws.services.gamelift.model.GetGameSessionLogUrlResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.GetGameSessionLogUrlResult {
+		return environment.gamelift.getGameSessionLogUrl(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1408,12 +1576,12 @@ class AmazonGameLiftGetGameSessionLogUrlCommand(val gameSessionId: String) : Ama
 }
 
 
-fun AmazonGameLiftFunctions.getInstanceAccess(fleetId: String, instanceId: String, init: AmazonGameLiftGetInstanceAccessCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftGetInstanceAccessCommand(fleetId, instanceId).apply(init))
+fun AmazonGameLiftFunctions.getInstanceAccess(fleetId: String, instanceId: String, init: AmazonGameLiftGetInstanceAccessCommand.() -> Unit): com.amazonaws.services.gamelift.model.GetInstanceAccessResult {
+	return this.block.declare(AmazonGameLiftGetInstanceAccessCommand(fleetId, instanceId).apply(init)) as com.amazonaws.services.gamelift.model.GetInstanceAccessResult
 }
 
 @Generated
-class AmazonGameLiftGetInstanceAccessCommand(val fleetId: String, val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.GetInstanceAccessRequest> {
+class AmazonGameLiftGetInstanceAccessCommand(val fleetId: String, val instanceId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.GetInstanceAccessRequest, com.amazonaws.services.gamelift.model.GetInstanceAccessResult> {
 
 
 
@@ -1424,8 +1592,12 @@ class AmazonGameLiftGetInstanceAccessCommand(val fleetId: String, val instanceId
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.getInstanceAccess(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.GetInstanceAccessResult {
+	  return com.amazonaws.services.gamelift.model.GetInstanceAccessResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.GetInstanceAccessResult {
+		return environment.gamelift.getInstanceAccess(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1437,12 +1609,12 @@ class AmazonGameLiftGetInstanceAccessCommand(val fleetId: String, val instanceId
 }
 
 
-fun AmazonGameLiftFunctions.listAliases(init: AmazonGameLiftListAliasesCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftListAliasesCommand().apply(init))
+fun AmazonGameLiftFunctions.listAliases(init: AmazonGameLiftListAliasesCommand.() -> Unit): com.amazonaws.services.gamelift.model.ListAliasesResult {
+	return this.block.declare(AmazonGameLiftListAliasesCommand().apply(init)) as com.amazonaws.services.gamelift.model.ListAliasesResult
 }
 
 @Generated
-class AmazonGameLiftListAliasesCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.ListAliasesRequest> {
+class AmazonGameLiftListAliasesCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.ListAliasesRequest, com.amazonaws.services.gamelift.model.ListAliasesResult> {
 
 	var routingStrategyType: RoutingStrategyType? = null
 	var name: String? = null
@@ -1458,8 +1630,12 @@ class AmazonGameLiftListAliasesCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.listAliases(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.ListAliasesResult {
+	  return com.amazonaws.services.gamelift.model.ListAliasesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.ListAliasesResult {
+		return environment.gamelift.listAliases(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1473,12 +1649,12 @@ class AmazonGameLiftListAliasesCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AmazonGameLiftFunctions.listBuilds(init: AmazonGameLiftListBuildsCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftListBuildsCommand().apply(init))
+fun AmazonGameLiftFunctions.listBuilds(init: AmazonGameLiftListBuildsCommand.() -> Unit): com.amazonaws.services.gamelift.model.ListBuildsResult {
+	return this.block.declare(AmazonGameLiftListBuildsCommand().apply(init)) as com.amazonaws.services.gamelift.model.ListBuildsResult
 }
 
 @Generated
-class AmazonGameLiftListBuildsCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.ListBuildsRequest> {
+class AmazonGameLiftListBuildsCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.ListBuildsRequest, com.amazonaws.services.gamelift.model.ListBuildsResult> {
 
 	var status: BuildStatus? = null
 	var limit: Int? = 0
@@ -1492,8 +1668,12 @@ class AmazonGameLiftListBuildsCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.listBuilds(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.ListBuildsResult {
+	  return com.amazonaws.services.gamelift.model.ListBuildsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.ListBuildsResult {
+		return environment.gamelift.listBuilds(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1506,12 +1686,12 @@ class AmazonGameLiftListBuildsCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AmazonGameLiftFunctions.listFleets(init: AmazonGameLiftListFleetsCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftListFleetsCommand().apply(init))
+fun AmazonGameLiftFunctions.listFleets(init: AmazonGameLiftListFleetsCommand.() -> Unit): com.amazonaws.services.gamelift.model.ListFleetsResult {
+	return this.block.declare(AmazonGameLiftListFleetsCommand().apply(init)) as com.amazonaws.services.gamelift.model.ListFleetsResult
 }
 
 @Generated
-class AmazonGameLiftListFleetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.ListFleetsRequest> {
+class AmazonGameLiftListFleetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.ListFleetsRequest, com.amazonaws.services.gamelift.model.ListFleetsResult> {
 
 	var buildId: String? = null
 	var limit: Int? = 0
@@ -1525,8 +1705,12 @@ class AmazonGameLiftListFleetsCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.listFleets(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.ListFleetsResult {
+	  return com.amazonaws.services.gamelift.model.ListFleetsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.ListFleetsResult {
+		return environment.gamelift.listFleets(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1539,12 +1723,12 @@ class AmazonGameLiftListFleetsCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AmazonGameLiftFunctions.putScalingPolicy(name: String, fleetId: String, scalingAdjustment: Int, scalingAdjustmentType: ScalingAdjustmentType, threshold: Double, comparisonOperator: ComparisonOperatorType, evaluationPeriods: Int, metricName: MetricName, init: AmazonGameLiftPutScalingPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftPutScalingPolicyCommand(name, fleetId, scalingAdjustment, scalingAdjustmentType, threshold, comparisonOperator, evaluationPeriods, metricName).apply(init))
+fun AmazonGameLiftFunctions.putScalingPolicy(name: String, fleetId: String, scalingAdjustment: Int, scalingAdjustmentType: ScalingAdjustmentType, threshold: Double, comparisonOperator: ComparisonOperatorType, evaluationPeriods: Int, metricName: MetricName, init: AmazonGameLiftPutScalingPolicyCommand.() -> Unit): com.amazonaws.services.gamelift.model.PutScalingPolicyResult {
+	return this.block.declare(AmazonGameLiftPutScalingPolicyCommand(name, fleetId, scalingAdjustment, scalingAdjustmentType, threshold, comparisonOperator, evaluationPeriods, metricName).apply(init)) as com.amazonaws.services.gamelift.model.PutScalingPolicyResult
 }
 
 @Generated
-class AmazonGameLiftPutScalingPolicyCommand(val name: String, val fleetId: String, val scalingAdjustment: Int, val scalingAdjustmentType: ScalingAdjustmentType, val threshold: Double, val comparisonOperator: ComparisonOperatorType, val evaluationPeriods: Int, val metricName: MetricName) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.PutScalingPolicyRequest> {
+class AmazonGameLiftPutScalingPolicyCommand(val name: String, val fleetId: String, val scalingAdjustment: Int, val scalingAdjustmentType: ScalingAdjustmentType, val threshold: Double, val comparisonOperator: ComparisonOperatorType, val evaluationPeriods: Int, val metricName: MetricName) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.PutScalingPolicyRequest, com.amazonaws.services.gamelift.model.PutScalingPolicyResult> {
 
 
 
@@ -1561,8 +1745,12 @@ class AmazonGameLiftPutScalingPolicyCommand(val name: String, val fleetId: Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.putScalingPolicy(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.PutScalingPolicyResult {
+	  return com.amazonaws.services.gamelift.model.PutScalingPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.PutScalingPolicyResult {
+		return environment.gamelift.putScalingPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1580,12 +1768,12 @@ class AmazonGameLiftPutScalingPolicyCommand(val name: String, val fleetId: Strin
 }
 
 
-fun AmazonGameLiftFunctions.requestUploadCredentials(buildId: String, init: AmazonGameLiftRequestUploadCredentialsCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftRequestUploadCredentialsCommand(buildId).apply(init))
+fun AmazonGameLiftFunctions.requestUploadCredentials(buildId: String, init: AmazonGameLiftRequestUploadCredentialsCommand.() -> Unit): com.amazonaws.services.gamelift.model.RequestUploadCredentialsResult {
+	return this.block.declare(AmazonGameLiftRequestUploadCredentialsCommand(buildId).apply(init)) as com.amazonaws.services.gamelift.model.RequestUploadCredentialsResult
 }
 
 @Generated
-class AmazonGameLiftRequestUploadCredentialsCommand(val buildId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.RequestUploadCredentialsRequest> {
+class AmazonGameLiftRequestUploadCredentialsCommand(val buildId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.RequestUploadCredentialsRequest, com.amazonaws.services.gamelift.model.RequestUploadCredentialsResult> {
 
 
 
@@ -1595,8 +1783,12 @@ class AmazonGameLiftRequestUploadCredentialsCommand(val buildId: String) : Amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.requestUploadCredentials(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.RequestUploadCredentialsResult {
+	  return com.amazonaws.services.gamelift.model.RequestUploadCredentialsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.RequestUploadCredentialsResult {
+		return environment.gamelift.requestUploadCredentials(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1607,12 +1799,12 @@ class AmazonGameLiftRequestUploadCredentialsCommand(val buildId: String) : Amazo
 }
 
 
-fun AmazonGameLiftFunctions.resolveAlias(aliasId: String, init: AmazonGameLiftResolveAliasCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftResolveAliasCommand(aliasId).apply(init))
+fun AmazonGameLiftFunctions.resolveAlias(aliasId: String, init: AmazonGameLiftResolveAliasCommand.() -> Unit): com.amazonaws.services.gamelift.model.ResolveAliasResult {
+	return this.block.declare(AmazonGameLiftResolveAliasCommand(aliasId).apply(init)) as com.amazonaws.services.gamelift.model.ResolveAliasResult
 }
 
 @Generated
-class AmazonGameLiftResolveAliasCommand(val aliasId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.ResolveAliasRequest> {
+class AmazonGameLiftResolveAliasCommand(val aliasId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.ResolveAliasRequest, com.amazonaws.services.gamelift.model.ResolveAliasResult> {
 
 
 
@@ -1622,8 +1814,12 @@ class AmazonGameLiftResolveAliasCommand(val aliasId: String) : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.resolveAlias(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.ResolveAliasResult {
+	  return com.amazonaws.services.gamelift.model.ResolveAliasResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.ResolveAliasResult {
+		return environment.gamelift.resolveAlias(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1634,12 +1830,12 @@ class AmazonGameLiftResolveAliasCommand(val aliasId: String) : AmazonWebServiceC
 }
 
 
-fun AmazonGameLiftFunctions.searchGameSessions(init: AmazonGameLiftSearchGameSessionsCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftSearchGameSessionsCommand().apply(init))
+fun AmazonGameLiftFunctions.searchGameSessions(init: AmazonGameLiftSearchGameSessionsCommand.() -> Unit): com.amazonaws.services.gamelift.model.SearchGameSessionsResult {
+	return this.block.declare(AmazonGameLiftSearchGameSessionsCommand().apply(init)) as com.amazonaws.services.gamelift.model.SearchGameSessionsResult
 }
 
 @Generated
-class AmazonGameLiftSearchGameSessionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.SearchGameSessionsRequest> {
+class AmazonGameLiftSearchGameSessionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.SearchGameSessionsRequest, com.amazonaws.services.gamelift.model.SearchGameSessionsResult> {
 
 	var fleetId: String? = null
 	var aliasId: String? = null
@@ -1659,8 +1855,12 @@ class AmazonGameLiftSearchGameSessionsCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.searchGameSessions(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.SearchGameSessionsResult {
+	  return com.amazonaws.services.gamelift.model.SearchGameSessionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.SearchGameSessionsResult {
+		return environment.gamelift.searchGameSessions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1676,12 +1876,12 @@ class AmazonGameLiftSearchGameSessionsCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonGameLiftFunctions.startGameSessionPlacement(placementId: String, gameSessionQueueName: String, maximumPlayerSessionCount: Int, init: AmazonGameLiftStartGameSessionPlacementCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftStartGameSessionPlacementCommand(placementId, gameSessionQueueName, maximumPlayerSessionCount).apply(init))
+fun AmazonGameLiftFunctions.startGameSessionPlacement(placementId: String, gameSessionQueueName: String, maximumPlayerSessionCount: Int, init: AmazonGameLiftStartGameSessionPlacementCommand.() -> Unit): com.amazonaws.services.gamelift.model.StartGameSessionPlacementResult {
+	return this.block.declare(AmazonGameLiftStartGameSessionPlacementCommand(placementId, gameSessionQueueName, maximumPlayerSessionCount).apply(init)) as com.amazonaws.services.gamelift.model.StartGameSessionPlacementResult
 }
 
 @Generated
-class AmazonGameLiftStartGameSessionPlacementCommand(val placementId: String, val gameSessionQueueName: String, val maximumPlayerSessionCount: Int) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.StartGameSessionPlacementRequest> {
+class AmazonGameLiftStartGameSessionPlacementCommand(val placementId: String, val gameSessionQueueName: String, val maximumPlayerSessionCount: Int) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.StartGameSessionPlacementRequest, com.amazonaws.services.gamelift.model.StartGameSessionPlacementResult> {
 
 	var gameProperties: List<com.amazonaws.services.gamelift.model.GameProperty>? = null
 	var gameSessionName: String? = null
@@ -1702,8 +1902,12 @@ class AmazonGameLiftStartGameSessionPlacementCommand(val placementId: String, va
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.startGameSessionPlacement(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.StartGameSessionPlacementResult {
+	  return com.amazonaws.services.gamelift.model.StartGameSessionPlacementResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.StartGameSessionPlacementResult {
+		return environment.gamelift.startGameSessionPlacement(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1721,12 +1925,12 @@ class AmazonGameLiftStartGameSessionPlacementCommand(val placementId: String, va
 }
 
 
-fun AmazonGameLiftFunctions.startMatchBackfill(configurationName: String, gameSessionArn: String, players: List<com.amazonaws.services.gamelift.model.Player>, init: AmazonGameLiftStartMatchBackfillCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftStartMatchBackfillCommand(configurationName, gameSessionArn, players).apply(init))
+fun AmazonGameLiftFunctions.startMatchBackfill(configurationName: String, gameSessionArn: String, players: List<com.amazonaws.services.gamelift.model.Player>, init: AmazonGameLiftStartMatchBackfillCommand.() -> Unit): com.amazonaws.services.gamelift.model.StartMatchBackfillResult {
+	return this.block.declare(AmazonGameLiftStartMatchBackfillCommand(configurationName, gameSessionArn, players).apply(init)) as com.amazonaws.services.gamelift.model.StartMatchBackfillResult
 }
 
 @Generated
-class AmazonGameLiftStartMatchBackfillCommand(val configurationName: String, val gameSessionArn: String, val players: List<com.amazonaws.services.gamelift.model.Player>) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.StartMatchBackfillRequest> {
+class AmazonGameLiftStartMatchBackfillCommand(val configurationName: String, val gameSessionArn: String, val players: List<com.amazonaws.services.gamelift.model.Player>) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.StartMatchBackfillRequest, com.amazonaws.services.gamelift.model.StartMatchBackfillResult> {
 
 	var ticketId: String? = null
 
@@ -1739,8 +1943,12 @@ class AmazonGameLiftStartMatchBackfillCommand(val configurationName: String, val
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.startMatchBackfill(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.StartMatchBackfillResult {
+	  return com.amazonaws.services.gamelift.model.StartMatchBackfillResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.StartMatchBackfillResult {
+		return environment.gamelift.startMatchBackfill(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1754,12 +1962,12 @@ class AmazonGameLiftStartMatchBackfillCommand(val configurationName: String, val
 }
 
 
-fun AmazonGameLiftFunctions.startMatchmaking(configurationName: String, players: List<com.amazonaws.services.gamelift.model.Player>, init: AmazonGameLiftStartMatchmakingCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftStartMatchmakingCommand(configurationName, players).apply(init))
+fun AmazonGameLiftFunctions.startMatchmaking(configurationName: String, players: List<com.amazonaws.services.gamelift.model.Player>, init: AmazonGameLiftStartMatchmakingCommand.() -> Unit): com.amazonaws.services.gamelift.model.StartMatchmakingResult {
+	return this.block.declare(AmazonGameLiftStartMatchmakingCommand(configurationName, players).apply(init)) as com.amazonaws.services.gamelift.model.StartMatchmakingResult
 }
 
 @Generated
-class AmazonGameLiftStartMatchmakingCommand(val configurationName: String, val players: List<com.amazonaws.services.gamelift.model.Player>) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.StartMatchmakingRequest> {
+class AmazonGameLiftStartMatchmakingCommand(val configurationName: String, val players: List<com.amazonaws.services.gamelift.model.Player>) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.StartMatchmakingRequest, com.amazonaws.services.gamelift.model.StartMatchmakingResult> {
 
 	var ticketId: String? = null
 
@@ -1771,8 +1979,12 @@ class AmazonGameLiftStartMatchmakingCommand(val configurationName: String, val p
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.startMatchmaking(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.StartMatchmakingResult {
+	  return com.amazonaws.services.gamelift.model.StartMatchmakingResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.StartMatchmakingResult {
+		return environment.gamelift.startMatchmaking(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1785,12 +1997,12 @@ class AmazonGameLiftStartMatchmakingCommand(val configurationName: String, val p
 }
 
 
-fun AmazonGameLiftFunctions.stopGameSessionPlacement(placementId: String, init: AmazonGameLiftStopGameSessionPlacementCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftStopGameSessionPlacementCommand(placementId).apply(init))
+fun AmazonGameLiftFunctions.stopGameSessionPlacement(placementId: String, init: AmazonGameLiftStopGameSessionPlacementCommand.() -> Unit): com.amazonaws.services.gamelift.model.StopGameSessionPlacementResult {
+	return this.block.declare(AmazonGameLiftStopGameSessionPlacementCommand(placementId).apply(init)) as com.amazonaws.services.gamelift.model.StopGameSessionPlacementResult
 }
 
 @Generated
-class AmazonGameLiftStopGameSessionPlacementCommand(val placementId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.StopGameSessionPlacementRequest> {
+class AmazonGameLiftStopGameSessionPlacementCommand(val placementId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.StopGameSessionPlacementRequest, com.amazonaws.services.gamelift.model.StopGameSessionPlacementResult> {
 
 
 
@@ -1800,8 +2012,12 @@ class AmazonGameLiftStopGameSessionPlacementCommand(val placementId: String) : A
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.stopGameSessionPlacement(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.StopGameSessionPlacementResult {
+	  return com.amazonaws.services.gamelift.model.StopGameSessionPlacementResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.StopGameSessionPlacementResult {
+		return environment.gamelift.stopGameSessionPlacement(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1812,12 +2028,12 @@ class AmazonGameLiftStopGameSessionPlacementCommand(val placementId: String) : A
 }
 
 
-fun AmazonGameLiftFunctions.stopMatchmaking(ticketId: String, init: AmazonGameLiftStopMatchmakingCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftStopMatchmakingCommand(ticketId).apply(init))
+fun AmazonGameLiftFunctions.stopMatchmaking(ticketId: String, init: AmazonGameLiftStopMatchmakingCommand.() -> Unit): com.amazonaws.services.gamelift.model.StopMatchmakingResult {
+	return this.block.declare(AmazonGameLiftStopMatchmakingCommand(ticketId).apply(init)) as com.amazonaws.services.gamelift.model.StopMatchmakingResult
 }
 
 @Generated
-class AmazonGameLiftStopMatchmakingCommand(val ticketId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.StopMatchmakingRequest> {
+class AmazonGameLiftStopMatchmakingCommand(val ticketId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.StopMatchmakingRequest, com.amazonaws.services.gamelift.model.StopMatchmakingResult> {
 
 
 
@@ -1827,8 +2043,12 @@ class AmazonGameLiftStopMatchmakingCommand(val ticketId: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.stopMatchmaking(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.StopMatchmakingResult {
+	  return com.amazonaws.services.gamelift.model.StopMatchmakingResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.StopMatchmakingResult {
+		return environment.gamelift.stopMatchmaking(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1839,12 +2059,12 @@ class AmazonGameLiftStopMatchmakingCommand(val ticketId: String) : AmazonWebServ
 }
 
 
-fun AmazonGameLiftFunctions.updateAlias(aliasId: String, init: AmazonGameLiftUpdateAliasCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftUpdateAliasCommand(aliasId).apply(init))
+fun AmazonGameLiftFunctions.updateAlias(aliasId: String, init: AmazonGameLiftUpdateAliasCommand.() -> Unit): com.amazonaws.services.gamelift.model.UpdateAliasResult {
+	return this.block.declare(AmazonGameLiftUpdateAliasCommand(aliasId).apply(init)) as com.amazonaws.services.gamelift.model.UpdateAliasResult
 }
 
 @Generated
-class AmazonGameLiftUpdateAliasCommand(val aliasId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.UpdateAliasRequest> {
+class AmazonGameLiftUpdateAliasCommand(val aliasId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.UpdateAliasRequest, com.amazonaws.services.gamelift.model.UpdateAliasResult> {
 
 	var name: String? = null
 	var description: String? = null
@@ -1859,8 +2079,12 @@ class AmazonGameLiftUpdateAliasCommand(val aliasId: String) : AmazonWebServiceCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.updateAlias(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.UpdateAliasResult {
+	  return com.amazonaws.services.gamelift.model.UpdateAliasResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.UpdateAliasResult {
+		return environment.gamelift.updateAlias(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1874,12 +2098,12 @@ class AmazonGameLiftUpdateAliasCommand(val aliasId: String) : AmazonWebServiceCo
 }
 
 
-fun AmazonGameLiftFunctions.updateBuild(buildId: String, init: AmazonGameLiftUpdateBuildCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftUpdateBuildCommand(buildId).apply(init))
+fun AmazonGameLiftFunctions.updateBuild(buildId: String, init: AmazonGameLiftUpdateBuildCommand.() -> Unit): com.amazonaws.services.gamelift.model.UpdateBuildResult {
+	return this.block.declare(AmazonGameLiftUpdateBuildCommand(buildId).apply(init)) as com.amazonaws.services.gamelift.model.UpdateBuildResult
 }
 
 @Generated
-class AmazonGameLiftUpdateBuildCommand(val buildId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.UpdateBuildRequest> {
+class AmazonGameLiftUpdateBuildCommand(val buildId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.UpdateBuildRequest, com.amazonaws.services.gamelift.model.UpdateBuildResult> {
 
 	var name: String? = null
 	var version: String? = null
@@ -1892,8 +2116,12 @@ class AmazonGameLiftUpdateBuildCommand(val buildId: String) : AmazonWebServiceCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.updateBuild(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.UpdateBuildResult {
+	  return com.amazonaws.services.gamelift.model.UpdateBuildResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.UpdateBuildResult {
+		return environment.gamelift.updateBuild(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1906,12 +2134,12 @@ class AmazonGameLiftUpdateBuildCommand(val buildId: String) : AmazonWebServiceCo
 }
 
 
-fun AmazonGameLiftFunctions.updateFleetAttributes(fleetId: String, init: AmazonGameLiftUpdateFleetAttributesCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftUpdateFleetAttributesCommand(fleetId).apply(init))
+fun AmazonGameLiftFunctions.updateFleetAttributes(fleetId: String, init: AmazonGameLiftUpdateFleetAttributesCommand.() -> Unit): com.amazonaws.services.gamelift.model.UpdateFleetAttributesResult {
+	return this.block.declare(AmazonGameLiftUpdateFleetAttributesCommand(fleetId).apply(init)) as com.amazonaws.services.gamelift.model.UpdateFleetAttributesResult
 }
 
 @Generated
-class AmazonGameLiftUpdateFleetAttributesCommand(val fleetId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.UpdateFleetAttributesRequest> {
+class AmazonGameLiftUpdateFleetAttributesCommand(val fleetId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.UpdateFleetAttributesRequest, com.amazonaws.services.gamelift.model.UpdateFleetAttributesResult> {
 
 	var name: String? = null
 	var description: String? = null
@@ -1930,8 +2158,12 @@ class AmazonGameLiftUpdateFleetAttributesCommand(val fleetId: String) : AmazonWe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.updateFleetAttributes(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.UpdateFleetAttributesResult {
+	  return com.amazonaws.services.gamelift.model.UpdateFleetAttributesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.UpdateFleetAttributesResult {
+		return environment.gamelift.updateFleetAttributes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1947,12 +2179,12 @@ class AmazonGameLiftUpdateFleetAttributesCommand(val fleetId: String) : AmazonWe
 }
 
 
-fun AmazonGameLiftFunctions.updateFleetCapacity(fleetId: String, init: AmazonGameLiftUpdateFleetCapacityCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftUpdateFleetCapacityCommand(fleetId).apply(init))
+fun AmazonGameLiftFunctions.updateFleetCapacity(fleetId: String, init: AmazonGameLiftUpdateFleetCapacityCommand.() -> Unit): com.amazonaws.services.gamelift.model.UpdateFleetCapacityResult {
+	return this.block.declare(AmazonGameLiftUpdateFleetCapacityCommand(fleetId).apply(init)) as com.amazonaws.services.gamelift.model.UpdateFleetCapacityResult
 }
 
 @Generated
-class AmazonGameLiftUpdateFleetCapacityCommand(val fleetId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.UpdateFleetCapacityRequest> {
+class AmazonGameLiftUpdateFleetCapacityCommand(val fleetId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.UpdateFleetCapacityRequest, com.amazonaws.services.gamelift.model.UpdateFleetCapacityResult> {
 
 	var desiredInstances: Int? = 0
 	var minSize: Int? = 0
@@ -1967,8 +2199,12 @@ class AmazonGameLiftUpdateFleetCapacityCommand(val fleetId: String) : AmazonWebS
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.updateFleetCapacity(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.UpdateFleetCapacityResult {
+	  return com.amazonaws.services.gamelift.model.UpdateFleetCapacityResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.UpdateFleetCapacityResult {
+		return environment.gamelift.updateFleetCapacity(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1982,12 +2218,12 @@ class AmazonGameLiftUpdateFleetCapacityCommand(val fleetId: String) : AmazonWebS
 }
 
 
-fun AmazonGameLiftFunctions.updateFleetPortSettings(fleetId: String, init: AmazonGameLiftUpdateFleetPortSettingsCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftUpdateFleetPortSettingsCommand(fleetId).apply(init))
+fun AmazonGameLiftFunctions.updateFleetPortSettings(fleetId: String, init: AmazonGameLiftUpdateFleetPortSettingsCommand.() -> Unit): com.amazonaws.services.gamelift.model.UpdateFleetPortSettingsResult {
+	return this.block.declare(AmazonGameLiftUpdateFleetPortSettingsCommand(fleetId).apply(init)) as com.amazonaws.services.gamelift.model.UpdateFleetPortSettingsResult
 }
 
 @Generated
-class AmazonGameLiftUpdateFleetPortSettingsCommand(val fleetId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.UpdateFleetPortSettingsRequest> {
+class AmazonGameLiftUpdateFleetPortSettingsCommand(val fleetId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.UpdateFleetPortSettingsRequest, com.amazonaws.services.gamelift.model.UpdateFleetPortSettingsResult> {
 
 	var inboundPermissionAuthorizations: List<com.amazonaws.services.gamelift.model.IpPermission>? = null
 	var inboundPermissionRevocations: List<com.amazonaws.services.gamelift.model.IpPermission>? = null
@@ -2000,8 +2236,12 @@ class AmazonGameLiftUpdateFleetPortSettingsCommand(val fleetId: String) : Amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.updateFleetPortSettings(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.UpdateFleetPortSettingsResult {
+	  return com.amazonaws.services.gamelift.model.UpdateFleetPortSettingsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.UpdateFleetPortSettingsResult {
+		return environment.gamelift.updateFleetPortSettings(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2014,12 +2254,12 @@ class AmazonGameLiftUpdateFleetPortSettingsCommand(val fleetId: String) : Amazon
 }
 
 
-fun AmazonGameLiftFunctions.updateGameSession(gameSessionId: String, init: AmazonGameLiftUpdateGameSessionCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftUpdateGameSessionCommand(gameSessionId).apply(init))
+fun AmazonGameLiftFunctions.updateGameSession(gameSessionId: String, init: AmazonGameLiftUpdateGameSessionCommand.() -> Unit): com.amazonaws.services.gamelift.model.UpdateGameSessionResult {
+	return this.block.declare(AmazonGameLiftUpdateGameSessionCommand(gameSessionId).apply(init)) as com.amazonaws.services.gamelift.model.UpdateGameSessionResult
 }
 
 @Generated
-class AmazonGameLiftUpdateGameSessionCommand(val gameSessionId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.UpdateGameSessionRequest> {
+class AmazonGameLiftUpdateGameSessionCommand(val gameSessionId: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.UpdateGameSessionRequest, com.amazonaws.services.gamelift.model.UpdateGameSessionResult> {
 
 	var maximumPlayerSessionCount: Int? = 0
 	var name: String? = null
@@ -2036,8 +2276,12 @@ class AmazonGameLiftUpdateGameSessionCommand(val gameSessionId: String) : Amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.updateGameSession(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.UpdateGameSessionResult {
+	  return com.amazonaws.services.gamelift.model.UpdateGameSessionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.UpdateGameSessionResult {
+		return environment.gamelift.updateGameSession(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2052,12 +2296,12 @@ class AmazonGameLiftUpdateGameSessionCommand(val gameSessionId: String) : Amazon
 }
 
 
-fun AmazonGameLiftFunctions.updateGameSessionQueue(name: String, init: AmazonGameLiftUpdateGameSessionQueueCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftUpdateGameSessionQueueCommand(name).apply(init))
+fun AmazonGameLiftFunctions.updateGameSessionQueue(name: String, init: AmazonGameLiftUpdateGameSessionQueueCommand.() -> Unit): com.amazonaws.services.gamelift.model.UpdateGameSessionQueueResult {
+	return this.block.declare(AmazonGameLiftUpdateGameSessionQueueCommand(name).apply(init)) as com.amazonaws.services.gamelift.model.UpdateGameSessionQueueResult
 }
 
 @Generated
-class AmazonGameLiftUpdateGameSessionQueueCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.UpdateGameSessionQueueRequest> {
+class AmazonGameLiftUpdateGameSessionQueueCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.UpdateGameSessionQueueRequest, com.amazonaws.services.gamelift.model.UpdateGameSessionQueueResult> {
 
 	var timeoutInSeconds: Int? = 0
 	var playerLatencyPolicies: List<com.amazonaws.services.gamelift.model.PlayerLatencyPolicy>? = null
@@ -2072,8 +2316,12 @@ class AmazonGameLiftUpdateGameSessionQueueCommand(val name: String) : AmazonWebS
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.updateGameSessionQueue(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.UpdateGameSessionQueueResult {
+	  return com.amazonaws.services.gamelift.model.UpdateGameSessionQueueResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.UpdateGameSessionQueueResult {
+		return environment.gamelift.updateGameSessionQueue(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2087,12 +2335,12 @@ class AmazonGameLiftUpdateGameSessionQueueCommand(val name: String) : AmazonWebS
 }
 
 
-fun AmazonGameLiftFunctions.updateMatchmakingConfiguration(name: String, init: AmazonGameLiftUpdateMatchmakingConfigurationCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftUpdateMatchmakingConfigurationCommand(name).apply(init))
+fun AmazonGameLiftFunctions.updateMatchmakingConfiguration(name: String, init: AmazonGameLiftUpdateMatchmakingConfigurationCommand.() -> Unit): com.amazonaws.services.gamelift.model.UpdateMatchmakingConfigurationResult {
+	return this.block.declare(AmazonGameLiftUpdateMatchmakingConfigurationCommand(name).apply(init)) as com.amazonaws.services.gamelift.model.UpdateMatchmakingConfigurationResult
 }
 
 @Generated
-class AmazonGameLiftUpdateMatchmakingConfigurationCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.UpdateMatchmakingConfigurationRequest> {
+class AmazonGameLiftUpdateMatchmakingConfigurationCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.UpdateMatchmakingConfigurationRequest, com.amazonaws.services.gamelift.model.UpdateMatchmakingConfigurationResult> {
 
 	var description: String? = null
 	var gameSessionQueueArns: List<String>? = null
@@ -2123,8 +2371,12 @@ class AmazonGameLiftUpdateMatchmakingConfigurationCommand(val name: String) : Am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.updateMatchmakingConfiguration(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.UpdateMatchmakingConfigurationResult {
+	  return com.amazonaws.services.gamelift.model.UpdateMatchmakingConfigurationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.UpdateMatchmakingConfigurationResult {
+		return environment.gamelift.updateMatchmakingConfiguration(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2146,12 +2398,12 @@ class AmazonGameLiftUpdateMatchmakingConfigurationCommand(val name: String) : Am
 }
 
 
-fun AmazonGameLiftFunctions.updateRuntimeConfiguration(fleetId: String, runtimeConfiguration: com.amazonaws.services.gamelift.model.RuntimeConfiguration, init: AmazonGameLiftUpdateRuntimeConfigurationCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftUpdateRuntimeConfigurationCommand(fleetId, runtimeConfiguration).apply(init))
+fun AmazonGameLiftFunctions.updateRuntimeConfiguration(fleetId: String, runtimeConfiguration: com.amazonaws.services.gamelift.model.RuntimeConfiguration, init: AmazonGameLiftUpdateRuntimeConfigurationCommand.() -> Unit): com.amazonaws.services.gamelift.model.UpdateRuntimeConfigurationResult {
+	return this.block.declare(AmazonGameLiftUpdateRuntimeConfigurationCommand(fleetId, runtimeConfiguration).apply(init)) as com.amazonaws.services.gamelift.model.UpdateRuntimeConfigurationResult
 }
 
 @Generated
-class AmazonGameLiftUpdateRuntimeConfigurationCommand(val fleetId: String, val runtimeConfiguration: com.amazonaws.services.gamelift.model.RuntimeConfiguration) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.UpdateRuntimeConfigurationRequest> {
+class AmazonGameLiftUpdateRuntimeConfigurationCommand(val fleetId: String, val runtimeConfiguration: com.amazonaws.services.gamelift.model.RuntimeConfiguration) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.UpdateRuntimeConfigurationRequest, com.amazonaws.services.gamelift.model.UpdateRuntimeConfigurationResult> {
 
 
 
@@ -2162,8 +2414,12 @@ class AmazonGameLiftUpdateRuntimeConfigurationCommand(val fleetId: String, val r
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.updateRuntimeConfiguration(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.UpdateRuntimeConfigurationResult {
+	  return com.amazonaws.services.gamelift.model.UpdateRuntimeConfigurationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.UpdateRuntimeConfigurationResult {
+		return environment.gamelift.updateRuntimeConfiguration(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2175,12 +2431,12 @@ class AmazonGameLiftUpdateRuntimeConfigurationCommand(val fleetId: String, val r
 }
 
 
-fun AmazonGameLiftFunctions.validateMatchmakingRuleSet(ruleSetBody: String, init: AmazonGameLiftValidateMatchmakingRuleSetCommand.() -> Unit) {
-	this.block.declare(AmazonGameLiftValidateMatchmakingRuleSetCommand(ruleSetBody).apply(init))
+fun AmazonGameLiftFunctions.validateMatchmakingRuleSet(ruleSetBody: String, init: AmazonGameLiftValidateMatchmakingRuleSetCommand.() -> Unit): com.amazonaws.services.gamelift.model.ValidateMatchmakingRuleSetResult {
+	return this.block.declare(AmazonGameLiftValidateMatchmakingRuleSetCommand(ruleSetBody).apply(init)) as com.amazonaws.services.gamelift.model.ValidateMatchmakingRuleSetResult
 }
 
 @Generated
-class AmazonGameLiftValidateMatchmakingRuleSetCommand(val ruleSetBody: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.ValidateMatchmakingRuleSetRequest> {
+class AmazonGameLiftValidateMatchmakingRuleSetCommand(val ruleSetBody: String) : AmazonWebServiceCommand<com.amazonaws.services.gamelift.model.ValidateMatchmakingRuleSetRequest, com.amazonaws.services.gamelift.model.ValidateMatchmakingRuleSetResult> {
 
 
 
@@ -2190,8 +2446,12 @@ class AmazonGameLiftValidateMatchmakingRuleSetCommand(val ruleSetBody: String) :
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.gamelift.validateMatchmakingRuleSet(build())
+	override fun dryResult(): com.amazonaws.services.gamelift.model.ValidateMatchmakingRuleSetResult {
+	  return com.amazonaws.services.gamelift.model.ValidateMatchmakingRuleSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.gamelift.model.ValidateMatchmakingRuleSetResult {
+		return environment.gamelift.validateMatchmakingRuleSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

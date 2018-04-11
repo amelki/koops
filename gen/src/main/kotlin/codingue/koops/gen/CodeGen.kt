@@ -1,62 +1,17 @@
 package codingue.koops.gen
 
 import codingue.koops.common.forEachEntry
-import codingue.koops.common.listEntries
 import codingue.koops.common.toFile
 import com.amazonaws.codegen.model.intermediate.IntermediateModel
-import com.fasterxml.jackson.core.JsonParser
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import java.io.BufferedInputStream
 import java.io.File
 import java.io.FileInputStream
 import java.io.InputStream
 import java.nio.ByteBuffer
 import java.util.*
-import java.util.stream.Collectors
-import java.util.zip.ZipFile
 import java.util.zip.ZipInputStream
 import kotlin.collections.ArrayList
-
-
-/*
-fun main(args: Array<String>) {
-	val modelMapper = jacksonObjectMapper()
-	val intermediateMapper = jacksonObjectMapper()
-	intermediateMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-	val modelDir = File("src/main/resources/models")
-	val modelFiles = modelDir.listFiles { _, name -> name.toLowerCase().endsWith("model.json") }
-	val targetDir = "../core/src/main/kotlin/codingue/koops/core/aws"
-	modelFiles.forEachIndexed { index, modelSourceFile ->
-		println("Generating code for ${modelSourceFile.path}")
-		val intermediateSourceFile = modelSourceFile.absolutePath.substring(0, modelSourceFile.absolutePath.length - "model.json".length - 1) + "-intermediate.json"
-		val schema = modelMapper.readValue(modelSourceFile, Schema::class.java)
-		val intermediate = intermediateMapper.readValue(File(intermediateSourceFile), IntermediateModel::class.java)
-		generate(schema, intermediate, targetDir)
-	}
-}
-*/
-
-/*
-fun main(args: Array<String>) {
-	val classLoader = Thread.currentThread().contextClassLoader!!
-	val resources = classLoader.getResources("models")
-	val jarModelURL = resources.toList().find { it.toString().startsWith("jar") }
-	val jarFile = File(jarModelURL!!.file.substring("file:".length, jarModelURL.file.lastIndexOf('!')))
-	val stream = ZipInputStream(FileInputStream(jarFile))
-	val entryNames = stream.use {
-		it.listEntries(Regex("^models/.+"))
-	}
-	entryNames.forEach {
-		if (it.endsWith("-model.json")) {
-			val intermediateEntry = it.substringBeforeLast("-model.json") + "-intermediate.json"
-			val model = load(jarFile, it, intermediateEntry)
-			println("Generating code for ${model.name}")
-			generate(model, targetDir)
-		}
-	}
-}
-*/
 
 private const val targetDir = "../core/src/main/kotlin/codingue/koops/core/aws"
 
@@ -110,6 +65,7 @@ fun generate(schema: Schema, intermediate: IntermediateModel, targetDir: String)
 		!(skipClientMethodForOperations != null && skipClientMethodForOperations.contains(it.operationName))
 	}.map {
 		val inputName = it.input?.variableType
+		val outputName = it.syncReturnType
 		val inputFields =
 				if (inputName != null) {
 					val shape = intermediate.shapes[inputName]!!
@@ -127,14 +83,17 @@ fun generate(schema: Schema, intermediate: IntermediateModel, targetDir: String)
 				} else {
 					emptyList()
 				}
-		KOperation(it.operationName, if (inputName == null) null else toKotlin(schema, intermediate, inputName).toKotlinString(), inputFields)
+		KOperation(it.operationName,
+							 if (inputName == null) null else toKotlin(schema, intermediate, inputName).toKotlinString(),
+							 toKotlin(schema, intermediate, outputName).toKotlinString(),
+							 inputFields)
 	}
 	val targetPackageName = "codingue.koops.core"
 	val file = File("$targetDir/$syncInterface.kt")
 	val writer = file.bufferedWriter()
 	writer.use { w ->
 		w.write("""
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package $targetPackageName.aws
 
@@ -155,8 +114,8 @@ var codingue.koops.core.Environment.$serviceName: $syncInterface
 @Generated
 class ${syncInterface}Functions(val block: Block)
 
-infix fun AwsContinuation.$serviceName(init: ${syncInterface}Functions.() -> Unit) {
-	${syncInterface}Functions(shell).apply(init)
+infix fun <T> AwsContinuation.$serviceName(init: ${syncInterface}Functions.() -> T): T {
+	return ${syncInterface}Functions(shell).run(init)
 }
 
 			""")
@@ -196,20 +155,20 @@ fun generate(metadata: KMetadata, op: KOperation): String {
 	val commandName = "${metadata.syncInterface}${op.name}Command"
 	if (op.inputName == null) {
 		return """
-fun ${metadata.syncInterface}Functions.${op.name.decapitalize()}() {
-	this.block.declare($commandName())
+fun ${metadata.syncInterface}Functions.${op.name.decapitalize()}(): ${op.outputName} {
+	return this.block.declare($commandName()) as ${op.outputName}
 }
 """
 	}
 
 	return """
 
-fun ${metadata.syncInterface}Functions.${op.name.decapitalize()}(${declareRequiredParams}init: $commandName.() -> Unit) {
-	this.block.declare($commandName($callRequiredParams).apply(init))
+fun ${metadata.syncInterface}Functions.${op.name.decapitalize()}(${declareRequiredParams}init: $commandName.() -> Unit)${op.returnTypeDecl} {
+	return this.block.declare($commandName($callRequiredParams).apply(init)) as ${op.outputName}
 }
 
 @Generated
-class $commandName($declareRequiredFields) : AmazonWebServiceCommand<${op.inputName}> {
+class $commandName($declareRequiredFields) : AmazonWebServiceCommand<${op.inputName}, ${op.outputName}> {
 
 $declareOtherFields
 
@@ -219,8 +178,12 @@ $setFields
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.${metadata.serviceName}.${op.name.decapitalize()}(build())
+	override fun dryResult()${op.returnTypeDecl} {
+	  ${op.returnNewOutput}
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment)${op.returnTypeDecl} {
+		return environment.${metadata.serviceName}.${op.name.decapitalize()}(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -253,33 +216,21 @@ abstract class KotlinType(protected val name: String,
 			else
 				"argument"
 
-	abstract fun toKotlinString(): String
+	open fun toKotlinString(): String = name
 	open fun convertEnums(): String = ""
 
 }
 
 class PrimitiveKotlinType(name: String, defaultValue: String? = null)
-	: KotlinType(name, true, defaultValue) {
-	override fun toKotlinString(): String {
-		return name
-	}
-}
+	: KotlinType(name, true, defaultValue)
 
 class EnumeratedKotlinType(name: String, defaultValue: Any? = null)
 	: KotlinType(name, true, defaultValue, false, false, true) {
-	override fun toKotlinString(): String {
-		return name
-	}
-
 	override fun convertEnums(): String = ".toString()"
 }
 
 class ObjectKotlinType(name: String, defaultValue: Any? = null)
-	: KotlinType(name, false, defaultValue) {
-	override fun toKotlinString(): String {
-		return name
-	}
-}
+	: KotlinType(name, false, defaultValue)
 
 class ListKotlinType(val member: KotlinType)
 	: KotlinType("List", true, null, true, false) {
@@ -328,6 +279,7 @@ object KotlinTypes {
 	val Blob = ObjectKotlinType(ByteBuffer::class.java.name!!)
 	val BlobStream = ObjectKotlinType(InputStream::class.java.name!!)
 	val Timestamp = ObjectKotlinType(Date::class.java.name!!)
+	val Void = ObjectKotlinType("codingue.koops.core.VoidResult")
 }
 
 fun toKotlin(schema: Schema, intermediate: IntermediateModel, shapeName: String, memberMarshallingTargetClass: String? = null): KotlinType {
@@ -346,6 +298,7 @@ fun toKotlin(schema: Schema, intermediate: IntermediateModel, shapeName: String,
 			shapeName == "Float" -> KotlinTypes.Float
 			shapeName == "Integer" -> KotlinTypes.Integer
 			shapeName == "Long" -> KotlinTypes.Long
+			shapeName == "void" -> KotlinTypes.Void
 			else -> {
 				val schemaShape = schema.shapes[shapeName]
 				if (schemaShape != null) {
@@ -357,6 +310,7 @@ fun toKotlin(schema: Schema, intermediate: IntermediateModel, shapeName: String,
 						Type.integer -> KotlinTypes.Integer
 						Type.long -> KotlinTypes.Long
 						Type.timestamp -> KotlinTypes.Timestamp
+						Type.void -> KotlinTypes.Void
 						Type.blob -> {
 							if (memberMarshallingTargetClass != null)
 								ObjectKotlinType(memberMarshallingTargetClass)
@@ -388,7 +342,13 @@ private fun toCliName(camelCaseName: String): String {
 	return camelCaseName.replace(Regex("([^_A-Z])([A-Z])"), "$1-$2").toLowerCase()
 }
 
-data class KOperation(val name: String, val inputName: String?, val fields: List<KField>)
+data class KOperation(val name: String,
+											val inputName: String?,
+											val outputName: String,
+											val fields: List<KField>) {
+	val returnTypeDecl: String = ": $outputName"
+	val returnNewOutput: String = "return $outputName()"
+}
 
 data class KField(val name: String,
 									val type: KotlinType,

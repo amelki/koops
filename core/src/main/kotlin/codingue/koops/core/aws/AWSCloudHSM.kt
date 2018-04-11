@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.cloudhsm: AWSCloudHSM
 @Generated
 class AWSCloudHSMFunctions(val block: Block)
 
-infix fun AwsContinuation.cloudhsm(init: AWSCloudHSMFunctions.() -> Unit) {
-	AWSCloudHSMFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.cloudhsm(init: AWSCloudHSMFunctions.() -> T): T {
+	return AWSCloudHSMFunctions(shell).run(init)
 }
 
 			
 
-fun AWSCloudHSMFunctions.addTagsToResource(resourceArn: String, tagList: List<com.amazonaws.services.cloudhsm.model.Tag>, init: AWSCloudHSMAddTagsToResourceCommand.() -> Unit) {
-	this.block.declare(AWSCloudHSMAddTagsToResourceCommand(resourceArn, tagList).apply(init))
+fun AWSCloudHSMFunctions.addTagsToResource(resourceArn: String, tagList: List<com.amazonaws.services.cloudhsm.model.Tag>, init: AWSCloudHSMAddTagsToResourceCommand.() -> Unit): com.amazonaws.services.cloudhsm.model.AddTagsToResourceResult {
+	return this.block.declare(AWSCloudHSMAddTagsToResourceCommand(resourceArn, tagList).apply(init)) as com.amazonaws.services.cloudhsm.model.AddTagsToResourceResult
 }
 
 @Generated
-class AWSCloudHSMAddTagsToResourceCommand(val resourceArn: String, val tagList: List<com.amazonaws.services.cloudhsm.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.AddTagsToResourceRequest> {
+class AWSCloudHSMAddTagsToResourceCommand(val resourceArn: String, val tagList: List<com.amazonaws.services.cloudhsm.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.AddTagsToResourceRequest, com.amazonaws.services.cloudhsm.model.AddTagsToResourceResult> {
 
 
 
@@ -42,8 +42,12 @@ class AWSCloudHSMAddTagsToResourceCommand(val resourceArn: String, val tagList: 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudhsm.addTagsToResource(build())
+	override fun dryResult(): com.amazonaws.services.cloudhsm.model.AddTagsToResourceResult {
+	  return com.amazonaws.services.cloudhsm.model.AddTagsToResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsm.model.AddTagsToResourceResult {
+		return environment.cloudhsm.addTagsToResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -55,12 +59,12 @@ class AWSCloudHSMAddTagsToResourceCommand(val resourceArn: String, val tagList: 
 }
 
 
-fun AWSCloudHSMFunctions.createHapg(label: String, init: AWSCloudHSMCreateHapgCommand.() -> Unit) {
-	this.block.declare(AWSCloudHSMCreateHapgCommand(label).apply(init))
+fun AWSCloudHSMFunctions.createHapg(label: String, init: AWSCloudHSMCreateHapgCommand.() -> Unit): com.amazonaws.services.cloudhsm.model.CreateHapgResult {
+	return this.block.declare(AWSCloudHSMCreateHapgCommand(label).apply(init)) as com.amazonaws.services.cloudhsm.model.CreateHapgResult
 }
 
 @Generated
-class AWSCloudHSMCreateHapgCommand(val label: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.CreateHapgRequest> {
+class AWSCloudHSMCreateHapgCommand(val label: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.CreateHapgRequest, com.amazonaws.services.cloudhsm.model.CreateHapgResult> {
 
 
 
@@ -70,8 +74,12 @@ class AWSCloudHSMCreateHapgCommand(val label: String) : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudhsm.createHapg(build())
+	override fun dryResult(): com.amazonaws.services.cloudhsm.model.CreateHapgResult {
+	  return com.amazonaws.services.cloudhsm.model.CreateHapgResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsm.model.CreateHapgResult {
+		return environment.cloudhsm.createHapg(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -82,12 +90,12 @@ class AWSCloudHSMCreateHapgCommand(val label: String) : AmazonWebServiceCommand<
 }
 
 
-fun AWSCloudHSMFunctions.createHsm(subnetId: String, sshKey: String, iamRoleArn: String, subscriptionType: SubscriptionType, init: AWSCloudHSMCreateHsmCommand.() -> Unit) {
-	this.block.declare(AWSCloudHSMCreateHsmCommand(subnetId, sshKey, iamRoleArn, subscriptionType).apply(init))
+fun AWSCloudHSMFunctions.createHsm(subnetId: String, sshKey: String, iamRoleArn: String, subscriptionType: SubscriptionType, init: AWSCloudHSMCreateHsmCommand.() -> Unit): com.amazonaws.services.cloudhsm.model.CreateHsmResult {
+	return this.block.declare(AWSCloudHSMCreateHsmCommand(subnetId, sshKey, iamRoleArn, subscriptionType).apply(init)) as com.amazonaws.services.cloudhsm.model.CreateHsmResult
 }
 
 @Generated
-class AWSCloudHSMCreateHsmCommand(val subnetId: String, val sshKey: String, val iamRoleArn: String, val subscriptionType: SubscriptionType) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.CreateHsmRequest> {
+class AWSCloudHSMCreateHsmCommand(val subnetId: String, val sshKey: String, val iamRoleArn: String, val subscriptionType: SubscriptionType) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.CreateHsmRequest, com.amazonaws.services.cloudhsm.model.CreateHsmResult> {
 
 	var eniIp: String? = null
 	var externalId: String? = null
@@ -107,8 +115,12 @@ class AWSCloudHSMCreateHsmCommand(val subnetId: String, val sshKey: String, val 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudhsm.createHsm(build())
+	override fun dryResult(): com.amazonaws.services.cloudhsm.model.CreateHsmResult {
+	  return com.amazonaws.services.cloudhsm.model.CreateHsmResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsm.model.CreateHsmResult {
+		return environment.cloudhsm.createHsm(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -126,12 +138,12 @@ class AWSCloudHSMCreateHsmCommand(val subnetId: String, val sshKey: String, val 
 }
 
 
-fun AWSCloudHSMFunctions.createLunaClient(certificate: String, init: AWSCloudHSMCreateLunaClientCommand.() -> Unit) {
-	this.block.declare(AWSCloudHSMCreateLunaClientCommand(certificate).apply(init))
+fun AWSCloudHSMFunctions.createLunaClient(certificate: String, init: AWSCloudHSMCreateLunaClientCommand.() -> Unit): com.amazonaws.services.cloudhsm.model.CreateLunaClientResult {
+	return this.block.declare(AWSCloudHSMCreateLunaClientCommand(certificate).apply(init)) as com.amazonaws.services.cloudhsm.model.CreateLunaClientResult
 }
 
 @Generated
-class AWSCloudHSMCreateLunaClientCommand(val certificate: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.CreateLunaClientRequest> {
+class AWSCloudHSMCreateLunaClientCommand(val certificate: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.CreateLunaClientRequest, com.amazonaws.services.cloudhsm.model.CreateLunaClientResult> {
 
 	var label: String? = null
 
@@ -142,8 +154,12 @@ class AWSCloudHSMCreateLunaClientCommand(val certificate: String) : AmazonWebSer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudhsm.createLunaClient(build())
+	override fun dryResult(): com.amazonaws.services.cloudhsm.model.CreateLunaClientResult {
+	  return com.amazonaws.services.cloudhsm.model.CreateLunaClientResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsm.model.CreateLunaClientResult {
+		return environment.cloudhsm.createLunaClient(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -155,12 +171,12 @@ class AWSCloudHSMCreateLunaClientCommand(val certificate: String) : AmazonWebSer
 }
 
 
-fun AWSCloudHSMFunctions.deleteHapg(hapgArn: String, init: AWSCloudHSMDeleteHapgCommand.() -> Unit) {
-	this.block.declare(AWSCloudHSMDeleteHapgCommand(hapgArn).apply(init))
+fun AWSCloudHSMFunctions.deleteHapg(hapgArn: String, init: AWSCloudHSMDeleteHapgCommand.() -> Unit): com.amazonaws.services.cloudhsm.model.DeleteHapgResult {
+	return this.block.declare(AWSCloudHSMDeleteHapgCommand(hapgArn).apply(init)) as com.amazonaws.services.cloudhsm.model.DeleteHapgResult
 }
 
 @Generated
-class AWSCloudHSMDeleteHapgCommand(val hapgArn: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.DeleteHapgRequest> {
+class AWSCloudHSMDeleteHapgCommand(val hapgArn: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.DeleteHapgRequest, com.amazonaws.services.cloudhsm.model.DeleteHapgResult> {
 
 
 
@@ -170,8 +186,12 @@ class AWSCloudHSMDeleteHapgCommand(val hapgArn: String) : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudhsm.deleteHapg(build())
+	override fun dryResult(): com.amazonaws.services.cloudhsm.model.DeleteHapgResult {
+	  return com.amazonaws.services.cloudhsm.model.DeleteHapgResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsm.model.DeleteHapgResult {
+		return environment.cloudhsm.deleteHapg(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -182,12 +202,12 @@ class AWSCloudHSMDeleteHapgCommand(val hapgArn: String) : AmazonWebServiceComman
 }
 
 
-fun AWSCloudHSMFunctions.deleteHsm(hsmArn: String, init: AWSCloudHSMDeleteHsmCommand.() -> Unit) {
-	this.block.declare(AWSCloudHSMDeleteHsmCommand(hsmArn).apply(init))
+fun AWSCloudHSMFunctions.deleteHsm(hsmArn: String, init: AWSCloudHSMDeleteHsmCommand.() -> Unit): com.amazonaws.services.cloudhsm.model.DeleteHsmResult {
+	return this.block.declare(AWSCloudHSMDeleteHsmCommand(hsmArn).apply(init)) as com.amazonaws.services.cloudhsm.model.DeleteHsmResult
 }
 
 @Generated
-class AWSCloudHSMDeleteHsmCommand(val hsmArn: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.DeleteHsmRequest> {
+class AWSCloudHSMDeleteHsmCommand(val hsmArn: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.DeleteHsmRequest, com.amazonaws.services.cloudhsm.model.DeleteHsmResult> {
 
 
 
@@ -197,8 +217,12 @@ class AWSCloudHSMDeleteHsmCommand(val hsmArn: String) : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudhsm.deleteHsm(build())
+	override fun dryResult(): com.amazonaws.services.cloudhsm.model.DeleteHsmResult {
+	  return com.amazonaws.services.cloudhsm.model.DeleteHsmResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsm.model.DeleteHsmResult {
+		return environment.cloudhsm.deleteHsm(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -209,12 +233,12 @@ class AWSCloudHSMDeleteHsmCommand(val hsmArn: String) : AmazonWebServiceCommand<
 }
 
 
-fun AWSCloudHSMFunctions.deleteLunaClient(clientArn: String, init: AWSCloudHSMDeleteLunaClientCommand.() -> Unit) {
-	this.block.declare(AWSCloudHSMDeleteLunaClientCommand(clientArn).apply(init))
+fun AWSCloudHSMFunctions.deleteLunaClient(clientArn: String, init: AWSCloudHSMDeleteLunaClientCommand.() -> Unit): com.amazonaws.services.cloudhsm.model.DeleteLunaClientResult {
+	return this.block.declare(AWSCloudHSMDeleteLunaClientCommand(clientArn).apply(init)) as com.amazonaws.services.cloudhsm.model.DeleteLunaClientResult
 }
 
 @Generated
-class AWSCloudHSMDeleteLunaClientCommand(val clientArn: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.DeleteLunaClientRequest> {
+class AWSCloudHSMDeleteLunaClientCommand(val clientArn: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.DeleteLunaClientRequest, com.amazonaws.services.cloudhsm.model.DeleteLunaClientResult> {
 
 
 
@@ -224,8 +248,12 @@ class AWSCloudHSMDeleteLunaClientCommand(val clientArn: String) : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudhsm.deleteLunaClient(build())
+	override fun dryResult(): com.amazonaws.services.cloudhsm.model.DeleteLunaClientResult {
+	  return com.amazonaws.services.cloudhsm.model.DeleteLunaClientResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsm.model.DeleteLunaClientResult {
+		return environment.cloudhsm.deleteLunaClient(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -236,12 +264,12 @@ class AWSCloudHSMDeleteLunaClientCommand(val clientArn: String) : AmazonWebServi
 }
 
 
-fun AWSCloudHSMFunctions.describeHapg(hapgArn: String, init: AWSCloudHSMDescribeHapgCommand.() -> Unit) {
-	this.block.declare(AWSCloudHSMDescribeHapgCommand(hapgArn).apply(init))
+fun AWSCloudHSMFunctions.describeHapg(hapgArn: String, init: AWSCloudHSMDescribeHapgCommand.() -> Unit): com.amazonaws.services.cloudhsm.model.DescribeHapgResult {
+	return this.block.declare(AWSCloudHSMDescribeHapgCommand(hapgArn).apply(init)) as com.amazonaws.services.cloudhsm.model.DescribeHapgResult
 }
 
 @Generated
-class AWSCloudHSMDescribeHapgCommand(val hapgArn: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.DescribeHapgRequest> {
+class AWSCloudHSMDescribeHapgCommand(val hapgArn: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.DescribeHapgRequest, com.amazonaws.services.cloudhsm.model.DescribeHapgResult> {
 
 
 
@@ -251,8 +279,12 @@ class AWSCloudHSMDescribeHapgCommand(val hapgArn: String) : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudhsm.describeHapg(build())
+	override fun dryResult(): com.amazonaws.services.cloudhsm.model.DescribeHapgResult {
+	  return com.amazonaws.services.cloudhsm.model.DescribeHapgResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsm.model.DescribeHapgResult {
+		return environment.cloudhsm.describeHapg(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -263,12 +295,12 @@ class AWSCloudHSMDescribeHapgCommand(val hapgArn: String) : AmazonWebServiceComm
 }
 
 
-fun AWSCloudHSMFunctions.describeHsm(init: AWSCloudHSMDescribeHsmCommand.() -> Unit) {
-	this.block.declare(AWSCloudHSMDescribeHsmCommand().apply(init))
+fun AWSCloudHSMFunctions.describeHsm(init: AWSCloudHSMDescribeHsmCommand.() -> Unit): com.amazonaws.services.cloudhsm.model.DescribeHsmResult {
+	return this.block.declare(AWSCloudHSMDescribeHsmCommand().apply(init)) as com.amazonaws.services.cloudhsm.model.DescribeHsmResult
 }
 
 @Generated
-class AWSCloudHSMDescribeHsmCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.DescribeHsmRequest> {
+class AWSCloudHSMDescribeHsmCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.DescribeHsmRequest, com.amazonaws.services.cloudhsm.model.DescribeHsmResult> {
 
 	var hsmArn: String? = null
 	var hsmSerialNumber: String? = null
@@ -280,8 +312,12 @@ class AWSCloudHSMDescribeHsmCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudhsm.describeHsm(build())
+	override fun dryResult(): com.amazonaws.services.cloudhsm.model.DescribeHsmResult {
+	  return com.amazonaws.services.cloudhsm.model.DescribeHsmResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsm.model.DescribeHsmResult {
+		return environment.cloudhsm.describeHsm(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -293,12 +329,12 @@ class AWSCloudHSMDescribeHsmCommand() : AmazonWebServiceCommand<com.amazonaws.se
 }
 
 
-fun AWSCloudHSMFunctions.describeLunaClient(init: AWSCloudHSMDescribeLunaClientCommand.() -> Unit) {
-	this.block.declare(AWSCloudHSMDescribeLunaClientCommand().apply(init))
+fun AWSCloudHSMFunctions.describeLunaClient(init: AWSCloudHSMDescribeLunaClientCommand.() -> Unit): com.amazonaws.services.cloudhsm.model.DescribeLunaClientResult {
+	return this.block.declare(AWSCloudHSMDescribeLunaClientCommand().apply(init)) as com.amazonaws.services.cloudhsm.model.DescribeLunaClientResult
 }
 
 @Generated
-class AWSCloudHSMDescribeLunaClientCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.DescribeLunaClientRequest> {
+class AWSCloudHSMDescribeLunaClientCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.DescribeLunaClientRequest, com.amazonaws.services.cloudhsm.model.DescribeLunaClientResult> {
 
 	var clientArn: String? = null
 	var certificateFingerprint: String? = null
@@ -310,8 +346,12 @@ class AWSCloudHSMDescribeLunaClientCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudhsm.describeLunaClient(build())
+	override fun dryResult(): com.amazonaws.services.cloudhsm.model.DescribeLunaClientResult {
+	  return com.amazonaws.services.cloudhsm.model.DescribeLunaClientResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsm.model.DescribeLunaClientResult {
+		return environment.cloudhsm.describeLunaClient(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -323,12 +363,12 @@ class AWSCloudHSMDescribeLunaClientCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AWSCloudHSMFunctions.getConfig(clientArn: String, clientVersion: ClientVersion, hapgList: List<String>, init: AWSCloudHSMGetConfigCommand.() -> Unit) {
-	this.block.declare(AWSCloudHSMGetConfigCommand(clientArn, clientVersion, hapgList).apply(init))
+fun AWSCloudHSMFunctions.getConfig(clientArn: String, clientVersion: ClientVersion, hapgList: List<String>, init: AWSCloudHSMGetConfigCommand.() -> Unit): com.amazonaws.services.cloudhsm.model.GetConfigResult {
+	return this.block.declare(AWSCloudHSMGetConfigCommand(clientArn, clientVersion, hapgList).apply(init)) as com.amazonaws.services.cloudhsm.model.GetConfigResult
 }
 
 @Generated
-class AWSCloudHSMGetConfigCommand(val clientArn: String, val clientVersion: ClientVersion, val hapgList: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.GetConfigRequest> {
+class AWSCloudHSMGetConfigCommand(val clientArn: String, val clientVersion: ClientVersion, val hapgList: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.GetConfigRequest, com.amazonaws.services.cloudhsm.model.GetConfigResult> {
 
 
 
@@ -340,8 +380,12 @@ class AWSCloudHSMGetConfigCommand(val clientArn: String, val clientVersion: Clie
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudhsm.getConfig(build())
+	override fun dryResult(): com.amazonaws.services.cloudhsm.model.GetConfigResult {
+	  return com.amazonaws.services.cloudhsm.model.GetConfigResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsm.model.GetConfigResult {
+		return environment.cloudhsm.getConfig(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -354,12 +398,12 @@ class AWSCloudHSMGetConfigCommand(val clientArn: String, val clientVersion: Clie
 }
 
 
-fun AWSCloudHSMFunctions.listAvailableZones(init: AWSCloudHSMListAvailableZonesCommand.() -> Unit) {
-	this.block.declare(AWSCloudHSMListAvailableZonesCommand().apply(init))
+fun AWSCloudHSMFunctions.listAvailableZones(init: AWSCloudHSMListAvailableZonesCommand.() -> Unit): com.amazonaws.services.cloudhsm.model.ListAvailableZonesResult {
+	return this.block.declare(AWSCloudHSMListAvailableZonesCommand().apply(init)) as com.amazonaws.services.cloudhsm.model.ListAvailableZonesResult
 }
 
 @Generated
-class AWSCloudHSMListAvailableZonesCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.ListAvailableZonesRequest> {
+class AWSCloudHSMListAvailableZonesCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.ListAvailableZonesRequest, com.amazonaws.services.cloudhsm.model.ListAvailableZonesResult> {
 
 
 
@@ -369,8 +413,12 @@ class AWSCloudHSMListAvailableZonesCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudhsm.listAvailableZones(build())
+	override fun dryResult(): com.amazonaws.services.cloudhsm.model.ListAvailableZonesResult {
+	  return com.amazonaws.services.cloudhsm.model.ListAvailableZonesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsm.model.ListAvailableZonesResult {
+		return environment.cloudhsm.listAvailableZones(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -381,12 +429,12 @@ class AWSCloudHSMListAvailableZonesCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AWSCloudHSMFunctions.listHapgs(init: AWSCloudHSMListHapgsCommand.() -> Unit) {
-	this.block.declare(AWSCloudHSMListHapgsCommand().apply(init))
+fun AWSCloudHSMFunctions.listHapgs(init: AWSCloudHSMListHapgsCommand.() -> Unit): com.amazonaws.services.cloudhsm.model.ListHapgsResult {
+	return this.block.declare(AWSCloudHSMListHapgsCommand().apply(init)) as com.amazonaws.services.cloudhsm.model.ListHapgsResult
 }
 
 @Generated
-class AWSCloudHSMListHapgsCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.ListHapgsRequest> {
+class AWSCloudHSMListHapgsCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.ListHapgsRequest, com.amazonaws.services.cloudhsm.model.ListHapgsResult> {
 
 	var nextToken: String? = null
 
@@ -396,8 +444,12 @@ class AWSCloudHSMListHapgsCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudhsm.listHapgs(build())
+	override fun dryResult(): com.amazonaws.services.cloudhsm.model.ListHapgsResult {
+	  return com.amazonaws.services.cloudhsm.model.ListHapgsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsm.model.ListHapgsResult {
+		return environment.cloudhsm.listHapgs(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -408,12 +460,12 @@ class AWSCloudHSMListHapgsCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 }
 
 
-fun AWSCloudHSMFunctions.listHsms(init: AWSCloudHSMListHsmsCommand.() -> Unit) {
-	this.block.declare(AWSCloudHSMListHsmsCommand().apply(init))
+fun AWSCloudHSMFunctions.listHsms(init: AWSCloudHSMListHsmsCommand.() -> Unit): com.amazonaws.services.cloudhsm.model.ListHsmsResult {
+	return this.block.declare(AWSCloudHSMListHsmsCommand().apply(init)) as com.amazonaws.services.cloudhsm.model.ListHsmsResult
 }
 
 @Generated
-class AWSCloudHSMListHsmsCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.ListHsmsRequest> {
+class AWSCloudHSMListHsmsCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.ListHsmsRequest, com.amazonaws.services.cloudhsm.model.ListHsmsResult> {
 
 	var nextToken: String? = null
 
@@ -423,8 +475,12 @@ class AWSCloudHSMListHsmsCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudhsm.listHsms(build())
+	override fun dryResult(): com.amazonaws.services.cloudhsm.model.ListHsmsResult {
+	  return com.amazonaws.services.cloudhsm.model.ListHsmsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsm.model.ListHsmsResult {
+		return environment.cloudhsm.listHsms(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -435,12 +491,12 @@ class AWSCloudHSMListHsmsCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 }
 
 
-fun AWSCloudHSMFunctions.listLunaClients(init: AWSCloudHSMListLunaClientsCommand.() -> Unit) {
-	this.block.declare(AWSCloudHSMListLunaClientsCommand().apply(init))
+fun AWSCloudHSMFunctions.listLunaClients(init: AWSCloudHSMListLunaClientsCommand.() -> Unit): com.amazonaws.services.cloudhsm.model.ListLunaClientsResult {
+	return this.block.declare(AWSCloudHSMListLunaClientsCommand().apply(init)) as com.amazonaws.services.cloudhsm.model.ListLunaClientsResult
 }
 
 @Generated
-class AWSCloudHSMListLunaClientsCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.ListLunaClientsRequest> {
+class AWSCloudHSMListLunaClientsCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.ListLunaClientsRequest, com.amazonaws.services.cloudhsm.model.ListLunaClientsResult> {
 
 	var nextToken: String? = null
 
@@ -450,8 +506,12 @@ class AWSCloudHSMListLunaClientsCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudhsm.listLunaClients(build())
+	override fun dryResult(): com.amazonaws.services.cloudhsm.model.ListLunaClientsResult {
+	  return com.amazonaws.services.cloudhsm.model.ListLunaClientsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsm.model.ListLunaClientsResult {
+		return environment.cloudhsm.listLunaClients(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -462,12 +522,12 @@ class AWSCloudHSMListLunaClientsCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AWSCloudHSMFunctions.listTagsForResource(resourceArn: String, init: AWSCloudHSMListTagsForResourceCommand.() -> Unit) {
-	this.block.declare(AWSCloudHSMListTagsForResourceCommand(resourceArn).apply(init))
+fun AWSCloudHSMFunctions.listTagsForResource(resourceArn: String, init: AWSCloudHSMListTagsForResourceCommand.() -> Unit): com.amazonaws.services.cloudhsm.model.ListTagsForResourceResult {
+	return this.block.declare(AWSCloudHSMListTagsForResourceCommand(resourceArn).apply(init)) as com.amazonaws.services.cloudhsm.model.ListTagsForResourceResult
 }
 
 @Generated
-class AWSCloudHSMListTagsForResourceCommand(val resourceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.ListTagsForResourceRequest> {
+class AWSCloudHSMListTagsForResourceCommand(val resourceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.ListTagsForResourceRequest, com.amazonaws.services.cloudhsm.model.ListTagsForResourceResult> {
 
 
 
@@ -477,8 +537,12 @@ class AWSCloudHSMListTagsForResourceCommand(val resourceArn: String) : AmazonWeb
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudhsm.listTagsForResource(build())
+	override fun dryResult(): com.amazonaws.services.cloudhsm.model.ListTagsForResourceResult {
+	  return com.amazonaws.services.cloudhsm.model.ListTagsForResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsm.model.ListTagsForResourceResult {
+		return environment.cloudhsm.listTagsForResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -489,12 +553,12 @@ class AWSCloudHSMListTagsForResourceCommand(val resourceArn: String) : AmazonWeb
 }
 
 
-fun AWSCloudHSMFunctions.modifyHapg(hapgArn: String, init: AWSCloudHSMModifyHapgCommand.() -> Unit) {
-	this.block.declare(AWSCloudHSMModifyHapgCommand(hapgArn).apply(init))
+fun AWSCloudHSMFunctions.modifyHapg(hapgArn: String, init: AWSCloudHSMModifyHapgCommand.() -> Unit): com.amazonaws.services.cloudhsm.model.ModifyHapgResult {
+	return this.block.declare(AWSCloudHSMModifyHapgCommand(hapgArn).apply(init)) as com.amazonaws.services.cloudhsm.model.ModifyHapgResult
 }
 
 @Generated
-class AWSCloudHSMModifyHapgCommand(val hapgArn: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.ModifyHapgRequest> {
+class AWSCloudHSMModifyHapgCommand(val hapgArn: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.ModifyHapgRequest, com.amazonaws.services.cloudhsm.model.ModifyHapgResult> {
 
 	var label: String? = null
 	var partitionSerialList: List<String>? = null
@@ -507,8 +571,12 @@ class AWSCloudHSMModifyHapgCommand(val hapgArn: String) : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudhsm.modifyHapg(build())
+	override fun dryResult(): com.amazonaws.services.cloudhsm.model.ModifyHapgResult {
+	  return com.amazonaws.services.cloudhsm.model.ModifyHapgResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsm.model.ModifyHapgResult {
+		return environment.cloudhsm.modifyHapg(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -521,12 +589,12 @@ class AWSCloudHSMModifyHapgCommand(val hapgArn: String) : AmazonWebServiceComman
 }
 
 
-fun AWSCloudHSMFunctions.modifyHsm(hsmArn: String, init: AWSCloudHSMModifyHsmCommand.() -> Unit) {
-	this.block.declare(AWSCloudHSMModifyHsmCommand(hsmArn).apply(init))
+fun AWSCloudHSMFunctions.modifyHsm(hsmArn: String, init: AWSCloudHSMModifyHsmCommand.() -> Unit): com.amazonaws.services.cloudhsm.model.ModifyHsmResult {
+	return this.block.declare(AWSCloudHSMModifyHsmCommand(hsmArn).apply(init)) as com.amazonaws.services.cloudhsm.model.ModifyHsmResult
 }
 
 @Generated
-class AWSCloudHSMModifyHsmCommand(val hsmArn: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.ModifyHsmRequest> {
+class AWSCloudHSMModifyHsmCommand(val hsmArn: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.ModifyHsmRequest, com.amazonaws.services.cloudhsm.model.ModifyHsmResult> {
 
 	var subnetId: String? = null
 	var eniIp: String? = null
@@ -545,8 +613,12 @@ class AWSCloudHSMModifyHsmCommand(val hsmArn: String) : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudhsm.modifyHsm(build())
+	override fun dryResult(): com.amazonaws.services.cloudhsm.model.ModifyHsmResult {
+	  return com.amazonaws.services.cloudhsm.model.ModifyHsmResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsm.model.ModifyHsmResult {
+		return environment.cloudhsm.modifyHsm(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -562,12 +634,12 @@ class AWSCloudHSMModifyHsmCommand(val hsmArn: String) : AmazonWebServiceCommand<
 }
 
 
-fun AWSCloudHSMFunctions.modifyLunaClient(clientArn: String, certificate: String, init: AWSCloudHSMModifyLunaClientCommand.() -> Unit) {
-	this.block.declare(AWSCloudHSMModifyLunaClientCommand(clientArn, certificate).apply(init))
+fun AWSCloudHSMFunctions.modifyLunaClient(clientArn: String, certificate: String, init: AWSCloudHSMModifyLunaClientCommand.() -> Unit): com.amazonaws.services.cloudhsm.model.ModifyLunaClientResult {
+	return this.block.declare(AWSCloudHSMModifyLunaClientCommand(clientArn, certificate).apply(init)) as com.amazonaws.services.cloudhsm.model.ModifyLunaClientResult
 }
 
 @Generated
-class AWSCloudHSMModifyLunaClientCommand(val clientArn: String, val certificate: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.ModifyLunaClientRequest> {
+class AWSCloudHSMModifyLunaClientCommand(val clientArn: String, val certificate: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.ModifyLunaClientRequest, com.amazonaws.services.cloudhsm.model.ModifyLunaClientResult> {
 
 
 
@@ -578,8 +650,12 @@ class AWSCloudHSMModifyLunaClientCommand(val clientArn: String, val certificate:
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudhsm.modifyLunaClient(build())
+	override fun dryResult(): com.amazonaws.services.cloudhsm.model.ModifyLunaClientResult {
+	  return com.amazonaws.services.cloudhsm.model.ModifyLunaClientResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsm.model.ModifyLunaClientResult {
+		return environment.cloudhsm.modifyLunaClient(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -591,12 +667,12 @@ class AWSCloudHSMModifyLunaClientCommand(val clientArn: String, val certificate:
 }
 
 
-fun AWSCloudHSMFunctions.removeTagsFromResource(resourceArn: String, tagKeyList: List<String>, init: AWSCloudHSMRemoveTagsFromResourceCommand.() -> Unit) {
-	this.block.declare(AWSCloudHSMRemoveTagsFromResourceCommand(resourceArn, tagKeyList).apply(init))
+fun AWSCloudHSMFunctions.removeTagsFromResource(resourceArn: String, tagKeyList: List<String>, init: AWSCloudHSMRemoveTagsFromResourceCommand.() -> Unit): com.amazonaws.services.cloudhsm.model.RemoveTagsFromResourceResult {
+	return this.block.declare(AWSCloudHSMRemoveTagsFromResourceCommand(resourceArn, tagKeyList).apply(init)) as com.amazonaws.services.cloudhsm.model.RemoveTagsFromResourceResult
 }
 
 @Generated
-class AWSCloudHSMRemoveTagsFromResourceCommand(val resourceArn: String, val tagKeyList: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.RemoveTagsFromResourceRequest> {
+class AWSCloudHSMRemoveTagsFromResourceCommand(val resourceArn: String, val tagKeyList: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.cloudhsm.model.RemoveTagsFromResourceRequest, com.amazonaws.services.cloudhsm.model.RemoveTagsFromResourceResult> {
 
 
 
@@ -607,8 +683,12 @@ class AWSCloudHSMRemoveTagsFromResourceCommand(val resourceArn: String, val tagK
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudhsm.removeTagsFromResource(build())
+	override fun dryResult(): com.amazonaws.services.cloudhsm.model.RemoveTagsFromResourceResult {
+	  return com.amazonaws.services.cloudhsm.model.RemoveTagsFromResourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudhsm.model.RemoveTagsFromResourceResult {
+		return environment.cloudhsm.removeTagsFromResource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

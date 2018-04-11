@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.elasticfilesystem: AmazonElasticFileSystem
 @Generated
 class AmazonElasticFileSystemFunctions(val block: Block)
 
-infix fun AwsContinuation.elasticfilesystem(init: AmazonElasticFileSystemFunctions.() -> Unit) {
-	AmazonElasticFileSystemFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.elasticfilesystem(init: AmazonElasticFileSystemFunctions.() -> T): T {
+	return AmazonElasticFileSystemFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonElasticFileSystemFunctions.createFileSystem(creationToken: String, init: AmazonElasticFileSystemCreateFileSystemCommand.() -> Unit) {
-	this.block.declare(AmazonElasticFileSystemCreateFileSystemCommand(creationToken).apply(init))
+fun AmazonElasticFileSystemFunctions.createFileSystem(creationToken: String, init: AmazonElasticFileSystemCreateFileSystemCommand.() -> Unit): com.amazonaws.services.elasticfilesystem.model.CreateFileSystemResult {
+	return this.block.declare(AmazonElasticFileSystemCreateFileSystemCommand(creationToken).apply(init)) as com.amazonaws.services.elasticfilesystem.model.CreateFileSystemResult
 }
 
 @Generated
-class AmazonElasticFileSystemCreateFileSystemCommand(val creationToken: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticfilesystem.model.CreateFileSystemRequest> {
+class AmazonElasticFileSystemCreateFileSystemCommand(val creationToken: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticfilesystem.model.CreateFileSystemRequest, com.amazonaws.services.elasticfilesystem.model.CreateFileSystemResult> {
 
 	var performanceMode: PerformanceMode? = null
 	var encrypted: Boolean? = false
@@ -46,8 +46,12 @@ class AmazonElasticFileSystemCreateFileSystemCommand(val creationToken: String) 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticfilesystem.createFileSystem(build())
+	override fun dryResult(): com.amazonaws.services.elasticfilesystem.model.CreateFileSystemResult {
+	  return com.amazonaws.services.elasticfilesystem.model.CreateFileSystemResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticfilesystem.model.CreateFileSystemResult {
+		return environment.elasticfilesystem.createFileSystem(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -61,12 +65,12 @@ class AmazonElasticFileSystemCreateFileSystemCommand(val creationToken: String) 
 }
 
 
-fun AmazonElasticFileSystemFunctions.createMountTarget(fileSystemId: String, subnetId: String, init: AmazonElasticFileSystemCreateMountTargetCommand.() -> Unit) {
-	this.block.declare(AmazonElasticFileSystemCreateMountTargetCommand(fileSystemId, subnetId).apply(init))
+fun AmazonElasticFileSystemFunctions.createMountTarget(fileSystemId: String, subnetId: String, init: AmazonElasticFileSystemCreateMountTargetCommand.() -> Unit): com.amazonaws.services.elasticfilesystem.model.CreateMountTargetResult {
+	return this.block.declare(AmazonElasticFileSystemCreateMountTargetCommand(fileSystemId, subnetId).apply(init)) as com.amazonaws.services.elasticfilesystem.model.CreateMountTargetResult
 }
 
 @Generated
-class AmazonElasticFileSystemCreateMountTargetCommand(val fileSystemId: String, val subnetId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticfilesystem.model.CreateMountTargetRequest> {
+class AmazonElasticFileSystemCreateMountTargetCommand(val fileSystemId: String, val subnetId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticfilesystem.model.CreateMountTargetRequest, com.amazonaws.services.elasticfilesystem.model.CreateMountTargetResult> {
 
 	var ipAddress: String? = null
 	var securityGroups: List<String>? = null
@@ -80,8 +84,12 @@ class AmazonElasticFileSystemCreateMountTargetCommand(val fileSystemId: String, 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticfilesystem.createMountTarget(build())
+	override fun dryResult(): com.amazonaws.services.elasticfilesystem.model.CreateMountTargetResult {
+	  return com.amazonaws.services.elasticfilesystem.model.CreateMountTargetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticfilesystem.model.CreateMountTargetResult {
+		return environment.elasticfilesystem.createMountTarget(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -95,12 +103,12 @@ class AmazonElasticFileSystemCreateMountTargetCommand(val fileSystemId: String, 
 }
 
 
-fun AmazonElasticFileSystemFunctions.createTags(fileSystemId: String, tags: List<com.amazonaws.services.elasticfilesystem.model.Tag>, init: AmazonElasticFileSystemCreateTagsCommand.() -> Unit) {
-	this.block.declare(AmazonElasticFileSystemCreateTagsCommand(fileSystemId, tags).apply(init))
+fun AmazonElasticFileSystemFunctions.createTags(fileSystemId: String, tags: List<com.amazonaws.services.elasticfilesystem.model.Tag>, init: AmazonElasticFileSystemCreateTagsCommand.() -> Unit): com.amazonaws.services.elasticfilesystem.model.CreateTagsResult {
+	return this.block.declare(AmazonElasticFileSystemCreateTagsCommand(fileSystemId, tags).apply(init)) as com.amazonaws.services.elasticfilesystem.model.CreateTagsResult
 }
 
 @Generated
-class AmazonElasticFileSystemCreateTagsCommand(val fileSystemId: String, val tags: List<com.amazonaws.services.elasticfilesystem.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.elasticfilesystem.model.CreateTagsRequest> {
+class AmazonElasticFileSystemCreateTagsCommand(val fileSystemId: String, val tags: List<com.amazonaws.services.elasticfilesystem.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.elasticfilesystem.model.CreateTagsRequest, com.amazonaws.services.elasticfilesystem.model.CreateTagsResult> {
 
 
 
@@ -111,8 +119,12 @@ class AmazonElasticFileSystemCreateTagsCommand(val fileSystemId: String, val tag
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticfilesystem.createTags(build())
+	override fun dryResult(): com.amazonaws.services.elasticfilesystem.model.CreateTagsResult {
+	  return com.amazonaws.services.elasticfilesystem.model.CreateTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticfilesystem.model.CreateTagsResult {
+		return environment.elasticfilesystem.createTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -124,12 +136,12 @@ class AmazonElasticFileSystemCreateTagsCommand(val fileSystemId: String, val tag
 }
 
 
-fun AmazonElasticFileSystemFunctions.deleteFileSystem(fileSystemId: String, init: AmazonElasticFileSystemDeleteFileSystemCommand.() -> Unit) {
-	this.block.declare(AmazonElasticFileSystemDeleteFileSystemCommand(fileSystemId).apply(init))
+fun AmazonElasticFileSystemFunctions.deleteFileSystem(fileSystemId: String, init: AmazonElasticFileSystemDeleteFileSystemCommand.() -> Unit): com.amazonaws.services.elasticfilesystem.model.DeleteFileSystemResult {
+	return this.block.declare(AmazonElasticFileSystemDeleteFileSystemCommand(fileSystemId).apply(init)) as com.amazonaws.services.elasticfilesystem.model.DeleteFileSystemResult
 }
 
 @Generated
-class AmazonElasticFileSystemDeleteFileSystemCommand(val fileSystemId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticfilesystem.model.DeleteFileSystemRequest> {
+class AmazonElasticFileSystemDeleteFileSystemCommand(val fileSystemId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticfilesystem.model.DeleteFileSystemRequest, com.amazonaws.services.elasticfilesystem.model.DeleteFileSystemResult> {
 
 
 
@@ -139,8 +151,12 @@ class AmazonElasticFileSystemDeleteFileSystemCommand(val fileSystemId: String) :
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticfilesystem.deleteFileSystem(build())
+	override fun dryResult(): com.amazonaws.services.elasticfilesystem.model.DeleteFileSystemResult {
+	  return com.amazonaws.services.elasticfilesystem.model.DeleteFileSystemResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticfilesystem.model.DeleteFileSystemResult {
+		return environment.elasticfilesystem.deleteFileSystem(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -151,12 +167,12 @@ class AmazonElasticFileSystemDeleteFileSystemCommand(val fileSystemId: String) :
 }
 
 
-fun AmazonElasticFileSystemFunctions.deleteMountTarget(mountTargetId: String, init: AmazonElasticFileSystemDeleteMountTargetCommand.() -> Unit) {
-	this.block.declare(AmazonElasticFileSystemDeleteMountTargetCommand(mountTargetId).apply(init))
+fun AmazonElasticFileSystemFunctions.deleteMountTarget(mountTargetId: String, init: AmazonElasticFileSystemDeleteMountTargetCommand.() -> Unit): com.amazonaws.services.elasticfilesystem.model.DeleteMountTargetResult {
+	return this.block.declare(AmazonElasticFileSystemDeleteMountTargetCommand(mountTargetId).apply(init)) as com.amazonaws.services.elasticfilesystem.model.DeleteMountTargetResult
 }
 
 @Generated
-class AmazonElasticFileSystemDeleteMountTargetCommand(val mountTargetId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticfilesystem.model.DeleteMountTargetRequest> {
+class AmazonElasticFileSystemDeleteMountTargetCommand(val mountTargetId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticfilesystem.model.DeleteMountTargetRequest, com.amazonaws.services.elasticfilesystem.model.DeleteMountTargetResult> {
 
 
 
@@ -166,8 +182,12 @@ class AmazonElasticFileSystemDeleteMountTargetCommand(val mountTargetId: String)
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticfilesystem.deleteMountTarget(build())
+	override fun dryResult(): com.amazonaws.services.elasticfilesystem.model.DeleteMountTargetResult {
+	  return com.amazonaws.services.elasticfilesystem.model.DeleteMountTargetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticfilesystem.model.DeleteMountTargetResult {
+		return environment.elasticfilesystem.deleteMountTarget(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -178,12 +198,12 @@ class AmazonElasticFileSystemDeleteMountTargetCommand(val mountTargetId: String)
 }
 
 
-fun AmazonElasticFileSystemFunctions.deleteTags(fileSystemId: String, tagKeys: List<String>, init: AmazonElasticFileSystemDeleteTagsCommand.() -> Unit) {
-	this.block.declare(AmazonElasticFileSystemDeleteTagsCommand(fileSystemId, tagKeys).apply(init))
+fun AmazonElasticFileSystemFunctions.deleteTags(fileSystemId: String, tagKeys: List<String>, init: AmazonElasticFileSystemDeleteTagsCommand.() -> Unit): com.amazonaws.services.elasticfilesystem.model.DeleteTagsResult {
+	return this.block.declare(AmazonElasticFileSystemDeleteTagsCommand(fileSystemId, tagKeys).apply(init)) as com.amazonaws.services.elasticfilesystem.model.DeleteTagsResult
 }
 
 @Generated
-class AmazonElasticFileSystemDeleteTagsCommand(val fileSystemId: String, val tagKeys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.elasticfilesystem.model.DeleteTagsRequest> {
+class AmazonElasticFileSystemDeleteTagsCommand(val fileSystemId: String, val tagKeys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.elasticfilesystem.model.DeleteTagsRequest, com.amazonaws.services.elasticfilesystem.model.DeleteTagsResult> {
 
 
 
@@ -194,8 +214,12 @@ class AmazonElasticFileSystemDeleteTagsCommand(val fileSystemId: String, val tag
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticfilesystem.deleteTags(build())
+	override fun dryResult(): com.amazonaws.services.elasticfilesystem.model.DeleteTagsResult {
+	  return com.amazonaws.services.elasticfilesystem.model.DeleteTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticfilesystem.model.DeleteTagsResult {
+		return environment.elasticfilesystem.deleteTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -207,12 +231,12 @@ class AmazonElasticFileSystemDeleteTagsCommand(val fileSystemId: String, val tag
 }
 
 
-fun AmazonElasticFileSystemFunctions.describeFileSystems(init: AmazonElasticFileSystemDescribeFileSystemsCommand.() -> Unit) {
-	this.block.declare(AmazonElasticFileSystemDescribeFileSystemsCommand().apply(init))
+fun AmazonElasticFileSystemFunctions.describeFileSystems(init: AmazonElasticFileSystemDescribeFileSystemsCommand.() -> Unit): com.amazonaws.services.elasticfilesystem.model.DescribeFileSystemsResult {
+	return this.block.declare(AmazonElasticFileSystemDescribeFileSystemsCommand().apply(init)) as com.amazonaws.services.elasticfilesystem.model.DescribeFileSystemsResult
 }
 
 @Generated
-class AmazonElasticFileSystemDescribeFileSystemsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticfilesystem.model.DescribeFileSystemsRequest> {
+class AmazonElasticFileSystemDescribeFileSystemsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticfilesystem.model.DescribeFileSystemsRequest, com.amazonaws.services.elasticfilesystem.model.DescribeFileSystemsResult> {
 
 	var maxItems: Int? = 0
 	var marker: String? = null
@@ -228,8 +252,12 @@ class AmazonElasticFileSystemDescribeFileSystemsCommand() : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticfilesystem.describeFileSystems(build())
+	override fun dryResult(): com.amazonaws.services.elasticfilesystem.model.DescribeFileSystemsResult {
+	  return com.amazonaws.services.elasticfilesystem.model.DescribeFileSystemsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticfilesystem.model.DescribeFileSystemsResult {
+		return environment.elasticfilesystem.describeFileSystems(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -243,12 +271,12 @@ class AmazonElasticFileSystemDescribeFileSystemsCommand() : AmazonWebServiceComm
 }
 
 
-fun AmazonElasticFileSystemFunctions.describeMountTargetSecurityGroups(mountTargetId: String, init: AmazonElasticFileSystemDescribeMountTargetSecurityGroupsCommand.() -> Unit) {
-	this.block.declare(AmazonElasticFileSystemDescribeMountTargetSecurityGroupsCommand(mountTargetId).apply(init))
+fun AmazonElasticFileSystemFunctions.describeMountTargetSecurityGroups(mountTargetId: String, init: AmazonElasticFileSystemDescribeMountTargetSecurityGroupsCommand.() -> Unit): com.amazonaws.services.elasticfilesystem.model.DescribeMountTargetSecurityGroupsResult {
+	return this.block.declare(AmazonElasticFileSystemDescribeMountTargetSecurityGroupsCommand(mountTargetId).apply(init)) as com.amazonaws.services.elasticfilesystem.model.DescribeMountTargetSecurityGroupsResult
 }
 
 @Generated
-class AmazonElasticFileSystemDescribeMountTargetSecurityGroupsCommand(val mountTargetId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticfilesystem.model.DescribeMountTargetSecurityGroupsRequest> {
+class AmazonElasticFileSystemDescribeMountTargetSecurityGroupsCommand(val mountTargetId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticfilesystem.model.DescribeMountTargetSecurityGroupsRequest, com.amazonaws.services.elasticfilesystem.model.DescribeMountTargetSecurityGroupsResult> {
 
 
 
@@ -258,8 +286,12 @@ class AmazonElasticFileSystemDescribeMountTargetSecurityGroupsCommand(val mountT
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticfilesystem.describeMountTargetSecurityGroups(build())
+	override fun dryResult(): com.amazonaws.services.elasticfilesystem.model.DescribeMountTargetSecurityGroupsResult {
+	  return com.amazonaws.services.elasticfilesystem.model.DescribeMountTargetSecurityGroupsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticfilesystem.model.DescribeMountTargetSecurityGroupsResult {
+		return environment.elasticfilesystem.describeMountTargetSecurityGroups(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -270,12 +302,12 @@ class AmazonElasticFileSystemDescribeMountTargetSecurityGroupsCommand(val mountT
 }
 
 
-fun AmazonElasticFileSystemFunctions.describeMountTargets(init: AmazonElasticFileSystemDescribeMountTargetsCommand.() -> Unit) {
-	this.block.declare(AmazonElasticFileSystemDescribeMountTargetsCommand().apply(init))
+fun AmazonElasticFileSystemFunctions.describeMountTargets(init: AmazonElasticFileSystemDescribeMountTargetsCommand.() -> Unit): com.amazonaws.services.elasticfilesystem.model.DescribeMountTargetsResult {
+	return this.block.declare(AmazonElasticFileSystemDescribeMountTargetsCommand().apply(init)) as com.amazonaws.services.elasticfilesystem.model.DescribeMountTargetsResult
 }
 
 @Generated
-class AmazonElasticFileSystemDescribeMountTargetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticfilesystem.model.DescribeMountTargetsRequest> {
+class AmazonElasticFileSystemDescribeMountTargetsCommand() : AmazonWebServiceCommand<com.amazonaws.services.elasticfilesystem.model.DescribeMountTargetsRequest, com.amazonaws.services.elasticfilesystem.model.DescribeMountTargetsResult> {
 
 	var maxItems: Int? = 0
 	var marker: String? = null
@@ -291,8 +323,12 @@ class AmazonElasticFileSystemDescribeMountTargetsCommand() : AmazonWebServiceCom
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticfilesystem.describeMountTargets(build())
+	override fun dryResult(): com.amazonaws.services.elasticfilesystem.model.DescribeMountTargetsResult {
+	  return com.amazonaws.services.elasticfilesystem.model.DescribeMountTargetsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticfilesystem.model.DescribeMountTargetsResult {
+		return environment.elasticfilesystem.describeMountTargets(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -306,12 +342,12 @@ class AmazonElasticFileSystemDescribeMountTargetsCommand() : AmazonWebServiceCom
 }
 
 
-fun AmazonElasticFileSystemFunctions.describeTags(fileSystemId: String, init: AmazonElasticFileSystemDescribeTagsCommand.() -> Unit) {
-	this.block.declare(AmazonElasticFileSystemDescribeTagsCommand(fileSystemId).apply(init))
+fun AmazonElasticFileSystemFunctions.describeTags(fileSystemId: String, init: AmazonElasticFileSystemDescribeTagsCommand.() -> Unit): com.amazonaws.services.elasticfilesystem.model.DescribeTagsResult {
+	return this.block.declare(AmazonElasticFileSystemDescribeTagsCommand(fileSystemId).apply(init)) as com.amazonaws.services.elasticfilesystem.model.DescribeTagsResult
 }
 
 @Generated
-class AmazonElasticFileSystemDescribeTagsCommand(val fileSystemId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticfilesystem.model.DescribeTagsRequest> {
+class AmazonElasticFileSystemDescribeTagsCommand(val fileSystemId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticfilesystem.model.DescribeTagsRequest, com.amazonaws.services.elasticfilesystem.model.DescribeTagsResult> {
 
 	var maxItems: Int? = 0
 	var marker: String? = null
@@ -324,8 +360,12 @@ class AmazonElasticFileSystemDescribeTagsCommand(val fileSystemId: String) : Ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticfilesystem.describeTags(build())
+	override fun dryResult(): com.amazonaws.services.elasticfilesystem.model.DescribeTagsResult {
+	  return com.amazonaws.services.elasticfilesystem.model.DescribeTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticfilesystem.model.DescribeTagsResult {
+		return environment.elasticfilesystem.describeTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -338,12 +378,12 @@ class AmazonElasticFileSystemDescribeTagsCommand(val fileSystemId: String) : Ama
 }
 
 
-fun AmazonElasticFileSystemFunctions.modifyMountTargetSecurityGroups(mountTargetId: String, init: AmazonElasticFileSystemModifyMountTargetSecurityGroupsCommand.() -> Unit) {
-	this.block.declare(AmazonElasticFileSystemModifyMountTargetSecurityGroupsCommand(mountTargetId).apply(init))
+fun AmazonElasticFileSystemFunctions.modifyMountTargetSecurityGroups(mountTargetId: String, init: AmazonElasticFileSystemModifyMountTargetSecurityGroupsCommand.() -> Unit): com.amazonaws.services.elasticfilesystem.model.ModifyMountTargetSecurityGroupsResult {
+	return this.block.declare(AmazonElasticFileSystemModifyMountTargetSecurityGroupsCommand(mountTargetId).apply(init)) as com.amazonaws.services.elasticfilesystem.model.ModifyMountTargetSecurityGroupsResult
 }
 
 @Generated
-class AmazonElasticFileSystemModifyMountTargetSecurityGroupsCommand(val mountTargetId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticfilesystem.model.ModifyMountTargetSecurityGroupsRequest> {
+class AmazonElasticFileSystemModifyMountTargetSecurityGroupsCommand(val mountTargetId: String) : AmazonWebServiceCommand<com.amazonaws.services.elasticfilesystem.model.ModifyMountTargetSecurityGroupsRequest, com.amazonaws.services.elasticfilesystem.model.ModifyMountTargetSecurityGroupsResult> {
 
 	var securityGroups: List<String>? = null
 
@@ -354,8 +394,12 @@ class AmazonElasticFileSystemModifyMountTargetSecurityGroupsCommand(val mountTar
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.elasticfilesystem.modifyMountTargetSecurityGroups(build())
+	override fun dryResult(): com.amazonaws.services.elasticfilesystem.model.ModifyMountTargetSecurityGroupsResult {
+	  return com.amazonaws.services.elasticfilesystem.model.ModifyMountTargetSecurityGroupsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.elasticfilesystem.model.ModifyMountTargetSecurityGroupsResult {
+		return environment.elasticfilesystem.modifyMountTargetSecurityGroups(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

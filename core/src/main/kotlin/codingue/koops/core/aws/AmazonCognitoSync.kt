@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.cognito_sync: AmazonCognitoSync
 @Generated
 class AmazonCognitoSyncFunctions(val block: Block)
 
-infix fun AwsContinuation.cognito_sync(init: AmazonCognitoSyncFunctions.() -> Unit) {
-	AmazonCognitoSyncFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.cognito_sync(init: AmazonCognitoSyncFunctions.() -> T): T {
+	return AmazonCognitoSyncFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonCognitoSyncFunctions.bulkPublish(identityPoolId: String, init: AmazonCognitoSyncBulkPublishCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoSyncBulkPublishCommand(identityPoolId).apply(init))
+fun AmazonCognitoSyncFunctions.bulkPublish(identityPoolId: String, init: AmazonCognitoSyncBulkPublishCommand.() -> Unit): com.amazonaws.services.cognitosync.model.BulkPublishResult {
+	return this.block.declare(AmazonCognitoSyncBulkPublishCommand(identityPoolId).apply(init)) as com.amazonaws.services.cognitosync.model.BulkPublishResult
 }
 
 @Generated
-class AmazonCognitoSyncBulkPublishCommand(val identityPoolId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.BulkPublishRequest> {
+class AmazonCognitoSyncBulkPublishCommand(val identityPoolId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.BulkPublishRequest, com.amazonaws.services.cognitosync.model.BulkPublishResult> {
 
 
 
@@ -41,8 +41,12 @@ class AmazonCognitoSyncBulkPublishCommand(val identityPoolId: String) : AmazonWe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_sync.bulkPublish(build())
+	override fun dryResult(): com.amazonaws.services.cognitosync.model.BulkPublishResult {
+	  return com.amazonaws.services.cognitosync.model.BulkPublishResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.BulkPublishResult {
+		return environment.cognito_sync.bulkPublish(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -53,12 +57,12 @@ class AmazonCognitoSyncBulkPublishCommand(val identityPoolId: String) : AmazonWe
 }
 
 
-fun AmazonCognitoSyncFunctions.deleteDataset(identityPoolId: String, identityId: String, datasetName: String, init: AmazonCognitoSyncDeleteDatasetCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoSyncDeleteDatasetCommand(identityPoolId, identityId, datasetName).apply(init))
+fun AmazonCognitoSyncFunctions.deleteDataset(identityPoolId: String, identityId: String, datasetName: String, init: AmazonCognitoSyncDeleteDatasetCommand.() -> Unit): com.amazonaws.services.cognitosync.model.DeleteDatasetResult {
+	return this.block.declare(AmazonCognitoSyncDeleteDatasetCommand(identityPoolId, identityId, datasetName).apply(init)) as com.amazonaws.services.cognitosync.model.DeleteDatasetResult
 }
 
 @Generated
-class AmazonCognitoSyncDeleteDatasetCommand(val identityPoolId: String, val identityId: String, val datasetName: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.DeleteDatasetRequest> {
+class AmazonCognitoSyncDeleteDatasetCommand(val identityPoolId: String, val identityId: String, val datasetName: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.DeleteDatasetRequest, com.amazonaws.services.cognitosync.model.DeleteDatasetResult> {
 
 
 
@@ -70,8 +74,12 @@ class AmazonCognitoSyncDeleteDatasetCommand(val identityPoolId: String, val iden
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_sync.deleteDataset(build())
+	override fun dryResult(): com.amazonaws.services.cognitosync.model.DeleteDatasetResult {
+	  return com.amazonaws.services.cognitosync.model.DeleteDatasetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.DeleteDatasetResult {
+		return environment.cognito_sync.deleteDataset(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -84,12 +92,12 @@ class AmazonCognitoSyncDeleteDatasetCommand(val identityPoolId: String, val iden
 }
 
 
-fun AmazonCognitoSyncFunctions.describeDataset(identityPoolId: String, identityId: String, datasetName: String, init: AmazonCognitoSyncDescribeDatasetCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoSyncDescribeDatasetCommand(identityPoolId, identityId, datasetName).apply(init))
+fun AmazonCognitoSyncFunctions.describeDataset(identityPoolId: String, identityId: String, datasetName: String, init: AmazonCognitoSyncDescribeDatasetCommand.() -> Unit): com.amazonaws.services.cognitosync.model.DescribeDatasetResult {
+	return this.block.declare(AmazonCognitoSyncDescribeDatasetCommand(identityPoolId, identityId, datasetName).apply(init)) as com.amazonaws.services.cognitosync.model.DescribeDatasetResult
 }
 
 @Generated
-class AmazonCognitoSyncDescribeDatasetCommand(val identityPoolId: String, val identityId: String, val datasetName: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.DescribeDatasetRequest> {
+class AmazonCognitoSyncDescribeDatasetCommand(val identityPoolId: String, val identityId: String, val datasetName: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.DescribeDatasetRequest, com.amazonaws.services.cognitosync.model.DescribeDatasetResult> {
 
 
 
@@ -101,8 +109,12 @@ class AmazonCognitoSyncDescribeDatasetCommand(val identityPoolId: String, val id
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_sync.describeDataset(build())
+	override fun dryResult(): com.amazonaws.services.cognitosync.model.DescribeDatasetResult {
+	  return com.amazonaws.services.cognitosync.model.DescribeDatasetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.DescribeDatasetResult {
+		return environment.cognito_sync.describeDataset(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -115,12 +127,12 @@ class AmazonCognitoSyncDescribeDatasetCommand(val identityPoolId: String, val id
 }
 
 
-fun AmazonCognitoSyncFunctions.describeIdentityPoolUsage(identityPoolId: String, init: AmazonCognitoSyncDescribeIdentityPoolUsageCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoSyncDescribeIdentityPoolUsageCommand(identityPoolId).apply(init))
+fun AmazonCognitoSyncFunctions.describeIdentityPoolUsage(identityPoolId: String, init: AmazonCognitoSyncDescribeIdentityPoolUsageCommand.() -> Unit): com.amazonaws.services.cognitosync.model.DescribeIdentityPoolUsageResult {
+	return this.block.declare(AmazonCognitoSyncDescribeIdentityPoolUsageCommand(identityPoolId).apply(init)) as com.amazonaws.services.cognitosync.model.DescribeIdentityPoolUsageResult
 }
 
 @Generated
-class AmazonCognitoSyncDescribeIdentityPoolUsageCommand(val identityPoolId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.DescribeIdentityPoolUsageRequest> {
+class AmazonCognitoSyncDescribeIdentityPoolUsageCommand(val identityPoolId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.DescribeIdentityPoolUsageRequest, com.amazonaws.services.cognitosync.model.DescribeIdentityPoolUsageResult> {
 
 
 
@@ -130,8 +142,12 @@ class AmazonCognitoSyncDescribeIdentityPoolUsageCommand(val identityPoolId: Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_sync.describeIdentityPoolUsage(build())
+	override fun dryResult(): com.amazonaws.services.cognitosync.model.DescribeIdentityPoolUsageResult {
+	  return com.amazonaws.services.cognitosync.model.DescribeIdentityPoolUsageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.DescribeIdentityPoolUsageResult {
+		return environment.cognito_sync.describeIdentityPoolUsage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -142,12 +158,12 @@ class AmazonCognitoSyncDescribeIdentityPoolUsageCommand(val identityPoolId: Stri
 }
 
 
-fun AmazonCognitoSyncFunctions.describeIdentityUsage(identityPoolId: String, identityId: String, init: AmazonCognitoSyncDescribeIdentityUsageCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoSyncDescribeIdentityUsageCommand(identityPoolId, identityId).apply(init))
+fun AmazonCognitoSyncFunctions.describeIdentityUsage(identityPoolId: String, identityId: String, init: AmazonCognitoSyncDescribeIdentityUsageCommand.() -> Unit): com.amazonaws.services.cognitosync.model.DescribeIdentityUsageResult {
+	return this.block.declare(AmazonCognitoSyncDescribeIdentityUsageCommand(identityPoolId, identityId).apply(init)) as com.amazonaws.services.cognitosync.model.DescribeIdentityUsageResult
 }
 
 @Generated
-class AmazonCognitoSyncDescribeIdentityUsageCommand(val identityPoolId: String, val identityId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.DescribeIdentityUsageRequest> {
+class AmazonCognitoSyncDescribeIdentityUsageCommand(val identityPoolId: String, val identityId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.DescribeIdentityUsageRequest, com.amazonaws.services.cognitosync.model.DescribeIdentityUsageResult> {
 
 
 
@@ -158,8 +174,12 @@ class AmazonCognitoSyncDescribeIdentityUsageCommand(val identityPoolId: String, 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_sync.describeIdentityUsage(build())
+	override fun dryResult(): com.amazonaws.services.cognitosync.model.DescribeIdentityUsageResult {
+	  return com.amazonaws.services.cognitosync.model.DescribeIdentityUsageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.DescribeIdentityUsageResult {
+		return environment.cognito_sync.describeIdentityUsage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -171,12 +191,12 @@ class AmazonCognitoSyncDescribeIdentityUsageCommand(val identityPoolId: String, 
 }
 
 
-fun AmazonCognitoSyncFunctions.getBulkPublishDetails(identityPoolId: String, init: AmazonCognitoSyncGetBulkPublishDetailsCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoSyncGetBulkPublishDetailsCommand(identityPoolId).apply(init))
+fun AmazonCognitoSyncFunctions.getBulkPublishDetails(identityPoolId: String, init: AmazonCognitoSyncGetBulkPublishDetailsCommand.() -> Unit): com.amazonaws.services.cognitosync.model.GetBulkPublishDetailsResult {
+	return this.block.declare(AmazonCognitoSyncGetBulkPublishDetailsCommand(identityPoolId).apply(init)) as com.amazonaws.services.cognitosync.model.GetBulkPublishDetailsResult
 }
 
 @Generated
-class AmazonCognitoSyncGetBulkPublishDetailsCommand(val identityPoolId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.GetBulkPublishDetailsRequest> {
+class AmazonCognitoSyncGetBulkPublishDetailsCommand(val identityPoolId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.GetBulkPublishDetailsRequest, com.amazonaws.services.cognitosync.model.GetBulkPublishDetailsResult> {
 
 
 
@@ -186,8 +206,12 @@ class AmazonCognitoSyncGetBulkPublishDetailsCommand(val identityPoolId: String) 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_sync.getBulkPublishDetails(build())
+	override fun dryResult(): com.amazonaws.services.cognitosync.model.GetBulkPublishDetailsResult {
+	  return com.amazonaws.services.cognitosync.model.GetBulkPublishDetailsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.GetBulkPublishDetailsResult {
+		return environment.cognito_sync.getBulkPublishDetails(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -198,12 +222,12 @@ class AmazonCognitoSyncGetBulkPublishDetailsCommand(val identityPoolId: String) 
 }
 
 
-fun AmazonCognitoSyncFunctions.getCognitoEvents(identityPoolId: String, init: AmazonCognitoSyncGetCognitoEventsCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoSyncGetCognitoEventsCommand(identityPoolId).apply(init))
+fun AmazonCognitoSyncFunctions.getCognitoEvents(identityPoolId: String, init: AmazonCognitoSyncGetCognitoEventsCommand.() -> Unit): com.amazonaws.services.cognitosync.model.GetCognitoEventsResult {
+	return this.block.declare(AmazonCognitoSyncGetCognitoEventsCommand(identityPoolId).apply(init)) as com.amazonaws.services.cognitosync.model.GetCognitoEventsResult
 }
 
 @Generated
-class AmazonCognitoSyncGetCognitoEventsCommand(val identityPoolId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.GetCognitoEventsRequest> {
+class AmazonCognitoSyncGetCognitoEventsCommand(val identityPoolId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.GetCognitoEventsRequest, com.amazonaws.services.cognitosync.model.GetCognitoEventsResult> {
 
 
 
@@ -213,8 +237,12 @@ class AmazonCognitoSyncGetCognitoEventsCommand(val identityPoolId: String) : Ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_sync.getCognitoEvents(build())
+	override fun dryResult(): com.amazonaws.services.cognitosync.model.GetCognitoEventsResult {
+	  return com.amazonaws.services.cognitosync.model.GetCognitoEventsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.GetCognitoEventsResult {
+		return environment.cognito_sync.getCognitoEvents(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -225,12 +253,12 @@ class AmazonCognitoSyncGetCognitoEventsCommand(val identityPoolId: String) : Ama
 }
 
 
-fun AmazonCognitoSyncFunctions.getIdentityPoolConfiguration(identityPoolId: String, init: AmazonCognitoSyncGetIdentityPoolConfigurationCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoSyncGetIdentityPoolConfigurationCommand(identityPoolId).apply(init))
+fun AmazonCognitoSyncFunctions.getIdentityPoolConfiguration(identityPoolId: String, init: AmazonCognitoSyncGetIdentityPoolConfigurationCommand.() -> Unit): com.amazonaws.services.cognitosync.model.GetIdentityPoolConfigurationResult {
+	return this.block.declare(AmazonCognitoSyncGetIdentityPoolConfigurationCommand(identityPoolId).apply(init)) as com.amazonaws.services.cognitosync.model.GetIdentityPoolConfigurationResult
 }
 
 @Generated
-class AmazonCognitoSyncGetIdentityPoolConfigurationCommand(val identityPoolId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.GetIdentityPoolConfigurationRequest> {
+class AmazonCognitoSyncGetIdentityPoolConfigurationCommand(val identityPoolId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.GetIdentityPoolConfigurationRequest, com.amazonaws.services.cognitosync.model.GetIdentityPoolConfigurationResult> {
 
 
 
@@ -240,8 +268,12 @@ class AmazonCognitoSyncGetIdentityPoolConfigurationCommand(val identityPoolId: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_sync.getIdentityPoolConfiguration(build())
+	override fun dryResult(): com.amazonaws.services.cognitosync.model.GetIdentityPoolConfigurationResult {
+	  return com.amazonaws.services.cognitosync.model.GetIdentityPoolConfigurationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.GetIdentityPoolConfigurationResult {
+		return environment.cognito_sync.getIdentityPoolConfiguration(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -252,12 +284,12 @@ class AmazonCognitoSyncGetIdentityPoolConfigurationCommand(val identityPoolId: S
 }
 
 
-fun AmazonCognitoSyncFunctions.listDatasets(identityPoolId: String, identityId: String, init: AmazonCognitoSyncListDatasetsCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoSyncListDatasetsCommand(identityPoolId, identityId).apply(init))
+fun AmazonCognitoSyncFunctions.listDatasets(identityPoolId: String, identityId: String, init: AmazonCognitoSyncListDatasetsCommand.() -> Unit): com.amazonaws.services.cognitosync.model.ListDatasetsResult {
+	return this.block.declare(AmazonCognitoSyncListDatasetsCommand(identityPoolId, identityId).apply(init)) as com.amazonaws.services.cognitosync.model.ListDatasetsResult
 }
 
 @Generated
-class AmazonCognitoSyncListDatasetsCommand(val identityPoolId: String, val identityId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.ListDatasetsRequest> {
+class AmazonCognitoSyncListDatasetsCommand(val identityPoolId: String, val identityId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.ListDatasetsRequest, com.amazonaws.services.cognitosync.model.ListDatasetsResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -271,8 +303,12 @@ class AmazonCognitoSyncListDatasetsCommand(val identityPoolId: String, val ident
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_sync.listDatasets(build())
+	override fun dryResult(): com.amazonaws.services.cognitosync.model.ListDatasetsResult {
+	  return com.amazonaws.services.cognitosync.model.ListDatasetsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.ListDatasetsResult {
+		return environment.cognito_sync.listDatasets(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -286,12 +322,12 @@ class AmazonCognitoSyncListDatasetsCommand(val identityPoolId: String, val ident
 }
 
 
-fun AmazonCognitoSyncFunctions.listIdentityPoolUsage(init: AmazonCognitoSyncListIdentityPoolUsageCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoSyncListIdentityPoolUsageCommand().apply(init))
+fun AmazonCognitoSyncFunctions.listIdentityPoolUsage(init: AmazonCognitoSyncListIdentityPoolUsageCommand.() -> Unit): com.amazonaws.services.cognitosync.model.ListIdentityPoolUsageResult {
+	return this.block.declare(AmazonCognitoSyncListIdentityPoolUsageCommand().apply(init)) as com.amazonaws.services.cognitosync.model.ListIdentityPoolUsageResult
 }
 
 @Generated
-class AmazonCognitoSyncListIdentityPoolUsageCommand() : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.ListIdentityPoolUsageRequest> {
+class AmazonCognitoSyncListIdentityPoolUsageCommand() : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.ListIdentityPoolUsageRequest, com.amazonaws.services.cognitosync.model.ListIdentityPoolUsageResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -303,8 +339,12 @@ class AmazonCognitoSyncListIdentityPoolUsageCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_sync.listIdentityPoolUsage(build())
+	override fun dryResult(): com.amazonaws.services.cognitosync.model.ListIdentityPoolUsageResult {
+	  return com.amazonaws.services.cognitosync.model.ListIdentityPoolUsageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.ListIdentityPoolUsageResult {
+		return environment.cognito_sync.listIdentityPoolUsage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -316,12 +356,12 @@ class AmazonCognitoSyncListIdentityPoolUsageCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AmazonCognitoSyncFunctions.listRecords(identityPoolId: String, identityId: String, datasetName: String, init: AmazonCognitoSyncListRecordsCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoSyncListRecordsCommand(identityPoolId, identityId, datasetName).apply(init))
+fun AmazonCognitoSyncFunctions.listRecords(identityPoolId: String, identityId: String, datasetName: String, init: AmazonCognitoSyncListRecordsCommand.() -> Unit): com.amazonaws.services.cognitosync.model.ListRecordsResult {
+	return this.block.declare(AmazonCognitoSyncListRecordsCommand(identityPoolId, identityId, datasetName).apply(init)) as com.amazonaws.services.cognitosync.model.ListRecordsResult
 }
 
 @Generated
-class AmazonCognitoSyncListRecordsCommand(val identityPoolId: String, val identityId: String, val datasetName: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.ListRecordsRequest> {
+class AmazonCognitoSyncListRecordsCommand(val identityPoolId: String, val identityId: String, val datasetName: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.ListRecordsRequest, com.amazonaws.services.cognitosync.model.ListRecordsResult> {
 
 	var lastSyncCount: Long? = 0L
 	var nextToken: String? = null
@@ -340,8 +380,12 @@ class AmazonCognitoSyncListRecordsCommand(val identityPoolId: String, val identi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_sync.listRecords(build())
+	override fun dryResult(): com.amazonaws.services.cognitosync.model.ListRecordsResult {
+	  return com.amazonaws.services.cognitosync.model.ListRecordsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.ListRecordsResult {
+		return environment.cognito_sync.listRecords(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -358,12 +402,12 @@ class AmazonCognitoSyncListRecordsCommand(val identityPoolId: String, val identi
 }
 
 
-fun AmazonCognitoSyncFunctions.registerDevice(identityPoolId: String, identityId: String, platform: Platform, token: String, init: AmazonCognitoSyncRegisterDeviceCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoSyncRegisterDeviceCommand(identityPoolId, identityId, platform, token).apply(init))
+fun AmazonCognitoSyncFunctions.registerDevice(identityPoolId: String, identityId: String, platform: Platform, token: String, init: AmazonCognitoSyncRegisterDeviceCommand.() -> Unit): com.amazonaws.services.cognitosync.model.RegisterDeviceResult {
+	return this.block.declare(AmazonCognitoSyncRegisterDeviceCommand(identityPoolId, identityId, platform, token).apply(init)) as com.amazonaws.services.cognitosync.model.RegisterDeviceResult
 }
 
 @Generated
-class AmazonCognitoSyncRegisterDeviceCommand(val identityPoolId: String, val identityId: String, val platform: Platform, val token: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.RegisterDeviceRequest> {
+class AmazonCognitoSyncRegisterDeviceCommand(val identityPoolId: String, val identityId: String, val platform: Platform, val token: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.RegisterDeviceRequest, com.amazonaws.services.cognitosync.model.RegisterDeviceResult> {
 
 
 
@@ -376,8 +420,12 @@ class AmazonCognitoSyncRegisterDeviceCommand(val identityPoolId: String, val ide
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_sync.registerDevice(build())
+	override fun dryResult(): com.amazonaws.services.cognitosync.model.RegisterDeviceResult {
+	  return com.amazonaws.services.cognitosync.model.RegisterDeviceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.RegisterDeviceResult {
+		return environment.cognito_sync.registerDevice(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -391,12 +439,12 @@ class AmazonCognitoSyncRegisterDeviceCommand(val identityPoolId: String, val ide
 }
 
 
-fun AmazonCognitoSyncFunctions.setCognitoEvents(identityPoolId: String, events: Map<String, String>, init: AmazonCognitoSyncSetCognitoEventsCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoSyncSetCognitoEventsCommand(identityPoolId, events).apply(init))
+fun AmazonCognitoSyncFunctions.setCognitoEvents(identityPoolId: String, events: Map<String, String>, init: AmazonCognitoSyncSetCognitoEventsCommand.() -> Unit): com.amazonaws.services.cognitosync.model.SetCognitoEventsResult {
+	return this.block.declare(AmazonCognitoSyncSetCognitoEventsCommand(identityPoolId, events).apply(init)) as com.amazonaws.services.cognitosync.model.SetCognitoEventsResult
 }
 
 @Generated
-class AmazonCognitoSyncSetCognitoEventsCommand(val identityPoolId: String, val events: Map<String, String>) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.SetCognitoEventsRequest> {
+class AmazonCognitoSyncSetCognitoEventsCommand(val identityPoolId: String, val events: Map<String, String>) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.SetCognitoEventsRequest, com.amazonaws.services.cognitosync.model.SetCognitoEventsResult> {
 
 
 
@@ -407,8 +455,12 @@ class AmazonCognitoSyncSetCognitoEventsCommand(val identityPoolId: String, val e
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_sync.setCognitoEvents(build())
+	override fun dryResult(): com.amazonaws.services.cognitosync.model.SetCognitoEventsResult {
+	  return com.amazonaws.services.cognitosync.model.SetCognitoEventsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.SetCognitoEventsResult {
+		return environment.cognito_sync.setCognitoEvents(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -420,12 +472,12 @@ class AmazonCognitoSyncSetCognitoEventsCommand(val identityPoolId: String, val e
 }
 
 
-fun AmazonCognitoSyncFunctions.setIdentityPoolConfiguration(identityPoolId: String, init: AmazonCognitoSyncSetIdentityPoolConfigurationCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoSyncSetIdentityPoolConfigurationCommand(identityPoolId).apply(init))
+fun AmazonCognitoSyncFunctions.setIdentityPoolConfiguration(identityPoolId: String, init: AmazonCognitoSyncSetIdentityPoolConfigurationCommand.() -> Unit): com.amazonaws.services.cognitosync.model.SetIdentityPoolConfigurationResult {
+	return this.block.declare(AmazonCognitoSyncSetIdentityPoolConfigurationCommand(identityPoolId).apply(init)) as com.amazonaws.services.cognitosync.model.SetIdentityPoolConfigurationResult
 }
 
 @Generated
-class AmazonCognitoSyncSetIdentityPoolConfigurationCommand(val identityPoolId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.SetIdentityPoolConfigurationRequest> {
+class AmazonCognitoSyncSetIdentityPoolConfigurationCommand(val identityPoolId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.SetIdentityPoolConfigurationRequest, com.amazonaws.services.cognitosync.model.SetIdentityPoolConfigurationResult> {
 
 	var pushSync: com.amazonaws.services.cognitosync.model.PushSync? = null
 	var cognitoStreams: com.amazonaws.services.cognitosync.model.CognitoStreams? = null
@@ -438,8 +490,12 @@ class AmazonCognitoSyncSetIdentityPoolConfigurationCommand(val identityPoolId: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_sync.setIdentityPoolConfiguration(build())
+	override fun dryResult(): com.amazonaws.services.cognitosync.model.SetIdentityPoolConfigurationResult {
+	  return com.amazonaws.services.cognitosync.model.SetIdentityPoolConfigurationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.SetIdentityPoolConfigurationResult {
+		return environment.cognito_sync.setIdentityPoolConfiguration(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -452,12 +508,12 @@ class AmazonCognitoSyncSetIdentityPoolConfigurationCommand(val identityPoolId: S
 }
 
 
-fun AmazonCognitoSyncFunctions.subscribeToDataset(identityPoolId: String, identityId: String, datasetName: String, deviceId: String, init: AmazonCognitoSyncSubscribeToDatasetCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoSyncSubscribeToDatasetCommand(identityPoolId, identityId, datasetName, deviceId).apply(init))
+fun AmazonCognitoSyncFunctions.subscribeToDataset(identityPoolId: String, identityId: String, datasetName: String, deviceId: String, init: AmazonCognitoSyncSubscribeToDatasetCommand.() -> Unit): com.amazonaws.services.cognitosync.model.SubscribeToDatasetResult {
+	return this.block.declare(AmazonCognitoSyncSubscribeToDatasetCommand(identityPoolId, identityId, datasetName, deviceId).apply(init)) as com.amazonaws.services.cognitosync.model.SubscribeToDatasetResult
 }
 
 @Generated
-class AmazonCognitoSyncSubscribeToDatasetCommand(val identityPoolId: String, val identityId: String, val datasetName: String, val deviceId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.SubscribeToDatasetRequest> {
+class AmazonCognitoSyncSubscribeToDatasetCommand(val identityPoolId: String, val identityId: String, val datasetName: String, val deviceId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.SubscribeToDatasetRequest, com.amazonaws.services.cognitosync.model.SubscribeToDatasetResult> {
 
 
 
@@ -470,8 +526,12 @@ class AmazonCognitoSyncSubscribeToDatasetCommand(val identityPoolId: String, val
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_sync.subscribeToDataset(build())
+	override fun dryResult(): com.amazonaws.services.cognitosync.model.SubscribeToDatasetResult {
+	  return com.amazonaws.services.cognitosync.model.SubscribeToDatasetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.SubscribeToDatasetResult {
+		return environment.cognito_sync.subscribeToDataset(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -485,12 +545,12 @@ class AmazonCognitoSyncSubscribeToDatasetCommand(val identityPoolId: String, val
 }
 
 
-fun AmazonCognitoSyncFunctions.unsubscribeFromDataset(identityPoolId: String, identityId: String, datasetName: String, deviceId: String, init: AmazonCognitoSyncUnsubscribeFromDatasetCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoSyncUnsubscribeFromDatasetCommand(identityPoolId, identityId, datasetName, deviceId).apply(init))
+fun AmazonCognitoSyncFunctions.unsubscribeFromDataset(identityPoolId: String, identityId: String, datasetName: String, deviceId: String, init: AmazonCognitoSyncUnsubscribeFromDatasetCommand.() -> Unit): com.amazonaws.services.cognitosync.model.UnsubscribeFromDatasetResult {
+	return this.block.declare(AmazonCognitoSyncUnsubscribeFromDatasetCommand(identityPoolId, identityId, datasetName, deviceId).apply(init)) as com.amazonaws.services.cognitosync.model.UnsubscribeFromDatasetResult
 }
 
 @Generated
-class AmazonCognitoSyncUnsubscribeFromDatasetCommand(val identityPoolId: String, val identityId: String, val datasetName: String, val deviceId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.UnsubscribeFromDatasetRequest> {
+class AmazonCognitoSyncUnsubscribeFromDatasetCommand(val identityPoolId: String, val identityId: String, val datasetName: String, val deviceId: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.UnsubscribeFromDatasetRequest, com.amazonaws.services.cognitosync.model.UnsubscribeFromDatasetResult> {
 
 
 
@@ -503,8 +563,12 @@ class AmazonCognitoSyncUnsubscribeFromDatasetCommand(val identityPoolId: String,
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_sync.unsubscribeFromDataset(build())
+	override fun dryResult(): com.amazonaws.services.cognitosync.model.UnsubscribeFromDatasetResult {
+	  return com.amazonaws.services.cognitosync.model.UnsubscribeFromDatasetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.UnsubscribeFromDatasetResult {
+		return environment.cognito_sync.unsubscribeFromDataset(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -518,12 +582,12 @@ class AmazonCognitoSyncUnsubscribeFromDatasetCommand(val identityPoolId: String,
 }
 
 
-fun AmazonCognitoSyncFunctions.updateRecords(identityPoolId: String, identityId: String, datasetName: String, syncSessionToken: String, init: AmazonCognitoSyncUpdateRecordsCommand.() -> Unit) {
-	this.block.declare(AmazonCognitoSyncUpdateRecordsCommand(identityPoolId, identityId, datasetName, syncSessionToken).apply(init))
+fun AmazonCognitoSyncFunctions.updateRecords(identityPoolId: String, identityId: String, datasetName: String, syncSessionToken: String, init: AmazonCognitoSyncUpdateRecordsCommand.() -> Unit): com.amazonaws.services.cognitosync.model.UpdateRecordsResult {
+	return this.block.declare(AmazonCognitoSyncUpdateRecordsCommand(identityPoolId, identityId, datasetName, syncSessionToken).apply(init)) as com.amazonaws.services.cognitosync.model.UpdateRecordsResult
 }
 
 @Generated
-class AmazonCognitoSyncUpdateRecordsCommand(val identityPoolId: String, val identityId: String, val datasetName: String, val syncSessionToken: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.UpdateRecordsRequest> {
+class AmazonCognitoSyncUpdateRecordsCommand(val identityPoolId: String, val identityId: String, val datasetName: String, val syncSessionToken: String) : AmazonWebServiceCommand<com.amazonaws.services.cognitosync.model.UpdateRecordsRequest, com.amazonaws.services.cognitosync.model.UpdateRecordsResult> {
 
 	var deviceId: String? = null
 	var recordPatches: List<com.amazonaws.services.cognitosync.model.RecordPatch>? = null
@@ -541,8 +605,12 @@ class AmazonCognitoSyncUpdateRecordsCommand(val identityPoolId: String, val iden
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cognito_sync.updateRecords(build())
+	override fun dryResult(): com.amazonaws.services.cognitosync.model.UpdateRecordsResult {
+	  return com.amazonaws.services.cognitosync.model.UpdateRecordsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cognitosync.model.UpdateRecordsResult {
+		return environment.cognito_sync.updateRecords(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

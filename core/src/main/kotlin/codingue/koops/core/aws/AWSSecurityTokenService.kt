@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.sts: AWSSecurityTokenService
 @Generated
 class AWSSecurityTokenServiceFunctions(val block: Block)
 
-infix fun AwsContinuation.sts(init: AWSSecurityTokenServiceFunctions.() -> Unit) {
-	AWSSecurityTokenServiceFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.sts(init: AWSSecurityTokenServiceFunctions.() -> T): T {
+	return AWSSecurityTokenServiceFunctions(shell).run(init)
 }
 
 			
 
-fun AWSSecurityTokenServiceFunctions.assumeRole(roleArn: String, roleSessionName: String, init: AWSSecurityTokenServiceAssumeRoleCommand.() -> Unit) {
-	this.block.declare(AWSSecurityTokenServiceAssumeRoleCommand(roleArn, roleSessionName).apply(init))
+fun AWSSecurityTokenServiceFunctions.assumeRole(roleArn: String, roleSessionName: String, init: AWSSecurityTokenServiceAssumeRoleCommand.() -> Unit): com.amazonaws.services.securitytoken.model.AssumeRoleResult {
+	return this.block.declare(AWSSecurityTokenServiceAssumeRoleCommand(roleArn, roleSessionName).apply(init)) as com.amazonaws.services.securitytoken.model.AssumeRoleResult
 }
 
 @Generated
-class AWSSecurityTokenServiceAssumeRoleCommand(val roleArn: String, val roleSessionName: String) : AmazonWebServiceCommand<com.amazonaws.services.securitytoken.model.AssumeRoleRequest> {
+class AWSSecurityTokenServiceAssumeRoleCommand(val roleArn: String, val roleSessionName: String) : AmazonWebServiceCommand<com.amazonaws.services.securitytoken.model.AssumeRoleRequest, com.amazonaws.services.securitytoken.model.AssumeRoleResult> {
 
 	var policy: String? = null
 	var durationSeconds: Int? = 0
@@ -51,8 +51,12 @@ class AWSSecurityTokenServiceAssumeRoleCommand(val roleArn: String, val roleSess
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sts.assumeRole(build())
+	override fun dryResult(): com.amazonaws.services.securitytoken.model.AssumeRoleResult {
+	  return com.amazonaws.services.securitytoken.model.AssumeRoleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.securitytoken.model.AssumeRoleResult {
+		return environment.sts.assumeRole(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -69,12 +73,12 @@ class AWSSecurityTokenServiceAssumeRoleCommand(val roleArn: String, val roleSess
 }
 
 
-fun AWSSecurityTokenServiceFunctions.assumeRoleWithSAML(roleArn: String, principalArn: String, sAMLAssertion: String, init: AWSSecurityTokenServiceAssumeRoleWithSAMLCommand.() -> Unit) {
-	this.block.declare(AWSSecurityTokenServiceAssumeRoleWithSAMLCommand(roleArn, principalArn, sAMLAssertion).apply(init))
+fun AWSSecurityTokenServiceFunctions.assumeRoleWithSAML(roleArn: String, principalArn: String, sAMLAssertion: String, init: AWSSecurityTokenServiceAssumeRoleWithSAMLCommand.() -> Unit): com.amazonaws.services.securitytoken.model.AssumeRoleWithSAMLResult {
+	return this.block.declare(AWSSecurityTokenServiceAssumeRoleWithSAMLCommand(roleArn, principalArn, sAMLAssertion).apply(init)) as com.amazonaws.services.securitytoken.model.AssumeRoleWithSAMLResult
 }
 
 @Generated
-class AWSSecurityTokenServiceAssumeRoleWithSAMLCommand(val roleArn: String, val principalArn: String, val sAMLAssertion: String) : AmazonWebServiceCommand<com.amazonaws.services.securitytoken.model.AssumeRoleWithSAMLRequest> {
+class AWSSecurityTokenServiceAssumeRoleWithSAMLCommand(val roleArn: String, val principalArn: String, val sAMLAssertion: String) : AmazonWebServiceCommand<com.amazonaws.services.securitytoken.model.AssumeRoleWithSAMLRequest, com.amazonaws.services.securitytoken.model.AssumeRoleWithSAMLResult> {
 
 	var policy: String? = null
 	var durationSeconds: Int? = 0
@@ -89,8 +93,12 @@ class AWSSecurityTokenServiceAssumeRoleWithSAMLCommand(val roleArn: String, val 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sts.assumeRoleWithSAML(build())
+	override fun dryResult(): com.amazonaws.services.securitytoken.model.AssumeRoleWithSAMLResult {
+	  return com.amazonaws.services.securitytoken.model.AssumeRoleWithSAMLResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.securitytoken.model.AssumeRoleWithSAMLResult {
+		return environment.sts.assumeRoleWithSAML(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -105,12 +113,12 @@ class AWSSecurityTokenServiceAssumeRoleWithSAMLCommand(val roleArn: String, val 
 }
 
 
-fun AWSSecurityTokenServiceFunctions.assumeRoleWithWebIdentity(roleArn: String, roleSessionName: String, webIdentityToken: String, init: AWSSecurityTokenServiceAssumeRoleWithWebIdentityCommand.() -> Unit) {
-	this.block.declare(AWSSecurityTokenServiceAssumeRoleWithWebIdentityCommand(roleArn, roleSessionName, webIdentityToken).apply(init))
+fun AWSSecurityTokenServiceFunctions.assumeRoleWithWebIdentity(roleArn: String, roleSessionName: String, webIdentityToken: String, init: AWSSecurityTokenServiceAssumeRoleWithWebIdentityCommand.() -> Unit): com.amazonaws.services.securitytoken.model.AssumeRoleWithWebIdentityResult {
+	return this.block.declare(AWSSecurityTokenServiceAssumeRoleWithWebIdentityCommand(roleArn, roleSessionName, webIdentityToken).apply(init)) as com.amazonaws.services.securitytoken.model.AssumeRoleWithWebIdentityResult
 }
 
 @Generated
-class AWSSecurityTokenServiceAssumeRoleWithWebIdentityCommand(val roleArn: String, val roleSessionName: String, val webIdentityToken: String) : AmazonWebServiceCommand<com.amazonaws.services.securitytoken.model.AssumeRoleWithWebIdentityRequest> {
+class AWSSecurityTokenServiceAssumeRoleWithWebIdentityCommand(val roleArn: String, val roleSessionName: String, val webIdentityToken: String) : AmazonWebServiceCommand<com.amazonaws.services.securitytoken.model.AssumeRoleWithWebIdentityRequest, com.amazonaws.services.securitytoken.model.AssumeRoleWithWebIdentityResult> {
 
 	var providerId: String? = null
 	var policy: String? = null
@@ -127,8 +135,12 @@ class AWSSecurityTokenServiceAssumeRoleWithWebIdentityCommand(val roleArn: Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sts.assumeRoleWithWebIdentity(build())
+	override fun dryResult(): com.amazonaws.services.securitytoken.model.AssumeRoleWithWebIdentityResult {
+	  return com.amazonaws.services.securitytoken.model.AssumeRoleWithWebIdentityResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.securitytoken.model.AssumeRoleWithWebIdentityResult {
+		return environment.sts.assumeRoleWithWebIdentity(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -144,12 +156,12 @@ class AWSSecurityTokenServiceAssumeRoleWithWebIdentityCommand(val roleArn: Strin
 }
 
 
-fun AWSSecurityTokenServiceFunctions.decodeAuthorizationMessage(encodedMessage: String, init: AWSSecurityTokenServiceDecodeAuthorizationMessageCommand.() -> Unit) {
-	this.block.declare(AWSSecurityTokenServiceDecodeAuthorizationMessageCommand(encodedMessage).apply(init))
+fun AWSSecurityTokenServiceFunctions.decodeAuthorizationMessage(encodedMessage: String, init: AWSSecurityTokenServiceDecodeAuthorizationMessageCommand.() -> Unit): com.amazonaws.services.securitytoken.model.DecodeAuthorizationMessageResult {
+	return this.block.declare(AWSSecurityTokenServiceDecodeAuthorizationMessageCommand(encodedMessage).apply(init)) as com.amazonaws.services.securitytoken.model.DecodeAuthorizationMessageResult
 }
 
 @Generated
-class AWSSecurityTokenServiceDecodeAuthorizationMessageCommand(val encodedMessage: String) : AmazonWebServiceCommand<com.amazonaws.services.securitytoken.model.DecodeAuthorizationMessageRequest> {
+class AWSSecurityTokenServiceDecodeAuthorizationMessageCommand(val encodedMessage: String) : AmazonWebServiceCommand<com.amazonaws.services.securitytoken.model.DecodeAuthorizationMessageRequest, com.amazonaws.services.securitytoken.model.DecodeAuthorizationMessageResult> {
 
 
 
@@ -159,8 +171,12 @@ class AWSSecurityTokenServiceDecodeAuthorizationMessageCommand(val encodedMessag
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sts.decodeAuthorizationMessage(build())
+	override fun dryResult(): com.amazonaws.services.securitytoken.model.DecodeAuthorizationMessageResult {
+	  return com.amazonaws.services.securitytoken.model.DecodeAuthorizationMessageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.securitytoken.model.DecodeAuthorizationMessageResult {
+		return environment.sts.decodeAuthorizationMessage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -171,12 +187,12 @@ class AWSSecurityTokenServiceDecodeAuthorizationMessageCommand(val encodedMessag
 }
 
 
-fun AWSSecurityTokenServiceFunctions.getCallerIdentity(init: AWSSecurityTokenServiceGetCallerIdentityCommand.() -> Unit) {
-	this.block.declare(AWSSecurityTokenServiceGetCallerIdentityCommand().apply(init))
+fun AWSSecurityTokenServiceFunctions.getCallerIdentity(init: AWSSecurityTokenServiceGetCallerIdentityCommand.() -> Unit): com.amazonaws.services.securitytoken.model.GetCallerIdentityResult {
+	return this.block.declare(AWSSecurityTokenServiceGetCallerIdentityCommand().apply(init)) as com.amazonaws.services.securitytoken.model.GetCallerIdentityResult
 }
 
 @Generated
-class AWSSecurityTokenServiceGetCallerIdentityCommand() : AmazonWebServiceCommand<com.amazonaws.services.securitytoken.model.GetCallerIdentityRequest> {
+class AWSSecurityTokenServiceGetCallerIdentityCommand() : AmazonWebServiceCommand<com.amazonaws.services.securitytoken.model.GetCallerIdentityRequest, com.amazonaws.services.securitytoken.model.GetCallerIdentityResult> {
 
 
 
@@ -186,8 +202,12 @@ class AWSSecurityTokenServiceGetCallerIdentityCommand() : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sts.getCallerIdentity(build())
+	override fun dryResult(): com.amazonaws.services.securitytoken.model.GetCallerIdentityResult {
+	  return com.amazonaws.services.securitytoken.model.GetCallerIdentityResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.securitytoken.model.GetCallerIdentityResult {
+		return environment.sts.getCallerIdentity(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -198,12 +218,12 @@ class AWSSecurityTokenServiceGetCallerIdentityCommand() : AmazonWebServiceComman
 }
 
 
-fun AWSSecurityTokenServiceFunctions.getFederationToken(name: String, init: AWSSecurityTokenServiceGetFederationTokenCommand.() -> Unit) {
-	this.block.declare(AWSSecurityTokenServiceGetFederationTokenCommand(name).apply(init))
+fun AWSSecurityTokenServiceFunctions.getFederationToken(name: String, init: AWSSecurityTokenServiceGetFederationTokenCommand.() -> Unit): com.amazonaws.services.securitytoken.model.GetFederationTokenResult {
+	return this.block.declare(AWSSecurityTokenServiceGetFederationTokenCommand(name).apply(init)) as com.amazonaws.services.securitytoken.model.GetFederationTokenResult
 }
 
 @Generated
-class AWSSecurityTokenServiceGetFederationTokenCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.securitytoken.model.GetFederationTokenRequest> {
+class AWSSecurityTokenServiceGetFederationTokenCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.securitytoken.model.GetFederationTokenRequest, com.amazonaws.services.securitytoken.model.GetFederationTokenResult> {
 
 	var policy: String? = null
 	var durationSeconds: Int? = 0
@@ -216,8 +236,12 @@ class AWSSecurityTokenServiceGetFederationTokenCommand(val name: String) : Amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sts.getFederationToken(build())
+	override fun dryResult(): com.amazonaws.services.securitytoken.model.GetFederationTokenResult {
+	  return com.amazonaws.services.securitytoken.model.GetFederationTokenResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.securitytoken.model.GetFederationTokenResult {
+		return environment.sts.getFederationToken(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -230,12 +254,12 @@ class AWSSecurityTokenServiceGetFederationTokenCommand(val name: String) : Amazo
 }
 
 
-fun AWSSecurityTokenServiceFunctions.getSessionToken(init: AWSSecurityTokenServiceGetSessionTokenCommand.() -> Unit) {
-	this.block.declare(AWSSecurityTokenServiceGetSessionTokenCommand().apply(init))
+fun AWSSecurityTokenServiceFunctions.getSessionToken(init: AWSSecurityTokenServiceGetSessionTokenCommand.() -> Unit): com.amazonaws.services.securitytoken.model.GetSessionTokenResult {
+	return this.block.declare(AWSSecurityTokenServiceGetSessionTokenCommand().apply(init)) as com.amazonaws.services.securitytoken.model.GetSessionTokenResult
 }
 
 @Generated
-class AWSSecurityTokenServiceGetSessionTokenCommand() : AmazonWebServiceCommand<com.amazonaws.services.securitytoken.model.GetSessionTokenRequest> {
+class AWSSecurityTokenServiceGetSessionTokenCommand() : AmazonWebServiceCommand<com.amazonaws.services.securitytoken.model.GetSessionTokenRequest, com.amazonaws.services.securitytoken.model.GetSessionTokenResult> {
 
 	var durationSeconds: Int? = 0
 	var serialNumber: String? = null
@@ -249,8 +273,12 @@ class AWSSecurityTokenServiceGetSessionTokenCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sts.getSessionToken(build())
+	override fun dryResult(): com.amazonaws.services.securitytoken.model.GetSessionTokenResult {
+	  return com.amazonaws.services.securitytoken.model.GetSessionTokenResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.securitytoken.model.GetSessionTokenResult {
+		return environment.sts.getSessionToken(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

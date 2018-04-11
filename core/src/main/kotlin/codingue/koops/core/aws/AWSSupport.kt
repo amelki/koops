@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.support: AWSSupport
 @Generated
 class AWSSupportFunctions(val block: Block)
 
-infix fun AwsContinuation.support(init: AWSSupportFunctions.() -> Unit) {
-	AWSSupportFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.support(init: AWSSupportFunctions.() -> T): T {
+	return AWSSupportFunctions(shell).run(init)
 }
 
 			
 
-fun AWSSupportFunctions.addAttachmentsToSet(init: AWSSupportAddAttachmentsToSetCommand.() -> Unit) {
-	this.block.declare(AWSSupportAddAttachmentsToSetCommand().apply(init))
+fun AWSSupportFunctions.addAttachmentsToSet(init: AWSSupportAddAttachmentsToSetCommand.() -> Unit): com.amazonaws.services.support.model.AddAttachmentsToSetResult {
+	return this.block.declare(AWSSupportAddAttachmentsToSetCommand().apply(init)) as com.amazonaws.services.support.model.AddAttachmentsToSetResult
 }
 
 @Generated
-class AWSSupportAddAttachmentsToSetCommand() : AmazonWebServiceCommand<com.amazonaws.services.support.model.AddAttachmentsToSetRequest> {
+class AWSSupportAddAttachmentsToSetCommand() : AmazonWebServiceCommand<com.amazonaws.services.support.model.AddAttachmentsToSetRequest, com.amazonaws.services.support.model.AddAttachmentsToSetResult> {
 
 	var attachmentSetId: String? = null
 	var attachments: List<com.amazonaws.services.support.model.Attachment>? = null
@@ -43,8 +43,12 @@ class AWSSupportAddAttachmentsToSetCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.support.addAttachmentsToSet(build())
+	override fun dryResult(): com.amazonaws.services.support.model.AddAttachmentsToSetResult {
+	  return com.amazonaws.services.support.model.AddAttachmentsToSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.support.model.AddAttachmentsToSetResult {
+		return environment.support.addAttachmentsToSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -56,12 +60,12 @@ class AWSSupportAddAttachmentsToSetCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AWSSupportFunctions.addCommunicationToCase(init: AWSSupportAddCommunicationToCaseCommand.() -> Unit) {
-	this.block.declare(AWSSupportAddCommunicationToCaseCommand().apply(init))
+fun AWSSupportFunctions.addCommunicationToCase(init: AWSSupportAddCommunicationToCaseCommand.() -> Unit): com.amazonaws.services.support.model.AddCommunicationToCaseResult {
+	return this.block.declare(AWSSupportAddCommunicationToCaseCommand().apply(init)) as com.amazonaws.services.support.model.AddCommunicationToCaseResult
 }
 
 @Generated
-class AWSSupportAddCommunicationToCaseCommand() : AmazonWebServiceCommand<com.amazonaws.services.support.model.AddCommunicationToCaseRequest> {
+class AWSSupportAddCommunicationToCaseCommand() : AmazonWebServiceCommand<com.amazonaws.services.support.model.AddCommunicationToCaseRequest, com.amazonaws.services.support.model.AddCommunicationToCaseResult> {
 
 	var caseId: String? = null
 	var communicationBody: String? = null
@@ -77,8 +81,12 @@ class AWSSupportAddCommunicationToCaseCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.support.addCommunicationToCase(build())
+	override fun dryResult(): com.amazonaws.services.support.model.AddCommunicationToCaseResult {
+	  return com.amazonaws.services.support.model.AddCommunicationToCaseResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.support.model.AddCommunicationToCaseResult {
+		return environment.support.addCommunicationToCase(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -92,12 +100,12 @@ class AWSSupportAddCommunicationToCaseCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AWSSupportFunctions.createCase(init: AWSSupportCreateCaseCommand.() -> Unit) {
-	this.block.declare(AWSSupportCreateCaseCommand().apply(init))
+fun AWSSupportFunctions.createCase(init: AWSSupportCreateCaseCommand.() -> Unit): com.amazonaws.services.support.model.CreateCaseResult {
+	return this.block.declare(AWSSupportCreateCaseCommand().apply(init)) as com.amazonaws.services.support.model.CreateCaseResult
 }
 
 @Generated
-class AWSSupportCreateCaseCommand() : AmazonWebServiceCommand<com.amazonaws.services.support.model.CreateCaseRequest> {
+class AWSSupportCreateCaseCommand() : AmazonWebServiceCommand<com.amazonaws.services.support.model.CreateCaseRequest, com.amazonaws.services.support.model.CreateCaseResult> {
 
 	var subject: String? = null
 	var serviceCode: String? = null
@@ -123,8 +131,12 @@ class AWSSupportCreateCaseCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.support.createCase(build())
+	override fun dryResult(): com.amazonaws.services.support.model.CreateCaseResult {
+	  return com.amazonaws.services.support.model.CreateCaseResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.support.model.CreateCaseResult {
+		return environment.support.createCase(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -143,12 +155,12 @@ class AWSSupportCreateCaseCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 }
 
 
-fun AWSSupportFunctions.describeAttachment(init: AWSSupportDescribeAttachmentCommand.() -> Unit) {
-	this.block.declare(AWSSupportDescribeAttachmentCommand().apply(init))
+fun AWSSupportFunctions.describeAttachment(init: AWSSupportDescribeAttachmentCommand.() -> Unit): com.amazonaws.services.support.model.DescribeAttachmentResult {
+	return this.block.declare(AWSSupportDescribeAttachmentCommand().apply(init)) as com.amazonaws.services.support.model.DescribeAttachmentResult
 }
 
 @Generated
-class AWSSupportDescribeAttachmentCommand() : AmazonWebServiceCommand<com.amazonaws.services.support.model.DescribeAttachmentRequest> {
+class AWSSupportDescribeAttachmentCommand() : AmazonWebServiceCommand<com.amazonaws.services.support.model.DescribeAttachmentRequest, com.amazonaws.services.support.model.DescribeAttachmentResult> {
 
 	var attachmentId: String? = null
 
@@ -158,8 +170,12 @@ class AWSSupportDescribeAttachmentCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.support.describeAttachment(build())
+	override fun dryResult(): com.amazonaws.services.support.model.DescribeAttachmentResult {
+	  return com.amazonaws.services.support.model.DescribeAttachmentResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.support.model.DescribeAttachmentResult {
+		return environment.support.describeAttachment(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -170,12 +186,12 @@ class AWSSupportDescribeAttachmentCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AWSSupportFunctions.describeCases(init: AWSSupportDescribeCasesCommand.() -> Unit) {
-	this.block.declare(AWSSupportDescribeCasesCommand().apply(init))
+fun AWSSupportFunctions.describeCases(init: AWSSupportDescribeCasesCommand.() -> Unit): com.amazonaws.services.support.model.DescribeCasesResult {
+	return this.block.declare(AWSSupportDescribeCasesCommand().apply(init)) as com.amazonaws.services.support.model.DescribeCasesResult
 }
 
 @Generated
-class AWSSupportDescribeCasesCommand() : AmazonWebServiceCommand<com.amazonaws.services.support.model.DescribeCasesRequest> {
+class AWSSupportDescribeCasesCommand() : AmazonWebServiceCommand<com.amazonaws.services.support.model.DescribeCasesRequest, com.amazonaws.services.support.model.DescribeCasesResult> {
 
 	var caseIdList: List<String>? = null
 	var displayId: String? = null
@@ -201,8 +217,12 @@ class AWSSupportDescribeCasesCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.support.describeCases(build())
+	override fun dryResult(): com.amazonaws.services.support.model.DescribeCasesResult {
+	  return com.amazonaws.services.support.model.DescribeCasesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.support.model.DescribeCasesResult {
+		return environment.support.describeCases(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -221,12 +241,12 @@ class AWSSupportDescribeCasesCommand() : AmazonWebServiceCommand<com.amazonaws.s
 }
 
 
-fun AWSSupportFunctions.describeCommunications(init: AWSSupportDescribeCommunicationsCommand.() -> Unit) {
-	this.block.declare(AWSSupportDescribeCommunicationsCommand().apply(init))
+fun AWSSupportFunctions.describeCommunications(init: AWSSupportDescribeCommunicationsCommand.() -> Unit): com.amazonaws.services.support.model.DescribeCommunicationsResult {
+	return this.block.declare(AWSSupportDescribeCommunicationsCommand().apply(init)) as com.amazonaws.services.support.model.DescribeCommunicationsResult
 }
 
 @Generated
-class AWSSupportDescribeCommunicationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.support.model.DescribeCommunicationsRequest> {
+class AWSSupportDescribeCommunicationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.support.model.DescribeCommunicationsRequest, com.amazonaws.services.support.model.DescribeCommunicationsResult> {
 
 	var caseId: String? = null
 	var beforeTime: String? = null
@@ -244,8 +264,12 @@ class AWSSupportDescribeCommunicationsCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.support.describeCommunications(build())
+	override fun dryResult(): com.amazonaws.services.support.model.DescribeCommunicationsResult {
+	  return com.amazonaws.services.support.model.DescribeCommunicationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.support.model.DescribeCommunicationsResult {
+		return environment.support.describeCommunications(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -260,12 +284,12 @@ class AWSSupportDescribeCommunicationsCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AWSSupportFunctions.describeServices(init: AWSSupportDescribeServicesCommand.() -> Unit) {
-	this.block.declare(AWSSupportDescribeServicesCommand().apply(init))
+fun AWSSupportFunctions.describeServices(init: AWSSupportDescribeServicesCommand.() -> Unit): com.amazonaws.services.support.model.DescribeServicesResult {
+	return this.block.declare(AWSSupportDescribeServicesCommand().apply(init)) as com.amazonaws.services.support.model.DescribeServicesResult
 }
 
 @Generated
-class AWSSupportDescribeServicesCommand() : AmazonWebServiceCommand<com.amazonaws.services.support.model.DescribeServicesRequest> {
+class AWSSupportDescribeServicesCommand() : AmazonWebServiceCommand<com.amazonaws.services.support.model.DescribeServicesRequest, com.amazonaws.services.support.model.DescribeServicesResult> {
 
 	var serviceCodeList: List<String>? = null
 	var language: String? = null
@@ -277,8 +301,12 @@ class AWSSupportDescribeServicesCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.support.describeServices(build())
+	override fun dryResult(): com.amazonaws.services.support.model.DescribeServicesResult {
+	  return com.amazonaws.services.support.model.DescribeServicesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.support.model.DescribeServicesResult {
+		return environment.support.describeServices(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -290,12 +318,12 @@ class AWSSupportDescribeServicesCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AWSSupportFunctions.describeSeverityLevels(init: AWSSupportDescribeSeverityLevelsCommand.() -> Unit) {
-	this.block.declare(AWSSupportDescribeSeverityLevelsCommand().apply(init))
+fun AWSSupportFunctions.describeSeverityLevels(init: AWSSupportDescribeSeverityLevelsCommand.() -> Unit): com.amazonaws.services.support.model.DescribeSeverityLevelsResult {
+	return this.block.declare(AWSSupportDescribeSeverityLevelsCommand().apply(init)) as com.amazonaws.services.support.model.DescribeSeverityLevelsResult
 }
 
 @Generated
-class AWSSupportDescribeSeverityLevelsCommand() : AmazonWebServiceCommand<com.amazonaws.services.support.model.DescribeSeverityLevelsRequest> {
+class AWSSupportDescribeSeverityLevelsCommand() : AmazonWebServiceCommand<com.amazonaws.services.support.model.DescribeSeverityLevelsRequest, com.amazonaws.services.support.model.DescribeSeverityLevelsResult> {
 
 	var language: String? = null
 
@@ -305,8 +333,12 @@ class AWSSupportDescribeSeverityLevelsCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.support.describeSeverityLevels(build())
+	override fun dryResult(): com.amazonaws.services.support.model.DescribeSeverityLevelsResult {
+	  return com.amazonaws.services.support.model.DescribeSeverityLevelsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.support.model.DescribeSeverityLevelsResult {
+		return environment.support.describeSeverityLevels(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -317,12 +349,12 @@ class AWSSupportDescribeSeverityLevelsCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AWSSupportFunctions.describeTrustedAdvisorCheckRefreshStatuses(init: AWSSupportDescribeTrustedAdvisorCheckRefreshStatusesCommand.() -> Unit) {
-	this.block.declare(AWSSupportDescribeTrustedAdvisorCheckRefreshStatusesCommand().apply(init))
+fun AWSSupportFunctions.describeTrustedAdvisorCheckRefreshStatuses(init: AWSSupportDescribeTrustedAdvisorCheckRefreshStatusesCommand.() -> Unit): com.amazonaws.services.support.model.DescribeTrustedAdvisorCheckRefreshStatusesResult {
+	return this.block.declare(AWSSupportDescribeTrustedAdvisorCheckRefreshStatusesCommand().apply(init)) as com.amazonaws.services.support.model.DescribeTrustedAdvisorCheckRefreshStatusesResult
 }
 
 @Generated
-class AWSSupportDescribeTrustedAdvisorCheckRefreshStatusesCommand() : AmazonWebServiceCommand<com.amazonaws.services.support.model.DescribeTrustedAdvisorCheckRefreshStatusesRequest> {
+class AWSSupportDescribeTrustedAdvisorCheckRefreshStatusesCommand() : AmazonWebServiceCommand<com.amazonaws.services.support.model.DescribeTrustedAdvisorCheckRefreshStatusesRequest, com.amazonaws.services.support.model.DescribeTrustedAdvisorCheckRefreshStatusesResult> {
 
 	var checkIds: List<String>? = null
 
@@ -332,8 +364,12 @@ class AWSSupportDescribeTrustedAdvisorCheckRefreshStatusesCommand() : AmazonWebS
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.support.describeTrustedAdvisorCheckRefreshStatuses(build())
+	override fun dryResult(): com.amazonaws.services.support.model.DescribeTrustedAdvisorCheckRefreshStatusesResult {
+	  return com.amazonaws.services.support.model.DescribeTrustedAdvisorCheckRefreshStatusesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.support.model.DescribeTrustedAdvisorCheckRefreshStatusesResult {
+		return environment.support.describeTrustedAdvisorCheckRefreshStatuses(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -344,12 +380,12 @@ class AWSSupportDescribeTrustedAdvisorCheckRefreshStatusesCommand() : AmazonWebS
 }
 
 
-fun AWSSupportFunctions.describeTrustedAdvisorCheckResult(init: AWSSupportDescribeTrustedAdvisorCheckResultCommand.() -> Unit) {
-	this.block.declare(AWSSupportDescribeTrustedAdvisorCheckResultCommand().apply(init))
+fun AWSSupportFunctions.describeTrustedAdvisorCheckResult(init: AWSSupportDescribeTrustedAdvisorCheckResultCommand.() -> Unit): com.amazonaws.services.support.model.DescribeTrustedAdvisorCheckResultResult {
+	return this.block.declare(AWSSupportDescribeTrustedAdvisorCheckResultCommand().apply(init)) as com.amazonaws.services.support.model.DescribeTrustedAdvisorCheckResultResult
 }
 
 @Generated
-class AWSSupportDescribeTrustedAdvisorCheckResultCommand() : AmazonWebServiceCommand<com.amazonaws.services.support.model.DescribeTrustedAdvisorCheckResultRequest> {
+class AWSSupportDescribeTrustedAdvisorCheckResultCommand() : AmazonWebServiceCommand<com.amazonaws.services.support.model.DescribeTrustedAdvisorCheckResultRequest, com.amazonaws.services.support.model.DescribeTrustedAdvisorCheckResultResult> {
 
 	var checkId: String? = null
 	var language: String? = null
@@ -361,8 +397,12 @@ class AWSSupportDescribeTrustedAdvisorCheckResultCommand() : AmazonWebServiceCom
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.support.describeTrustedAdvisorCheckResult(build())
+	override fun dryResult(): com.amazonaws.services.support.model.DescribeTrustedAdvisorCheckResultResult {
+	  return com.amazonaws.services.support.model.DescribeTrustedAdvisorCheckResultResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.support.model.DescribeTrustedAdvisorCheckResultResult {
+		return environment.support.describeTrustedAdvisorCheckResult(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -374,12 +414,12 @@ class AWSSupportDescribeTrustedAdvisorCheckResultCommand() : AmazonWebServiceCom
 }
 
 
-fun AWSSupportFunctions.describeTrustedAdvisorCheckSummaries(init: AWSSupportDescribeTrustedAdvisorCheckSummariesCommand.() -> Unit) {
-	this.block.declare(AWSSupportDescribeTrustedAdvisorCheckSummariesCommand().apply(init))
+fun AWSSupportFunctions.describeTrustedAdvisorCheckSummaries(init: AWSSupportDescribeTrustedAdvisorCheckSummariesCommand.() -> Unit): com.amazonaws.services.support.model.DescribeTrustedAdvisorCheckSummariesResult {
+	return this.block.declare(AWSSupportDescribeTrustedAdvisorCheckSummariesCommand().apply(init)) as com.amazonaws.services.support.model.DescribeTrustedAdvisorCheckSummariesResult
 }
 
 @Generated
-class AWSSupportDescribeTrustedAdvisorCheckSummariesCommand() : AmazonWebServiceCommand<com.amazonaws.services.support.model.DescribeTrustedAdvisorCheckSummariesRequest> {
+class AWSSupportDescribeTrustedAdvisorCheckSummariesCommand() : AmazonWebServiceCommand<com.amazonaws.services.support.model.DescribeTrustedAdvisorCheckSummariesRequest, com.amazonaws.services.support.model.DescribeTrustedAdvisorCheckSummariesResult> {
 
 	var checkIds: List<String>? = null
 
@@ -389,8 +429,12 @@ class AWSSupportDescribeTrustedAdvisorCheckSummariesCommand() : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.support.describeTrustedAdvisorCheckSummaries(build())
+	override fun dryResult(): com.amazonaws.services.support.model.DescribeTrustedAdvisorCheckSummariesResult {
+	  return com.amazonaws.services.support.model.DescribeTrustedAdvisorCheckSummariesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.support.model.DescribeTrustedAdvisorCheckSummariesResult {
+		return environment.support.describeTrustedAdvisorCheckSummaries(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -401,12 +445,12 @@ class AWSSupportDescribeTrustedAdvisorCheckSummariesCommand() : AmazonWebService
 }
 
 
-fun AWSSupportFunctions.describeTrustedAdvisorChecks(init: AWSSupportDescribeTrustedAdvisorChecksCommand.() -> Unit) {
-	this.block.declare(AWSSupportDescribeTrustedAdvisorChecksCommand().apply(init))
+fun AWSSupportFunctions.describeTrustedAdvisorChecks(init: AWSSupportDescribeTrustedAdvisorChecksCommand.() -> Unit): com.amazonaws.services.support.model.DescribeTrustedAdvisorChecksResult {
+	return this.block.declare(AWSSupportDescribeTrustedAdvisorChecksCommand().apply(init)) as com.amazonaws.services.support.model.DescribeTrustedAdvisorChecksResult
 }
 
 @Generated
-class AWSSupportDescribeTrustedAdvisorChecksCommand() : AmazonWebServiceCommand<com.amazonaws.services.support.model.DescribeTrustedAdvisorChecksRequest> {
+class AWSSupportDescribeTrustedAdvisorChecksCommand() : AmazonWebServiceCommand<com.amazonaws.services.support.model.DescribeTrustedAdvisorChecksRequest, com.amazonaws.services.support.model.DescribeTrustedAdvisorChecksResult> {
 
 	var language: String? = null
 
@@ -416,8 +460,12 @@ class AWSSupportDescribeTrustedAdvisorChecksCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.support.describeTrustedAdvisorChecks(build())
+	override fun dryResult(): com.amazonaws.services.support.model.DescribeTrustedAdvisorChecksResult {
+	  return com.amazonaws.services.support.model.DescribeTrustedAdvisorChecksResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.support.model.DescribeTrustedAdvisorChecksResult {
+		return environment.support.describeTrustedAdvisorChecks(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -428,12 +476,12 @@ class AWSSupportDescribeTrustedAdvisorChecksCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AWSSupportFunctions.refreshTrustedAdvisorCheck(init: AWSSupportRefreshTrustedAdvisorCheckCommand.() -> Unit) {
-	this.block.declare(AWSSupportRefreshTrustedAdvisorCheckCommand().apply(init))
+fun AWSSupportFunctions.refreshTrustedAdvisorCheck(init: AWSSupportRefreshTrustedAdvisorCheckCommand.() -> Unit): com.amazonaws.services.support.model.RefreshTrustedAdvisorCheckResult {
+	return this.block.declare(AWSSupportRefreshTrustedAdvisorCheckCommand().apply(init)) as com.amazonaws.services.support.model.RefreshTrustedAdvisorCheckResult
 }
 
 @Generated
-class AWSSupportRefreshTrustedAdvisorCheckCommand() : AmazonWebServiceCommand<com.amazonaws.services.support.model.RefreshTrustedAdvisorCheckRequest> {
+class AWSSupportRefreshTrustedAdvisorCheckCommand() : AmazonWebServiceCommand<com.amazonaws.services.support.model.RefreshTrustedAdvisorCheckRequest, com.amazonaws.services.support.model.RefreshTrustedAdvisorCheckResult> {
 
 	var checkId: String? = null
 
@@ -443,8 +491,12 @@ class AWSSupportRefreshTrustedAdvisorCheckCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.support.refreshTrustedAdvisorCheck(build())
+	override fun dryResult(): com.amazonaws.services.support.model.RefreshTrustedAdvisorCheckResult {
+	  return com.amazonaws.services.support.model.RefreshTrustedAdvisorCheckResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.support.model.RefreshTrustedAdvisorCheckResult {
+		return environment.support.refreshTrustedAdvisorCheck(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -455,12 +507,12 @@ class AWSSupportRefreshTrustedAdvisorCheckCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AWSSupportFunctions.resolveCase(init: AWSSupportResolveCaseCommand.() -> Unit) {
-	this.block.declare(AWSSupportResolveCaseCommand().apply(init))
+fun AWSSupportFunctions.resolveCase(init: AWSSupportResolveCaseCommand.() -> Unit): com.amazonaws.services.support.model.ResolveCaseResult {
+	return this.block.declare(AWSSupportResolveCaseCommand().apply(init)) as com.amazonaws.services.support.model.ResolveCaseResult
 }
 
 @Generated
-class AWSSupportResolveCaseCommand() : AmazonWebServiceCommand<com.amazonaws.services.support.model.ResolveCaseRequest> {
+class AWSSupportResolveCaseCommand() : AmazonWebServiceCommand<com.amazonaws.services.support.model.ResolveCaseRequest, com.amazonaws.services.support.model.ResolveCaseResult> {
 
 	var caseId: String? = null
 
@@ -470,8 +522,12 @@ class AWSSupportResolveCaseCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.support.resolveCase(build())
+	override fun dryResult(): com.amazonaws.services.support.model.ResolveCaseResult {
+	  return com.amazonaws.services.support.model.ResolveCaseResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.support.model.ResolveCaseResult {
+		return environment.support.resolveCase(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

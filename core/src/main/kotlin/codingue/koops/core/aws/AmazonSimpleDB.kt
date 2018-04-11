@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.sdb: AmazonSimpleDB
 @Generated
 class AmazonSimpleDBFunctions(val block: Block)
 
-infix fun AwsContinuation.sdb(init: AmazonSimpleDBFunctions.() -> Unit) {
-	AmazonSimpleDBFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.sdb(init: AmazonSimpleDBFunctions.() -> T): T {
+	return AmazonSimpleDBFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonSimpleDBFunctions.batchDeleteAttributes(domainName: String, items: List<com.amazonaws.services.simpledb.model.DeletableItem>, init: AmazonSimpleDBBatchDeleteAttributesCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleDBBatchDeleteAttributesCommand(domainName, items).apply(init))
+fun AmazonSimpleDBFunctions.batchDeleteAttributes(domainName: String, items: List<com.amazonaws.services.simpledb.model.DeletableItem>, init: AmazonSimpleDBBatchDeleteAttributesCommand.() -> Unit): com.amazonaws.services.simpledb.model.BatchDeleteAttributesResult {
+	return this.block.declare(AmazonSimpleDBBatchDeleteAttributesCommand(domainName, items).apply(init)) as com.amazonaws.services.simpledb.model.BatchDeleteAttributesResult
 }
 
 @Generated
-class AmazonSimpleDBBatchDeleteAttributesCommand(val domainName: String, val items: List<com.amazonaws.services.simpledb.model.DeletableItem>) : AmazonWebServiceCommand<com.amazonaws.services.simpledb.model.BatchDeleteAttributesRequest> {
+class AmazonSimpleDBBatchDeleteAttributesCommand(val domainName: String, val items: List<com.amazonaws.services.simpledb.model.DeletableItem>) : AmazonWebServiceCommand<com.amazonaws.services.simpledb.model.BatchDeleteAttributesRequest, com.amazonaws.services.simpledb.model.BatchDeleteAttributesResult> {
 
 
 
@@ -42,8 +42,12 @@ class AmazonSimpleDBBatchDeleteAttributesCommand(val domainName: String, val ite
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sdb.batchDeleteAttributes(build())
+	override fun dryResult(): com.amazonaws.services.simpledb.model.BatchDeleteAttributesResult {
+	  return com.amazonaws.services.simpledb.model.BatchDeleteAttributesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpledb.model.BatchDeleteAttributesResult {
+		return environment.sdb.batchDeleteAttributes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -55,12 +59,12 @@ class AmazonSimpleDBBatchDeleteAttributesCommand(val domainName: String, val ite
 }
 
 
-fun AmazonSimpleDBFunctions.batchPutAttributes(domainName: String, items: List<com.amazonaws.services.simpledb.model.ReplaceableItem>, init: AmazonSimpleDBBatchPutAttributesCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleDBBatchPutAttributesCommand(domainName, items).apply(init))
+fun AmazonSimpleDBFunctions.batchPutAttributes(domainName: String, items: List<com.amazonaws.services.simpledb.model.ReplaceableItem>, init: AmazonSimpleDBBatchPutAttributesCommand.() -> Unit): com.amazonaws.services.simpledb.model.BatchPutAttributesResult {
+	return this.block.declare(AmazonSimpleDBBatchPutAttributesCommand(domainName, items).apply(init)) as com.amazonaws.services.simpledb.model.BatchPutAttributesResult
 }
 
 @Generated
-class AmazonSimpleDBBatchPutAttributesCommand(val domainName: String, val items: List<com.amazonaws.services.simpledb.model.ReplaceableItem>) : AmazonWebServiceCommand<com.amazonaws.services.simpledb.model.BatchPutAttributesRequest> {
+class AmazonSimpleDBBatchPutAttributesCommand(val domainName: String, val items: List<com.amazonaws.services.simpledb.model.ReplaceableItem>) : AmazonWebServiceCommand<com.amazonaws.services.simpledb.model.BatchPutAttributesRequest, com.amazonaws.services.simpledb.model.BatchPutAttributesResult> {
 
 
 
@@ -71,8 +75,12 @@ class AmazonSimpleDBBatchPutAttributesCommand(val domainName: String, val items:
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sdb.batchPutAttributes(build())
+	override fun dryResult(): com.amazonaws.services.simpledb.model.BatchPutAttributesResult {
+	  return com.amazonaws.services.simpledb.model.BatchPutAttributesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpledb.model.BatchPutAttributesResult {
+		return environment.sdb.batchPutAttributes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -84,12 +92,12 @@ class AmazonSimpleDBBatchPutAttributesCommand(val domainName: String, val items:
 }
 
 
-fun AmazonSimpleDBFunctions.createDomain(domainName: String, init: AmazonSimpleDBCreateDomainCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleDBCreateDomainCommand(domainName).apply(init))
+fun AmazonSimpleDBFunctions.createDomain(domainName: String, init: AmazonSimpleDBCreateDomainCommand.() -> Unit): com.amazonaws.services.simpledb.model.CreateDomainResult {
+	return this.block.declare(AmazonSimpleDBCreateDomainCommand(domainName).apply(init)) as com.amazonaws.services.simpledb.model.CreateDomainResult
 }
 
 @Generated
-class AmazonSimpleDBCreateDomainCommand(val domainName: String) : AmazonWebServiceCommand<com.amazonaws.services.simpledb.model.CreateDomainRequest> {
+class AmazonSimpleDBCreateDomainCommand(val domainName: String) : AmazonWebServiceCommand<com.amazonaws.services.simpledb.model.CreateDomainRequest, com.amazonaws.services.simpledb.model.CreateDomainResult> {
 
 
 
@@ -99,8 +107,12 @@ class AmazonSimpleDBCreateDomainCommand(val domainName: String) : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sdb.createDomain(build())
+	override fun dryResult(): com.amazonaws.services.simpledb.model.CreateDomainResult {
+	  return com.amazonaws.services.simpledb.model.CreateDomainResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpledb.model.CreateDomainResult {
+		return environment.sdb.createDomain(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -111,12 +123,12 @@ class AmazonSimpleDBCreateDomainCommand(val domainName: String) : AmazonWebServi
 }
 
 
-fun AmazonSimpleDBFunctions.deleteAttributes(domainName: String, itemName: String, init: AmazonSimpleDBDeleteAttributesCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleDBDeleteAttributesCommand(domainName, itemName).apply(init))
+fun AmazonSimpleDBFunctions.deleteAttributes(domainName: String, itemName: String, init: AmazonSimpleDBDeleteAttributesCommand.() -> Unit): com.amazonaws.services.simpledb.model.DeleteAttributesResult {
+	return this.block.declare(AmazonSimpleDBDeleteAttributesCommand(domainName, itemName).apply(init)) as com.amazonaws.services.simpledb.model.DeleteAttributesResult
 }
 
 @Generated
-class AmazonSimpleDBDeleteAttributesCommand(val domainName: String, val itemName: String) : AmazonWebServiceCommand<com.amazonaws.services.simpledb.model.DeleteAttributesRequest> {
+class AmazonSimpleDBDeleteAttributesCommand(val domainName: String, val itemName: String) : AmazonWebServiceCommand<com.amazonaws.services.simpledb.model.DeleteAttributesRequest, com.amazonaws.services.simpledb.model.DeleteAttributesResult> {
 
 	var attributes: List<com.amazonaws.services.simpledb.model.Attribute>? = null
 	var expected: com.amazonaws.services.simpledb.model.UpdateCondition? = null
@@ -130,8 +142,12 @@ class AmazonSimpleDBDeleteAttributesCommand(val domainName: String, val itemName
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sdb.deleteAttributes(build())
+	override fun dryResult(): com.amazonaws.services.simpledb.model.DeleteAttributesResult {
+	  return com.amazonaws.services.simpledb.model.DeleteAttributesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpledb.model.DeleteAttributesResult {
+		return environment.sdb.deleteAttributes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -145,12 +161,12 @@ class AmazonSimpleDBDeleteAttributesCommand(val domainName: String, val itemName
 }
 
 
-fun AmazonSimpleDBFunctions.deleteDomain(domainName: String, init: AmazonSimpleDBDeleteDomainCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleDBDeleteDomainCommand(domainName).apply(init))
+fun AmazonSimpleDBFunctions.deleteDomain(domainName: String, init: AmazonSimpleDBDeleteDomainCommand.() -> Unit): com.amazonaws.services.simpledb.model.DeleteDomainResult {
+	return this.block.declare(AmazonSimpleDBDeleteDomainCommand(domainName).apply(init)) as com.amazonaws.services.simpledb.model.DeleteDomainResult
 }
 
 @Generated
-class AmazonSimpleDBDeleteDomainCommand(val domainName: String) : AmazonWebServiceCommand<com.amazonaws.services.simpledb.model.DeleteDomainRequest> {
+class AmazonSimpleDBDeleteDomainCommand(val domainName: String) : AmazonWebServiceCommand<com.amazonaws.services.simpledb.model.DeleteDomainRequest, com.amazonaws.services.simpledb.model.DeleteDomainResult> {
 
 
 
@@ -160,8 +176,12 @@ class AmazonSimpleDBDeleteDomainCommand(val domainName: String) : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sdb.deleteDomain(build())
+	override fun dryResult(): com.amazonaws.services.simpledb.model.DeleteDomainResult {
+	  return com.amazonaws.services.simpledb.model.DeleteDomainResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpledb.model.DeleteDomainResult {
+		return environment.sdb.deleteDomain(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -172,12 +192,12 @@ class AmazonSimpleDBDeleteDomainCommand(val domainName: String) : AmazonWebServi
 }
 
 
-fun AmazonSimpleDBFunctions.domainMetadata(domainName: String, init: AmazonSimpleDBDomainMetadataCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleDBDomainMetadataCommand(domainName).apply(init))
+fun AmazonSimpleDBFunctions.domainMetadata(domainName: String, init: AmazonSimpleDBDomainMetadataCommand.() -> Unit): com.amazonaws.services.simpledb.model.DomainMetadataResult {
+	return this.block.declare(AmazonSimpleDBDomainMetadataCommand(domainName).apply(init)) as com.amazonaws.services.simpledb.model.DomainMetadataResult
 }
 
 @Generated
-class AmazonSimpleDBDomainMetadataCommand(val domainName: String) : AmazonWebServiceCommand<com.amazonaws.services.simpledb.model.DomainMetadataRequest> {
+class AmazonSimpleDBDomainMetadataCommand(val domainName: String) : AmazonWebServiceCommand<com.amazonaws.services.simpledb.model.DomainMetadataRequest, com.amazonaws.services.simpledb.model.DomainMetadataResult> {
 
 
 
@@ -187,8 +207,12 @@ class AmazonSimpleDBDomainMetadataCommand(val domainName: String) : AmazonWebSer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sdb.domainMetadata(build())
+	override fun dryResult(): com.amazonaws.services.simpledb.model.DomainMetadataResult {
+	  return com.amazonaws.services.simpledb.model.DomainMetadataResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpledb.model.DomainMetadataResult {
+		return environment.sdb.domainMetadata(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -199,12 +223,12 @@ class AmazonSimpleDBDomainMetadataCommand(val domainName: String) : AmazonWebSer
 }
 
 
-fun AmazonSimpleDBFunctions.getAttributes(domainName: String, itemName: String, init: AmazonSimpleDBGetAttributesCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleDBGetAttributesCommand(domainName, itemName).apply(init))
+fun AmazonSimpleDBFunctions.getAttributes(domainName: String, itemName: String, init: AmazonSimpleDBGetAttributesCommand.() -> Unit): com.amazonaws.services.simpledb.model.GetAttributesResult {
+	return this.block.declare(AmazonSimpleDBGetAttributesCommand(domainName, itemName).apply(init)) as com.amazonaws.services.simpledb.model.GetAttributesResult
 }
 
 @Generated
-class AmazonSimpleDBGetAttributesCommand(val domainName: String, val itemName: String) : AmazonWebServiceCommand<com.amazonaws.services.simpledb.model.GetAttributesRequest> {
+class AmazonSimpleDBGetAttributesCommand(val domainName: String, val itemName: String) : AmazonWebServiceCommand<com.amazonaws.services.simpledb.model.GetAttributesRequest, com.amazonaws.services.simpledb.model.GetAttributesResult> {
 
 	var attributeNames: List<String>? = null
 	var consistentRead: Boolean? = false
@@ -218,8 +242,12 @@ class AmazonSimpleDBGetAttributesCommand(val domainName: String, val itemName: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sdb.getAttributes(build())
+	override fun dryResult(): com.amazonaws.services.simpledb.model.GetAttributesResult {
+	  return com.amazonaws.services.simpledb.model.GetAttributesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpledb.model.GetAttributesResult {
+		return environment.sdb.getAttributes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -233,12 +261,12 @@ class AmazonSimpleDBGetAttributesCommand(val domainName: String, val itemName: S
 }
 
 
-fun AmazonSimpleDBFunctions.listDomains(init: AmazonSimpleDBListDomainsCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleDBListDomainsCommand().apply(init))
+fun AmazonSimpleDBFunctions.listDomains(init: AmazonSimpleDBListDomainsCommand.() -> Unit): com.amazonaws.services.simpledb.model.ListDomainsResult {
+	return this.block.declare(AmazonSimpleDBListDomainsCommand().apply(init)) as com.amazonaws.services.simpledb.model.ListDomainsResult
 }
 
 @Generated
-class AmazonSimpleDBListDomainsCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpledb.model.ListDomainsRequest> {
+class AmazonSimpleDBListDomainsCommand() : AmazonWebServiceCommand<com.amazonaws.services.simpledb.model.ListDomainsRequest, com.amazonaws.services.simpledb.model.ListDomainsResult> {
 
 	var maxNumberOfDomains: Int? = 0
 	var nextToken: String? = null
@@ -250,8 +278,12 @@ class AmazonSimpleDBListDomainsCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sdb.listDomains(build())
+	override fun dryResult(): com.amazonaws.services.simpledb.model.ListDomainsResult {
+	  return com.amazonaws.services.simpledb.model.ListDomainsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpledb.model.ListDomainsResult {
+		return environment.sdb.listDomains(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -263,12 +295,12 @@ class AmazonSimpleDBListDomainsCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AmazonSimpleDBFunctions.putAttributes(domainName: String, itemName: String, attributes: List<com.amazonaws.services.simpledb.model.ReplaceableAttribute>, init: AmazonSimpleDBPutAttributesCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleDBPutAttributesCommand(domainName, itemName, attributes).apply(init))
+fun AmazonSimpleDBFunctions.putAttributes(domainName: String, itemName: String, attributes: List<com.amazonaws.services.simpledb.model.ReplaceableAttribute>, init: AmazonSimpleDBPutAttributesCommand.() -> Unit): com.amazonaws.services.simpledb.model.PutAttributesResult {
+	return this.block.declare(AmazonSimpleDBPutAttributesCommand(domainName, itemName, attributes).apply(init)) as com.amazonaws.services.simpledb.model.PutAttributesResult
 }
 
 @Generated
-class AmazonSimpleDBPutAttributesCommand(val domainName: String, val itemName: String, val attributes: List<com.amazonaws.services.simpledb.model.ReplaceableAttribute>) : AmazonWebServiceCommand<com.amazonaws.services.simpledb.model.PutAttributesRequest> {
+class AmazonSimpleDBPutAttributesCommand(val domainName: String, val itemName: String, val attributes: List<com.amazonaws.services.simpledb.model.ReplaceableAttribute>) : AmazonWebServiceCommand<com.amazonaws.services.simpledb.model.PutAttributesRequest, com.amazonaws.services.simpledb.model.PutAttributesResult> {
 
 	var expected: com.amazonaws.services.simpledb.model.UpdateCondition? = null
 
@@ -281,8 +313,12 @@ class AmazonSimpleDBPutAttributesCommand(val domainName: String, val itemName: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sdb.putAttributes(build())
+	override fun dryResult(): com.amazonaws.services.simpledb.model.PutAttributesResult {
+	  return com.amazonaws.services.simpledb.model.PutAttributesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpledb.model.PutAttributesResult {
+		return environment.sdb.putAttributes(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -296,12 +332,12 @@ class AmazonSimpleDBPutAttributesCommand(val domainName: String, val itemName: S
 }
 
 
-fun AmazonSimpleDBFunctions.select(selectExpression: String, init: AmazonSimpleDBSelectCommand.() -> Unit) {
-	this.block.declare(AmazonSimpleDBSelectCommand(selectExpression).apply(init))
+fun AmazonSimpleDBFunctions.select(selectExpression: String, init: AmazonSimpleDBSelectCommand.() -> Unit): com.amazonaws.services.simpledb.model.SelectResult {
+	return this.block.declare(AmazonSimpleDBSelectCommand(selectExpression).apply(init)) as com.amazonaws.services.simpledb.model.SelectResult
 }
 
 @Generated
-class AmazonSimpleDBSelectCommand(val selectExpression: String) : AmazonWebServiceCommand<com.amazonaws.services.simpledb.model.SelectRequest> {
+class AmazonSimpleDBSelectCommand(val selectExpression: String) : AmazonWebServiceCommand<com.amazonaws.services.simpledb.model.SelectRequest, com.amazonaws.services.simpledb.model.SelectResult> {
 
 	var nextToken: String? = null
 	var consistentRead: Boolean? = false
@@ -314,8 +350,12 @@ class AmazonSimpleDBSelectCommand(val selectExpression: String) : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sdb.select(build())
+	override fun dryResult(): com.amazonaws.services.simpledb.model.SelectResult {
+	  return com.amazonaws.services.simpledb.model.SelectResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.simpledb.model.SelectResult {
+		return environment.sdb.select(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

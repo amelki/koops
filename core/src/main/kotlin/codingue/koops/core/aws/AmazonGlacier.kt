@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.glacier: AmazonGlacier
 @Generated
 class AmazonGlacierFunctions(val block: Block)
 
-infix fun AwsContinuation.glacier(init: AmazonGlacierFunctions.() -> Unit) {
-	AmazonGlacierFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.glacier(init: AmazonGlacierFunctions.() -> T): T {
+	return AmazonGlacierFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonGlacierFunctions.abortMultipartUpload(init: AmazonGlacierAbortMultipartUploadCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierAbortMultipartUploadCommand().apply(init))
+fun AmazonGlacierFunctions.abortMultipartUpload(init: AmazonGlacierAbortMultipartUploadCommand.() -> Unit): com.amazonaws.services.glacier.model.AbortMultipartUploadResult {
+	return this.block.declare(AmazonGlacierAbortMultipartUploadCommand().apply(init)) as com.amazonaws.services.glacier.model.AbortMultipartUploadResult
 }
 
 @Generated
-class AmazonGlacierAbortMultipartUploadCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.AbortMultipartUploadRequest> {
+class AmazonGlacierAbortMultipartUploadCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.AbortMultipartUploadRequest, com.amazonaws.services.glacier.model.AbortMultipartUploadResult> {
 
 	var accountId: String? = null
 	var vaultName: String? = null
@@ -45,8 +45,12 @@ class AmazonGlacierAbortMultipartUploadCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.abortMultipartUpload(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.AbortMultipartUploadResult {
+	  return com.amazonaws.services.glacier.model.AbortMultipartUploadResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.AbortMultipartUploadResult {
+		return environment.glacier.abortMultipartUpload(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -59,12 +63,12 @@ class AmazonGlacierAbortMultipartUploadCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AmazonGlacierFunctions.abortVaultLock(init: AmazonGlacierAbortVaultLockCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierAbortVaultLockCommand().apply(init))
+fun AmazonGlacierFunctions.abortVaultLock(init: AmazonGlacierAbortVaultLockCommand.() -> Unit): com.amazonaws.services.glacier.model.AbortVaultLockResult {
+	return this.block.declare(AmazonGlacierAbortVaultLockCommand().apply(init)) as com.amazonaws.services.glacier.model.AbortVaultLockResult
 }
 
 @Generated
-class AmazonGlacierAbortVaultLockCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.AbortVaultLockRequest> {
+class AmazonGlacierAbortVaultLockCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.AbortVaultLockRequest, com.amazonaws.services.glacier.model.AbortVaultLockResult> {
 
 	var accountId: String? = null
 	var vaultName: String? = null
@@ -76,8 +80,12 @@ class AmazonGlacierAbortVaultLockCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.abortVaultLock(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.AbortVaultLockResult {
+	  return com.amazonaws.services.glacier.model.AbortVaultLockResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.AbortVaultLockResult {
+		return environment.glacier.abortVaultLock(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -89,12 +97,12 @@ class AmazonGlacierAbortVaultLockCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AmazonGlacierFunctions.addTagsToVault(init: AmazonGlacierAddTagsToVaultCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierAddTagsToVaultCommand().apply(init))
+fun AmazonGlacierFunctions.addTagsToVault(init: AmazonGlacierAddTagsToVaultCommand.() -> Unit): com.amazonaws.services.glacier.model.AddTagsToVaultResult {
+	return this.block.declare(AmazonGlacierAddTagsToVaultCommand().apply(init)) as com.amazonaws.services.glacier.model.AddTagsToVaultResult
 }
 
 @Generated
-class AmazonGlacierAddTagsToVaultCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.AddTagsToVaultRequest> {
+class AmazonGlacierAddTagsToVaultCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.AddTagsToVaultRequest, com.amazonaws.services.glacier.model.AddTagsToVaultResult> {
 
 	var accountId: String? = null
 	var vaultName: String? = null
@@ -108,8 +116,12 @@ class AmazonGlacierAddTagsToVaultCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.addTagsToVault(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.AddTagsToVaultResult {
+	  return com.amazonaws.services.glacier.model.AddTagsToVaultResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.AddTagsToVaultResult {
+		return environment.glacier.addTagsToVault(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -122,12 +134,12 @@ class AmazonGlacierAddTagsToVaultCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AmazonGlacierFunctions.completeMultipartUpload(init: AmazonGlacierCompleteMultipartUploadCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierCompleteMultipartUploadCommand().apply(init))
+fun AmazonGlacierFunctions.completeMultipartUpload(init: AmazonGlacierCompleteMultipartUploadCommand.() -> Unit): com.amazonaws.services.glacier.model.CompleteMultipartUploadResult {
+	return this.block.declare(AmazonGlacierCompleteMultipartUploadCommand().apply(init)) as com.amazonaws.services.glacier.model.CompleteMultipartUploadResult
 }
 
 @Generated
-class AmazonGlacierCompleteMultipartUploadCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.CompleteMultipartUploadRequest> {
+class AmazonGlacierCompleteMultipartUploadCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.CompleteMultipartUploadRequest, com.amazonaws.services.glacier.model.CompleteMultipartUploadResult> {
 
 	var accountId: String? = null
 	var vaultName: String? = null
@@ -145,8 +157,12 @@ class AmazonGlacierCompleteMultipartUploadCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.completeMultipartUpload(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.CompleteMultipartUploadResult {
+	  return com.amazonaws.services.glacier.model.CompleteMultipartUploadResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.CompleteMultipartUploadResult {
+		return environment.glacier.completeMultipartUpload(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -161,12 +177,12 @@ class AmazonGlacierCompleteMultipartUploadCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonGlacierFunctions.completeVaultLock(init: AmazonGlacierCompleteVaultLockCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierCompleteVaultLockCommand().apply(init))
+fun AmazonGlacierFunctions.completeVaultLock(init: AmazonGlacierCompleteVaultLockCommand.() -> Unit): com.amazonaws.services.glacier.model.CompleteVaultLockResult {
+	return this.block.declare(AmazonGlacierCompleteVaultLockCommand().apply(init)) as com.amazonaws.services.glacier.model.CompleteVaultLockResult
 }
 
 @Generated
-class AmazonGlacierCompleteVaultLockCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.CompleteVaultLockRequest> {
+class AmazonGlacierCompleteVaultLockCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.CompleteVaultLockRequest, com.amazonaws.services.glacier.model.CompleteVaultLockResult> {
 
 	var accountId: String? = null
 	var vaultName: String? = null
@@ -180,8 +196,12 @@ class AmazonGlacierCompleteVaultLockCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.completeVaultLock(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.CompleteVaultLockResult {
+	  return com.amazonaws.services.glacier.model.CompleteVaultLockResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.CompleteVaultLockResult {
+		return environment.glacier.completeVaultLock(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -194,12 +214,12 @@ class AmazonGlacierCompleteVaultLockCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AmazonGlacierFunctions.createVault(init: AmazonGlacierCreateVaultCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierCreateVaultCommand().apply(init))
+fun AmazonGlacierFunctions.createVault(init: AmazonGlacierCreateVaultCommand.() -> Unit): com.amazonaws.services.glacier.model.CreateVaultResult {
+	return this.block.declare(AmazonGlacierCreateVaultCommand().apply(init)) as com.amazonaws.services.glacier.model.CreateVaultResult
 }
 
 @Generated
-class AmazonGlacierCreateVaultCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.CreateVaultRequest> {
+class AmazonGlacierCreateVaultCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.CreateVaultRequest, com.amazonaws.services.glacier.model.CreateVaultResult> {
 
 	var accountId: String? = null
 	var vaultName: String? = null
@@ -211,8 +231,12 @@ class AmazonGlacierCreateVaultCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.createVault(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.CreateVaultResult {
+	  return com.amazonaws.services.glacier.model.CreateVaultResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.CreateVaultResult {
+		return environment.glacier.createVault(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -224,12 +248,12 @@ class AmazonGlacierCreateVaultCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AmazonGlacierFunctions.deleteArchive(init: AmazonGlacierDeleteArchiveCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierDeleteArchiveCommand().apply(init))
+fun AmazonGlacierFunctions.deleteArchive(init: AmazonGlacierDeleteArchiveCommand.() -> Unit): com.amazonaws.services.glacier.model.DeleteArchiveResult {
+	return this.block.declare(AmazonGlacierDeleteArchiveCommand().apply(init)) as com.amazonaws.services.glacier.model.DeleteArchiveResult
 }
 
 @Generated
-class AmazonGlacierDeleteArchiveCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.DeleteArchiveRequest> {
+class AmazonGlacierDeleteArchiveCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.DeleteArchiveRequest, com.amazonaws.services.glacier.model.DeleteArchiveResult> {
 
 	var accountId: String? = null
 	var vaultName: String? = null
@@ -243,8 +267,12 @@ class AmazonGlacierDeleteArchiveCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.deleteArchive(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.DeleteArchiveResult {
+	  return com.amazonaws.services.glacier.model.DeleteArchiveResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.DeleteArchiveResult {
+		return environment.glacier.deleteArchive(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -257,12 +285,12 @@ class AmazonGlacierDeleteArchiveCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AmazonGlacierFunctions.deleteVault(init: AmazonGlacierDeleteVaultCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierDeleteVaultCommand().apply(init))
+fun AmazonGlacierFunctions.deleteVault(init: AmazonGlacierDeleteVaultCommand.() -> Unit): com.amazonaws.services.glacier.model.DeleteVaultResult {
+	return this.block.declare(AmazonGlacierDeleteVaultCommand().apply(init)) as com.amazonaws.services.glacier.model.DeleteVaultResult
 }
 
 @Generated
-class AmazonGlacierDeleteVaultCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.DeleteVaultRequest> {
+class AmazonGlacierDeleteVaultCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.DeleteVaultRequest, com.amazonaws.services.glacier.model.DeleteVaultResult> {
 
 	var accountId: String? = null
 	var vaultName: String? = null
@@ -274,8 +302,12 @@ class AmazonGlacierDeleteVaultCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.deleteVault(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.DeleteVaultResult {
+	  return com.amazonaws.services.glacier.model.DeleteVaultResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.DeleteVaultResult {
+		return environment.glacier.deleteVault(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -287,12 +319,12 @@ class AmazonGlacierDeleteVaultCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AmazonGlacierFunctions.deleteVaultAccessPolicy(init: AmazonGlacierDeleteVaultAccessPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierDeleteVaultAccessPolicyCommand().apply(init))
+fun AmazonGlacierFunctions.deleteVaultAccessPolicy(init: AmazonGlacierDeleteVaultAccessPolicyCommand.() -> Unit): com.amazonaws.services.glacier.model.DeleteVaultAccessPolicyResult {
+	return this.block.declare(AmazonGlacierDeleteVaultAccessPolicyCommand().apply(init)) as com.amazonaws.services.glacier.model.DeleteVaultAccessPolicyResult
 }
 
 @Generated
-class AmazonGlacierDeleteVaultAccessPolicyCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.DeleteVaultAccessPolicyRequest> {
+class AmazonGlacierDeleteVaultAccessPolicyCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.DeleteVaultAccessPolicyRequest, com.amazonaws.services.glacier.model.DeleteVaultAccessPolicyResult> {
 
 	var accountId: String? = null
 	var vaultName: String? = null
@@ -304,8 +336,12 @@ class AmazonGlacierDeleteVaultAccessPolicyCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.deleteVaultAccessPolicy(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.DeleteVaultAccessPolicyResult {
+	  return com.amazonaws.services.glacier.model.DeleteVaultAccessPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.DeleteVaultAccessPolicyResult {
+		return environment.glacier.deleteVaultAccessPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -317,12 +353,12 @@ class AmazonGlacierDeleteVaultAccessPolicyCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonGlacierFunctions.deleteVaultNotifications(init: AmazonGlacierDeleteVaultNotificationsCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierDeleteVaultNotificationsCommand().apply(init))
+fun AmazonGlacierFunctions.deleteVaultNotifications(init: AmazonGlacierDeleteVaultNotificationsCommand.() -> Unit): com.amazonaws.services.glacier.model.DeleteVaultNotificationsResult {
+	return this.block.declare(AmazonGlacierDeleteVaultNotificationsCommand().apply(init)) as com.amazonaws.services.glacier.model.DeleteVaultNotificationsResult
 }
 
 @Generated
-class AmazonGlacierDeleteVaultNotificationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.DeleteVaultNotificationsRequest> {
+class AmazonGlacierDeleteVaultNotificationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.DeleteVaultNotificationsRequest, com.amazonaws.services.glacier.model.DeleteVaultNotificationsResult> {
 
 	var accountId: String? = null
 	var vaultName: String? = null
@@ -334,8 +370,12 @@ class AmazonGlacierDeleteVaultNotificationsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.deleteVaultNotifications(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.DeleteVaultNotificationsResult {
+	  return com.amazonaws.services.glacier.model.DeleteVaultNotificationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.DeleteVaultNotificationsResult {
+		return environment.glacier.deleteVaultNotifications(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -347,12 +387,12 @@ class AmazonGlacierDeleteVaultNotificationsCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AmazonGlacierFunctions.describeJob(init: AmazonGlacierDescribeJobCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierDescribeJobCommand().apply(init))
+fun AmazonGlacierFunctions.describeJob(init: AmazonGlacierDescribeJobCommand.() -> Unit): com.amazonaws.services.glacier.model.DescribeJobResult {
+	return this.block.declare(AmazonGlacierDescribeJobCommand().apply(init)) as com.amazonaws.services.glacier.model.DescribeJobResult
 }
 
 @Generated
-class AmazonGlacierDescribeJobCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.DescribeJobRequest> {
+class AmazonGlacierDescribeJobCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.DescribeJobRequest, com.amazonaws.services.glacier.model.DescribeJobResult> {
 
 	var accountId: String? = null
 	var vaultName: String? = null
@@ -366,8 +406,12 @@ class AmazonGlacierDescribeJobCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.describeJob(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.DescribeJobResult {
+	  return com.amazonaws.services.glacier.model.DescribeJobResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.DescribeJobResult {
+		return environment.glacier.describeJob(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -380,12 +424,12 @@ class AmazonGlacierDescribeJobCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AmazonGlacierFunctions.describeVault(init: AmazonGlacierDescribeVaultCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierDescribeVaultCommand().apply(init))
+fun AmazonGlacierFunctions.describeVault(init: AmazonGlacierDescribeVaultCommand.() -> Unit): com.amazonaws.services.glacier.model.DescribeVaultResult {
+	return this.block.declare(AmazonGlacierDescribeVaultCommand().apply(init)) as com.amazonaws.services.glacier.model.DescribeVaultResult
 }
 
 @Generated
-class AmazonGlacierDescribeVaultCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.DescribeVaultRequest> {
+class AmazonGlacierDescribeVaultCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.DescribeVaultRequest, com.amazonaws.services.glacier.model.DescribeVaultResult> {
 
 	var accountId: String? = null
 	var vaultName: String? = null
@@ -397,8 +441,12 @@ class AmazonGlacierDescribeVaultCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.describeVault(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.DescribeVaultResult {
+	  return com.amazonaws.services.glacier.model.DescribeVaultResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.DescribeVaultResult {
+		return environment.glacier.describeVault(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -410,12 +458,12 @@ class AmazonGlacierDescribeVaultCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AmazonGlacierFunctions.getDataRetrievalPolicy(init: AmazonGlacierGetDataRetrievalPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierGetDataRetrievalPolicyCommand().apply(init))
+fun AmazonGlacierFunctions.getDataRetrievalPolicy(init: AmazonGlacierGetDataRetrievalPolicyCommand.() -> Unit): com.amazonaws.services.glacier.model.GetDataRetrievalPolicyResult {
+	return this.block.declare(AmazonGlacierGetDataRetrievalPolicyCommand().apply(init)) as com.amazonaws.services.glacier.model.GetDataRetrievalPolicyResult
 }
 
 @Generated
-class AmazonGlacierGetDataRetrievalPolicyCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.GetDataRetrievalPolicyRequest> {
+class AmazonGlacierGetDataRetrievalPolicyCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.GetDataRetrievalPolicyRequest, com.amazonaws.services.glacier.model.GetDataRetrievalPolicyResult> {
 
 	var accountId: String? = null
 
@@ -425,8 +473,12 @@ class AmazonGlacierGetDataRetrievalPolicyCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.getDataRetrievalPolicy(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.GetDataRetrievalPolicyResult {
+	  return com.amazonaws.services.glacier.model.GetDataRetrievalPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.GetDataRetrievalPolicyResult {
+		return environment.glacier.getDataRetrievalPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -437,12 +489,12 @@ class AmazonGlacierGetDataRetrievalPolicyCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AmazonGlacierFunctions.getJobOutput(init: AmazonGlacierGetJobOutputCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierGetJobOutputCommand().apply(init))
+fun AmazonGlacierFunctions.getJobOutput(init: AmazonGlacierGetJobOutputCommand.() -> Unit): com.amazonaws.services.glacier.model.GetJobOutputResult {
+	return this.block.declare(AmazonGlacierGetJobOutputCommand().apply(init)) as com.amazonaws.services.glacier.model.GetJobOutputResult
 }
 
 @Generated
-class AmazonGlacierGetJobOutputCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.GetJobOutputRequest> {
+class AmazonGlacierGetJobOutputCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.GetJobOutputRequest, com.amazonaws.services.glacier.model.GetJobOutputResult> {
 
 	var accountId: String? = null
 	var vaultName: String? = null
@@ -458,8 +510,12 @@ class AmazonGlacierGetJobOutputCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.getJobOutput(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.GetJobOutputResult {
+	  return com.amazonaws.services.glacier.model.GetJobOutputResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.GetJobOutputResult {
+		return environment.glacier.getJobOutput(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -473,12 +529,12 @@ class AmazonGlacierGetJobOutputCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AmazonGlacierFunctions.getVaultAccessPolicy(init: AmazonGlacierGetVaultAccessPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierGetVaultAccessPolicyCommand().apply(init))
+fun AmazonGlacierFunctions.getVaultAccessPolicy(init: AmazonGlacierGetVaultAccessPolicyCommand.() -> Unit): com.amazonaws.services.glacier.model.GetVaultAccessPolicyResult {
+	return this.block.declare(AmazonGlacierGetVaultAccessPolicyCommand().apply(init)) as com.amazonaws.services.glacier.model.GetVaultAccessPolicyResult
 }
 
 @Generated
-class AmazonGlacierGetVaultAccessPolicyCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.GetVaultAccessPolicyRequest> {
+class AmazonGlacierGetVaultAccessPolicyCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.GetVaultAccessPolicyRequest, com.amazonaws.services.glacier.model.GetVaultAccessPolicyResult> {
 
 	var accountId: String? = null
 	var vaultName: String? = null
@@ -490,8 +546,12 @@ class AmazonGlacierGetVaultAccessPolicyCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.getVaultAccessPolicy(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.GetVaultAccessPolicyResult {
+	  return com.amazonaws.services.glacier.model.GetVaultAccessPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.GetVaultAccessPolicyResult {
+		return environment.glacier.getVaultAccessPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -503,12 +563,12 @@ class AmazonGlacierGetVaultAccessPolicyCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AmazonGlacierFunctions.getVaultLock(init: AmazonGlacierGetVaultLockCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierGetVaultLockCommand().apply(init))
+fun AmazonGlacierFunctions.getVaultLock(init: AmazonGlacierGetVaultLockCommand.() -> Unit): com.amazonaws.services.glacier.model.GetVaultLockResult {
+	return this.block.declare(AmazonGlacierGetVaultLockCommand().apply(init)) as com.amazonaws.services.glacier.model.GetVaultLockResult
 }
 
 @Generated
-class AmazonGlacierGetVaultLockCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.GetVaultLockRequest> {
+class AmazonGlacierGetVaultLockCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.GetVaultLockRequest, com.amazonaws.services.glacier.model.GetVaultLockResult> {
 
 	var accountId: String? = null
 	var vaultName: String? = null
@@ -520,8 +580,12 @@ class AmazonGlacierGetVaultLockCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.getVaultLock(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.GetVaultLockResult {
+	  return com.amazonaws.services.glacier.model.GetVaultLockResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.GetVaultLockResult {
+		return environment.glacier.getVaultLock(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -533,12 +597,12 @@ class AmazonGlacierGetVaultLockCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AmazonGlacierFunctions.getVaultNotifications(init: AmazonGlacierGetVaultNotificationsCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierGetVaultNotificationsCommand().apply(init))
+fun AmazonGlacierFunctions.getVaultNotifications(init: AmazonGlacierGetVaultNotificationsCommand.() -> Unit): com.amazonaws.services.glacier.model.GetVaultNotificationsResult {
+	return this.block.declare(AmazonGlacierGetVaultNotificationsCommand().apply(init)) as com.amazonaws.services.glacier.model.GetVaultNotificationsResult
 }
 
 @Generated
-class AmazonGlacierGetVaultNotificationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.GetVaultNotificationsRequest> {
+class AmazonGlacierGetVaultNotificationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.GetVaultNotificationsRequest, com.amazonaws.services.glacier.model.GetVaultNotificationsResult> {
 
 	var accountId: String? = null
 	var vaultName: String? = null
@@ -550,8 +614,12 @@ class AmazonGlacierGetVaultNotificationsCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.getVaultNotifications(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.GetVaultNotificationsResult {
+	  return com.amazonaws.services.glacier.model.GetVaultNotificationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.GetVaultNotificationsResult {
+		return environment.glacier.getVaultNotifications(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -563,12 +631,12 @@ class AmazonGlacierGetVaultNotificationsCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonGlacierFunctions.initiateJob(init: AmazonGlacierInitiateJobCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierInitiateJobCommand().apply(init))
+fun AmazonGlacierFunctions.initiateJob(init: AmazonGlacierInitiateJobCommand.() -> Unit): com.amazonaws.services.glacier.model.InitiateJobResult {
+	return this.block.declare(AmazonGlacierInitiateJobCommand().apply(init)) as com.amazonaws.services.glacier.model.InitiateJobResult
 }
 
 @Generated
-class AmazonGlacierInitiateJobCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.InitiateJobRequest> {
+class AmazonGlacierInitiateJobCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.InitiateJobRequest, com.amazonaws.services.glacier.model.InitiateJobResult> {
 
 	var accountId: String? = null
 	var vaultName: String? = null
@@ -582,8 +650,12 @@ class AmazonGlacierInitiateJobCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.initiateJob(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.InitiateJobResult {
+	  return com.amazonaws.services.glacier.model.InitiateJobResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.InitiateJobResult {
+		return environment.glacier.initiateJob(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -596,12 +668,12 @@ class AmazonGlacierInitiateJobCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AmazonGlacierFunctions.initiateMultipartUpload(init: AmazonGlacierInitiateMultipartUploadCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierInitiateMultipartUploadCommand().apply(init))
+fun AmazonGlacierFunctions.initiateMultipartUpload(init: AmazonGlacierInitiateMultipartUploadCommand.() -> Unit): com.amazonaws.services.glacier.model.InitiateMultipartUploadResult {
+	return this.block.declare(AmazonGlacierInitiateMultipartUploadCommand().apply(init)) as com.amazonaws.services.glacier.model.InitiateMultipartUploadResult
 }
 
 @Generated
-class AmazonGlacierInitiateMultipartUploadCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.InitiateMultipartUploadRequest> {
+class AmazonGlacierInitiateMultipartUploadCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.InitiateMultipartUploadRequest, com.amazonaws.services.glacier.model.InitiateMultipartUploadResult> {
 
 	var accountId: String? = null
 	var vaultName: String? = null
@@ -617,8 +689,12 @@ class AmazonGlacierInitiateMultipartUploadCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.initiateMultipartUpload(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.InitiateMultipartUploadResult {
+	  return com.amazonaws.services.glacier.model.InitiateMultipartUploadResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.InitiateMultipartUploadResult {
+		return environment.glacier.initiateMultipartUpload(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -632,12 +708,12 @@ class AmazonGlacierInitiateMultipartUploadCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonGlacierFunctions.initiateVaultLock(init: AmazonGlacierInitiateVaultLockCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierInitiateVaultLockCommand().apply(init))
+fun AmazonGlacierFunctions.initiateVaultLock(init: AmazonGlacierInitiateVaultLockCommand.() -> Unit): com.amazonaws.services.glacier.model.InitiateVaultLockResult {
+	return this.block.declare(AmazonGlacierInitiateVaultLockCommand().apply(init)) as com.amazonaws.services.glacier.model.InitiateVaultLockResult
 }
 
 @Generated
-class AmazonGlacierInitiateVaultLockCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.InitiateVaultLockRequest> {
+class AmazonGlacierInitiateVaultLockCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.InitiateVaultLockRequest, com.amazonaws.services.glacier.model.InitiateVaultLockResult> {
 
 	var accountId: String? = null
 	var vaultName: String? = null
@@ -651,8 +727,12 @@ class AmazonGlacierInitiateVaultLockCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.initiateVaultLock(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.InitiateVaultLockResult {
+	  return com.amazonaws.services.glacier.model.InitiateVaultLockResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.InitiateVaultLockResult {
+		return environment.glacier.initiateVaultLock(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -665,12 +745,12 @@ class AmazonGlacierInitiateVaultLockCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AmazonGlacierFunctions.listJobs(init: AmazonGlacierListJobsCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierListJobsCommand().apply(init))
+fun AmazonGlacierFunctions.listJobs(init: AmazonGlacierListJobsCommand.() -> Unit): com.amazonaws.services.glacier.model.ListJobsResult {
+	return this.block.declare(AmazonGlacierListJobsCommand().apply(init)) as com.amazonaws.services.glacier.model.ListJobsResult
 }
 
 @Generated
-class AmazonGlacierListJobsCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.ListJobsRequest> {
+class AmazonGlacierListJobsCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.ListJobsRequest, com.amazonaws.services.glacier.model.ListJobsResult> {
 
 	var accountId: String? = null
 	var vaultName: String? = null
@@ -690,8 +770,12 @@ class AmazonGlacierListJobsCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.listJobs(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.ListJobsResult {
+	  return com.amazonaws.services.glacier.model.ListJobsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.ListJobsResult {
+		return environment.glacier.listJobs(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -707,12 +791,12 @@ class AmazonGlacierListJobsCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 }
 
 
-fun AmazonGlacierFunctions.listMultipartUploads(init: AmazonGlacierListMultipartUploadsCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierListMultipartUploadsCommand().apply(init))
+fun AmazonGlacierFunctions.listMultipartUploads(init: AmazonGlacierListMultipartUploadsCommand.() -> Unit): com.amazonaws.services.glacier.model.ListMultipartUploadsResult {
+	return this.block.declare(AmazonGlacierListMultipartUploadsCommand().apply(init)) as com.amazonaws.services.glacier.model.ListMultipartUploadsResult
 }
 
 @Generated
-class AmazonGlacierListMultipartUploadsCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.ListMultipartUploadsRequest> {
+class AmazonGlacierListMultipartUploadsCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.ListMultipartUploadsRequest, com.amazonaws.services.glacier.model.ListMultipartUploadsResult> {
 
 	var accountId: String? = null
 	var vaultName: String? = null
@@ -728,8 +812,12 @@ class AmazonGlacierListMultipartUploadsCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.listMultipartUploads(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.ListMultipartUploadsResult {
+	  return com.amazonaws.services.glacier.model.ListMultipartUploadsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.ListMultipartUploadsResult {
+		return environment.glacier.listMultipartUploads(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -743,12 +831,12 @@ class AmazonGlacierListMultipartUploadsCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AmazonGlacierFunctions.listParts(init: AmazonGlacierListPartsCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierListPartsCommand().apply(init))
+fun AmazonGlacierFunctions.listParts(init: AmazonGlacierListPartsCommand.() -> Unit): com.amazonaws.services.glacier.model.ListPartsResult {
+	return this.block.declare(AmazonGlacierListPartsCommand().apply(init)) as com.amazonaws.services.glacier.model.ListPartsResult
 }
 
 @Generated
-class AmazonGlacierListPartsCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.ListPartsRequest> {
+class AmazonGlacierListPartsCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.ListPartsRequest, com.amazonaws.services.glacier.model.ListPartsResult> {
 
 	var accountId: String? = null
 	var vaultName: String? = null
@@ -766,8 +854,12 @@ class AmazonGlacierListPartsCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.listParts(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.ListPartsResult {
+	  return com.amazonaws.services.glacier.model.ListPartsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.ListPartsResult {
+		return environment.glacier.listParts(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -782,12 +874,12 @@ class AmazonGlacierListPartsCommand() : AmazonWebServiceCommand<com.amazonaws.se
 }
 
 
-fun AmazonGlacierFunctions.listProvisionedCapacity(init: AmazonGlacierListProvisionedCapacityCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierListProvisionedCapacityCommand().apply(init))
+fun AmazonGlacierFunctions.listProvisionedCapacity(init: AmazonGlacierListProvisionedCapacityCommand.() -> Unit): com.amazonaws.services.glacier.model.ListProvisionedCapacityResult {
+	return this.block.declare(AmazonGlacierListProvisionedCapacityCommand().apply(init)) as com.amazonaws.services.glacier.model.ListProvisionedCapacityResult
 }
 
 @Generated
-class AmazonGlacierListProvisionedCapacityCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.ListProvisionedCapacityRequest> {
+class AmazonGlacierListProvisionedCapacityCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.ListProvisionedCapacityRequest, com.amazonaws.services.glacier.model.ListProvisionedCapacityResult> {
 
 	var accountId: String? = null
 
@@ -797,8 +889,12 @@ class AmazonGlacierListProvisionedCapacityCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.listProvisionedCapacity(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.ListProvisionedCapacityResult {
+	  return com.amazonaws.services.glacier.model.ListProvisionedCapacityResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.ListProvisionedCapacityResult {
+		return environment.glacier.listProvisionedCapacity(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -809,12 +905,12 @@ class AmazonGlacierListProvisionedCapacityCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonGlacierFunctions.listTagsForVault(init: AmazonGlacierListTagsForVaultCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierListTagsForVaultCommand().apply(init))
+fun AmazonGlacierFunctions.listTagsForVault(init: AmazonGlacierListTagsForVaultCommand.() -> Unit): com.amazonaws.services.glacier.model.ListTagsForVaultResult {
+	return this.block.declare(AmazonGlacierListTagsForVaultCommand().apply(init)) as com.amazonaws.services.glacier.model.ListTagsForVaultResult
 }
 
 @Generated
-class AmazonGlacierListTagsForVaultCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.ListTagsForVaultRequest> {
+class AmazonGlacierListTagsForVaultCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.ListTagsForVaultRequest, com.amazonaws.services.glacier.model.ListTagsForVaultResult> {
 
 	var accountId: String? = null
 	var vaultName: String? = null
@@ -826,8 +922,12 @@ class AmazonGlacierListTagsForVaultCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.listTagsForVault(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.ListTagsForVaultResult {
+	  return com.amazonaws.services.glacier.model.ListTagsForVaultResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.ListTagsForVaultResult {
+		return environment.glacier.listTagsForVault(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -839,12 +939,12 @@ class AmazonGlacierListTagsForVaultCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AmazonGlacierFunctions.listVaults(init: AmazonGlacierListVaultsCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierListVaultsCommand().apply(init))
+fun AmazonGlacierFunctions.listVaults(init: AmazonGlacierListVaultsCommand.() -> Unit): com.amazonaws.services.glacier.model.ListVaultsResult {
+	return this.block.declare(AmazonGlacierListVaultsCommand().apply(init)) as com.amazonaws.services.glacier.model.ListVaultsResult
 }
 
 @Generated
-class AmazonGlacierListVaultsCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.ListVaultsRequest> {
+class AmazonGlacierListVaultsCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.ListVaultsRequest, com.amazonaws.services.glacier.model.ListVaultsResult> {
 
 	var accountId: String? = null
 	var marker: String? = null
@@ -858,8 +958,12 @@ class AmazonGlacierListVaultsCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.listVaults(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.ListVaultsResult {
+	  return com.amazonaws.services.glacier.model.ListVaultsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.ListVaultsResult {
+		return environment.glacier.listVaults(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -872,12 +976,12 @@ class AmazonGlacierListVaultsCommand() : AmazonWebServiceCommand<com.amazonaws.s
 }
 
 
-fun AmazonGlacierFunctions.purchaseProvisionedCapacity(init: AmazonGlacierPurchaseProvisionedCapacityCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierPurchaseProvisionedCapacityCommand().apply(init))
+fun AmazonGlacierFunctions.purchaseProvisionedCapacity(init: AmazonGlacierPurchaseProvisionedCapacityCommand.() -> Unit): com.amazonaws.services.glacier.model.PurchaseProvisionedCapacityResult {
+	return this.block.declare(AmazonGlacierPurchaseProvisionedCapacityCommand().apply(init)) as com.amazonaws.services.glacier.model.PurchaseProvisionedCapacityResult
 }
 
 @Generated
-class AmazonGlacierPurchaseProvisionedCapacityCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.PurchaseProvisionedCapacityRequest> {
+class AmazonGlacierPurchaseProvisionedCapacityCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.PurchaseProvisionedCapacityRequest, com.amazonaws.services.glacier.model.PurchaseProvisionedCapacityResult> {
 
 	var accountId: String? = null
 
@@ -887,8 +991,12 @@ class AmazonGlacierPurchaseProvisionedCapacityCommand() : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.purchaseProvisionedCapacity(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.PurchaseProvisionedCapacityResult {
+	  return com.amazonaws.services.glacier.model.PurchaseProvisionedCapacityResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.PurchaseProvisionedCapacityResult {
+		return environment.glacier.purchaseProvisionedCapacity(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -899,12 +1007,12 @@ class AmazonGlacierPurchaseProvisionedCapacityCommand() : AmazonWebServiceComman
 }
 
 
-fun AmazonGlacierFunctions.removeTagsFromVault(init: AmazonGlacierRemoveTagsFromVaultCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierRemoveTagsFromVaultCommand().apply(init))
+fun AmazonGlacierFunctions.removeTagsFromVault(init: AmazonGlacierRemoveTagsFromVaultCommand.() -> Unit): com.amazonaws.services.glacier.model.RemoveTagsFromVaultResult {
+	return this.block.declare(AmazonGlacierRemoveTagsFromVaultCommand().apply(init)) as com.amazonaws.services.glacier.model.RemoveTagsFromVaultResult
 }
 
 @Generated
-class AmazonGlacierRemoveTagsFromVaultCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.RemoveTagsFromVaultRequest> {
+class AmazonGlacierRemoveTagsFromVaultCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.RemoveTagsFromVaultRequest, com.amazonaws.services.glacier.model.RemoveTagsFromVaultResult> {
 
 	var accountId: String? = null
 	var vaultName: String? = null
@@ -918,8 +1026,12 @@ class AmazonGlacierRemoveTagsFromVaultCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.removeTagsFromVault(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.RemoveTagsFromVaultResult {
+	  return com.amazonaws.services.glacier.model.RemoveTagsFromVaultResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.RemoveTagsFromVaultResult {
+		return environment.glacier.removeTagsFromVault(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -932,12 +1044,12 @@ class AmazonGlacierRemoveTagsFromVaultCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AmazonGlacierFunctions.setDataRetrievalPolicy(init: AmazonGlacierSetDataRetrievalPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierSetDataRetrievalPolicyCommand().apply(init))
+fun AmazonGlacierFunctions.setDataRetrievalPolicy(init: AmazonGlacierSetDataRetrievalPolicyCommand.() -> Unit): com.amazonaws.services.glacier.model.SetDataRetrievalPolicyResult {
+	return this.block.declare(AmazonGlacierSetDataRetrievalPolicyCommand().apply(init)) as com.amazonaws.services.glacier.model.SetDataRetrievalPolicyResult
 }
 
 @Generated
-class AmazonGlacierSetDataRetrievalPolicyCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.SetDataRetrievalPolicyRequest> {
+class AmazonGlacierSetDataRetrievalPolicyCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.SetDataRetrievalPolicyRequest, com.amazonaws.services.glacier.model.SetDataRetrievalPolicyResult> {
 
 	var accountId: String? = null
 	var policy: com.amazonaws.services.glacier.model.DataRetrievalPolicy? = null
@@ -949,8 +1061,12 @@ class AmazonGlacierSetDataRetrievalPolicyCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.setDataRetrievalPolicy(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.SetDataRetrievalPolicyResult {
+	  return com.amazonaws.services.glacier.model.SetDataRetrievalPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.SetDataRetrievalPolicyResult {
+		return environment.glacier.setDataRetrievalPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -962,12 +1078,12 @@ class AmazonGlacierSetDataRetrievalPolicyCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AmazonGlacierFunctions.setVaultAccessPolicy(init: AmazonGlacierSetVaultAccessPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierSetVaultAccessPolicyCommand().apply(init))
+fun AmazonGlacierFunctions.setVaultAccessPolicy(init: AmazonGlacierSetVaultAccessPolicyCommand.() -> Unit): com.amazonaws.services.glacier.model.SetVaultAccessPolicyResult {
+	return this.block.declare(AmazonGlacierSetVaultAccessPolicyCommand().apply(init)) as com.amazonaws.services.glacier.model.SetVaultAccessPolicyResult
 }
 
 @Generated
-class AmazonGlacierSetVaultAccessPolicyCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.SetVaultAccessPolicyRequest> {
+class AmazonGlacierSetVaultAccessPolicyCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.SetVaultAccessPolicyRequest, com.amazonaws.services.glacier.model.SetVaultAccessPolicyResult> {
 
 	var accountId: String? = null
 	var vaultName: String? = null
@@ -981,8 +1097,12 @@ class AmazonGlacierSetVaultAccessPolicyCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.setVaultAccessPolicy(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.SetVaultAccessPolicyResult {
+	  return com.amazonaws.services.glacier.model.SetVaultAccessPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.SetVaultAccessPolicyResult {
+		return environment.glacier.setVaultAccessPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -995,12 +1115,12 @@ class AmazonGlacierSetVaultAccessPolicyCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AmazonGlacierFunctions.setVaultNotifications(init: AmazonGlacierSetVaultNotificationsCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierSetVaultNotificationsCommand().apply(init))
+fun AmazonGlacierFunctions.setVaultNotifications(init: AmazonGlacierSetVaultNotificationsCommand.() -> Unit): com.amazonaws.services.glacier.model.SetVaultNotificationsResult {
+	return this.block.declare(AmazonGlacierSetVaultNotificationsCommand().apply(init)) as com.amazonaws.services.glacier.model.SetVaultNotificationsResult
 }
 
 @Generated
-class AmazonGlacierSetVaultNotificationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.SetVaultNotificationsRequest> {
+class AmazonGlacierSetVaultNotificationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.SetVaultNotificationsRequest, com.amazonaws.services.glacier.model.SetVaultNotificationsResult> {
 
 	var accountId: String? = null
 	var vaultName: String? = null
@@ -1014,8 +1134,12 @@ class AmazonGlacierSetVaultNotificationsCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.setVaultNotifications(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.SetVaultNotificationsResult {
+	  return com.amazonaws.services.glacier.model.SetVaultNotificationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.SetVaultNotificationsResult {
+		return environment.glacier.setVaultNotifications(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1028,12 +1152,12 @@ class AmazonGlacierSetVaultNotificationsCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonGlacierFunctions.uploadArchive(init: AmazonGlacierUploadArchiveCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierUploadArchiveCommand().apply(init))
+fun AmazonGlacierFunctions.uploadArchive(init: AmazonGlacierUploadArchiveCommand.() -> Unit): com.amazonaws.services.glacier.model.UploadArchiveResult {
+	return this.block.declare(AmazonGlacierUploadArchiveCommand().apply(init)) as com.amazonaws.services.glacier.model.UploadArchiveResult
 }
 
 @Generated
-class AmazonGlacierUploadArchiveCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.UploadArchiveRequest> {
+class AmazonGlacierUploadArchiveCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.UploadArchiveRequest, com.amazonaws.services.glacier.model.UploadArchiveResult> {
 
 	var vaultName: String? = null
 	var accountId: String? = null
@@ -1053,8 +1177,12 @@ class AmazonGlacierUploadArchiveCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.uploadArchive(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.UploadArchiveResult {
+	  return com.amazonaws.services.glacier.model.UploadArchiveResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.UploadArchiveResult {
+		return environment.glacier.uploadArchive(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1070,12 +1198,12 @@ class AmazonGlacierUploadArchiveCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AmazonGlacierFunctions.uploadMultipartPart(init: AmazonGlacierUploadMultipartPartCommand.() -> Unit) {
-	this.block.declare(AmazonGlacierUploadMultipartPartCommand().apply(init))
+fun AmazonGlacierFunctions.uploadMultipartPart(init: AmazonGlacierUploadMultipartPartCommand.() -> Unit): com.amazonaws.services.glacier.model.UploadMultipartPartResult {
+	return this.block.declare(AmazonGlacierUploadMultipartPartCommand().apply(init)) as com.amazonaws.services.glacier.model.UploadMultipartPartResult
 }
 
 @Generated
-class AmazonGlacierUploadMultipartPartCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.UploadMultipartPartRequest> {
+class AmazonGlacierUploadMultipartPartCommand() : AmazonWebServiceCommand<com.amazonaws.services.glacier.model.UploadMultipartPartRequest, com.amazonaws.services.glacier.model.UploadMultipartPartResult> {
 
 	var accountId: String? = null
 	var vaultName: String? = null
@@ -1095,8 +1223,12 @@ class AmazonGlacierUploadMultipartPartCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.glacier.uploadMultipartPart(build())
+	override fun dryResult(): com.amazonaws.services.glacier.model.UploadMultipartPartResult {
+	  return com.amazonaws.services.glacier.model.UploadMultipartPartResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.glacier.model.UploadMultipartPartResult {
+		return environment.glacier.uploadMultipartPart(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

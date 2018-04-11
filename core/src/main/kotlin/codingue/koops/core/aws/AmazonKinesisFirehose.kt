@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.firehose: AmazonKinesisFirehose
 @Generated
 class AmazonKinesisFirehoseFunctions(val block: Block)
 
-infix fun AwsContinuation.firehose(init: AmazonKinesisFirehoseFunctions.() -> Unit) {
-	AmazonKinesisFirehoseFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.firehose(init: AmazonKinesisFirehoseFunctions.() -> T): T {
+	return AmazonKinesisFirehoseFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonKinesisFirehoseFunctions.createDeliveryStream(deliveryStreamName: String, init: AmazonKinesisFirehoseCreateDeliveryStreamCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisFirehoseCreateDeliveryStreamCommand(deliveryStreamName).apply(init))
+fun AmazonKinesisFirehoseFunctions.createDeliveryStream(deliveryStreamName: String, init: AmazonKinesisFirehoseCreateDeliveryStreamCommand.() -> Unit): com.amazonaws.services.kinesisfirehose.model.CreateDeliveryStreamResult {
+	return this.block.declare(AmazonKinesisFirehoseCreateDeliveryStreamCommand(deliveryStreamName).apply(init)) as com.amazonaws.services.kinesisfirehose.model.CreateDeliveryStreamResult
 }
 
 @Generated
-class AmazonKinesisFirehoseCreateDeliveryStreamCommand(val deliveryStreamName: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesisfirehose.model.CreateDeliveryStreamRequest> {
+class AmazonKinesisFirehoseCreateDeliveryStreamCommand(val deliveryStreamName: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesisfirehose.model.CreateDeliveryStreamRequest, com.amazonaws.services.kinesisfirehose.model.CreateDeliveryStreamResult> {
 
 	var deliveryStreamType: DeliveryStreamType? = null
 	var kinesisStreamSourceConfiguration: com.amazonaws.services.kinesisfirehose.model.KinesisStreamSourceConfiguration? = null
@@ -54,8 +54,12 @@ class AmazonKinesisFirehoseCreateDeliveryStreamCommand(val deliveryStreamName: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.firehose.createDeliveryStream(build())
+	override fun dryResult(): com.amazonaws.services.kinesisfirehose.model.CreateDeliveryStreamResult {
+	  return com.amazonaws.services.kinesisfirehose.model.CreateDeliveryStreamResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisfirehose.model.CreateDeliveryStreamResult {
+		return environment.firehose.createDeliveryStream(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -73,12 +77,12 @@ class AmazonKinesisFirehoseCreateDeliveryStreamCommand(val deliveryStreamName: S
 }
 
 
-fun AmazonKinesisFirehoseFunctions.deleteDeliveryStream(deliveryStreamName: String, init: AmazonKinesisFirehoseDeleteDeliveryStreamCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisFirehoseDeleteDeliveryStreamCommand(deliveryStreamName).apply(init))
+fun AmazonKinesisFirehoseFunctions.deleteDeliveryStream(deliveryStreamName: String, init: AmazonKinesisFirehoseDeleteDeliveryStreamCommand.() -> Unit): com.amazonaws.services.kinesisfirehose.model.DeleteDeliveryStreamResult {
+	return this.block.declare(AmazonKinesisFirehoseDeleteDeliveryStreamCommand(deliveryStreamName).apply(init)) as com.amazonaws.services.kinesisfirehose.model.DeleteDeliveryStreamResult
 }
 
 @Generated
-class AmazonKinesisFirehoseDeleteDeliveryStreamCommand(val deliveryStreamName: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesisfirehose.model.DeleteDeliveryStreamRequest> {
+class AmazonKinesisFirehoseDeleteDeliveryStreamCommand(val deliveryStreamName: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesisfirehose.model.DeleteDeliveryStreamRequest, com.amazonaws.services.kinesisfirehose.model.DeleteDeliveryStreamResult> {
 
 
 
@@ -88,8 +92,12 @@ class AmazonKinesisFirehoseDeleteDeliveryStreamCommand(val deliveryStreamName: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.firehose.deleteDeliveryStream(build())
+	override fun dryResult(): com.amazonaws.services.kinesisfirehose.model.DeleteDeliveryStreamResult {
+	  return com.amazonaws.services.kinesisfirehose.model.DeleteDeliveryStreamResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisfirehose.model.DeleteDeliveryStreamResult {
+		return environment.firehose.deleteDeliveryStream(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -100,12 +108,12 @@ class AmazonKinesisFirehoseDeleteDeliveryStreamCommand(val deliveryStreamName: S
 }
 
 
-fun AmazonKinesisFirehoseFunctions.describeDeliveryStream(deliveryStreamName: String, init: AmazonKinesisFirehoseDescribeDeliveryStreamCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisFirehoseDescribeDeliveryStreamCommand(deliveryStreamName).apply(init))
+fun AmazonKinesisFirehoseFunctions.describeDeliveryStream(deliveryStreamName: String, init: AmazonKinesisFirehoseDescribeDeliveryStreamCommand.() -> Unit): com.amazonaws.services.kinesisfirehose.model.DescribeDeliveryStreamResult {
+	return this.block.declare(AmazonKinesisFirehoseDescribeDeliveryStreamCommand(deliveryStreamName).apply(init)) as com.amazonaws.services.kinesisfirehose.model.DescribeDeliveryStreamResult
 }
 
 @Generated
-class AmazonKinesisFirehoseDescribeDeliveryStreamCommand(val deliveryStreamName: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesisfirehose.model.DescribeDeliveryStreamRequest> {
+class AmazonKinesisFirehoseDescribeDeliveryStreamCommand(val deliveryStreamName: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesisfirehose.model.DescribeDeliveryStreamRequest, com.amazonaws.services.kinesisfirehose.model.DescribeDeliveryStreamResult> {
 
 	var limit: Int? = 0
 	var exclusiveStartDestinationId: String? = null
@@ -118,8 +126,12 @@ class AmazonKinesisFirehoseDescribeDeliveryStreamCommand(val deliveryStreamName:
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.firehose.describeDeliveryStream(build())
+	override fun dryResult(): com.amazonaws.services.kinesisfirehose.model.DescribeDeliveryStreamResult {
+	  return com.amazonaws.services.kinesisfirehose.model.DescribeDeliveryStreamResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisfirehose.model.DescribeDeliveryStreamResult {
+		return environment.firehose.describeDeliveryStream(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -132,12 +144,12 @@ class AmazonKinesisFirehoseDescribeDeliveryStreamCommand(val deliveryStreamName:
 }
 
 
-fun AmazonKinesisFirehoseFunctions.listDeliveryStreams(init: AmazonKinesisFirehoseListDeliveryStreamsCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisFirehoseListDeliveryStreamsCommand().apply(init))
+fun AmazonKinesisFirehoseFunctions.listDeliveryStreams(init: AmazonKinesisFirehoseListDeliveryStreamsCommand.() -> Unit): com.amazonaws.services.kinesisfirehose.model.ListDeliveryStreamsResult {
+	return this.block.declare(AmazonKinesisFirehoseListDeliveryStreamsCommand().apply(init)) as com.amazonaws.services.kinesisfirehose.model.ListDeliveryStreamsResult
 }
 
 @Generated
-class AmazonKinesisFirehoseListDeliveryStreamsCommand() : AmazonWebServiceCommand<com.amazonaws.services.kinesisfirehose.model.ListDeliveryStreamsRequest> {
+class AmazonKinesisFirehoseListDeliveryStreamsCommand() : AmazonWebServiceCommand<com.amazonaws.services.kinesisfirehose.model.ListDeliveryStreamsRequest, com.amazonaws.services.kinesisfirehose.model.ListDeliveryStreamsResult> {
 
 	var limit: Int? = 0
 	var deliveryStreamType: DeliveryStreamType? = null
@@ -151,8 +163,12 @@ class AmazonKinesisFirehoseListDeliveryStreamsCommand() : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.firehose.listDeliveryStreams(build())
+	override fun dryResult(): com.amazonaws.services.kinesisfirehose.model.ListDeliveryStreamsResult {
+	  return com.amazonaws.services.kinesisfirehose.model.ListDeliveryStreamsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisfirehose.model.ListDeliveryStreamsResult {
+		return environment.firehose.listDeliveryStreams(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -165,12 +181,12 @@ class AmazonKinesisFirehoseListDeliveryStreamsCommand() : AmazonWebServiceComman
 }
 
 
-fun AmazonKinesisFirehoseFunctions.putRecord(deliveryStreamName: String, record: com.amazonaws.services.kinesisfirehose.model.Record, init: AmazonKinesisFirehosePutRecordCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisFirehosePutRecordCommand(deliveryStreamName, record).apply(init))
+fun AmazonKinesisFirehoseFunctions.putRecord(deliveryStreamName: String, record: com.amazonaws.services.kinesisfirehose.model.Record, init: AmazonKinesisFirehosePutRecordCommand.() -> Unit): com.amazonaws.services.kinesisfirehose.model.PutRecordResult {
+	return this.block.declare(AmazonKinesisFirehosePutRecordCommand(deliveryStreamName, record).apply(init)) as com.amazonaws.services.kinesisfirehose.model.PutRecordResult
 }
 
 @Generated
-class AmazonKinesisFirehosePutRecordCommand(val deliveryStreamName: String, val record: com.amazonaws.services.kinesisfirehose.model.Record) : AmazonWebServiceCommand<com.amazonaws.services.kinesisfirehose.model.PutRecordRequest> {
+class AmazonKinesisFirehosePutRecordCommand(val deliveryStreamName: String, val record: com.amazonaws.services.kinesisfirehose.model.Record) : AmazonWebServiceCommand<com.amazonaws.services.kinesisfirehose.model.PutRecordRequest, com.amazonaws.services.kinesisfirehose.model.PutRecordResult> {
 
 
 
@@ -181,8 +197,12 @@ class AmazonKinesisFirehosePutRecordCommand(val deliveryStreamName: String, val 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.firehose.putRecord(build())
+	override fun dryResult(): com.amazonaws.services.kinesisfirehose.model.PutRecordResult {
+	  return com.amazonaws.services.kinesisfirehose.model.PutRecordResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisfirehose.model.PutRecordResult {
+		return environment.firehose.putRecord(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -194,12 +214,12 @@ class AmazonKinesisFirehosePutRecordCommand(val deliveryStreamName: String, val 
 }
 
 
-fun AmazonKinesisFirehoseFunctions.putRecordBatch(deliveryStreamName: String, records: List<com.amazonaws.services.kinesisfirehose.model.Record>, init: AmazonKinesisFirehosePutRecordBatchCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisFirehosePutRecordBatchCommand(deliveryStreamName, records).apply(init))
+fun AmazonKinesisFirehoseFunctions.putRecordBatch(deliveryStreamName: String, records: List<com.amazonaws.services.kinesisfirehose.model.Record>, init: AmazonKinesisFirehosePutRecordBatchCommand.() -> Unit): com.amazonaws.services.kinesisfirehose.model.PutRecordBatchResult {
+	return this.block.declare(AmazonKinesisFirehosePutRecordBatchCommand(deliveryStreamName, records).apply(init)) as com.amazonaws.services.kinesisfirehose.model.PutRecordBatchResult
 }
 
 @Generated
-class AmazonKinesisFirehosePutRecordBatchCommand(val deliveryStreamName: String, val records: List<com.amazonaws.services.kinesisfirehose.model.Record>) : AmazonWebServiceCommand<com.amazonaws.services.kinesisfirehose.model.PutRecordBatchRequest> {
+class AmazonKinesisFirehosePutRecordBatchCommand(val deliveryStreamName: String, val records: List<com.amazonaws.services.kinesisfirehose.model.Record>) : AmazonWebServiceCommand<com.amazonaws.services.kinesisfirehose.model.PutRecordBatchRequest, com.amazonaws.services.kinesisfirehose.model.PutRecordBatchResult> {
 
 
 
@@ -210,8 +230,12 @@ class AmazonKinesisFirehosePutRecordBatchCommand(val deliveryStreamName: String,
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.firehose.putRecordBatch(build())
+	override fun dryResult(): com.amazonaws.services.kinesisfirehose.model.PutRecordBatchResult {
+	  return com.amazonaws.services.kinesisfirehose.model.PutRecordBatchResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisfirehose.model.PutRecordBatchResult {
+		return environment.firehose.putRecordBatch(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -223,12 +247,12 @@ class AmazonKinesisFirehosePutRecordBatchCommand(val deliveryStreamName: String,
 }
 
 
-fun AmazonKinesisFirehoseFunctions.updateDestination(deliveryStreamName: String, currentDeliveryStreamVersionId: String, destinationId: String, init: AmazonKinesisFirehoseUpdateDestinationCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisFirehoseUpdateDestinationCommand(deliveryStreamName, currentDeliveryStreamVersionId, destinationId).apply(init))
+fun AmazonKinesisFirehoseFunctions.updateDestination(deliveryStreamName: String, currentDeliveryStreamVersionId: String, destinationId: String, init: AmazonKinesisFirehoseUpdateDestinationCommand.() -> Unit): com.amazonaws.services.kinesisfirehose.model.UpdateDestinationResult {
+	return this.block.declare(AmazonKinesisFirehoseUpdateDestinationCommand(deliveryStreamName, currentDeliveryStreamVersionId, destinationId).apply(init)) as com.amazonaws.services.kinesisfirehose.model.UpdateDestinationResult
 }
 
 @Generated
-class AmazonKinesisFirehoseUpdateDestinationCommand(val deliveryStreamName: String, val currentDeliveryStreamVersionId: String, val destinationId: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesisfirehose.model.UpdateDestinationRequest> {
+class AmazonKinesisFirehoseUpdateDestinationCommand(val deliveryStreamName: String, val currentDeliveryStreamVersionId: String, val destinationId: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesisfirehose.model.UpdateDestinationRequest, com.amazonaws.services.kinesisfirehose.model.UpdateDestinationResult> {
 
 	var s3DestinationUpdate: com.amazonaws.services.kinesisfirehose.model.S3DestinationUpdate? = null
 	var extendedS3DestinationUpdate: com.amazonaws.services.kinesisfirehose.model.ExtendedS3DestinationUpdate? = null
@@ -249,8 +273,12 @@ class AmazonKinesisFirehoseUpdateDestinationCommand(val deliveryStreamName: Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.firehose.updateDestination(build())
+	override fun dryResult(): com.amazonaws.services.kinesisfirehose.model.UpdateDestinationResult {
+	  return com.amazonaws.services.kinesisfirehose.model.UpdateDestinationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisfirehose.model.UpdateDestinationResult {
+		return environment.firehose.updateDestination(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

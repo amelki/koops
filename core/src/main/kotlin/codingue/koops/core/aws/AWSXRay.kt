@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.xray: AWSXRay
 @Generated
 class AWSXRayFunctions(val block: Block)
 
-infix fun AwsContinuation.xray(init: AWSXRayFunctions.() -> Unit) {
-	AWSXRayFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.xray(init: AWSXRayFunctions.() -> T): T {
+	return AWSXRayFunctions(shell).run(init)
 }
 
 			
 
-fun AWSXRayFunctions.batchGetTraces(traceIds: List<String>, init: AWSXRayBatchGetTracesCommand.() -> Unit) {
-	this.block.declare(AWSXRayBatchGetTracesCommand(traceIds).apply(init))
+fun AWSXRayFunctions.batchGetTraces(traceIds: List<String>, init: AWSXRayBatchGetTracesCommand.() -> Unit): com.amazonaws.services.xray.model.BatchGetTracesResult {
+	return this.block.declare(AWSXRayBatchGetTracesCommand(traceIds).apply(init)) as com.amazonaws.services.xray.model.BatchGetTracesResult
 }
 
 @Generated
-class AWSXRayBatchGetTracesCommand(val traceIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.xray.model.BatchGetTracesRequest> {
+class AWSXRayBatchGetTracesCommand(val traceIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.xray.model.BatchGetTracesRequest, com.amazonaws.services.xray.model.BatchGetTracesResult> {
 
 	var nextToken: String? = null
 
@@ -42,8 +42,12 @@ class AWSXRayBatchGetTracesCommand(val traceIds: List<String>) : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.xray.batchGetTraces(build())
+	override fun dryResult(): com.amazonaws.services.xray.model.BatchGetTracesResult {
+	  return com.amazonaws.services.xray.model.BatchGetTracesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.xray.model.BatchGetTracesResult {
+		return environment.xray.batchGetTraces(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -55,12 +59,12 @@ class AWSXRayBatchGetTracesCommand(val traceIds: List<String>) : AmazonWebServic
 }
 
 
-fun AWSXRayFunctions.getServiceGraph(startTime: java.util.Date, endTime: java.util.Date, init: AWSXRayGetServiceGraphCommand.() -> Unit) {
-	this.block.declare(AWSXRayGetServiceGraphCommand(startTime, endTime).apply(init))
+fun AWSXRayFunctions.getServiceGraph(startTime: java.util.Date, endTime: java.util.Date, init: AWSXRayGetServiceGraphCommand.() -> Unit): com.amazonaws.services.xray.model.GetServiceGraphResult {
+	return this.block.declare(AWSXRayGetServiceGraphCommand(startTime, endTime).apply(init)) as com.amazonaws.services.xray.model.GetServiceGraphResult
 }
 
 @Generated
-class AWSXRayGetServiceGraphCommand(val startTime: java.util.Date, val endTime: java.util.Date) : AmazonWebServiceCommand<com.amazonaws.services.xray.model.GetServiceGraphRequest> {
+class AWSXRayGetServiceGraphCommand(val startTime: java.util.Date, val endTime: java.util.Date) : AmazonWebServiceCommand<com.amazonaws.services.xray.model.GetServiceGraphRequest, com.amazonaws.services.xray.model.GetServiceGraphResult> {
 
 	var nextToken: String? = null
 
@@ -72,8 +76,12 @@ class AWSXRayGetServiceGraphCommand(val startTime: java.util.Date, val endTime: 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.xray.getServiceGraph(build())
+	override fun dryResult(): com.amazonaws.services.xray.model.GetServiceGraphResult {
+	  return com.amazonaws.services.xray.model.GetServiceGraphResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.xray.model.GetServiceGraphResult {
+		return environment.xray.getServiceGraph(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -86,12 +94,12 @@ class AWSXRayGetServiceGraphCommand(val startTime: java.util.Date, val endTime: 
 }
 
 
-fun AWSXRayFunctions.getTraceGraph(traceIds: List<String>, init: AWSXRayGetTraceGraphCommand.() -> Unit) {
-	this.block.declare(AWSXRayGetTraceGraphCommand(traceIds).apply(init))
+fun AWSXRayFunctions.getTraceGraph(traceIds: List<String>, init: AWSXRayGetTraceGraphCommand.() -> Unit): com.amazonaws.services.xray.model.GetTraceGraphResult {
+	return this.block.declare(AWSXRayGetTraceGraphCommand(traceIds).apply(init)) as com.amazonaws.services.xray.model.GetTraceGraphResult
 }
 
 @Generated
-class AWSXRayGetTraceGraphCommand(val traceIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.xray.model.GetTraceGraphRequest> {
+class AWSXRayGetTraceGraphCommand(val traceIds: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.xray.model.GetTraceGraphRequest, com.amazonaws.services.xray.model.GetTraceGraphResult> {
 
 	var nextToken: String? = null
 
@@ -102,8 +110,12 @@ class AWSXRayGetTraceGraphCommand(val traceIds: List<String>) : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.xray.getTraceGraph(build())
+	override fun dryResult(): com.amazonaws.services.xray.model.GetTraceGraphResult {
+	  return com.amazonaws.services.xray.model.GetTraceGraphResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.xray.model.GetTraceGraphResult {
+		return environment.xray.getTraceGraph(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -115,12 +127,12 @@ class AWSXRayGetTraceGraphCommand(val traceIds: List<String>) : AmazonWebService
 }
 
 
-fun AWSXRayFunctions.getTraceSummaries(startTime: java.util.Date, endTime: java.util.Date, init: AWSXRayGetTraceSummariesCommand.() -> Unit) {
-	this.block.declare(AWSXRayGetTraceSummariesCommand(startTime, endTime).apply(init))
+fun AWSXRayFunctions.getTraceSummaries(startTime: java.util.Date, endTime: java.util.Date, init: AWSXRayGetTraceSummariesCommand.() -> Unit): com.amazonaws.services.xray.model.GetTraceSummariesResult {
+	return this.block.declare(AWSXRayGetTraceSummariesCommand(startTime, endTime).apply(init)) as com.amazonaws.services.xray.model.GetTraceSummariesResult
 }
 
 @Generated
-class AWSXRayGetTraceSummariesCommand(val startTime: java.util.Date, val endTime: java.util.Date) : AmazonWebServiceCommand<com.amazonaws.services.xray.model.GetTraceSummariesRequest> {
+class AWSXRayGetTraceSummariesCommand(val startTime: java.util.Date, val endTime: java.util.Date) : AmazonWebServiceCommand<com.amazonaws.services.xray.model.GetTraceSummariesRequest, com.amazonaws.services.xray.model.GetTraceSummariesResult> {
 
 	var sampling: Boolean? = false
 	var filterExpression: String? = null
@@ -136,8 +148,12 @@ class AWSXRayGetTraceSummariesCommand(val startTime: java.util.Date, val endTime
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.xray.getTraceSummaries(build())
+	override fun dryResult(): com.amazonaws.services.xray.model.GetTraceSummariesResult {
+	  return com.amazonaws.services.xray.model.GetTraceSummariesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.xray.model.GetTraceSummariesResult {
+		return environment.xray.getTraceSummaries(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -152,12 +168,12 @@ class AWSXRayGetTraceSummariesCommand(val startTime: java.util.Date, val endTime
 }
 
 
-fun AWSXRayFunctions.putTelemetryRecords(telemetryRecords: List<com.amazonaws.services.xray.model.TelemetryRecord>, init: AWSXRayPutTelemetryRecordsCommand.() -> Unit) {
-	this.block.declare(AWSXRayPutTelemetryRecordsCommand(telemetryRecords).apply(init))
+fun AWSXRayFunctions.putTelemetryRecords(telemetryRecords: List<com.amazonaws.services.xray.model.TelemetryRecord>, init: AWSXRayPutTelemetryRecordsCommand.() -> Unit): com.amazonaws.services.xray.model.PutTelemetryRecordsResult {
+	return this.block.declare(AWSXRayPutTelemetryRecordsCommand(telemetryRecords).apply(init)) as com.amazonaws.services.xray.model.PutTelemetryRecordsResult
 }
 
 @Generated
-class AWSXRayPutTelemetryRecordsCommand(val telemetryRecords: List<com.amazonaws.services.xray.model.TelemetryRecord>) : AmazonWebServiceCommand<com.amazonaws.services.xray.model.PutTelemetryRecordsRequest> {
+class AWSXRayPutTelemetryRecordsCommand(val telemetryRecords: List<com.amazonaws.services.xray.model.TelemetryRecord>) : AmazonWebServiceCommand<com.amazonaws.services.xray.model.PutTelemetryRecordsRequest, com.amazonaws.services.xray.model.PutTelemetryRecordsResult> {
 
 	var eC2InstanceId: String? = null
 	var hostname: String? = null
@@ -172,8 +188,12 @@ class AWSXRayPutTelemetryRecordsCommand(val telemetryRecords: List<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.xray.putTelemetryRecords(build())
+	override fun dryResult(): com.amazonaws.services.xray.model.PutTelemetryRecordsResult {
+	  return com.amazonaws.services.xray.model.PutTelemetryRecordsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.xray.model.PutTelemetryRecordsResult {
+		return environment.xray.putTelemetryRecords(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -187,12 +207,12 @@ class AWSXRayPutTelemetryRecordsCommand(val telemetryRecords: List<com.amazonaws
 }
 
 
-fun AWSXRayFunctions.putTraceSegments(traceSegmentDocuments: List<String>, init: AWSXRayPutTraceSegmentsCommand.() -> Unit) {
-	this.block.declare(AWSXRayPutTraceSegmentsCommand(traceSegmentDocuments).apply(init))
+fun AWSXRayFunctions.putTraceSegments(traceSegmentDocuments: List<String>, init: AWSXRayPutTraceSegmentsCommand.() -> Unit): com.amazonaws.services.xray.model.PutTraceSegmentsResult {
+	return this.block.declare(AWSXRayPutTraceSegmentsCommand(traceSegmentDocuments).apply(init)) as com.amazonaws.services.xray.model.PutTraceSegmentsResult
 }
 
 @Generated
-class AWSXRayPutTraceSegmentsCommand(val traceSegmentDocuments: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.xray.model.PutTraceSegmentsRequest> {
+class AWSXRayPutTraceSegmentsCommand(val traceSegmentDocuments: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.xray.model.PutTraceSegmentsRequest, com.amazonaws.services.xray.model.PutTraceSegmentsResult> {
 
 
 
@@ -202,8 +222,12 @@ class AWSXRayPutTraceSegmentsCommand(val traceSegmentDocuments: List<String>) : 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.xray.putTraceSegments(build())
+	override fun dryResult(): com.amazonaws.services.xray.model.PutTraceSegmentsResult {
+	  return com.amazonaws.services.xray.model.PutTraceSegmentsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.xray.model.PutTraceSegmentsResult {
+		return environment.xray.putTraceSegments(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

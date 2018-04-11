@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.cur: AWSCostAndUsageReport
 @Generated
 class AWSCostAndUsageReportFunctions(val block: Block)
 
-infix fun AwsContinuation.cur(init: AWSCostAndUsageReportFunctions.() -> Unit) {
-	AWSCostAndUsageReportFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.cur(init: AWSCostAndUsageReportFunctions.() -> T): T {
+	return AWSCostAndUsageReportFunctions(shell).run(init)
 }
 
 			
 
-fun AWSCostAndUsageReportFunctions.deleteReportDefinition(init: AWSCostAndUsageReportDeleteReportDefinitionCommand.() -> Unit) {
-	this.block.declare(AWSCostAndUsageReportDeleteReportDefinitionCommand().apply(init))
+fun AWSCostAndUsageReportFunctions.deleteReportDefinition(init: AWSCostAndUsageReportDeleteReportDefinitionCommand.() -> Unit): com.amazonaws.services.costandusagereport.model.DeleteReportDefinitionResult {
+	return this.block.declare(AWSCostAndUsageReportDeleteReportDefinitionCommand().apply(init)) as com.amazonaws.services.costandusagereport.model.DeleteReportDefinitionResult
 }
 
 @Generated
-class AWSCostAndUsageReportDeleteReportDefinitionCommand() : AmazonWebServiceCommand<com.amazonaws.services.costandusagereport.model.DeleteReportDefinitionRequest> {
+class AWSCostAndUsageReportDeleteReportDefinitionCommand() : AmazonWebServiceCommand<com.amazonaws.services.costandusagereport.model.DeleteReportDefinitionRequest, com.amazonaws.services.costandusagereport.model.DeleteReportDefinitionResult> {
 
 	var reportName: String? = null
 
@@ -41,8 +41,12 @@ class AWSCostAndUsageReportDeleteReportDefinitionCommand() : AmazonWebServiceCom
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cur.deleteReportDefinition(build())
+	override fun dryResult(): com.amazonaws.services.costandusagereport.model.DeleteReportDefinitionResult {
+	  return com.amazonaws.services.costandusagereport.model.DeleteReportDefinitionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.costandusagereport.model.DeleteReportDefinitionResult {
+		return environment.cur.deleteReportDefinition(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -53,12 +57,12 @@ class AWSCostAndUsageReportDeleteReportDefinitionCommand() : AmazonWebServiceCom
 }
 
 
-fun AWSCostAndUsageReportFunctions.describeReportDefinitions(init: AWSCostAndUsageReportDescribeReportDefinitionsCommand.() -> Unit) {
-	this.block.declare(AWSCostAndUsageReportDescribeReportDefinitionsCommand().apply(init))
+fun AWSCostAndUsageReportFunctions.describeReportDefinitions(init: AWSCostAndUsageReportDescribeReportDefinitionsCommand.() -> Unit): com.amazonaws.services.costandusagereport.model.DescribeReportDefinitionsResult {
+	return this.block.declare(AWSCostAndUsageReportDescribeReportDefinitionsCommand().apply(init)) as com.amazonaws.services.costandusagereport.model.DescribeReportDefinitionsResult
 }
 
 @Generated
-class AWSCostAndUsageReportDescribeReportDefinitionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.costandusagereport.model.DescribeReportDefinitionsRequest> {
+class AWSCostAndUsageReportDescribeReportDefinitionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.costandusagereport.model.DescribeReportDefinitionsRequest, com.amazonaws.services.costandusagereport.model.DescribeReportDefinitionsResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -70,8 +74,12 @@ class AWSCostAndUsageReportDescribeReportDefinitionsCommand() : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cur.describeReportDefinitions(build())
+	override fun dryResult(): com.amazonaws.services.costandusagereport.model.DescribeReportDefinitionsResult {
+	  return com.amazonaws.services.costandusagereport.model.DescribeReportDefinitionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.costandusagereport.model.DescribeReportDefinitionsResult {
+		return environment.cur.describeReportDefinitions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -83,12 +91,12 @@ class AWSCostAndUsageReportDescribeReportDefinitionsCommand() : AmazonWebService
 }
 
 
-fun AWSCostAndUsageReportFunctions.putReportDefinition(reportDefinition: com.amazonaws.services.costandusagereport.model.ReportDefinition, init: AWSCostAndUsageReportPutReportDefinitionCommand.() -> Unit) {
-	this.block.declare(AWSCostAndUsageReportPutReportDefinitionCommand(reportDefinition).apply(init))
+fun AWSCostAndUsageReportFunctions.putReportDefinition(reportDefinition: com.amazonaws.services.costandusagereport.model.ReportDefinition, init: AWSCostAndUsageReportPutReportDefinitionCommand.() -> Unit): com.amazonaws.services.costandusagereport.model.PutReportDefinitionResult {
+	return this.block.declare(AWSCostAndUsageReportPutReportDefinitionCommand(reportDefinition).apply(init)) as com.amazonaws.services.costandusagereport.model.PutReportDefinitionResult
 }
 
 @Generated
-class AWSCostAndUsageReportPutReportDefinitionCommand(val reportDefinition: com.amazonaws.services.costandusagereport.model.ReportDefinition) : AmazonWebServiceCommand<com.amazonaws.services.costandusagereport.model.PutReportDefinitionRequest> {
+class AWSCostAndUsageReportPutReportDefinitionCommand(val reportDefinition: com.amazonaws.services.costandusagereport.model.ReportDefinition) : AmazonWebServiceCommand<com.amazonaws.services.costandusagereport.model.PutReportDefinitionRequest, com.amazonaws.services.costandusagereport.model.PutReportDefinitionResult> {
 
 
 
@@ -98,8 +106,12 @@ class AWSCostAndUsageReportPutReportDefinitionCommand(val reportDefinition: com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cur.putReportDefinition(build())
+	override fun dryResult(): com.amazonaws.services.costandusagereport.model.PutReportDefinitionResult {
+	  return com.amazonaws.services.costandusagereport.model.PutReportDefinitionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.costandusagereport.model.PutReportDefinitionResult {
+		return environment.cur.putReportDefinition(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

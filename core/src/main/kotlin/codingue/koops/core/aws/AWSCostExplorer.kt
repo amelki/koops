@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.ce: AWSCostExplorer
 @Generated
 class AWSCostExplorerFunctions(val block: Block)
 
-infix fun AwsContinuation.ce(init: AWSCostExplorerFunctions.() -> Unit) {
-	AWSCostExplorerFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.ce(init: AWSCostExplorerFunctions.() -> T): T {
+	return AWSCostExplorerFunctions(shell).run(init)
 }
 
 			
 
-fun AWSCostExplorerFunctions.getCostAndUsage(init: AWSCostExplorerGetCostAndUsageCommand.() -> Unit) {
-	this.block.declare(AWSCostExplorerGetCostAndUsageCommand().apply(init))
+fun AWSCostExplorerFunctions.getCostAndUsage(init: AWSCostExplorerGetCostAndUsageCommand.() -> Unit): com.amazonaws.services.costexplorer.model.GetCostAndUsageResult {
+	return this.block.declare(AWSCostExplorerGetCostAndUsageCommand().apply(init)) as com.amazonaws.services.costexplorer.model.GetCostAndUsageResult
 }
 
 @Generated
-class AWSCostExplorerGetCostAndUsageCommand() : AmazonWebServiceCommand<com.amazonaws.services.costexplorer.model.GetCostAndUsageRequest> {
+class AWSCostExplorerGetCostAndUsageCommand() : AmazonWebServiceCommand<com.amazonaws.services.costexplorer.model.GetCostAndUsageRequest, com.amazonaws.services.costexplorer.model.GetCostAndUsageResult> {
 
 	var timePeriod: com.amazonaws.services.costexplorer.model.DateInterval? = null
 	var granularity: Granularity? = null
@@ -51,8 +51,12 @@ class AWSCostExplorerGetCostAndUsageCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ce.getCostAndUsage(build())
+	override fun dryResult(): com.amazonaws.services.costexplorer.model.GetCostAndUsageResult {
+	  return com.amazonaws.services.costexplorer.model.GetCostAndUsageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.costexplorer.model.GetCostAndUsageResult {
+		return environment.ce.getCostAndUsage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -68,12 +72,12 @@ class AWSCostExplorerGetCostAndUsageCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AWSCostExplorerFunctions.getDimensionValues(timePeriod: com.amazonaws.services.costexplorer.model.DateInterval, dimension: Dimension, init: AWSCostExplorerGetDimensionValuesCommand.() -> Unit) {
-	this.block.declare(AWSCostExplorerGetDimensionValuesCommand(timePeriod, dimension).apply(init))
+fun AWSCostExplorerFunctions.getDimensionValues(timePeriod: com.amazonaws.services.costexplorer.model.DateInterval, dimension: Dimension, init: AWSCostExplorerGetDimensionValuesCommand.() -> Unit): com.amazonaws.services.costexplorer.model.GetDimensionValuesResult {
+	return this.block.declare(AWSCostExplorerGetDimensionValuesCommand(timePeriod, dimension).apply(init)) as com.amazonaws.services.costexplorer.model.GetDimensionValuesResult
 }
 
 @Generated
-class AWSCostExplorerGetDimensionValuesCommand(val timePeriod: com.amazonaws.services.costexplorer.model.DateInterval, val dimension: Dimension) : AmazonWebServiceCommand<com.amazonaws.services.costexplorer.model.GetDimensionValuesRequest> {
+class AWSCostExplorerGetDimensionValuesCommand(val timePeriod: com.amazonaws.services.costexplorer.model.DateInterval, val dimension: Dimension) : AmazonWebServiceCommand<com.amazonaws.services.costexplorer.model.GetDimensionValuesRequest, com.amazonaws.services.costexplorer.model.GetDimensionValuesResult> {
 
 	var searchString: String? = null
 	var context: Context? = null
@@ -89,8 +93,12 @@ class AWSCostExplorerGetDimensionValuesCommand(val timePeriod: com.amazonaws.ser
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ce.getDimensionValues(build())
+	override fun dryResult(): com.amazonaws.services.costexplorer.model.GetDimensionValuesResult {
+	  return com.amazonaws.services.costexplorer.model.GetDimensionValuesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.costexplorer.model.GetDimensionValuesResult {
+		return environment.ce.getDimensionValues(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -105,12 +113,12 @@ class AWSCostExplorerGetDimensionValuesCommand(val timePeriod: com.amazonaws.ser
 }
 
 
-fun AWSCostExplorerFunctions.getReservationCoverage(timePeriod: com.amazonaws.services.costexplorer.model.DateInterval, init: AWSCostExplorerGetReservationCoverageCommand.() -> Unit) {
-	this.block.declare(AWSCostExplorerGetReservationCoverageCommand(timePeriod).apply(init))
+fun AWSCostExplorerFunctions.getReservationCoverage(timePeriod: com.amazonaws.services.costexplorer.model.DateInterval, init: AWSCostExplorerGetReservationCoverageCommand.() -> Unit): com.amazonaws.services.costexplorer.model.GetReservationCoverageResult {
+	return this.block.declare(AWSCostExplorerGetReservationCoverageCommand(timePeriod).apply(init)) as com.amazonaws.services.costexplorer.model.GetReservationCoverageResult
 }
 
 @Generated
-class AWSCostExplorerGetReservationCoverageCommand(val timePeriod: com.amazonaws.services.costexplorer.model.DateInterval) : AmazonWebServiceCommand<com.amazonaws.services.costexplorer.model.GetReservationCoverageRequest> {
+class AWSCostExplorerGetReservationCoverageCommand(val timePeriod: com.amazonaws.services.costexplorer.model.DateInterval) : AmazonWebServiceCommand<com.amazonaws.services.costexplorer.model.GetReservationCoverageRequest, com.amazonaws.services.costexplorer.model.GetReservationCoverageResult> {
 
 	var groupBy: List<com.amazonaws.services.costexplorer.model.GroupDefinition>? = null
 	var granularity: Granularity? = null
@@ -127,8 +135,12 @@ class AWSCostExplorerGetReservationCoverageCommand(val timePeriod: com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ce.getReservationCoverage(build())
+	override fun dryResult(): com.amazonaws.services.costexplorer.model.GetReservationCoverageResult {
+	  return com.amazonaws.services.costexplorer.model.GetReservationCoverageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.costexplorer.model.GetReservationCoverageResult {
+		return environment.ce.getReservationCoverage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -143,12 +155,12 @@ class AWSCostExplorerGetReservationCoverageCommand(val timePeriod: com.amazonaws
 }
 
 
-fun AWSCostExplorerFunctions.getReservationPurchaseRecommendation(service: String, init: AWSCostExplorerGetReservationPurchaseRecommendationCommand.() -> Unit) {
-	this.block.declare(AWSCostExplorerGetReservationPurchaseRecommendationCommand(service).apply(init))
+fun AWSCostExplorerFunctions.getReservationPurchaseRecommendation(service: String, init: AWSCostExplorerGetReservationPurchaseRecommendationCommand.() -> Unit): com.amazonaws.services.costexplorer.model.GetReservationPurchaseRecommendationResult {
+	return this.block.declare(AWSCostExplorerGetReservationPurchaseRecommendationCommand(service).apply(init)) as com.amazonaws.services.costexplorer.model.GetReservationPurchaseRecommendationResult
 }
 
 @Generated
-class AWSCostExplorerGetReservationPurchaseRecommendationCommand(val service: String) : AmazonWebServiceCommand<com.amazonaws.services.costexplorer.model.GetReservationPurchaseRecommendationRequest> {
+class AWSCostExplorerGetReservationPurchaseRecommendationCommand(val service: String) : AmazonWebServiceCommand<com.amazonaws.services.costexplorer.model.GetReservationPurchaseRecommendationRequest, com.amazonaws.services.costexplorer.model.GetReservationPurchaseRecommendationResult> {
 
 	var accountId: String? = null
 	var accountScope: AccountScope? = null
@@ -173,8 +185,12 @@ class AWSCostExplorerGetReservationPurchaseRecommendationCommand(val service: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ce.getReservationPurchaseRecommendation(build())
+	override fun dryResult(): com.amazonaws.services.costexplorer.model.GetReservationPurchaseRecommendationResult {
+	  return com.amazonaws.services.costexplorer.model.GetReservationPurchaseRecommendationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.costexplorer.model.GetReservationPurchaseRecommendationResult {
+		return environment.ce.getReservationPurchaseRecommendation(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -193,12 +209,12 @@ class AWSCostExplorerGetReservationPurchaseRecommendationCommand(val service: St
 }
 
 
-fun AWSCostExplorerFunctions.getReservationUtilization(timePeriod: com.amazonaws.services.costexplorer.model.DateInterval, init: AWSCostExplorerGetReservationUtilizationCommand.() -> Unit) {
-	this.block.declare(AWSCostExplorerGetReservationUtilizationCommand(timePeriod).apply(init))
+fun AWSCostExplorerFunctions.getReservationUtilization(timePeriod: com.amazonaws.services.costexplorer.model.DateInterval, init: AWSCostExplorerGetReservationUtilizationCommand.() -> Unit): com.amazonaws.services.costexplorer.model.GetReservationUtilizationResult {
+	return this.block.declare(AWSCostExplorerGetReservationUtilizationCommand(timePeriod).apply(init)) as com.amazonaws.services.costexplorer.model.GetReservationUtilizationResult
 }
 
 @Generated
-class AWSCostExplorerGetReservationUtilizationCommand(val timePeriod: com.amazonaws.services.costexplorer.model.DateInterval) : AmazonWebServiceCommand<com.amazonaws.services.costexplorer.model.GetReservationUtilizationRequest> {
+class AWSCostExplorerGetReservationUtilizationCommand(val timePeriod: com.amazonaws.services.costexplorer.model.DateInterval) : AmazonWebServiceCommand<com.amazonaws.services.costexplorer.model.GetReservationUtilizationRequest, com.amazonaws.services.costexplorer.model.GetReservationUtilizationResult> {
 
 	var groupBy: List<com.amazonaws.services.costexplorer.model.GroupDefinition>? = null
 	var granularity: Granularity? = null
@@ -215,8 +231,12 @@ class AWSCostExplorerGetReservationUtilizationCommand(val timePeriod: com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ce.getReservationUtilization(build())
+	override fun dryResult(): com.amazonaws.services.costexplorer.model.GetReservationUtilizationResult {
+	  return com.amazonaws.services.costexplorer.model.GetReservationUtilizationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.costexplorer.model.GetReservationUtilizationResult {
+		return environment.ce.getReservationUtilization(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -231,12 +251,12 @@ class AWSCostExplorerGetReservationUtilizationCommand(val timePeriod: com.amazon
 }
 
 
-fun AWSCostExplorerFunctions.getTags(timePeriod: com.amazonaws.services.costexplorer.model.DateInterval, init: AWSCostExplorerGetTagsCommand.() -> Unit) {
-	this.block.declare(AWSCostExplorerGetTagsCommand(timePeriod).apply(init))
+fun AWSCostExplorerFunctions.getTags(timePeriod: com.amazonaws.services.costexplorer.model.DateInterval, init: AWSCostExplorerGetTagsCommand.() -> Unit): com.amazonaws.services.costexplorer.model.GetTagsResult {
+	return this.block.declare(AWSCostExplorerGetTagsCommand(timePeriod).apply(init)) as com.amazonaws.services.costexplorer.model.GetTagsResult
 }
 
 @Generated
-class AWSCostExplorerGetTagsCommand(val timePeriod: com.amazonaws.services.costexplorer.model.DateInterval) : AmazonWebServiceCommand<com.amazonaws.services.costexplorer.model.GetTagsRequest> {
+class AWSCostExplorerGetTagsCommand(val timePeriod: com.amazonaws.services.costexplorer.model.DateInterval) : AmazonWebServiceCommand<com.amazonaws.services.costexplorer.model.GetTagsRequest, com.amazonaws.services.costexplorer.model.GetTagsResult> {
 
 	var searchString: String? = null
 	var tagKey: String? = null
@@ -251,8 +271,12 @@ class AWSCostExplorerGetTagsCommand(val timePeriod: com.amazonaws.services.coste
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.ce.getTags(build())
+	override fun dryResult(): com.amazonaws.services.costexplorer.model.GetTagsResult {
+	  return com.amazonaws.services.costexplorer.model.GetTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.costexplorer.model.GetTagsResult {
+		return environment.ce.getTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

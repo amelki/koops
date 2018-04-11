@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.kinesisanalytics: AmazonKinesisAnalytics
 @Generated
 class AmazonKinesisAnalyticsFunctions(val block: Block)
 
-infix fun AwsContinuation.kinesisanalytics(init: AmazonKinesisAnalyticsFunctions.() -> Unit) {
-	AmazonKinesisAnalyticsFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.kinesisanalytics(init: AmazonKinesisAnalyticsFunctions.() -> T): T {
+	return AmazonKinesisAnalyticsFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonKinesisAnalyticsFunctions.addApplicationCloudWatchLoggingOption(applicationName: String, currentApplicationVersionId: Long, cloudWatchLoggingOption: com.amazonaws.services.kinesisanalytics.model.CloudWatchLoggingOption, init: AmazonKinesisAnalyticsAddApplicationCloudWatchLoggingOptionCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisAnalyticsAddApplicationCloudWatchLoggingOptionCommand(applicationName, currentApplicationVersionId, cloudWatchLoggingOption).apply(init))
+fun AmazonKinesisAnalyticsFunctions.addApplicationCloudWatchLoggingOption(applicationName: String, currentApplicationVersionId: Long, cloudWatchLoggingOption: com.amazonaws.services.kinesisanalytics.model.CloudWatchLoggingOption, init: AmazonKinesisAnalyticsAddApplicationCloudWatchLoggingOptionCommand.() -> Unit): com.amazonaws.services.kinesisanalytics.model.AddApplicationCloudWatchLoggingOptionResult {
+	return this.block.declare(AmazonKinesisAnalyticsAddApplicationCloudWatchLoggingOptionCommand(applicationName, currentApplicationVersionId, cloudWatchLoggingOption).apply(init)) as com.amazonaws.services.kinesisanalytics.model.AddApplicationCloudWatchLoggingOptionResult
 }
 
 @Generated
-class AmazonKinesisAnalyticsAddApplicationCloudWatchLoggingOptionCommand(val applicationName: String, val currentApplicationVersionId: Long, val cloudWatchLoggingOption: com.amazonaws.services.kinesisanalytics.model.CloudWatchLoggingOption) : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.AddApplicationCloudWatchLoggingOptionRequest> {
+class AmazonKinesisAnalyticsAddApplicationCloudWatchLoggingOptionCommand(val applicationName: String, val currentApplicationVersionId: Long, val cloudWatchLoggingOption: com.amazonaws.services.kinesisanalytics.model.CloudWatchLoggingOption) : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.AddApplicationCloudWatchLoggingOptionRequest, com.amazonaws.services.kinesisanalytics.model.AddApplicationCloudWatchLoggingOptionResult> {
 
 
 
@@ -43,8 +43,12 @@ class AmazonKinesisAnalyticsAddApplicationCloudWatchLoggingOptionCommand(val app
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesisanalytics.addApplicationCloudWatchLoggingOption(build())
+	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.AddApplicationCloudWatchLoggingOptionResult {
+	  return com.amazonaws.services.kinesisanalytics.model.AddApplicationCloudWatchLoggingOptionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.AddApplicationCloudWatchLoggingOptionResult {
+		return environment.kinesisanalytics.addApplicationCloudWatchLoggingOption(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -57,12 +61,12 @@ class AmazonKinesisAnalyticsAddApplicationCloudWatchLoggingOptionCommand(val app
 }
 
 
-fun AmazonKinesisAnalyticsFunctions.addApplicationInput(applicationName: String, currentApplicationVersionId: Long, input: com.amazonaws.services.kinesisanalytics.model.Input, init: AmazonKinesisAnalyticsAddApplicationInputCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisAnalyticsAddApplicationInputCommand(applicationName, currentApplicationVersionId, input).apply(init))
+fun AmazonKinesisAnalyticsFunctions.addApplicationInput(applicationName: String, currentApplicationVersionId: Long, input: com.amazonaws.services.kinesisanalytics.model.Input, init: AmazonKinesisAnalyticsAddApplicationInputCommand.() -> Unit): com.amazonaws.services.kinesisanalytics.model.AddApplicationInputResult {
+	return this.block.declare(AmazonKinesisAnalyticsAddApplicationInputCommand(applicationName, currentApplicationVersionId, input).apply(init)) as com.amazonaws.services.kinesisanalytics.model.AddApplicationInputResult
 }
 
 @Generated
-class AmazonKinesisAnalyticsAddApplicationInputCommand(val applicationName: String, val currentApplicationVersionId: Long, val input: com.amazonaws.services.kinesisanalytics.model.Input) : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.AddApplicationInputRequest> {
+class AmazonKinesisAnalyticsAddApplicationInputCommand(val applicationName: String, val currentApplicationVersionId: Long, val input: com.amazonaws.services.kinesisanalytics.model.Input) : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.AddApplicationInputRequest, com.amazonaws.services.kinesisanalytics.model.AddApplicationInputResult> {
 
 
 
@@ -74,8 +78,12 @@ class AmazonKinesisAnalyticsAddApplicationInputCommand(val applicationName: Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesisanalytics.addApplicationInput(build())
+	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.AddApplicationInputResult {
+	  return com.amazonaws.services.kinesisanalytics.model.AddApplicationInputResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.AddApplicationInputResult {
+		return environment.kinesisanalytics.addApplicationInput(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -88,12 +96,12 @@ class AmazonKinesisAnalyticsAddApplicationInputCommand(val applicationName: Stri
 }
 
 
-fun AmazonKinesisAnalyticsFunctions.addApplicationInputProcessingConfiguration(applicationName: String, currentApplicationVersionId: Long, inputId: String, inputProcessingConfiguration: com.amazonaws.services.kinesisanalytics.model.InputProcessingConfiguration, init: AmazonKinesisAnalyticsAddApplicationInputProcessingConfigurationCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisAnalyticsAddApplicationInputProcessingConfigurationCommand(applicationName, currentApplicationVersionId, inputId, inputProcessingConfiguration).apply(init))
+fun AmazonKinesisAnalyticsFunctions.addApplicationInputProcessingConfiguration(applicationName: String, currentApplicationVersionId: Long, inputId: String, inputProcessingConfiguration: com.amazonaws.services.kinesisanalytics.model.InputProcessingConfiguration, init: AmazonKinesisAnalyticsAddApplicationInputProcessingConfigurationCommand.() -> Unit): com.amazonaws.services.kinesisanalytics.model.AddApplicationInputProcessingConfigurationResult {
+	return this.block.declare(AmazonKinesisAnalyticsAddApplicationInputProcessingConfigurationCommand(applicationName, currentApplicationVersionId, inputId, inputProcessingConfiguration).apply(init)) as com.amazonaws.services.kinesisanalytics.model.AddApplicationInputProcessingConfigurationResult
 }
 
 @Generated
-class AmazonKinesisAnalyticsAddApplicationInputProcessingConfigurationCommand(val applicationName: String, val currentApplicationVersionId: Long, val inputId: String, val inputProcessingConfiguration: com.amazonaws.services.kinesisanalytics.model.InputProcessingConfiguration) : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.AddApplicationInputProcessingConfigurationRequest> {
+class AmazonKinesisAnalyticsAddApplicationInputProcessingConfigurationCommand(val applicationName: String, val currentApplicationVersionId: Long, val inputId: String, val inputProcessingConfiguration: com.amazonaws.services.kinesisanalytics.model.InputProcessingConfiguration) : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.AddApplicationInputProcessingConfigurationRequest, com.amazonaws.services.kinesisanalytics.model.AddApplicationInputProcessingConfigurationResult> {
 
 
 
@@ -106,8 +114,12 @@ class AmazonKinesisAnalyticsAddApplicationInputProcessingConfigurationCommand(va
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesisanalytics.addApplicationInputProcessingConfiguration(build())
+	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.AddApplicationInputProcessingConfigurationResult {
+	  return com.amazonaws.services.kinesisanalytics.model.AddApplicationInputProcessingConfigurationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.AddApplicationInputProcessingConfigurationResult {
+		return environment.kinesisanalytics.addApplicationInputProcessingConfiguration(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -121,12 +133,12 @@ class AmazonKinesisAnalyticsAddApplicationInputProcessingConfigurationCommand(va
 }
 
 
-fun AmazonKinesisAnalyticsFunctions.addApplicationOutput(applicationName: String, currentApplicationVersionId: Long, output: com.amazonaws.services.kinesisanalytics.model.Output, init: AmazonKinesisAnalyticsAddApplicationOutputCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisAnalyticsAddApplicationOutputCommand(applicationName, currentApplicationVersionId, output).apply(init))
+fun AmazonKinesisAnalyticsFunctions.addApplicationOutput(applicationName: String, currentApplicationVersionId: Long, output: com.amazonaws.services.kinesisanalytics.model.Output, init: AmazonKinesisAnalyticsAddApplicationOutputCommand.() -> Unit): com.amazonaws.services.kinesisanalytics.model.AddApplicationOutputResult {
+	return this.block.declare(AmazonKinesisAnalyticsAddApplicationOutputCommand(applicationName, currentApplicationVersionId, output).apply(init)) as com.amazonaws.services.kinesisanalytics.model.AddApplicationOutputResult
 }
 
 @Generated
-class AmazonKinesisAnalyticsAddApplicationOutputCommand(val applicationName: String, val currentApplicationVersionId: Long, val output: com.amazonaws.services.kinesisanalytics.model.Output) : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.AddApplicationOutputRequest> {
+class AmazonKinesisAnalyticsAddApplicationOutputCommand(val applicationName: String, val currentApplicationVersionId: Long, val output: com.amazonaws.services.kinesisanalytics.model.Output) : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.AddApplicationOutputRequest, com.amazonaws.services.kinesisanalytics.model.AddApplicationOutputResult> {
 
 
 
@@ -138,8 +150,12 @@ class AmazonKinesisAnalyticsAddApplicationOutputCommand(val applicationName: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesisanalytics.addApplicationOutput(build())
+	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.AddApplicationOutputResult {
+	  return com.amazonaws.services.kinesisanalytics.model.AddApplicationOutputResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.AddApplicationOutputResult {
+		return environment.kinesisanalytics.addApplicationOutput(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -152,12 +168,12 @@ class AmazonKinesisAnalyticsAddApplicationOutputCommand(val applicationName: Str
 }
 
 
-fun AmazonKinesisAnalyticsFunctions.addApplicationReferenceDataSource(applicationName: String, currentApplicationVersionId: Long, referenceDataSource: com.amazonaws.services.kinesisanalytics.model.ReferenceDataSource, init: AmazonKinesisAnalyticsAddApplicationReferenceDataSourceCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisAnalyticsAddApplicationReferenceDataSourceCommand(applicationName, currentApplicationVersionId, referenceDataSource).apply(init))
+fun AmazonKinesisAnalyticsFunctions.addApplicationReferenceDataSource(applicationName: String, currentApplicationVersionId: Long, referenceDataSource: com.amazonaws.services.kinesisanalytics.model.ReferenceDataSource, init: AmazonKinesisAnalyticsAddApplicationReferenceDataSourceCommand.() -> Unit): com.amazonaws.services.kinesisanalytics.model.AddApplicationReferenceDataSourceResult {
+	return this.block.declare(AmazonKinesisAnalyticsAddApplicationReferenceDataSourceCommand(applicationName, currentApplicationVersionId, referenceDataSource).apply(init)) as com.amazonaws.services.kinesisanalytics.model.AddApplicationReferenceDataSourceResult
 }
 
 @Generated
-class AmazonKinesisAnalyticsAddApplicationReferenceDataSourceCommand(val applicationName: String, val currentApplicationVersionId: Long, val referenceDataSource: com.amazonaws.services.kinesisanalytics.model.ReferenceDataSource) : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.AddApplicationReferenceDataSourceRequest> {
+class AmazonKinesisAnalyticsAddApplicationReferenceDataSourceCommand(val applicationName: String, val currentApplicationVersionId: Long, val referenceDataSource: com.amazonaws.services.kinesisanalytics.model.ReferenceDataSource) : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.AddApplicationReferenceDataSourceRequest, com.amazonaws.services.kinesisanalytics.model.AddApplicationReferenceDataSourceResult> {
 
 
 
@@ -169,8 +185,12 @@ class AmazonKinesisAnalyticsAddApplicationReferenceDataSourceCommand(val applica
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesisanalytics.addApplicationReferenceDataSource(build())
+	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.AddApplicationReferenceDataSourceResult {
+	  return com.amazonaws.services.kinesisanalytics.model.AddApplicationReferenceDataSourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.AddApplicationReferenceDataSourceResult {
+		return environment.kinesisanalytics.addApplicationReferenceDataSource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -183,12 +203,12 @@ class AmazonKinesisAnalyticsAddApplicationReferenceDataSourceCommand(val applica
 }
 
 
-fun AmazonKinesisAnalyticsFunctions.createApplication(applicationName: String, init: AmazonKinesisAnalyticsCreateApplicationCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisAnalyticsCreateApplicationCommand(applicationName).apply(init))
+fun AmazonKinesisAnalyticsFunctions.createApplication(applicationName: String, init: AmazonKinesisAnalyticsCreateApplicationCommand.() -> Unit): com.amazonaws.services.kinesisanalytics.model.CreateApplicationResult {
+	return this.block.declare(AmazonKinesisAnalyticsCreateApplicationCommand(applicationName).apply(init)) as com.amazonaws.services.kinesisanalytics.model.CreateApplicationResult
 }
 
 @Generated
-class AmazonKinesisAnalyticsCreateApplicationCommand(val applicationName: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.CreateApplicationRequest> {
+class AmazonKinesisAnalyticsCreateApplicationCommand(val applicationName: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.CreateApplicationRequest, com.amazonaws.services.kinesisanalytics.model.CreateApplicationResult> {
 
 	var applicationDescription: String? = null
 	var inputs: List<com.amazonaws.services.kinesisanalytics.model.Input>? = null
@@ -207,8 +227,12 @@ class AmazonKinesisAnalyticsCreateApplicationCommand(val applicationName: String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesisanalytics.createApplication(build())
+	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.CreateApplicationResult {
+	  return com.amazonaws.services.kinesisanalytics.model.CreateApplicationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.CreateApplicationResult {
+		return environment.kinesisanalytics.createApplication(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -224,12 +248,12 @@ class AmazonKinesisAnalyticsCreateApplicationCommand(val applicationName: String
 }
 
 
-fun AmazonKinesisAnalyticsFunctions.deleteApplication(applicationName: String, createTimestamp: java.util.Date, init: AmazonKinesisAnalyticsDeleteApplicationCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisAnalyticsDeleteApplicationCommand(applicationName, createTimestamp).apply(init))
+fun AmazonKinesisAnalyticsFunctions.deleteApplication(applicationName: String, createTimestamp: java.util.Date, init: AmazonKinesisAnalyticsDeleteApplicationCommand.() -> Unit): com.amazonaws.services.kinesisanalytics.model.DeleteApplicationResult {
+	return this.block.declare(AmazonKinesisAnalyticsDeleteApplicationCommand(applicationName, createTimestamp).apply(init)) as com.amazonaws.services.kinesisanalytics.model.DeleteApplicationResult
 }
 
 @Generated
-class AmazonKinesisAnalyticsDeleteApplicationCommand(val applicationName: String, val createTimestamp: java.util.Date) : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.DeleteApplicationRequest> {
+class AmazonKinesisAnalyticsDeleteApplicationCommand(val applicationName: String, val createTimestamp: java.util.Date) : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.DeleteApplicationRequest, com.amazonaws.services.kinesisanalytics.model.DeleteApplicationResult> {
 
 
 
@@ -240,8 +264,12 @@ class AmazonKinesisAnalyticsDeleteApplicationCommand(val applicationName: String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesisanalytics.deleteApplication(build())
+	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.DeleteApplicationResult {
+	  return com.amazonaws.services.kinesisanalytics.model.DeleteApplicationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.DeleteApplicationResult {
+		return environment.kinesisanalytics.deleteApplication(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -253,12 +281,12 @@ class AmazonKinesisAnalyticsDeleteApplicationCommand(val applicationName: String
 }
 
 
-fun AmazonKinesisAnalyticsFunctions.deleteApplicationCloudWatchLoggingOption(applicationName: String, currentApplicationVersionId: Long, cloudWatchLoggingOptionId: String, init: AmazonKinesisAnalyticsDeleteApplicationCloudWatchLoggingOptionCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisAnalyticsDeleteApplicationCloudWatchLoggingOptionCommand(applicationName, currentApplicationVersionId, cloudWatchLoggingOptionId).apply(init))
+fun AmazonKinesisAnalyticsFunctions.deleteApplicationCloudWatchLoggingOption(applicationName: String, currentApplicationVersionId: Long, cloudWatchLoggingOptionId: String, init: AmazonKinesisAnalyticsDeleteApplicationCloudWatchLoggingOptionCommand.() -> Unit): com.amazonaws.services.kinesisanalytics.model.DeleteApplicationCloudWatchLoggingOptionResult {
+	return this.block.declare(AmazonKinesisAnalyticsDeleteApplicationCloudWatchLoggingOptionCommand(applicationName, currentApplicationVersionId, cloudWatchLoggingOptionId).apply(init)) as com.amazonaws.services.kinesisanalytics.model.DeleteApplicationCloudWatchLoggingOptionResult
 }
 
 @Generated
-class AmazonKinesisAnalyticsDeleteApplicationCloudWatchLoggingOptionCommand(val applicationName: String, val currentApplicationVersionId: Long, val cloudWatchLoggingOptionId: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.DeleteApplicationCloudWatchLoggingOptionRequest> {
+class AmazonKinesisAnalyticsDeleteApplicationCloudWatchLoggingOptionCommand(val applicationName: String, val currentApplicationVersionId: Long, val cloudWatchLoggingOptionId: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.DeleteApplicationCloudWatchLoggingOptionRequest, com.amazonaws.services.kinesisanalytics.model.DeleteApplicationCloudWatchLoggingOptionResult> {
 
 
 
@@ -270,8 +298,12 @@ class AmazonKinesisAnalyticsDeleteApplicationCloudWatchLoggingOptionCommand(val 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesisanalytics.deleteApplicationCloudWatchLoggingOption(build())
+	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.DeleteApplicationCloudWatchLoggingOptionResult {
+	  return com.amazonaws.services.kinesisanalytics.model.DeleteApplicationCloudWatchLoggingOptionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.DeleteApplicationCloudWatchLoggingOptionResult {
+		return environment.kinesisanalytics.deleteApplicationCloudWatchLoggingOption(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -284,12 +316,12 @@ class AmazonKinesisAnalyticsDeleteApplicationCloudWatchLoggingOptionCommand(val 
 }
 
 
-fun AmazonKinesisAnalyticsFunctions.deleteApplicationInputProcessingConfiguration(applicationName: String, currentApplicationVersionId: Long, inputId: String, init: AmazonKinesisAnalyticsDeleteApplicationInputProcessingConfigurationCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisAnalyticsDeleteApplicationInputProcessingConfigurationCommand(applicationName, currentApplicationVersionId, inputId).apply(init))
+fun AmazonKinesisAnalyticsFunctions.deleteApplicationInputProcessingConfiguration(applicationName: String, currentApplicationVersionId: Long, inputId: String, init: AmazonKinesisAnalyticsDeleteApplicationInputProcessingConfigurationCommand.() -> Unit): com.amazonaws.services.kinesisanalytics.model.DeleteApplicationInputProcessingConfigurationResult {
+	return this.block.declare(AmazonKinesisAnalyticsDeleteApplicationInputProcessingConfigurationCommand(applicationName, currentApplicationVersionId, inputId).apply(init)) as com.amazonaws.services.kinesisanalytics.model.DeleteApplicationInputProcessingConfigurationResult
 }
 
 @Generated
-class AmazonKinesisAnalyticsDeleteApplicationInputProcessingConfigurationCommand(val applicationName: String, val currentApplicationVersionId: Long, val inputId: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.DeleteApplicationInputProcessingConfigurationRequest> {
+class AmazonKinesisAnalyticsDeleteApplicationInputProcessingConfigurationCommand(val applicationName: String, val currentApplicationVersionId: Long, val inputId: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.DeleteApplicationInputProcessingConfigurationRequest, com.amazonaws.services.kinesisanalytics.model.DeleteApplicationInputProcessingConfigurationResult> {
 
 
 
@@ -301,8 +333,12 @@ class AmazonKinesisAnalyticsDeleteApplicationInputProcessingConfigurationCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesisanalytics.deleteApplicationInputProcessingConfiguration(build())
+	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.DeleteApplicationInputProcessingConfigurationResult {
+	  return com.amazonaws.services.kinesisanalytics.model.DeleteApplicationInputProcessingConfigurationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.DeleteApplicationInputProcessingConfigurationResult {
+		return environment.kinesisanalytics.deleteApplicationInputProcessingConfiguration(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -315,12 +351,12 @@ class AmazonKinesisAnalyticsDeleteApplicationInputProcessingConfigurationCommand
 }
 
 
-fun AmazonKinesisAnalyticsFunctions.deleteApplicationOutput(applicationName: String, currentApplicationVersionId: Long, outputId: String, init: AmazonKinesisAnalyticsDeleteApplicationOutputCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisAnalyticsDeleteApplicationOutputCommand(applicationName, currentApplicationVersionId, outputId).apply(init))
+fun AmazonKinesisAnalyticsFunctions.deleteApplicationOutput(applicationName: String, currentApplicationVersionId: Long, outputId: String, init: AmazonKinesisAnalyticsDeleteApplicationOutputCommand.() -> Unit): com.amazonaws.services.kinesisanalytics.model.DeleteApplicationOutputResult {
+	return this.block.declare(AmazonKinesisAnalyticsDeleteApplicationOutputCommand(applicationName, currentApplicationVersionId, outputId).apply(init)) as com.amazonaws.services.kinesisanalytics.model.DeleteApplicationOutputResult
 }
 
 @Generated
-class AmazonKinesisAnalyticsDeleteApplicationOutputCommand(val applicationName: String, val currentApplicationVersionId: Long, val outputId: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.DeleteApplicationOutputRequest> {
+class AmazonKinesisAnalyticsDeleteApplicationOutputCommand(val applicationName: String, val currentApplicationVersionId: Long, val outputId: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.DeleteApplicationOutputRequest, com.amazonaws.services.kinesisanalytics.model.DeleteApplicationOutputResult> {
 
 
 
@@ -332,8 +368,12 @@ class AmazonKinesisAnalyticsDeleteApplicationOutputCommand(val applicationName: 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesisanalytics.deleteApplicationOutput(build())
+	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.DeleteApplicationOutputResult {
+	  return com.amazonaws.services.kinesisanalytics.model.DeleteApplicationOutputResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.DeleteApplicationOutputResult {
+		return environment.kinesisanalytics.deleteApplicationOutput(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -346,12 +386,12 @@ class AmazonKinesisAnalyticsDeleteApplicationOutputCommand(val applicationName: 
 }
 
 
-fun AmazonKinesisAnalyticsFunctions.deleteApplicationReferenceDataSource(applicationName: String, currentApplicationVersionId: Long, referenceId: String, init: AmazonKinesisAnalyticsDeleteApplicationReferenceDataSourceCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisAnalyticsDeleteApplicationReferenceDataSourceCommand(applicationName, currentApplicationVersionId, referenceId).apply(init))
+fun AmazonKinesisAnalyticsFunctions.deleteApplicationReferenceDataSource(applicationName: String, currentApplicationVersionId: Long, referenceId: String, init: AmazonKinesisAnalyticsDeleteApplicationReferenceDataSourceCommand.() -> Unit): com.amazonaws.services.kinesisanalytics.model.DeleteApplicationReferenceDataSourceResult {
+	return this.block.declare(AmazonKinesisAnalyticsDeleteApplicationReferenceDataSourceCommand(applicationName, currentApplicationVersionId, referenceId).apply(init)) as com.amazonaws.services.kinesisanalytics.model.DeleteApplicationReferenceDataSourceResult
 }
 
 @Generated
-class AmazonKinesisAnalyticsDeleteApplicationReferenceDataSourceCommand(val applicationName: String, val currentApplicationVersionId: Long, val referenceId: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.DeleteApplicationReferenceDataSourceRequest> {
+class AmazonKinesisAnalyticsDeleteApplicationReferenceDataSourceCommand(val applicationName: String, val currentApplicationVersionId: Long, val referenceId: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.DeleteApplicationReferenceDataSourceRequest, com.amazonaws.services.kinesisanalytics.model.DeleteApplicationReferenceDataSourceResult> {
 
 
 
@@ -363,8 +403,12 @@ class AmazonKinesisAnalyticsDeleteApplicationReferenceDataSourceCommand(val appl
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesisanalytics.deleteApplicationReferenceDataSource(build())
+	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.DeleteApplicationReferenceDataSourceResult {
+	  return com.amazonaws.services.kinesisanalytics.model.DeleteApplicationReferenceDataSourceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.DeleteApplicationReferenceDataSourceResult {
+		return environment.kinesisanalytics.deleteApplicationReferenceDataSource(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -377,12 +421,12 @@ class AmazonKinesisAnalyticsDeleteApplicationReferenceDataSourceCommand(val appl
 }
 
 
-fun AmazonKinesisAnalyticsFunctions.describeApplication(applicationName: String, init: AmazonKinesisAnalyticsDescribeApplicationCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisAnalyticsDescribeApplicationCommand(applicationName).apply(init))
+fun AmazonKinesisAnalyticsFunctions.describeApplication(applicationName: String, init: AmazonKinesisAnalyticsDescribeApplicationCommand.() -> Unit): com.amazonaws.services.kinesisanalytics.model.DescribeApplicationResult {
+	return this.block.declare(AmazonKinesisAnalyticsDescribeApplicationCommand(applicationName).apply(init)) as com.amazonaws.services.kinesisanalytics.model.DescribeApplicationResult
 }
 
 @Generated
-class AmazonKinesisAnalyticsDescribeApplicationCommand(val applicationName: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.DescribeApplicationRequest> {
+class AmazonKinesisAnalyticsDescribeApplicationCommand(val applicationName: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.DescribeApplicationRequest, com.amazonaws.services.kinesisanalytics.model.DescribeApplicationResult> {
 
 
 
@@ -392,8 +436,12 @@ class AmazonKinesisAnalyticsDescribeApplicationCommand(val applicationName: Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesisanalytics.describeApplication(build())
+	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.DescribeApplicationResult {
+	  return com.amazonaws.services.kinesisanalytics.model.DescribeApplicationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.DescribeApplicationResult {
+		return environment.kinesisanalytics.describeApplication(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -404,12 +452,12 @@ class AmazonKinesisAnalyticsDescribeApplicationCommand(val applicationName: Stri
 }
 
 
-fun AmazonKinesisAnalyticsFunctions.discoverInputSchema(init: AmazonKinesisAnalyticsDiscoverInputSchemaCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisAnalyticsDiscoverInputSchemaCommand().apply(init))
+fun AmazonKinesisAnalyticsFunctions.discoverInputSchema(init: AmazonKinesisAnalyticsDiscoverInputSchemaCommand.() -> Unit): com.amazonaws.services.kinesisanalytics.model.DiscoverInputSchemaResult {
+	return this.block.declare(AmazonKinesisAnalyticsDiscoverInputSchemaCommand().apply(init)) as com.amazonaws.services.kinesisanalytics.model.DiscoverInputSchemaResult
 }
 
 @Generated
-class AmazonKinesisAnalyticsDiscoverInputSchemaCommand() : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.DiscoverInputSchemaRequest> {
+class AmazonKinesisAnalyticsDiscoverInputSchemaCommand() : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.DiscoverInputSchemaRequest, com.amazonaws.services.kinesisanalytics.model.DiscoverInputSchemaResult> {
 
 	var resourceARN: String? = null
 	var roleARN: String? = null
@@ -427,8 +475,12 @@ class AmazonKinesisAnalyticsDiscoverInputSchemaCommand() : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesisanalytics.discoverInputSchema(build())
+	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.DiscoverInputSchemaResult {
+	  return com.amazonaws.services.kinesisanalytics.model.DiscoverInputSchemaResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.DiscoverInputSchemaResult {
+		return environment.kinesisanalytics.discoverInputSchema(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -443,12 +495,12 @@ class AmazonKinesisAnalyticsDiscoverInputSchemaCommand() : AmazonWebServiceComma
 }
 
 
-fun AmazonKinesisAnalyticsFunctions.listApplications(init: AmazonKinesisAnalyticsListApplicationsCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisAnalyticsListApplicationsCommand().apply(init))
+fun AmazonKinesisAnalyticsFunctions.listApplications(init: AmazonKinesisAnalyticsListApplicationsCommand.() -> Unit): com.amazonaws.services.kinesisanalytics.model.ListApplicationsResult {
+	return this.block.declare(AmazonKinesisAnalyticsListApplicationsCommand().apply(init)) as com.amazonaws.services.kinesisanalytics.model.ListApplicationsResult
 }
 
 @Generated
-class AmazonKinesisAnalyticsListApplicationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.ListApplicationsRequest> {
+class AmazonKinesisAnalyticsListApplicationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.ListApplicationsRequest, com.amazonaws.services.kinesisanalytics.model.ListApplicationsResult> {
 
 	var limit: Int? = 0
 	var exclusiveStartApplicationName: String? = null
@@ -460,8 +512,12 @@ class AmazonKinesisAnalyticsListApplicationsCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesisanalytics.listApplications(build())
+	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.ListApplicationsResult {
+	  return com.amazonaws.services.kinesisanalytics.model.ListApplicationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.ListApplicationsResult {
+		return environment.kinesisanalytics.listApplications(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -473,12 +529,12 @@ class AmazonKinesisAnalyticsListApplicationsCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AmazonKinesisAnalyticsFunctions.startApplication(applicationName: String, inputConfigurations: List<com.amazonaws.services.kinesisanalytics.model.InputConfiguration>, init: AmazonKinesisAnalyticsStartApplicationCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisAnalyticsStartApplicationCommand(applicationName, inputConfigurations).apply(init))
+fun AmazonKinesisAnalyticsFunctions.startApplication(applicationName: String, inputConfigurations: List<com.amazonaws.services.kinesisanalytics.model.InputConfiguration>, init: AmazonKinesisAnalyticsStartApplicationCommand.() -> Unit): com.amazonaws.services.kinesisanalytics.model.StartApplicationResult {
+	return this.block.declare(AmazonKinesisAnalyticsStartApplicationCommand(applicationName, inputConfigurations).apply(init)) as com.amazonaws.services.kinesisanalytics.model.StartApplicationResult
 }
 
 @Generated
-class AmazonKinesisAnalyticsStartApplicationCommand(val applicationName: String, val inputConfigurations: List<com.amazonaws.services.kinesisanalytics.model.InputConfiguration>) : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.StartApplicationRequest> {
+class AmazonKinesisAnalyticsStartApplicationCommand(val applicationName: String, val inputConfigurations: List<com.amazonaws.services.kinesisanalytics.model.InputConfiguration>) : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.StartApplicationRequest, com.amazonaws.services.kinesisanalytics.model.StartApplicationResult> {
 
 
 
@@ -489,8 +545,12 @@ class AmazonKinesisAnalyticsStartApplicationCommand(val applicationName: String,
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesisanalytics.startApplication(build())
+	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.StartApplicationResult {
+	  return com.amazonaws.services.kinesisanalytics.model.StartApplicationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.StartApplicationResult {
+		return environment.kinesisanalytics.startApplication(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -502,12 +562,12 @@ class AmazonKinesisAnalyticsStartApplicationCommand(val applicationName: String,
 }
 
 
-fun AmazonKinesisAnalyticsFunctions.stopApplication(applicationName: String, init: AmazonKinesisAnalyticsStopApplicationCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisAnalyticsStopApplicationCommand(applicationName).apply(init))
+fun AmazonKinesisAnalyticsFunctions.stopApplication(applicationName: String, init: AmazonKinesisAnalyticsStopApplicationCommand.() -> Unit): com.amazonaws.services.kinesisanalytics.model.StopApplicationResult {
+	return this.block.declare(AmazonKinesisAnalyticsStopApplicationCommand(applicationName).apply(init)) as com.amazonaws.services.kinesisanalytics.model.StopApplicationResult
 }
 
 @Generated
-class AmazonKinesisAnalyticsStopApplicationCommand(val applicationName: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.StopApplicationRequest> {
+class AmazonKinesisAnalyticsStopApplicationCommand(val applicationName: String) : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.StopApplicationRequest, com.amazonaws.services.kinesisanalytics.model.StopApplicationResult> {
 
 
 
@@ -517,8 +577,12 @@ class AmazonKinesisAnalyticsStopApplicationCommand(val applicationName: String) 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesisanalytics.stopApplication(build())
+	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.StopApplicationResult {
+	  return com.amazonaws.services.kinesisanalytics.model.StopApplicationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.StopApplicationResult {
+		return environment.kinesisanalytics.stopApplication(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -529,12 +593,12 @@ class AmazonKinesisAnalyticsStopApplicationCommand(val applicationName: String) 
 }
 
 
-fun AmazonKinesisAnalyticsFunctions.updateApplication(applicationName: String, currentApplicationVersionId: Long, applicationUpdate: com.amazonaws.services.kinesisanalytics.model.ApplicationUpdate, init: AmazonKinesisAnalyticsUpdateApplicationCommand.() -> Unit) {
-	this.block.declare(AmazonKinesisAnalyticsUpdateApplicationCommand(applicationName, currentApplicationVersionId, applicationUpdate).apply(init))
+fun AmazonKinesisAnalyticsFunctions.updateApplication(applicationName: String, currentApplicationVersionId: Long, applicationUpdate: com.amazonaws.services.kinesisanalytics.model.ApplicationUpdate, init: AmazonKinesisAnalyticsUpdateApplicationCommand.() -> Unit): com.amazonaws.services.kinesisanalytics.model.UpdateApplicationResult {
+	return this.block.declare(AmazonKinesisAnalyticsUpdateApplicationCommand(applicationName, currentApplicationVersionId, applicationUpdate).apply(init)) as com.amazonaws.services.kinesisanalytics.model.UpdateApplicationResult
 }
 
 @Generated
-class AmazonKinesisAnalyticsUpdateApplicationCommand(val applicationName: String, val currentApplicationVersionId: Long, val applicationUpdate: com.amazonaws.services.kinesisanalytics.model.ApplicationUpdate) : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.UpdateApplicationRequest> {
+class AmazonKinesisAnalyticsUpdateApplicationCommand(val applicationName: String, val currentApplicationVersionId: Long, val applicationUpdate: com.amazonaws.services.kinesisanalytics.model.ApplicationUpdate) : AmazonWebServiceCommand<com.amazonaws.services.kinesisanalytics.model.UpdateApplicationRequest, com.amazonaws.services.kinesisanalytics.model.UpdateApplicationResult> {
 
 
 
@@ -546,8 +610,12 @@ class AmazonKinesisAnalyticsUpdateApplicationCommand(val applicationName: String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.kinesisanalytics.updateApplication(build())
+	override fun dryResult(): com.amazonaws.services.kinesisanalytics.model.UpdateApplicationResult {
+	  return com.amazonaws.services.kinesisanalytics.model.UpdateApplicationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.kinesisanalytics.model.UpdateApplicationResult {
+		return environment.kinesisanalytics.updateApplication(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

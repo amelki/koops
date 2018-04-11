@@ -26,7 +26,7 @@ data class Operation(val output: Ref? = null,
 										 val errors: List<Ref>?)
 
 enum class Type {
-	map, string, structure, list, integer, blob, boolean, timestamp, long, double, float
+	map, string, structure, list, integer, blob, boolean, timestamp, long, double, float, void
 }
 
 data class Shape(val type: Type,

@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.iam: AmazonIdentityManagement
 @Generated
 class AmazonIdentityManagementFunctions(val block: Block)
 
-infix fun AwsContinuation.iam(init: AmazonIdentityManagementFunctions.() -> Unit) {
-	AmazonIdentityManagementFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.iam(init: AmazonIdentityManagementFunctions.() -> T): T {
+	return AmazonIdentityManagementFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonIdentityManagementFunctions.addClientIDToOpenIDConnectProvider(openIDConnectProviderArn: String, clientID: String, init: AmazonIdentityManagementAddClientIDToOpenIDConnectProviderCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementAddClientIDToOpenIDConnectProviderCommand(openIDConnectProviderArn, clientID).apply(init))
+fun AmazonIdentityManagementFunctions.addClientIDToOpenIDConnectProvider(openIDConnectProviderArn: String, clientID: String, init: AmazonIdentityManagementAddClientIDToOpenIDConnectProviderCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.AddClientIDToOpenIDConnectProviderResult {
+	return this.block.declare(AmazonIdentityManagementAddClientIDToOpenIDConnectProviderCommand(openIDConnectProviderArn, clientID).apply(init)) as com.amazonaws.services.identitymanagement.model.AddClientIDToOpenIDConnectProviderResult
 }
 
 @Generated
-class AmazonIdentityManagementAddClientIDToOpenIDConnectProviderCommand(val openIDConnectProviderArn: String, val clientID: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.AddClientIDToOpenIDConnectProviderRequest> {
+class AmazonIdentityManagementAddClientIDToOpenIDConnectProviderCommand(val openIDConnectProviderArn: String, val clientID: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.AddClientIDToOpenIDConnectProviderRequest, com.amazonaws.services.identitymanagement.model.AddClientIDToOpenIDConnectProviderResult> {
 
 
 
@@ -42,8 +42,12 @@ class AmazonIdentityManagementAddClientIDToOpenIDConnectProviderCommand(val open
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.addClientIDToOpenIDConnectProvider(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.AddClientIDToOpenIDConnectProviderResult {
+	  return com.amazonaws.services.identitymanagement.model.AddClientIDToOpenIDConnectProviderResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.AddClientIDToOpenIDConnectProviderResult {
+		return environment.iam.addClientIDToOpenIDConnectProvider(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -55,12 +59,12 @@ class AmazonIdentityManagementAddClientIDToOpenIDConnectProviderCommand(val open
 }
 
 
-fun AmazonIdentityManagementFunctions.addRoleToInstanceProfile(instanceProfileName: String, roleName: String, init: AmazonIdentityManagementAddRoleToInstanceProfileCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementAddRoleToInstanceProfileCommand(instanceProfileName, roleName).apply(init))
+fun AmazonIdentityManagementFunctions.addRoleToInstanceProfile(instanceProfileName: String, roleName: String, init: AmazonIdentityManagementAddRoleToInstanceProfileCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.AddRoleToInstanceProfileResult {
+	return this.block.declare(AmazonIdentityManagementAddRoleToInstanceProfileCommand(instanceProfileName, roleName).apply(init)) as com.amazonaws.services.identitymanagement.model.AddRoleToInstanceProfileResult
 }
 
 @Generated
-class AmazonIdentityManagementAddRoleToInstanceProfileCommand(val instanceProfileName: String, val roleName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.AddRoleToInstanceProfileRequest> {
+class AmazonIdentityManagementAddRoleToInstanceProfileCommand(val instanceProfileName: String, val roleName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.AddRoleToInstanceProfileRequest, com.amazonaws.services.identitymanagement.model.AddRoleToInstanceProfileResult> {
 
 
 
@@ -71,8 +75,12 @@ class AmazonIdentityManagementAddRoleToInstanceProfileCommand(val instanceProfil
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.addRoleToInstanceProfile(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.AddRoleToInstanceProfileResult {
+	  return com.amazonaws.services.identitymanagement.model.AddRoleToInstanceProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.AddRoleToInstanceProfileResult {
+		return environment.iam.addRoleToInstanceProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -84,12 +92,12 @@ class AmazonIdentityManagementAddRoleToInstanceProfileCommand(val instanceProfil
 }
 
 
-fun AmazonIdentityManagementFunctions.addUserToGroup(groupName: String, userName: String, init: AmazonIdentityManagementAddUserToGroupCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementAddUserToGroupCommand(groupName, userName).apply(init))
+fun AmazonIdentityManagementFunctions.addUserToGroup(groupName: String, userName: String, init: AmazonIdentityManagementAddUserToGroupCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.AddUserToGroupResult {
+	return this.block.declare(AmazonIdentityManagementAddUserToGroupCommand(groupName, userName).apply(init)) as com.amazonaws.services.identitymanagement.model.AddUserToGroupResult
 }
 
 @Generated
-class AmazonIdentityManagementAddUserToGroupCommand(val groupName: String, val userName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.AddUserToGroupRequest> {
+class AmazonIdentityManagementAddUserToGroupCommand(val groupName: String, val userName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.AddUserToGroupRequest, com.amazonaws.services.identitymanagement.model.AddUserToGroupResult> {
 
 
 
@@ -100,8 +108,12 @@ class AmazonIdentityManagementAddUserToGroupCommand(val groupName: String, val u
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.addUserToGroup(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.AddUserToGroupResult {
+	  return com.amazonaws.services.identitymanagement.model.AddUserToGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.AddUserToGroupResult {
+		return environment.iam.addUserToGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -113,12 +125,12 @@ class AmazonIdentityManagementAddUserToGroupCommand(val groupName: String, val u
 }
 
 
-fun AmazonIdentityManagementFunctions.attachGroupPolicy(groupName: String, policyArn: String, init: AmazonIdentityManagementAttachGroupPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementAttachGroupPolicyCommand(groupName, policyArn).apply(init))
+fun AmazonIdentityManagementFunctions.attachGroupPolicy(groupName: String, policyArn: String, init: AmazonIdentityManagementAttachGroupPolicyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.AttachGroupPolicyResult {
+	return this.block.declare(AmazonIdentityManagementAttachGroupPolicyCommand(groupName, policyArn).apply(init)) as com.amazonaws.services.identitymanagement.model.AttachGroupPolicyResult
 }
 
 @Generated
-class AmazonIdentityManagementAttachGroupPolicyCommand(val groupName: String, val policyArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.AttachGroupPolicyRequest> {
+class AmazonIdentityManagementAttachGroupPolicyCommand(val groupName: String, val policyArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.AttachGroupPolicyRequest, com.amazonaws.services.identitymanagement.model.AttachGroupPolicyResult> {
 
 
 
@@ -129,8 +141,12 @@ class AmazonIdentityManagementAttachGroupPolicyCommand(val groupName: String, va
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.attachGroupPolicy(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.AttachGroupPolicyResult {
+	  return com.amazonaws.services.identitymanagement.model.AttachGroupPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.AttachGroupPolicyResult {
+		return environment.iam.attachGroupPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -142,12 +158,12 @@ class AmazonIdentityManagementAttachGroupPolicyCommand(val groupName: String, va
 }
 
 
-fun AmazonIdentityManagementFunctions.attachRolePolicy(roleName: String, policyArn: String, init: AmazonIdentityManagementAttachRolePolicyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementAttachRolePolicyCommand(roleName, policyArn).apply(init))
+fun AmazonIdentityManagementFunctions.attachRolePolicy(roleName: String, policyArn: String, init: AmazonIdentityManagementAttachRolePolicyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.AttachRolePolicyResult {
+	return this.block.declare(AmazonIdentityManagementAttachRolePolicyCommand(roleName, policyArn).apply(init)) as com.amazonaws.services.identitymanagement.model.AttachRolePolicyResult
 }
 
 @Generated
-class AmazonIdentityManagementAttachRolePolicyCommand(val roleName: String, val policyArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.AttachRolePolicyRequest> {
+class AmazonIdentityManagementAttachRolePolicyCommand(val roleName: String, val policyArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.AttachRolePolicyRequest, com.amazonaws.services.identitymanagement.model.AttachRolePolicyResult> {
 
 
 
@@ -158,8 +174,12 @@ class AmazonIdentityManagementAttachRolePolicyCommand(val roleName: String, val 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.attachRolePolicy(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.AttachRolePolicyResult {
+	  return com.amazonaws.services.identitymanagement.model.AttachRolePolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.AttachRolePolicyResult {
+		return environment.iam.attachRolePolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -171,12 +191,12 @@ class AmazonIdentityManagementAttachRolePolicyCommand(val roleName: String, val 
 }
 
 
-fun AmazonIdentityManagementFunctions.attachUserPolicy(userName: String, policyArn: String, init: AmazonIdentityManagementAttachUserPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementAttachUserPolicyCommand(userName, policyArn).apply(init))
+fun AmazonIdentityManagementFunctions.attachUserPolicy(userName: String, policyArn: String, init: AmazonIdentityManagementAttachUserPolicyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.AttachUserPolicyResult {
+	return this.block.declare(AmazonIdentityManagementAttachUserPolicyCommand(userName, policyArn).apply(init)) as com.amazonaws.services.identitymanagement.model.AttachUserPolicyResult
 }
 
 @Generated
-class AmazonIdentityManagementAttachUserPolicyCommand(val userName: String, val policyArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.AttachUserPolicyRequest> {
+class AmazonIdentityManagementAttachUserPolicyCommand(val userName: String, val policyArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.AttachUserPolicyRequest, com.amazonaws.services.identitymanagement.model.AttachUserPolicyResult> {
 
 
 
@@ -187,8 +207,12 @@ class AmazonIdentityManagementAttachUserPolicyCommand(val userName: String, val 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.attachUserPolicy(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.AttachUserPolicyResult {
+	  return com.amazonaws.services.identitymanagement.model.AttachUserPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.AttachUserPolicyResult {
+		return environment.iam.attachUserPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -200,12 +224,12 @@ class AmazonIdentityManagementAttachUserPolicyCommand(val userName: String, val 
 }
 
 
-fun AmazonIdentityManagementFunctions.changePassword(oldPassword: String, newPassword: String, init: AmazonIdentityManagementChangePasswordCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementChangePasswordCommand(oldPassword, newPassword).apply(init))
+fun AmazonIdentityManagementFunctions.changePassword(oldPassword: String, newPassword: String, init: AmazonIdentityManagementChangePasswordCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.ChangePasswordResult {
+	return this.block.declare(AmazonIdentityManagementChangePasswordCommand(oldPassword, newPassword).apply(init)) as com.amazonaws.services.identitymanagement.model.ChangePasswordResult
 }
 
 @Generated
-class AmazonIdentityManagementChangePasswordCommand(val oldPassword: String, val newPassword: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ChangePasswordRequest> {
+class AmazonIdentityManagementChangePasswordCommand(val oldPassword: String, val newPassword: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ChangePasswordRequest, com.amazonaws.services.identitymanagement.model.ChangePasswordResult> {
 
 
 
@@ -216,8 +240,12 @@ class AmazonIdentityManagementChangePasswordCommand(val oldPassword: String, val
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.changePassword(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ChangePasswordResult {
+	  return com.amazonaws.services.identitymanagement.model.ChangePasswordResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ChangePasswordResult {
+		return environment.iam.changePassword(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -229,12 +257,12 @@ class AmazonIdentityManagementChangePasswordCommand(val oldPassword: String, val
 }
 
 
-fun AmazonIdentityManagementFunctions.createAccessKey(init: AmazonIdentityManagementCreateAccessKeyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementCreateAccessKeyCommand().apply(init))
+fun AmazonIdentityManagementFunctions.createAccessKey(init: AmazonIdentityManagementCreateAccessKeyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.CreateAccessKeyResult {
+	return this.block.declare(AmazonIdentityManagementCreateAccessKeyCommand().apply(init)) as com.amazonaws.services.identitymanagement.model.CreateAccessKeyResult
 }
 
 @Generated
-class AmazonIdentityManagementCreateAccessKeyCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.CreateAccessKeyRequest> {
+class AmazonIdentityManagementCreateAccessKeyCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.CreateAccessKeyRequest, com.amazonaws.services.identitymanagement.model.CreateAccessKeyResult> {
 
 	var userName: String? = null
 
@@ -244,8 +272,12 @@ class AmazonIdentityManagementCreateAccessKeyCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.createAccessKey(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.CreateAccessKeyResult {
+	  return com.amazonaws.services.identitymanagement.model.CreateAccessKeyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.CreateAccessKeyResult {
+		return environment.iam.createAccessKey(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -256,12 +288,12 @@ class AmazonIdentityManagementCreateAccessKeyCommand() : AmazonWebServiceCommand
 }
 
 
-fun AmazonIdentityManagementFunctions.createAccountAlias(accountAlias: String, init: AmazonIdentityManagementCreateAccountAliasCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementCreateAccountAliasCommand(accountAlias).apply(init))
+fun AmazonIdentityManagementFunctions.createAccountAlias(accountAlias: String, init: AmazonIdentityManagementCreateAccountAliasCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.CreateAccountAliasResult {
+	return this.block.declare(AmazonIdentityManagementCreateAccountAliasCommand(accountAlias).apply(init)) as com.amazonaws.services.identitymanagement.model.CreateAccountAliasResult
 }
 
 @Generated
-class AmazonIdentityManagementCreateAccountAliasCommand(val accountAlias: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.CreateAccountAliasRequest> {
+class AmazonIdentityManagementCreateAccountAliasCommand(val accountAlias: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.CreateAccountAliasRequest, com.amazonaws.services.identitymanagement.model.CreateAccountAliasResult> {
 
 
 
@@ -271,8 +303,12 @@ class AmazonIdentityManagementCreateAccountAliasCommand(val accountAlias: String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.createAccountAlias(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.CreateAccountAliasResult {
+	  return com.amazonaws.services.identitymanagement.model.CreateAccountAliasResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.CreateAccountAliasResult {
+		return environment.iam.createAccountAlias(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -283,12 +319,12 @@ class AmazonIdentityManagementCreateAccountAliasCommand(val accountAlias: String
 }
 
 
-fun AmazonIdentityManagementFunctions.createGroup(groupName: String, init: AmazonIdentityManagementCreateGroupCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementCreateGroupCommand(groupName).apply(init))
+fun AmazonIdentityManagementFunctions.createGroup(groupName: String, init: AmazonIdentityManagementCreateGroupCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.CreateGroupResult {
+	return this.block.declare(AmazonIdentityManagementCreateGroupCommand(groupName).apply(init)) as com.amazonaws.services.identitymanagement.model.CreateGroupResult
 }
 
 @Generated
-class AmazonIdentityManagementCreateGroupCommand(val groupName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.CreateGroupRequest> {
+class AmazonIdentityManagementCreateGroupCommand(val groupName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.CreateGroupRequest, com.amazonaws.services.identitymanagement.model.CreateGroupResult> {
 
 	var path: String? = null
 
@@ -299,8 +335,12 @@ class AmazonIdentityManagementCreateGroupCommand(val groupName: String) : Amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.createGroup(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.CreateGroupResult {
+	  return com.amazonaws.services.identitymanagement.model.CreateGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.CreateGroupResult {
+		return environment.iam.createGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -312,12 +352,12 @@ class AmazonIdentityManagementCreateGroupCommand(val groupName: String) : Amazon
 }
 
 
-fun AmazonIdentityManagementFunctions.createInstanceProfile(instanceProfileName: String, init: AmazonIdentityManagementCreateInstanceProfileCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementCreateInstanceProfileCommand(instanceProfileName).apply(init))
+fun AmazonIdentityManagementFunctions.createInstanceProfile(instanceProfileName: String, init: AmazonIdentityManagementCreateInstanceProfileCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.CreateInstanceProfileResult {
+	return this.block.declare(AmazonIdentityManagementCreateInstanceProfileCommand(instanceProfileName).apply(init)) as com.amazonaws.services.identitymanagement.model.CreateInstanceProfileResult
 }
 
 @Generated
-class AmazonIdentityManagementCreateInstanceProfileCommand(val instanceProfileName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.CreateInstanceProfileRequest> {
+class AmazonIdentityManagementCreateInstanceProfileCommand(val instanceProfileName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.CreateInstanceProfileRequest, com.amazonaws.services.identitymanagement.model.CreateInstanceProfileResult> {
 
 	var path: String? = null
 
@@ -328,8 +368,12 @@ class AmazonIdentityManagementCreateInstanceProfileCommand(val instanceProfileNa
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.createInstanceProfile(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.CreateInstanceProfileResult {
+	  return com.amazonaws.services.identitymanagement.model.CreateInstanceProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.CreateInstanceProfileResult {
+		return environment.iam.createInstanceProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -341,12 +385,12 @@ class AmazonIdentityManagementCreateInstanceProfileCommand(val instanceProfileNa
 }
 
 
-fun AmazonIdentityManagementFunctions.createLoginProfile(userName: String, password: String, init: AmazonIdentityManagementCreateLoginProfileCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementCreateLoginProfileCommand(userName, password).apply(init))
+fun AmazonIdentityManagementFunctions.createLoginProfile(userName: String, password: String, init: AmazonIdentityManagementCreateLoginProfileCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.CreateLoginProfileResult {
+	return this.block.declare(AmazonIdentityManagementCreateLoginProfileCommand(userName, password).apply(init)) as com.amazonaws.services.identitymanagement.model.CreateLoginProfileResult
 }
 
 @Generated
-class AmazonIdentityManagementCreateLoginProfileCommand(val userName: String, val password: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.CreateLoginProfileRequest> {
+class AmazonIdentityManagementCreateLoginProfileCommand(val userName: String, val password: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.CreateLoginProfileRequest, com.amazonaws.services.identitymanagement.model.CreateLoginProfileResult> {
 
 	var passwordResetRequired: Boolean? = false
 
@@ -358,8 +402,12 @@ class AmazonIdentityManagementCreateLoginProfileCommand(val userName: String, va
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.createLoginProfile(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.CreateLoginProfileResult {
+	  return com.amazonaws.services.identitymanagement.model.CreateLoginProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.CreateLoginProfileResult {
+		return environment.iam.createLoginProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -372,12 +420,12 @@ class AmazonIdentityManagementCreateLoginProfileCommand(val userName: String, va
 }
 
 
-fun AmazonIdentityManagementFunctions.createOpenIDConnectProvider(url: String, thumbprintList: List<String>, init: AmazonIdentityManagementCreateOpenIDConnectProviderCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementCreateOpenIDConnectProviderCommand(url, thumbprintList).apply(init))
+fun AmazonIdentityManagementFunctions.createOpenIDConnectProvider(url: String, thumbprintList: List<String>, init: AmazonIdentityManagementCreateOpenIDConnectProviderCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.CreateOpenIDConnectProviderResult {
+	return this.block.declare(AmazonIdentityManagementCreateOpenIDConnectProviderCommand(url, thumbprintList).apply(init)) as com.amazonaws.services.identitymanagement.model.CreateOpenIDConnectProviderResult
 }
 
 @Generated
-class AmazonIdentityManagementCreateOpenIDConnectProviderCommand(val url: String, val thumbprintList: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.CreateOpenIDConnectProviderRequest> {
+class AmazonIdentityManagementCreateOpenIDConnectProviderCommand(val url: String, val thumbprintList: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.CreateOpenIDConnectProviderRequest, com.amazonaws.services.identitymanagement.model.CreateOpenIDConnectProviderResult> {
 
 	var clientIDList: List<String>? = null
 
@@ -389,8 +437,12 @@ class AmazonIdentityManagementCreateOpenIDConnectProviderCommand(val url: String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.createOpenIDConnectProvider(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.CreateOpenIDConnectProviderResult {
+	  return com.amazonaws.services.identitymanagement.model.CreateOpenIDConnectProviderResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.CreateOpenIDConnectProviderResult {
+		return environment.iam.createOpenIDConnectProvider(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -403,12 +455,12 @@ class AmazonIdentityManagementCreateOpenIDConnectProviderCommand(val url: String
 }
 
 
-fun AmazonIdentityManagementFunctions.createPolicy(policyName: String, policyDocument: String, init: AmazonIdentityManagementCreatePolicyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementCreatePolicyCommand(policyName, policyDocument).apply(init))
+fun AmazonIdentityManagementFunctions.createPolicy(policyName: String, policyDocument: String, init: AmazonIdentityManagementCreatePolicyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.CreatePolicyResult {
+	return this.block.declare(AmazonIdentityManagementCreatePolicyCommand(policyName, policyDocument).apply(init)) as com.amazonaws.services.identitymanagement.model.CreatePolicyResult
 }
 
 @Generated
-class AmazonIdentityManagementCreatePolicyCommand(val policyName: String, val policyDocument: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.CreatePolicyRequest> {
+class AmazonIdentityManagementCreatePolicyCommand(val policyName: String, val policyDocument: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.CreatePolicyRequest, com.amazonaws.services.identitymanagement.model.CreatePolicyResult> {
 
 	var path: String? = null
 	var description: String? = null
@@ -422,8 +474,12 @@ class AmazonIdentityManagementCreatePolicyCommand(val policyName: String, val po
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.createPolicy(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.CreatePolicyResult {
+	  return com.amazonaws.services.identitymanagement.model.CreatePolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.CreatePolicyResult {
+		return environment.iam.createPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -437,12 +493,12 @@ class AmazonIdentityManagementCreatePolicyCommand(val policyName: String, val po
 }
 
 
-fun AmazonIdentityManagementFunctions.createPolicyVersion(policyArn: String, policyDocument: String, init: AmazonIdentityManagementCreatePolicyVersionCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementCreatePolicyVersionCommand(policyArn, policyDocument).apply(init))
+fun AmazonIdentityManagementFunctions.createPolicyVersion(policyArn: String, policyDocument: String, init: AmazonIdentityManagementCreatePolicyVersionCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.CreatePolicyVersionResult {
+	return this.block.declare(AmazonIdentityManagementCreatePolicyVersionCommand(policyArn, policyDocument).apply(init)) as com.amazonaws.services.identitymanagement.model.CreatePolicyVersionResult
 }
 
 @Generated
-class AmazonIdentityManagementCreatePolicyVersionCommand(val policyArn: String, val policyDocument: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.CreatePolicyVersionRequest> {
+class AmazonIdentityManagementCreatePolicyVersionCommand(val policyArn: String, val policyDocument: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.CreatePolicyVersionRequest, com.amazonaws.services.identitymanagement.model.CreatePolicyVersionResult> {
 
 	var setAsDefault: Boolean? = false
 
@@ -454,8 +510,12 @@ class AmazonIdentityManagementCreatePolicyVersionCommand(val policyArn: String, 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.createPolicyVersion(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.CreatePolicyVersionResult {
+	  return com.amazonaws.services.identitymanagement.model.CreatePolicyVersionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.CreatePolicyVersionResult {
+		return environment.iam.createPolicyVersion(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -468,12 +528,12 @@ class AmazonIdentityManagementCreatePolicyVersionCommand(val policyArn: String, 
 }
 
 
-fun AmazonIdentityManagementFunctions.createRole(roleName: String, assumeRolePolicyDocument: String, init: AmazonIdentityManagementCreateRoleCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementCreateRoleCommand(roleName, assumeRolePolicyDocument).apply(init))
+fun AmazonIdentityManagementFunctions.createRole(roleName: String, assumeRolePolicyDocument: String, init: AmazonIdentityManagementCreateRoleCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.CreateRoleResult {
+	return this.block.declare(AmazonIdentityManagementCreateRoleCommand(roleName, assumeRolePolicyDocument).apply(init)) as com.amazonaws.services.identitymanagement.model.CreateRoleResult
 }
 
 @Generated
-class AmazonIdentityManagementCreateRoleCommand(val roleName: String, val assumeRolePolicyDocument: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.CreateRoleRequest> {
+class AmazonIdentityManagementCreateRoleCommand(val roleName: String, val assumeRolePolicyDocument: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.CreateRoleRequest, com.amazonaws.services.identitymanagement.model.CreateRoleResult> {
 
 	var path: String? = null
 	var description: String? = null
@@ -489,8 +549,12 @@ class AmazonIdentityManagementCreateRoleCommand(val roleName: String, val assume
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.createRole(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.CreateRoleResult {
+	  return com.amazonaws.services.identitymanagement.model.CreateRoleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.CreateRoleResult {
+		return environment.iam.createRole(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -505,12 +569,12 @@ class AmazonIdentityManagementCreateRoleCommand(val roleName: String, val assume
 }
 
 
-fun AmazonIdentityManagementFunctions.createSAMLProvider(sAMLMetadataDocument: String, name: String, init: AmazonIdentityManagementCreateSAMLProviderCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementCreateSAMLProviderCommand(sAMLMetadataDocument, name).apply(init))
+fun AmazonIdentityManagementFunctions.createSAMLProvider(sAMLMetadataDocument: String, name: String, init: AmazonIdentityManagementCreateSAMLProviderCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.CreateSAMLProviderResult {
+	return this.block.declare(AmazonIdentityManagementCreateSAMLProviderCommand(sAMLMetadataDocument, name).apply(init)) as com.amazonaws.services.identitymanagement.model.CreateSAMLProviderResult
 }
 
 @Generated
-class AmazonIdentityManagementCreateSAMLProviderCommand(val sAMLMetadataDocument: String, val name: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.CreateSAMLProviderRequest> {
+class AmazonIdentityManagementCreateSAMLProviderCommand(val sAMLMetadataDocument: String, val name: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.CreateSAMLProviderRequest, com.amazonaws.services.identitymanagement.model.CreateSAMLProviderResult> {
 
 
 
@@ -521,8 +585,12 @@ class AmazonIdentityManagementCreateSAMLProviderCommand(val sAMLMetadataDocument
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.createSAMLProvider(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.CreateSAMLProviderResult {
+	  return com.amazonaws.services.identitymanagement.model.CreateSAMLProviderResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.CreateSAMLProviderResult {
+		return environment.iam.createSAMLProvider(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -534,12 +602,12 @@ class AmazonIdentityManagementCreateSAMLProviderCommand(val sAMLMetadataDocument
 }
 
 
-fun AmazonIdentityManagementFunctions.createServiceLinkedRole(aWSServiceName: String, init: AmazonIdentityManagementCreateServiceLinkedRoleCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementCreateServiceLinkedRoleCommand(aWSServiceName).apply(init))
+fun AmazonIdentityManagementFunctions.createServiceLinkedRole(aWSServiceName: String, init: AmazonIdentityManagementCreateServiceLinkedRoleCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.CreateServiceLinkedRoleResult {
+	return this.block.declare(AmazonIdentityManagementCreateServiceLinkedRoleCommand(aWSServiceName).apply(init)) as com.amazonaws.services.identitymanagement.model.CreateServiceLinkedRoleResult
 }
 
 @Generated
-class AmazonIdentityManagementCreateServiceLinkedRoleCommand(val aWSServiceName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.CreateServiceLinkedRoleRequest> {
+class AmazonIdentityManagementCreateServiceLinkedRoleCommand(val aWSServiceName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.CreateServiceLinkedRoleRequest, com.amazonaws.services.identitymanagement.model.CreateServiceLinkedRoleResult> {
 
 	var description: String? = null
 	var customSuffix: String? = null
@@ -552,8 +620,12 @@ class AmazonIdentityManagementCreateServiceLinkedRoleCommand(val aWSServiceName:
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.createServiceLinkedRole(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.CreateServiceLinkedRoleResult {
+	  return com.amazonaws.services.identitymanagement.model.CreateServiceLinkedRoleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.CreateServiceLinkedRoleResult {
+		return environment.iam.createServiceLinkedRole(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -566,12 +638,12 @@ class AmazonIdentityManagementCreateServiceLinkedRoleCommand(val aWSServiceName:
 }
 
 
-fun AmazonIdentityManagementFunctions.createServiceSpecificCredential(userName: String, serviceName: String, init: AmazonIdentityManagementCreateServiceSpecificCredentialCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementCreateServiceSpecificCredentialCommand(userName, serviceName).apply(init))
+fun AmazonIdentityManagementFunctions.createServiceSpecificCredential(userName: String, serviceName: String, init: AmazonIdentityManagementCreateServiceSpecificCredentialCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.CreateServiceSpecificCredentialResult {
+	return this.block.declare(AmazonIdentityManagementCreateServiceSpecificCredentialCommand(userName, serviceName).apply(init)) as com.amazonaws.services.identitymanagement.model.CreateServiceSpecificCredentialResult
 }
 
 @Generated
-class AmazonIdentityManagementCreateServiceSpecificCredentialCommand(val userName: String, val serviceName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.CreateServiceSpecificCredentialRequest> {
+class AmazonIdentityManagementCreateServiceSpecificCredentialCommand(val userName: String, val serviceName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.CreateServiceSpecificCredentialRequest, com.amazonaws.services.identitymanagement.model.CreateServiceSpecificCredentialResult> {
 
 
 
@@ -582,8 +654,12 @@ class AmazonIdentityManagementCreateServiceSpecificCredentialCommand(val userNam
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.createServiceSpecificCredential(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.CreateServiceSpecificCredentialResult {
+	  return com.amazonaws.services.identitymanagement.model.CreateServiceSpecificCredentialResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.CreateServiceSpecificCredentialResult {
+		return environment.iam.createServiceSpecificCredential(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -595,12 +671,12 @@ class AmazonIdentityManagementCreateServiceSpecificCredentialCommand(val userNam
 }
 
 
-fun AmazonIdentityManagementFunctions.createUser(userName: String, init: AmazonIdentityManagementCreateUserCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementCreateUserCommand(userName).apply(init))
+fun AmazonIdentityManagementFunctions.createUser(userName: String, init: AmazonIdentityManagementCreateUserCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.CreateUserResult {
+	return this.block.declare(AmazonIdentityManagementCreateUserCommand(userName).apply(init)) as com.amazonaws.services.identitymanagement.model.CreateUserResult
 }
 
 @Generated
-class AmazonIdentityManagementCreateUserCommand(val userName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.CreateUserRequest> {
+class AmazonIdentityManagementCreateUserCommand(val userName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.CreateUserRequest, com.amazonaws.services.identitymanagement.model.CreateUserResult> {
 
 	var path: String? = null
 
@@ -611,8 +687,12 @@ class AmazonIdentityManagementCreateUserCommand(val userName: String) : AmazonWe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.createUser(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.CreateUserResult {
+	  return com.amazonaws.services.identitymanagement.model.CreateUserResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.CreateUserResult {
+		return environment.iam.createUser(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -624,12 +704,12 @@ class AmazonIdentityManagementCreateUserCommand(val userName: String) : AmazonWe
 }
 
 
-fun AmazonIdentityManagementFunctions.createVirtualMFADevice(virtualMFADeviceName: String, init: AmazonIdentityManagementCreateVirtualMFADeviceCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementCreateVirtualMFADeviceCommand(virtualMFADeviceName).apply(init))
+fun AmazonIdentityManagementFunctions.createVirtualMFADevice(virtualMFADeviceName: String, init: AmazonIdentityManagementCreateVirtualMFADeviceCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.CreateVirtualMFADeviceResult {
+	return this.block.declare(AmazonIdentityManagementCreateVirtualMFADeviceCommand(virtualMFADeviceName).apply(init)) as com.amazonaws.services.identitymanagement.model.CreateVirtualMFADeviceResult
 }
 
 @Generated
-class AmazonIdentityManagementCreateVirtualMFADeviceCommand(val virtualMFADeviceName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.CreateVirtualMFADeviceRequest> {
+class AmazonIdentityManagementCreateVirtualMFADeviceCommand(val virtualMFADeviceName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.CreateVirtualMFADeviceRequest, com.amazonaws.services.identitymanagement.model.CreateVirtualMFADeviceResult> {
 
 	var path: String? = null
 
@@ -640,8 +720,12 @@ class AmazonIdentityManagementCreateVirtualMFADeviceCommand(val virtualMFADevice
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.createVirtualMFADevice(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.CreateVirtualMFADeviceResult {
+	  return com.amazonaws.services.identitymanagement.model.CreateVirtualMFADeviceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.CreateVirtualMFADeviceResult {
+		return environment.iam.createVirtualMFADevice(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -653,12 +737,12 @@ class AmazonIdentityManagementCreateVirtualMFADeviceCommand(val virtualMFADevice
 }
 
 
-fun AmazonIdentityManagementFunctions.deactivateMFADevice(userName: String, serialNumber: String, init: AmazonIdentityManagementDeactivateMFADeviceCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementDeactivateMFADeviceCommand(userName, serialNumber).apply(init))
+fun AmazonIdentityManagementFunctions.deactivateMFADevice(userName: String, serialNumber: String, init: AmazonIdentityManagementDeactivateMFADeviceCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.DeactivateMFADeviceResult {
+	return this.block.declare(AmazonIdentityManagementDeactivateMFADeviceCommand(userName, serialNumber).apply(init)) as com.amazonaws.services.identitymanagement.model.DeactivateMFADeviceResult
 }
 
 @Generated
-class AmazonIdentityManagementDeactivateMFADeviceCommand(val userName: String, val serialNumber: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeactivateMFADeviceRequest> {
+class AmazonIdentityManagementDeactivateMFADeviceCommand(val userName: String, val serialNumber: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeactivateMFADeviceRequest, com.amazonaws.services.identitymanagement.model.DeactivateMFADeviceResult> {
 
 
 
@@ -669,8 +753,12 @@ class AmazonIdentityManagementDeactivateMFADeviceCommand(val userName: String, v
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.deactivateMFADevice(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeactivateMFADeviceResult {
+	  return com.amazonaws.services.identitymanagement.model.DeactivateMFADeviceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeactivateMFADeviceResult {
+		return environment.iam.deactivateMFADevice(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -682,12 +770,12 @@ class AmazonIdentityManagementDeactivateMFADeviceCommand(val userName: String, v
 }
 
 
-fun AmazonIdentityManagementFunctions.deleteAccessKey(accessKeyId: String, init: AmazonIdentityManagementDeleteAccessKeyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementDeleteAccessKeyCommand(accessKeyId).apply(init))
+fun AmazonIdentityManagementFunctions.deleteAccessKey(accessKeyId: String, init: AmazonIdentityManagementDeleteAccessKeyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.DeleteAccessKeyResult {
+	return this.block.declare(AmazonIdentityManagementDeleteAccessKeyCommand(accessKeyId).apply(init)) as com.amazonaws.services.identitymanagement.model.DeleteAccessKeyResult
 }
 
 @Generated
-class AmazonIdentityManagementDeleteAccessKeyCommand(val accessKeyId: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteAccessKeyRequest> {
+class AmazonIdentityManagementDeleteAccessKeyCommand(val accessKeyId: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteAccessKeyRequest, com.amazonaws.services.identitymanagement.model.DeleteAccessKeyResult> {
 
 	var userName: String? = null
 
@@ -698,8 +786,12 @@ class AmazonIdentityManagementDeleteAccessKeyCommand(val accessKeyId: String) : 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.deleteAccessKey(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteAccessKeyResult {
+	  return com.amazonaws.services.identitymanagement.model.DeleteAccessKeyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteAccessKeyResult {
+		return environment.iam.deleteAccessKey(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -711,12 +803,12 @@ class AmazonIdentityManagementDeleteAccessKeyCommand(val accessKeyId: String) : 
 }
 
 
-fun AmazonIdentityManagementFunctions.deleteAccountAlias(accountAlias: String, init: AmazonIdentityManagementDeleteAccountAliasCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementDeleteAccountAliasCommand(accountAlias).apply(init))
+fun AmazonIdentityManagementFunctions.deleteAccountAlias(accountAlias: String, init: AmazonIdentityManagementDeleteAccountAliasCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.DeleteAccountAliasResult {
+	return this.block.declare(AmazonIdentityManagementDeleteAccountAliasCommand(accountAlias).apply(init)) as com.amazonaws.services.identitymanagement.model.DeleteAccountAliasResult
 }
 
 @Generated
-class AmazonIdentityManagementDeleteAccountAliasCommand(val accountAlias: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteAccountAliasRequest> {
+class AmazonIdentityManagementDeleteAccountAliasCommand(val accountAlias: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteAccountAliasRequest, com.amazonaws.services.identitymanagement.model.DeleteAccountAliasResult> {
 
 
 
@@ -726,8 +818,12 @@ class AmazonIdentityManagementDeleteAccountAliasCommand(val accountAlias: String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.deleteAccountAlias(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteAccountAliasResult {
+	  return com.amazonaws.services.identitymanagement.model.DeleteAccountAliasResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteAccountAliasResult {
+		return environment.iam.deleteAccountAlias(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -738,12 +834,12 @@ class AmazonIdentityManagementDeleteAccountAliasCommand(val accountAlias: String
 }
 
 
-fun AmazonIdentityManagementFunctions.deleteAccountPasswordPolicy(init: AmazonIdentityManagementDeleteAccountPasswordPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementDeleteAccountPasswordPolicyCommand().apply(init))
+fun AmazonIdentityManagementFunctions.deleteAccountPasswordPolicy(init: AmazonIdentityManagementDeleteAccountPasswordPolicyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.DeleteAccountPasswordPolicyResult {
+	return this.block.declare(AmazonIdentityManagementDeleteAccountPasswordPolicyCommand().apply(init)) as com.amazonaws.services.identitymanagement.model.DeleteAccountPasswordPolicyResult
 }
 
 @Generated
-class AmazonIdentityManagementDeleteAccountPasswordPolicyCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteAccountPasswordPolicyRequest> {
+class AmazonIdentityManagementDeleteAccountPasswordPolicyCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteAccountPasswordPolicyRequest, com.amazonaws.services.identitymanagement.model.DeleteAccountPasswordPolicyResult> {
 
 
 
@@ -753,8 +849,12 @@ class AmazonIdentityManagementDeleteAccountPasswordPolicyCommand() : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.deleteAccountPasswordPolicy(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteAccountPasswordPolicyResult {
+	  return com.amazonaws.services.identitymanagement.model.DeleteAccountPasswordPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteAccountPasswordPolicyResult {
+		return environment.iam.deleteAccountPasswordPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -765,12 +865,12 @@ class AmazonIdentityManagementDeleteAccountPasswordPolicyCommand() : AmazonWebSe
 }
 
 
-fun AmazonIdentityManagementFunctions.deleteGroup(groupName: String, init: AmazonIdentityManagementDeleteGroupCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementDeleteGroupCommand(groupName).apply(init))
+fun AmazonIdentityManagementFunctions.deleteGroup(groupName: String, init: AmazonIdentityManagementDeleteGroupCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.DeleteGroupResult {
+	return this.block.declare(AmazonIdentityManagementDeleteGroupCommand(groupName).apply(init)) as com.amazonaws.services.identitymanagement.model.DeleteGroupResult
 }
 
 @Generated
-class AmazonIdentityManagementDeleteGroupCommand(val groupName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteGroupRequest> {
+class AmazonIdentityManagementDeleteGroupCommand(val groupName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteGroupRequest, com.amazonaws.services.identitymanagement.model.DeleteGroupResult> {
 
 
 
@@ -780,8 +880,12 @@ class AmazonIdentityManagementDeleteGroupCommand(val groupName: String) : Amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.deleteGroup(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteGroupResult {
+	  return com.amazonaws.services.identitymanagement.model.DeleteGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteGroupResult {
+		return environment.iam.deleteGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -792,12 +896,12 @@ class AmazonIdentityManagementDeleteGroupCommand(val groupName: String) : Amazon
 }
 
 
-fun AmazonIdentityManagementFunctions.deleteGroupPolicy(groupName: String, policyName: String, init: AmazonIdentityManagementDeleteGroupPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementDeleteGroupPolicyCommand(groupName, policyName).apply(init))
+fun AmazonIdentityManagementFunctions.deleteGroupPolicy(groupName: String, policyName: String, init: AmazonIdentityManagementDeleteGroupPolicyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.DeleteGroupPolicyResult {
+	return this.block.declare(AmazonIdentityManagementDeleteGroupPolicyCommand(groupName, policyName).apply(init)) as com.amazonaws.services.identitymanagement.model.DeleteGroupPolicyResult
 }
 
 @Generated
-class AmazonIdentityManagementDeleteGroupPolicyCommand(val groupName: String, val policyName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteGroupPolicyRequest> {
+class AmazonIdentityManagementDeleteGroupPolicyCommand(val groupName: String, val policyName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteGroupPolicyRequest, com.amazonaws.services.identitymanagement.model.DeleteGroupPolicyResult> {
 
 
 
@@ -808,8 +912,12 @@ class AmazonIdentityManagementDeleteGroupPolicyCommand(val groupName: String, va
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.deleteGroupPolicy(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteGroupPolicyResult {
+	  return com.amazonaws.services.identitymanagement.model.DeleteGroupPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteGroupPolicyResult {
+		return environment.iam.deleteGroupPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -821,12 +929,12 @@ class AmazonIdentityManagementDeleteGroupPolicyCommand(val groupName: String, va
 }
 
 
-fun AmazonIdentityManagementFunctions.deleteInstanceProfile(instanceProfileName: String, init: AmazonIdentityManagementDeleteInstanceProfileCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementDeleteInstanceProfileCommand(instanceProfileName).apply(init))
+fun AmazonIdentityManagementFunctions.deleteInstanceProfile(instanceProfileName: String, init: AmazonIdentityManagementDeleteInstanceProfileCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.DeleteInstanceProfileResult {
+	return this.block.declare(AmazonIdentityManagementDeleteInstanceProfileCommand(instanceProfileName).apply(init)) as com.amazonaws.services.identitymanagement.model.DeleteInstanceProfileResult
 }
 
 @Generated
-class AmazonIdentityManagementDeleteInstanceProfileCommand(val instanceProfileName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteInstanceProfileRequest> {
+class AmazonIdentityManagementDeleteInstanceProfileCommand(val instanceProfileName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteInstanceProfileRequest, com.amazonaws.services.identitymanagement.model.DeleteInstanceProfileResult> {
 
 
 
@@ -836,8 +944,12 @@ class AmazonIdentityManagementDeleteInstanceProfileCommand(val instanceProfileNa
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.deleteInstanceProfile(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteInstanceProfileResult {
+	  return com.amazonaws.services.identitymanagement.model.DeleteInstanceProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteInstanceProfileResult {
+		return environment.iam.deleteInstanceProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -848,12 +960,12 @@ class AmazonIdentityManagementDeleteInstanceProfileCommand(val instanceProfileNa
 }
 
 
-fun AmazonIdentityManagementFunctions.deleteLoginProfile(userName: String, init: AmazonIdentityManagementDeleteLoginProfileCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementDeleteLoginProfileCommand(userName).apply(init))
+fun AmazonIdentityManagementFunctions.deleteLoginProfile(userName: String, init: AmazonIdentityManagementDeleteLoginProfileCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.DeleteLoginProfileResult {
+	return this.block.declare(AmazonIdentityManagementDeleteLoginProfileCommand(userName).apply(init)) as com.amazonaws.services.identitymanagement.model.DeleteLoginProfileResult
 }
 
 @Generated
-class AmazonIdentityManagementDeleteLoginProfileCommand(val userName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteLoginProfileRequest> {
+class AmazonIdentityManagementDeleteLoginProfileCommand(val userName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteLoginProfileRequest, com.amazonaws.services.identitymanagement.model.DeleteLoginProfileResult> {
 
 
 
@@ -863,8 +975,12 @@ class AmazonIdentityManagementDeleteLoginProfileCommand(val userName: String) : 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.deleteLoginProfile(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteLoginProfileResult {
+	  return com.amazonaws.services.identitymanagement.model.DeleteLoginProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteLoginProfileResult {
+		return environment.iam.deleteLoginProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -875,12 +991,12 @@ class AmazonIdentityManagementDeleteLoginProfileCommand(val userName: String) : 
 }
 
 
-fun AmazonIdentityManagementFunctions.deleteOpenIDConnectProvider(openIDConnectProviderArn: String, init: AmazonIdentityManagementDeleteOpenIDConnectProviderCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementDeleteOpenIDConnectProviderCommand(openIDConnectProviderArn).apply(init))
+fun AmazonIdentityManagementFunctions.deleteOpenIDConnectProvider(openIDConnectProviderArn: String, init: AmazonIdentityManagementDeleteOpenIDConnectProviderCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.DeleteOpenIDConnectProviderResult {
+	return this.block.declare(AmazonIdentityManagementDeleteOpenIDConnectProviderCommand(openIDConnectProviderArn).apply(init)) as com.amazonaws.services.identitymanagement.model.DeleteOpenIDConnectProviderResult
 }
 
 @Generated
-class AmazonIdentityManagementDeleteOpenIDConnectProviderCommand(val openIDConnectProviderArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteOpenIDConnectProviderRequest> {
+class AmazonIdentityManagementDeleteOpenIDConnectProviderCommand(val openIDConnectProviderArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteOpenIDConnectProviderRequest, com.amazonaws.services.identitymanagement.model.DeleteOpenIDConnectProviderResult> {
 
 
 
@@ -890,8 +1006,12 @@ class AmazonIdentityManagementDeleteOpenIDConnectProviderCommand(val openIDConne
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.deleteOpenIDConnectProvider(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteOpenIDConnectProviderResult {
+	  return com.amazonaws.services.identitymanagement.model.DeleteOpenIDConnectProviderResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteOpenIDConnectProviderResult {
+		return environment.iam.deleteOpenIDConnectProvider(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -902,12 +1022,12 @@ class AmazonIdentityManagementDeleteOpenIDConnectProviderCommand(val openIDConne
 }
 
 
-fun AmazonIdentityManagementFunctions.deletePolicy(policyArn: String, init: AmazonIdentityManagementDeletePolicyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementDeletePolicyCommand(policyArn).apply(init))
+fun AmazonIdentityManagementFunctions.deletePolicy(policyArn: String, init: AmazonIdentityManagementDeletePolicyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.DeletePolicyResult {
+	return this.block.declare(AmazonIdentityManagementDeletePolicyCommand(policyArn).apply(init)) as com.amazonaws.services.identitymanagement.model.DeletePolicyResult
 }
 
 @Generated
-class AmazonIdentityManagementDeletePolicyCommand(val policyArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeletePolicyRequest> {
+class AmazonIdentityManagementDeletePolicyCommand(val policyArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeletePolicyRequest, com.amazonaws.services.identitymanagement.model.DeletePolicyResult> {
 
 
 
@@ -917,8 +1037,12 @@ class AmazonIdentityManagementDeletePolicyCommand(val policyArn: String) : Amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.deletePolicy(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeletePolicyResult {
+	  return com.amazonaws.services.identitymanagement.model.DeletePolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeletePolicyResult {
+		return environment.iam.deletePolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -929,12 +1053,12 @@ class AmazonIdentityManagementDeletePolicyCommand(val policyArn: String) : Amazo
 }
 
 
-fun AmazonIdentityManagementFunctions.deletePolicyVersion(policyArn: String, versionId: String, init: AmazonIdentityManagementDeletePolicyVersionCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementDeletePolicyVersionCommand(policyArn, versionId).apply(init))
+fun AmazonIdentityManagementFunctions.deletePolicyVersion(policyArn: String, versionId: String, init: AmazonIdentityManagementDeletePolicyVersionCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.DeletePolicyVersionResult {
+	return this.block.declare(AmazonIdentityManagementDeletePolicyVersionCommand(policyArn, versionId).apply(init)) as com.amazonaws.services.identitymanagement.model.DeletePolicyVersionResult
 }
 
 @Generated
-class AmazonIdentityManagementDeletePolicyVersionCommand(val policyArn: String, val versionId: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeletePolicyVersionRequest> {
+class AmazonIdentityManagementDeletePolicyVersionCommand(val policyArn: String, val versionId: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeletePolicyVersionRequest, com.amazonaws.services.identitymanagement.model.DeletePolicyVersionResult> {
 
 
 
@@ -945,8 +1069,12 @@ class AmazonIdentityManagementDeletePolicyVersionCommand(val policyArn: String, 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.deletePolicyVersion(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeletePolicyVersionResult {
+	  return com.amazonaws.services.identitymanagement.model.DeletePolicyVersionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeletePolicyVersionResult {
+		return environment.iam.deletePolicyVersion(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -958,12 +1086,12 @@ class AmazonIdentityManagementDeletePolicyVersionCommand(val policyArn: String, 
 }
 
 
-fun AmazonIdentityManagementFunctions.deleteRole(roleName: String, init: AmazonIdentityManagementDeleteRoleCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementDeleteRoleCommand(roleName).apply(init))
+fun AmazonIdentityManagementFunctions.deleteRole(roleName: String, init: AmazonIdentityManagementDeleteRoleCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.DeleteRoleResult {
+	return this.block.declare(AmazonIdentityManagementDeleteRoleCommand(roleName).apply(init)) as com.amazonaws.services.identitymanagement.model.DeleteRoleResult
 }
 
 @Generated
-class AmazonIdentityManagementDeleteRoleCommand(val roleName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteRoleRequest> {
+class AmazonIdentityManagementDeleteRoleCommand(val roleName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteRoleRequest, com.amazonaws.services.identitymanagement.model.DeleteRoleResult> {
 
 
 
@@ -973,8 +1101,12 @@ class AmazonIdentityManagementDeleteRoleCommand(val roleName: String) : AmazonWe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.deleteRole(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteRoleResult {
+	  return com.amazonaws.services.identitymanagement.model.DeleteRoleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteRoleResult {
+		return environment.iam.deleteRole(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -985,12 +1117,12 @@ class AmazonIdentityManagementDeleteRoleCommand(val roleName: String) : AmazonWe
 }
 
 
-fun AmazonIdentityManagementFunctions.deleteRolePolicy(roleName: String, policyName: String, init: AmazonIdentityManagementDeleteRolePolicyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementDeleteRolePolicyCommand(roleName, policyName).apply(init))
+fun AmazonIdentityManagementFunctions.deleteRolePolicy(roleName: String, policyName: String, init: AmazonIdentityManagementDeleteRolePolicyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.DeleteRolePolicyResult {
+	return this.block.declare(AmazonIdentityManagementDeleteRolePolicyCommand(roleName, policyName).apply(init)) as com.amazonaws.services.identitymanagement.model.DeleteRolePolicyResult
 }
 
 @Generated
-class AmazonIdentityManagementDeleteRolePolicyCommand(val roleName: String, val policyName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteRolePolicyRequest> {
+class AmazonIdentityManagementDeleteRolePolicyCommand(val roleName: String, val policyName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteRolePolicyRequest, com.amazonaws.services.identitymanagement.model.DeleteRolePolicyResult> {
 
 
 
@@ -1001,8 +1133,12 @@ class AmazonIdentityManagementDeleteRolePolicyCommand(val roleName: String, val 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.deleteRolePolicy(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteRolePolicyResult {
+	  return com.amazonaws.services.identitymanagement.model.DeleteRolePolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteRolePolicyResult {
+		return environment.iam.deleteRolePolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1014,12 +1150,12 @@ class AmazonIdentityManagementDeleteRolePolicyCommand(val roleName: String, val 
 }
 
 
-fun AmazonIdentityManagementFunctions.deleteSAMLProvider(sAMLProviderArn: String, init: AmazonIdentityManagementDeleteSAMLProviderCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementDeleteSAMLProviderCommand(sAMLProviderArn).apply(init))
+fun AmazonIdentityManagementFunctions.deleteSAMLProvider(sAMLProviderArn: String, init: AmazonIdentityManagementDeleteSAMLProviderCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.DeleteSAMLProviderResult {
+	return this.block.declare(AmazonIdentityManagementDeleteSAMLProviderCommand(sAMLProviderArn).apply(init)) as com.amazonaws.services.identitymanagement.model.DeleteSAMLProviderResult
 }
 
 @Generated
-class AmazonIdentityManagementDeleteSAMLProviderCommand(val sAMLProviderArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteSAMLProviderRequest> {
+class AmazonIdentityManagementDeleteSAMLProviderCommand(val sAMLProviderArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteSAMLProviderRequest, com.amazonaws.services.identitymanagement.model.DeleteSAMLProviderResult> {
 
 
 
@@ -1029,8 +1165,12 @@ class AmazonIdentityManagementDeleteSAMLProviderCommand(val sAMLProviderArn: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.deleteSAMLProvider(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteSAMLProviderResult {
+	  return com.amazonaws.services.identitymanagement.model.DeleteSAMLProviderResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteSAMLProviderResult {
+		return environment.iam.deleteSAMLProvider(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1041,12 +1181,12 @@ class AmazonIdentityManagementDeleteSAMLProviderCommand(val sAMLProviderArn: Str
 }
 
 
-fun AmazonIdentityManagementFunctions.deleteSSHPublicKey(userName: String, sSHPublicKeyId: String, init: AmazonIdentityManagementDeleteSSHPublicKeyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementDeleteSSHPublicKeyCommand(userName, sSHPublicKeyId).apply(init))
+fun AmazonIdentityManagementFunctions.deleteSSHPublicKey(userName: String, sSHPublicKeyId: String, init: AmazonIdentityManagementDeleteSSHPublicKeyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.DeleteSSHPublicKeyResult {
+	return this.block.declare(AmazonIdentityManagementDeleteSSHPublicKeyCommand(userName, sSHPublicKeyId).apply(init)) as com.amazonaws.services.identitymanagement.model.DeleteSSHPublicKeyResult
 }
 
 @Generated
-class AmazonIdentityManagementDeleteSSHPublicKeyCommand(val userName: String, val sSHPublicKeyId: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteSSHPublicKeyRequest> {
+class AmazonIdentityManagementDeleteSSHPublicKeyCommand(val userName: String, val sSHPublicKeyId: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteSSHPublicKeyRequest, com.amazonaws.services.identitymanagement.model.DeleteSSHPublicKeyResult> {
 
 
 
@@ -1057,8 +1197,12 @@ class AmazonIdentityManagementDeleteSSHPublicKeyCommand(val userName: String, va
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.deleteSSHPublicKey(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteSSHPublicKeyResult {
+	  return com.amazonaws.services.identitymanagement.model.DeleteSSHPublicKeyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteSSHPublicKeyResult {
+		return environment.iam.deleteSSHPublicKey(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1070,12 +1214,12 @@ class AmazonIdentityManagementDeleteSSHPublicKeyCommand(val userName: String, va
 }
 
 
-fun AmazonIdentityManagementFunctions.deleteServerCertificate(serverCertificateName: String, init: AmazonIdentityManagementDeleteServerCertificateCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementDeleteServerCertificateCommand(serverCertificateName).apply(init))
+fun AmazonIdentityManagementFunctions.deleteServerCertificate(serverCertificateName: String, init: AmazonIdentityManagementDeleteServerCertificateCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.DeleteServerCertificateResult {
+	return this.block.declare(AmazonIdentityManagementDeleteServerCertificateCommand(serverCertificateName).apply(init)) as com.amazonaws.services.identitymanagement.model.DeleteServerCertificateResult
 }
 
 @Generated
-class AmazonIdentityManagementDeleteServerCertificateCommand(val serverCertificateName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteServerCertificateRequest> {
+class AmazonIdentityManagementDeleteServerCertificateCommand(val serverCertificateName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteServerCertificateRequest, com.amazonaws.services.identitymanagement.model.DeleteServerCertificateResult> {
 
 
 
@@ -1085,8 +1229,12 @@ class AmazonIdentityManagementDeleteServerCertificateCommand(val serverCertifica
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.deleteServerCertificate(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteServerCertificateResult {
+	  return com.amazonaws.services.identitymanagement.model.DeleteServerCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteServerCertificateResult {
+		return environment.iam.deleteServerCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1097,12 +1245,12 @@ class AmazonIdentityManagementDeleteServerCertificateCommand(val serverCertifica
 }
 
 
-fun AmazonIdentityManagementFunctions.deleteServiceLinkedRole(roleName: String, init: AmazonIdentityManagementDeleteServiceLinkedRoleCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementDeleteServiceLinkedRoleCommand(roleName).apply(init))
+fun AmazonIdentityManagementFunctions.deleteServiceLinkedRole(roleName: String, init: AmazonIdentityManagementDeleteServiceLinkedRoleCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.DeleteServiceLinkedRoleResult {
+	return this.block.declare(AmazonIdentityManagementDeleteServiceLinkedRoleCommand(roleName).apply(init)) as com.amazonaws.services.identitymanagement.model.DeleteServiceLinkedRoleResult
 }
 
 @Generated
-class AmazonIdentityManagementDeleteServiceLinkedRoleCommand(val roleName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteServiceLinkedRoleRequest> {
+class AmazonIdentityManagementDeleteServiceLinkedRoleCommand(val roleName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteServiceLinkedRoleRequest, com.amazonaws.services.identitymanagement.model.DeleteServiceLinkedRoleResult> {
 
 
 
@@ -1112,8 +1260,12 @@ class AmazonIdentityManagementDeleteServiceLinkedRoleCommand(val roleName: Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.deleteServiceLinkedRole(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteServiceLinkedRoleResult {
+	  return com.amazonaws.services.identitymanagement.model.DeleteServiceLinkedRoleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteServiceLinkedRoleResult {
+		return environment.iam.deleteServiceLinkedRole(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1124,12 +1276,12 @@ class AmazonIdentityManagementDeleteServiceLinkedRoleCommand(val roleName: Strin
 }
 
 
-fun AmazonIdentityManagementFunctions.deleteServiceSpecificCredential(serviceSpecificCredentialId: String, init: AmazonIdentityManagementDeleteServiceSpecificCredentialCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementDeleteServiceSpecificCredentialCommand(serviceSpecificCredentialId).apply(init))
+fun AmazonIdentityManagementFunctions.deleteServiceSpecificCredential(serviceSpecificCredentialId: String, init: AmazonIdentityManagementDeleteServiceSpecificCredentialCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.DeleteServiceSpecificCredentialResult {
+	return this.block.declare(AmazonIdentityManagementDeleteServiceSpecificCredentialCommand(serviceSpecificCredentialId).apply(init)) as com.amazonaws.services.identitymanagement.model.DeleteServiceSpecificCredentialResult
 }
 
 @Generated
-class AmazonIdentityManagementDeleteServiceSpecificCredentialCommand(val serviceSpecificCredentialId: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteServiceSpecificCredentialRequest> {
+class AmazonIdentityManagementDeleteServiceSpecificCredentialCommand(val serviceSpecificCredentialId: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteServiceSpecificCredentialRequest, com.amazonaws.services.identitymanagement.model.DeleteServiceSpecificCredentialResult> {
 
 	var userName: String? = null
 
@@ -1140,8 +1292,12 @@ class AmazonIdentityManagementDeleteServiceSpecificCredentialCommand(val service
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.deleteServiceSpecificCredential(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteServiceSpecificCredentialResult {
+	  return com.amazonaws.services.identitymanagement.model.DeleteServiceSpecificCredentialResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteServiceSpecificCredentialResult {
+		return environment.iam.deleteServiceSpecificCredential(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1153,12 +1309,12 @@ class AmazonIdentityManagementDeleteServiceSpecificCredentialCommand(val service
 }
 
 
-fun AmazonIdentityManagementFunctions.deleteSigningCertificate(certificateId: String, init: AmazonIdentityManagementDeleteSigningCertificateCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementDeleteSigningCertificateCommand(certificateId).apply(init))
+fun AmazonIdentityManagementFunctions.deleteSigningCertificate(certificateId: String, init: AmazonIdentityManagementDeleteSigningCertificateCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.DeleteSigningCertificateResult {
+	return this.block.declare(AmazonIdentityManagementDeleteSigningCertificateCommand(certificateId).apply(init)) as com.amazonaws.services.identitymanagement.model.DeleteSigningCertificateResult
 }
 
 @Generated
-class AmazonIdentityManagementDeleteSigningCertificateCommand(val certificateId: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteSigningCertificateRequest> {
+class AmazonIdentityManagementDeleteSigningCertificateCommand(val certificateId: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteSigningCertificateRequest, com.amazonaws.services.identitymanagement.model.DeleteSigningCertificateResult> {
 
 	var userName: String? = null
 
@@ -1169,8 +1325,12 @@ class AmazonIdentityManagementDeleteSigningCertificateCommand(val certificateId:
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.deleteSigningCertificate(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteSigningCertificateResult {
+	  return com.amazonaws.services.identitymanagement.model.DeleteSigningCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteSigningCertificateResult {
+		return environment.iam.deleteSigningCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1182,12 +1342,12 @@ class AmazonIdentityManagementDeleteSigningCertificateCommand(val certificateId:
 }
 
 
-fun AmazonIdentityManagementFunctions.deleteUser(userName: String, init: AmazonIdentityManagementDeleteUserCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementDeleteUserCommand(userName).apply(init))
+fun AmazonIdentityManagementFunctions.deleteUser(userName: String, init: AmazonIdentityManagementDeleteUserCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.DeleteUserResult {
+	return this.block.declare(AmazonIdentityManagementDeleteUserCommand(userName).apply(init)) as com.amazonaws.services.identitymanagement.model.DeleteUserResult
 }
 
 @Generated
-class AmazonIdentityManagementDeleteUserCommand(val userName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteUserRequest> {
+class AmazonIdentityManagementDeleteUserCommand(val userName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteUserRequest, com.amazonaws.services.identitymanagement.model.DeleteUserResult> {
 
 
 
@@ -1197,8 +1357,12 @@ class AmazonIdentityManagementDeleteUserCommand(val userName: String) : AmazonWe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.deleteUser(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteUserResult {
+	  return com.amazonaws.services.identitymanagement.model.DeleteUserResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteUserResult {
+		return environment.iam.deleteUser(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1209,12 +1373,12 @@ class AmazonIdentityManagementDeleteUserCommand(val userName: String) : AmazonWe
 }
 
 
-fun AmazonIdentityManagementFunctions.deleteUserPolicy(userName: String, policyName: String, init: AmazonIdentityManagementDeleteUserPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementDeleteUserPolicyCommand(userName, policyName).apply(init))
+fun AmazonIdentityManagementFunctions.deleteUserPolicy(userName: String, policyName: String, init: AmazonIdentityManagementDeleteUserPolicyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.DeleteUserPolicyResult {
+	return this.block.declare(AmazonIdentityManagementDeleteUserPolicyCommand(userName, policyName).apply(init)) as com.amazonaws.services.identitymanagement.model.DeleteUserPolicyResult
 }
 
 @Generated
-class AmazonIdentityManagementDeleteUserPolicyCommand(val userName: String, val policyName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteUserPolicyRequest> {
+class AmazonIdentityManagementDeleteUserPolicyCommand(val userName: String, val policyName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteUserPolicyRequest, com.amazonaws.services.identitymanagement.model.DeleteUserPolicyResult> {
 
 
 
@@ -1225,8 +1389,12 @@ class AmazonIdentityManagementDeleteUserPolicyCommand(val userName: String, val 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.deleteUserPolicy(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteUserPolicyResult {
+	  return com.amazonaws.services.identitymanagement.model.DeleteUserPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteUserPolicyResult {
+		return environment.iam.deleteUserPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1238,12 +1406,12 @@ class AmazonIdentityManagementDeleteUserPolicyCommand(val userName: String, val 
 }
 
 
-fun AmazonIdentityManagementFunctions.deleteVirtualMFADevice(serialNumber: String, init: AmazonIdentityManagementDeleteVirtualMFADeviceCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementDeleteVirtualMFADeviceCommand(serialNumber).apply(init))
+fun AmazonIdentityManagementFunctions.deleteVirtualMFADevice(serialNumber: String, init: AmazonIdentityManagementDeleteVirtualMFADeviceCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.DeleteVirtualMFADeviceResult {
+	return this.block.declare(AmazonIdentityManagementDeleteVirtualMFADeviceCommand(serialNumber).apply(init)) as com.amazonaws.services.identitymanagement.model.DeleteVirtualMFADeviceResult
 }
 
 @Generated
-class AmazonIdentityManagementDeleteVirtualMFADeviceCommand(val serialNumber: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteVirtualMFADeviceRequest> {
+class AmazonIdentityManagementDeleteVirtualMFADeviceCommand(val serialNumber: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DeleteVirtualMFADeviceRequest, com.amazonaws.services.identitymanagement.model.DeleteVirtualMFADeviceResult> {
 
 
 
@@ -1253,8 +1421,12 @@ class AmazonIdentityManagementDeleteVirtualMFADeviceCommand(val serialNumber: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.deleteVirtualMFADevice(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DeleteVirtualMFADeviceResult {
+	  return com.amazonaws.services.identitymanagement.model.DeleteVirtualMFADeviceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DeleteVirtualMFADeviceResult {
+		return environment.iam.deleteVirtualMFADevice(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1265,12 +1437,12 @@ class AmazonIdentityManagementDeleteVirtualMFADeviceCommand(val serialNumber: St
 }
 
 
-fun AmazonIdentityManagementFunctions.detachGroupPolicy(groupName: String, policyArn: String, init: AmazonIdentityManagementDetachGroupPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementDetachGroupPolicyCommand(groupName, policyArn).apply(init))
+fun AmazonIdentityManagementFunctions.detachGroupPolicy(groupName: String, policyArn: String, init: AmazonIdentityManagementDetachGroupPolicyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.DetachGroupPolicyResult {
+	return this.block.declare(AmazonIdentityManagementDetachGroupPolicyCommand(groupName, policyArn).apply(init)) as com.amazonaws.services.identitymanagement.model.DetachGroupPolicyResult
 }
 
 @Generated
-class AmazonIdentityManagementDetachGroupPolicyCommand(val groupName: String, val policyArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DetachGroupPolicyRequest> {
+class AmazonIdentityManagementDetachGroupPolicyCommand(val groupName: String, val policyArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DetachGroupPolicyRequest, com.amazonaws.services.identitymanagement.model.DetachGroupPolicyResult> {
 
 
 
@@ -1281,8 +1453,12 @@ class AmazonIdentityManagementDetachGroupPolicyCommand(val groupName: String, va
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.detachGroupPolicy(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DetachGroupPolicyResult {
+	  return com.amazonaws.services.identitymanagement.model.DetachGroupPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DetachGroupPolicyResult {
+		return environment.iam.detachGroupPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1294,12 +1470,12 @@ class AmazonIdentityManagementDetachGroupPolicyCommand(val groupName: String, va
 }
 
 
-fun AmazonIdentityManagementFunctions.detachRolePolicy(roleName: String, policyArn: String, init: AmazonIdentityManagementDetachRolePolicyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementDetachRolePolicyCommand(roleName, policyArn).apply(init))
+fun AmazonIdentityManagementFunctions.detachRolePolicy(roleName: String, policyArn: String, init: AmazonIdentityManagementDetachRolePolicyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.DetachRolePolicyResult {
+	return this.block.declare(AmazonIdentityManagementDetachRolePolicyCommand(roleName, policyArn).apply(init)) as com.amazonaws.services.identitymanagement.model.DetachRolePolicyResult
 }
 
 @Generated
-class AmazonIdentityManagementDetachRolePolicyCommand(val roleName: String, val policyArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DetachRolePolicyRequest> {
+class AmazonIdentityManagementDetachRolePolicyCommand(val roleName: String, val policyArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DetachRolePolicyRequest, com.amazonaws.services.identitymanagement.model.DetachRolePolicyResult> {
 
 
 
@@ -1310,8 +1486,12 @@ class AmazonIdentityManagementDetachRolePolicyCommand(val roleName: String, val 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.detachRolePolicy(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DetachRolePolicyResult {
+	  return com.amazonaws.services.identitymanagement.model.DetachRolePolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DetachRolePolicyResult {
+		return environment.iam.detachRolePolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1323,12 +1503,12 @@ class AmazonIdentityManagementDetachRolePolicyCommand(val roleName: String, val 
 }
 
 
-fun AmazonIdentityManagementFunctions.detachUserPolicy(userName: String, policyArn: String, init: AmazonIdentityManagementDetachUserPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementDetachUserPolicyCommand(userName, policyArn).apply(init))
+fun AmazonIdentityManagementFunctions.detachUserPolicy(userName: String, policyArn: String, init: AmazonIdentityManagementDetachUserPolicyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.DetachUserPolicyResult {
+	return this.block.declare(AmazonIdentityManagementDetachUserPolicyCommand(userName, policyArn).apply(init)) as com.amazonaws.services.identitymanagement.model.DetachUserPolicyResult
 }
 
 @Generated
-class AmazonIdentityManagementDetachUserPolicyCommand(val userName: String, val policyArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DetachUserPolicyRequest> {
+class AmazonIdentityManagementDetachUserPolicyCommand(val userName: String, val policyArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.DetachUserPolicyRequest, com.amazonaws.services.identitymanagement.model.DetachUserPolicyResult> {
 
 
 
@@ -1339,8 +1519,12 @@ class AmazonIdentityManagementDetachUserPolicyCommand(val userName: String, val 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.detachUserPolicy(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.DetachUserPolicyResult {
+	  return com.amazonaws.services.identitymanagement.model.DetachUserPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.DetachUserPolicyResult {
+		return environment.iam.detachUserPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1352,12 +1536,12 @@ class AmazonIdentityManagementDetachUserPolicyCommand(val userName: String, val 
 }
 
 
-fun AmazonIdentityManagementFunctions.enableMFADevice(userName: String, serialNumber: String, authenticationCode1: String, authenticationCode2: String, init: AmazonIdentityManagementEnableMFADeviceCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementEnableMFADeviceCommand(userName, serialNumber, authenticationCode1, authenticationCode2).apply(init))
+fun AmazonIdentityManagementFunctions.enableMFADevice(userName: String, serialNumber: String, authenticationCode1: String, authenticationCode2: String, init: AmazonIdentityManagementEnableMFADeviceCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.EnableMFADeviceResult {
+	return this.block.declare(AmazonIdentityManagementEnableMFADeviceCommand(userName, serialNumber, authenticationCode1, authenticationCode2).apply(init)) as com.amazonaws.services.identitymanagement.model.EnableMFADeviceResult
 }
 
 @Generated
-class AmazonIdentityManagementEnableMFADeviceCommand(val userName: String, val serialNumber: String, val authenticationCode1: String, val authenticationCode2: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.EnableMFADeviceRequest> {
+class AmazonIdentityManagementEnableMFADeviceCommand(val userName: String, val serialNumber: String, val authenticationCode1: String, val authenticationCode2: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.EnableMFADeviceRequest, com.amazonaws.services.identitymanagement.model.EnableMFADeviceResult> {
 
 
 
@@ -1370,8 +1554,12 @@ class AmazonIdentityManagementEnableMFADeviceCommand(val userName: String, val s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.enableMFADevice(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.EnableMFADeviceResult {
+	  return com.amazonaws.services.identitymanagement.model.EnableMFADeviceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.EnableMFADeviceResult {
+		return environment.iam.enableMFADevice(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1385,12 +1573,12 @@ class AmazonIdentityManagementEnableMFADeviceCommand(val userName: String, val s
 }
 
 
-fun AmazonIdentityManagementFunctions.generateCredentialReport(init: AmazonIdentityManagementGenerateCredentialReportCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementGenerateCredentialReportCommand().apply(init))
+fun AmazonIdentityManagementFunctions.generateCredentialReport(init: AmazonIdentityManagementGenerateCredentialReportCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.GenerateCredentialReportResult {
+	return this.block.declare(AmazonIdentityManagementGenerateCredentialReportCommand().apply(init)) as com.amazonaws.services.identitymanagement.model.GenerateCredentialReportResult
 }
 
 @Generated
-class AmazonIdentityManagementGenerateCredentialReportCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GenerateCredentialReportRequest> {
+class AmazonIdentityManagementGenerateCredentialReportCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GenerateCredentialReportRequest, com.amazonaws.services.identitymanagement.model.GenerateCredentialReportResult> {
 
 
 
@@ -1400,8 +1588,12 @@ class AmazonIdentityManagementGenerateCredentialReportCommand() : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.generateCredentialReport(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GenerateCredentialReportResult {
+	  return com.amazonaws.services.identitymanagement.model.GenerateCredentialReportResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GenerateCredentialReportResult {
+		return environment.iam.generateCredentialReport(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1412,12 +1604,12 @@ class AmazonIdentityManagementGenerateCredentialReportCommand() : AmazonWebServi
 }
 
 
-fun AmazonIdentityManagementFunctions.getAccessKeyLastUsed(accessKeyId: String, init: AmazonIdentityManagementGetAccessKeyLastUsedCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementGetAccessKeyLastUsedCommand(accessKeyId).apply(init))
+fun AmazonIdentityManagementFunctions.getAccessKeyLastUsed(accessKeyId: String, init: AmazonIdentityManagementGetAccessKeyLastUsedCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.GetAccessKeyLastUsedResult {
+	return this.block.declare(AmazonIdentityManagementGetAccessKeyLastUsedCommand(accessKeyId).apply(init)) as com.amazonaws.services.identitymanagement.model.GetAccessKeyLastUsedResult
 }
 
 @Generated
-class AmazonIdentityManagementGetAccessKeyLastUsedCommand(val accessKeyId: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetAccessKeyLastUsedRequest> {
+class AmazonIdentityManagementGetAccessKeyLastUsedCommand(val accessKeyId: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetAccessKeyLastUsedRequest, com.amazonaws.services.identitymanagement.model.GetAccessKeyLastUsedResult> {
 
 
 
@@ -1427,8 +1619,12 @@ class AmazonIdentityManagementGetAccessKeyLastUsedCommand(val accessKeyId: Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.getAccessKeyLastUsed(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetAccessKeyLastUsedResult {
+	  return com.amazonaws.services.identitymanagement.model.GetAccessKeyLastUsedResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetAccessKeyLastUsedResult {
+		return environment.iam.getAccessKeyLastUsed(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1439,12 +1635,12 @@ class AmazonIdentityManagementGetAccessKeyLastUsedCommand(val accessKeyId: Strin
 }
 
 
-fun AmazonIdentityManagementFunctions.getAccountAuthorizationDetails(init: AmazonIdentityManagementGetAccountAuthorizationDetailsCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementGetAccountAuthorizationDetailsCommand().apply(init))
+fun AmazonIdentityManagementFunctions.getAccountAuthorizationDetails(init: AmazonIdentityManagementGetAccountAuthorizationDetailsCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.GetAccountAuthorizationDetailsResult {
+	return this.block.declare(AmazonIdentityManagementGetAccountAuthorizationDetailsCommand().apply(init)) as com.amazonaws.services.identitymanagement.model.GetAccountAuthorizationDetailsResult
 }
 
 @Generated
-class AmazonIdentityManagementGetAccountAuthorizationDetailsCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetAccountAuthorizationDetailsRequest> {
+class AmazonIdentityManagementGetAccountAuthorizationDetailsCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetAccountAuthorizationDetailsRequest, com.amazonaws.services.identitymanagement.model.GetAccountAuthorizationDetailsResult> {
 
 	var filter: List<EntityType>? = null
 	var maxItems: Int? = 0
@@ -1458,8 +1654,12 @@ class AmazonIdentityManagementGetAccountAuthorizationDetailsCommand() : AmazonWe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.getAccountAuthorizationDetails(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetAccountAuthorizationDetailsResult {
+	  return com.amazonaws.services.identitymanagement.model.GetAccountAuthorizationDetailsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetAccountAuthorizationDetailsResult {
+		return environment.iam.getAccountAuthorizationDetails(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1472,12 +1672,12 @@ class AmazonIdentityManagementGetAccountAuthorizationDetailsCommand() : AmazonWe
 }
 
 
-fun AmazonIdentityManagementFunctions.getAccountPasswordPolicy(init: AmazonIdentityManagementGetAccountPasswordPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementGetAccountPasswordPolicyCommand().apply(init))
+fun AmazonIdentityManagementFunctions.getAccountPasswordPolicy(init: AmazonIdentityManagementGetAccountPasswordPolicyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.GetAccountPasswordPolicyResult {
+	return this.block.declare(AmazonIdentityManagementGetAccountPasswordPolicyCommand().apply(init)) as com.amazonaws.services.identitymanagement.model.GetAccountPasswordPolicyResult
 }
 
 @Generated
-class AmazonIdentityManagementGetAccountPasswordPolicyCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetAccountPasswordPolicyRequest> {
+class AmazonIdentityManagementGetAccountPasswordPolicyCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetAccountPasswordPolicyRequest, com.amazonaws.services.identitymanagement.model.GetAccountPasswordPolicyResult> {
 
 
 
@@ -1487,8 +1687,12 @@ class AmazonIdentityManagementGetAccountPasswordPolicyCommand() : AmazonWebServi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.getAccountPasswordPolicy(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetAccountPasswordPolicyResult {
+	  return com.amazonaws.services.identitymanagement.model.GetAccountPasswordPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetAccountPasswordPolicyResult {
+		return environment.iam.getAccountPasswordPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1499,12 +1703,12 @@ class AmazonIdentityManagementGetAccountPasswordPolicyCommand() : AmazonWebServi
 }
 
 
-fun AmazonIdentityManagementFunctions.getAccountSummary(init: AmazonIdentityManagementGetAccountSummaryCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementGetAccountSummaryCommand().apply(init))
+fun AmazonIdentityManagementFunctions.getAccountSummary(init: AmazonIdentityManagementGetAccountSummaryCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.GetAccountSummaryResult {
+	return this.block.declare(AmazonIdentityManagementGetAccountSummaryCommand().apply(init)) as com.amazonaws.services.identitymanagement.model.GetAccountSummaryResult
 }
 
 @Generated
-class AmazonIdentityManagementGetAccountSummaryCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetAccountSummaryRequest> {
+class AmazonIdentityManagementGetAccountSummaryCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetAccountSummaryRequest, com.amazonaws.services.identitymanagement.model.GetAccountSummaryResult> {
 
 
 
@@ -1514,8 +1718,12 @@ class AmazonIdentityManagementGetAccountSummaryCommand() : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.getAccountSummary(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetAccountSummaryResult {
+	  return com.amazonaws.services.identitymanagement.model.GetAccountSummaryResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetAccountSummaryResult {
+		return environment.iam.getAccountSummary(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1526,12 +1734,12 @@ class AmazonIdentityManagementGetAccountSummaryCommand() : AmazonWebServiceComma
 }
 
 
-fun AmazonIdentityManagementFunctions.getContextKeysForCustomPolicy(policyInputList: List<String>, init: AmazonIdentityManagementGetContextKeysForCustomPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementGetContextKeysForCustomPolicyCommand(policyInputList).apply(init))
+fun AmazonIdentityManagementFunctions.getContextKeysForCustomPolicy(policyInputList: List<String>, init: AmazonIdentityManagementGetContextKeysForCustomPolicyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.GetContextKeysForCustomPolicyResult {
+	return this.block.declare(AmazonIdentityManagementGetContextKeysForCustomPolicyCommand(policyInputList).apply(init)) as com.amazonaws.services.identitymanagement.model.GetContextKeysForCustomPolicyResult
 }
 
 @Generated
-class AmazonIdentityManagementGetContextKeysForCustomPolicyCommand(val policyInputList: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetContextKeysForCustomPolicyRequest> {
+class AmazonIdentityManagementGetContextKeysForCustomPolicyCommand(val policyInputList: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetContextKeysForCustomPolicyRequest, com.amazonaws.services.identitymanagement.model.GetContextKeysForCustomPolicyResult> {
 
 
 
@@ -1541,8 +1749,12 @@ class AmazonIdentityManagementGetContextKeysForCustomPolicyCommand(val policyInp
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.getContextKeysForCustomPolicy(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetContextKeysForCustomPolicyResult {
+	  return com.amazonaws.services.identitymanagement.model.GetContextKeysForCustomPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetContextKeysForCustomPolicyResult {
+		return environment.iam.getContextKeysForCustomPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1553,12 +1765,12 @@ class AmazonIdentityManagementGetContextKeysForCustomPolicyCommand(val policyInp
 }
 
 
-fun AmazonIdentityManagementFunctions.getContextKeysForPrincipalPolicy(policySourceArn: String, init: AmazonIdentityManagementGetContextKeysForPrincipalPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementGetContextKeysForPrincipalPolicyCommand(policySourceArn).apply(init))
+fun AmazonIdentityManagementFunctions.getContextKeysForPrincipalPolicy(policySourceArn: String, init: AmazonIdentityManagementGetContextKeysForPrincipalPolicyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.GetContextKeysForPrincipalPolicyResult {
+	return this.block.declare(AmazonIdentityManagementGetContextKeysForPrincipalPolicyCommand(policySourceArn).apply(init)) as com.amazonaws.services.identitymanagement.model.GetContextKeysForPrincipalPolicyResult
 }
 
 @Generated
-class AmazonIdentityManagementGetContextKeysForPrincipalPolicyCommand(val policySourceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetContextKeysForPrincipalPolicyRequest> {
+class AmazonIdentityManagementGetContextKeysForPrincipalPolicyCommand(val policySourceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetContextKeysForPrincipalPolicyRequest, com.amazonaws.services.identitymanagement.model.GetContextKeysForPrincipalPolicyResult> {
 
 	var policyInputList: List<String>? = null
 
@@ -1569,8 +1781,12 @@ class AmazonIdentityManagementGetContextKeysForPrincipalPolicyCommand(val policy
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.getContextKeysForPrincipalPolicy(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetContextKeysForPrincipalPolicyResult {
+	  return com.amazonaws.services.identitymanagement.model.GetContextKeysForPrincipalPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetContextKeysForPrincipalPolicyResult {
+		return environment.iam.getContextKeysForPrincipalPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1582,12 +1798,12 @@ class AmazonIdentityManagementGetContextKeysForPrincipalPolicyCommand(val policy
 }
 
 
-fun AmazonIdentityManagementFunctions.getCredentialReport(init: AmazonIdentityManagementGetCredentialReportCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementGetCredentialReportCommand().apply(init))
+fun AmazonIdentityManagementFunctions.getCredentialReport(init: AmazonIdentityManagementGetCredentialReportCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.GetCredentialReportResult {
+	return this.block.declare(AmazonIdentityManagementGetCredentialReportCommand().apply(init)) as com.amazonaws.services.identitymanagement.model.GetCredentialReportResult
 }
 
 @Generated
-class AmazonIdentityManagementGetCredentialReportCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetCredentialReportRequest> {
+class AmazonIdentityManagementGetCredentialReportCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetCredentialReportRequest, com.amazonaws.services.identitymanagement.model.GetCredentialReportResult> {
 
 
 
@@ -1597,8 +1813,12 @@ class AmazonIdentityManagementGetCredentialReportCommand() : AmazonWebServiceCom
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.getCredentialReport(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetCredentialReportResult {
+	  return com.amazonaws.services.identitymanagement.model.GetCredentialReportResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetCredentialReportResult {
+		return environment.iam.getCredentialReport(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1609,12 +1829,12 @@ class AmazonIdentityManagementGetCredentialReportCommand() : AmazonWebServiceCom
 }
 
 
-fun AmazonIdentityManagementFunctions.getGroup(groupName: String, init: AmazonIdentityManagementGetGroupCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementGetGroupCommand(groupName).apply(init))
+fun AmazonIdentityManagementFunctions.getGroup(groupName: String, init: AmazonIdentityManagementGetGroupCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.GetGroupResult {
+	return this.block.declare(AmazonIdentityManagementGetGroupCommand(groupName).apply(init)) as com.amazonaws.services.identitymanagement.model.GetGroupResult
 }
 
 @Generated
-class AmazonIdentityManagementGetGroupCommand(val groupName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetGroupRequest> {
+class AmazonIdentityManagementGetGroupCommand(val groupName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetGroupRequest, com.amazonaws.services.identitymanagement.model.GetGroupResult> {
 
 	var marker: String? = null
 	var maxItems: Int? = 0
@@ -1627,8 +1847,12 @@ class AmazonIdentityManagementGetGroupCommand(val groupName: String) : AmazonWeb
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.getGroup(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetGroupResult {
+	  return com.amazonaws.services.identitymanagement.model.GetGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetGroupResult {
+		return environment.iam.getGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1641,12 +1865,12 @@ class AmazonIdentityManagementGetGroupCommand(val groupName: String) : AmazonWeb
 }
 
 
-fun AmazonIdentityManagementFunctions.getGroupPolicy(groupName: String, policyName: String, init: AmazonIdentityManagementGetGroupPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementGetGroupPolicyCommand(groupName, policyName).apply(init))
+fun AmazonIdentityManagementFunctions.getGroupPolicy(groupName: String, policyName: String, init: AmazonIdentityManagementGetGroupPolicyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.GetGroupPolicyResult {
+	return this.block.declare(AmazonIdentityManagementGetGroupPolicyCommand(groupName, policyName).apply(init)) as com.amazonaws.services.identitymanagement.model.GetGroupPolicyResult
 }
 
 @Generated
-class AmazonIdentityManagementGetGroupPolicyCommand(val groupName: String, val policyName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetGroupPolicyRequest> {
+class AmazonIdentityManagementGetGroupPolicyCommand(val groupName: String, val policyName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetGroupPolicyRequest, com.amazonaws.services.identitymanagement.model.GetGroupPolicyResult> {
 
 
 
@@ -1657,8 +1881,12 @@ class AmazonIdentityManagementGetGroupPolicyCommand(val groupName: String, val p
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.getGroupPolicy(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetGroupPolicyResult {
+	  return com.amazonaws.services.identitymanagement.model.GetGroupPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetGroupPolicyResult {
+		return environment.iam.getGroupPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1670,12 +1898,12 @@ class AmazonIdentityManagementGetGroupPolicyCommand(val groupName: String, val p
 }
 
 
-fun AmazonIdentityManagementFunctions.getInstanceProfile(instanceProfileName: String, init: AmazonIdentityManagementGetInstanceProfileCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementGetInstanceProfileCommand(instanceProfileName).apply(init))
+fun AmazonIdentityManagementFunctions.getInstanceProfile(instanceProfileName: String, init: AmazonIdentityManagementGetInstanceProfileCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.GetInstanceProfileResult {
+	return this.block.declare(AmazonIdentityManagementGetInstanceProfileCommand(instanceProfileName).apply(init)) as com.amazonaws.services.identitymanagement.model.GetInstanceProfileResult
 }
 
 @Generated
-class AmazonIdentityManagementGetInstanceProfileCommand(val instanceProfileName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetInstanceProfileRequest> {
+class AmazonIdentityManagementGetInstanceProfileCommand(val instanceProfileName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetInstanceProfileRequest, com.amazonaws.services.identitymanagement.model.GetInstanceProfileResult> {
 
 
 
@@ -1685,8 +1913,12 @@ class AmazonIdentityManagementGetInstanceProfileCommand(val instanceProfileName:
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.getInstanceProfile(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetInstanceProfileResult {
+	  return com.amazonaws.services.identitymanagement.model.GetInstanceProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetInstanceProfileResult {
+		return environment.iam.getInstanceProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1697,12 +1929,12 @@ class AmazonIdentityManagementGetInstanceProfileCommand(val instanceProfileName:
 }
 
 
-fun AmazonIdentityManagementFunctions.getLoginProfile(userName: String, init: AmazonIdentityManagementGetLoginProfileCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementGetLoginProfileCommand(userName).apply(init))
+fun AmazonIdentityManagementFunctions.getLoginProfile(userName: String, init: AmazonIdentityManagementGetLoginProfileCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.GetLoginProfileResult {
+	return this.block.declare(AmazonIdentityManagementGetLoginProfileCommand(userName).apply(init)) as com.amazonaws.services.identitymanagement.model.GetLoginProfileResult
 }
 
 @Generated
-class AmazonIdentityManagementGetLoginProfileCommand(val userName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetLoginProfileRequest> {
+class AmazonIdentityManagementGetLoginProfileCommand(val userName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetLoginProfileRequest, com.amazonaws.services.identitymanagement.model.GetLoginProfileResult> {
 
 
 
@@ -1712,8 +1944,12 @@ class AmazonIdentityManagementGetLoginProfileCommand(val userName: String) : Ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.getLoginProfile(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetLoginProfileResult {
+	  return com.amazonaws.services.identitymanagement.model.GetLoginProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetLoginProfileResult {
+		return environment.iam.getLoginProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1724,12 +1960,12 @@ class AmazonIdentityManagementGetLoginProfileCommand(val userName: String) : Ama
 }
 
 
-fun AmazonIdentityManagementFunctions.getOpenIDConnectProvider(openIDConnectProviderArn: String, init: AmazonIdentityManagementGetOpenIDConnectProviderCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementGetOpenIDConnectProviderCommand(openIDConnectProviderArn).apply(init))
+fun AmazonIdentityManagementFunctions.getOpenIDConnectProvider(openIDConnectProviderArn: String, init: AmazonIdentityManagementGetOpenIDConnectProviderCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.GetOpenIDConnectProviderResult {
+	return this.block.declare(AmazonIdentityManagementGetOpenIDConnectProviderCommand(openIDConnectProviderArn).apply(init)) as com.amazonaws.services.identitymanagement.model.GetOpenIDConnectProviderResult
 }
 
 @Generated
-class AmazonIdentityManagementGetOpenIDConnectProviderCommand(val openIDConnectProviderArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetOpenIDConnectProviderRequest> {
+class AmazonIdentityManagementGetOpenIDConnectProviderCommand(val openIDConnectProviderArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetOpenIDConnectProviderRequest, com.amazonaws.services.identitymanagement.model.GetOpenIDConnectProviderResult> {
 
 
 
@@ -1739,8 +1975,12 @@ class AmazonIdentityManagementGetOpenIDConnectProviderCommand(val openIDConnectP
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.getOpenIDConnectProvider(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetOpenIDConnectProviderResult {
+	  return com.amazonaws.services.identitymanagement.model.GetOpenIDConnectProviderResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetOpenIDConnectProviderResult {
+		return environment.iam.getOpenIDConnectProvider(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1751,12 +1991,12 @@ class AmazonIdentityManagementGetOpenIDConnectProviderCommand(val openIDConnectP
 }
 
 
-fun AmazonIdentityManagementFunctions.getPolicy(policyArn: String, init: AmazonIdentityManagementGetPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementGetPolicyCommand(policyArn).apply(init))
+fun AmazonIdentityManagementFunctions.getPolicy(policyArn: String, init: AmazonIdentityManagementGetPolicyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.GetPolicyResult {
+	return this.block.declare(AmazonIdentityManagementGetPolicyCommand(policyArn).apply(init)) as com.amazonaws.services.identitymanagement.model.GetPolicyResult
 }
 
 @Generated
-class AmazonIdentityManagementGetPolicyCommand(val policyArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetPolicyRequest> {
+class AmazonIdentityManagementGetPolicyCommand(val policyArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetPolicyRequest, com.amazonaws.services.identitymanagement.model.GetPolicyResult> {
 
 
 
@@ -1766,8 +2006,12 @@ class AmazonIdentityManagementGetPolicyCommand(val policyArn: String) : AmazonWe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.getPolicy(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetPolicyResult {
+	  return com.amazonaws.services.identitymanagement.model.GetPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetPolicyResult {
+		return environment.iam.getPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1778,12 +2022,12 @@ class AmazonIdentityManagementGetPolicyCommand(val policyArn: String) : AmazonWe
 }
 
 
-fun AmazonIdentityManagementFunctions.getPolicyVersion(policyArn: String, versionId: String, init: AmazonIdentityManagementGetPolicyVersionCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementGetPolicyVersionCommand(policyArn, versionId).apply(init))
+fun AmazonIdentityManagementFunctions.getPolicyVersion(policyArn: String, versionId: String, init: AmazonIdentityManagementGetPolicyVersionCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.GetPolicyVersionResult {
+	return this.block.declare(AmazonIdentityManagementGetPolicyVersionCommand(policyArn, versionId).apply(init)) as com.amazonaws.services.identitymanagement.model.GetPolicyVersionResult
 }
 
 @Generated
-class AmazonIdentityManagementGetPolicyVersionCommand(val policyArn: String, val versionId: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetPolicyVersionRequest> {
+class AmazonIdentityManagementGetPolicyVersionCommand(val policyArn: String, val versionId: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetPolicyVersionRequest, com.amazonaws.services.identitymanagement.model.GetPolicyVersionResult> {
 
 
 
@@ -1794,8 +2038,12 @@ class AmazonIdentityManagementGetPolicyVersionCommand(val policyArn: String, val
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.getPolicyVersion(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetPolicyVersionResult {
+	  return com.amazonaws.services.identitymanagement.model.GetPolicyVersionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetPolicyVersionResult {
+		return environment.iam.getPolicyVersion(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1807,12 +2055,12 @@ class AmazonIdentityManagementGetPolicyVersionCommand(val policyArn: String, val
 }
 
 
-fun AmazonIdentityManagementFunctions.getRole(roleName: String, init: AmazonIdentityManagementGetRoleCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementGetRoleCommand(roleName).apply(init))
+fun AmazonIdentityManagementFunctions.getRole(roleName: String, init: AmazonIdentityManagementGetRoleCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.GetRoleResult {
+	return this.block.declare(AmazonIdentityManagementGetRoleCommand(roleName).apply(init)) as com.amazonaws.services.identitymanagement.model.GetRoleResult
 }
 
 @Generated
-class AmazonIdentityManagementGetRoleCommand(val roleName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetRoleRequest> {
+class AmazonIdentityManagementGetRoleCommand(val roleName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetRoleRequest, com.amazonaws.services.identitymanagement.model.GetRoleResult> {
 
 
 
@@ -1822,8 +2070,12 @@ class AmazonIdentityManagementGetRoleCommand(val roleName: String) : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.getRole(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetRoleResult {
+	  return com.amazonaws.services.identitymanagement.model.GetRoleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetRoleResult {
+		return environment.iam.getRole(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1834,12 +2086,12 @@ class AmazonIdentityManagementGetRoleCommand(val roleName: String) : AmazonWebSe
 }
 
 
-fun AmazonIdentityManagementFunctions.getRolePolicy(roleName: String, policyName: String, init: AmazonIdentityManagementGetRolePolicyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementGetRolePolicyCommand(roleName, policyName).apply(init))
+fun AmazonIdentityManagementFunctions.getRolePolicy(roleName: String, policyName: String, init: AmazonIdentityManagementGetRolePolicyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.GetRolePolicyResult {
+	return this.block.declare(AmazonIdentityManagementGetRolePolicyCommand(roleName, policyName).apply(init)) as com.amazonaws.services.identitymanagement.model.GetRolePolicyResult
 }
 
 @Generated
-class AmazonIdentityManagementGetRolePolicyCommand(val roleName: String, val policyName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetRolePolicyRequest> {
+class AmazonIdentityManagementGetRolePolicyCommand(val roleName: String, val policyName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetRolePolicyRequest, com.amazonaws.services.identitymanagement.model.GetRolePolicyResult> {
 
 
 
@@ -1850,8 +2102,12 @@ class AmazonIdentityManagementGetRolePolicyCommand(val roleName: String, val pol
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.getRolePolicy(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetRolePolicyResult {
+	  return com.amazonaws.services.identitymanagement.model.GetRolePolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetRolePolicyResult {
+		return environment.iam.getRolePolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1863,12 +2119,12 @@ class AmazonIdentityManagementGetRolePolicyCommand(val roleName: String, val pol
 }
 
 
-fun AmazonIdentityManagementFunctions.getSAMLProvider(sAMLProviderArn: String, init: AmazonIdentityManagementGetSAMLProviderCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementGetSAMLProviderCommand(sAMLProviderArn).apply(init))
+fun AmazonIdentityManagementFunctions.getSAMLProvider(sAMLProviderArn: String, init: AmazonIdentityManagementGetSAMLProviderCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.GetSAMLProviderResult {
+	return this.block.declare(AmazonIdentityManagementGetSAMLProviderCommand(sAMLProviderArn).apply(init)) as com.amazonaws.services.identitymanagement.model.GetSAMLProviderResult
 }
 
 @Generated
-class AmazonIdentityManagementGetSAMLProviderCommand(val sAMLProviderArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetSAMLProviderRequest> {
+class AmazonIdentityManagementGetSAMLProviderCommand(val sAMLProviderArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetSAMLProviderRequest, com.amazonaws.services.identitymanagement.model.GetSAMLProviderResult> {
 
 
 
@@ -1878,8 +2134,12 @@ class AmazonIdentityManagementGetSAMLProviderCommand(val sAMLProviderArn: String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.getSAMLProvider(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetSAMLProviderResult {
+	  return com.amazonaws.services.identitymanagement.model.GetSAMLProviderResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetSAMLProviderResult {
+		return environment.iam.getSAMLProvider(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1890,12 +2150,12 @@ class AmazonIdentityManagementGetSAMLProviderCommand(val sAMLProviderArn: String
 }
 
 
-fun AmazonIdentityManagementFunctions.getSSHPublicKey(userName: String, sSHPublicKeyId: String, encoding: String, init: AmazonIdentityManagementGetSSHPublicKeyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementGetSSHPublicKeyCommand(userName, sSHPublicKeyId, encoding).apply(init))
+fun AmazonIdentityManagementFunctions.getSSHPublicKey(userName: String, sSHPublicKeyId: String, encoding: String, init: AmazonIdentityManagementGetSSHPublicKeyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.GetSSHPublicKeyResult {
+	return this.block.declare(AmazonIdentityManagementGetSSHPublicKeyCommand(userName, sSHPublicKeyId, encoding).apply(init)) as com.amazonaws.services.identitymanagement.model.GetSSHPublicKeyResult
 }
 
 @Generated
-class AmazonIdentityManagementGetSSHPublicKeyCommand(val userName: String, val sSHPublicKeyId: String, val encoding: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetSSHPublicKeyRequest> {
+class AmazonIdentityManagementGetSSHPublicKeyCommand(val userName: String, val sSHPublicKeyId: String, val encoding: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetSSHPublicKeyRequest, com.amazonaws.services.identitymanagement.model.GetSSHPublicKeyResult> {
 
 
 
@@ -1907,8 +2167,12 @@ class AmazonIdentityManagementGetSSHPublicKeyCommand(val userName: String, val s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.getSSHPublicKey(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetSSHPublicKeyResult {
+	  return com.amazonaws.services.identitymanagement.model.GetSSHPublicKeyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetSSHPublicKeyResult {
+		return environment.iam.getSSHPublicKey(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1921,12 +2185,12 @@ class AmazonIdentityManagementGetSSHPublicKeyCommand(val userName: String, val s
 }
 
 
-fun AmazonIdentityManagementFunctions.getServerCertificate(serverCertificateName: String, init: AmazonIdentityManagementGetServerCertificateCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementGetServerCertificateCommand(serverCertificateName).apply(init))
+fun AmazonIdentityManagementFunctions.getServerCertificate(serverCertificateName: String, init: AmazonIdentityManagementGetServerCertificateCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.GetServerCertificateResult {
+	return this.block.declare(AmazonIdentityManagementGetServerCertificateCommand(serverCertificateName).apply(init)) as com.amazonaws.services.identitymanagement.model.GetServerCertificateResult
 }
 
 @Generated
-class AmazonIdentityManagementGetServerCertificateCommand(val serverCertificateName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetServerCertificateRequest> {
+class AmazonIdentityManagementGetServerCertificateCommand(val serverCertificateName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetServerCertificateRequest, com.amazonaws.services.identitymanagement.model.GetServerCertificateResult> {
 
 
 
@@ -1936,8 +2200,12 @@ class AmazonIdentityManagementGetServerCertificateCommand(val serverCertificateN
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.getServerCertificate(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetServerCertificateResult {
+	  return com.amazonaws.services.identitymanagement.model.GetServerCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetServerCertificateResult {
+		return environment.iam.getServerCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1948,12 +2216,12 @@ class AmazonIdentityManagementGetServerCertificateCommand(val serverCertificateN
 }
 
 
-fun AmazonIdentityManagementFunctions.getServiceLinkedRoleDeletionStatus(deletionTaskId: String, init: AmazonIdentityManagementGetServiceLinkedRoleDeletionStatusCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementGetServiceLinkedRoleDeletionStatusCommand(deletionTaskId).apply(init))
+fun AmazonIdentityManagementFunctions.getServiceLinkedRoleDeletionStatus(deletionTaskId: String, init: AmazonIdentityManagementGetServiceLinkedRoleDeletionStatusCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.GetServiceLinkedRoleDeletionStatusResult {
+	return this.block.declare(AmazonIdentityManagementGetServiceLinkedRoleDeletionStatusCommand(deletionTaskId).apply(init)) as com.amazonaws.services.identitymanagement.model.GetServiceLinkedRoleDeletionStatusResult
 }
 
 @Generated
-class AmazonIdentityManagementGetServiceLinkedRoleDeletionStatusCommand(val deletionTaskId: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetServiceLinkedRoleDeletionStatusRequest> {
+class AmazonIdentityManagementGetServiceLinkedRoleDeletionStatusCommand(val deletionTaskId: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetServiceLinkedRoleDeletionStatusRequest, com.amazonaws.services.identitymanagement.model.GetServiceLinkedRoleDeletionStatusResult> {
 
 
 
@@ -1963,8 +2231,12 @@ class AmazonIdentityManagementGetServiceLinkedRoleDeletionStatusCommand(val dele
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.getServiceLinkedRoleDeletionStatus(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetServiceLinkedRoleDeletionStatusResult {
+	  return com.amazonaws.services.identitymanagement.model.GetServiceLinkedRoleDeletionStatusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetServiceLinkedRoleDeletionStatusResult {
+		return environment.iam.getServiceLinkedRoleDeletionStatus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1975,12 +2247,12 @@ class AmazonIdentityManagementGetServiceLinkedRoleDeletionStatusCommand(val dele
 }
 
 
-fun AmazonIdentityManagementFunctions.getUser(init: AmazonIdentityManagementGetUserCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementGetUserCommand().apply(init))
+fun AmazonIdentityManagementFunctions.getUser(init: AmazonIdentityManagementGetUserCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.GetUserResult {
+	return this.block.declare(AmazonIdentityManagementGetUserCommand().apply(init)) as com.amazonaws.services.identitymanagement.model.GetUserResult
 }
 
 @Generated
-class AmazonIdentityManagementGetUserCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetUserRequest> {
+class AmazonIdentityManagementGetUserCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetUserRequest, com.amazonaws.services.identitymanagement.model.GetUserResult> {
 
 	var userName: String? = null
 
@@ -1990,8 +2262,12 @@ class AmazonIdentityManagementGetUserCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.getUser(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetUserResult {
+	  return com.amazonaws.services.identitymanagement.model.GetUserResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetUserResult {
+		return environment.iam.getUser(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2002,12 +2278,12 @@ class AmazonIdentityManagementGetUserCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AmazonIdentityManagementFunctions.getUserPolicy(userName: String, policyName: String, init: AmazonIdentityManagementGetUserPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementGetUserPolicyCommand(userName, policyName).apply(init))
+fun AmazonIdentityManagementFunctions.getUserPolicy(userName: String, policyName: String, init: AmazonIdentityManagementGetUserPolicyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.GetUserPolicyResult {
+	return this.block.declare(AmazonIdentityManagementGetUserPolicyCommand(userName, policyName).apply(init)) as com.amazonaws.services.identitymanagement.model.GetUserPolicyResult
 }
 
 @Generated
-class AmazonIdentityManagementGetUserPolicyCommand(val userName: String, val policyName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetUserPolicyRequest> {
+class AmazonIdentityManagementGetUserPolicyCommand(val userName: String, val policyName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.GetUserPolicyRequest, com.amazonaws.services.identitymanagement.model.GetUserPolicyResult> {
 
 
 
@@ -2018,8 +2294,12 @@ class AmazonIdentityManagementGetUserPolicyCommand(val userName: String, val pol
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.getUserPolicy(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.GetUserPolicyResult {
+	  return com.amazonaws.services.identitymanagement.model.GetUserPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.GetUserPolicyResult {
+		return environment.iam.getUserPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2031,12 +2311,12 @@ class AmazonIdentityManagementGetUserPolicyCommand(val userName: String, val pol
 }
 
 
-fun AmazonIdentityManagementFunctions.listAccessKeys(init: AmazonIdentityManagementListAccessKeysCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementListAccessKeysCommand().apply(init))
+fun AmazonIdentityManagementFunctions.listAccessKeys(init: AmazonIdentityManagementListAccessKeysCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.ListAccessKeysResult {
+	return this.block.declare(AmazonIdentityManagementListAccessKeysCommand().apply(init)) as com.amazonaws.services.identitymanagement.model.ListAccessKeysResult
 }
 
 @Generated
-class AmazonIdentityManagementListAccessKeysCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListAccessKeysRequest> {
+class AmazonIdentityManagementListAccessKeysCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListAccessKeysRequest, com.amazonaws.services.identitymanagement.model.ListAccessKeysResult> {
 
 	var userName: String? = null
 	var marker: String? = null
@@ -2050,8 +2330,12 @@ class AmazonIdentityManagementListAccessKeysCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.listAccessKeys(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListAccessKeysResult {
+	  return com.amazonaws.services.identitymanagement.model.ListAccessKeysResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListAccessKeysResult {
+		return environment.iam.listAccessKeys(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2064,12 +2348,12 @@ class AmazonIdentityManagementListAccessKeysCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AmazonIdentityManagementFunctions.listAccountAliases(init: AmazonIdentityManagementListAccountAliasesCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementListAccountAliasesCommand().apply(init))
+fun AmazonIdentityManagementFunctions.listAccountAliases(init: AmazonIdentityManagementListAccountAliasesCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.ListAccountAliasesResult {
+	return this.block.declare(AmazonIdentityManagementListAccountAliasesCommand().apply(init)) as com.amazonaws.services.identitymanagement.model.ListAccountAliasesResult
 }
 
 @Generated
-class AmazonIdentityManagementListAccountAliasesCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListAccountAliasesRequest> {
+class AmazonIdentityManagementListAccountAliasesCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListAccountAliasesRequest, com.amazonaws.services.identitymanagement.model.ListAccountAliasesResult> {
 
 	var marker: String? = null
 	var maxItems: Int? = 0
@@ -2081,8 +2365,12 @@ class AmazonIdentityManagementListAccountAliasesCommand() : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.listAccountAliases(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListAccountAliasesResult {
+	  return com.amazonaws.services.identitymanagement.model.ListAccountAliasesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListAccountAliasesResult {
+		return environment.iam.listAccountAliases(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2094,12 +2382,12 @@ class AmazonIdentityManagementListAccountAliasesCommand() : AmazonWebServiceComm
 }
 
 
-fun AmazonIdentityManagementFunctions.listAttachedGroupPolicies(groupName: String, init: AmazonIdentityManagementListAttachedGroupPoliciesCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementListAttachedGroupPoliciesCommand(groupName).apply(init))
+fun AmazonIdentityManagementFunctions.listAttachedGroupPolicies(groupName: String, init: AmazonIdentityManagementListAttachedGroupPoliciesCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.ListAttachedGroupPoliciesResult {
+	return this.block.declare(AmazonIdentityManagementListAttachedGroupPoliciesCommand(groupName).apply(init)) as com.amazonaws.services.identitymanagement.model.ListAttachedGroupPoliciesResult
 }
 
 @Generated
-class AmazonIdentityManagementListAttachedGroupPoliciesCommand(val groupName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListAttachedGroupPoliciesRequest> {
+class AmazonIdentityManagementListAttachedGroupPoliciesCommand(val groupName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListAttachedGroupPoliciesRequest, com.amazonaws.services.identitymanagement.model.ListAttachedGroupPoliciesResult> {
 
 	var pathPrefix: String? = null
 	var marker: String? = null
@@ -2114,8 +2402,12 @@ class AmazonIdentityManagementListAttachedGroupPoliciesCommand(val groupName: St
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.listAttachedGroupPolicies(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListAttachedGroupPoliciesResult {
+	  return com.amazonaws.services.identitymanagement.model.ListAttachedGroupPoliciesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListAttachedGroupPoliciesResult {
+		return environment.iam.listAttachedGroupPolicies(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2129,12 +2421,12 @@ class AmazonIdentityManagementListAttachedGroupPoliciesCommand(val groupName: St
 }
 
 
-fun AmazonIdentityManagementFunctions.listAttachedRolePolicies(roleName: String, init: AmazonIdentityManagementListAttachedRolePoliciesCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementListAttachedRolePoliciesCommand(roleName).apply(init))
+fun AmazonIdentityManagementFunctions.listAttachedRolePolicies(roleName: String, init: AmazonIdentityManagementListAttachedRolePoliciesCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.ListAttachedRolePoliciesResult {
+	return this.block.declare(AmazonIdentityManagementListAttachedRolePoliciesCommand(roleName).apply(init)) as com.amazonaws.services.identitymanagement.model.ListAttachedRolePoliciesResult
 }
 
 @Generated
-class AmazonIdentityManagementListAttachedRolePoliciesCommand(val roleName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListAttachedRolePoliciesRequest> {
+class AmazonIdentityManagementListAttachedRolePoliciesCommand(val roleName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListAttachedRolePoliciesRequest, com.amazonaws.services.identitymanagement.model.ListAttachedRolePoliciesResult> {
 
 	var pathPrefix: String? = null
 	var marker: String? = null
@@ -2149,8 +2441,12 @@ class AmazonIdentityManagementListAttachedRolePoliciesCommand(val roleName: Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.listAttachedRolePolicies(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListAttachedRolePoliciesResult {
+	  return com.amazonaws.services.identitymanagement.model.ListAttachedRolePoliciesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListAttachedRolePoliciesResult {
+		return environment.iam.listAttachedRolePolicies(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2164,12 +2460,12 @@ class AmazonIdentityManagementListAttachedRolePoliciesCommand(val roleName: Stri
 }
 
 
-fun AmazonIdentityManagementFunctions.listAttachedUserPolicies(userName: String, init: AmazonIdentityManagementListAttachedUserPoliciesCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementListAttachedUserPoliciesCommand(userName).apply(init))
+fun AmazonIdentityManagementFunctions.listAttachedUserPolicies(userName: String, init: AmazonIdentityManagementListAttachedUserPoliciesCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.ListAttachedUserPoliciesResult {
+	return this.block.declare(AmazonIdentityManagementListAttachedUserPoliciesCommand(userName).apply(init)) as com.amazonaws.services.identitymanagement.model.ListAttachedUserPoliciesResult
 }
 
 @Generated
-class AmazonIdentityManagementListAttachedUserPoliciesCommand(val userName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListAttachedUserPoliciesRequest> {
+class AmazonIdentityManagementListAttachedUserPoliciesCommand(val userName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListAttachedUserPoliciesRequest, com.amazonaws.services.identitymanagement.model.ListAttachedUserPoliciesResult> {
 
 	var pathPrefix: String? = null
 	var marker: String? = null
@@ -2184,8 +2480,12 @@ class AmazonIdentityManagementListAttachedUserPoliciesCommand(val userName: Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.listAttachedUserPolicies(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListAttachedUserPoliciesResult {
+	  return com.amazonaws.services.identitymanagement.model.ListAttachedUserPoliciesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListAttachedUserPoliciesResult {
+		return environment.iam.listAttachedUserPolicies(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2199,12 +2499,12 @@ class AmazonIdentityManagementListAttachedUserPoliciesCommand(val userName: Stri
 }
 
 
-fun AmazonIdentityManagementFunctions.listEntitiesForPolicy(policyArn: String, init: AmazonIdentityManagementListEntitiesForPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementListEntitiesForPolicyCommand(policyArn).apply(init))
+fun AmazonIdentityManagementFunctions.listEntitiesForPolicy(policyArn: String, init: AmazonIdentityManagementListEntitiesForPolicyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.ListEntitiesForPolicyResult {
+	return this.block.declare(AmazonIdentityManagementListEntitiesForPolicyCommand(policyArn).apply(init)) as com.amazonaws.services.identitymanagement.model.ListEntitiesForPolicyResult
 }
 
 @Generated
-class AmazonIdentityManagementListEntitiesForPolicyCommand(val policyArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListEntitiesForPolicyRequest> {
+class AmazonIdentityManagementListEntitiesForPolicyCommand(val policyArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListEntitiesForPolicyRequest, com.amazonaws.services.identitymanagement.model.ListEntitiesForPolicyResult> {
 
 	var entityFilter: EntityType? = null
 	var pathPrefix: String? = null
@@ -2221,8 +2521,12 @@ class AmazonIdentityManagementListEntitiesForPolicyCommand(val policyArn: String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.listEntitiesForPolicy(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListEntitiesForPolicyResult {
+	  return com.amazonaws.services.identitymanagement.model.ListEntitiesForPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListEntitiesForPolicyResult {
+		return environment.iam.listEntitiesForPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2237,12 +2541,12 @@ class AmazonIdentityManagementListEntitiesForPolicyCommand(val policyArn: String
 }
 
 
-fun AmazonIdentityManagementFunctions.listGroupPolicies(groupName: String, init: AmazonIdentityManagementListGroupPoliciesCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementListGroupPoliciesCommand(groupName).apply(init))
+fun AmazonIdentityManagementFunctions.listGroupPolicies(groupName: String, init: AmazonIdentityManagementListGroupPoliciesCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.ListGroupPoliciesResult {
+	return this.block.declare(AmazonIdentityManagementListGroupPoliciesCommand(groupName).apply(init)) as com.amazonaws.services.identitymanagement.model.ListGroupPoliciesResult
 }
 
 @Generated
-class AmazonIdentityManagementListGroupPoliciesCommand(val groupName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListGroupPoliciesRequest> {
+class AmazonIdentityManagementListGroupPoliciesCommand(val groupName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListGroupPoliciesRequest, com.amazonaws.services.identitymanagement.model.ListGroupPoliciesResult> {
 
 	var marker: String? = null
 	var maxItems: Int? = 0
@@ -2255,8 +2559,12 @@ class AmazonIdentityManagementListGroupPoliciesCommand(val groupName: String) : 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.listGroupPolicies(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListGroupPoliciesResult {
+	  return com.amazonaws.services.identitymanagement.model.ListGroupPoliciesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListGroupPoliciesResult {
+		return environment.iam.listGroupPolicies(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2269,12 +2577,12 @@ class AmazonIdentityManagementListGroupPoliciesCommand(val groupName: String) : 
 }
 
 
-fun AmazonIdentityManagementFunctions.listGroups(init: AmazonIdentityManagementListGroupsCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementListGroupsCommand().apply(init))
+fun AmazonIdentityManagementFunctions.listGroups(init: AmazonIdentityManagementListGroupsCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.ListGroupsResult {
+	return this.block.declare(AmazonIdentityManagementListGroupsCommand().apply(init)) as com.amazonaws.services.identitymanagement.model.ListGroupsResult
 }
 
 @Generated
-class AmazonIdentityManagementListGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListGroupsRequest> {
+class AmazonIdentityManagementListGroupsCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListGroupsRequest, com.amazonaws.services.identitymanagement.model.ListGroupsResult> {
 
 	var pathPrefix: String? = null
 	var marker: String? = null
@@ -2288,8 +2596,12 @@ class AmazonIdentityManagementListGroupsCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.listGroups(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListGroupsResult {
+	  return com.amazonaws.services.identitymanagement.model.ListGroupsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListGroupsResult {
+		return environment.iam.listGroups(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2302,12 +2614,12 @@ class AmazonIdentityManagementListGroupsCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonIdentityManagementFunctions.listGroupsForUser(userName: String, init: AmazonIdentityManagementListGroupsForUserCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementListGroupsForUserCommand(userName).apply(init))
+fun AmazonIdentityManagementFunctions.listGroupsForUser(userName: String, init: AmazonIdentityManagementListGroupsForUserCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.ListGroupsForUserResult {
+	return this.block.declare(AmazonIdentityManagementListGroupsForUserCommand(userName).apply(init)) as com.amazonaws.services.identitymanagement.model.ListGroupsForUserResult
 }
 
 @Generated
-class AmazonIdentityManagementListGroupsForUserCommand(val userName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListGroupsForUserRequest> {
+class AmazonIdentityManagementListGroupsForUserCommand(val userName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListGroupsForUserRequest, com.amazonaws.services.identitymanagement.model.ListGroupsForUserResult> {
 
 	var marker: String? = null
 	var maxItems: Int? = 0
@@ -2320,8 +2632,12 @@ class AmazonIdentityManagementListGroupsForUserCommand(val userName: String) : A
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.listGroupsForUser(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListGroupsForUserResult {
+	  return com.amazonaws.services.identitymanagement.model.ListGroupsForUserResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListGroupsForUserResult {
+		return environment.iam.listGroupsForUser(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2334,12 +2650,12 @@ class AmazonIdentityManagementListGroupsForUserCommand(val userName: String) : A
 }
 
 
-fun AmazonIdentityManagementFunctions.listInstanceProfiles(init: AmazonIdentityManagementListInstanceProfilesCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementListInstanceProfilesCommand().apply(init))
+fun AmazonIdentityManagementFunctions.listInstanceProfiles(init: AmazonIdentityManagementListInstanceProfilesCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.ListInstanceProfilesResult {
+	return this.block.declare(AmazonIdentityManagementListInstanceProfilesCommand().apply(init)) as com.amazonaws.services.identitymanagement.model.ListInstanceProfilesResult
 }
 
 @Generated
-class AmazonIdentityManagementListInstanceProfilesCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListInstanceProfilesRequest> {
+class AmazonIdentityManagementListInstanceProfilesCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListInstanceProfilesRequest, com.amazonaws.services.identitymanagement.model.ListInstanceProfilesResult> {
 
 	var pathPrefix: String? = null
 	var marker: String? = null
@@ -2353,8 +2669,12 @@ class AmazonIdentityManagementListInstanceProfilesCommand() : AmazonWebServiceCo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.listInstanceProfiles(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListInstanceProfilesResult {
+	  return com.amazonaws.services.identitymanagement.model.ListInstanceProfilesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListInstanceProfilesResult {
+		return environment.iam.listInstanceProfiles(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2367,12 +2687,12 @@ class AmazonIdentityManagementListInstanceProfilesCommand() : AmazonWebServiceCo
 }
 
 
-fun AmazonIdentityManagementFunctions.listInstanceProfilesForRole(roleName: String, init: AmazonIdentityManagementListInstanceProfilesForRoleCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementListInstanceProfilesForRoleCommand(roleName).apply(init))
+fun AmazonIdentityManagementFunctions.listInstanceProfilesForRole(roleName: String, init: AmazonIdentityManagementListInstanceProfilesForRoleCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.ListInstanceProfilesForRoleResult {
+	return this.block.declare(AmazonIdentityManagementListInstanceProfilesForRoleCommand(roleName).apply(init)) as com.amazonaws.services.identitymanagement.model.ListInstanceProfilesForRoleResult
 }
 
 @Generated
-class AmazonIdentityManagementListInstanceProfilesForRoleCommand(val roleName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListInstanceProfilesForRoleRequest> {
+class AmazonIdentityManagementListInstanceProfilesForRoleCommand(val roleName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListInstanceProfilesForRoleRequest, com.amazonaws.services.identitymanagement.model.ListInstanceProfilesForRoleResult> {
 
 	var marker: String? = null
 	var maxItems: Int? = 0
@@ -2385,8 +2705,12 @@ class AmazonIdentityManagementListInstanceProfilesForRoleCommand(val roleName: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.listInstanceProfilesForRole(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListInstanceProfilesForRoleResult {
+	  return com.amazonaws.services.identitymanagement.model.ListInstanceProfilesForRoleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListInstanceProfilesForRoleResult {
+		return environment.iam.listInstanceProfilesForRole(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2399,12 +2723,12 @@ class AmazonIdentityManagementListInstanceProfilesForRoleCommand(val roleName: S
 }
 
 
-fun AmazonIdentityManagementFunctions.listMFADevices(init: AmazonIdentityManagementListMFADevicesCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementListMFADevicesCommand().apply(init))
+fun AmazonIdentityManagementFunctions.listMFADevices(init: AmazonIdentityManagementListMFADevicesCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.ListMFADevicesResult {
+	return this.block.declare(AmazonIdentityManagementListMFADevicesCommand().apply(init)) as com.amazonaws.services.identitymanagement.model.ListMFADevicesResult
 }
 
 @Generated
-class AmazonIdentityManagementListMFADevicesCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListMFADevicesRequest> {
+class AmazonIdentityManagementListMFADevicesCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListMFADevicesRequest, com.amazonaws.services.identitymanagement.model.ListMFADevicesResult> {
 
 	var userName: String? = null
 	var marker: String? = null
@@ -2418,8 +2742,12 @@ class AmazonIdentityManagementListMFADevicesCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.listMFADevices(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListMFADevicesResult {
+	  return com.amazonaws.services.identitymanagement.model.ListMFADevicesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListMFADevicesResult {
+		return environment.iam.listMFADevices(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2432,12 +2760,12 @@ class AmazonIdentityManagementListMFADevicesCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AmazonIdentityManagementFunctions.listOpenIDConnectProviders(init: AmazonIdentityManagementListOpenIDConnectProvidersCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementListOpenIDConnectProvidersCommand().apply(init))
+fun AmazonIdentityManagementFunctions.listOpenIDConnectProviders(init: AmazonIdentityManagementListOpenIDConnectProvidersCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.ListOpenIDConnectProvidersResult {
+	return this.block.declare(AmazonIdentityManagementListOpenIDConnectProvidersCommand().apply(init)) as com.amazonaws.services.identitymanagement.model.ListOpenIDConnectProvidersResult
 }
 
 @Generated
-class AmazonIdentityManagementListOpenIDConnectProvidersCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListOpenIDConnectProvidersRequest> {
+class AmazonIdentityManagementListOpenIDConnectProvidersCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListOpenIDConnectProvidersRequest, com.amazonaws.services.identitymanagement.model.ListOpenIDConnectProvidersResult> {
 
 
 
@@ -2447,8 +2775,12 @@ class AmazonIdentityManagementListOpenIDConnectProvidersCommand() : AmazonWebSer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.listOpenIDConnectProviders(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListOpenIDConnectProvidersResult {
+	  return com.amazonaws.services.identitymanagement.model.ListOpenIDConnectProvidersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListOpenIDConnectProvidersResult {
+		return environment.iam.listOpenIDConnectProviders(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2459,12 +2791,12 @@ class AmazonIdentityManagementListOpenIDConnectProvidersCommand() : AmazonWebSer
 }
 
 
-fun AmazonIdentityManagementFunctions.listPolicies(init: AmazonIdentityManagementListPoliciesCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementListPoliciesCommand().apply(init))
+fun AmazonIdentityManagementFunctions.listPolicies(init: AmazonIdentityManagementListPoliciesCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.ListPoliciesResult {
+	return this.block.declare(AmazonIdentityManagementListPoliciesCommand().apply(init)) as com.amazonaws.services.identitymanagement.model.ListPoliciesResult
 }
 
 @Generated
-class AmazonIdentityManagementListPoliciesCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListPoliciesRequest> {
+class AmazonIdentityManagementListPoliciesCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListPoliciesRequest, com.amazonaws.services.identitymanagement.model.ListPoliciesResult> {
 
 	var scope: String? = null
 	var onlyAttached: Boolean? = false
@@ -2482,8 +2814,12 @@ class AmazonIdentityManagementListPoliciesCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.listPolicies(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListPoliciesResult {
+	  return com.amazonaws.services.identitymanagement.model.ListPoliciesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListPoliciesResult {
+		return environment.iam.listPolicies(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2498,12 +2834,12 @@ class AmazonIdentityManagementListPoliciesCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonIdentityManagementFunctions.listPolicyVersions(policyArn: String, init: AmazonIdentityManagementListPolicyVersionsCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementListPolicyVersionsCommand(policyArn).apply(init))
+fun AmazonIdentityManagementFunctions.listPolicyVersions(policyArn: String, init: AmazonIdentityManagementListPolicyVersionsCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.ListPolicyVersionsResult {
+	return this.block.declare(AmazonIdentityManagementListPolicyVersionsCommand(policyArn).apply(init)) as com.amazonaws.services.identitymanagement.model.ListPolicyVersionsResult
 }
 
 @Generated
-class AmazonIdentityManagementListPolicyVersionsCommand(val policyArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListPolicyVersionsRequest> {
+class AmazonIdentityManagementListPolicyVersionsCommand(val policyArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListPolicyVersionsRequest, com.amazonaws.services.identitymanagement.model.ListPolicyVersionsResult> {
 
 	var marker: String? = null
 	var maxItems: Int? = 0
@@ -2516,8 +2852,12 @@ class AmazonIdentityManagementListPolicyVersionsCommand(val policyArn: String) :
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.listPolicyVersions(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListPolicyVersionsResult {
+	  return com.amazonaws.services.identitymanagement.model.ListPolicyVersionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListPolicyVersionsResult {
+		return environment.iam.listPolicyVersions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2530,12 +2870,12 @@ class AmazonIdentityManagementListPolicyVersionsCommand(val policyArn: String) :
 }
 
 
-fun AmazonIdentityManagementFunctions.listRolePolicies(roleName: String, init: AmazonIdentityManagementListRolePoliciesCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementListRolePoliciesCommand(roleName).apply(init))
+fun AmazonIdentityManagementFunctions.listRolePolicies(roleName: String, init: AmazonIdentityManagementListRolePoliciesCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.ListRolePoliciesResult {
+	return this.block.declare(AmazonIdentityManagementListRolePoliciesCommand(roleName).apply(init)) as com.amazonaws.services.identitymanagement.model.ListRolePoliciesResult
 }
 
 @Generated
-class AmazonIdentityManagementListRolePoliciesCommand(val roleName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListRolePoliciesRequest> {
+class AmazonIdentityManagementListRolePoliciesCommand(val roleName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListRolePoliciesRequest, com.amazonaws.services.identitymanagement.model.ListRolePoliciesResult> {
 
 	var marker: String? = null
 	var maxItems: Int? = 0
@@ -2548,8 +2888,12 @@ class AmazonIdentityManagementListRolePoliciesCommand(val roleName: String) : Am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.listRolePolicies(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListRolePoliciesResult {
+	  return com.amazonaws.services.identitymanagement.model.ListRolePoliciesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListRolePoliciesResult {
+		return environment.iam.listRolePolicies(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2562,12 +2906,12 @@ class AmazonIdentityManagementListRolePoliciesCommand(val roleName: String) : Am
 }
 
 
-fun AmazonIdentityManagementFunctions.listRoles(init: AmazonIdentityManagementListRolesCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementListRolesCommand().apply(init))
+fun AmazonIdentityManagementFunctions.listRoles(init: AmazonIdentityManagementListRolesCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.ListRolesResult {
+	return this.block.declare(AmazonIdentityManagementListRolesCommand().apply(init)) as com.amazonaws.services.identitymanagement.model.ListRolesResult
 }
 
 @Generated
-class AmazonIdentityManagementListRolesCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListRolesRequest> {
+class AmazonIdentityManagementListRolesCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListRolesRequest, com.amazonaws.services.identitymanagement.model.ListRolesResult> {
 
 	var pathPrefix: String? = null
 	var marker: String? = null
@@ -2581,8 +2925,12 @@ class AmazonIdentityManagementListRolesCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.listRoles(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListRolesResult {
+	  return com.amazonaws.services.identitymanagement.model.ListRolesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListRolesResult {
+		return environment.iam.listRoles(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2595,12 +2943,12 @@ class AmazonIdentityManagementListRolesCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AmazonIdentityManagementFunctions.listSAMLProviders(init: AmazonIdentityManagementListSAMLProvidersCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementListSAMLProvidersCommand().apply(init))
+fun AmazonIdentityManagementFunctions.listSAMLProviders(init: AmazonIdentityManagementListSAMLProvidersCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.ListSAMLProvidersResult {
+	return this.block.declare(AmazonIdentityManagementListSAMLProvidersCommand().apply(init)) as com.amazonaws.services.identitymanagement.model.ListSAMLProvidersResult
 }
 
 @Generated
-class AmazonIdentityManagementListSAMLProvidersCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListSAMLProvidersRequest> {
+class AmazonIdentityManagementListSAMLProvidersCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListSAMLProvidersRequest, com.amazonaws.services.identitymanagement.model.ListSAMLProvidersResult> {
 
 
 
@@ -2610,8 +2958,12 @@ class AmazonIdentityManagementListSAMLProvidersCommand() : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.listSAMLProviders(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListSAMLProvidersResult {
+	  return com.amazonaws.services.identitymanagement.model.ListSAMLProvidersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListSAMLProvidersResult {
+		return environment.iam.listSAMLProviders(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2622,12 +2974,12 @@ class AmazonIdentityManagementListSAMLProvidersCommand() : AmazonWebServiceComma
 }
 
 
-fun AmazonIdentityManagementFunctions.listSSHPublicKeys(init: AmazonIdentityManagementListSSHPublicKeysCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementListSSHPublicKeysCommand().apply(init))
+fun AmazonIdentityManagementFunctions.listSSHPublicKeys(init: AmazonIdentityManagementListSSHPublicKeysCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.ListSSHPublicKeysResult {
+	return this.block.declare(AmazonIdentityManagementListSSHPublicKeysCommand().apply(init)) as com.amazonaws.services.identitymanagement.model.ListSSHPublicKeysResult
 }
 
 @Generated
-class AmazonIdentityManagementListSSHPublicKeysCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListSSHPublicKeysRequest> {
+class AmazonIdentityManagementListSSHPublicKeysCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListSSHPublicKeysRequest, com.amazonaws.services.identitymanagement.model.ListSSHPublicKeysResult> {
 
 	var userName: String? = null
 	var marker: String? = null
@@ -2641,8 +2993,12 @@ class AmazonIdentityManagementListSSHPublicKeysCommand() : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.listSSHPublicKeys(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListSSHPublicKeysResult {
+	  return com.amazonaws.services.identitymanagement.model.ListSSHPublicKeysResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListSSHPublicKeysResult {
+		return environment.iam.listSSHPublicKeys(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2655,12 +3011,12 @@ class AmazonIdentityManagementListSSHPublicKeysCommand() : AmazonWebServiceComma
 }
 
 
-fun AmazonIdentityManagementFunctions.listServerCertificates(init: AmazonIdentityManagementListServerCertificatesCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementListServerCertificatesCommand().apply(init))
+fun AmazonIdentityManagementFunctions.listServerCertificates(init: AmazonIdentityManagementListServerCertificatesCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.ListServerCertificatesResult {
+	return this.block.declare(AmazonIdentityManagementListServerCertificatesCommand().apply(init)) as com.amazonaws.services.identitymanagement.model.ListServerCertificatesResult
 }
 
 @Generated
-class AmazonIdentityManagementListServerCertificatesCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListServerCertificatesRequest> {
+class AmazonIdentityManagementListServerCertificatesCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListServerCertificatesRequest, com.amazonaws.services.identitymanagement.model.ListServerCertificatesResult> {
 
 	var pathPrefix: String? = null
 	var marker: String? = null
@@ -2674,8 +3030,12 @@ class AmazonIdentityManagementListServerCertificatesCommand() : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.listServerCertificates(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListServerCertificatesResult {
+	  return com.amazonaws.services.identitymanagement.model.ListServerCertificatesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListServerCertificatesResult {
+		return environment.iam.listServerCertificates(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2688,12 +3048,12 @@ class AmazonIdentityManagementListServerCertificatesCommand() : AmazonWebService
 }
 
 
-fun AmazonIdentityManagementFunctions.listServiceSpecificCredentials(init: AmazonIdentityManagementListServiceSpecificCredentialsCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementListServiceSpecificCredentialsCommand().apply(init))
+fun AmazonIdentityManagementFunctions.listServiceSpecificCredentials(init: AmazonIdentityManagementListServiceSpecificCredentialsCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.ListServiceSpecificCredentialsResult {
+	return this.block.declare(AmazonIdentityManagementListServiceSpecificCredentialsCommand().apply(init)) as com.amazonaws.services.identitymanagement.model.ListServiceSpecificCredentialsResult
 }
 
 @Generated
-class AmazonIdentityManagementListServiceSpecificCredentialsCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListServiceSpecificCredentialsRequest> {
+class AmazonIdentityManagementListServiceSpecificCredentialsCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListServiceSpecificCredentialsRequest, com.amazonaws.services.identitymanagement.model.ListServiceSpecificCredentialsResult> {
 
 	var userName: String? = null
 	var serviceName: String? = null
@@ -2705,8 +3065,12 @@ class AmazonIdentityManagementListServiceSpecificCredentialsCommand() : AmazonWe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.listServiceSpecificCredentials(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListServiceSpecificCredentialsResult {
+	  return com.amazonaws.services.identitymanagement.model.ListServiceSpecificCredentialsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListServiceSpecificCredentialsResult {
+		return environment.iam.listServiceSpecificCredentials(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2718,12 +3082,12 @@ class AmazonIdentityManagementListServiceSpecificCredentialsCommand() : AmazonWe
 }
 
 
-fun AmazonIdentityManagementFunctions.listSigningCertificates(init: AmazonIdentityManagementListSigningCertificatesCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementListSigningCertificatesCommand().apply(init))
+fun AmazonIdentityManagementFunctions.listSigningCertificates(init: AmazonIdentityManagementListSigningCertificatesCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.ListSigningCertificatesResult {
+	return this.block.declare(AmazonIdentityManagementListSigningCertificatesCommand().apply(init)) as com.amazonaws.services.identitymanagement.model.ListSigningCertificatesResult
 }
 
 @Generated
-class AmazonIdentityManagementListSigningCertificatesCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListSigningCertificatesRequest> {
+class AmazonIdentityManagementListSigningCertificatesCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListSigningCertificatesRequest, com.amazonaws.services.identitymanagement.model.ListSigningCertificatesResult> {
 
 	var userName: String? = null
 	var marker: String? = null
@@ -2737,8 +3101,12 @@ class AmazonIdentityManagementListSigningCertificatesCommand() : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.listSigningCertificates(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListSigningCertificatesResult {
+	  return com.amazonaws.services.identitymanagement.model.ListSigningCertificatesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListSigningCertificatesResult {
+		return environment.iam.listSigningCertificates(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2751,12 +3119,12 @@ class AmazonIdentityManagementListSigningCertificatesCommand() : AmazonWebServic
 }
 
 
-fun AmazonIdentityManagementFunctions.listUserPolicies(userName: String, init: AmazonIdentityManagementListUserPoliciesCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementListUserPoliciesCommand(userName).apply(init))
+fun AmazonIdentityManagementFunctions.listUserPolicies(userName: String, init: AmazonIdentityManagementListUserPoliciesCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.ListUserPoliciesResult {
+	return this.block.declare(AmazonIdentityManagementListUserPoliciesCommand(userName).apply(init)) as com.amazonaws.services.identitymanagement.model.ListUserPoliciesResult
 }
 
 @Generated
-class AmazonIdentityManagementListUserPoliciesCommand(val userName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListUserPoliciesRequest> {
+class AmazonIdentityManagementListUserPoliciesCommand(val userName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListUserPoliciesRequest, com.amazonaws.services.identitymanagement.model.ListUserPoliciesResult> {
 
 	var marker: String? = null
 	var maxItems: Int? = 0
@@ -2769,8 +3137,12 @@ class AmazonIdentityManagementListUserPoliciesCommand(val userName: String) : Am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.listUserPolicies(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListUserPoliciesResult {
+	  return com.amazonaws.services.identitymanagement.model.ListUserPoliciesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListUserPoliciesResult {
+		return environment.iam.listUserPolicies(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2783,12 +3155,12 @@ class AmazonIdentityManagementListUserPoliciesCommand(val userName: String) : Am
 }
 
 
-fun AmazonIdentityManagementFunctions.listUsers(init: AmazonIdentityManagementListUsersCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementListUsersCommand().apply(init))
+fun AmazonIdentityManagementFunctions.listUsers(init: AmazonIdentityManagementListUsersCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.ListUsersResult {
+	return this.block.declare(AmazonIdentityManagementListUsersCommand().apply(init)) as com.amazonaws.services.identitymanagement.model.ListUsersResult
 }
 
 @Generated
-class AmazonIdentityManagementListUsersCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListUsersRequest> {
+class AmazonIdentityManagementListUsersCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListUsersRequest, com.amazonaws.services.identitymanagement.model.ListUsersResult> {
 
 	var pathPrefix: String? = null
 	var marker: String? = null
@@ -2802,8 +3174,12 @@ class AmazonIdentityManagementListUsersCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.listUsers(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListUsersResult {
+	  return com.amazonaws.services.identitymanagement.model.ListUsersResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListUsersResult {
+		return environment.iam.listUsers(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2816,12 +3192,12 @@ class AmazonIdentityManagementListUsersCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AmazonIdentityManagementFunctions.listVirtualMFADevices(init: AmazonIdentityManagementListVirtualMFADevicesCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementListVirtualMFADevicesCommand().apply(init))
+fun AmazonIdentityManagementFunctions.listVirtualMFADevices(init: AmazonIdentityManagementListVirtualMFADevicesCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.ListVirtualMFADevicesResult {
+	return this.block.declare(AmazonIdentityManagementListVirtualMFADevicesCommand().apply(init)) as com.amazonaws.services.identitymanagement.model.ListVirtualMFADevicesResult
 }
 
 @Generated
-class AmazonIdentityManagementListVirtualMFADevicesCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListVirtualMFADevicesRequest> {
+class AmazonIdentityManagementListVirtualMFADevicesCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ListVirtualMFADevicesRequest, com.amazonaws.services.identitymanagement.model.ListVirtualMFADevicesResult> {
 
 	var assignmentStatus: String? = null
 	var marker: String? = null
@@ -2835,8 +3211,12 @@ class AmazonIdentityManagementListVirtualMFADevicesCommand() : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.listVirtualMFADevices(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ListVirtualMFADevicesResult {
+	  return com.amazonaws.services.identitymanagement.model.ListVirtualMFADevicesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ListVirtualMFADevicesResult {
+		return environment.iam.listVirtualMFADevices(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2849,12 +3229,12 @@ class AmazonIdentityManagementListVirtualMFADevicesCommand() : AmazonWebServiceC
 }
 
 
-fun AmazonIdentityManagementFunctions.putGroupPolicy(groupName: String, policyName: String, policyDocument: String, init: AmazonIdentityManagementPutGroupPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementPutGroupPolicyCommand(groupName, policyName, policyDocument).apply(init))
+fun AmazonIdentityManagementFunctions.putGroupPolicy(groupName: String, policyName: String, policyDocument: String, init: AmazonIdentityManagementPutGroupPolicyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.PutGroupPolicyResult {
+	return this.block.declare(AmazonIdentityManagementPutGroupPolicyCommand(groupName, policyName, policyDocument).apply(init)) as com.amazonaws.services.identitymanagement.model.PutGroupPolicyResult
 }
 
 @Generated
-class AmazonIdentityManagementPutGroupPolicyCommand(val groupName: String, val policyName: String, val policyDocument: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.PutGroupPolicyRequest> {
+class AmazonIdentityManagementPutGroupPolicyCommand(val groupName: String, val policyName: String, val policyDocument: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.PutGroupPolicyRequest, com.amazonaws.services.identitymanagement.model.PutGroupPolicyResult> {
 
 
 
@@ -2866,8 +3246,12 @@ class AmazonIdentityManagementPutGroupPolicyCommand(val groupName: String, val p
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.putGroupPolicy(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.PutGroupPolicyResult {
+	  return com.amazonaws.services.identitymanagement.model.PutGroupPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.PutGroupPolicyResult {
+		return environment.iam.putGroupPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2880,12 +3264,12 @@ class AmazonIdentityManagementPutGroupPolicyCommand(val groupName: String, val p
 }
 
 
-fun AmazonIdentityManagementFunctions.putRolePolicy(roleName: String, policyName: String, policyDocument: String, init: AmazonIdentityManagementPutRolePolicyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementPutRolePolicyCommand(roleName, policyName, policyDocument).apply(init))
+fun AmazonIdentityManagementFunctions.putRolePolicy(roleName: String, policyName: String, policyDocument: String, init: AmazonIdentityManagementPutRolePolicyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.PutRolePolicyResult {
+	return this.block.declare(AmazonIdentityManagementPutRolePolicyCommand(roleName, policyName, policyDocument).apply(init)) as com.amazonaws.services.identitymanagement.model.PutRolePolicyResult
 }
 
 @Generated
-class AmazonIdentityManagementPutRolePolicyCommand(val roleName: String, val policyName: String, val policyDocument: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.PutRolePolicyRequest> {
+class AmazonIdentityManagementPutRolePolicyCommand(val roleName: String, val policyName: String, val policyDocument: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.PutRolePolicyRequest, com.amazonaws.services.identitymanagement.model.PutRolePolicyResult> {
 
 
 
@@ -2897,8 +3281,12 @@ class AmazonIdentityManagementPutRolePolicyCommand(val roleName: String, val pol
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.putRolePolicy(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.PutRolePolicyResult {
+	  return com.amazonaws.services.identitymanagement.model.PutRolePolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.PutRolePolicyResult {
+		return environment.iam.putRolePolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2911,12 +3299,12 @@ class AmazonIdentityManagementPutRolePolicyCommand(val roleName: String, val pol
 }
 
 
-fun AmazonIdentityManagementFunctions.putUserPolicy(userName: String, policyName: String, policyDocument: String, init: AmazonIdentityManagementPutUserPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementPutUserPolicyCommand(userName, policyName, policyDocument).apply(init))
+fun AmazonIdentityManagementFunctions.putUserPolicy(userName: String, policyName: String, policyDocument: String, init: AmazonIdentityManagementPutUserPolicyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.PutUserPolicyResult {
+	return this.block.declare(AmazonIdentityManagementPutUserPolicyCommand(userName, policyName, policyDocument).apply(init)) as com.amazonaws.services.identitymanagement.model.PutUserPolicyResult
 }
 
 @Generated
-class AmazonIdentityManagementPutUserPolicyCommand(val userName: String, val policyName: String, val policyDocument: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.PutUserPolicyRequest> {
+class AmazonIdentityManagementPutUserPolicyCommand(val userName: String, val policyName: String, val policyDocument: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.PutUserPolicyRequest, com.amazonaws.services.identitymanagement.model.PutUserPolicyResult> {
 
 
 
@@ -2928,8 +3316,12 @@ class AmazonIdentityManagementPutUserPolicyCommand(val userName: String, val pol
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.putUserPolicy(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.PutUserPolicyResult {
+	  return com.amazonaws.services.identitymanagement.model.PutUserPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.PutUserPolicyResult {
+		return environment.iam.putUserPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2942,12 +3334,12 @@ class AmazonIdentityManagementPutUserPolicyCommand(val userName: String, val pol
 }
 
 
-fun AmazonIdentityManagementFunctions.removeClientIDFromOpenIDConnectProvider(openIDConnectProviderArn: String, clientID: String, init: AmazonIdentityManagementRemoveClientIDFromOpenIDConnectProviderCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementRemoveClientIDFromOpenIDConnectProviderCommand(openIDConnectProviderArn, clientID).apply(init))
+fun AmazonIdentityManagementFunctions.removeClientIDFromOpenIDConnectProvider(openIDConnectProviderArn: String, clientID: String, init: AmazonIdentityManagementRemoveClientIDFromOpenIDConnectProviderCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.RemoveClientIDFromOpenIDConnectProviderResult {
+	return this.block.declare(AmazonIdentityManagementRemoveClientIDFromOpenIDConnectProviderCommand(openIDConnectProviderArn, clientID).apply(init)) as com.amazonaws.services.identitymanagement.model.RemoveClientIDFromOpenIDConnectProviderResult
 }
 
 @Generated
-class AmazonIdentityManagementRemoveClientIDFromOpenIDConnectProviderCommand(val openIDConnectProviderArn: String, val clientID: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.RemoveClientIDFromOpenIDConnectProviderRequest> {
+class AmazonIdentityManagementRemoveClientIDFromOpenIDConnectProviderCommand(val openIDConnectProviderArn: String, val clientID: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.RemoveClientIDFromOpenIDConnectProviderRequest, com.amazonaws.services.identitymanagement.model.RemoveClientIDFromOpenIDConnectProviderResult> {
 
 
 
@@ -2958,8 +3350,12 @@ class AmazonIdentityManagementRemoveClientIDFromOpenIDConnectProviderCommand(val
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.removeClientIDFromOpenIDConnectProvider(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.RemoveClientIDFromOpenIDConnectProviderResult {
+	  return com.amazonaws.services.identitymanagement.model.RemoveClientIDFromOpenIDConnectProviderResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.RemoveClientIDFromOpenIDConnectProviderResult {
+		return environment.iam.removeClientIDFromOpenIDConnectProvider(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -2971,12 +3367,12 @@ class AmazonIdentityManagementRemoveClientIDFromOpenIDConnectProviderCommand(val
 }
 
 
-fun AmazonIdentityManagementFunctions.removeRoleFromInstanceProfile(instanceProfileName: String, roleName: String, init: AmazonIdentityManagementRemoveRoleFromInstanceProfileCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementRemoveRoleFromInstanceProfileCommand(instanceProfileName, roleName).apply(init))
+fun AmazonIdentityManagementFunctions.removeRoleFromInstanceProfile(instanceProfileName: String, roleName: String, init: AmazonIdentityManagementRemoveRoleFromInstanceProfileCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.RemoveRoleFromInstanceProfileResult {
+	return this.block.declare(AmazonIdentityManagementRemoveRoleFromInstanceProfileCommand(instanceProfileName, roleName).apply(init)) as com.amazonaws.services.identitymanagement.model.RemoveRoleFromInstanceProfileResult
 }
 
 @Generated
-class AmazonIdentityManagementRemoveRoleFromInstanceProfileCommand(val instanceProfileName: String, val roleName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.RemoveRoleFromInstanceProfileRequest> {
+class AmazonIdentityManagementRemoveRoleFromInstanceProfileCommand(val instanceProfileName: String, val roleName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.RemoveRoleFromInstanceProfileRequest, com.amazonaws.services.identitymanagement.model.RemoveRoleFromInstanceProfileResult> {
 
 
 
@@ -2987,8 +3383,12 @@ class AmazonIdentityManagementRemoveRoleFromInstanceProfileCommand(val instanceP
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.removeRoleFromInstanceProfile(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.RemoveRoleFromInstanceProfileResult {
+	  return com.amazonaws.services.identitymanagement.model.RemoveRoleFromInstanceProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.RemoveRoleFromInstanceProfileResult {
+		return environment.iam.removeRoleFromInstanceProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3000,12 +3400,12 @@ class AmazonIdentityManagementRemoveRoleFromInstanceProfileCommand(val instanceP
 }
 
 
-fun AmazonIdentityManagementFunctions.removeUserFromGroup(groupName: String, userName: String, init: AmazonIdentityManagementRemoveUserFromGroupCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementRemoveUserFromGroupCommand(groupName, userName).apply(init))
+fun AmazonIdentityManagementFunctions.removeUserFromGroup(groupName: String, userName: String, init: AmazonIdentityManagementRemoveUserFromGroupCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.RemoveUserFromGroupResult {
+	return this.block.declare(AmazonIdentityManagementRemoveUserFromGroupCommand(groupName, userName).apply(init)) as com.amazonaws.services.identitymanagement.model.RemoveUserFromGroupResult
 }
 
 @Generated
-class AmazonIdentityManagementRemoveUserFromGroupCommand(val groupName: String, val userName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.RemoveUserFromGroupRequest> {
+class AmazonIdentityManagementRemoveUserFromGroupCommand(val groupName: String, val userName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.RemoveUserFromGroupRequest, com.amazonaws.services.identitymanagement.model.RemoveUserFromGroupResult> {
 
 
 
@@ -3016,8 +3416,12 @@ class AmazonIdentityManagementRemoveUserFromGroupCommand(val groupName: String, 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.removeUserFromGroup(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.RemoveUserFromGroupResult {
+	  return com.amazonaws.services.identitymanagement.model.RemoveUserFromGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.RemoveUserFromGroupResult {
+		return environment.iam.removeUserFromGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3029,12 +3433,12 @@ class AmazonIdentityManagementRemoveUserFromGroupCommand(val groupName: String, 
 }
 
 
-fun AmazonIdentityManagementFunctions.resetServiceSpecificCredential(serviceSpecificCredentialId: String, init: AmazonIdentityManagementResetServiceSpecificCredentialCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementResetServiceSpecificCredentialCommand(serviceSpecificCredentialId).apply(init))
+fun AmazonIdentityManagementFunctions.resetServiceSpecificCredential(serviceSpecificCredentialId: String, init: AmazonIdentityManagementResetServiceSpecificCredentialCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.ResetServiceSpecificCredentialResult {
+	return this.block.declare(AmazonIdentityManagementResetServiceSpecificCredentialCommand(serviceSpecificCredentialId).apply(init)) as com.amazonaws.services.identitymanagement.model.ResetServiceSpecificCredentialResult
 }
 
 @Generated
-class AmazonIdentityManagementResetServiceSpecificCredentialCommand(val serviceSpecificCredentialId: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ResetServiceSpecificCredentialRequest> {
+class AmazonIdentityManagementResetServiceSpecificCredentialCommand(val serviceSpecificCredentialId: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ResetServiceSpecificCredentialRequest, com.amazonaws.services.identitymanagement.model.ResetServiceSpecificCredentialResult> {
 
 	var userName: String? = null
 
@@ -3045,8 +3449,12 @@ class AmazonIdentityManagementResetServiceSpecificCredentialCommand(val serviceS
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.resetServiceSpecificCredential(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ResetServiceSpecificCredentialResult {
+	  return com.amazonaws.services.identitymanagement.model.ResetServiceSpecificCredentialResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ResetServiceSpecificCredentialResult {
+		return environment.iam.resetServiceSpecificCredential(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3058,12 +3466,12 @@ class AmazonIdentityManagementResetServiceSpecificCredentialCommand(val serviceS
 }
 
 
-fun AmazonIdentityManagementFunctions.resyncMFADevice(userName: String, serialNumber: String, authenticationCode1: String, authenticationCode2: String, init: AmazonIdentityManagementResyncMFADeviceCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementResyncMFADeviceCommand(userName, serialNumber, authenticationCode1, authenticationCode2).apply(init))
+fun AmazonIdentityManagementFunctions.resyncMFADevice(userName: String, serialNumber: String, authenticationCode1: String, authenticationCode2: String, init: AmazonIdentityManagementResyncMFADeviceCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.ResyncMFADeviceResult {
+	return this.block.declare(AmazonIdentityManagementResyncMFADeviceCommand(userName, serialNumber, authenticationCode1, authenticationCode2).apply(init)) as com.amazonaws.services.identitymanagement.model.ResyncMFADeviceResult
 }
 
 @Generated
-class AmazonIdentityManagementResyncMFADeviceCommand(val userName: String, val serialNumber: String, val authenticationCode1: String, val authenticationCode2: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ResyncMFADeviceRequest> {
+class AmazonIdentityManagementResyncMFADeviceCommand(val userName: String, val serialNumber: String, val authenticationCode1: String, val authenticationCode2: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.ResyncMFADeviceRequest, com.amazonaws.services.identitymanagement.model.ResyncMFADeviceResult> {
 
 
 
@@ -3076,8 +3484,12 @@ class AmazonIdentityManagementResyncMFADeviceCommand(val userName: String, val s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.resyncMFADevice(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.ResyncMFADeviceResult {
+	  return com.amazonaws.services.identitymanagement.model.ResyncMFADeviceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.ResyncMFADeviceResult {
+		return environment.iam.resyncMFADevice(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3091,12 +3503,12 @@ class AmazonIdentityManagementResyncMFADeviceCommand(val userName: String, val s
 }
 
 
-fun AmazonIdentityManagementFunctions.setDefaultPolicyVersion(policyArn: String, versionId: String, init: AmazonIdentityManagementSetDefaultPolicyVersionCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementSetDefaultPolicyVersionCommand(policyArn, versionId).apply(init))
+fun AmazonIdentityManagementFunctions.setDefaultPolicyVersion(policyArn: String, versionId: String, init: AmazonIdentityManagementSetDefaultPolicyVersionCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.SetDefaultPolicyVersionResult {
+	return this.block.declare(AmazonIdentityManagementSetDefaultPolicyVersionCommand(policyArn, versionId).apply(init)) as com.amazonaws.services.identitymanagement.model.SetDefaultPolicyVersionResult
 }
 
 @Generated
-class AmazonIdentityManagementSetDefaultPolicyVersionCommand(val policyArn: String, val versionId: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.SetDefaultPolicyVersionRequest> {
+class AmazonIdentityManagementSetDefaultPolicyVersionCommand(val policyArn: String, val versionId: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.SetDefaultPolicyVersionRequest, com.amazonaws.services.identitymanagement.model.SetDefaultPolicyVersionResult> {
 
 
 
@@ -3107,8 +3519,12 @@ class AmazonIdentityManagementSetDefaultPolicyVersionCommand(val policyArn: Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.setDefaultPolicyVersion(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.SetDefaultPolicyVersionResult {
+	  return com.amazonaws.services.identitymanagement.model.SetDefaultPolicyVersionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.SetDefaultPolicyVersionResult {
+		return environment.iam.setDefaultPolicyVersion(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3120,12 +3536,12 @@ class AmazonIdentityManagementSetDefaultPolicyVersionCommand(val policyArn: Stri
 }
 
 
-fun AmazonIdentityManagementFunctions.simulateCustomPolicy(policyInputList: List<String>, actionNames: List<String>, init: AmazonIdentityManagementSimulateCustomPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementSimulateCustomPolicyCommand(policyInputList, actionNames).apply(init))
+fun AmazonIdentityManagementFunctions.simulateCustomPolicy(policyInputList: List<String>, actionNames: List<String>, init: AmazonIdentityManagementSimulateCustomPolicyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.SimulateCustomPolicyResult {
+	return this.block.declare(AmazonIdentityManagementSimulateCustomPolicyCommand(policyInputList, actionNames).apply(init)) as com.amazonaws.services.identitymanagement.model.SimulateCustomPolicyResult
 }
 
 @Generated
-class AmazonIdentityManagementSimulateCustomPolicyCommand(val policyInputList: List<String>, val actionNames: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.SimulateCustomPolicyRequest> {
+class AmazonIdentityManagementSimulateCustomPolicyCommand(val policyInputList: List<String>, val actionNames: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.SimulateCustomPolicyRequest, com.amazonaws.services.identitymanagement.model.SimulateCustomPolicyResult> {
 
 	var resourceArns: List<String>? = null
 	var resourcePolicy: String? = null
@@ -3151,8 +3567,12 @@ class AmazonIdentityManagementSimulateCustomPolicyCommand(val policyInputList: L
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.simulateCustomPolicy(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.SimulateCustomPolicyResult {
+	  return com.amazonaws.services.identitymanagement.model.SimulateCustomPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.SimulateCustomPolicyResult {
+		return environment.iam.simulateCustomPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3172,12 +3592,12 @@ class AmazonIdentityManagementSimulateCustomPolicyCommand(val policyInputList: L
 }
 
 
-fun AmazonIdentityManagementFunctions.simulatePrincipalPolicy(policySourceArn: String, actionNames: List<String>, init: AmazonIdentityManagementSimulatePrincipalPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementSimulatePrincipalPolicyCommand(policySourceArn, actionNames).apply(init))
+fun AmazonIdentityManagementFunctions.simulatePrincipalPolicy(policySourceArn: String, actionNames: List<String>, init: AmazonIdentityManagementSimulatePrincipalPolicyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.SimulatePrincipalPolicyResult {
+	return this.block.declare(AmazonIdentityManagementSimulatePrincipalPolicyCommand(policySourceArn, actionNames).apply(init)) as com.amazonaws.services.identitymanagement.model.SimulatePrincipalPolicyResult
 }
 
 @Generated
-class AmazonIdentityManagementSimulatePrincipalPolicyCommand(val policySourceArn: String, val actionNames: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.SimulatePrincipalPolicyRequest> {
+class AmazonIdentityManagementSimulatePrincipalPolicyCommand(val policySourceArn: String, val actionNames: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.SimulatePrincipalPolicyRequest, com.amazonaws.services.identitymanagement.model.SimulatePrincipalPolicyResult> {
 
 	var policyInputList: List<String>? = null
 	var resourceArns: List<String>? = null
@@ -3205,8 +3625,12 @@ class AmazonIdentityManagementSimulatePrincipalPolicyCommand(val policySourceArn
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.simulatePrincipalPolicy(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.SimulatePrincipalPolicyResult {
+	  return com.amazonaws.services.identitymanagement.model.SimulatePrincipalPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.SimulatePrincipalPolicyResult {
+		return environment.iam.simulatePrincipalPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3227,12 +3651,12 @@ class AmazonIdentityManagementSimulatePrincipalPolicyCommand(val policySourceArn
 }
 
 
-fun AmazonIdentityManagementFunctions.updateAccessKey(accessKeyId: String, status: String, init: AmazonIdentityManagementUpdateAccessKeyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementUpdateAccessKeyCommand(accessKeyId, status).apply(init))
+fun AmazonIdentityManagementFunctions.updateAccessKey(accessKeyId: String, status: String, init: AmazonIdentityManagementUpdateAccessKeyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.UpdateAccessKeyResult {
+	return this.block.declare(AmazonIdentityManagementUpdateAccessKeyCommand(accessKeyId, status).apply(init)) as com.amazonaws.services.identitymanagement.model.UpdateAccessKeyResult
 }
 
 @Generated
-class AmazonIdentityManagementUpdateAccessKeyCommand(val accessKeyId: String, val status: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UpdateAccessKeyRequest> {
+class AmazonIdentityManagementUpdateAccessKeyCommand(val accessKeyId: String, val status: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UpdateAccessKeyRequest, com.amazonaws.services.identitymanagement.model.UpdateAccessKeyResult> {
 
 	var userName: String? = null
 
@@ -3244,8 +3668,12 @@ class AmazonIdentityManagementUpdateAccessKeyCommand(val accessKeyId: String, va
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.updateAccessKey(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UpdateAccessKeyResult {
+	  return com.amazonaws.services.identitymanagement.model.UpdateAccessKeyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UpdateAccessKeyResult {
+		return environment.iam.updateAccessKey(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3258,12 +3686,12 @@ class AmazonIdentityManagementUpdateAccessKeyCommand(val accessKeyId: String, va
 }
 
 
-fun AmazonIdentityManagementFunctions.updateAccountPasswordPolicy(init: AmazonIdentityManagementUpdateAccountPasswordPolicyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementUpdateAccountPasswordPolicyCommand().apply(init))
+fun AmazonIdentityManagementFunctions.updateAccountPasswordPolicy(init: AmazonIdentityManagementUpdateAccountPasswordPolicyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.UpdateAccountPasswordPolicyResult {
+	return this.block.declare(AmazonIdentityManagementUpdateAccountPasswordPolicyCommand().apply(init)) as com.amazonaws.services.identitymanagement.model.UpdateAccountPasswordPolicyResult
 }
 
 @Generated
-class AmazonIdentityManagementUpdateAccountPasswordPolicyCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UpdateAccountPasswordPolicyRequest> {
+class AmazonIdentityManagementUpdateAccountPasswordPolicyCommand() : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UpdateAccountPasswordPolicyRequest, com.amazonaws.services.identitymanagement.model.UpdateAccountPasswordPolicyResult> {
 
 	var minimumPasswordLength: Int? = 0
 	var requireSymbols: Boolean? = false
@@ -3289,8 +3717,12 @@ class AmazonIdentityManagementUpdateAccountPasswordPolicyCommand() : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.updateAccountPasswordPolicy(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UpdateAccountPasswordPolicyResult {
+	  return com.amazonaws.services.identitymanagement.model.UpdateAccountPasswordPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UpdateAccountPasswordPolicyResult {
+		return environment.iam.updateAccountPasswordPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3309,12 +3741,12 @@ class AmazonIdentityManagementUpdateAccountPasswordPolicyCommand() : AmazonWebSe
 }
 
 
-fun AmazonIdentityManagementFunctions.updateAssumeRolePolicy(roleName: String, policyDocument: String, init: AmazonIdentityManagementUpdateAssumeRolePolicyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementUpdateAssumeRolePolicyCommand(roleName, policyDocument).apply(init))
+fun AmazonIdentityManagementFunctions.updateAssumeRolePolicy(roleName: String, policyDocument: String, init: AmazonIdentityManagementUpdateAssumeRolePolicyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.UpdateAssumeRolePolicyResult {
+	return this.block.declare(AmazonIdentityManagementUpdateAssumeRolePolicyCommand(roleName, policyDocument).apply(init)) as com.amazonaws.services.identitymanagement.model.UpdateAssumeRolePolicyResult
 }
 
 @Generated
-class AmazonIdentityManagementUpdateAssumeRolePolicyCommand(val roleName: String, val policyDocument: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UpdateAssumeRolePolicyRequest> {
+class AmazonIdentityManagementUpdateAssumeRolePolicyCommand(val roleName: String, val policyDocument: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UpdateAssumeRolePolicyRequest, com.amazonaws.services.identitymanagement.model.UpdateAssumeRolePolicyResult> {
 
 
 
@@ -3325,8 +3757,12 @@ class AmazonIdentityManagementUpdateAssumeRolePolicyCommand(val roleName: String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.updateAssumeRolePolicy(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UpdateAssumeRolePolicyResult {
+	  return com.amazonaws.services.identitymanagement.model.UpdateAssumeRolePolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UpdateAssumeRolePolicyResult {
+		return environment.iam.updateAssumeRolePolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3338,12 +3774,12 @@ class AmazonIdentityManagementUpdateAssumeRolePolicyCommand(val roleName: String
 }
 
 
-fun AmazonIdentityManagementFunctions.updateGroup(groupName: String, init: AmazonIdentityManagementUpdateGroupCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementUpdateGroupCommand(groupName).apply(init))
+fun AmazonIdentityManagementFunctions.updateGroup(groupName: String, init: AmazonIdentityManagementUpdateGroupCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.UpdateGroupResult {
+	return this.block.declare(AmazonIdentityManagementUpdateGroupCommand(groupName).apply(init)) as com.amazonaws.services.identitymanagement.model.UpdateGroupResult
 }
 
 @Generated
-class AmazonIdentityManagementUpdateGroupCommand(val groupName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UpdateGroupRequest> {
+class AmazonIdentityManagementUpdateGroupCommand(val groupName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UpdateGroupRequest, com.amazonaws.services.identitymanagement.model.UpdateGroupResult> {
 
 	var newPath: String? = null
 	var newGroupName: String? = null
@@ -3356,8 +3792,12 @@ class AmazonIdentityManagementUpdateGroupCommand(val groupName: String) : Amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.updateGroup(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UpdateGroupResult {
+	  return com.amazonaws.services.identitymanagement.model.UpdateGroupResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UpdateGroupResult {
+		return environment.iam.updateGroup(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3370,12 +3810,12 @@ class AmazonIdentityManagementUpdateGroupCommand(val groupName: String) : Amazon
 }
 
 
-fun AmazonIdentityManagementFunctions.updateLoginProfile(userName: String, init: AmazonIdentityManagementUpdateLoginProfileCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementUpdateLoginProfileCommand(userName).apply(init))
+fun AmazonIdentityManagementFunctions.updateLoginProfile(userName: String, init: AmazonIdentityManagementUpdateLoginProfileCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.UpdateLoginProfileResult {
+	return this.block.declare(AmazonIdentityManagementUpdateLoginProfileCommand(userName).apply(init)) as com.amazonaws.services.identitymanagement.model.UpdateLoginProfileResult
 }
 
 @Generated
-class AmazonIdentityManagementUpdateLoginProfileCommand(val userName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UpdateLoginProfileRequest> {
+class AmazonIdentityManagementUpdateLoginProfileCommand(val userName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UpdateLoginProfileRequest, com.amazonaws.services.identitymanagement.model.UpdateLoginProfileResult> {
 
 	var password: String? = null
 	var passwordResetRequired: Boolean? = false
@@ -3388,8 +3828,12 @@ class AmazonIdentityManagementUpdateLoginProfileCommand(val userName: String) : 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.updateLoginProfile(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UpdateLoginProfileResult {
+	  return com.amazonaws.services.identitymanagement.model.UpdateLoginProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UpdateLoginProfileResult {
+		return environment.iam.updateLoginProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3402,12 +3846,12 @@ class AmazonIdentityManagementUpdateLoginProfileCommand(val userName: String) : 
 }
 
 
-fun AmazonIdentityManagementFunctions.updateOpenIDConnectProviderThumbprint(openIDConnectProviderArn: String, thumbprintList: List<String>, init: AmazonIdentityManagementUpdateOpenIDConnectProviderThumbprintCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementUpdateOpenIDConnectProviderThumbprintCommand(openIDConnectProviderArn, thumbprintList).apply(init))
+fun AmazonIdentityManagementFunctions.updateOpenIDConnectProviderThumbprint(openIDConnectProviderArn: String, thumbprintList: List<String>, init: AmazonIdentityManagementUpdateOpenIDConnectProviderThumbprintCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.UpdateOpenIDConnectProviderThumbprintResult {
+	return this.block.declare(AmazonIdentityManagementUpdateOpenIDConnectProviderThumbprintCommand(openIDConnectProviderArn, thumbprintList).apply(init)) as com.amazonaws.services.identitymanagement.model.UpdateOpenIDConnectProviderThumbprintResult
 }
 
 @Generated
-class AmazonIdentityManagementUpdateOpenIDConnectProviderThumbprintCommand(val openIDConnectProviderArn: String, val thumbprintList: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UpdateOpenIDConnectProviderThumbprintRequest> {
+class AmazonIdentityManagementUpdateOpenIDConnectProviderThumbprintCommand(val openIDConnectProviderArn: String, val thumbprintList: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UpdateOpenIDConnectProviderThumbprintRequest, com.amazonaws.services.identitymanagement.model.UpdateOpenIDConnectProviderThumbprintResult> {
 
 
 
@@ -3418,8 +3862,12 @@ class AmazonIdentityManagementUpdateOpenIDConnectProviderThumbprintCommand(val o
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.updateOpenIDConnectProviderThumbprint(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UpdateOpenIDConnectProviderThumbprintResult {
+	  return com.amazonaws.services.identitymanagement.model.UpdateOpenIDConnectProviderThumbprintResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UpdateOpenIDConnectProviderThumbprintResult {
+		return environment.iam.updateOpenIDConnectProviderThumbprint(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3431,12 +3879,12 @@ class AmazonIdentityManagementUpdateOpenIDConnectProviderThumbprintCommand(val o
 }
 
 
-fun AmazonIdentityManagementFunctions.updateRole(roleName: String, init: AmazonIdentityManagementUpdateRoleCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementUpdateRoleCommand(roleName).apply(init))
+fun AmazonIdentityManagementFunctions.updateRole(roleName: String, init: AmazonIdentityManagementUpdateRoleCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.UpdateRoleResult {
+	return this.block.declare(AmazonIdentityManagementUpdateRoleCommand(roleName).apply(init)) as com.amazonaws.services.identitymanagement.model.UpdateRoleResult
 }
 
 @Generated
-class AmazonIdentityManagementUpdateRoleCommand(val roleName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UpdateRoleRequest> {
+class AmazonIdentityManagementUpdateRoleCommand(val roleName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UpdateRoleRequest, com.amazonaws.services.identitymanagement.model.UpdateRoleResult> {
 
 	var description: String? = null
 	var maxSessionDuration: Int? = 0
@@ -3449,8 +3897,12 @@ class AmazonIdentityManagementUpdateRoleCommand(val roleName: String) : AmazonWe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.updateRole(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UpdateRoleResult {
+	  return com.amazonaws.services.identitymanagement.model.UpdateRoleResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UpdateRoleResult {
+		return environment.iam.updateRole(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3463,12 +3915,12 @@ class AmazonIdentityManagementUpdateRoleCommand(val roleName: String) : AmazonWe
 }
 
 
-fun AmazonIdentityManagementFunctions.updateRoleDescription(roleName: String, description: String, init: AmazonIdentityManagementUpdateRoleDescriptionCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementUpdateRoleDescriptionCommand(roleName, description).apply(init))
+fun AmazonIdentityManagementFunctions.updateRoleDescription(roleName: String, description: String, init: AmazonIdentityManagementUpdateRoleDescriptionCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.UpdateRoleDescriptionResult {
+	return this.block.declare(AmazonIdentityManagementUpdateRoleDescriptionCommand(roleName, description).apply(init)) as com.amazonaws.services.identitymanagement.model.UpdateRoleDescriptionResult
 }
 
 @Generated
-class AmazonIdentityManagementUpdateRoleDescriptionCommand(val roleName: String, val description: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UpdateRoleDescriptionRequest> {
+class AmazonIdentityManagementUpdateRoleDescriptionCommand(val roleName: String, val description: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UpdateRoleDescriptionRequest, com.amazonaws.services.identitymanagement.model.UpdateRoleDescriptionResult> {
 
 
 
@@ -3479,8 +3931,12 @@ class AmazonIdentityManagementUpdateRoleDescriptionCommand(val roleName: String,
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.updateRoleDescription(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UpdateRoleDescriptionResult {
+	  return com.amazonaws.services.identitymanagement.model.UpdateRoleDescriptionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UpdateRoleDescriptionResult {
+		return environment.iam.updateRoleDescription(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3492,12 +3948,12 @@ class AmazonIdentityManagementUpdateRoleDescriptionCommand(val roleName: String,
 }
 
 
-fun AmazonIdentityManagementFunctions.updateSAMLProvider(sAMLMetadataDocument: String, sAMLProviderArn: String, init: AmazonIdentityManagementUpdateSAMLProviderCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementUpdateSAMLProviderCommand(sAMLMetadataDocument, sAMLProviderArn).apply(init))
+fun AmazonIdentityManagementFunctions.updateSAMLProvider(sAMLMetadataDocument: String, sAMLProviderArn: String, init: AmazonIdentityManagementUpdateSAMLProviderCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.UpdateSAMLProviderResult {
+	return this.block.declare(AmazonIdentityManagementUpdateSAMLProviderCommand(sAMLMetadataDocument, sAMLProviderArn).apply(init)) as com.amazonaws.services.identitymanagement.model.UpdateSAMLProviderResult
 }
 
 @Generated
-class AmazonIdentityManagementUpdateSAMLProviderCommand(val sAMLMetadataDocument: String, val sAMLProviderArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UpdateSAMLProviderRequest> {
+class AmazonIdentityManagementUpdateSAMLProviderCommand(val sAMLMetadataDocument: String, val sAMLProviderArn: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UpdateSAMLProviderRequest, com.amazonaws.services.identitymanagement.model.UpdateSAMLProviderResult> {
 
 
 
@@ -3508,8 +3964,12 @@ class AmazonIdentityManagementUpdateSAMLProviderCommand(val sAMLMetadataDocument
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.updateSAMLProvider(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UpdateSAMLProviderResult {
+	  return com.amazonaws.services.identitymanagement.model.UpdateSAMLProviderResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UpdateSAMLProviderResult {
+		return environment.iam.updateSAMLProvider(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3521,12 +3981,12 @@ class AmazonIdentityManagementUpdateSAMLProviderCommand(val sAMLMetadataDocument
 }
 
 
-fun AmazonIdentityManagementFunctions.updateSSHPublicKey(userName: String, sSHPublicKeyId: String, status: String, init: AmazonIdentityManagementUpdateSSHPublicKeyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementUpdateSSHPublicKeyCommand(userName, sSHPublicKeyId, status).apply(init))
+fun AmazonIdentityManagementFunctions.updateSSHPublicKey(userName: String, sSHPublicKeyId: String, status: String, init: AmazonIdentityManagementUpdateSSHPublicKeyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.UpdateSSHPublicKeyResult {
+	return this.block.declare(AmazonIdentityManagementUpdateSSHPublicKeyCommand(userName, sSHPublicKeyId, status).apply(init)) as com.amazonaws.services.identitymanagement.model.UpdateSSHPublicKeyResult
 }
 
 @Generated
-class AmazonIdentityManagementUpdateSSHPublicKeyCommand(val userName: String, val sSHPublicKeyId: String, val status: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UpdateSSHPublicKeyRequest> {
+class AmazonIdentityManagementUpdateSSHPublicKeyCommand(val userName: String, val sSHPublicKeyId: String, val status: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UpdateSSHPublicKeyRequest, com.amazonaws.services.identitymanagement.model.UpdateSSHPublicKeyResult> {
 
 
 
@@ -3538,8 +3998,12 @@ class AmazonIdentityManagementUpdateSSHPublicKeyCommand(val userName: String, va
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.updateSSHPublicKey(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UpdateSSHPublicKeyResult {
+	  return com.amazonaws.services.identitymanagement.model.UpdateSSHPublicKeyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UpdateSSHPublicKeyResult {
+		return environment.iam.updateSSHPublicKey(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3552,12 +4016,12 @@ class AmazonIdentityManagementUpdateSSHPublicKeyCommand(val userName: String, va
 }
 
 
-fun AmazonIdentityManagementFunctions.updateServerCertificate(serverCertificateName: String, init: AmazonIdentityManagementUpdateServerCertificateCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementUpdateServerCertificateCommand(serverCertificateName).apply(init))
+fun AmazonIdentityManagementFunctions.updateServerCertificate(serverCertificateName: String, init: AmazonIdentityManagementUpdateServerCertificateCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.UpdateServerCertificateResult {
+	return this.block.declare(AmazonIdentityManagementUpdateServerCertificateCommand(serverCertificateName).apply(init)) as com.amazonaws.services.identitymanagement.model.UpdateServerCertificateResult
 }
 
 @Generated
-class AmazonIdentityManagementUpdateServerCertificateCommand(val serverCertificateName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UpdateServerCertificateRequest> {
+class AmazonIdentityManagementUpdateServerCertificateCommand(val serverCertificateName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UpdateServerCertificateRequest, com.amazonaws.services.identitymanagement.model.UpdateServerCertificateResult> {
 
 	var newPath: String? = null
 	var newServerCertificateName: String? = null
@@ -3570,8 +4034,12 @@ class AmazonIdentityManagementUpdateServerCertificateCommand(val serverCertifica
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.updateServerCertificate(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UpdateServerCertificateResult {
+	  return com.amazonaws.services.identitymanagement.model.UpdateServerCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UpdateServerCertificateResult {
+		return environment.iam.updateServerCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3584,12 +4052,12 @@ class AmazonIdentityManagementUpdateServerCertificateCommand(val serverCertifica
 }
 
 
-fun AmazonIdentityManagementFunctions.updateServiceSpecificCredential(serviceSpecificCredentialId: String, status: String, init: AmazonIdentityManagementUpdateServiceSpecificCredentialCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementUpdateServiceSpecificCredentialCommand(serviceSpecificCredentialId, status).apply(init))
+fun AmazonIdentityManagementFunctions.updateServiceSpecificCredential(serviceSpecificCredentialId: String, status: String, init: AmazonIdentityManagementUpdateServiceSpecificCredentialCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.UpdateServiceSpecificCredentialResult {
+	return this.block.declare(AmazonIdentityManagementUpdateServiceSpecificCredentialCommand(serviceSpecificCredentialId, status).apply(init)) as com.amazonaws.services.identitymanagement.model.UpdateServiceSpecificCredentialResult
 }
 
 @Generated
-class AmazonIdentityManagementUpdateServiceSpecificCredentialCommand(val serviceSpecificCredentialId: String, val status: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UpdateServiceSpecificCredentialRequest> {
+class AmazonIdentityManagementUpdateServiceSpecificCredentialCommand(val serviceSpecificCredentialId: String, val status: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UpdateServiceSpecificCredentialRequest, com.amazonaws.services.identitymanagement.model.UpdateServiceSpecificCredentialResult> {
 
 	var userName: String? = null
 
@@ -3601,8 +4069,12 @@ class AmazonIdentityManagementUpdateServiceSpecificCredentialCommand(val service
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.updateServiceSpecificCredential(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UpdateServiceSpecificCredentialResult {
+	  return com.amazonaws.services.identitymanagement.model.UpdateServiceSpecificCredentialResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UpdateServiceSpecificCredentialResult {
+		return environment.iam.updateServiceSpecificCredential(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3615,12 +4087,12 @@ class AmazonIdentityManagementUpdateServiceSpecificCredentialCommand(val service
 }
 
 
-fun AmazonIdentityManagementFunctions.updateSigningCertificate(certificateId: String, status: String, init: AmazonIdentityManagementUpdateSigningCertificateCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementUpdateSigningCertificateCommand(certificateId, status).apply(init))
+fun AmazonIdentityManagementFunctions.updateSigningCertificate(certificateId: String, status: String, init: AmazonIdentityManagementUpdateSigningCertificateCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.UpdateSigningCertificateResult {
+	return this.block.declare(AmazonIdentityManagementUpdateSigningCertificateCommand(certificateId, status).apply(init)) as com.amazonaws.services.identitymanagement.model.UpdateSigningCertificateResult
 }
 
 @Generated
-class AmazonIdentityManagementUpdateSigningCertificateCommand(val certificateId: String, val status: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UpdateSigningCertificateRequest> {
+class AmazonIdentityManagementUpdateSigningCertificateCommand(val certificateId: String, val status: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UpdateSigningCertificateRequest, com.amazonaws.services.identitymanagement.model.UpdateSigningCertificateResult> {
 
 	var userName: String? = null
 
@@ -3632,8 +4104,12 @@ class AmazonIdentityManagementUpdateSigningCertificateCommand(val certificateId:
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.updateSigningCertificate(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UpdateSigningCertificateResult {
+	  return com.amazonaws.services.identitymanagement.model.UpdateSigningCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UpdateSigningCertificateResult {
+		return environment.iam.updateSigningCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3646,12 +4122,12 @@ class AmazonIdentityManagementUpdateSigningCertificateCommand(val certificateId:
 }
 
 
-fun AmazonIdentityManagementFunctions.updateUser(userName: String, init: AmazonIdentityManagementUpdateUserCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementUpdateUserCommand(userName).apply(init))
+fun AmazonIdentityManagementFunctions.updateUser(userName: String, init: AmazonIdentityManagementUpdateUserCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.UpdateUserResult {
+	return this.block.declare(AmazonIdentityManagementUpdateUserCommand(userName).apply(init)) as com.amazonaws.services.identitymanagement.model.UpdateUserResult
 }
 
 @Generated
-class AmazonIdentityManagementUpdateUserCommand(val userName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UpdateUserRequest> {
+class AmazonIdentityManagementUpdateUserCommand(val userName: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UpdateUserRequest, com.amazonaws.services.identitymanagement.model.UpdateUserResult> {
 
 	var newPath: String? = null
 	var newUserName: String? = null
@@ -3664,8 +4140,12 @@ class AmazonIdentityManagementUpdateUserCommand(val userName: String) : AmazonWe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.updateUser(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UpdateUserResult {
+	  return com.amazonaws.services.identitymanagement.model.UpdateUserResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UpdateUserResult {
+		return environment.iam.updateUser(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3678,12 +4158,12 @@ class AmazonIdentityManagementUpdateUserCommand(val userName: String) : AmazonWe
 }
 
 
-fun AmazonIdentityManagementFunctions.uploadSSHPublicKey(userName: String, sSHPublicKeyBody: String, init: AmazonIdentityManagementUploadSSHPublicKeyCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementUploadSSHPublicKeyCommand(userName, sSHPublicKeyBody).apply(init))
+fun AmazonIdentityManagementFunctions.uploadSSHPublicKey(userName: String, sSHPublicKeyBody: String, init: AmazonIdentityManagementUploadSSHPublicKeyCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.UploadSSHPublicKeyResult {
+	return this.block.declare(AmazonIdentityManagementUploadSSHPublicKeyCommand(userName, sSHPublicKeyBody).apply(init)) as com.amazonaws.services.identitymanagement.model.UploadSSHPublicKeyResult
 }
 
 @Generated
-class AmazonIdentityManagementUploadSSHPublicKeyCommand(val userName: String, val sSHPublicKeyBody: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UploadSSHPublicKeyRequest> {
+class AmazonIdentityManagementUploadSSHPublicKeyCommand(val userName: String, val sSHPublicKeyBody: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UploadSSHPublicKeyRequest, com.amazonaws.services.identitymanagement.model.UploadSSHPublicKeyResult> {
 
 
 
@@ -3694,8 +4174,12 @@ class AmazonIdentityManagementUploadSSHPublicKeyCommand(val userName: String, va
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.uploadSSHPublicKey(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UploadSSHPublicKeyResult {
+	  return com.amazonaws.services.identitymanagement.model.UploadSSHPublicKeyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UploadSSHPublicKeyResult {
+		return environment.iam.uploadSSHPublicKey(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3707,12 +4191,12 @@ class AmazonIdentityManagementUploadSSHPublicKeyCommand(val userName: String, va
 }
 
 
-fun AmazonIdentityManagementFunctions.uploadServerCertificate(serverCertificateName: String, certificateBody: String, privateKey: String, init: AmazonIdentityManagementUploadServerCertificateCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementUploadServerCertificateCommand(serverCertificateName, certificateBody, privateKey).apply(init))
+fun AmazonIdentityManagementFunctions.uploadServerCertificate(serverCertificateName: String, certificateBody: String, privateKey: String, init: AmazonIdentityManagementUploadServerCertificateCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.UploadServerCertificateResult {
+	return this.block.declare(AmazonIdentityManagementUploadServerCertificateCommand(serverCertificateName, certificateBody, privateKey).apply(init)) as com.amazonaws.services.identitymanagement.model.UploadServerCertificateResult
 }
 
 @Generated
-class AmazonIdentityManagementUploadServerCertificateCommand(val serverCertificateName: String, val certificateBody: String, val privateKey: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UploadServerCertificateRequest> {
+class AmazonIdentityManagementUploadServerCertificateCommand(val serverCertificateName: String, val certificateBody: String, val privateKey: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UploadServerCertificateRequest, com.amazonaws.services.identitymanagement.model.UploadServerCertificateResult> {
 
 	var path: String? = null
 	var certificateChain: String? = null
@@ -3727,8 +4211,12 @@ class AmazonIdentityManagementUploadServerCertificateCommand(val serverCertifica
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.uploadServerCertificate(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UploadServerCertificateResult {
+	  return com.amazonaws.services.identitymanagement.model.UploadServerCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UploadServerCertificateResult {
+		return environment.iam.uploadServerCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -3743,12 +4231,12 @@ class AmazonIdentityManagementUploadServerCertificateCommand(val serverCertifica
 }
 
 
-fun AmazonIdentityManagementFunctions.uploadSigningCertificate(certificateBody: String, init: AmazonIdentityManagementUploadSigningCertificateCommand.() -> Unit) {
-	this.block.declare(AmazonIdentityManagementUploadSigningCertificateCommand(certificateBody).apply(init))
+fun AmazonIdentityManagementFunctions.uploadSigningCertificate(certificateBody: String, init: AmazonIdentityManagementUploadSigningCertificateCommand.() -> Unit): com.amazonaws.services.identitymanagement.model.UploadSigningCertificateResult {
+	return this.block.declare(AmazonIdentityManagementUploadSigningCertificateCommand(certificateBody).apply(init)) as com.amazonaws.services.identitymanagement.model.UploadSigningCertificateResult
 }
 
 @Generated
-class AmazonIdentityManagementUploadSigningCertificateCommand(val certificateBody: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UploadSigningCertificateRequest> {
+class AmazonIdentityManagementUploadSigningCertificateCommand(val certificateBody: String) : AmazonWebServiceCommand<com.amazonaws.services.identitymanagement.model.UploadSigningCertificateRequest, com.amazonaws.services.identitymanagement.model.UploadSigningCertificateResult> {
 
 	var userName: String? = null
 
@@ -3759,8 +4247,12 @@ class AmazonIdentityManagementUploadSigningCertificateCommand(val certificateBod
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.iam.uploadSigningCertificate(build())
+	override fun dryResult(): com.amazonaws.services.identitymanagement.model.UploadSigningCertificateResult {
+	  return com.amazonaws.services.identitymanagement.model.UploadSigningCertificateResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.identitymanagement.model.UploadSigningCertificateResult {
+		return environment.iam.uploadSigningCertificate(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

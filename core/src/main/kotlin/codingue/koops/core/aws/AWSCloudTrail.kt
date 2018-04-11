@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.cloudtrail: AWSCloudTrail
 @Generated
 class AWSCloudTrailFunctions(val block: Block)
 
-infix fun AwsContinuation.cloudtrail(init: AWSCloudTrailFunctions.() -> Unit) {
-	AWSCloudTrailFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.cloudtrail(init: AWSCloudTrailFunctions.() -> T): T {
+	return AWSCloudTrailFunctions(shell).run(init)
 }
 
 			
 
-fun AWSCloudTrailFunctions.addTags(resourceId: String, init: AWSCloudTrailAddTagsCommand.() -> Unit) {
-	this.block.declare(AWSCloudTrailAddTagsCommand(resourceId).apply(init))
+fun AWSCloudTrailFunctions.addTags(resourceId: String, init: AWSCloudTrailAddTagsCommand.() -> Unit): com.amazonaws.services.cloudtrail.model.AddTagsResult {
+	return this.block.declare(AWSCloudTrailAddTagsCommand(resourceId).apply(init)) as com.amazonaws.services.cloudtrail.model.AddTagsResult
 }
 
 @Generated
-class AWSCloudTrailAddTagsCommand(val resourceId: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudtrail.model.AddTagsRequest> {
+class AWSCloudTrailAddTagsCommand(val resourceId: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudtrail.model.AddTagsRequest, com.amazonaws.services.cloudtrail.model.AddTagsResult> {
 
 	var tagsList: List<com.amazonaws.services.cloudtrail.model.Tag>? = null
 
@@ -42,8 +42,12 @@ class AWSCloudTrailAddTagsCommand(val resourceId: String) : AmazonWebServiceComm
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudtrail.addTags(build())
+	override fun dryResult(): com.amazonaws.services.cloudtrail.model.AddTagsResult {
+	  return com.amazonaws.services.cloudtrail.model.AddTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudtrail.model.AddTagsResult {
+		return environment.cloudtrail.addTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -55,12 +59,12 @@ class AWSCloudTrailAddTagsCommand(val resourceId: String) : AmazonWebServiceComm
 }
 
 
-fun AWSCloudTrailFunctions.createTrail(name: String, s3BucketName: String, init: AWSCloudTrailCreateTrailCommand.() -> Unit) {
-	this.block.declare(AWSCloudTrailCreateTrailCommand(name, s3BucketName).apply(init))
+fun AWSCloudTrailFunctions.createTrail(name: String, s3BucketName: String, init: AWSCloudTrailCreateTrailCommand.() -> Unit): com.amazonaws.services.cloudtrail.model.CreateTrailResult {
+	return this.block.declare(AWSCloudTrailCreateTrailCommand(name, s3BucketName).apply(init)) as com.amazonaws.services.cloudtrail.model.CreateTrailResult
 }
 
 @Generated
-class AWSCloudTrailCreateTrailCommand(val name: String, val s3BucketName: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudtrail.model.CreateTrailRequest> {
+class AWSCloudTrailCreateTrailCommand(val name: String, val s3BucketName: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudtrail.model.CreateTrailRequest, com.amazonaws.services.cloudtrail.model.CreateTrailResult> {
 
 	var s3KeyPrefix: String? = null
 	var snsTopicName: String? = null
@@ -86,8 +90,12 @@ class AWSCloudTrailCreateTrailCommand(val name: String, val s3BucketName: String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudtrail.createTrail(build())
+	override fun dryResult(): com.amazonaws.services.cloudtrail.model.CreateTrailResult {
+	  return com.amazonaws.services.cloudtrail.model.CreateTrailResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudtrail.model.CreateTrailResult {
+		return environment.cloudtrail.createTrail(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -107,12 +115,12 @@ class AWSCloudTrailCreateTrailCommand(val name: String, val s3BucketName: String
 }
 
 
-fun AWSCloudTrailFunctions.deleteTrail(name: String, init: AWSCloudTrailDeleteTrailCommand.() -> Unit) {
-	this.block.declare(AWSCloudTrailDeleteTrailCommand(name).apply(init))
+fun AWSCloudTrailFunctions.deleteTrail(name: String, init: AWSCloudTrailDeleteTrailCommand.() -> Unit): com.amazonaws.services.cloudtrail.model.DeleteTrailResult {
+	return this.block.declare(AWSCloudTrailDeleteTrailCommand(name).apply(init)) as com.amazonaws.services.cloudtrail.model.DeleteTrailResult
 }
 
 @Generated
-class AWSCloudTrailDeleteTrailCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudtrail.model.DeleteTrailRequest> {
+class AWSCloudTrailDeleteTrailCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudtrail.model.DeleteTrailRequest, com.amazonaws.services.cloudtrail.model.DeleteTrailResult> {
 
 
 
@@ -122,8 +130,12 @@ class AWSCloudTrailDeleteTrailCommand(val name: String) : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudtrail.deleteTrail(build())
+	override fun dryResult(): com.amazonaws.services.cloudtrail.model.DeleteTrailResult {
+	  return com.amazonaws.services.cloudtrail.model.DeleteTrailResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudtrail.model.DeleteTrailResult {
+		return environment.cloudtrail.deleteTrail(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -134,12 +146,12 @@ class AWSCloudTrailDeleteTrailCommand(val name: String) : AmazonWebServiceComman
 }
 
 
-fun AWSCloudTrailFunctions.describeTrails(init: AWSCloudTrailDescribeTrailsCommand.() -> Unit) {
-	this.block.declare(AWSCloudTrailDescribeTrailsCommand().apply(init))
+fun AWSCloudTrailFunctions.describeTrails(init: AWSCloudTrailDescribeTrailsCommand.() -> Unit): com.amazonaws.services.cloudtrail.model.DescribeTrailsResult {
+	return this.block.declare(AWSCloudTrailDescribeTrailsCommand().apply(init)) as com.amazonaws.services.cloudtrail.model.DescribeTrailsResult
 }
 
 @Generated
-class AWSCloudTrailDescribeTrailsCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudtrail.model.DescribeTrailsRequest> {
+class AWSCloudTrailDescribeTrailsCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudtrail.model.DescribeTrailsRequest, com.amazonaws.services.cloudtrail.model.DescribeTrailsResult> {
 
 	var trailNameList: List<String>? = null
 	var includeShadowTrails: Boolean? = false
@@ -151,8 +163,12 @@ class AWSCloudTrailDescribeTrailsCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudtrail.describeTrails(build())
+	override fun dryResult(): com.amazonaws.services.cloudtrail.model.DescribeTrailsResult {
+	  return com.amazonaws.services.cloudtrail.model.DescribeTrailsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudtrail.model.DescribeTrailsResult {
+		return environment.cloudtrail.describeTrails(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -164,12 +180,12 @@ class AWSCloudTrailDescribeTrailsCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AWSCloudTrailFunctions.getEventSelectors(trailName: String, init: AWSCloudTrailGetEventSelectorsCommand.() -> Unit) {
-	this.block.declare(AWSCloudTrailGetEventSelectorsCommand(trailName).apply(init))
+fun AWSCloudTrailFunctions.getEventSelectors(trailName: String, init: AWSCloudTrailGetEventSelectorsCommand.() -> Unit): com.amazonaws.services.cloudtrail.model.GetEventSelectorsResult {
+	return this.block.declare(AWSCloudTrailGetEventSelectorsCommand(trailName).apply(init)) as com.amazonaws.services.cloudtrail.model.GetEventSelectorsResult
 }
 
 @Generated
-class AWSCloudTrailGetEventSelectorsCommand(val trailName: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudtrail.model.GetEventSelectorsRequest> {
+class AWSCloudTrailGetEventSelectorsCommand(val trailName: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudtrail.model.GetEventSelectorsRequest, com.amazonaws.services.cloudtrail.model.GetEventSelectorsResult> {
 
 
 
@@ -179,8 +195,12 @@ class AWSCloudTrailGetEventSelectorsCommand(val trailName: String) : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudtrail.getEventSelectors(build())
+	override fun dryResult(): com.amazonaws.services.cloudtrail.model.GetEventSelectorsResult {
+	  return com.amazonaws.services.cloudtrail.model.GetEventSelectorsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudtrail.model.GetEventSelectorsResult {
+		return environment.cloudtrail.getEventSelectors(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -191,12 +211,12 @@ class AWSCloudTrailGetEventSelectorsCommand(val trailName: String) : AmazonWebSe
 }
 
 
-fun AWSCloudTrailFunctions.getTrailStatus(name: String, init: AWSCloudTrailGetTrailStatusCommand.() -> Unit) {
-	this.block.declare(AWSCloudTrailGetTrailStatusCommand(name).apply(init))
+fun AWSCloudTrailFunctions.getTrailStatus(name: String, init: AWSCloudTrailGetTrailStatusCommand.() -> Unit): com.amazonaws.services.cloudtrail.model.GetTrailStatusResult {
+	return this.block.declare(AWSCloudTrailGetTrailStatusCommand(name).apply(init)) as com.amazonaws.services.cloudtrail.model.GetTrailStatusResult
 }
 
 @Generated
-class AWSCloudTrailGetTrailStatusCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudtrail.model.GetTrailStatusRequest> {
+class AWSCloudTrailGetTrailStatusCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudtrail.model.GetTrailStatusRequest, com.amazonaws.services.cloudtrail.model.GetTrailStatusResult> {
 
 
 
@@ -206,8 +226,12 @@ class AWSCloudTrailGetTrailStatusCommand(val name: String) : AmazonWebServiceCom
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudtrail.getTrailStatus(build())
+	override fun dryResult(): com.amazonaws.services.cloudtrail.model.GetTrailStatusResult {
+	  return com.amazonaws.services.cloudtrail.model.GetTrailStatusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudtrail.model.GetTrailStatusResult {
+		return environment.cloudtrail.getTrailStatus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -218,12 +242,12 @@ class AWSCloudTrailGetTrailStatusCommand(val name: String) : AmazonWebServiceCom
 }
 
 
-fun AWSCloudTrailFunctions.listPublicKeys(init: AWSCloudTrailListPublicKeysCommand.() -> Unit) {
-	this.block.declare(AWSCloudTrailListPublicKeysCommand().apply(init))
+fun AWSCloudTrailFunctions.listPublicKeys(init: AWSCloudTrailListPublicKeysCommand.() -> Unit): com.amazonaws.services.cloudtrail.model.ListPublicKeysResult {
+	return this.block.declare(AWSCloudTrailListPublicKeysCommand().apply(init)) as com.amazonaws.services.cloudtrail.model.ListPublicKeysResult
 }
 
 @Generated
-class AWSCloudTrailListPublicKeysCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudtrail.model.ListPublicKeysRequest> {
+class AWSCloudTrailListPublicKeysCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudtrail.model.ListPublicKeysRequest, com.amazonaws.services.cloudtrail.model.ListPublicKeysResult> {
 
 	var startTime: java.util.Date? = null
 	var endTime: java.util.Date? = null
@@ -237,8 +261,12 @@ class AWSCloudTrailListPublicKeysCommand() : AmazonWebServiceCommand<com.amazona
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudtrail.listPublicKeys(build())
+	override fun dryResult(): com.amazonaws.services.cloudtrail.model.ListPublicKeysResult {
+	  return com.amazonaws.services.cloudtrail.model.ListPublicKeysResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudtrail.model.ListPublicKeysResult {
+		return environment.cloudtrail.listPublicKeys(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -251,12 +279,12 @@ class AWSCloudTrailListPublicKeysCommand() : AmazonWebServiceCommand<com.amazona
 }
 
 
-fun AWSCloudTrailFunctions.listTags(resourceIdList: List<String>, init: AWSCloudTrailListTagsCommand.() -> Unit) {
-	this.block.declare(AWSCloudTrailListTagsCommand(resourceIdList).apply(init))
+fun AWSCloudTrailFunctions.listTags(resourceIdList: List<String>, init: AWSCloudTrailListTagsCommand.() -> Unit): com.amazonaws.services.cloudtrail.model.ListTagsResult {
+	return this.block.declare(AWSCloudTrailListTagsCommand(resourceIdList).apply(init)) as com.amazonaws.services.cloudtrail.model.ListTagsResult
 }
 
 @Generated
-class AWSCloudTrailListTagsCommand(val resourceIdList: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.cloudtrail.model.ListTagsRequest> {
+class AWSCloudTrailListTagsCommand(val resourceIdList: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.cloudtrail.model.ListTagsRequest, com.amazonaws.services.cloudtrail.model.ListTagsResult> {
 
 	var nextToken: String? = null
 
@@ -267,8 +295,12 @@ class AWSCloudTrailListTagsCommand(val resourceIdList: List<String>) : AmazonWeb
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudtrail.listTags(build())
+	override fun dryResult(): com.amazonaws.services.cloudtrail.model.ListTagsResult {
+	  return com.amazonaws.services.cloudtrail.model.ListTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudtrail.model.ListTagsResult {
+		return environment.cloudtrail.listTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -280,12 +312,12 @@ class AWSCloudTrailListTagsCommand(val resourceIdList: List<String>) : AmazonWeb
 }
 
 
-fun AWSCloudTrailFunctions.lookupEvents(init: AWSCloudTrailLookupEventsCommand.() -> Unit) {
-	this.block.declare(AWSCloudTrailLookupEventsCommand().apply(init))
+fun AWSCloudTrailFunctions.lookupEvents(init: AWSCloudTrailLookupEventsCommand.() -> Unit): com.amazonaws.services.cloudtrail.model.LookupEventsResult {
+	return this.block.declare(AWSCloudTrailLookupEventsCommand().apply(init)) as com.amazonaws.services.cloudtrail.model.LookupEventsResult
 }
 
 @Generated
-class AWSCloudTrailLookupEventsCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudtrail.model.LookupEventsRequest> {
+class AWSCloudTrailLookupEventsCommand() : AmazonWebServiceCommand<com.amazonaws.services.cloudtrail.model.LookupEventsRequest, com.amazonaws.services.cloudtrail.model.LookupEventsResult> {
 
 	var lookupAttributes: List<com.amazonaws.services.cloudtrail.model.LookupAttribute>? = null
 	var startTime: java.util.Date? = null
@@ -303,8 +335,12 @@ class AWSCloudTrailLookupEventsCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudtrail.lookupEvents(build())
+	override fun dryResult(): com.amazonaws.services.cloudtrail.model.LookupEventsResult {
+	  return com.amazonaws.services.cloudtrail.model.LookupEventsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudtrail.model.LookupEventsResult {
+		return environment.cloudtrail.lookupEvents(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -319,12 +355,12 @@ class AWSCloudTrailLookupEventsCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AWSCloudTrailFunctions.putEventSelectors(trailName: String, eventSelectors: List<com.amazonaws.services.cloudtrail.model.EventSelector>, init: AWSCloudTrailPutEventSelectorsCommand.() -> Unit) {
-	this.block.declare(AWSCloudTrailPutEventSelectorsCommand(trailName, eventSelectors).apply(init))
+fun AWSCloudTrailFunctions.putEventSelectors(trailName: String, eventSelectors: List<com.amazonaws.services.cloudtrail.model.EventSelector>, init: AWSCloudTrailPutEventSelectorsCommand.() -> Unit): com.amazonaws.services.cloudtrail.model.PutEventSelectorsResult {
+	return this.block.declare(AWSCloudTrailPutEventSelectorsCommand(trailName, eventSelectors).apply(init)) as com.amazonaws.services.cloudtrail.model.PutEventSelectorsResult
 }
 
 @Generated
-class AWSCloudTrailPutEventSelectorsCommand(val trailName: String, val eventSelectors: List<com.amazonaws.services.cloudtrail.model.EventSelector>) : AmazonWebServiceCommand<com.amazonaws.services.cloudtrail.model.PutEventSelectorsRequest> {
+class AWSCloudTrailPutEventSelectorsCommand(val trailName: String, val eventSelectors: List<com.amazonaws.services.cloudtrail.model.EventSelector>) : AmazonWebServiceCommand<com.amazonaws.services.cloudtrail.model.PutEventSelectorsRequest, com.amazonaws.services.cloudtrail.model.PutEventSelectorsResult> {
 
 
 
@@ -335,8 +371,12 @@ class AWSCloudTrailPutEventSelectorsCommand(val trailName: String, val eventSele
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudtrail.putEventSelectors(build())
+	override fun dryResult(): com.amazonaws.services.cloudtrail.model.PutEventSelectorsResult {
+	  return com.amazonaws.services.cloudtrail.model.PutEventSelectorsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudtrail.model.PutEventSelectorsResult {
+		return environment.cloudtrail.putEventSelectors(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -348,12 +388,12 @@ class AWSCloudTrailPutEventSelectorsCommand(val trailName: String, val eventSele
 }
 
 
-fun AWSCloudTrailFunctions.removeTags(resourceId: String, init: AWSCloudTrailRemoveTagsCommand.() -> Unit) {
-	this.block.declare(AWSCloudTrailRemoveTagsCommand(resourceId).apply(init))
+fun AWSCloudTrailFunctions.removeTags(resourceId: String, init: AWSCloudTrailRemoveTagsCommand.() -> Unit): com.amazonaws.services.cloudtrail.model.RemoveTagsResult {
+	return this.block.declare(AWSCloudTrailRemoveTagsCommand(resourceId).apply(init)) as com.amazonaws.services.cloudtrail.model.RemoveTagsResult
 }
 
 @Generated
-class AWSCloudTrailRemoveTagsCommand(val resourceId: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudtrail.model.RemoveTagsRequest> {
+class AWSCloudTrailRemoveTagsCommand(val resourceId: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudtrail.model.RemoveTagsRequest, com.amazonaws.services.cloudtrail.model.RemoveTagsResult> {
 
 	var tagsList: List<com.amazonaws.services.cloudtrail.model.Tag>? = null
 
@@ -364,8 +404,12 @@ class AWSCloudTrailRemoveTagsCommand(val resourceId: String) : AmazonWebServiceC
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudtrail.removeTags(build())
+	override fun dryResult(): com.amazonaws.services.cloudtrail.model.RemoveTagsResult {
+	  return com.amazonaws.services.cloudtrail.model.RemoveTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudtrail.model.RemoveTagsResult {
+		return environment.cloudtrail.removeTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -377,12 +421,12 @@ class AWSCloudTrailRemoveTagsCommand(val resourceId: String) : AmazonWebServiceC
 }
 
 
-fun AWSCloudTrailFunctions.startLogging(name: String, init: AWSCloudTrailStartLoggingCommand.() -> Unit) {
-	this.block.declare(AWSCloudTrailStartLoggingCommand(name).apply(init))
+fun AWSCloudTrailFunctions.startLogging(name: String, init: AWSCloudTrailStartLoggingCommand.() -> Unit): com.amazonaws.services.cloudtrail.model.StartLoggingResult {
+	return this.block.declare(AWSCloudTrailStartLoggingCommand(name).apply(init)) as com.amazonaws.services.cloudtrail.model.StartLoggingResult
 }
 
 @Generated
-class AWSCloudTrailStartLoggingCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudtrail.model.StartLoggingRequest> {
+class AWSCloudTrailStartLoggingCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudtrail.model.StartLoggingRequest, com.amazonaws.services.cloudtrail.model.StartLoggingResult> {
 
 
 
@@ -392,8 +436,12 @@ class AWSCloudTrailStartLoggingCommand(val name: String) : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudtrail.startLogging(build())
+	override fun dryResult(): com.amazonaws.services.cloudtrail.model.StartLoggingResult {
+	  return com.amazonaws.services.cloudtrail.model.StartLoggingResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudtrail.model.StartLoggingResult {
+		return environment.cloudtrail.startLogging(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -404,12 +452,12 @@ class AWSCloudTrailStartLoggingCommand(val name: String) : AmazonWebServiceComma
 }
 
 
-fun AWSCloudTrailFunctions.stopLogging(name: String, init: AWSCloudTrailStopLoggingCommand.() -> Unit) {
-	this.block.declare(AWSCloudTrailStopLoggingCommand(name).apply(init))
+fun AWSCloudTrailFunctions.stopLogging(name: String, init: AWSCloudTrailStopLoggingCommand.() -> Unit): com.amazonaws.services.cloudtrail.model.StopLoggingResult {
+	return this.block.declare(AWSCloudTrailStopLoggingCommand(name).apply(init)) as com.amazonaws.services.cloudtrail.model.StopLoggingResult
 }
 
 @Generated
-class AWSCloudTrailStopLoggingCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudtrail.model.StopLoggingRequest> {
+class AWSCloudTrailStopLoggingCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudtrail.model.StopLoggingRequest, com.amazonaws.services.cloudtrail.model.StopLoggingResult> {
 
 
 
@@ -419,8 +467,12 @@ class AWSCloudTrailStopLoggingCommand(val name: String) : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudtrail.stopLogging(build())
+	override fun dryResult(): com.amazonaws.services.cloudtrail.model.StopLoggingResult {
+	  return com.amazonaws.services.cloudtrail.model.StopLoggingResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudtrail.model.StopLoggingResult {
+		return environment.cloudtrail.stopLogging(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -431,12 +483,12 @@ class AWSCloudTrailStopLoggingCommand(val name: String) : AmazonWebServiceComman
 }
 
 
-fun AWSCloudTrailFunctions.updateTrail(name: String, init: AWSCloudTrailUpdateTrailCommand.() -> Unit) {
-	this.block.declare(AWSCloudTrailUpdateTrailCommand(name).apply(init))
+fun AWSCloudTrailFunctions.updateTrail(name: String, init: AWSCloudTrailUpdateTrailCommand.() -> Unit): com.amazonaws.services.cloudtrail.model.UpdateTrailResult {
+	return this.block.declare(AWSCloudTrailUpdateTrailCommand(name).apply(init)) as com.amazonaws.services.cloudtrail.model.UpdateTrailResult
 }
 
 @Generated
-class AWSCloudTrailUpdateTrailCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudtrail.model.UpdateTrailRequest> {
+class AWSCloudTrailUpdateTrailCommand(val name: String) : AmazonWebServiceCommand<com.amazonaws.services.cloudtrail.model.UpdateTrailRequest, com.amazonaws.services.cloudtrail.model.UpdateTrailResult> {
 
 	var s3BucketName: String? = null
 	var s3KeyPrefix: String? = null
@@ -463,8 +515,12 @@ class AWSCloudTrailUpdateTrailCommand(val name: String) : AmazonWebServiceComman
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.cloudtrail.updateTrail(build())
+	override fun dryResult(): com.amazonaws.services.cloudtrail.model.UpdateTrailResult {
+	  return com.amazonaws.services.cloudtrail.model.UpdateTrailResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.cloudtrail.model.UpdateTrailResult {
+		return environment.cloudtrail.updateTrail(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

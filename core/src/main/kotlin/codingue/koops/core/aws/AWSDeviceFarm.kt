@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.devicefarm: AWSDeviceFarm
 @Generated
 class AWSDeviceFarmFunctions(val block: Block)
 
-infix fun AwsContinuation.devicefarm(init: AWSDeviceFarmFunctions.() -> Unit) {
-	AWSDeviceFarmFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.devicefarm(init: AWSDeviceFarmFunctions.() -> T): T {
+	return AWSDeviceFarmFunctions(shell).run(init)
 }
 
 			
 
-fun AWSDeviceFarmFunctions.createDevicePool(init: AWSDeviceFarmCreateDevicePoolCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmCreateDevicePoolCommand().apply(init))
+fun AWSDeviceFarmFunctions.createDevicePool(init: AWSDeviceFarmCreateDevicePoolCommand.() -> Unit): com.amazonaws.services.devicefarm.model.CreateDevicePoolResult {
+	return this.block.declare(AWSDeviceFarmCreateDevicePoolCommand().apply(init)) as com.amazonaws.services.devicefarm.model.CreateDevicePoolResult
 }
 
 @Generated
-class AWSDeviceFarmCreateDevicePoolCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.CreateDevicePoolRequest> {
+class AWSDeviceFarmCreateDevicePoolCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.CreateDevicePoolRequest, com.amazonaws.services.devicefarm.model.CreateDevicePoolResult> {
 
 	var projectArn: String? = null
 	var name: String? = null
@@ -47,8 +47,12 @@ class AWSDeviceFarmCreateDevicePoolCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.createDevicePool(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.CreateDevicePoolResult {
+	  return com.amazonaws.services.devicefarm.model.CreateDevicePoolResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.CreateDevicePoolResult {
+		return environment.devicefarm.createDevicePool(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -62,12 +66,12 @@ class AWSDeviceFarmCreateDevicePoolCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AWSDeviceFarmFunctions.createInstanceProfile(init: AWSDeviceFarmCreateInstanceProfileCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmCreateInstanceProfileCommand().apply(init))
+fun AWSDeviceFarmFunctions.createInstanceProfile(init: AWSDeviceFarmCreateInstanceProfileCommand.() -> Unit): com.amazonaws.services.devicefarm.model.CreateInstanceProfileResult {
+	return this.block.declare(AWSDeviceFarmCreateInstanceProfileCommand().apply(init)) as com.amazonaws.services.devicefarm.model.CreateInstanceProfileResult
 }
 
 @Generated
-class AWSDeviceFarmCreateInstanceProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.CreateInstanceProfileRequest> {
+class AWSDeviceFarmCreateInstanceProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.CreateInstanceProfileRequest, com.amazonaws.services.devicefarm.model.CreateInstanceProfileResult> {
 
 	var name: String? = null
 	var description: String? = null
@@ -85,8 +89,12 @@ class AWSDeviceFarmCreateInstanceProfileCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.createInstanceProfile(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.CreateInstanceProfileResult {
+	  return com.amazonaws.services.devicefarm.model.CreateInstanceProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.CreateInstanceProfileResult {
+		return environment.devicefarm.createInstanceProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -101,12 +109,12 @@ class AWSDeviceFarmCreateInstanceProfileCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AWSDeviceFarmFunctions.createNetworkProfile(init: AWSDeviceFarmCreateNetworkProfileCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmCreateNetworkProfileCommand().apply(init))
+fun AWSDeviceFarmFunctions.createNetworkProfile(init: AWSDeviceFarmCreateNetworkProfileCommand.() -> Unit): com.amazonaws.services.devicefarm.model.CreateNetworkProfileResult {
+	return this.block.declare(AWSDeviceFarmCreateNetworkProfileCommand().apply(init)) as com.amazonaws.services.devicefarm.model.CreateNetworkProfileResult
 }
 
 @Generated
-class AWSDeviceFarmCreateNetworkProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.CreateNetworkProfileRequest> {
+class AWSDeviceFarmCreateNetworkProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.CreateNetworkProfileRequest, com.amazonaws.services.devicefarm.model.CreateNetworkProfileResult> {
 
 	var projectArn: String? = null
 	var name: String? = null
@@ -138,8 +146,12 @@ class AWSDeviceFarmCreateNetworkProfileCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.createNetworkProfile(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.CreateNetworkProfileResult {
+	  return com.amazonaws.services.devicefarm.model.CreateNetworkProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.CreateNetworkProfileResult {
+		return environment.devicefarm.createNetworkProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -161,12 +173,12 @@ class AWSDeviceFarmCreateNetworkProfileCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AWSDeviceFarmFunctions.createProject(init: AWSDeviceFarmCreateProjectCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmCreateProjectCommand().apply(init))
+fun AWSDeviceFarmFunctions.createProject(init: AWSDeviceFarmCreateProjectCommand.() -> Unit): com.amazonaws.services.devicefarm.model.CreateProjectResult {
+	return this.block.declare(AWSDeviceFarmCreateProjectCommand().apply(init)) as com.amazonaws.services.devicefarm.model.CreateProjectResult
 }
 
 @Generated
-class AWSDeviceFarmCreateProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.CreateProjectRequest> {
+class AWSDeviceFarmCreateProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.CreateProjectRequest, com.amazonaws.services.devicefarm.model.CreateProjectResult> {
 
 	var name: String? = null
 	var defaultJobTimeoutMinutes: Int? = 0
@@ -178,8 +190,12 @@ class AWSDeviceFarmCreateProjectCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.createProject(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.CreateProjectResult {
+	  return com.amazonaws.services.devicefarm.model.CreateProjectResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.CreateProjectResult {
+		return environment.devicefarm.createProject(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -191,12 +207,12 @@ class AWSDeviceFarmCreateProjectCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AWSDeviceFarmFunctions.createRemoteAccessSession(init: AWSDeviceFarmCreateRemoteAccessSessionCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmCreateRemoteAccessSessionCommand().apply(init))
+fun AWSDeviceFarmFunctions.createRemoteAccessSession(init: AWSDeviceFarmCreateRemoteAccessSessionCommand.() -> Unit): com.amazonaws.services.devicefarm.model.CreateRemoteAccessSessionResult {
+	return this.block.declare(AWSDeviceFarmCreateRemoteAccessSessionCommand().apply(init)) as com.amazonaws.services.devicefarm.model.CreateRemoteAccessSessionResult
 }
 
 @Generated
-class AWSDeviceFarmCreateRemoteAccessSessionCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.CreateRemoteAccessSessionRequest> {
+class AWSDeviceFarmCreateRemoteAccessSessionCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.CreateRemoteAccessSessionRequest, com.amazonaws.services.devicefarm.model.CreateRemoteAccessSessionResult> {
 
 	var projectArn: String? = null
 	var deviceArn: String? = null
@@ -228,8 +244,12 @@ class AWSDeviceFarmCreateRemoteAccessSessionCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.createRemoteAccessSession(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.CreateRemoteAccessSessionResult {
+	  return com.amazonaws.services.devicefarm.model.CreateRemoteAccessSessionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.CreateRemoteAccessSessionResult {
+		return environment.devicefarm.createRemoteAccessSession(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -251,12 +271,12 @@ class AWSDeviceFarmCreateRemoteAccessSessionCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AWSDeviceFarmFunctions.createUpload(init: AWSDeviceFarmCreateUploadCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmCreateUploadCommand().apply(init))
+fun AWSDeviceFarmFunctions.createUpload(init: AWSDeviceFarmCreateUploadCommand.() -> Unit): com.amazonaws.services.devicefarm.model.CreateUploadResult {
+	return this.block.declare(AWSDeviceFarmCreateUploadCommand().apply(init)) as com.amazonaws.services.devicefarm.model.CreateUploadResult
 }
 
 @Generated
-class AWSDeviceFarmCreateUploadCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.CreateUploadRequest> {
+class AWSDeviceFarmCreateUploadCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.CreateUploadRequest, com.amazonaws.services.devicefarm.model.CreateUploadResult> {
 
 	var projectArn: String? = null
 	var name: String? = null
@@ -272,8 +292,12 @@ class AWSDeviceFarmCreateUploadCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.createUpload(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.CreateUploadResult {
+	  return com.amazonaws.services.devicefarm.model.CreateUploadResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.CreateUploadResult {
+		return environment.devicefarm.createUpload(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -287,12 +311,12 @@ class AWSDeviceFarmCreateUploadCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AWSDeviceFarmFunctions.deleteDevicePool(init: AWSDeviceFarmDeleteDevicePoolCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmDeleteDevicePoolCommand().apply(init))
+fun AWSDeviceFarmFunctions.deleteDevicePool(init: AWSDeviceFarmDeleteDevicePoolCommand.() -> Unit): com.amazonaws.services.devicefarm.model.DeleteDevicePoolResult {
+	return this.block.declare(AWSDeviceFarmDeleteDevicePoolCommand().apply(init)) as com.amazonaws.services.devicefarm.model.DeleteDevicePoolResult
 }
 
 @Generated
-class AWSDeviceFarmDeleteDevicePoolCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.DeleteDevicePoolRequest> {
+class AWSDeviceFarmDeleteDevicePoolCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.DeleteDevicePoolRequest, com.amazonaws.services.devicefarm.model.DeleteDevicePoolResult> {
 
 	var arn: String? = null
 
@@ -302,8 +326,12 @@ class AWSDeviceFarmDeleteDevicePoolCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.deleteDevicePool(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.DeleteDevicePoolResult {
+	  return com.amazonaws.services.devicefarm.model.DeleteDevicePoolResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.DeleteDevicePoolResult {
+		return environment.devicefarm.deleteDevicePool(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -314,12 +342,12 @@ class AWSDeviceFarmDeleteDevicePoolCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AWSDeviceFarmFunctions.deleteInstanceProfile(init: AWSDeviceFarmDeleteInstanceProfileCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmDeleteInstanceProfileCommand().apply(init))
+fun AWSDeviceFarmFunctions.deleteInstanceProfile(init: AWSDeviceFarmDeleteInstanceProfileCommand.() -> Unit): com.amazonaws.services.devicefarm.model.DeleteInstanceProfileResult {
+	return this.block.declare(AWSDeviceFarmDeleteInstanceProfileCommand().apply(init)) as com.amazonaws.services.devicefarm.model.DeleteInstanceProfileResult
 }
 
 @Generated
-class AWSDeviceFarmDeleteInstanceProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.DeleteInstanceProfileRequest> {
+class AWSDeviceFarmDeleteInstanceProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.DeleteInstanceProfileRequest, com.amazonaws.services.devicefarm.model.DeleteInstanceProfileResult> {
 
 	var arn: String? = null
 
@@ -329,8 +357,12 @@ class AWSDeviceFarmDeleteInstanceProfileCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.deleteInstanceProfile(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.DeleteInstanceProfileResult {
+	  return com.amazonaws.services.devicefarm.model.DeleteInstanceProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.DeleteInstanceProfileResult {
+		return environment.devicefarm.deleteInstanceProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -341,12 +373,12 @@ class AWSDeviceFarmDeleteInstanceProfileCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AWSDeviceFarmFunctions.deleteNetworkProfile(init: AWSDeviceFarmDeleteNetworkProfileCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmDeleteNetworkProfileCommand().apply(init))
+fun AWSDeviceFarmFunctions.deleteNetworkProfile(init: AWSDeviceFarmDeleteNetworkProfileCommand.() -> Unit): com.amazonaws.services.devicefarm.model.DeleteNetworkProfileResult {
+	return this.block.declare(AWSDeviceFarmDeleteNetworkProfileCommand().apply(init)) as com.amazonaws.services.devicefarm.model.DeleteNetworkProfileResult
 }
 
 @Generated
-class AWSDeviceFarmDeleteNetworkProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.DeleteNetworkProfileRequest> {
+class AWSDeviceFarmDeleteNetworkProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.DeleteNetworkProfileRequest, com.amazonaws.services.devicefarm.model.DeleteNetworkProfileResult> {
 
 	var arn: String? = null
 
@@ -356,8 +388,12 @@ class AWSDeviceFarmDeleteNetworkProfileCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.deleteNetworkProfile(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.DeleteNetworkProfileResult {
+	  return com.amazonaws.services.devicefarm.model.DeleteNetworkProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.DeleteNetworkProfileResult {
+		return environment.devicefarm.deleteNetworkProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -368,12 +404,12 @@ class AWSDeviceFarmDeleteNetworkProfileCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AWSDeviceFarmFunctions.deleteProject(init: AWSDeviceFarmDeleteProjectCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmDeleteProjectCommand().apply(init))
+fun AWSDeviceFarmFunctions.deleteProject(init: AWSDeviceFarmDeleteProjectCommand.() -> Unit): com.amazonaws.services.devicefarm.model.DeleteProjectResult {
+	return this.block.declare(AWSDeviceFarmDeleteProjectCommand().apply(init)) as com.amazonaws.services.devicefarm.model.DeleteProjectResult
 }
 
 @Generated
-class AWSDeviceFarmDeleteProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.DeleteProjectRequest> {
+class AWSDeviceFarmDeleteProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.DeleteProjectRequest, com.amazonaws.services.devicefarm.model.DeleteProjectResult> {
 
 	var arn: String? = null
 
@@ -383,8 +419,12 @@ class AWSDeviceFarmDeleteProjectCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.deleteProject(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.DeleteProjectResult {
+	  return com.amazonaws.services.devicefarm.model.DeleteProjectResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.DeleteProjectResult {
+		return environment.devicefarm.deleteProject(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -395,12 +435,12 @@ class AWSDeviceFarmDeleteProjectCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AWSDeviceFarmFunctions.deleteRemoteAccessSession(init: AWSDeviceFarmDeleteRemoteAccessSessionCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmDeleteRemoteAccessSessionCommand().apply(init))
+fun AWSDeviceFarmFunctions.deleteRemoteAccessSession(init: AWSDeviceFarmDeleteRemoteAccessSessionCommand.() -> Unit): com.amazonaws.services.devicefarm.model.DeleteRemoteAccessSessionResult {
+	return this.block.declare(AWSDeviceFarmDeleteRemoteAccessSessionCommand().apply(init)) as com.amazonaws.services.devicefarm.model.DeleteRemoteAccessSessionResult
 }
 
 @Generated
-class AWSDeviceFarmDeleteRemoteAccessSessionCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.DeleteRemoteAccessSessionRequest> {
+class AWSDeviceFarmDeleteRemoteAccessSessionCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.DeleteRemoteAccessSessionRequest, com.amazonaws.services.devicefarm.model.DeleteRemoteAccessSessionResult> {
 
 	var arn: String? = null
 
@@ -410,8 +450,12 @@ class AWSDeviceFarmDeleteRemoteAccessSessionCommand() : AmazonWebServiceCommand<
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.deleteRemoteAccessSession(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.DeleteRemoteAccessSessionResult {
+	  return com.amazonaws.services.devicefarm.model.DeleteRemoteAccessSessionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.DeleteRemoteAccessSessionResult {
+		return environment.devicefarm.deleteRemoteAccessSession(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -422,12 +466,12 @@ class AWSDeviceFarmDeleteRemoteAccessSessionCommand() : AmazonWebServiceCommand<
 }
 
 
-fun AWSDeviceFarmFunctions.deleteRun(init: AWSDeviceFarmDeleteRunCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmDeleteRunCommand().apply(init))
+fun AWSDeviceFarmFunctions.deleteRun(init: AWSDeviceFarmDeleteRunCommand.() -> Unit): com.amazonaws.services.devicefarm.model.DeleteRunResult {
+	return this.block.declare(AWSDeviceFarmDeleteRunCommand().apply(init)) as com.amazonaws.services.devicefarm.model.DeleteRunResult
 }
 
 @Generated
-class AWSDeviceFarmDeleteRunCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.DeleteRunRequest> {
+class AWSDeviceFarmDeleteRunCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.DeleteRunRequest, com.amazonaws.services.devicefarm.model.DeleteRunResult> {
 
 	var arn: String? = null
 
@@ -437,8 +481,12 @@ class AWSDeviceFarmDeleteRunCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.deleteRun(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.DeleteRunResult {
+	  return com.amazonaws.services.devicefarm.model.DeleteRunResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.DeleteRunResult {
+		return environment.devicefarm.deleteRun(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -449,12 +497,12 @@ class AWSDeviceFarmDeleteRunCommand() : AmazonWebServiceCommand<com.amazonaws.se
 }
 
 
-fun AWSDeviceFarmFunctions.deleteUpload(init: AWSDeviceFarmDeleteUploadCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmDeleteUploadCommand().apply(init))
+fun AWSDeviceFarmFunctions.deleteUpload(init: AWSDeviceFarmDeleteUploadCommand.() -> Unit): com.amazonaws.services.devicefarm.model.DeleteUploadResult {
+	return this.block.declare(AWSDeviceFarmDeleteUploadCommand().apply(init)) as com.amazonaws.services.devicefarm.model.DeleteUploadResult
 }
 
 @Generated
-class AWSDeviceFarmDeleteUploadCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.DeleteUploadRequest> {
+class AWSDeviceFarmDeleteUploadCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.DeleteUploadRequest, com.amazonaws.services.devicefarm.model.DeleteUploadResult> {
 
 	var arn: String? = null
 
@@ -464,8 +512,12 @@ class AWSDeviceFarmDeleteUploadCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.deleteUpload(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.DeleteUploadResult {
+	  return com.amazonaws.services.devicefarm.model.DeleteUploadResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.DeleteUploadResult {
+		return environment.devicefarm.deleteUpload(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -476,12 +528,12 @@ class AWSDeviceFarmDeleteUploadCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AWSDeviceFarmFunctions.getAccountSettings(init: AWSDeviceFarmGetAccountSettingsCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmGetAccountSettingsCommand().apply(init))
+fun AWSDeviceFarmFunctions.getAccountSettings(init: AWSDeviceFarmGetAccountSettingsCommand.() -> Unit): com.amazonaws.services.devicefarm.model.GetAccountSettingsResult {
+	return this.block.declare(AWSDeviceFarmGetAccountSettingsCommand().apply(init)) as com.amazonaws.services.devicefarm.model.GetAccountSettingsResult
 }
 
 @Generated
-class AWSDeviceFarmGetAccountSettingsCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.GetAccountSettingsRequest> {
+class AWSDeviceFarmGetAccountSettingsCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.GetAccountSettingsRequest, com.amazonaws.services.devicefarm.model.GetAccountSettingsResult> {
 
 
 
@@ -491,8 +543,12 @@ class AWSDeviceFarmGetAccountSettingsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.getAccountSettings(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.GetAccountSettingsResult {
+	  return com.amazonaws.services.devicefarm.model.GetAccountSettingsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.GetAccountSettingsResult {
+		return environment.devicefarm.getAccountSettings(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -503,12 +559,12 @@ class AWSDeviceFarmGetAccountSettingsCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AWSDeviceFarmFunctions.getDevice(init: AWSDeviceFarmGetDeviceCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmGetDeviceCommand().apply(init))
+fun AWSDeviceFarmFunctions.getDevice(init: AWSDeviceFarmGetDeviceCommand.() -> Unit): com.amazonaws.services.devicefarm.model.GetDeviceResult {
+	return this.block.declare(AWSDeviceFarmGetDeviceCommand().apply(init)) as com.amazonaws.services.devicefarm.model.GetDeviceResult
 }
 
 @Generated
-class AWSDeviceFarmGetDeviceCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.GetDeviceRequest> {
+class AWSDeviceFarmGetDeviceCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.GetDeviceRequest, com.amazonaws.services.devicefarm.model.GetDeviceResult> {
 
 	var arn: String? = null
 
@@ -518,8 +574,12 @@ class AWSDeviceFarmGetDeviceCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.getDevice(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.GetDeviceResult {
+	  return com.amazonaws.services.devicefarm.model.GetDeviceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.GetDeviceResult {
+		return environment.devicefarm.getDevice(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -530,12 +590,12 @@ class AWSDeviceFarmGetDeviceCommand() : AmazonWebServiceCommand<com.amazonaws.se
 }
 
 
-fun AWSDeviceFarmFunctions.getDeviceInstance(init: AWSDeviceFarmGetDeviceInstanceCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmGetDeviceInstanceCommand().apply(init))
+fun AWSDeviceFarmFunctions.getDeviceInstance(init: AWSDeviceFarmGetDeviceInstanceCommand.() -> Unit): com.amazonaws.services.devicefarm.model.GetDeviceInstanceResult {
+	return this.block.declare(AWSDeviceFarmGetDeviceInstanceCommand().apply(init)) as com.amazonaws.services.devicefarm.model.GetDeviceInstanceResult
 }
 
 @Generated
-class AWSDeviceFarmGetDeviceInstanceCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.GetDeviceInstanceRequest> {
+class AWSDeviceFarmGetDeviceInstanceCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.GetDeviceInstanceRequest, com.amazonaws.services.devicefarm.model.GetDeviceInstanceResult> {
 
 	var arn: String? = null
 
@@ -545,8 +605,12 @@ class AWSDeviceFarmGetDeviceInstanceCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.getDeviceInstance(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.GetDeviceInstanceResult {
+	  return com.amazonaws.services.devicefarm.model.GetDeviceInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.GetDeviceInstanceResult {
+		return environment.devicefarm.getDeviceInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -557,12 +621,12 @@ class AWSDeviceFarmGetDeviceInstanceCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AWSDeviceFarmFunctions.getDevicePool(init: AWSDeviceFarmGetDevicePoolCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmGetDevicePoolCommand().apply(init))
+fun AWSDeviceFarmFunctions.getDevicePool(init: AWSDeviceFarmGetDevicePoolCommand.() -> Unit): com.amazonaws.services.devicefarm.model.GetDevicePoolResult {
+	return this.block.declare(AWSDeviceFarmGetDevicePoolCommand().apply(init)) as com.amazonaws.services.devicefarm.model.GetDevicePoolResult
 }
 
 @Generated
-class AWSDeviceFarmGetDevicePoolCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.GetDevicePoolRequest> {
+class AWSDeviceFarmGetDevicePoolCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.GetDevicePoolRequest, com.amazonaws.services.devicefarm.model.GetDevicePoolResult> {
 
 	var arn: String? = null
 
@@ -572,8 +636,12 @@ class AWSDeviceFarmGetDevicePoolCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.getDevicePool(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.GetDevicePoolResult {
+	  return com.amazonaws.services.devicefarm.model.GetDevicePoolResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.GetDevicePoolResult {
+		return environment.devicefarm.getDevicePool(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -584,12 +652,12 @@ class AWSDeviceFarmGetDevicePoolCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AWSDeviceFarmFunctions.getDevicePoolCompatibility(init: AWSDeviceFarmGetDevicePoolCompatibilityCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmGetDevicePoolCompatibilityCommand().apply(init))
+fun AWSDeviceFarmFunctions.getDevicePoolCompatibility(init: AWSDeviceFarmGetDevicePoolCompatibilityCommand.() -> Unit): com.amazonaws.services.devicefarm.model.GetDevicePoolCompatibilityResult {
+	return this.block.declare(AWSDeviceFarmGetDevicePoolCompatibilityCommand().apply(init)) as com.amazonaws.services.devicefarm.model.GetDevicePoolCompatibilityResult
 }
 
 @Generated
-class AWSDeviceFarmGetDevicePoolCompatibilityCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.GetDevicePoolCompatibilityRequest> {
+class AWSDeviceFarmGetDevicePoolCompatibilityCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.GetDevicePoolCompatibilityRequest, com.amazonaws.services.devicefarm.model.GetDevicePoolCompatibilityResult> {
 
 	var devicePoolArn: String? = null
 	var appArn: String? = null
@@ -605,8 +673,12 @@ class AWSDeviceFarmGetDevicePoolCompatibilityCommand() : AmazonWebServiceCommand
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.getDevicePoolCompatibility(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.GetDevicePoolCompatibilityResult {
+	  return com.amazonaws.services.devicefarm.model.GetDevicePoolCompatibilityResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.GetDevicePoolCompatibilityResult {
+		return environment.devicefarm.getDevicePoolCompatibility(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -620,12 +692,12 @@ class AWSDeviceFarmGetDevicePoolCompatibilityCommand() : AmazonWebServiceCommand
 }
 
 
-fun AWSDeviceFarmFunctions.getInstanceProfile(init: AWSDeviceFarmGetInstanceProfileCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmGetInstanceProfileCommand().apply(init))
+fun AWSDeviceFarmFunctions.getInstanceProfile(init: AWSDeviceFarmGetInstanceProfileCommand.() -> Unit): com.amazonaws.services.devicefarm.model.GetInstanceProfileResult {
+	return this.block.declare(AWSDeviceFarmGetInstanceProfileCommand().apply(init)) as com.amazonaws.services.devicefarm.model.GetInstanceProfileResult
 }
 
 @Generated
-class AWSDeviceFarmGetInstanceProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.GetInstanceProfileRequest> {
+class AWSDeviceFarmGetInstanceProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.GetInstanceProfileRequest, com.amazonaws.services.devicefarm.model.GetInstanceProfileResult> {
 
 	var arn: String? = null
 
@@ -635,8 +707,12 @@ class AWSDeviceFarmGetInstanceProfileCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.getInstanceProfile(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.GetInstanceProfileResult {
+	  return com.amazonaws.services.devicefarm.model.GetInstanceProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.GetInstanceProfileResult {
+		return environment.devicefarm.getInstanceProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -647,12 +723,12 @@ class AWSDeviceFarmGetInstanceProfileCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AWSDeviceFarmFunctions.getJob(init: AWSDeviceFarmGetJobCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmGetJobCommand().apply(init))
+fun AWSDeviceFarmFunctions.getJob(init: AWSDeviceFarmGetJobCommand.() -> Unit): com.amazonaws.services.devicefarm.model.GetJobResult {
+	return this.block.declare(AWSDeviceFarmGetJobCommand().apply(init)) as com.amazonaws.services.devicefarm.model.GetJobResult
 }
 
 @Generated
-class AWSDeviceFarmGetJobCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.GetJobRequest> {
+class AWSDeviceFarmGetJobCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.GetJobRequest, com.amazonaws.services.devicefarm.model.GetJobResult> {
 
 	var arn: String? = null
 
@@ -662,8 +738,12 @@ class AWSDeviceFarmGetJobCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.getJob(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.GetJobResult {
+	  return com.amazonaws.services.devicefarm.model.GetJobResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.GetJobResult {
+		return environment.devicefarm.getJob(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -674,12 +754,12 @@ class AWSDeviceFarmGetJobCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 }
 
 
-fun AWSDeviceFarmFunctions.getNetworkProfile(init: AWSDeviceFarmGetNetworkProfileCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmGetNetworkProfileCommand().apply(init))
+fun AWSDeviceFarmFunctions.getNetworkProfile(init: AWSDeviceFarmGetNetworkProfileCommand.() -> Unit): com.amazonaws.services.devicefarm.model.GetNetworkProfileResult {
+	return this.block.declare(AWSDeviceFarmGetNetworkProfileCommand().apply(init)) as com.amazonaws.services.devicefarm.model.GetNetworkProfileResult
 }
 
 @Generated
-class AWSDeviceFarmGetNetworkProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.GetNetworkProfileRequest> {
+class AWSDeviceFarmGetNetworkProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.GetNetworkProfileRequest, com.amazonaws.services.devicefarm.model.GetNetworkProfileResult> {
 
 	var arn: String? = null
 
@@ -689,8 +769,12 @@ class AWSDeviceFarmGetNetworkProfileCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.getNetworkProfile(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.GetNetworkProfileResult {
+	  return com.amazonaws.services.devicefarm.model.GetNetworkProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.GetNetworkProfileResult {
+		return environment.devicefarm.getNetworkProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -701,12 +785,12 @@ class AWSDeviceFarmGetNetworkProfileCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AWSDeviceFarmFunctions.getOfferingStatus(init: AWSDeviceFarmGetOfferingStatusCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmGetOfferingStatusCommand().apply(init))
+fun AWSDeviceFarmFunctions.getOfferingStatus(init: AWSDeviceFarmGetOfferingStatusCommand.() -> Unit): com.amazonaws.services.devicefarm.model.GetOfferingStatusResult {
+	return this.block.declare(AWSDeviceFarmGetOfferingStatusCommand().apply(init)) as com.amazonaws.services.devicefarm.model.GetOfferingStatusResult
 }
 
 @Generated
-class AWSDeviceFarmGetOfferingStatusCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.GetOfferingStatusRequest> {
+class AWSDeviceFarmGetOfferingStatusCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.GetOfferingStatusRequest, com.amazonaws.services.devicefarm.model.GetOfferingStatusResult> {
 
 	var nextToken: String? = null
 
@@ -716,8 +800,12 @@ class AWSDeviceFarmGetOfferingStatusCommand() : AmazonWebServiceCommand<com.amaz
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.getOfferingStatus(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.GetOfferingStatusResult {
+	  return com.amazonaws.services.devicefarm.model.GetOfferingStatusResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.GetOfferingStatusResult {
+		return environment.devicefarm.getOfferingStatus(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -728,12 +816,12 @@ class AWSDeviceFarmGetOfferingStatusCommand() : AmazonWebServiceCommand<com.amaz
 }
 
 
-fun AWSDeviceFarmFunctions.getProject(init: AWSDeviceFarmGetProjectCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmGetProjectCommand().apply(init))
+fun AWSDeviceFarmFunctions.getProject(init: AWSDeviceFarmGetProjectCommand.() -> Unit): com.amazonaws.services.devicefarm.model.GetProjectResult {
+	return this.block.declare(AWSDeviceFarmGetProjectCommand().apply(init)) as com.amazonaws.services.devicefarm.model.GetProjectResult
 }
 
 @Generated
-class AWSDeviceFarmGetProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.GetProjectRequest> {
+class AWSDeviceFarmGetProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.GetProjectRequest, com.amazonaws.services.devicefarm.model.GetProjectResult> {
 
 	var arn: String? = null
 
@@ -743,8 +831,12 @@ class AWSDeviceFarmGetProjectCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.getProject(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.GetProjectResult {
+	  return com.amazonaws.services.devicefarm.model.GetProjectResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.GetProjectResult {
+		return environment.devicefarm.getProject(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -755,12 +847,12 @@ class AWSDeviceFarmGetProjectCommand() : AmazonWebServiceCommand<com.amazonaws.s
 }
 
 
-fun AWSDeviceFarmFunctions.getRemoteAccessSession(init: AWSDeviceFarmGetRemoteAccessSessionCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmGetRemoteAccessSessionCommand().apply(init))
+fun AWSDeviceFarmFunctions.getRemoteAccessSession(init: AWSDeviceFarmGetRemoteAccessSessionCommand.() -> Unit): com.amazonaws.services.devicefarm.model.GetRemoteAccessSessionResult {
+	return this.block.declare(AWSDeviceFarmGetRemoteAccessSessionCommand().apply(init)) as com.amazonaws.services.devicefarm.model.GetRemoteAccessSessionResult
 }
 
 @Generated
-class AWSDeviceFarmGetRemoteAccessSessionCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.GetRemoteAccessSessionRequest> {
+class AWSDeviceFarmGetRemoteAccessSessionCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.GetRemoteAccessSessionRequest, com.amazonaws.services.devicefarm.model.GetRemoteAccessSessionResult> {
 
 	var arn: String? = null
 
@@ -770,8 +862,12 @@ class AWSDeviceFarmGetRemoteAccessSessionCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.getRemoteAccessSession(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.GetRemoteAccessSessionResult {
+	  return com.amazonaws.services.devicefarm.model.GetRemoteAccessSessionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.GetRemoteAccessSessionResult {
+		return environment.devicefarm.getRemoteAccessSession(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -782,12 +878,12 @@ class AWSDeviceFarmGetRemoteAccessSessionCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AWSDeviceFarmFunctions.getRun(init: AWSDeviceFarmGetRunCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmGetRunCommand().apply(init))
+fun AWSDeviceFarmFunctions.getRun(init: AWSDeviceFarmGetRunCommand.() -> Unit): com.amazonaws.services.devicefarm.model.GetRunResult {
+	return this.block.declare(AWSDeviceFarmGetRunCommand().apply(init)) as com.amazonaws.services.devicefarm.model.GetRunResult
 }
 
 @Generated
-class AWSDeviceFarmGetRunCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.GetRunRequest> {
+class AWSDeviceFarmGetRunCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.GetRunRequest, com.amazonaws.services.devicefarm.model.GetRunResult> {
 
 	var arn: String? = null
 
@@ -797,8 +893,12 @@ class AWSDeviceFarmGetRunCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.getRun(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.GetRunResult {
+	  return com.amazonaws.services.devicefarm.model.GetRunResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.GetRunResult {
+		return environment.devicefarm.getRun(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -809,12 +909,12 @@ class AWSDeviceFarmGetRunCommand() : AmazonWebServiceCommand<com.amazonaws.servi
 }
 
 
-fun AWSDeviceFarmFunctions.getSuite(init: AWSDeviceFarmGetSuiteCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmGetSuiteCommand().apply(init))
+fun AWSDeviceFarmFunctions.getSuite(init: AWSDeviceFarmGetSuiteCommand.() -> Unit): com.amazonaws.services.devicefarm.model.GetSuiteResult {
+	return this.block.declare(AWSDeviceFarmGetSuiteCommand().apply(init)) as com.amazonaws.services.devicefarm.model.GetSuiteResult
 }
 
 @Generated
-class AWSDeviceFarmGetSuiteCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.GetSuiteRequest> {
+class AWSDeviceFarmGetSuiteCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.GetSuiteRequest, com.amazonaws.services.devicefarm.model.GetSuiteResult> {
 
 	var arn: String? = null
 
@@ -824,8 +924,12 @@ class AWSDeviceFarmGetSuiteCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.getSuite(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.GetSuiteResult {
+	  return com.amazonaws.services.devicefarm.model.GetSuiteResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.GetSuiteResult {
+		return environment.devicefarm.getSuite(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -836,12 +940,12 @@ class AWSDeviceFarmGetSuiteCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 }
 
 
-fun AWSDeviceFarmFunctions.getTest(init: AWSDeviceFarmGetTestCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmGetTestCommand().apply(init))
+fun AWSDeviceFarmFunctions.getTest(init: AWSDeviceFarmGetTestCommand.() -> Unit): com.amazonaws.services.devicefarm.model.GetTestResult {
+	return this.block.declare(AWSDeviceFarmGetTestCommand().apply(init)) as com.amazonaws.services.devicefarm.model.GetTestResult
 }
 
 @Generated
-class AWSDeviceFarmGetTestCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.GetTestRequest> {
+class AWSDeviceFarmGetTestCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.GetTestRequest, com.amazonaws.services.devicefarm.model.GetTestResult> {
 
 	var arn: String? = null
 
@@ -851,8 +955,12 @@ class AWSDeviceFarmGetTestCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.getTest(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.GetTestResult {
+	  return com.amazonaws.services.devicefarm.model.GetTestResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.GetTestResult {
+		return environment.devicefarm.getTest(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -863,12 +971,12 @@ class AWSDeviceFarmGetTestCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 }
 
 
-fun AWSDeviceFarmFunctions.getUpload(init: AWSDeviceFarmGetUploadCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmGetUploadCommand().apply(init))
+fun AWSDeviceFarmFunctions.getUpload(init: AWSDeviceFarmGetUploadCommand.() -> Unit): com.amazonaws.services.devicefarm.model.GetUploadResult {
+	return this.block.declare(AWSDeviceFarmGetUploadCommand().apply(init)) as com.amazonaws.services.devicefarm.model.GetUploadResult
 }
 
 @Generated
-class AWSDeviceFarmGetUploadCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.GetUploadRequest> {
+class AWSDeviceFarmGetUploadCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.GetUploadRequest, com.amazonaws.services.devicefarm.model.GetUploadResult> {
 
 	var arn: String? = null
 
@@ -878,8 +986,12 @@ class AWSDeviceFarmGetUploadCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.getUpload(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.GetUploadResult {
+	  return com.amazonaws.services.devicefarm.model.GetUploadResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.GetUploadResult {
+		return environment.devicefarm.getUpload(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -890,12 +1002,12 @@ class AWSDeviceFarmGetUploadCommand() : AmazonWebServiceCommand<com.amazonaws.se
 }
 
 
-fun AWSDeviceFarmFunctions.installToRemoteAccessSession(init: AWSDeviceFarmInstallToRemoteAccessSessionCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmInstallToRemoteAccessSessionCommand().apply(init))
+fun AWSDeviceFarmFunctions.installToRemoteAccessSession(init: AWSDeviceFarmInstallToRemoteAccessSessionCommand.() -> Unit): com.amazonaws.services.devicefarm.model.InstallToRemoteAccessSessionResult {
+	return this.block.declare(AWSDeviceFarmInstallToRemoteAccessSessionCommand().apply(init)) as com.amazonaws.services.devicefarm.model.InstallToRemoteAccessSessionResult
 }
 
 @Generated
-class AWSDeviceFarmInstallToRemoteAccessSessionCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.InstallToRemoteAccessSessionRequest> {
+class AWSDeviceFarmInstallToRemoteAccessSessionCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.InstallToRemoteAccessSessionRequest, com.amazonaws.services.devicefarm.model.InstallToRemoteAccessSessionResult> {
 
 	var remoteAccessSessionArn: String? = null
 	var appArn: String? = null
@@ -907,8 +1019,12 @@ class AWSDeviceFarmInstallToRemoteAccessSessionCommand() : AmazonWebServiceComma
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.installToRemoteAccessSession(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.InstallToRemoteAccessSessionResult {
+	  return com.amazonaws.services.devicefarm.model.InstallToRemoteAccessSessionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.InstallToRemoteAccessSessionResult {
+		return environment.devicefarm.installToRemoteAccessSession(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -920,12 +1036,12 @@ class AWSDeviceFarmInstallToRemoteAccessSessionCommand() : AmazonWebServiceComma
 }
 
 
-fun AWSDeviceFarmFunctions.listArtifacts(init: AWSDeviceFarmListArtifactsCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmListArtifactsCommand().apply(init))
+fun AWSDeviceFarmFunctions.listArtifacts(init: AWSDeviceFarmListArtifactsCommand.() -> Unit): com.amazonaws.services.devicefarm.model.ListArtifactsResult {
+	return this.block.declare(AWSDeviceFarmListArtifactsCommand().apply(init)) as com.amazonaws.services.devicefarm.model.ListArtifactsResult
 }
 
 @Generated
-class AWSDeviceFarmListArtifactsCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListArtifactsRequest> {
+class AWSDeviceFarmListArtifactsCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListArtifactsRequest, com.amazonaws.services.devicefarm.model.ListArtifactsResult> {
 
 	var arn: String? = null
 	var type: ArtifactCategory? = null
@@ -939,8 +1055,12 @@ class AWSDeviceFarmListArtifactsCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.listArtifacts(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListArtifactsResult {
+	  return com.amazonaws.services.devicefarm.model.ListArtifactsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListArtifactsResult {
+		return environment.devicefarm.listArtifacts(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -953,12 +1073,12 @@ class AWSDeviceFarmListArtifactsCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AWSDeviceFarmFunctions.listDeviceInstances(init: AWSDeviceFarmListDeviceInstancesCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmListDeviceInstancesCommand().apply(init))
+fun AWSDeviceFarmFunctions.listDeviceInstances(init: AWSDeviceFarmListDeviceInstancesCommand.() -> Unit): com.amazonaws.services.devicefarm.model.ListDeviceInstancesResult {
+	return this.block.declare(AWSDeviceFarmListDeviceInstancesCommand().apply(init)) as com.amazonaws.services.devicefarm.model.ListDeviceInstancesResult
 }
 
 @Generated
-class AWSDeviceFarmListDeviceInstancesCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListDeviceInstancesRequest> {
+class AWSDeviceFarmListDeviceInstancesCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListDeviceInstancesRequest, com.amazonaws.services.devicefarm.model.ListDeviceInstancesResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -970,8 +1090,12 @@ class AWSDeviceFarmListDeviceInstancesCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.listDeviceInstances(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListDeviceInstancesResult {
+	  return com.amazonaws.services.devicefarm.model.ListDeviceInstancesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListDeviceInstancesResult {
+		return environment.devicefarm.listDeviceInstances(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -983,12 +1107,12 @@ class AWSDeviceFarmListDeviceInstancesCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AWSDeviceFarmFunctions.listDevicePools(init: AWSDeviceFarmListDevicePoolsCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmListDevicePoolsCommand().apply(init))
+fun AWSDeviceFarmFunctions.listDevicePools(init: AWSDeviceFarmListDevicePoolsCommand.() -> Unit): com.amazonaws.services.devicefarm.model.ListDevicePoolsResult {
+	return this.block.declare(AWSDeviceFarmListDevicePoolsCommand().apply(init)) as com.amazonaws.services.devicefarm.model.ListDevicePoolsResult
 }
 
 @Generated
-class AWSDeviceFarmListDevicePoolsCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListDevicePoolsRequest> {
+class AWSDeviceFarmListDevicePoolsCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListDevicePoolsRequest, com.amazonaws.services.devicefarm.model.ListDevicePoolsResult> {
 
 	var arn: String? = null
 	var type: DevicePoolType? = null
@@ -1002,8 +1126,12 @@ class AWSDeviceFarmListDevicePoolsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.listDevicePools(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListDevicePoolsResult {
+	  return com.amazonaws.services.devicefarm.model.ListDevicePoolsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListDevicePoolsResult {
+		return environment.devicefarm.listDevicePools(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1016,12 +1144,12 @@ class AWSDeviceFarmListDevicePoolsCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AWSDeviceFarmFunctions.listDevices(init: AWSDeviceFarmListDevicesCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmListDevicesCommand().apply(init))
+fun AWSDeviceFarmFunctions.listDevices(init: AWSDeviceFarmListDevicesCommand.() -> Unit): com.amazonaws.services.devicefarm.model.ListDevicesResult {
+	return this.block.declare(AWSDeviceFarmListDevicesCommand().apply(init)) as com.amazonaws.services.devicefarm.model.ListDevicesResult
 }
 
 @Generated
-class AWSDeviceFarmListDevicesCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListDevicesRequest> {
+class AWSDeviceFarmListDevicesCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListDevicesRequest, com.amazonaws.services.devicefarm.model.ListDevicesResult> {
 
 	var arn: String? = null
 	var nextToken: String? = null
@@ -1033,8 +1161,12 @@ class AWSDeviceFarmListDevicesCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.listDevices(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListDevicesResult {
+	  return com.amazonaws.services.devicefarm.model.ListDevicesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListDevicesResult {
+		return environment.devicefarm.listDevices(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1046,12 +1178,12 @@ class AWSDeviceFarmListDevicesCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AWSDeviceFarmFunctions.listInstanceProfiles(init: AWSDeviceFarmListInstanceProfilesCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmListInstanceProfilesCommand().apply(init))
+fun AWSDeviceFarmFunctions.listInstanceProfiles(init: AWSDeviceFarmListInstanceProfilesCommand.() -> Unit): com.amazonaws.services.devicefarm.model.ListInstanceProfilesResult {
+	return this.block.declare(AWSDeviceFarmListInstanceProfilesCommand().apply(init)) as com.amazonaws.services.devicefarm.model.ListInstanceProfilesResult
 }
 
 @Generated
-class AWSDeviceFarmListInstanceProfilesCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListInstanceProfilesRequest> {
+class AWSDeviceFarmListInstanceProfilesCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListInstanceProfilesRequest, com.amazonaws.services.devicefarm.model.ListInstanceProfilesResult> {
 
 	var maxResults: Int? = 0
 	var nextToken: String? = null
@@ -1063,8 +1195,12 @@ class AWSDeviceFarmListInstanceProfilesCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.listInstanceProfiles(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListInstanceProfilesResult {
+	  return com.amazonaws.services.devicefarm.model.ListInstanceProfilesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListInstanceProfilesResult {
+		return environment.devicefarm.listInstanceProfiles(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1076,12 +1212,12 @@ class AWSDeviceFarmListInstanceProfilesCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AWSDeviceFarmFunctions.listJobs(init: AWSDeviceFarmListJobsCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmListJobsCommand().apply(init))
+fun AWSDeviceFarmFunctions.listJobs(init: AWSDeviceFarmListJobsCommand.() -> Unit): com.amazonaws.services.devicefarm.model.ListJobsResult {
+	return this.block.declare(AWSDeviceFarmListJobsCommand().apply(init)) as com.amazonaws.services.devicefarm.model.ListJobsResult
 }
 
 @Generated
-class AWSDeviceFarmListJobsCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListJobsRequest> {
+class AWSDeviceFarmListJobsCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListJobsRequest, com.amazonaws.services.devicefarm.model.ListJobsResult> {
 
 	var arn: String? = null
 	var nextToken: String? = null
@@ -1093,8 +1229,12 @@ class AWSDeviceFarmListJobsCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.listJobs(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListJobsResult {
+	  return com.amazonaws.services.devicefarm.model.ListJobsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListJobsResult {
+		return environment.devicefarm.listJobs(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1106,12 +1246,12 @@ class AWSDeviceFarmListJobsCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 }
 
 
-fun AWSDeviceFarmFunctions.listNetworkProfiles(init: AWSDeviceFarmListNetworkProfilesCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmListNetworkProfilesCommand().apply(init))
+fun AWSDeviceFarmFunctions.listNetworkProfiles(init: AWSDeviceFarmListNetworkProfilesCommand.() -> Unit): com.amazonaws.services.devicefarm.model.ListNetworkProfilesResult {
+	return this.block.declare(AWSDeviceFarmListNetworkProfilesCommand().apply(init)) as com.amazonaws.services.devicefarm.model.ListNetworkProfilesResult
 }
 
 @Generated
-class AWSDeviceFarmListNetworkProfilesCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListNetworkProfilesRequest> {
+class AWSDeviceFarmListNetworkProfilesCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListNetworkProfilesRequest, com.amazonaws.services.devicefarm.model.ListNetworkProfilesResult> {
 
 	var arn: String? = null
 	var type: NetworkProfileType? = null
@@ -1125,8 +1265,12 @@ class AWSDeviceFarmListNetworkProfilesCommand() : AmazonWebServiceCommand<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.listNetworkProfiles(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListNetworkProfilesResult {
+	  return com.amazonaws.services.devicefarm.model.ListNetworkProfilesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListNetworkProfilesResult {
+		return environment.devicefarm.listNetworkProfiles(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1139,12 +1283,12 @@ class AWSDeviceFarmListNetworkProfilesCommand() : AmazonWebServiceCommand<com.am
 }
 
 
-fun AWSDeviceFarmFunctions.listOfferingPromotions(init: AWSDeviceFarmListOfferingPromotionsCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmListOfferingPromotionsCommand().apply(init))
+fun AWSDeviceFarmFunctions.listOfferingPromotions(init: AWSDeviceFarmListOfferingPromotionsCommand.() -> Unit): com.amazonaws.services.devicefarm.model.ListOfferingPromotionsResult {
+	return this.block.declare(AWSDeviceFarmListOfferingPromotionsCommand().apply(init)) as com.amazonaws.services.devicefarm.model.ListOfferingPromotionsResult
 }
 
 @Generated
-class AWSDeviceFarmListOfferingPromotionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListOfferingPromotionsRequest> {
+class AWSDeviceFarmListOfferingPromotionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListOfferingPromotionsRequest, com.amazonaws.services.devicefarm.model.ListOfferingPromotionsResult> {
 
 	var nextToken: String? = null
 
@@ -1154,8 +1298,12 @@ class AWSDeviceFarmListOfferingPromotionsCommand() : AmazonWebServiceCommand<com
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.listOfferingPromotions(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListOfferingPromotionsResult {
+	  return com.amazonaws.services.devicefarm.model.ListOfferingPromotionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListOfferingPromotionsResult {
+		return environment.devicefarm.listOfferingPromotions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1166,12 +1314,12 @@ class AWSDeviceFarmListOfferingPromotionsCommand() : AmazonWebServiceCommand<com
 }
 
 
-fun AWSDeviceFarmFunctions.listOfferingTransactions(init: AWSDeviceFarmListOfferingTransactionsCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmListOfferingTransactionsCommand().apply(init))
+fun AWSDeviceFarmFunctions.listOfferingTransactions(init: AWSDeviceFarmListOfferingTransactionsCommand.() -> Unit): com.amazonaws.services.devicefarm.model.ListOfferingTransactionsResult {
+	return this.block.declare(AWSDeviceFarmListOfferingTransactionsCommand().apply(init)) as com.amazonaws.services.devicefarm.model.ListOfferingTransactionsResult
 }
 
 @Generated
-class AWSDeviceFarmListOfferingTransactionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListOfferingTransactionsRequest> {
+class AWSDeviceFarmListOfferingTransactionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListOfferingTransactionsRequest, com.amazonaws.services.devicefarm.model.ListOfferingTransactionsResult> {
 
 	var nextToken: String? = null
 
@@ -1181,8 +1329,12 @@ class AWSDeviceFarmListOfferingTransactionsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.listOfferingTransactions(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListOfferingTransactionsResult {
+	  return com.amazonaws.services.devicefarm.model.ListOfferingTransactionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListOfferingTransactionsResult {
+		return environment.devicefarm.listOfferingTransactions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1193,12 +1345,12 @@ class AWSDeviceFarmListOfferingTransactionsCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AWSDeviceFarmFunctions.listOfferings(init: AWSDeviceFarmListOfferingsCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmListOfferingsCommand().apply(init))
+fun AWSDeviceFarmFunctions.listOfferings(init: AWSDeviceFarmListOfferingsCommand.() -> Unit): com.amazonaws.services.devicefarm.model.ListOfferingsResult {
+	return this.block.declare(AWSDeviceFarmListOfferingsCommand().apply(init)) as com.amazonaws.services.devicefarm.model.ListOfferingsResult
 }
 
 @Generated
-class AWSDeviceFarmListOfferingsCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListOfferingsRequest> {
+class AWSDeviceFarmListOfferingsCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListOfferingsRequest, com.amazonaws.services.devicefarm.model.ListOfferingsResult> {
 
 	var nextToken: String? = null
 
@@ -1208,8 +1360,12 @@ class AWSDeviceFarmListOfferingsCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.listOfferings(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListOfferingsResult {
+	  return com.amazonaws.services.devicefarm.model.ListOfferingsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListOfferingsResult {
+		return environment.devicefarm.listOfferings(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1220,12 +1376,12 @@ class AWSDeviceFarmListOfferingsCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AWSDeviceFarmFunctions.listProjects(init: AWSDeviceFarmListProjectsCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmListProjectsCommand().apply(init))
+fun AWSDeviceFarmFunctions.listProjects(init: AWSDeviceFarmListProjectsCommand.() -> Unit): com.amazonaws.services.devicefarm.model.ListProjectsResult {
+	return this.block.declare(AWSDeviceFarmListProjectsCommand().apply(init)) as com.amazonaws.services.devicefarm.model.ListProjectsResult
 }
 
 @Generated
-class AWSDeviceFarmListProjectsCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListProjectsRequest> {
+class AWSDeviceFarmListProjectsCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListProjectsRequest, com.amazonaws.services.devicefarm.model.ListProjectsResult> {
 
 	var arn: String? = null
 	var nextToken: String? = null
@@ -1237,8 +1393,12 @@ class AWSDeviceFarmListProjectsCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.listProjects(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListProjectsResult {
+	  return com.amazonaws.services.devicefarm.model.ListProjectsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListProjectsResult {
+		return environment.devicefarm.listProjects(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1250,12 +1410,12 @@ class AWSDeviceFarmListProjectsCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AWSDeviceFarmFunctions.listRemoteAccessSessions(init: AWSDeviceFarmListRemoteAccessSessionsCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmListRemoteAccessSessionsCommand().apply(init))
+fun AWSDeviceFarmFunctions.listRemoteAccessSessions(init: AWSDeviceFarmListRemoteAccessSessionsCommand.() -> Unit): com.amazonaws.services.devicefarm.model.ListRemoteAccessSessionsResult {
+	return this.block.declare(AWSDeviceFarmListRemoteAccessSessionsCommand().apply(init)) as com.amazonaws.services.devicefarm.model.ListRemoteAccessSessionsResult
 }
 
 @Generated
-class AWSDeviceFarmListRemoteAccessSessionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListRemoteAccessSessionsRequest> {
+class AWSDeviceFarmListRemoteAccessSessionsCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListRemoteAccessSessionsRequest, com.amazonaws.services.devicefarm.model.ListRemoteAccessSessionsResult> {
 
 	var arn: String? = null
 	var nextToken: String? = null
@@ -1267,8 +1427,12 @@ class AWSDeviceFarmListRemoteAccessSessionsCommand() : AmazonWebServiceCommand<c
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.listRemoteAccessSessions(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListRemoteAccessSessionsResult {
+	  return com.amazonaws.services.devicefarm.model.ListRemoteAccessSessionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListRemoteAccessSessionsResult {
+		return environment.devicefarm.listRemoteAccessSessions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1280,12 +1444,12 @@ class AWSDeviceFarmListRemoteAccessSessionsCommand() : AmazonWebServiceCommand<c
 }
 
 
-fun AWSDeviceFarmFunctions.listRuns(init: AWSDeviceFarmListRunsCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmListRunsCommand().apply(init))
+fun AWSDeviceFarmFunctions.listRuns(init: AWSDeviceFarmListRunsCommand.() -> Unit): com.amazonaws.services.devicefarm.model.ListRunsResult {
+	return this.block.declare(AWSDeviceFarmListRunsCommand().apply(init)) as com.amazonaws.services.devicefarm.model.ListRunsResult
 }
 
 @Generated
-class AWSDeviceFarmListRunsCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListRunsRequest> {
+class AWSDeviceFarmListRunsCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListRunsRequest, com.amazonaws.services.devicefarm.model.ListRunsResult> {
 
 	var arn: String? = null
 	var nextToken: String? = null
@@ -1297,8 +1461,12 @@ class AWSDeviceFarmListRunsCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.listRuns(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListRunsResult {
+	  return com.amazonaws.services.devicefarm.model.ListRunsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListRunsResult {
+		return environment.devicefarm.listRuns(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1310,12 +1478,12 @@ class AWSDeviceFarmListRunsCommand() : AmazonWebServiceCommand<com.amazonaws.ser
 }
 
 
-fun AWSDeviceFarmFunctions.listSamples(init: AWSDeviceFarmListSamplesCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmListSamplesCommand().apply(init))
+fun AWSDeviceFarmFunctions.listSamples(init: AWSDeviceFarmListSamplesCommand.() -> Unit): com.amazonaws.services.devicefarm.model.ListSamplesResult {
+	return this.block.declare(AWSDeviceFarmListSamplesCommand().apply(init)) as com.amazonaws.services.devicefarm.model.ListSamplesResult
 }
 
 @Generated
-class AWSDeviceFarmListSamplesCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListSamplesRequest> {
+class AWSDeviceFarmListSamplesCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListSamplesRequest, com.amazonaws.services.devicefarm.model.ListSamplesResult> {
 
 	var arn: String? = null
 	var nextToken: String? = null
@@ -1327,8 +1495,12 @@ class AWSDeviceFarmListSamplesCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.listSamples(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListSamplesResult {
+	  return com.amazonaws.services.devicefarm.model.ListSamplesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListSamplesResult {
+		return environment.devicefarm.listSamples(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1340,12 +1512,12 @@ class AWSDeviceFarmListSamplesCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AWSDeviceFarmFunctions.listSuites(init: AWSDeviceFarmListSuitesCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmListSuitesCommand().apply(init))
+fun AWSDeviceFarmFunctions.listSuites(init: AWSDeviceFarmListSuitesCommand.() -> Unit): com.amazonaws.services.devicefarm.model.ListSuitesResult {
+	return this.block.declare(AWSDeviceFarmListSuitesCommand().apply(init)) as com.amazonaws.services.devicefarm.model.ListSuitesResult
 }
 
 @Generated
-class AWSDeviceFarmListSuitesCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListSuitesRequest> {
+class AWSDeviceFarmListSuitesCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListSuitesRequest, com.amazonaws.services.devicefarm.model.ListSuitesResult> {
 
 	var arn: String? = null
 	var nextToken: String? = null
@@ -1357,8 +1529,12 @@ class AWSDeviceFarmListSuitesCommand() : AmazonWebServiceCommand<com.amazonaws.s
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.listSuites(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListSuitesResult {
+	  return com.amazonaws.services.devicefarm.model.ListSuitesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListSuitesResult {
+		return environment.devicefarm.listSuites(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1370,12 +1546,12 @@ class AWSDeviceFarmListSuitesCommand() : AmazonWebServiceCommand<com.amazonaws.s
 }
 
 
-fun AWSDeviceFarmFunctions.listTests(init: AWSDeviceFarmListTestsCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmListTestsCommand().apply(init))
+fun AWSDeviceFarmFunctions.listTests(init: AWSDeviceFarmListTestsCommand.() -> Unit): com.amazonaws.services.devicefarm.model.ListTestsResult {
+	return this.block.declare(AWSDeviceFarmListTestsCommand().apply(init)) as com.amazonaws.services.devicefarm.model.ListTestsResult
 }
 
 @Generated
-class AWSDeviceFarmListTestsCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListTestsRequest> {
+class AWSDeviceFarmListTestsCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListTestsRequest, com.amazonaws.services.devicefarm.model.ListTestsResult> {
 
 	var arn: String? = null
 	var nextToken: String? = null
@@ -1387,8 +1563,12 @@ class AWSDeviceFarmListTestsCommand() : AmazonWebServiceCommand<com.amazonaws.se
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.listTests(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListTestsResult {
+	  return com.amazonaws.services.devicefarm.model.ListTestsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListTestsResult {
+		return environment.devicefarm.listTests(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1400,12 +1580,12 @@ class AWSDeviceFarmListTestsCommand() : AmazonWebServiceCommand<com.amazonaws.se
 }
 
 
-fun AWSDeviceFarmFunctions.listUniqueProblems(init: AWSDeviceFarmListUniqueProblemsCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmListUniqueProblemsCommand().apply(init))
+fun AWSDeviceFarmFunctions.listUniqueProblems(init: AWSDeviceFarmListUniqueProblemsCommand.() -> Unit): com.amazonaws.services.devicefarm.model.ListUniqueProblemsResult {
+	return this.block.declare(AWSDeviceFarmListUniqueProblemsCommand().apply(init)) as com.amazonaws.services.devicefarm.model.ListUniqueProblemsResult
 }
 
 @Generated
-class AWSDeviceFarmListUniqueProblemsCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListUniqueProblemsRequest> {
+class AWSDeviceFarmListUniqueProblemsCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListUniqueProblemsRequest, com.amazonaws.services.devicefarm.model.ListUniqueProblemsResult> {
 
 	var arn: String? = null
 	var nextToken: String? = null
@@ -1417,8 +1597,12 @@ class AWSDeviceFarmListUniqueProblemsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.listUniqueProblems(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListUniqueProblemsResult {
+	  return com.amazonaws.services.devicefarm.model.ListUniqueProblemsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListUniqueProblemsResult {
+		return environment.devicefarm.listUniqueProblems(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1430,12 +1614,12 @@ class AWSDeviceFarmListUniqueProblemsCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AWSDeviceFarmFunctions.listUploads(init: AWSDeviceFarmListUploadsCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmListUploadsCommand().apply(init))
+fun AWSDeviceFarmFunctions.listUploads(init: AWSDeviceFarmListUploadsCommand.() -> Unit): com.amazonaws.services.devicefarm.model.ListUploadsResult {
+	return this.block.declare(AWSDeviceFarmListUploadsCommand().apply(init)) as com.amazonaws.services.devicefarm.model.ListUploadsResult
 }
 
 @Generated
-class AWSDeviceFarmListUploadsCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListUploadsRequest> {
+class AWSDeviceFarmListUploadsCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ListUploadsRequest, com.amazonaws.services.devicefarm.model.ListUploadsResult> {
 
 	var arn: String? = null
 	var nextToken: String? = null
@@ -1447,8 +1631,12 @@ class AWSDeviceFarmListUploadsCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.listUploads(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.ListUploadsResult {
+	  return com.amazonaws.services.devicefarm.model.ListUploadsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ListUploadsResult {
+		return environment.devicefarm.listUploads(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1460,12 +1648,12 @@ class AWSDeviceFarmListUploadsCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AWSDeviceFarmFunctions.purchaseOffering(init: AWSDeviceFarmPurchaseOfferingCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmPurchaseOfferingCommand().apply(init))
+fun AWSDeviceFarmFunctions.purchaseOffering(init: AWSDeviceFarmPurchaseOfferingCommand.() -> Unit): com.amazonaws.services.devicefarm.model.PurchaseOfferingResult {
+	return this.block.declare(AWSDeviceFarmPurchaseOfferingCommand().apply(init)) as com.amazonaws.services.devicefarm.model.PurchaseOfferingResult
 }
 
 @Generated
-class AWSDeviceFarmPurchaseOfferingCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.PurchaseOfferingRequest> {
+class AWSDeviceFarmPurchaseOfferingCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.PurchaseOfferingRequest, com.amazonaws.services.devicefarm.model.PurchaseOfferingResult> {
 
 	var offeringId: String? = null
 	var quantity: Int? = 0
@@ -1479,8 +1667,12 @@ class AWSDeviceFarmPurchaseOfferingCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.purchaseOffering(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.PurchaseOfferingResult {
+	  return com.amazonaws.services.devicefarm.model.PurchaseOfferingResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.PurchaseOfferingResult {
+		return environment.devicefarm.purchaseOffering(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1493,12 +1685,12 @@ class AWSDeviceFarmPurchaseOfferingCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AWSDeviceFarmFunctions.renewOffering(init: AWSDeviceFarmRenewOfferingCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmRenewOfferingCommand().apply(init))
+fun AWSDeviceFarmFunctions.renewOffering(init: AWSDeviceFarmRenewOfferingCommand.() -> Unit): com.amazonaws.services.devicefarm.model.RenewOfferingResult {
+	return this.block.declare(AWSDeviceFarmRenewOfferingCommand().apply(init)) as com.amazonaws.services.devicefarm.model.RenewOfferingResult
 }
 
 @Generated
-class AWSDeviceFarmRenewOfferingCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.RenewOfferingRequest> {
+class AWSDeviceFarmRenewOfferingCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.RenewOfferingRequest, com.amazonaws.services.devicefarm.model.RenewOfferingResult> {
 
 	var offeringId: String? = null
 	var quantity: Int? = 0
@@ -1510,8 +1702,12 @@ class AWSDeviceFarmRenewOfferingCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.renewOffering(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.RenewOfferingResult {
+	  return com.amazonaws.services.devicefarm.model.RenewOfferingResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.RenewOfferingResult {
+		return environment.devicefarm.renewOffering(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1523,12 +1719,12 @@ class AWSDeviceFarmRenewOfferingCommand() : AmazonWebServiceCommand<com.amazonaw
 }
 
 
-fun AWSDeviceFarmFunctions.scheduleRun(init: AWSDeviceFarmScheduleRunCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmScheduleRunCommand().apply(init))
+fun AWSDeviceFarmFunctions.scheduleRun(init: AWSDeviceFarmScheduleRunCommand.() -> Unit): com.amazonaws.services.devicefarm.model.ScheduleRunResult {
+	return this.block.declare(AWSDeviceFarmScheduleRunCommand().apply(init)) as com.amazonaws.services.devicefarm.model.ScheduleRunResult
 }
 
 @Generated
-class AWSDeviceFarmScheduleRunCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ScheduleRunRequest> {
+class AWSDeviceFarmScheduleRunCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.ScheduleRunRequest, com.amazonaws.services.devicefarm.model.ScheduleRunResult> {
 
 	var projectArn: String? = null
 	var appArn: String? = null
@@ -1550,8 +1746,12 @@ class AWSDeviceFarmScheduleRunCommand() : AmazonWebServiceCommand<com.amazonaws.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.scheduleRun(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.ScheduleRunResult {
+	  return com.amazonaws.services.devicefarm.model.ScheduleRunResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.ScheduleRunResult {
+		return environment.devicefarm.scheduleRun(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1568,12 +1768,12 @@ class AWSDeviceFarmScheduleRunCommand() : AmazonWebServiceCommand<com.amazonaws.
 }
 
 
-fun AWSDeviceFarmFunctions.stopRemoteAccessSession(init: AWSDeviceFarmStopRemoteAccessSessionCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmStopRemoteAccessSessionCommand().apply(init))
+fun AWSDeviceFarmFunctions.stopRemoteAccessSession(init: AWSDeviceFarmStopRemoteAccessSessionCommand.() -> Unit): com.amazonaws.services.devicefarm.model.StopRemoteAccessSessionResult {
+	return this.block.declare(AWSDeviceFarmStopRemoteAccessSessionCommand().apply(init)) as com.amazonaws.services.devicefarm.model.StopRemoteAccessSessionResult
 }
 
 @Generated
-class AWSDeviceFarmStopRemoteAccessSessionCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.StopRemoteAccessSessionRequest> {
+class AWSDeviceFarmStopRemoteAccessSessionCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.StopRemoteAccessSessionRequest, com.amazonaws.services.devicefarm.model.StopRemoteAccessSessionResult> {
 
 	var arn: String? = null
 
@@ -1583,8 +1783,12 @@ class AWSDeviceFarmStopRemoteAccessSessionCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.stopRemoteAccessSession(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.StopRemoteAccessSessionResult {
+	  return com.amazonaws.services.devicefarm.model.StopRemoteAccessSessionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.StopRemoteAccessSessionResult {
+		return environment.devicefarm.stopRemoteAccessSession(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1595,12 +1799,12 @@ class AWSDeviceFarmStopRemoteAccessSessionCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AWSDeviceFarmFunctions.stopRun(init: AWSDeviceFarmStopRunCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmStopRunCommand().apply(init))
+fun AWSDeviceFarmFunctions.stopRun(init: AWSDeviceFarmStopRunCommand.() -> Unit): com.amazonaws.services.devicefarm.model.StopRunResult {
+	return this.block.declare(AWSDeviceFarmStopRunCommand().apply(init)) as com.amazonaws.services.devicefarm.model.StopRunResult
 }
 
 @Generated
-class AWSDeviceFarmStopRunCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.StopRunRequest> {
+class AWSDeviceFarmStopRunCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.StopRunRequest, com.amazonaws.services.devicefarm.model.StopRunResult> {
 
 	var arn: String? = null
 
@@ -1610,8 +1814,12 @@ class AWSDeviceFarmStopRunCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.stopRun(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.StopRunResult {
+	  return com.amazonaws.services.devicefarm.model.StopRunResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.StopRunResult {
+		return environment.devicefarm.stopRun(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1622,12 +1830,12 @@ class AWSDeviceFarmStopRunCommand() : AmazonWebServiceCommand<com.amazonaws.serv
 }
 
 
-fun AWSDeviceFarmFunctions.updateDeviceInstance(init: AWSDeviceFarmUpdateDeviceInstanceCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmUpdateDeviceInstanceCommand().apply(init))
+fun AWSDeviceFarmFunctions.updateDeviceInstance(init: AWSDeviceFarmUpdateDeviceInstanceCommand.() -> Unit): com.amazonaws.services.devicefarm.model.UpdateDeviceInstanceResult {
+	return this.block.declare(AWSDeviceFarmUpdateDeviceInstanceCommand().apply(init)) as com.amazonaws.services.devicefarm.model.UpdateDeviceInstanceResult
 }
 
 @Generated
-class AWSDeviceFarmUpdateDeviceInstanceCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.UpdateDeviceInstanceRequest> {
+class AWSDeviceFarmUpdateDeviceInstanceCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.UpdateDeviceInstanceRequest, com.amazonaws.services.devicefarm.model.UpdateDeviceInstanceResult> {
 
 	var arn: String? = null
 	var profileArn: String? = null
@@ -1641,8 +1849,12 @@ class AWSDeviceFarmUpdateDeviceInstanceCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.updateDeviceInstance(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.UpdateDeviceInstanceResult {
+	  return com.amazonaws.services.devicefarm.model.UpdateDeviceInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.UpdateDeviceInstanceResult {
+		return environment.devicefarm.updateDeviceInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1655,12 +1867,12 @@ class AWSDeviceFarmUpdateDeviceInstanceCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AWSDeviceFarmFunctions.updateDevicePool(init: AWSDeviceFarmUpdateDevicePoolCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmUpdateDevicePoolCommand().apply(init))
+fun AWSDeviceFarmFunctions.updateDevicePool(init: AWSDeviceFarmUpdateDevicePoolCommand.() -> Unit): com.amazonaws.services.devicefarm.model.UpdateDevicePoolResult {
+	return this.block.declare(AWSDeviceFarmUpdateDevicePoolCommand().apply(init)) as com.amazonaws.services.devicefarm.model.UpdateDevicePoolResult
 }
 
 @Generated
-class AWSDeviceFarmUpdateDevicePoolCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.UpdateDevicePoolRequest> {
+class AWSDeviceFarmUpdateDevicePoolCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.UpdateDevicePoolRequest, com.amazonaws.services.devicefarm.model.UpdateDevicePoolResult> {
 
 	var arn: String? = null
 	var name: String? = null
@@ -1676,8 +1888,12 @@ class AWSDeviceFarmUpdateDevicePoolCommand() : AmazonWebServiceCommand<com.amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.updateDevicePool(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.UpdateDevicePoolResult {
+	  return com.amazonaws.services.devicefarm.model.UpdateDevicePoolResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.UpdateDevicePoolResult {
+		return environment.devicefarm.updateDevicePool(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1691,12 +1907,12 @@ class AWSDeviceFarmUpdateDevicePoolCommand() : AmazonWebServiceCommand<com.amazo
 }
 
 
-fun AWSDeviceFarmFunctions.updateInstanceProfile(init: AWSDeviceFarmUpdateInstanceProfileCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmUpdateInstanceProfileCommand().apply(init))
+fun AWSDeviceFarmFunctions.updateInstanceProfile(init: AWSDeviceFarmUpdateInstanceProfileCommand.() -> Unit): com.amazonaws.services.devicefarm.model.UpdateInstanceProfileResult {
+	return this.block.declare(AWSDeviceFarmUpdateInstanceProfileCommand().apply(init)) as com.amazonaws.services.devicefarm.model.UpdateInstanceProfileResult
 }
 
 @Generated
-class AWSDeviceFarmUpdateInstanceProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.UpdateInstanceProfileRequest> {
+class AWSDeviceFarmUpdateInstanceProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.UpdateInstanceProfileRequest, com.amazonaws.services.devicefarm.model.UpdateInstanceProfileResult> {
 
 	var arn: String? = null
 	var name: String? = null
@@ -1716,8 +1932,12 @@ class AWSDeviceFarmUpdateInstanceProfileCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.updateInstanceProfile(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.UpdateInstanceProfileResult {
+	  return com.amazonaws.services.devicefarm.model.UpdateInstanceProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.UpdateInstanceProfileResult {
+		return environment.devicefarm.updateInstanceProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1733,12 +1953,12 @@ class AWSDeviceFarmUpdateInstanceProfileCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AWSDeviceFarmFunctions.updateNetworkProfile(init: AWSDeviceFarmUpdateNetworkProfileCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmUpdateNetworkProfileCommand().apply(init))
+fun AWSDeviceFarmFunctions.updateNetworkProfile(init: AWSDeviceFarmUpdateNetworkProfileCommand.() -> Unit): com.amazonaws.services.devicefarm.model.UpdateNetworkProfileResult {
+	return this.block.declare(AWSDeviceFarmUpdateNetworkProfileCommand().apply(init)) as com.amazonaws.services.devicefarm.model.UpdateNetworkProfileResult
 }
 
 @Generated
-class AWSDeviceFarmUpdateNetworkProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.UpdateNetworkProfileRequest> {
+class AWSDeviceFarmUpdateNetworkProfileCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.UpdateNetworkProfileRequest, com.amazonaws.services.devicefarm.model.UpdateNetworkProfileResult> {
 
 	var arn: String? = null
 	var name: String? = null
@@ -1770,8 +1990,12 @@ class AWSDeviceFarmUpdateNetworkProfileCommand() : AmazonWebServiceCommand<com.a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.updateNetworkProfile(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.UpdateNetworkProfileResult {
+	  return com.amazonaws.services.devicefarm.model.UpdateNetworkProfileResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.UpdateNetworkProfileResult {
+		return environment.devicefarm.updateNetworkProfile(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1793,12 +2017,12 @@ class AWSDeviceFarmUpdateNetworkProfileCommand() : AmazonWebServiceCommand<com.a
 }
 
 
-fun AWSDeviceFarmFunctions.updateProject(init: AWSDeviceFarmUpdateProjectCommand.() -> Unit) {
-	this.block.declare(AWSDeviceFarmUpdateProjectCommand().apply(init))
+fun AWSDeviceFarmFunctions.updateProject(init: AWSDeviceFarmUpdateProjectCommand.() -> Unit): com.amazonaws.services.devicefarm.model.UpdateProjectResult {
+	return this.block.declare(AWSDeviceFarmUpdateProjectCommand().apply(init)) as com.amazonaws.services.devicefarm.model.UpdateProjectResult
 }
 
 @Generated
-class AWSDeviceFarmUpdateProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.UpdateProjectRequest> {
+class AWSDeviceFarmUpdateProjectCommand() : AmazonWebServiceCommand<com.amazonaws.services.devicefarm.model.UpdateProjectRequest, com.amazonaws.services.devicefarm.model.UpdateProjectResult> {
 
 	var arn: String? = null
 	var name: String? = null
@@ -1812,8 +2036,12 @@ class AWSDeviceFarmUpdateProjectCommand() : AmazonWebServiceCommand<com.amazonaw
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.devicefarm.updateProject(build())
+	override fun dryResult(): com.amazonaws.services.devicefarm.model.UpdateProjectResult {
+	  return com.amazonaws.services.devicefarm.model.UpdateProjectResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.devicefarm.model.UpdateProjectResult {
+		return environment.devicefarm.updateProject(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.sagemakerruntime: AmazonSageMakerRuntime
 @Generated
 class AmazonSageMakerRuntimeFunctions(val block: Block)
 
-infix fun AwsContinuation.sagemakerruntime(init: AmazonSageMakerRuntimeFunctions.() -> Unit) {
-	AmazonSageMakerRuntimeFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.sagemakerruntime(init: AmazonSageMakerRuntimeFunctions.() -> T): T {
+	return AmazonSageMakerRuntimeFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonSageMakerRuntimeFunctions.invokeEndpoint(endpointName: String, body: java.nio.ByteBuffer, init: AmazonSageMakerRuntimeInvokeEndpointCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerRuntimeInvokeEndpointCommand(endpointName, body).apply(init))
+fun AmazonSageMakerRuntimeFunctions.invokeEndpoint(endpointName: String, body: java.nio.ByteBuffer, init: AmazonSageMakerRuntimeInvokeEndpointCommand.() -> Unit): com.amazonaws.services.sagemakerruntime.model.InvokeEndpointResult {
+	return this.block.declare(AmazonSageMakerRuntimeInvokeEndpointCommand(endpointName, body).apply(init)) as com.amazonaws.services.sagemakerruntime.model.InvokeEndpointResult
 }
 
 @Generated
-class AmazonSageMakerRuntimeInvokeEndpointCommand(val endpointName: String, val body: java.nio.ByteBuffer) : AmazonWebServiceCommand<com.amazonaws.services.sagemakerruntime.model.InvokeEndpointRequest> {
+class AmazonSageMakerRuntimeInvokeEndpointCommand(val endpointName: String, val body: java.nio.ByteBuffer) : AmazonWebServiceCommand<com.amazonaws.services.sagemakerruntime.model.InvokeEndpointRequest, com.amazonaws.services.sagemakerruntime.model.InvokeEndpointResult> {
 
 	var contentType: String? = null
 	var accept: String? = null
@@ -45,8 +45,12 @@ class AmazonSageMakerRuntimeInvokeEndpointCommand(val endpointName: String, val 
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemakerruntime.invokeEndpoint(build())
+	override fun dryResult(): com.amazonaws.services.sagemakerruntime.model.InvokeEndpointResult {
+	  return com.amazonaws.services.sagemakerruntime.model.InvokeEndpointResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemakerruntime.model.InvokeEndpointResult {
+		return environment.sagemakerruntime.invokeEndpoint(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.sagemaker: AmazonSageMaker
 @Generated
 class AmazonSageMakerFunctions(val block: Block)
 
-infix fun AwsContinuation.sagemaker(init: AmazonSageMakerFunctions.() -> Unit) {
-	AmazonSageMakerFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.sagemaker(init: AmazonSageMakerFunctions.() -> T): T {
+	return AmazonSageMakerFunctions(shell).run(init)
 }
 
 			
 
-fun AmazonSageMakerFunctions.addTags(resourceArn: String, tags: List<com.amazonaws.services.sagemaker.model.Tag>, init: AmazonSageMakerAddTagsCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerAddTagsCommand(resourceArn, tags).apply(init))
+fun AmazonSageMakerFunctions.addTags(resourceArn: String, tags: List<com.amazonaws.services.sagemaker.model.Tag>, init: AmazonSageMakerAddTagsCommand.() -> Unit): com.amazonaws.services.sagemaker.model.AddTagsResult {
+	return this.block.declare(AmazonSageMakerAddTagsCommand(resourceArn, tags).apply(init)) as com.amazonaws.services.sagemaker.model.AddTagsResult
 }
 
 @Generated
-class AmazonSageMakerAddTagsCommand(val resourceArn: String, val tags: List<com.amazonaws.services.sagemaker.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.AddTagsRequest> {
+class AmazonSageMakerAddTagsCommand(val resourceArn: String, val tags: List<com.amazonaws.services.sagemaker.model.Tag>) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.AddTagsRequest, com.amazonaws.services.sagemaker.model.AddTagsResult> {
 
 
 
@@ -42,8 +42,12 @@ class AmazonSageMakerAddTagsCommand(val resourceArn: String, val tags: List<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.addTags(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.AddTagsResult {
+	  return com.amazonaws.services.sagemaker.model.AddTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.AddTagsResult {
+		return environment.sagemaker.addTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -55,12 +59,12 @@ class AmazonSageMakerAddTagsCommand(val resourceArn: String, val tags: List<com.
 }
 
 
-fun AmazonSageMakerFunctions.createEndpoint(endpointName: String, endpointConfigName: String, init: AmazonSageMakerCreateEndpointCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerCreateEndpointCommand(endpointName, endpointConfigName).apply(init))
+fun AmazonSageMakerFunctions.createEndpoint(endpointName: String, endpointConfigName: String, init: AmazonSageMakerCreateEndpointCommand.() -> Unit): com.amazonaws.services.sagemaker.model.CreateEndpointResult {
+	return this.block.declare(AmazonSageMakerCreateEndpointCommand(endpointName, endpointConfigName).apply(init)) as com.amazonaws.services.sagemaker.model.CreateEndpointResult
 }
 
 @Generated
-class AmazonSageMakerCreateEndpointCommand(val endpointName: String, val endpointConfigName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.CreateEndpointRequest> {
+class AmazonSageMakerCreateEndpointCommand(val endpointName: String, val endpointConfigName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.CreateEndpointRequest, com.amazonaws.services.sagemaker.model.CreateEndpointResult> {
 
 	var tags: List<com.amazonaws.services.sagemaker.model.Tag>? = null
 
@@ -72,8 +76,12 @@ class AmazonSageMakerCreateEndpointCommand(val endpointName: String, val endpoin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.createEndpoint(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.CreateEndpointResult {
+	  return com.amazonaws.services.sagemaker.model.CreateEndpointResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.CreateEndpointResult {
+		return environment.sagemaker.createEndpoint(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -86,12 +94,12 @@ class AmazonSageMakerCreateEndpointCommand(val endpointName: String, val endpoin
 }
 
 
-fun AmazonSageMakerFunctions.createEndpointConfig(endpointConfigName: String, productionVariants: List<com.amazonaws.services.sagemaker.model.ProductionVariant>, init: AmazonSageMakerCreateEndpointConfigCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerCreateEndpointConfigCommand(endpointConfigName, productionVariants).apply(init))
+fun AmazonSageMakerFunctions.createEndpointConfig(endpointConfigName: String, productionVariants: List<com.amazonaws.services.sagemaker.model.ProductionVariant>, init: AmazonSageMakerCreateEndpointConfigCommand.() -> Unit): com.amazonaws.services.sagemaker.model.CreateEndpointConfigResult {
+	return this.block.declare(AmazonSageMakerCreateEndpointConfigCommand(endpointConfigName, productionVariants).apply(init)) as com.amazonaws.services.sagemaker.model.CreateEndpointConfigResult
 }
 
 @Generated
-class AmazonSageMakerCreateEndpointConfigCommand(val endpointConfigName: String, val productionVariants: List<com.amazonaws.services.sagemaker.model.ProductionVariant>) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.CreateEndpointConfigRequest> {
+class AmazonSageMakerCreateEndpointConfigCommand(val endpointConfigName: String, val productionVariants: List<com.amazonaws.services.sagemaker.model.ProductionVariant>) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.CreateEndpointConfigRequest, com.amazonaws.services.sagemaker.model.CreateEndpointConfigResult> {
 
 	var tags: List<com.amazonaws.services.sagemaker.model.Tag>? = null
 	var kmsKeyId: String? = null
@@ -105,8 +113,12 @@ class AmazonSageMakerCreateEndpointConfigCommand(val endpointConfigName: String,
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.createEndpointConfig(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.CreateEndpointConfigResult {
+	  return com.amazonaws.services.sagemaker.model.CreateEndpointConfigResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.CreateEndpointConfigResult {
+		return environment.sagemaker.createEndpointConfig(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -120,12 +132,12 @@ class AmazonSageMakerCreateEndpointConfigCommand(val endpointConfigName: String,
 }
 
 
-fun AmazonSageMakerFunctions.createModel(modelName: String, primaryContainer: com.amazonaws.services.sagemaker.model.ContainerDefinition, executionRoleArn: String, init: AmazonSageMakerCreateModelCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerCreateModelCommand(modelName, primaryContainer, executionRoleArn).apply(init))
+fun AmazonSageMakerFunctions.createModel(modelName: String, primaryContainer: com.amazonaws.services.sagemaker.model.ContainerDefinition, executionRoleArn: String, init: AmazonSageMakerCreateModelCommand.() -> Unit): com.amazonaws.services.sagemaker.model.CreateModelResult {
+	return this.block.declare(AmazonSageMakerCreateModelCommand(modelName, primaryContainer, executionRoleArn).apply(init)) as com.amazonaws.services.sagemaker.model.CreateModelResult
 }
 
 @Generated
-class AmazonSageMakerCreateModelCommand(val modelName: String, val primaryContainer: com.amazonaws.services.sagemaker.model.ContainerDefinition, val executionRoleArn: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.CreateModelRequest> {
+class AmazonSageMakerCreateModelCommand(val modelName: String, val primaryContainer: com.amazonaws.services.sagemaker.model.ContainerDefinition, val executionRoleArn: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.CreateModelRequest, com.amazonaws.services.sagemaker.model.CreateModelResult> {
 
 	var tags: List<com.amazonaws.services.sagemaker.model.Tag>? = null
 
@@ -138,8 +150,12 @@ class AmazonSageMakerCreateModelCommand(val modelName: String, val primaryContai
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.createModel(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.CreateModelResult {
+	  return com.amazonaws.services.sagemaker.model.CreateModelResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.CreateModelResult {
+		return environment.sagemaker.createModel(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -153,12 +169,12 @@ class AmazonSageMakerCreateModelCommand(val modelName: String, val primaryContai
 }
 
 
-fun AmazonSageMakerFunctions.createNotebookInstance(notebookInstanceName: String, instanceType: InstanceType, roleArn: String, init: AmazonSageMakerCreateNotebookInstanceCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerCreateNotebookInstanceCommand(notebookInstanceName, instanceType, roleArn).apply(init))
+fun AmazonSageMakerFunctions.createNotebookInstance(notebookInstanceName: String, instanceType: InstanceType, roleArn: String, init: AmazonSageMakerCreateNotebookInstanceCommand.() -> Unit): com.amazonaws.services.sagemaker.model.CreateNotebookInstanceResult {
+	return this.block.declare(AmazonSageMakerCreateNotebookInstanceCommand(notebookInstanceName, instanceType, roleArn).apply(init)) as com.amazonaws.services.sagemaker.model.CreateNotebookInstanceResult
 }
 
 @Generated
-class AmazonSageMakerCreateNotebookInstanceCommand(val notebookInstanceName: String, val instanceType: InstanceType, val roleArn: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.CreateNotebookInstanceRequest> {
+class AmazonSageMakerCreateNotebookInstanceCommand(val notebookInstanceName: String, val instanceType: InstanceType, val roleArn: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.CreateNotebookInstanceRequest, com.amazonaws.services.sagemaker.model.CreateNotebookInstanceResult> {
 
 	var subnetId: String? = null
 	var securityGroupIds: List<String>? = null
@@ -181,8 +197,12 @@ class AmazonSageMakerCreateNotebookInstanceCommand(val notebookInstanceName: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.createNotebookInstance(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.CreateNotebookInstanceResult {
+	  return com.amazonaws.services.sagemaker.model.CreateNotebookInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.CreateNotebookInstanceResult {
+		return environment.sagemaker.createNotebookInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -201,12 +221,12 @@ class AmazonSageMakerCreateNotebookInstanceCommand(val notebookInstanceName: Str
 }
 
 
-fun AmazonSageMakerFunctions.createNotebookInstanceLifecycleConfig(notebookInstanceLifecycleConfigName: String, init: AmazonSageMakerCreateNotebookInstanceLifecycleConfigCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerCreateNotebookInstanceLifecycleConfigCommand(notebookInstanceLifecycleConfigName).apply(init))
+fun AmazonSageMakerFunctions.createNotebookInstanceLifecycleConfig(notebookInstanceLifecycleConfigName: String, init: AmazonSageMakerCreateNotebookInstanceLifecycleConfigCommand.() -> Unit): com.amazonaws.services.sagemaker.model.CreateNotebookInstanceLifecycleConfigResult {
+	return this.block.declare(AmazonSageMakerCreateNotebookInstanceLifecycleConfigCommand(notebookInstanceLifecycleConfigName).apply(init)) as com.amazonaws.services.sagemaker.model.CreateNotebookInstanceLifecycleConfigResult
 }
 
 @Generated
-class AmazonSageMakerCreateNotebookInstanceLifecycleConfigCommand(val notebookInstanceLifecycleConfigName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.CreateNotebookInstanceLifecycleConfigRequest> {
+class AmazonSageMakerCreateNotebookInstanceLifecycleConfigCommand(val notebookInstanceLifecycleConfigName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.CreateNotebookInstanceLifecycleConfigRequest, com.amazonaws.services.sagemaker.model.CreateNotebookInstanceLifecycleConfigResult> {
 
 	var onCreate: List<com.amazonaws.services.sagemaker.model.NotebookInstanceLifecycleHook>? = null
 	var onStart: List<com.amazonaws.services.sagemaker.model.NotebookInstanceLifecycleHook>? = null
@@ -219,8 +239,12 @@ class AmazonSageMakerCreateNotebookInstanceLifecycleConfigCommand(val notebookIn
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.createNotebookInstanceLifecycleConfig(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.CreateNotebookInstanceLifecycleConfigResult {
+	  return com.amazonaws.services.sagemaker.model.CreateNotebookInstanceLifecycleConfigResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.CreateNotebookInstanceLifecycleConfigResult {
+		return environment.sagemaker.createNotebookInstanceLifecycleConfig(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -233,12 +257,12 @@ class AmazonSageMakerCreateNotebookInstanceLifecycleConfigCommand(val notebookIn
 }
 
 
-fun AmazonSageMakerFunctions.createPresignedNotebookInstanceUrl(notebookInstanceName: String, init: AmazonSageMakerCreatePresignedNotebookInstanceUrlCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerCreatePresignedNotebookInstanceUrlCommand(notebookInstanceName).apply(init))
+fun AmazonSageMakerFunctions.createPresignedNotebookInstanceUrl(notebookInstanceName: String, init: AmazonSageMakerCreatePresignedNotebookInstanceUrlCommand.() -> Unit): com.amazonaws.services.sagemaker.model.CreatePresignedNotebookInstanceUrlResult {
+	return this.block.declare(AmazonSageMakerCreatePresignedNotebookInstanceUrlCommand(notebookInstanceName).apply(init)) as com.amazonaws.services.sagemaker.model.CreatePresignedNotebookInstanceUrlResult
 }
 
 @Generated
-class AmazonSageMakerCreatePresignedNotebookInstanceUrlCommand(val notebookInstanceName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.CreatePresignedNotebookInstanceUrlRequest> {
+class AmazonSageMakerCreatePresignedNotebookInstanceUrlCommand(val notebookInstanceName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.CreatePresignedNotebookInstanceUrlRequest, com.amazonaws.services.sagemaker.model.CreatePresignedNotebookInstanceUrlResult> {
 
 	var sessionExpirationDurationInSeconds: Int? = 0
 
@@ -249,8 +273,12 @@ class AmazonSageMakerCreatePresignedNotebookInstanceUrlCommand(val notebookInsta
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.createPresignedNotebookInstanceUrl(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.CreatePresignedNotebookInstanceUrlResult {
+	  return com.amazonaws.services.sagemaker.model.CreatePresignedNotebookInstanceUrlResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.CreatePresignedNotebookInstanceUrlResult {
+		return environment.sagemaker.createPresignedNotebookInstanceUrl(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -262,12 +290,12 @@ class AmazonSageMakerCreatePresignedNotebookInstanceUrlCommand(val notebookInsta
 }
 
 
-fun AmazonSageMakerFunctions.createTrainingJob(trainingJobName: String, algorithmSpecification: com.amazonaws.services.sagemaker.model.AlgorithmSpecification, roleArn: String, inputDataConfig: List<com.amazonaws.services.sagemaker.model.Channel>, outputDataConfig: com.amazonaws.services.sagemaker.model.OutputDataConfig, resourceConfig: com.amazonaws.services.sagemaker.model.ResourceConfig, stoppingCondition: com.amazonaws.services.sagemaker.model.StoppingCondition, init: AmazonSageMakerCreateTrainingJobCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerCreateTrainingJobCommand(trainingJobName, algorithmSpecification, roleArn, inputDataConfig, outputDataConfig, resourceConfig, stoppingCondition).apply(init))
+fun AmazonSageMakerFunctions.createTrainingJob(trainingJobName: String, algorithmSpecification: com.amazonaws.services.sagemaker.model.AlgorithmSpecification, roleArn: String, inputDataConfig: List<com.amazonaws.services.sagemaker.model.Channel>, outputDataConfig: com.amazonaws.services.sagemaker.model.OutputDataConfig, resourceConfig: com.amazonaws.services.sagemaker.model.ResourceConfig, stoppingCondition: com.amazonaws.services.sagemaker.model.StoppingCondition, init: AmazonSageMakerCreateTrainingJobCommand.() -> Unit): com.amazonaws.services.sagemaker.model.CreateTrainingJobResult {
+	return this.block.declare(AmazonSageMakerCreateTrainingJobCommand(trainingJobName, algorithmSpecification, roleArn, inputDataConfig, outputDataConfig, resourceConfig, stoppingCondition).apply(init)) as com.amazonaws.services.sagemaker.model.CreateTrainingJobResult
 }
 
 @Generated
-class AmazonSageMakerCreateTrainingJobCommand(val trainingJobName: String, val algorithmSpecification: com.amazonaws.services.sagemaker.model.AlgorithmSpecification, val roleArn: String, val inputDataConfig: List<com.amazonaws.services.sagemaker.model.Channel>, val outputDataConfig: com.amazonaws.services.sagemaker.model.OutputDataConfig, val resourceConfig: com.amazonaws.services.sagemaker.model.ResourceConfig, val stoppingCondition: com.amazonaws.services.sagemaker.model.StoppingCondition) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.CreateTrainingJobRequest> {
+class AmazonSageMakerCreateTrainingJobCommand(val trainingJobName: String, val algorithmSpecification: com.amazonaws.services.sagemaker.model.AlgorithmSpecification, val roleArn: String, val inputDataConfig: List<com.amazonaws.services.sagemaker.model.Channel>, val outputDataConfig: com.amazonaws.services.sagemaker.model.OutputDataConfig, val resourceConfig: com.amazonaws.services.sagemaker.model.ResourceConfig, val stoppingCondition: com.amazonaws.services.sagemaker.model.StoppingCondition) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.CreateTrainingJobRequest, com.amazonaws.services.sagemaker.model.CreateTrainingJobResult> {
 
 	var hyperParameters: Map<String, String>? = null
 	var tags: List<com.amazonaws.services.sagemaker.model.Tag>? = null
@@ -286,8 +314,12 @@ class AmazonSageMakerCreateTrainingJobCommand(val trainingJobName: String, val a
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.createTrainingJob(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.CreateTrainingJobResult {
+	  return com.amazonaws.services.sagemaker.model.CreateTrainingJobResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.CreateTrainingJobResult {
+		return environment.sagemaker.createTrainingJob(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -306,12 +338,12 @@ class AmazonSageMakerCreateTrainingJobCommand(val trainingJobName: String, val a
 }
 
 
-fun AmazonSageMakerFunctions.deleteEndpoint(endpointName: String, init: AmazonSageMakerDeleteEndpointCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerDeleteEndpointCommand(endpointName).apply(init))
+fun AmazonSageMakerFunctions.deleteEndpoint(endpointName: String, init: AmazonSageMakerDeleteEndpointCommand.() -> Unit): com.amazonaws.services.sagemaker.model.DeleteEndpointResult {
+	return this.block.declare(AmazonSageMakerDeleteEndpointCommand(endpointName).apply(init)) as com.amazonaws.services.sagemaker.model.DeleteEndpointResult
 }
 
 @Generated
-class AmazonSageMakerDeleteEndpointCommand(val endpointName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.DeleteEndpointRequest> {
+class AmazonSageMakerDeleteEndpointCommand(val endpointName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.DeleteEndpointRequest, com.amazonaws.services.sagemaker.model.DeleteEndpointResult> {
 
 
 
@@ -321,8 +353,12 @@ class AmazonSageMakerDeleteEndpointCommand(val endpointName: String) : AmazonWeb
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.deleteEndpoint(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.DeleteEndpointResult {
+	  return com.amazonaws.services.sagemaker.model.DeleteEndpointResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.DeleteEndpointResult {
+		return environment.sagemaker.deleteEndpoint(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -333,12 +369,12 @@ class AmazonSageMakerDeleteEndpointCommand(val endpointName: String) : AmazonWeb
 }
 
 
-fun AmazonSageMakerFunctions.deleteEndpointConfig(endpointConfigName: String, init: AmazonSageMakerDeleteEndpointConfigCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerDeleteEndpointConfigCommand(endpointConfigName).apply(init))
+fun AmazonSageMakerFunctions.deleteEndpointConfig(endpointConfigName: String, init: AmazonSageMakerDeleteEndpointConfigCommand.() -> Unit): com.amazonaws.services.sagemaker.model.DeleteEndpointConfigResult {
+	return this.block.declare(AmazonSageMakerDeleteEndpointConfigCommand(endpointConfigName).apply(init)) as com.amazonaws.services.sagemaker.model.DeleteEndpointConfigResult
 }
 
 @Generated
-class AmazonSageMakerDeleteEndpointConfigCommand(val endpointConfigName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.DeleteEndpointConfigRequest> {
+class AmazonSageMakerDeleteEndpointConfigCommand(val endpointConfigName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.DeleteEndpointConfigRequest, com.amazonaws.services.sagemaker.model.DeleteEndpointConfigResult> {
 
 
 
@@ -348,8 +384,12 @@ class AmazonSageMakerDeleteEndpointConfigCommand(val endpointConfigName: String)
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.deleteEndpointConfig(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.DeleteEndpointConfigResult {
+	  return com.amazonaws.services.sagemaker.model.DeleteEndpointConfigResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.DeleteEndpointConfigResult {
+		return environment.sagemaker.deleteEndpointConfig(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -360,12 +400,12 @@ class AmazonSageMakerDeleteEndpointConfigCommand(val endpointConfigName: String)
 }
 
 
-fun AmazonSageMakerFunctions.deleteModel(modelName: String, init: AmazonSageMakerDeleteModelCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerDeleteModelCommand(modelName).apply(init))
+fun AmazonSageMakerFunctions.deleteModel(modelName: String, init: AmazonSageMakerDeleteModelCommand.() -> Unit): com.amazonaws.services.sagemaker.model.DeleteModelResult {
+	return this.block.declare(AmazonSageMakerDeleteModelCommand(modelName).apply(init)) as com.amazonaws.services.sagemaker.model.DeleteModelResult
 }
 
 @Generated
-class AmazonSageMakerDeleteModelCommand(val modelName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.DeleteModelRequest> {
+class AmazonSageMakerDeleteModelCommand(val modelName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.DeleteModelRequest, com.amazonaws.services.sagemaker.model.DeleteModelResult> {
 
 
 
@@ -375,8 +415,12 @@ class AmazonSageMakerDeleteModelCommand(val modelName: String) : AmazonWebServic
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.deleteModel(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.DeleteModelResult {
+	  return com.amazonaws.services.sagemaker.model.DeleteModelResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.DeleteModelResult {
+		return environment.sagemaker.deleteModel(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -387,12 +431,12 @@ class AmazonSageMakerDeleteModelCommand(val modelName: String) : AmazonWebServic
 }
 
 
-fun AmazonSageMakerFunctions.deleteNotebookInstance(notebookInstanceName: String, init: AmazonSageMakerDeleteNotebookInstanceCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerDeleteNotebookInstanceCommand(notebookInstanceName).apply(init))
+fun AmazonSageMakerFunctions.deleteNotebookInstance(notebookInstanceName: String, init: AmazonSageMakerDeleteNotebookInstanceCommand.() -> Unit): com.amazonaws.services.sagemaker.model.DeleteNotebookInstanceResult {
+	return this.block.declare(AmazonSageMakerDeleteNotebookInstanceCommand(notebookInstanceName).apply(init)) as com.amazonaws.services.sagemaker.model.DeleteNotebookInstanceResult
 }
 
 @Generated
-class AmazonSageMakerDeleteNotebookInstanceCommand(val notebookInstanceName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.DeleteNotebookInstanceRequest> {
+class AmazonSageMakerDeleteNotebookInstanceCommand(val notebookInstanceName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.DeleteNotebookInstanceRequest, com.amazonaws.services.sagemaker.model.DeleteNotebookInstanceResult> {
 
 
 
@@ -402,8 +446,12 @@ class AmazonSageMakerDeleteNotebookInstanceCommand(val notebookInstanceName: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.deleteNotebookInstance(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.DeleteNotebookInstanceResult {
+	  return com.amazonaws.services.sagemaker.model.DeleteNotebookInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.DeleteNotebookInstanceResult {
+		return environment.sagemaker.deleteNotebookInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -414,12 +462,12 @@ class AmazonSageMakerDeleteNotebookInstanceCommand(val notebookInstanceName: Str
 }
 
 
-fun AmazonSageMakerFunctions.deleteNotebookInstanceLifecycleConfig(notebookInstanceLifecycleConfigName: String, init: AmazonSageMakerDeleteNotebookInstanceLifecycleConfigCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerDeleteNotebookInstanceLifecycleConfigCommand(notebookInstanceLifecycleConfigName).apply(init))
+fun AmazonSageMakerFunctions.deleteNotebookInstanceLifecycleConfig(notebookInstanceLifecycleConfigName: String, init: AmazonSageMakerDeleteNotebookInstanceLifecycleConfigCommand.() -> Unit): com.amazonaws.services.sagemaker.model.DeleteNotebookInstanceLifecycleConfigResult {
+	return this.block.declare(AmazonSageMakerDeleteNotebookInstanceLifecycleConfigCommand(notebookInstanceLifecycleConfigName).apply(init)) as com.amazonaws.services.sagemaker.model.DeleteNotebookInstanceLifecycleConfigResult
 }
 
 @Generated
-class AmazonSageMakerDeleteNotebookInstanceLifecycleConfigCommand(val notebookInstanceLifecycleConfigName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.DeleteNotebookInstanceLifecycleConfigRequest> {
+class AmazonSageMakerDeleteNotebookInstanceLifecycleConfigCommand(val notebookInstanceLifecycleConfigName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.DeleteNotebookInstanceLifecycleConfigRequest, com.amazonaws.services.sagemaker.model.DeleteNotebookInstanceLifecycleConfigResult> {
 
 
 
@@ -429,8 +477,12 @@ class AmazonSageMakerDeleteNotebookInstanceLifecycleConfigCommand(val notebookIn
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.deleteNotebookInstanceLifecycleConfig(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.DeleteNotebookInstanceLifecycleConfigResult {
+	  return com.amazonaws.services.sagemaker.model.DeleteNotebookInstanceLifecycleConfigResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.DeleteNotebookInstanceLifecycleConfigResult {
+		return environment.sagemaker.deleteNotebookInstanceLifecycleConfig(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -441,12 +493,12 @@ class AmazonSageMakerDeleteNotebookInstanceLifecycleConfigCommand(val notebookIn
 }
 
 
-fun AmazonSageMakerFunctions.deleteTags(resourceArn: String, tagKeys: List<String>, init: AmazonSageMakerDeleteTagsCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerDeleteTagsCommand(resourceArn, tagKeys).apply(init))
+fun AmazonSageMakerFunctions.deleteTags(resourceArn: String, tagKeys: List<String>, init: AmazonSageMakerDeleteTagsCommand.() -> Unit): com.amazonaws.services.sagemaker.model.DeleteTagsResult {
+	return this.block.declare(AmazonSageMakerDeleteTagsCommand(resourceArn, tagKeys).apply(init)) as com.amazonaws.services.sagemaker.model.DeleteTagsResult
 }
 
 @Generated
-class AmazonSageMakerDeleteTagsCommand(val resourceArn: String, val tagKeys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.DeleteTagsRequest> {
+class AmazonSageMakerDeleteTagsCommand(val resourceArn: String, val tagKeys: List<String>) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.DeleteTagsRequest, com.amazonaws.services.sagemaker.model.DeleteTagsResult> {
 
 
 
@@ -457,8 +509,12 @@ class AmazonSageMakerDeleteTagsCommand(val resourceArn: String, val tagKeys: Lis
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.deleteTags(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.DeleteTagsResult {
+	  return com.amazonaws.services.sagemaker.model.DeleteTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.DeleteTagsResult {
+		return environment.sagemaker.deleteTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -470,12 +526,12 @@ class AmazonSageMakerDeleteTagsCommand(val resourceArn: String, val tagKeys: Lis
 }
 
 
-fun AmazonSageMakerFunctions.describeEndpoint(endpointName: String, init: AmazonSageMakerDescribeEndpointCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerDescribeEndpointCommand(endpointName).apply(init))
+fun AmazonSageMakerFunctions.describeEndpoint(endpointName: String, init: AmazonSageMakerDescribeEndpointCommand.() -> Unit): com.amazonaws.services.sagemaker.model.DescribeEndpointResult {
+	return this.block.declare(AmazonSageMakerDescribeEndpointCommand(endpointName).apply(init)) as com.amazonaws.services.sagemaker.model.DescribeEndpointResult
 }
 
 @Generated
-class AmazonSageMakerDescribeEndpointCommand(val endpointName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.DescribeEndpointRequest> {
+class AmazonSageMakerDescribeEndpointCommand(val endpointName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.DescribeEndpointRequest, com.amazonaws.services.sagemaker.model.DescribeEndpointResult> {
 
 
 
@@ -485,8 +541,12 @@ class AmazonSageMakerDescribeEndpointCommand(val endpointName: String) : AmazonW
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.describeEndpoint(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.DescribeEndpointResult {
+	  return com.amazonaws.services.sagemaker.model.DescribeEndpointResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.DescribeEndpointResult {
+		return environment.sagemaker.describeEndpoint(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -497,12 +557,12 @@ class AmazonSageMakerDescribeEndpointCommand(val endpointName: String) : AmazonW
 }
 
 
-fun AmazonSageMakerFunctions.describeEndpointConfig(endpointConfigName: String, init: AmazonSageMakerDescribeEndpointConfigCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerDescribeEndpointConfigCommand(endpointConfigName).apply(init))
+fun AmazonSageMakerFunctions.describeEndpointConfig(endpointConfigName: String, init: AmazonSageMakerDescribeEndpointConfigCommand.() -> Unit): com.amazonaws.services.sagemaker.model.DescribeEndpointConfigResult {
+	return this.block.declare(AmazonSageMakerDescribeEndpointConfigCommand(endpointConfigName).apply(init)) as com.amazonaws.services.sagemaker.model.DescribeEndpointConfigResult
 }
 
 @Generated
-class AmazonSageMakerDescribeEndpointConfigCommand(val endpointConfigName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.DescribeEndpointConfigRequest> {
+class AmazonSageMakerDescribeEndpointConfigCommand(val endpointConfigName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.DescribeEndpointConfigRequest, com.amazonaws.services.sagemaker.model.DescribeEndpointConfigResult> {
 
 
 
@@ -512,8 +572,12 @@ class AmazonSageMakerDescribeEndpointConfigCommand(val endpointConfigName: Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.describeEndpointConfig(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.DescribeEndpointConfigResult {
+	  return com.amazonaws.services.sagemaker.model.DescribeEndpointConfigResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.DescribeEndpointConfigResult {
+		return environment.sagemaker.describeEndpointConfig(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -524,12 +588,12 @@ class AmazonSageMakerDescribeEndpointConfigCommand(val endpointConfigName: Strin
 }
 
 
-fun AmazonSageMakerFunctions.describeModel(modelName: String, init: AmazonSageMakerDescribeModelCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerDescribeModelCommand(modelName).apply(init))
+fun AmazonSageMakerFunctions.describeModel(modelName: String, init: AmazonSageMakerDescribeModelCommand.() -> Unit): com.amazonaws.services.sagemaker.model.DescribeModelResult {
+	return this.block.declare(AmazonSageMakerDescribeModelCommand(modelName).apply(init)) as com.amazonaws.services.sagemaker.model.DescribeModelResult
 }
 
 @Generated
-class AmazonSageMakerDescribeModelCommand(val modelName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.DescribeModelRequest> {
+class AmazonSageMakerDescribeModelCommand(val modelName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.DescribeModelRequest, com.amazonaws.services.sagemaker.model.DescribeModelResult> {
 
 
 
@@ -539,8 +603,12 @@ class AmazonSageMakerDescribeModelCommand(val modelName: String) : AmazonWebServ
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.describeModel(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.DescribeModelResult {
+	  return com.amazonaws.services.sagemaker.model.DescribeModelResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.DescribeModelResult {
+		return environment.sagemaker.describeModel(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -551,12 +619,12 @@ class AmazonSageMakerDescribeModelCommand(val modelName: String) : AmazonWebServ
 }
 
 
-fun AmazonSageMakerFunctions.describeNotebookInstance(notebookInstanceName: String, init: AmazonSageMakerDescribeNotebookInstanceCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerDescribeNotebookInstanceCommand(notebookInstanceName).apply(init))
+fun AmazonSageMakerFunctions.describeNotebookInstance(notebookInstanceName: String, init: AmazonSageMakerDescribeNotebookInstanceCommand.() -> Unit): com.amazonaws.services.sagemaker.model.DescribeNotebookInstanceResult {
+	return this.block.declare(AmazonSageMakerDescribeNotebookInstanceCommand(notebookInstanceName).apply(init)) as com.amazonaws.services.sagemaker.model.DescribeNotebookInstanceResult
 }
 
 @Generated
-class AmazonSageMakerDescribeNotebookInstanceCommand(val notebookInstanceName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.DescribeNotebookInstanceRequest> {
+class AmazonSageMakerDescribeNotebookInstanceCommand(val notebookInstanceName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.DescribeNotebookInstanceRequest, com.amazonaws.services.sagemaker.model.DescribeNotebookInstanceResult> {
 
 
 
@@ -566,8 +634,12 @@ class AmazonSageMakerDescribeNotebookInstanceCommand(val notebookInstanceName: S
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.describeNotebookInstance(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.DescribeNotebookInstanceResult {
+	  return com.amazonaws.services.sagemaker.model.DescribeNotebookInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.DescribeNotebookInstanceResult {
+		return environment.sagemaker.describeNotebookInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -578,12 +650,12 @@ class AmazonSageMakerDescribeNotebookInstanceCommand(val notebookInstanceName: S
 }
 
 
-fun AmazonSageMakerFunctions.describeNotebookInstanceLifecycleConfig(notebookInstanceLifecycleConfigName: String, init: AmazonSageMakerDescribeNotebookInstanceLifecycleConfigCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerDescribeNotebookInstanceLifecycleConfigCommand(notebookInstanceLifecycleConfigName).apply(init))
+fun AmazonSageMakerFunctions.describeNotebookInstanceLifecycleConfig(notebookInstanceLifecycleConfigName: String, init: AmazonSageMakerDescribeNotebookInstanceLifecycleConfigCommand.() -> Unit): com.amazonaws.services.sagemaker.model.DescribeNotebookInstanceLifecycleConfigResult {
+	return this.block.declare(AmazonSageMakerDescribeNotebookInstanceLifecycleConfigCommand(notebookInstanceLifecycleConfigName).apply(init)) as com.amazonaws.services.sagemaker.model.DescribeNotebookInstanceLifecycleConfigResult
 }
 
 @Generated
-class AmazonSageMakerDescribeNotebookInstanceLifecycleConfigCommand(val notebookInstanceLifecycleConfigName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.DescribeNotebookInstanceLifecycleConfigRequest> {
+class AmazonSageMakerDescribeNotebookInstanceLifecycleConfigCommand(val notebookInstanceLifecycleConfigName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.DescribeNotebookInstanceLifecycleConfigRequest, com.amazonaws.services.sagemaker.model.DescribeNotebookInstanceLifecycleConfigResult> {
 
 
 
@@ -593,8 +665,12 @@ class AmazonSageMakerDescribeNotebookInstanceLifecycleConfigCommand(val notebook
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.describeNotebookInstanceLifecycleConfig(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.DescribeNotebookInstanceLifecycleConfigResult {
+	  return com.amazonaws.services.sagemaker.model.DescribeNotebookInstanceLifecycleConfigResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.DescribeNotebookInstanceLifecycleConfigResult {
+		return environment.sagemaker.describeNotebookInstanceLifecycleConfig(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -605,12 +681,12 @@ class AmazonSageMakerDescribeNotebookInstanceLifecycleConfigCommand(val notebook
 }
 
 
-fun AmazonSageMakerFunctions.describeTrainingJob(trainingJobName: String, init: AmazonSageMakerDescribeTrainingJobCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerDescribeTrainingJobCommand(trainingJobName).apply(init))
+fun AmazonSageMakerFunctions.describeTrainingJob(trainingJobName: String, init: AmazonSageMakerDescribeTrainingJobCommand.() -> Unit): com.amazonaws.services.sagemaker.model.DescribeTrainingJobResult {
+	return this.block.declare(AmazonSageMakerDescribeTrainingJobCommand(trainingJobName).apply(init)) as com.amazonaws.services.sagemaker.model.DescribeTrainingJobResult
 }
 
 @Generated
-class AmazonSageMakerDescribeTrainingJobCommand(val trainingJobName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.DescribeTrainingJobRequest> {
+class AmazonSageMakerDescribeTrainingJobCommand(val trainingJobName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.DescribeTrainingJobRequest, com.amazonaws.services.sagemaker.model.DescribeTrainingJobResult> {
 
 
 
@@ -620,8 +696,12 @@ class AmazonSageMakerDescribeTrainingJobCommand(val trainingJobName: String) : A
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.describeTrainingJob(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.DescribeTrainingJobResult {
+	  return com.amazonaws.services.sagemaker.model.DescribeTrainingJobResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.DescribeTrainingJobResult {
+		return environment.sagemaker.describeTrainingJob(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -632,12 +712,12 @@ class AmazonSageMakerDescribeTrainingJobCommand(val trainingJobName: String) : A
 }
 
 
-fun AmazonSageMakerFunctions.listEndpointConfigs(init: AmazonSageMakerListEndpointConfigsCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerListEndpointConfigsCommand().apply(init))
+fun AmazonSageMakerFunctions.listEndpointConfigs(init: AmazonSageMakerListEndpointConfigsCommand.() -> Unit): com.amazonaws.services.sagemaker.model.ListEndpointConfigsResult {
+	return this.block.declare(AmazonSageMakerListEndpointConfigsCommand().apply(init)) as com.amazonaws.services.sagemaker.model.ListEndpointConfigsResult
 }
 
 @Generated
-class AmazonSageMakerListEndpointConfigsCommand() : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.ListEndpointConfigsRequest> {
+class AmazonSageMakerListEndpointConfigsCommand() : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.ListEndpointConfigsRequest, com.amazonaws.services.sagemaker.model.ListEndpointConfigsResult> {
 
 	var sortBy: EndpointConfigSortKey? = null
 	var sortOrder: OrderKey? = null
@@ -659,8 +739,12 @@ class AmazonSageMakerListEndpointConfigsCommand() : AmazonWebServiceCommand<com.
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.listEndpointConfigs(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.ListEndpointConfigsResult {
+	  return com.amazonaws.services.sagemaker.model.ListEndpointConfigsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.ListEndpointConfigsResult {
+		return environment.sagemaker.listEndpointConfigs(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -677,12 +761,12 @@ class AmazonSageMakerListEndpointConfigsCommand() : AmazonWebServiceCommand<com.
 }
 
 
-fun AmazonSageMakerFunctions.listEndpoints(init: AmazonSageMakerListEndpointsCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerListEndpointsCommand().apply(init))
+fun AmazonSageMakerFunctions.listEndpoints(init: AmazonSageMakerListEndpointsCommand.() -> Unit): com.amazonaws.services.sagemaker.model.ListEndpointsResult {
+	return this.block.declare(AmazonSageMakerListEndpointsCommand().apply(init)) as com.amazonaws.services.sagemaker.model.ListEndpointsResult
 }
 
 @Generated
-class AmazonSageMakerListEndpointsCommand() : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.ListEndpointsRequest> {
+class AmazonSageMakerListEndpointsCommand() : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.ListEndpointsRequest, com.amazonaws.services.sagemaker.model.ListEndpointsResult> {
 
 	var sortBy: EndpointSortKey? = null
 	var sortOrder: OrderKey? = null
@@ -710,8 +794,12 @@ class AmazonSageMakerListEndpointsCommand() : AmazonWebServiceCommand<com.amazon
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.listEndpoints(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.ListEndpointsResult {
+	  return com.amazonaws.services.sagemaker.model.ListEndpointsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.ListEndpointsResult {
+		return environment.sagemaker.listEndpoints(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -731,12 +819,12 @@ class AmazonSageMakerListEndpointsCommand() : AmazonWebServiceCommand<com.amazon
 }
 
 
-fun AmazonSageMakerFunctions.listModels(init: AmazonSageMakerListModelsCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerListModelsCommand().apply(init))
+fun AmazonSageMakerFunctions.listModels(init: AmazonSageMakerListModelsCommand.() -> Unit): com.amazonaws.services.sagemaker.model.ListModelsResult {
+	return this.block.declare(AmazonSageMakerListModelsCommand().apply(init)) as com.amazonaws.services.sagemaker.model.ListModelsResult
 }
 
 @Generated
-class AmazonSageMakerListModelsCommand() : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.ListModelsRequest> {
+class AmazonSageMakerListModelsCommand() : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.ListModelsRequest, com.amazonaws.services.sagemaker.model.ListModelsResult> {
 
 	var sortBy: ModelSortKey? = null
 	var sortOrder: OrderKey? = null
@@ -758,8 +846,12 @@ class AmazonSageMakerListModelsCommand() : AmazonWebServiceCommand<com.amazonaws
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.listModels(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.ListModelsResult {
+	  return com.amazonaws.services.sagemaker.model.ListModelsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.ListModelsResult {
+		return environment.sagemaker.listModels(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -776,12 +868,12 @@ class AmazonSageMakerListModelsCommand() : AmazonWebServiceCommand<com.amazonaws
 }
 
 
-fun AmazonSageMakerFunctions.listNotebookInstanceLifecycleConfigs(init: AmazonSageMakerListNotebookInstanceLifecycleConfigsCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerListNotebookInstanceLifecycleConfigsCommand().apply(init))
+fun AmazonSageMakerFunctions.listNotebookInstanceLifecycleConfigs(init: AmazonSageMakerListNotebookInstanceLifecycleConfigsCommand.() -> Unit): com.amazonaws.services.sagemaker.model.ListNotebookInstanceLifecycleConfigsResult {
+	return this.block.declare(AmazonSageMakerListNotebookInstanceLifecycleConfigsCommand().apply(init)) as com.amazonaws.services.sagemaker.model.ListNotebookInstanceLifecycleConfigsResult
 }
 
 @Generated
-class AmazonSageMakerListNotebookInstanceLifecycleConfigsCommand() : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.ListNotebookInstanceLifecycleConfigsRequest> {
+class AmazonSageMakerListNotebookInstanceLifecycleConfigsCommand() : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.ListNotebookInstanceLifecycleConfigsRequest, com.amazonaws.services.sagemaker.model.ListNotebookInstanceLifecycleConfigsResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -807,8 +899,12 @@ class AmazonSageMakerListNotebookInstanceLifecycleConfigsCommand() : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.listNotebookInstanceLifecycleConfigs(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.ListNotebookInstanceLifecycleConfigsResult {
+	  return com.amazonaws.services.sagemaker.model.ListNotebookInstanceLifecycleConfigsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.ListNotebookInstanceLifecycleConfigsResult {
+		return environment.sagemaker.listNotebookInstanceLifecycleConfigs(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -827,12 +923,12 @@ class AmazonSageMakerListNotebookInstanceLifecycleConfigsCommand() : AmazonWebSe
 }
 
 
-fun AmazonSageMakerFunctions.listNotebookInstances(init: AmazonSageMakerListNotebookInstancesCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerListNotebookInstancesCommand().apply(init))
+fun AmazonSageMakerFunctions.listNotebookInstances(init: AmazonSageMakerListNotebookInstancesCommand.() -> Unit): com.amazonaws.services.sagemaker.model.ListNotebookInstancesResult {
+	return this.block.declare(AmazonSageMakerListNotebookInstancesCommand().apply(init)) as com.amazonaws.services.sagemaker.model.ListNotebookInstancesResult
 }
 
 @Generated
-class AmazonSageMakerListNotebookInstancesCommand() : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.ListNotebookInstancesRequest> {
+class AmazonSageMakerListNotebookInstancesCommand() : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.ListNotebookInstancesRequest, com.amazonaws.services.sagemaker.model.ListNotebookInstancesResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -862,8 +958,12 @@ class AmazonSageMakerListNotebookInstancesCommand() : AmazonWebServiceCommand<co
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.listNotebookInstances(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.ListNotebookInstancesResult {
+	  return com.amazonaws.services.sagemaker.model.ListNotebookInstancesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.ListNotebookInstancesResult {
+		return environment.sagemaker.listNotebookInstances(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -884,12 +984,12 @@ class AmazonSageMakerListNotebookInstancesCommand() : AmazonWebServiceCommand<co
 }
 
 
-fun AmazonSageMakerFunctions.listTags(resourceArn: String, init: AmazonSageMakerListTagsCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerListTagsCommand(resourceArn).apply(init))
+fun AmazonSageMakerFunctions.listTags(resourceArn: String, init: AmazonSageMakerListTagsCommand.() -> Unit): com.amazonaws.services.sagemaker.model.ListTagsResult {
+	return this.block.declare(AmazonSageMakerListTagsCommand(resourceArn).apply(init)) as com.amazonaws.services.sagemaker.model.ListTagsResult
 }
 
 @Generated
-class AmazonSageMakerListTagsCommand(val resourceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.ListTagsRequest> {
+class AmazonSageMakerListTagsCommand(val resourceArn: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.ListTagsRequest, com.amazonaws.services.sagemaker.model.ListTagsResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -902,8 +1002,12 @@ class AmazonSageMakerListTagsCommand(val resourceArn: String) : AmazonWebService
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.listTags(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.ListTagsResult {
+	  return com.amazonaws.services.sagemaker.model.ListTagsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.ListTagsResult {
+		return environment.sagemaker.listTags(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -916,12 +1020,12 @@ class AmazonSageMakerListTagsCommand(val resourceArn: String) : AmazonWebService
 }
 
 
-fun AmazonSageMakerFunctions.listTrainingJobs(init: AmazonSageMakerListTrainingJobsCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerListTrainingJobsCommand().apply(init))
+fun AmazonSageMakerFunctions.listTrainingJobs(init: AmazonSageMakerListTrainingJobsCommand.() -> Unit): com.amazonaws.services.sagemaker.model.ListTrainingJobsResult {
+	return this.block.declare(AmazonSageMakerListTrainingJobsCommand().apply(init)) as com.amazonaws.services.sagemaker.model.ListTrainingJobsResult
 }
 
 @Generated
-class AmazonSageMakerListTrainingJobsCommand() : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.ListTrainingJobsRequest> {
+class AmazonSageMakerListTrainingJobsCommand() : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.ListTrainingJobsRequest, com.amazonaws.services.sagemaker.model.ListTrainingJobsResult> {
 
 	var nextToken: String? = null
 	var maxResults: Int? = 0
@@ -949,8 +1053,12 @@ class AmazonSageMakerListTrainingJobsCommand() : AmazonWebServiceCommand<com.ama
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.listTrainingJobs(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.ListTrainingJobsResult {
+	  return com.amazonaws.services.sagemaker.model.ListTrainingJobsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.ListTrainingJobsResult {
+		return environment.sagemaker.listTrainingJobs(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -970,12 +1078,12 @@ class AmazonSageMakerListTrainingJobsCommand() : AmazonWebServiceCommand<com.ama
 }
 
 
-fun AmazonSageMakerFunctions.startNotebookInstance(notebookInstanceName: String, init: AmazonSageMakerStartNotebookInstanceCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerStartNotebookInstanceCommand(notebookInstanceName).apply(init))
+fun AmazonSageMakerFunctions.startNotebookInstance(notebookInstanceName: String, init: AmazonSageMakerStartNotebookInstanceCommand.() -> Unit): com.amazonaws.services.sagemaker.model.StartNotebookInstanceResult {
+	return this.block.declare(AmazonSageMakerStartNotebookInstanceCommand(notebookInstanceName).apply(init)) as com.amazonaws.services.sagemaker.model.StartNotebookInstanceResult
 }
 
 @Generated
-class AmazonSageMakerStartNotebookInstanceCommand(val notebookInstanceName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.StartNotebookInstanceRequest> {
+class AmazonSageMakerStartNotebookInstanceCommand(val notebookInstanceName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.StartNotebookInstanceRequest, com.amazonaws.services.sagemaker.model.StartNotebookInstanceResult> {
 
 
 
@@ -985,8 +1093,12 @@ class AmazonSageMakerStartNotebookInstanceCommand(val notebookInstanceName: Stri
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.startNotebookInstance(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.StartNotebookInstanceResult {
+	  return com.amazonaws.services.sagemaker.model.StartNotebookInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.StartNotebookInstanceResult {
+		return environment.sagemaker.startNotebookInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -997,12 +1109,12 @@ class AmazonSageMakerStartNotebookInstanceCommand(val notebookInstanceName: Stri
 }
 
 
-fun AmazonSageMakerFunctions.stopNotebookInstance(notebookInstanceName: String, init: AmazonSageMakerStopNotebookInstanceCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerStopNotebookInstanceCommand(notebookInstanceName).apply(init))
+fun AmazonSageMakerFunctions.stopNotebookInstance(notebookInstanceName: String, init: AmazonSageMakerStopNotebookInstanceCommand.() -> Unit): com.amazonaws.services.sagemaker.model.StopNotebookInstanceResult {
+	return this.block.declare(AmazonSageMakerStopNotebookInstanceCommand(notebookInstanceName).apply(init)) as com.amazonaws.services.sagemaker.model.StopNotebookInstanceResult
 }
 
 @Generated
-class AmazonSageMakerStopNotebookInstanceCommand(val notebookInstanceName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.StopNotebookInstanceRequest> {
+class AmazonSageMakerStopNotebookInstanceCommand(val notebookInstanceName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.StopNotebookInstanceRequest, com.amazonaws.services.sagemaker.model.StopNotebookInstanceResult> {
 
 
 
@@ -1012,8 +1124,12 @@ class AmazonSageMakerStopNotebookInstanceCommand(val notebookInstanceName: Strin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.stopNotebookInstance(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.StopNotebookInstanceResult {
+	  return com.amazonaws.services.sagemaker.model.StopNotebookInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.StopNotebookInstanceResult {
+		return environment.sagemaker.stopNotebookInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1024,12 +1140,12 @@ class AmazonSageMakerStopNotebookInstanceCommand(val notebookInstanceName: Strin
 }
 
 
-fun AmazonSageMakerFunctions.stopTrainingJob(trainingJobName: String, init: AmazonSageMakerStopTrainingJobCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerStopTrainingJobCommand(trainingJobName).apply(init))
+fun AmazonSageMakerFunctions.stopTrainingJob(trainingJobName: String, init: AmazonSageMakerStopTrainingJobCommand.() -> Unit): com.amazonaws.services.sagemaker.model.StopTrainingJobResult {
+	return this.block.declare(AmazonSageMakerStopTrainingJobCommand(trainingJobName).apply(init)) as com.amazonaws.services.sagemaker.model.StopTrainingJobResult
 }
 
 @Generated
-class AmazonSageMakerStopTrainingJobCommand(val trainingJobName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.StopTrainingJobRequest> {
+class AmazonSageMakerStopTrainingJobCommand(val trainingJobName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.StopTrainingJobRequest, com.amazonaws.services.sagemaker.model.StopTrainingJobResult> {
 
 
 
@@ -1039,8 +1155,12 @@ class AmazonSageMakerStopTrainingJobCommand(val trainingJobName: String) : Amazo
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.stopTrainingJob(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.StopTrainingJobResult {
+	  return com.amazonaws.services.sagemaker.model.StopTrainingJobResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.StopTrainingJobResult {
+		return environment.sagemaker.stopTrainingJob(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1051,12 +1171,12 @@ class AmazonSageMakerStopTrainingJobCommand(val trainingJobName: String) : Amazo
 }
 
 
-fun AmazonSageMakerFunctions.updateEndpoint(endpointName: String, endpointConfigName: String, init: AmazonSageMakerUpdateEndpointCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerUpdateEndpointCommand(endpointName, endpointConfigName).apply(init))
+fun AmazonSageMakerFunctions.updateEndpoint(endpointName: String, endpointConfigName: String, init: AmazonSageMakerUpdateEndpointCommand.() -> Unit): com.amazonaws.services.sagemaker.model.UpdateEndpointResult {
+	return this.block.declare(AmazonSageMakerUpdateEndpointCommand(endpointName, endpointConfigName).apply(init)) as com.amazonaws.services.sagemaker.model.UpdateEndpointResult
 }
 
 @Generated
-class AmazonSageMakerUpdateEndpointCommand(val endpointName: String, val endpointConfigName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.UpdateEndpointRequest> {
+class AmazonSageMakerUpdateEndpointCommand(val endpointName: String, val endpointConfigName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.UpdateEndpointRequest, com.amazonaws.services.sagemaker.model.UpdateEndpointResult> {
 
 
 
@@ -1067,8 +1187,12 @@ class AmazonSageMakerUpdateEndpointCommand(val endpointName: String, val endpoin
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.updateEndpoint(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.UpdateEndpointResult {
+	  return com.amazonaws.services.sagemaker.model.UpdateEndpointResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.UpdateEndpointResult {
+		return environment.sagemaker.updateEndpoint(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1080,12 +1204,12 @@ class AmazonSageMakerUpdateEndpointCommand(val endpointName: String, val endpoin
 }
 
 
-fun AmazonSageMakerFunctions.updateEndpointWeightsAndCapacities(endpointName: String, desiredWeightsAndCapacities: List<com.amazonaws.services.sagemaker.model.DesiredWeightAndCapacity>, init: AmazonSageMakerUpdateEndpointWeightsAndCapacitiesCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerUpdateEndpointWeightsAndCapacitiesCommand(endpointName, desiredWeightsAndCapacities).apply(init))
+fun AmazonSageMakerFunctions.updateEndpointWeightsAndCapacities(endpointName: String, desiredWeightsAndCapacities: List<com.amazonaws.services.sagemaker.model.DesiredWeightAndCapacity>, init: AmazonSageMakerUpdateEndpointWeightsAndCapacitiesCommand.() -> Unit): com.amazonaws.services.sagemaker.model.UpdateEndpointWeightsAndCapacitiesResult {
+	return this.block.declare(AmazonSageMakerUpdateEndpointWeightsAndCapacitiesCommand(endpointName, desiredWeightsAndCapacities).apply(init)) as com.amazonaws.services.sagemaker.model.UpdateEndpointWeightsAndCapacitiesResult
 }
 
 @Generated
-class AmazonSageMakerUpdateEndpointWeightsAndCapacitiesCommand(val endpointName: String, val desiredWeightsAndCapacities: List<com.amazonaws.services.sagemaker.model.DesiredWeightAndCapacity>) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.UpdateEndpointWeightsAndCapacitiesRequest> {
+class AmazonSageMakerUpdateEndpointWeightsAndCapacitiesCommand(val endpointName: String, val desiredWeightsAndCapacities: List<com.amazonaws.services.sagemaker.model.DesiredWeightAndCapacity>) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.UpdateEndpointWeightsAndCapacitiesRequest, com.amazonaws.services.sagemaker.model.UpdateEndpointWeightsAndCapacitiesResult> {
 
 
 
@@ -1096,8 +1220,12 @@ class AmazonSageMakerUpdateEndpointWeightsAndCapacitiesCommand(val endpointName:
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.updateEndpointWeightsAndCapacities(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.UpdateEndpointWeightsAndCapacitiesResult {
+	  return com.amazonaws.services.sagemaker.model.UpdateEndpointWeightsAndCapacitiesResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.UpdateEndpointWeightsAndCapacitiesResult {
+		return environment.sagemaker.updateEndpointWeightsAndCapacities(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1109,12 +1237,12 @@ class AmazonSageMakerUpdateEndpointWeightsAndCapacitiesCommand(val endpointName:
 }
 
 
-fun AmazonSageMakerFunctions.updateNotebookInstance(notebookInstanceName: String, init: AmazonSageMakerUpdateNotebookInstanceCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerUpdateNotebookInstanceCommand(notebookInstanceName).apply(init))
+fun AmazonSageMakerFunctions.updateNotebookInstance(notebookInstanceName: String, init: AmazonSageMakerUpdateNotebookInstanceCommand.() -> Unit): com.amazonaws.services.sagemaker.model.UpdateNotebookInstanceResult {
+	return this.block.declare(AmazonSageMakerUpdateNotebookInstanceCommand(notebookInstanceName).apply(init)) as com.amazonaws.services.sagemaker.model.UpdateNotebookInstanceResult
 }
 
 @Generated
-class AmazonSageMakerUpdateNotebookInstanceCommand(val notebookInstanceName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.UpdateNotebookInstanceRequest> {
+class AmazonSageMakerUpdateNotebookInstanceCommand(val notebookInstanceName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.UpdateNotebookInstanceRequest, com.amazonaws.services.sagemaker.model.UpdateNotebookInstanceResult> {
 
 	var instanceType: InstanceType? = null
 	var roleArn: String? = null
@@ -1127,8 +1255,12 @@ class AmazonSageMakerUpdateNotebookInstanceCommand(val notebookInstanceName: Str
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.updateNotebookInstance(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.UpdateNotebookInstanceResult {
+	  return com.amazonaws.services.sagemaker.model.UpdateNotebookInstanceResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.UpdateNotebookInstanceResult {
+		return environment.sagemaker.updateNotebookInstance(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -1141,12 +1273,12 @@ class AmazonSageMakerUpdateNotebookInstanceCommand(val notebookInstanceName: Str
 }
 
 
-fun AmazonSageMakerFunctions.updateNotebookInstanceLifecycleConfig(notebookInstanceLifecycleConfigName: String, init: AmazonSageMakerUpdateNotebookInstanceLifecycleConfigCommand.() -> Unit) {
-	this.block.declare(AmazonSageMakerUpdateNotebookInstanceLifecycleConfigCommand(notebookInstanceLifecycleConfigName).apply(init))
+fun AmazonSageMakerFunctions.updateNotebookInstanceLifecycleConfig(notebookInstanceLifecycleConfigName: String, init: AmazonSageMakerUpdateNotebookInstanceLifecycleConfigCommand.() -> Unit): com.amazonaws.services.sagemaker.model.UpdateNotebookInstanceLifecycleConfigResult {
+	return this.block.declare(AmazonSageMakerUpdateNotebookInstanceLifecycleConfigCommand(notebookInstanceLifecycleConfigName).apply(init)) as com.amazonaws.services.sagemaker.model.UpdateNotebookInstanceLifecycleConfigResult
 }
 
 @Generated
-class AmazonSageMakerUpdateNotebookInstanceLifecycleConfigCommand(val notebookInstanceLifecycleConfigName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.UpdateNotebookInstanceLifecycleConfigRequest> {
+class AmazonSageMakerUpdateNotebookInstanceLifecycleConfigCommand(val notebookInstanceLifecycleConfigName: String) : AmazonWebServiceCommand<com.amazonaws.services.sagemaker.model.UpdateNotebookInstanceLifecycleConfigRequest, com.amazonaws.services.sagemaker.model.UpdateNotebookInstanceLifecycleConfigResult> {
 
 	var onCreate: List<com.amazonaws.services.sagemaker.model.NotebookInstanceLifecycleHook>? = null
 	var onStart: List<com.amazonaws.services.sagemaker.model.NotebookInstanceLifecycleHook>? = null
@@ -1159,8 +1291,12 @@ class AmazonSageMakerUpdateNotebookInstanceLifecycleConfigCommand(val notebookIn
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.sagemaker.updateNotebookInstanceLifecycleConfig(build())
+	override fun dryResult(): com.amazonaws.services.sagemaker.model.UpdateNotebookInstanceLifecycleConfigResult {
+	  return com.amazonaws.services.sagemaker.model.UpdateNotebookInstanceLifecycleConfigResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.sagemaker.model.UpdateNotebookInstanceLifecycleConfigResult {
+		return environment.sagemaker.updateNotebookInstanceLifecycleConfig(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

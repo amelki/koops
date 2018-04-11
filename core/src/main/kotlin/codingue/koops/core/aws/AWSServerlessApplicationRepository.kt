@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.serverlessrepo: AWSServerlessApplicationRepo
 @Generated
 class AWSServerlessApplicationRepositoryFunctions(val block: Block)
 
-infix fun AwsContinuation.serverlessrepo(init: AWSServerlessApplicationRepositoryFunctions.() -> Unit) {
-	AWSServerlessApplicationRepositoryFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.serverlessrepo(init: AWSServerlessApplicationRepositoryFunctions.() -> T): T {
+	return AWSServerlessApplicationRepositoryFunctions(shell).run(init)
 }
 
 			
 
-fun AWSServerlessApplicationRepositoryFunctions.createApplication(init: AWSServerlessApplicationRepositoryCreateApplicationCommand.() -> Unit) {
-	this.block.declare(AWSServerlessApplicationRepositoryCreateApplicationCommand().apply(init))
+fun AWSServerlessApplicationRepositoryFunctions.createApplication(init: AWSServerlessApplicationRepositoryCreateApplicationCommand.() -> Unit): com.amazonaws.services.serverlessapplicationrepository.model.CreateApplicationResult {
+	return this.block.declare(AWSServerlessApplicationRepositoryCreateApplicationCommand().apply(init)) as com.amazonaws.services.serverlessapplicationrepository.model.CreateApplicationResult
 }
 
 @Generated
-class AWSServerlessApplicationRepositoryCreateApplicationCommand() : AmazonWebServiceCommand<com.amazonaws.services.serverlessapplicationrepository.model.CreateApplicationRequest> {
+class AWSServerlessApplicationRepositoryCreateApplicationCommand() : AmazonWebServiceCommand<com.amazonaws.services.serverlessapplicationrepository.model.CreateApplicationRequest, com.amazonaws.services.serverlessapplicationrepository.model.CreateApplicationResult> {
 
 	var author: String? = null
 	var description: String? = null
@@ -67,8 +67,12 @@ class AWSServerlessApplicationRepositoryCreateApplicationCommand() : AmazonWebSe
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.serverlessrepo.createApplication(build())
+	override fun dryResult(): com.amazonaws.services.serverlessapplicationrepository.model.CreateApplicationResult {
+	  return com.amazonaws.services.serverlessapplicationrepository.model.CreateApplicationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.serverlessapplicationrepository.model.CreateApplicationResult {
+		return environment.serverlessrepo.createApplication(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -92,12 +96,12 @@ class AWSServerlessApplicationRepositoryCreateApplicationCommand() : AmazonWebSe
 }
 
 
-fun AWSServerlessApplicationRepositoryFunctions.createApplicationVersion(applicationId: String, semanticVersion: String, init: AWSServerlessApplicationRepositoryCreateApplicationVersionCommand.() -> Unit) {
-	this.block.declare(AWSServerlessApplicationRepositoryCreateApplicationVersionCommand(applicationId, semanticVersion).apply(init))
+fun AWSServerlessApplicationRepositoryFunctions.createApplicationVersion(applicationId: String, semanticVersion: String, init: AWSServerlessApplicationRepositoryCreateApplicationVersionCommand.() -> Unit): com.amazonaws.services.serverlessapplicationrepository.model.CreateApplicationVersionResult {
+	return this.block.declare(AWSServerlessApplicationRepositoryCreateApplicationVersionCommand(applicationId, semanticVersion).apply(init)) as com.amazonaws.services.serverlessapplicationrepository.model.CreateApplicationVersionResult
 }
 
 @Generated
-class AWSServerlessApplicationRepositoryCreateApplicationVersionCommand(val applicationId: String, val semanticVersion: String) : AmazonWebServiceCommand<com.amazonaws.services.serverlessapplicationrepository.model.CreateApplicationVersionRequest> {
+class AWSServerlessApplicationRepositoryCreateApplicationVersionCommand(val applicationId: String, val semanticVersion: String) : AmazonWebServiceCommand<com.amazonaws.services.serverlessapplicationrepository.model.CreateApplicationVersionRequest, com.amazonaws.services.serverlessapplicationrepository.model.CreateApplicationVersionResult> {
 
 	var sourceCodeUrl: String? = null
 	var templateBody: String? = null
@@ -113,8 +117,12 @@ class AWSServerlessApplicationRepositoryCreateApplicationVersionCommand(val appl
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.serverlessrepo.createApplicationVersion(build())
+	override fun dryResult(): com.amazonaws.services.serverlessapplicationrepository.model.CreateApplicationVersionResult {
+	  return com.amazonaws.services.serverlessapplicationrepository.model.CreateApplicationVersionResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.serverlessapplicationrepository.model.CreateApplicationVersionResult {
+		return environment.serverlessrepo.createApplicationVersion(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -129,12 +137,12 @@ class AWSServerlessApplicationRepositoryCreateApplicationVersionCommand(val appl
 }
 
 
-fun AWSServerlessApplicationRepositoryFunctions.createCloudFormationChangeSet(applicationId: String, init: AWSServerlessApplicationRepositoryCreateCloudFormationChangeSetCommand.() -> Unit) {
-	this.block.declare(AWSServerlessApplicationRepositoryCreateCloudFormationChangeSetCommand(applicationId).apply(init))
+fun AWSServerlessApplicationRepositoryFunctions.createCloudFormationChangeSet(applicationId: String, init: AWSServerlessApplicationRepositoryCreateCloudFormationChangeSetCommand.() -> Unit): com.amazonaws.services.serverlessapplicationrepository.model.CreateCloudFormationChangeSetResult {
+	return this.block.declare(AWSServerlessApplicationRepositoryCreateCloudFormationChangeSetCommand(applicationId).apply(init)) as com.amazonaws.services.serverlessapplicationrepository.model.CreateCloudFormationChangeSetResult
 }
 
 @Generated
-class AWSServerlessApplicationRepositoryCreateCloudFormationChangeSetCommand(val applicationId: String) : AmazonWebServiceCommand<com.amazonaws.services.serverlessapplicationrepository.model.CreateCloudFormationChangeSetRequest> {
+class AWSServerlessApplicationRepositoryCreateCloudFormationChangeSetCommand(val applicationId: String) : AmazonWebServiceCommand<com.amazonaws.services.serverlessapplicationrepository.model.CreateCloudFormationChangeSetRequest, com.amazonaws.services.serverlessapplicationrepository.model.CreateCloudFormationChangeSetResult> {
 
 	var parameterOverrides: List<com.amazonaws.services.serverlessapplicationrepository.model.ParameterValue>? = null
 	var semanticVersion: String? = null
@@ -149,8 +157,12 @@ class AWSServerlessApplicationRepositoryCreateCloudFormationChangeSetCommand(val
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.serverlessrepo.createCloudFormationChangeSet(build())
+	override fun dryResult(): com.amazonaws.services.serverlessapplicationrepository.model.CreateCloudFormationChangeSetResult {
+	  return com.amazonaws.services.serverlessapplicationrepository.model.CreateCloudFormationChangeSetResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.serverlessapplicationrepository.model.CreateCloudFormationChangeSetResult {
+		return environment.serverlessrepo.createCloudFormationChangeSet(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -164,12 +176,12 @@ class AWSServerlessApplicationRepositoryCreateCloudFormationChangeSetCommand(val
 }
 
 
-fun AWSServerlessApplicationRepositoryFunctions.deleteApplication(applicationId: String, init: AWSServerlessApplicationRepositoryDeleteApplicationCommand.() -> Unit) {
-	this.block.declare(AWSServerlessApplicationRepositoryDeleteApplicationCommand(applicationId).apply(init))
+fun AWSServerlessApplicationRepositoryFunctions.deleteApplication(applicationId: String, init: AWSServerlessApplicationRepositoryDeleteApplicationCommand.() -> Unit): com.amazonaws.services.serverlessapplicationrepository.model.DeleteApplicationResult {
+	return this.block.declare(AWSServerlessApplicationRepositoryDeleteApplicationCommand(applicationId).apply(init)) as com.amazonaws.services.serverlessapplicationrepository.model.DeleteApplicationResult
 }
 
 @Generated
-class AWSServerlessApplicationRepositoryDeleteApplicationCommand(val applicationId: String) : AmazonWebServiceCommand<com.amazonaws.services.serverlessapplicationrepository.model.DeleteApplicationRequest> {
+class AWSServerlessApplicationRepositoryDeleteApplicationCommand(val applicationId: String) : AmazonWebServiceCommand<com.amazonaws.services.serverlessapplicationrepository.model.DeleteApplicationRequest, com.amazonaws.services.serverlessapplicationrepository.model.DeleteApplicationResult> {
 
 
 
@@ -179,8 +191,12 @@ class AWSServerlessApplicationRepositoryDeleteApplicationCommand(val application
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.serverlessrepo.deleteApplication(build())
+	override fun dryResult(): com.amazonaws.services.serverlessapplicationrepository.model.DeleteApplicationResult {
+	  return com.amazonaws.services.serverlessapplicationrepository.model.DeleteApplicationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.serverlessapplicationrepository.model.DeleteApplicationResult {
+		return environment.serverlessrepo.deleteApplication(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -191,12 +207,12 @@ class AWSServerlessApplicationRepositoryDeleteApplicationCommand(val application
 }
 
 
-fun AWSServerlessApplicationRepositoryFunctions.getApplication(applicationId: String, init: AWSServerlessApplicationRepositoryGetApplicationCommand.() -> Unit) {
-	this.block.declare(AWSServerlessApplicationRepositoryGetApplicationCommand(applicationId).apply(init))
+fun AWSServerlessApplicationRepositoryFunctions.getApplication(applicationId: String, init: AWSServerlessApplicationRepositoryGetApplicationCommand.() -> Unit): com.amazonaws.services.serverlessapplicationrepository.model.GetApplicationResult {
+	return this.block.declare(AWSServerlessApplicationRepositoryGetApplicationCommand(applicationId).apply(init)) as com.amazonaws.services.serverlessapplicationrepository.model.GetApplicationResult
 }
 
 @Generated
-class AWSServerlessApplicationRepositoryGetApplicationCommand(val applicationId: String) : AmazonWebServiceCommand<com.amazonaws.services.serverlessapplicationrepository.model.GetApplicationRequest> {
+class AWSServerlessApplicationRepositoryGetApplicationCommand(val applicationId: String) : AmazonWebServiceCommand<com.amazonaws.services.serverlessapplicationrepository.model.GetApplicationRequest, com.amazonaws.services.serverlessapplicationrepository.model.GetApplicationResult> {
 
 	var semanticVersion: String? = null
 
@@ -207,8 +223,12 @@ class AWSServerlessApplicationRepositoryGetApplicationCommand(val applicationId:
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.serverlessrepo.getApplication(build())
+	override fun dryResult(): com.amazonaws.services.serverlessapplicationrepository.model.GetApplicationResult {
+	  return com.amazonaws.services.serverlessapplicationrepository.model.GetApplicationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.serverlessapplicationrepository.model.GetApplicationResult {
+		return environment.serverlessrepo.getApplication(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -220,12 +240,12 @@ class AWSServerlessApplicationRepositoryGetApplicationCommand(val applicationId:
 }
 
 
-fun AWSServerlessApplicationRepositoryFunctions.getApplicationPolicy(applicationId: String, init: AWSServerlessApplicationRepositoryGetApplicationPolicyCommand.() -> Unit) {
-	this.block.declare(AWSServerlessApplicationRepositoryGetApplicationPolicyCommand(applicationId).apply(init))
+fun AWSServerlessApplicationRepositoryFunctions.getApplicationPolicy(applicationId: String, init: AWSServerlessApplicationRepositoryGetApplicationPolicyCommand.() -> Unit): com.amazonaws.services.serverlessapplicationrepository.model.GetApplicationPolicyResult {
+	return this.block.declare(AWSServerlessApplicationRepositoryGetApplicationPolicyCommand(applicationId).apply(init)) as com.amazonaws.services.serverlessapplicationrepository.model.GetApplicationPolicyResult
 }
 
 @Generated
-class AWSServerlessApplicationRepositoryGetApplicationPolicyCommand(val applicationId: String) : AmazonWebServiceCommand<com.amazonaws.services.serverlessapplicationrepository.model.GetApplicationPolicyRequest> {
+class AWSServerlessApplicationRepositoryGetApplicationPolicyCommand(val applicationId: String) : AmazonWebServiceCommand<com.amazonaws.services.serverlessapplicationrepository.model.GetApplicationPolicyRequest, com.amazonaws.services.serverlessapplicationrepository.model.GetApplicationPolicyResult> {
 
 
 
@@ -235,8 +255,12 @@ class AWSServerlessApplicationRepositoryGetApplicationPolicyCommand(val applicat
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.serverlessrepo.getApplicationPolicy(build())
+	override fun dryResult(): com.amazonaws.services.serverlessapplicationrepository.model.GetApplicationPolicyResult {
+	  return com.amazonaws.services.serverlessapplicationrepository.model.GetApplicationPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.serverlessapplicationrepository.model.GetApplicationPolicyResult {
+		return environment.serverlessrepo.getApplicationPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -247,12 +271,12 @@ class AWSServerlessApplicationRepositoryGetApplicationPolicyCommand(val applicat
 }
 
 
-fun AWSServerlessApplicationRepositoryFunctions.listApplicationVersions(applicationId: String, init: AWSServerlessApplicationRepositoryListApplicationVersionsCommand.() -> Unit) {
-	this.block.declare(AWSServerlessApplicationRepositoryListApplicationVersionsCommand(applicationId).apply(init))
+fun AWSServerlessApplicationRepositoryFunctions.listApplicationVersions(applicationId: String, init: AWSServerlessApplicationRepositoryListApplicationVersionsCommand.() -> Unit): com.amazonaws.services.serverlessapplicationrepository.model.ListApplicationVersionsResult {
+	return this.block.declare(AWSServerlessApplicationRepositoryListApplicationVersionsCommand(applicationId).apply(init)) as com.amazonaws.services.serverlessapplicationrepository.model.ListApplicationVersionsResult
 }
 
 @Generated
-class AWSServerlessApplicationRepositoryListApplicationVersionsCommand(val applicationId: String) : AmazonWebServiceCommand<com.amazonaws.services.serverlessapplicationrepository.model.ListApplicationVersionsRequest> {
+class AWSServerlessApplicationRepositoryListApplicationVersionsCommand(val applicationId: String) : AmazonWebServiceCommand<com.amazonaws.services.serverlessapplicationrepository.model.ListApplicationVersionsRequest, com.amazonaws.services.serverlessapplicationrepository.model.ListApplicationVersionsResult> {
 
 	var maxItems: Int? = 0
 	var nextToken: String? = null
@@ -265,8 +289,12 @@ class AWSServerlessApplicationRepositoryListApplicationVersionsCommand(val appli
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.serverlessrepo.listApplicationVersions(build())
+	override fun dryResult(): com.amazonaws.services.serverlessapplicationrepository.model.ListApplicationVersionsResult {
+	  return com.amazonaws.services.serverlessapplicationrepository.model.ListApplicationVersionsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.serverlessapplicationrepository.model.ListApplicationVersionsResult {
+		return environment.serverlessrepo.listApplicationVersions(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -279,12 +307,12 @@ class AWSServerlessApplicationRepositoryListApplicationVersionsCommand(val appli
 }
 
 
-fun AWSServerlessApplicationRepositoryFunctions.listApplications(init: AWSServerlessApplicationRepositoryListApplicationsCommand.() -> Unit) {
-	this.block.declare(AWSServerlessApplicationRepositoryListApplicationsCommand().apply(init))
+fun AWSServerlessApplicationRepositoryFunctions.listApplications(init: AWSServerlessApplicationRepositoryListApplicationsCommand.() -> Unit): com.amazonaws.services.serverlessapplicationrepository.model.ListApplicationsResult {
+	return this.block.declare(AWSServerlessApplicationRepositoryListApplicationsCommand().apply(init)) as com.amazonaws.services.serverlessapplicationrepository.model.ListApplicationsResult
 }
 
 @Generated
-class AWSServerlessApplicationRepositoryListApplicationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.serverlessapplicationrepository.model.ListApplicationsRequest> {
+class AWSServerlessApplicationRepositoryListApplicationsCommand() : AmazonWebServiceCommand<com.amazonaws.services.serverlessapplicationrepository.model.ListApplicationsRequest, com.amazonaws.services.serverlessapplicationrepository.model.ListApplicationsResult> {
 
 	var maxItems: Int? = 0
 	var nextToken: String? = null
@@ -296,8 +324,12 @@ class AWSServerlessApplicationRepositoryListApplicationsCommand() : AmazonWebSer
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.serverlessrepo.listApplications(build())
+	override fun dryResult(): com.amazonaws.services.serverlessapplicationrepository.model.ListApplicationsResult {
+	  return com.amazonaws.services.serverlessapplicationrepository.model.ListApplicationsResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.serverlessapplicationrepository.model.ListApplicationsResult {
+		return environment.serverlessrepo.listApplications(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -309,12 +341,12 @@ class AWSServerlessApplicationRepositoryListApplicationsCommand() : AmazonWebSer
 }
 
 
-fun AWSServerlessApplicationRepositoryFunctions.putApplicationPolicy(applicationId: String, init: AWSServerlessApplicationRepositoryPutApplicationPolicyCommand.() -> Unit) {
-	this.block.declare(AWSServerlessApplicationRepositoryPutApplicationPolicyCommand(applicationId).apply(init))
+fun AWSServerlessApplicationRepositoryFunctions.putApplicationPolicy(applicationId: String, init: AWSServerlessApplicationRepositoryPutApplicationPolicyCommand.() -> Unit): com.amazonaws.services.serverlessapplicationrepository.model.PutApplicationPolicyResult {
+	return this.block.declare(AWSServerlessApplicationRepositoryPutApplicationPolicyCommand(applicationId).apply(init)) as com.amazonaws.services.serverlessapplicationrepository.model.PutApplicationPolicyResult
 }
 
 @Generated
-class AWSServerlessApplicationRepositoryPutApplicationPolicyCommand(val applicationId: String) : AmazonWebServiceCommand<com.amazonaws.services.serverlessapplicationrepository.model.PutApplicationPolicyRequest> {
+class AWSServerlessApplicationRepositoryPutApplicationPolicyCommand(val applicationId: String) : AmazonWebServiceCommand<com.amazonaws.services.serverlessapplicationrepository.model.PutApplicationPolicyRequest, com.amazonaws.services.serverlessapplicationrepository.model.PutApplicationPolicyResult> {
 
 	var statements: List<com.amazonaws.services.serverlessapplicationrepository.model.ApplicationPolicyStatement>? = null
 
@@ -325,8 +357,12 @@ class AWSServerlessApplicationRepositoryPutApplicationPolicyCommand(val applicat
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.serverlessrepo.putApplicationPolicy(build())
+	override fun dryResult(): com.amazonaws.services.serverlessapplicationrepository.model.PutApplicationPolicyResult {
+	  return com.amazonaws.services.serverlessapplicationrepository.model.PutApplicationPolicyResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.serverlessapplicationrepository.model.PutApplicationPolicyResult {
+		return environment.serverlessrepo.putApplicationPolicy(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -338,12 +374,12 @@ class AWSServerlessApplicationRepositoryPutApplicationPolicyCommand(val applicat
 }
 
 
-fun AWSServerlessApplicationRepositoryFunctions.updateApplication(applicationId: String, init: AWSServerlessApplicationRepositoryUpdateApplicationCommand.() -> Unit) {
-	this.block.declare(AWSServerlessApplicationRepositoryUpdateApplicationCommand(applicationId).apply(init))
+fun AWSServerlessApplicationRepositoryFunctions.updateApplication(applicationId: String, init: AWSServerlessApplicationRepositoryUpdateApplicationCommand.() -> Unit): com.amazonaws.services.serverlessapplicationrepository.model.UpdateApplicationResult {
+	return this.block.declare(AWSServerlessApplicationRepositoryUpdateApplicationCommand(applicationId).apply(init)) as com.amazonaws.services.serverlessapplicationrepository.model.UpdateApplicationResult
 }
 
 @Generated
-class AWSServerlessApplicationRepositoryUpdateApplicationCommand(val applicationId: String) : AmazonWebServiceCommand<com.amazonaws.services.serverlessapplicationrepository.model.UpdateApplicationRequest> {
+class AWSServerlessApplicationRepositoryUpdateApplicationCommand(val applicationId: String) : AmazonWebServiceCommand<com.amazonaws.services.serverlessapplicationrepository.model.UpdateApplicationRequest, com.amazonaws.services.serverlessapplicationrepository.model.UpdateApplicationResult> {
 
 	var author: String? = null
 	var description: String? = null
@@ -364,8 +400,12 @@ class AWSServerlessApplicationRepositoryUpdateApplicationCommand(val application
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.serverlessrepo.updateApplication(build())
+	override fun dryResult(): com.amazonaws.services.serverlessapplicationrepository.model.UpdateApplicationResult {
+	  return com.amazonaws.services.serverlessapplicationrepository.model.UpdateApplicationResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.serverlessapplicationrepository.model.UpdateApplicationResult {
+		return environment.serverlessrepo.updateApplication(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {

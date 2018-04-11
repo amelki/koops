@@ -1,5 +1,5 @@
 
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
 package codingue.koops.core.aws
 
@@ -20,18 +20,18 @@ var codingue.koops.core.Environment.meteringmarketplace: AWSMarketplaceMetering
 @Generated
 class AWSMarketplaceMeteringFunctions(val block: Block)
 
-infix fun AwsContinuation.meteringmarketplace(init: AWSMarketplaceMeteringFunctions.() -> Unit) {
-	AWSMarketplaceMeteringFunctions(shell).apply(init)
+infix fun <T> AwsContinuation.meteringmarketplace(init: AWSMarketplaceMeteringFunctions.() -> T): T {
+	return AWSMarketplaceMeteringFunctions(shell).run(init)
 }
 
 			
 
-fun AWSMarketplaceMeteringFunctions.batchMeterUsage(usageRecords: List<com.amazonaws.services.marketplacemetering.model.UsageRecord>, productCode: String, init: AWSMarketplaceMeteringBatchMeterUsageCommand.() -> Unit) {
-	this.block.declare(AWSMarketplaceMeteringBatchMeterUsageCommand(usageRecords, productCode).apply(init))
+fun AWSMarketplaceMeteringFunctions.batchMeterUsage(usageRecords: List<com.amazonaws.services.marketplacemetering.model.UsageRecord>, productCode: String, init: AWSMarketplaceMeteringBatchMeterUsageCommand.() -> Unit): com.amazonaws.services.marketplacemetering.model.BatchMeterUsageResult {
+	return this.block.declare(AWSMarketplaceMeteringBatchMeterUsageCommand(usageRecords, productCode).apply(init)) as com.amazonaws.services.marketplacemetering.model.BatchMeterUsageResult
 }
 
 @Generated
-class AWSMarketplaceMeteringBatchMeterUsageCommand(val usageRecords: List<com.amazonaws.services.marketplacemetering.model.UsageRecord>, val productCode: String) : AmazonWebServiceCommand<com.amazonaws.services.marketplacemetering.model.BatchMeterUsageRequest> {
+class AWSMarketplaceMeteringBatchMeterUsageCommand(val usageRecords: List<com.amazonaws.services.marketplacemetering.model.UsageRecord>, val productCode: String) : AmazonWebServiceCommand<com.amazonaws.services.marketplacemetering.model.BatchMeterUsageRequest, com.amazonaws.services.marketplacemetering.model.BatchMeterUsageResult> {
 
 
 
@@ -42,8 +42,12 @@ class AWSMarketplaceMeteringBatchMeterUsageCommand(val usageRecords: List<com.am
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.meteringmarketplace.batchMeterUsage(build())
+	override fun dryResult(): com.amazonaws.services.marketplacemetering.model.BatchMeterUsageResult {
+	  return com.amazonaws.services.marketplacemetering.model.BatchMeterUsageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.marketplacemetering.model.BatchMeterUsageResult {
+		return environment.meteringmarketplace.batchMeterUsage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -55,12 +59,12 @@ class AWSMarketplaceMeteringBatchMeterUsageCommand(val usageRecords: List<com.am
 }
 
 
-fun AWSMarketplaceMeteringFunctions.meterUsage(productCode: String, timestamp: java.util.Date, usageDimension: String, usageQuantity: Int, dryRun: Boolean, init: AWSMarketplaceMeteringMeterUsageCommand.() -> Unit) {
-	this.block.declare(AWSMarketplaceMeteringMeterUsageCommand(productCode, timestamp, usageDimension, usageQuantity, dryRun).apply(init))
+fun AWSMarketplaceMeteringFunctions.meterUsage(productCode: String, timestamp: java.util.Date, usageDimension: String, usageQuantity: Int, dryRun: Boolean, init: AWSMarketplaceMeteringMeterUsageCommand.() -> Unit): com.amazonaws.services.marketplacemetering.model.MeterUsageResult {
+	return this.block.declare(AWSMarketplaceMeteringMeterUsageCommand(productCode, timestamp, usageDimension, usageQuantity, dryRun).apply(init)) as com.amazonaws.services.marketplacemetering.model.MeterUsageResult
 }
 
 @Generated
-class AWSMarketplaceMeteringMeterUsageCommand(val productCode: String, val timestamp: java.util.Date, val usageDimension: String, val usageQuantity: Int, val dryRun: Boolean) : AmazonWebServiceCommand<com.amazonaws.services.marketplacemetering.model.MeterUsageRequest> {
+class AWSMarketplaceMeteringMeterUsageCommand(val productCode: String, val timestamp: java.util.Date, val usageDimension: String, val usageQuantity: Int, val dryRun: Boolean) : AmazonWebServiceCommand<com.amazonaws.services.marketplacemetering.model.MeterUsageRequest, com.amazonaws.services.marketplacemetering.model.MeterUsageResult> {
 
 
 
@@ -74,8 +78,12 @@ class AWSMarketplaceMeteringMeterUsageCommand(val productCode: String, val times
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.meteringmarketplace.meterUsage(build())
+	override fun dryResult(): com.amazonaws.services.marketplacemetering.model.MeterUsageResult {
+	  return com.amazonaws.services.marketplacemetering.model.MeterUsageResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.marketplacemetering.model.MeterUsageResult {
+		return environment.meteringmarketplace.meterUsage(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
@@ -90,12 +98,12 @@ class AWSMarketplaceMeteringMeterUsageCommand(val productCode: String, val times
 }
 
 
-fun AWSMarketplaceMeteringFunctions.resolveCustomer(registrationToken: String, init: AWSMarketplaceMeteringResolveCustomerCommand.() -> Unit) {
-	this.block.declare(AWSMarketplaceMeteringResolveCustomerCommand(registrationToken).apply(init))
+fun AWSMarketplaceMeteringFunctions.resolveCustomer(registrationToken: String, init: AWSMarketplaceMeteringResolveCustomerCommand.() -> Unit): com.amazonaws.services.marketplacemetering.model.ResolveCustomerResult {
+	return this.block.declare(AWSMarketplaceMeteringResolveCustomerCommand(registrationToken).apply(init)) as com.amazonaws.services.marketplacemetering.model.ResolveCustomerResult
 }
 
 @Generated
-class AWSMarketplaceMeteringResolveCustomerCommand(val registrationToken: String) : AmazonWebServiceCommand<com.amazonaws.services.marketplacemetering.model.ResolveCustomerRequest> {
+class AWSMarketplaceMeteringResolveCustomerCommand(val registrationToken: String) : AmazonWebServiceCommand<com.amazonaws.services.marketplacemetering.model.ResolveCustomerRequest, com.amazonaws.services.marketplacemetering.model.ResolveCustomerResult> {
 
 
 
@@ -105,8 +113,12 @@ class AWSMarketplaceMeteringResolveCustomerCommand(val registrationToken: String
 		return input
 	}
 
-	override fun eval(environment: codingue.koops.core.Environment) {
-		environment.meteringmarketplace.resolveCustomer(build())
+	override fun dryResult(): com.amazonaws.services.marketplacemetering.model.ResolveCustomerResult {
+	  return com.amazonaws.services.marketplacemetering.model.ResolveCustomerResult()
+	}
+
+	override fun eval(environment: codingue.koops.core.Environment): com.amazonaws.services.marketplacemetering.model.ResolveCustomerResult {
+		return environment.meteringmarketplace.resolveCustomer(build())
 	}
 
 	override fun descriptor(): AmazonWebServiceDescriptor {
