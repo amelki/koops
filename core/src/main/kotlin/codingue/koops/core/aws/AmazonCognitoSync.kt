@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.cognitosync.AmazonCognitoSync
+import com.amazonaws.services.cognitosync.AmazonCognitoSyncClientBuilder
 import com.amazonaws.services.cognitosync.model.*
 
 var codingue.koops.core.Environment.cognito_sync: AmazonCognitoSync
-	get() = this.capabilities[AmazonCognitoSync::class.java.name] as AmazonCognitoSync
+	get() {
+		var service = this.capabilities[AmazonCognitoSync::class.java.name]
+		if (service == null) {
+			service = AmazonCognitoSyncClientBuilder.standard().build()
+			cognito_sync = service
+		}
+		return service as AmazonCognitoSync
+	}
 	set(cognito_sync) {
 		this.capabilities[AmazonCognitoSync::class.java.name] = cognito_sync
 	}

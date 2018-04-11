@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.elasticmapreduce.AmazonElasticMapReduce
+import com.amazonaws.services.elasticmapreduce.AmazonElasticMapReduceClientBuilder
 import com.amazonaws.services.elasticmapreduce.model.*
 
 var codingue.koops.core.Environment.elasticmapreduce: AmazonElasticMapReduce
-	get() = this.capabilities[AmazonElasticMapReduce::class.java.name] as AmazonElasticMapReduce
+	get() {
+		var service = this.capabilities[AmazonElasticMapReduce::class.java.name]
+		if (service == null) {
+			service = AmazonElasticMapReduceClientBuilder.standard().build()
+			elasticmapreduce = service
+		}
+		return service as AmazonElasticMapReduce
+	}
 	set(elasticmapreduce) {
 		this.capabilities[AmazonElasticMapReduce::class.java.name] = elasticmapreduce
 	}

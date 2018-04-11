@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBStreams
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBStreamsClientBuilder
 import com.amazonaws.services.dynamodbv2.model.*
 
 var codingue.koops.core.Environment.dynamodbstreams: AmazonDynamoDBStreams
-	get() = this.capabilities[AmazonDynamoDBStreams::class.java.name] as AmazonDynamoDBStreams
+	get() {
+		var service = this.capabilities[AmazonDynamoDBStreams::class.java.name]
+		if (service == null) {
+			service = AmazonDynamoDBStreamsClientBuilder.standard().build()
+			dynamodbstreams = service
+		}
+		return service as AmazonDynamoDBStreams
+	}
 	set(dynamodbstreams) {
 		this.capabilities[AmazonDynamoDBStreams::class.java.name] = dynamodbstreams
 	}

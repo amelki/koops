@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.ecr.AmazonECR
+import com.amazonaws.services.ecr.AmazonECRClientBuilder
 import com.amazonaws.services.ecr.model.*
 
 var codingue.koops.core.Environment.ecr: AmazonECR
-	get() = this.capabilities[AmazonECR::class.java.name] as AmazonECR
+	get() {
+		var service = this.capabilities[AmazonECR::class.java.name]
+		if (service == null) {
+			service = AmazonECRClientBuilder.standard().build()
+			ecr = service
+		}
+		return service as AmazonECR
+	}
 	set(ecr) {
 		this.capabilities[AmazonECR::class.java.name] = ecr
 	}

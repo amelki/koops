@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.iotdata.AWSIotData
+import com.amazonaws.services.iotdata.AWSIotDataClientBuilder
 import com.amazonaws.services.iotdata.model.*
 
 var codingue.koops.core.Environment.iotdata: AWSIotData
-	get() = this.capabilities[AWSIotData::class.java.name] as AWSIotData
+	get() {
+		var service = this.capabilities[AWSIotData::class.java.name]
+		if (service == null) {
+			service = AWSIotDataClientBuilder.standard().build()
+			iotdata = service
+		}
+		return service as AWSIotData
+	}
 	set(iotdata) {
 		this.capabilities[AWSIotData::class.java.name] = iotdata
 	}

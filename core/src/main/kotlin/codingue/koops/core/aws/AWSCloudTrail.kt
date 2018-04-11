@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.cloudtrail.AWSCloudTrail
+import com.amazonaws.services.cloudtrail.AWSCloudTrailClientBuilder
 import com.amazonaws.services.cloudtrail.model.*
 
 var codingue.koops.core.Environment.cloudtrail: AWSCloudTrail
-	get() = this.capabilities[AWSCloudTrail::class.java.name] as AWSCloudTrail
+	get() {
+		var service = this.capabilities[AWSCloudTrail::class.java.name]
+		if (service == null) {
+			service = AWSCloudTrailClientBuilder.standard().build()
+			cloudtrail = service
+		}
+		return service as AWSCloudTrail
+	}
 	set(cloudtrail) {
 		this.capabilities[AWSCloudTrail::class.java.name] = cloudtrail
 	}

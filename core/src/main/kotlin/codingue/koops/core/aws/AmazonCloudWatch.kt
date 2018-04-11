@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.cloudwatch.AmazonCloudWatch
+import com.amazonaws.services.cloudwatch.AmazonCloudWatchClientBuilder
 import com.amazonaws.services.cloudwatch.model.*
 
 var codingue.koops.core.Environment.monitoring: AmazonCloudWatch
-	get() = this.capabilities[AmazonCloudWatch::class.java.name] as AmazonCloudWatch
+	get() {
+		var service = this.capabilities[AmazonCloudWatch::class.java.name]
+		if (service == null) {
+			service = AmazonCloudWatchClientBuilder.standard().build()
+			monitoring = service
+		}
+		return service as AmazonCloudWatch
+	}
 	set(monitoring) {
 		this.capabilities[AmazonCloudWatch::class.java.name] = monitoring
 	}

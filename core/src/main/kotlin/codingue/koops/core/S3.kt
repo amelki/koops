@@ -4,6 +4,7 @@ package codingue.koops.core
 
 import com.amazonaws.AmazonWebServiceRequest
 import com.amazonaws.services.s3.AmazonS3
+import com.amazonaws.services.s3.AmazonS3ClientBuilder
 import com.amazonaws.services.s3.model.*
 import java.io.File
 import java.io.InputStream
@@ -29,7 +30,14 @@ class S3Functions(val block: Block) {
 }
 
 var Environment.s3: AmazonS3
-	get() = this.capabilities[AmazonS3::class.java.name] as AmazonS3
+	get() {
+		var service = this.capabilities[AmazonS3::class.java.name]
+		if (service == null) {
+			service = AmazonS3ClientBuilder.standard().build()
+			s3 = service
+		}
+		return service as AmazonS3
+	}
 	set(s3) {
 		this.capabilities[AmazonS3::class.java.name] = s3
 	}

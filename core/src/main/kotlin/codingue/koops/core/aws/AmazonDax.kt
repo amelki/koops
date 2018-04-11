@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.dax.AmazonDax
+import com.amazonaws.services.dax.AmazonDaxClientBuilder
 import com.amazonaws.services.dax.model.*
 
 var codingue.koops.core.Environment.dax: AmazonDax
-	get() = this.capabilities[AmazonDax::class.java.name] as AmazonDax
+	get() {
+		var service = this.capabilities[AmazonDax::class.java.name]
+		if (service == null) {
+			service = AmazonDaxClientBuilder.standard().build()
+			dax = service
+		}
+		return service as AmazonDax
+	}
 	set(dax) {
 		this.capabilities[AmazonDax::class.java.name] = dax
 	}

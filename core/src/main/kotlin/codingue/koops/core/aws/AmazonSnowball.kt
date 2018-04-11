@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.snowball.AmazonSnowball
+import com.amazonaws.services.snowball.AmazonSnowballClientBuilder
 import com.amazonaws.services.snowball.model.*
 
 var codingue.koops.core.Environment.snowball: AmazonSnowball
-	get() = this.capabilities[AmazonSnowball::class.java.name] as AmazonSnowball
+	get() {
+		var service = this.capabilities[AmazonSnowball::class.java.name]
+		if (service == null) {
+			service = AmazonSnowballClientBuilder.standard().build()
+			snowball = service
+		}
+		return service as AmazonSnowball
+	}
 	set(snowball) {
 		this.capabilities[AmazonSnowball::class.java.name] = snowball
 	}

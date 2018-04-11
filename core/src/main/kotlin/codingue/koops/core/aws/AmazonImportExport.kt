@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.importexport.AmazonImportExport
+import com.amazonaws.services.importexport.AmazonImportExportClientBuilder
 import com.amazonaws.services.importexport.model.*
 
 var codingue.koops.core.Environment.importexport: AmazonImportExport
-	get() = this.capabilities[AmazonImportExport::class.java.name] as AmazonImportExport
+	get() {
+		var service = this.capabilities[AmazonImportExport::class.java.name]
+		if (service == null) {
+			service = AmazonImportExportClientBuilder.standard().build()
+			importexport = service
+		}
+		return service as AmazonImportExport
+	}
 	set(importexport) {
 		this.capabilities[AmazonImportExport::class.java.name] = importexport
 	}

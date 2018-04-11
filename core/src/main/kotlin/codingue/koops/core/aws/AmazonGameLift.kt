@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.gamelift.AmazonGameLift
+import com.amazonaws.services.gamelift.AmazonGameLiftClientBuilder
 import com.amazonaws.services.gamelift.model.*
 
 var codingue.koops.core.Environment.gamelift: AmazonGameLift
-	get() = this.capabilities[AmazonGameLift::class.java.name] as AmazonGameLift
+	get() {
+		var service = this.capabilities[AmazonGameLift::class.java.name]
+		if (service == null) {
+			service = AmazonGameLiftClientBuilder.standard().build()
+			gamelift = service
+		}
+		return service as AmazonGameLift
+	}
 	set(gamelift) {
 		this.capabilities[AmazonGameLift::class.java.name] = gamelift
 	}

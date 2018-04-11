@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.elasticbeanstalk.AWSElasticBeanstalk
+import com.amazonaws.services.elasticbeanstalk.AWSElasticBeanstalkClientBuilder
 import com.amazonaws.services.elasticbeanstalk.model.*
 
 var codingue.koops.core.Environment.elasticbeanstalk: AWSElasticBeanstalk
-	get() = this.capabilities[AWSElasticBeanstalk::class.java.name] as AWSElasticBeanstalk
+	get() {
+		var service = this.capabilities[AWSElasticBeanstalk::class.java.name]
+		if (service == null) {
+			service = AWSElasticBeanstalkClientBuilder.standard().build()
+			elasticbeanstalk = service
+		}
+		return service as AWSElasticBeanstalk
+	}
 	set(elasticbeanstalk) {
 		this.capabilities[AWSElasticBeanstalk::class.java.name] = elasticbeanstalk
 	}

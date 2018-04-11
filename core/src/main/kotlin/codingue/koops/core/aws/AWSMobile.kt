@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.mobile.AWSMobile
+import com.amazonaws.services.mobile.AWSMobileClientBuilder
 import com.amazonaws.services.mobile.model.*
 
 var codingue.koops.core.Environment.AWSMobileHubService: AWSMobile
-	get() = this.capabilities[AWSMobile::class.java.name] as AWSMobile
+	get() {
+		var service = this.capabilities[AWSMobile::class.java.name]
+		if (service == null) {
+			service = AWSMobileClientBuilder.standard().build()
+			AWSMobileHubService = service
+		}
+		return service as AWSMobile
+	}
 	set(AWSMobileHubService) {
 		this.capabilities[AWSMobile::class.java.name] = AWSMobileHubService
 	}

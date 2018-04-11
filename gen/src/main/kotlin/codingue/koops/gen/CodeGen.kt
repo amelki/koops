@@ -58,6 +58,7 @@ fun generate(schema: Schema, intermediate: IntermediateModel, targetDir: String)
 			?: Pair(intermediate.metadata.signingName.replace("-", "_"),
 							intermediate.metadata.signingName)
 	val syncInterface = intermediate.metadata.syncInterface
+	val syncClientBuilderClassName = intermediate.metadata.syncClientBuilderClassName
 	val packageName = intermediate.metadata.packageName
 	val kmetadata = KMetadata(serviceName, cliName, packageName, syncInterface)
 	val kops = intermediate.operations.values.filter {
@@ -104,10 +105,18 @@ import $targetPackageName.AmazonWebServiceDescriptor
 import $targetPackageName.AwsContinuation
 import $targetPackageName.Block
 import $packageName.$syncInterface
+import $packageName.$syncClientBuilderClassName
 import $packageName.model.*
 
 var codingue.koops.core.Environment.$serviceName: $syncInterface
-	get() = this.capabilities[$syncInterface::class.java.name] as $syncInterface
+	get() {
+		var service = this.capabilities[$syncInterface::class.java.name]
+		if (service == null) {
+			service = $syncClientBuilderClassName.standard().build()
+			$serviceName = service
+		}
+		return service as $syncInterface
+	}
 	set($serviceName) {
 		this.capabilities[$syncInterface::class.java.name] = $serviceName
 	}

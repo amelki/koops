@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.codecommit.AWSCodeCommit
+import com.amazonaws.services.codecommit.AWSCodeCommitClientBuilder
 import com.amazonaws.services.codecommit.model.*
 
 var codingue.koops.core.Environment.codecommit: AWSCodeCommit
-	get() = this.capabilities[AWSCodeCommit::class.java.name] as AWSCodeCommit
+	get() {
+		var service = this.capabilities[AWSCodeCommit::class.java.name]
+		if (service == null) {
+			service = AWSCodeCommitClientBuilder.standard().build()
+			codecommit = service
+		}
+		return service as AWSCodeCommit
+	}
 	set(codecommit) {
 		this.capabilities[AWSCodeCommit::class.java.name] = codecommit
 	}

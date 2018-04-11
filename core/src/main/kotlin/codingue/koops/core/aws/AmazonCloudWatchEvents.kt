@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.cloudwatchevents.AmazonCloudWatchEvents
+import com.amazonaws.services.cloudwatchevents.AmazonCloudWatchEventsClientBuilder
 import com.amazonaws.services.cloudwatchevents.model.*
 
 var codingue.koops.core.Environment.events: AmazonCloudWatchEvents
-	get() = this.capabilities[AmazonCloudWatchEvents::class.java.name] as AmazonCloudWatchEvents
+	get() {
+		var service = this.capabilities[AmazonCloudWatchEvents::class.java.name]
+		if (service == null) {
+			service = AmazonCloudWatchEventsClientBuilder.standard().build()
+			events = service
+		}
+		return service as AmazonCloudWatchEvents
+	}
 	set(events) {
 		this.capabilities[AmazonCloudWatchEvents::class.java.name] = events
 	}

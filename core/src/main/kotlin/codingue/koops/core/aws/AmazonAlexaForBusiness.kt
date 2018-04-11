@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.alexaforbusiness.AmazonAlexaForBusiness
+import com.amazonaws.services.alexaforbusiness.AmazonAlexaForBusinessClientBuilder
 import com.amazonaws.services.alexaforbusiness.model.*
 
 var codingue.koops.core.Environment.alexaforbusiness: AmazonAlexaForBusiness
-	get() = this.capabilities[AmazonAlexaForBusiness::class.java.name] as AmazonAlexaForBusiness
+	get() {
+		var service = this.capabilities[AmazonAlexaForBusiness::class.java.name]
+		if (service == null) {
+			service = AmazonAlexaForBusinessClientBuilder.standard().build()
+			alexaforbusiness = service
+		}
+		return service as AmazonAlexaForBusiness
+	}
 	set(alexaforbusiness) {
 		this.capabilities[AmazonAlexaForBusiness::class.java.name] = alexaforbusiness
 	}

@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.directconnect.AmazonDirectConnect
+import com.amazonaws.services.directconnect.AmazonDirectConnectClientBuilder
 import com.amazonaws.services.directconnect.model.*
 
 var codingue.koops.core.Environment.directconnect: AmazonDirectConnect
-	get() = this.capabilities[AmazonDirectConnect::class.java.name] as AmazonDirectConnect
+	get() {
+		var service = this.capabilities[AmazonDirectConnect::class.java.name]
+		if (service == null) {
+			service = AmazonDirectConnectClientBuilder.standard().build()
+			directconnect = service
+		}
+		return service as AmazonDirectConnect
+	}
 	set(directconnect) {
 		this.capabilities[AmazonDirectConnect::class.java.name] = directconnect
 	}

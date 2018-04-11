@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.polly.AmazonPolly
+import com.amazonaws.services.polly.AmazonPollyClientBuilder
 import com.amazonaws.services.polly.model.*
 
 var codingue.koops.core.Environment.polly: AmazonPolly
-	get() = this.capabilities[AmazonPolly::class.java.name] as AmazonPolly
+	get() {
+		var service = this.capabilities[AmazonPolly::class.java.name]
+		if (service == null) {
+			service = AmazonPollyClientBuilder.standard().build()
+			polly = service
+		}
+		return service as AmazonPolly
+	}
 	set(polly) {
 		this.capabilities[AmazonPolly::class.java.name] = polly
 	}

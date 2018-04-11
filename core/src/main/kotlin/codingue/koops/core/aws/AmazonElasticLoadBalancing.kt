@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.elasticloadbalancing.AmazonElasticLoadBalancing
+import com.amazonaws.services.elasticloadbalancing.AmazonElasticLoadBalancingClientBuilder
 import com.amazonaws.services.elasticloadbalancing.model.*
 
 var codingue.koops.core.Environment.elasticloadbalancing: AmazonElasticLoadBalancing
-	get() = this.capabilities[AmazonElasticLoadBalancing::class.java.name] as AmazonElasticLoadBalancing
+	get() {
+		var service = this.capabilities[AmazonElasticLoadBalancing::class.java.name]
+		if (service == null) {
+			service = AmazonElasticLoadBalancingClientBuilder.standard().build()
+			elasticloadbalancing = service
+		}
+		return service as AmazonElasticLoadBalancing
+	}
 	set(elasticloadbalancing) {
 		this.capabilities[AmazonElasticLoadBalancing::class.java.name] = elasticloadbalancing
 	}

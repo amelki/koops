@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.route53domains.AmazonRoute53Domains
+import com.amazonaws.services.route53domains.AmazonRoute53DomainsClientBuilder
 import com.amazonaws.services.route53domains.model.*
 
 var codingue.koops.core.Environment.route53domains: AmazonRoute53Domains
-	get() = this.capabilities[AmazonRoute53Domains::class.java.name] as AmazonRoute53Domains
+	get() {
+		var service = this.capabilities[AmazonRoute53Domains::class.java.name]
+		if (service == null) {
+			service = AmazonRoute53DomainsClientBuilder.standard().build()
+			route53domains = service
+		}
+		return service as AmazonRoute53Domains
+	}
 	set(route53domains) {
 		this.capabilities[AmazonRoute53Domains::class.java.name] = route53domains
 	}

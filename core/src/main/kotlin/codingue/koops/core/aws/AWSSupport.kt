@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.support.AWSSupport
+import com.amazonaws.services.support.AWSSupportClientBuilder
 import com.amazonaws.services.support.model.*
 
 var codingue.koops.core.Environment.support: AWSSupport
-	get() = this.capabilities[AWSSupport::class.java.name] as AWSSupport
+	get() {
+		var service = this.capabilities[AWSSupport::class.java.name]
+		if (service == null) {
+			service = AWSSupportClientBuilder.standard().build()
+			support = service
+		}
+		return service as AWSSupport
+	}
 	set(support) {
 		this.capabilities[AWSSupport::class.java.name] = support
 	}

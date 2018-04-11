@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.comprehend.AmazonComprehend
+import com.amazonaws.services.comprehend.AmazonComprehendClientBuilder
 import com.amazonaws.services.comprehend.model.*
 
 var codingue.koops.core.Environment.comprehend: AmazonComprehend
-	get() = this.capabilities[AmazonComprehend::class.java.name] as AmazonComprehend
+	get() {
+		var service = this.capabilities[AmazonComprehend::class.java.name]
+		if (service == null) {
+			service = AmazonComprehendClientBuilder.standard().build()
+			comprehend = service
+		}
+		return service as AmazonComprehend
+	}
 	set(comprehend) {
 		this.capabilities[AmazonComprehend::class.java.name] = comprehend
 	}

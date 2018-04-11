@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.elasticsearch.AWSElasticsearch
+import com.amazonaws.services.elasticsearch.AWSElasticsearchClientBuilder
 import com.amazonaws.services.elasticsearch.model.*
 
 var codingue.koops.core.Environment.es: AWSElasticsearch
-	get() = this.capabilities[AWSElasticsearch::class.java.name] as AWSElasticsearch
+	get() {
+		var service = this.capabilities[AWSElasticsearch::class.java.name]
+		if (service == null) {
+			service = AWSElasticsearchClientBuilder.standard().build()
+			es = service
+		}
+		return service as AWSElasticsearch
+	}
 	set(es) {
 		this.capabilities[AWSElasticsearch::class.java.name] = es
 	}

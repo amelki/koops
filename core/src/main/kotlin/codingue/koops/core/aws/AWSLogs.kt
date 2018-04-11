@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.logs.AWSLogs
+import com.amazonaws.services.logs.AWSLogsClientBuilder
 import com.amazonaws.services.logs.model.*
 
 var codingue.koops.core.Environment.logs: AWSLogs
-	get() = this.capabilities[AWSLogs::class.java.name] as AWSLogs
+	get() {
+		var service = this.capabilities[AWSLogs::class.java.name]
+		if (service == null) {
+			service = AWSLogsClientBuilder.standard().build()
+			logs = service
+		}
+		return service as AWSLogs
+	}
 	set(logs) {
 		this.capabilities[AWSLogs::class.java.name] = logs
 	}

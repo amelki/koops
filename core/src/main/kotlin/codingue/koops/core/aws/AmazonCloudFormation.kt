@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.cloudformation.AmazonCloudFormation
+import com.amazonaws.services.cloudformation.AmazonCloudFormationClientBuilder
 import com.amazonaws.services.cloudformation.model.*
 
 var codingue.koops.core.Environment.cloudformation: AmazonCloudFormation
-	get() = this.capabilities[AmazonCloudFormation::class.java.name] as AmazonCloudFormation
+	get() {
+		var service = this.capabilities[AmazonCloudFormation::class.java.name]
+		if (service == null) {
+			service = AmazonCloudFormationClientBuilder.standard().build()
+			cloudformation = service
+		}
+		return service as AmazonCloudFormation
+	}
 	set(cloudformation) {
 		this.capabilities[AmazonCloudFormation::class.java.name] = cloudformation
 	}

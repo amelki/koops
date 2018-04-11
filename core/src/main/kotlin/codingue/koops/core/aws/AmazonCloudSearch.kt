@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.cloudsearchv2.AmazonCloudSearch
+import com.amazonaws.services.cloudsearchv2.AmazonCloudSearchClientBuilder
 import com.amazonaws.services.cloudsearchv2.model.*
 
 var codingue.koops.core.Environment.cloudsearch: AmazonCloudSearch
-	get() = this.capabilities[AmazonCloudSearch::class.java.name] as AmazonCloudSearch
+	get() {
+		var service = this.capabilities[AmazonCloudSearch::class.java.name]
+		if (service == null) {
+			service = AmazonCloudSearchClientBuilder.standard().build()
+			cloudsearch = service
+		}
+		return service as AmazonCloudSearch
+	}
 	set(cloudsearch) {
 		this.capabilities[AmazonCloudSearch::class.java.name] = cloudsearch
 	}

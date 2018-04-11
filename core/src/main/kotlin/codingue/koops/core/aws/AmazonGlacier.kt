@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.glacier.AmazonGlacier
+import com.amazonaws.services.glacier.AmazonGlacierClientBuilder
 import com.amazonaws.services.glacier.model.*
 
 var codingue.koops.core.Environment.glacier: AmazonGlacier
-	get() = this.capabilities[AmazonGlacier::class.java.name] as AmazonGlacier
+	get() {
+		var service = this.capabilities[AmazonGlacier::class.java.name]
+		if (service == null) {
+			service = AmazonGlacierClientBuilder.standard().build()
+			glacier = service
+		}
+		return service as AmazonGlacier
+	}
 	set(glacier) {
 		this.capabilities[AmazonGlacier::class.java.name] = glacier
 	}

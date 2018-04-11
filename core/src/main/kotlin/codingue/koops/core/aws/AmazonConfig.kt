@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.config.AmazonConfig
+import com.amazonaws.services.config.AmazonConfigClientBuilder
 import com.amazonaws.services.config.model.*
 
 var codingue.koops.core.Environment.config: AmazonConfig
-	get() = this.capabilities[AmazonConfig::class.java.name] as AmazonConfig
+	get() {
+		var service = this.capabilities[AmazonConfig::class.java.name]
+		if (service == null) {
+			service = AmazonConfigClientBuilder.standard().build()
+			config = service
+		}
+		return service as AmazonConfig
+	}
 	set(config) {
 		this.capabilities[AmazonConfig::class.java.name] = config
 	}

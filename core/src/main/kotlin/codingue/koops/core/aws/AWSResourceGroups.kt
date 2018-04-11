@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.resourcegroups.AWSResourceGroups
+import com.amazonaws.services.resourcegroups.AWSResourceGroupsClientBuilder
 import com.amazonaws.services.resourcegroups.model.*
 
 var codingue.koops.core.Environment.resource_groups: AWSResourceGroups
-	get() = this.capabilities[AWSResourceGroups::class.java.name] as AWSResourceGroups
+	get() {
+		var service = this.capabilities[AWSResourceGroups::class.java.name]
+		if (service == null) {
+			service = AWSResourceGroupsClientBuilder.standard().build()
+			resource_groups = service
+		}
+		return service as AWSResourceGroups
+	}
 	set(resource_groups) {
 		this.capabilities[AWSResourceGroups::class.java.name] = resource_groups
 	}

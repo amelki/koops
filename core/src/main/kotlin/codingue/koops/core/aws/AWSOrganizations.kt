@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.organizations.AWSOrganizations
+import com.amazonaws.services.organizations.AWSOrganizationsClientBuilder
 import com.amazonaws.services.organizations.model.*
 
 var codingue.koops.core.Environment.organizations: AWSOrganizations
-	get() = this.capabilities[AWSOrganizations::class.java.name] as AWSOrganizations
+	get() {
+		var service = this.capabilities[AWSOrganizations::class.java.name]
+		if (service == null) {
+			service = AWSOrganizationsClientBuilder.standard().build()
+			organizations = service
+		}
+		return service as AWSOrganizations
+	}
 	set(organizations) {
 		this.capabilities[AWSOrganizations::class.java.name] = organizations
 	}

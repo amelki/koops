@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.mq.AmazonMQ
+import com.amazonaws.services.mq.AmazonMQClientBuilder
 import com.amazonaws.services.mq.model.*
 
 var codingue.koops.core.Environment.mq: AmazonMQ
-	get() = this.capabilities[AmazonMQ::class.java.name] as AmazonMQ
+	get() {
+		var service = this.capabilities[AmazonMQ::class.java.name]
+		if (service == null) {
+			service = AmazonMQClientBuilder.standard().build()
+			mq = service
+		}
+		return service as AmazonMQ
+	}
 	set(mq) {
 		this.capabilities[AmazonMQ::class.java.name] = mq
 	}

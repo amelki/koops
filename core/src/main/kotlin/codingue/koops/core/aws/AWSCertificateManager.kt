@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.certificatemanager.AWSCertificateManager
+import com.amazonaws.services.certificatemanager.AWSCertificateManagerClientBuilder
 import com.amazonaws.services.certificatemanager.model.*
 
 var codingue.koops.core.Environment.acm: AWSCertificateManager
-	get() = this.capabilities[AWSCertificateManager::class.java.name] as AWSCertificateManager
+	get() {
+		var service = this.capabilities[AWSCertificateManager::class.java.name]
+		if (service == null) {
+			service = AWSCertificateManagerClientBuilder.standard().build()
+			acm = service
+		}
+		return service as AWSCertificateManager
+	}
 	set(acm) {
 		this.capabilities[AWSCertificateManager::class.java.name] = acm
 	}

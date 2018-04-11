@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.simpledb.AmazonSimpleDB
+import com.amazonaws.services.simpledb.AmazonSimpleDBClientBuilder
 import com.amazonaws.services.simpledb.model.*
 
 var codingue.koops.core.Environment.sdb: AmazonSimpleDB
-	get() = this.capabilities[AmazonSimpleDB::class.java.name] as AmazonSimpleDB
+	get() {
+		var service = this.capabilities[AmazonSimpleDB::class.java.name]
+		if (service == null) {
+			service = AmazonSimpleDBClientBuilder.standard().build()
+			sdb = service
+		}
+		return service as AmazonSimpleDB
+	}
 	set(sdb) {
 		this.capabilities[AmazonSimpleDB::class.java.name] = sdb
 	}

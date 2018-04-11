@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.mediaconvert.AWSMediaConvert
+import com.amazonaws.services.mediaconvert.AWSMediaConvertClientBuilder
 import com.amazonaws.services.mediaconvert.model.*
 
 var codingue.koops.core.Environment.mediaconvert: AWSMediaConvert
-	get() = this.capabilities[AWSMediaConvert::class.java.name] as AWSMediaConvert
+	get() {
+		var service = this.capabilities[AWSMediaConvert::class.java.name]
+		if (service == null) {
+			service = AWSMediaConvertClientBuilder.standard().build()
+			mediaconvert = service
+		}
+		return service as AWSMediaConvert
+	}
 	set(mediaconvert) {
 		this.capabilities[AWSMediaConvert::class.java.name] = mediaconvert
 	}

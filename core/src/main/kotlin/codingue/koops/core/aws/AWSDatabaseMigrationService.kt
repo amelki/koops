@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.databasemigrationservice.AWSDatabaseMigrationService
+import com.amazonaws.services.databasemigrationservice.AWSDatabaseMigrationServiceClientBuilder
 import com.amazonaws.services.databasemigrationservice.model.*
 
 var codingue.koops.core.Environment.dms: AWSDatabaseMigrationService
-	get() = this.capabilities[AWSDatabaseMigrationService::class.java.name] as AWSDatabaseMigrationService
+	get() {
+		var service = this.capabilities[AWSDatabaseMigrationService::class.java.name]
+		if (service == null) {
+			service = AWSDatabaseMigrationServiceClientBuilder.standard().build()
+			dms = service
+		}
+		return service as AWSDatabaseMigrationService
+	}
 	set(dms) {
 		this.capabilities[AWSDatabaseMigrationService::class.java.name] = dms
 	}

@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.lexruntime.AmazonLexRuntime
+import com.amazonaws.services.lexruntime.AmazonLexRuntimeClientBuilder
 import com.amazonaws.services.lexruntime.model.*
 
 var codingue.koops.core.Environment.lexruntime: AmazonLexRuntime
-	get() = this.capabilities[AmazonLexRuntime::class.java.name] as AmazonLexRuntime
+	get() {
+		var service = this.capabilities[AmazonLexRuntime::class.java.name]
+		if (service == null) {
+			service = AmazonLexRuntimeClientBuilder.standard().build()
+			lexruntime = service
+		}
+		return service as AmazonLexRuntime
+	}
 	set(lexruntime) {
 		this.capabilities[AmazonLexRuntime::class.java.name] = lexruntime
 	}

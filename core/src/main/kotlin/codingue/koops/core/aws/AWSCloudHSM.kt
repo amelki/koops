@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.cloudhsm.AWSCloudHSM
+import com.amazonaws.services.cloudhsm.AWSCloudHSMClientBuilder
 import com.amazonaws.services.cloudhsm.model.*
 
 var codingue.koops.core.Environment.cloudhsm: AWSCloudHSM
-	get() = this.capabilities[AWSCloudHSM::class.java.name] as AWSCloudHSM
+	get() {
+		var service = this.capabilities[AWSCloudHSM::class.java.name]
+		if (service == null) {
+			service = AWSCloudHSMClientBuilder.standard().build()
+			cloudhsm = service
+		}
+		return service as AWSCloudHSM
+	}
 	set(cloudhsm) {
 		this.capabilities[AWSCloudHSM::class.java.name] = cloudhsm
 	}

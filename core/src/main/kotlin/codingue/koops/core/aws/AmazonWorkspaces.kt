@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.workspaces.AmazonWorkspaces
+import com.amazonaws.services.workspaces.AmazonWorkspacesClientBuilder
 import com.amazonaws.services.workspaces.model.*
 
 var codingue.koops.core.Environment.workspaces: AmazonWorkspaces
-	get() = this.capabilities[AmazonWorkspaces::class.java.name] as AmazonWorkspaces
+	get() {
+		var service = this.capabilities[AmazonWorkspaces::class.java.name]
+		if (service == null) {
+			service = AmazonWorkspacesClientBuilder.standard().build()
+			workspaces = service
+		}
+		return service as AmazonWorkspaces
+	}
 	set(workspaces) {
 		this.capabilities[AmazonWorkspaces::class.java.name] = workspaces
 	}

@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.mediapackage.AWSMediaPackage
+import com.amazonaws.services.mediapackage.AWSMediaPackageClientBuilder
 import com.amazonaws.services.mediapackage.model.*
 
 var codingue.koops.core.Environment.mediapackage: AWSMediaPackage
-	get() = this.capabilities[AWSMediaPackage::class.java.name] as AWSMediaPackage
+	get() {
+		var service = this.capabilities[AWSMediaPackage::class.java.name]
+		if (service == null) {
+			service = AWSMediaPackageClientBuilder.standard().build()
+			mediapackage = service
+		}
+		return service as AWSMediaPackage
+	}
 	set(mediapackage) {
 		this.capabilities[AWSMediaPackage::class.java.name] = mediapackage
 	}

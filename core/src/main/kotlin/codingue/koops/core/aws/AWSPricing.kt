@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.pricing.AWSPricing
+import com.amazonaws.services.pricing.AWSPricingClientBuilder
 import com.amazonaws.services.pricing.model.*
 
 var codingue.koops.core.Environment.pricing: AWSPricing
-	get() = this.capabilities[AWSPricing::class.java.name] as AWSPricing
+	get() {
+		var service = this.capabilities[AWSPricing::class.java.name]
+		if (service == null) {
+			service = AWSPricingClientBuilder.standard().build()
+			pricing = service
+		}
+		return service as AWSPricing
+	}
 	set(pricing) {
 		this.capabilities[AWSPricing::class.java.name] = pricing
 	}

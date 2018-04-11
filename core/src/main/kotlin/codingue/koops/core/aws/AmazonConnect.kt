@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.connect.AmazonConnect
+import com.amazonaws.services.connect.AmazonConnectClientBuilder
 import com.amazonaws.services.connect.model.*
 
 var codingue.koops.core.Environment.connect: AmazonConnect
-	get() = this.capabilities[AmazonConnect::class.java.name] as AmazonConnect
+	get() {
+		var service = this.capabilities[AmazonConnect::class.java.name]
+		if (service == null) {
+			service = AmazonConnectClientBuilder.standard().build()
+			connect = service
+		}
+		return service as AmazonConnect
+	}
 	set(connect) {
 		this.capabilities[AmazonConnect::class.java.name] = connect
 	}

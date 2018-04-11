@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.lexmodelbuilding.AmazonLexModelBuilding
+import com.amazonaws.services.lexmodelbuilding.AmazonLexModelBuildingClientBuilder
 import com.amazonaws.services.lexmodelbuilding.model.*
 
 var codingue.koops.core.Environment.lexmodels: AmazonLexModelBuilding
-	get() = this.capabilities[AmazonLexModelBuilding::class.java.name] as AmazonLexModelBuilding
+	get() {
+		var service = this.capabilities[AmazonLexModelBuilding::class.java.name]
+		if (service == null) {
+			service = AmazonLexModelBuildingClientBuilder.standard().build()
+			lexmodels = service
+		}
+		return service as AmazonLexModelBuilding
+	}
 	set(lexmodels) {
 		this.capabilities[AmazonLexModelBuilding::class.java.name] = lexmodels
 	}

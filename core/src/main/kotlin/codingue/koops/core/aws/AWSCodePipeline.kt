@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.codepipeline.AWSCodePipeline
+import com.amazonaws.services.codepipeline.AWSCodePipelineClientBuilder
 import com.amazonaws.services.codepipeline.model.*
 
 var codingue.koops.core.Environment.codepipeline: AWSCodePipeline
-	get() = this.capabilities[AWSCodePipeline::class.java.name] as AWSCodePipeline
+	get() {
+		var service = this.capabilities[AWSCodePipeline::class.java.name]
+		if (service == null) {
+			service = AWSCodePipelineClientBuilder.standard().build()
+			codepipeline = service
+		}
+		return service as AWSCodePipeline
+	}
 	set(codepipeline) {
 		this.capabilities[AWSCodePipeline::class.java.name] = codepipeline
 	}

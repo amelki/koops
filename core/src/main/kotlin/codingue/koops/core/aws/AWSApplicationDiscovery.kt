@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.applicationdiscovery.AWSApplicationDiscovery
+import com.amazonaws.services.applicationdiscovery.AWSApplicationDiscoveryClientBuilder
 import com.amazonaws.services.applicationdiscovery.model.*
 
 var codingue.koops.core.Environment.discovery: AWSApplicationDiscovery
-	get() = this.capabilities[AWSApplicationDiscovery::class.java.name] as AWSApplicationDiscovery
+	get() {
+		var service = this.capabilities[AWSApplicationDiscovery::class.java.name]
+		if (service == null) {
+			service = AWSApplicationDiscoveryClientBuilder.standard().build()
+			discovery = service
+		}
+		return service as AWSApplicationDiscovery
+	}
 	set(discovery) {
 		this.capabilities[AWSApplicationDiscovery::class.java.name] = discovery
 	}

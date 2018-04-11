@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflow
+import com.amazonaws.services.simpleworkflow.AmazonSimpleWorkflowClientBuilder
 import com.amazonaws.services.simpleworkflow.model.*
 
 var codingue.koops.core.Environment.swf: AmazonSimpleWorkflow
-	get() = this.capabilities[AmazonSimpleWorkflow::class.java.name] as AmazonSimpleWorkflow
+	get() {
+		var service = this.capabilities[AmazonSimpleWorkflow::class.java.name]
+		if (service == null) {
+			service = AmazonSimpleWorkflowClientBuilder.standard().build()
+			swf = service
+		}
+		return service as AmazonSimpleWorkflow
+	}
 	set(swf) {
 		this.capabilities[AmazonSimpleWorkflow::class.java.name] = swf
 	}

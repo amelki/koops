@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.secretsmanager.AWSSecretsManager
+import com.amazonaws.services.secretsmanager.AWSSecretsManagerClientBuilder
 import com.amazonaws.services.secretsmanager.model.*
 
 var codingue.koops.core.Environment.secretsmanager: AWSSecretsManager
-	get() = this.capabilities[AWSSecretsManager::class.java.name] as AWSSecretsManager
+	get() {
+		var service = this.capabilities[AWSSecretsManager::class.java.name]
+		if (service == null) {
+			service = AWSSecretsManagerClientBuilder.standard().build()
+			secretsmanager = service
+		}
+		return service as AWSSecretsManager
+	}
 	set(secretsmanager) {
 		this.capabilities[AWSSecretsManager::class.java.name] = secretsmanager
 	}

@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.costexplorer.AWSCostExplorer
+import com.amazonaws.services.costexplorer.AWSCostExplorerClientBuilder
 import com.amazonaws.services.costexplorer.model.*
 
 var codingue.koops.core.Environment.ce: AWSCostExplorer
-	get() = this.capabilities[AWSCostExplorer::class.java.name] as AWSCostExplorer
+	get() {
+		var service = this.capabilities[AWSCostExplorer::class.java.name]
+		if (service == null) {
+			service = AWSCostExplorerClientBuilder.standard().build()
+			ce = service
+		}
+		return service as AWSCostExplorer
+	}
 	set(ce) {
 		this.capabilities[AWSCostExplorer::class.java.name] = ce
 	}

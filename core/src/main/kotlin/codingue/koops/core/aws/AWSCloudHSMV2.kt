@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.cloudhsmv2.AWSCloudHSMV2
+import com.amazonaws.services.cloudhsmv2.AWSCloudHSMV2ClientBuilder
 import com.amazonaws.services.cloudhsmv2.model.*
 
 var codingue.koops.core.Environment.cloudhsmv2: AWSCloudHSMV2
-	get() = this.capabilities[AWSCloudHSMV2::class.java.name] as AWSCloudHSMV2
+	get() {
+		var service = this.capabilities[AWSCloudHSMV2::class.java.name]
+		if (service == null) {
+			service = AWSCloudHSMV2ClientBuilder.standard().build()
+			cloudhsmv2 = service
+		}
+		return service as AWSCloudHSMV2
+	}
 	set(cloudhsmv2) {
 		this.capabilities[AWSCloudHSMV2::class.java.name] = cloudhsmv2
 	}

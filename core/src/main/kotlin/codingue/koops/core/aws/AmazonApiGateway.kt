@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.apigateway.AmazonApiGateway
+import com.amazonaws.services.apigateway.AmazonApiGatewayClientBuilder
 import com.amazonaws.services.apigateway.model.*
 
 var codingue.koops.core.Environment.apigateway: AmazonApiGateway
-	get() = this.capabilities[AmazonApiGateway::class.java.name] as AmazonApiGateway
+	get() {
+		var service = this.capabilities[AmazonApiGateway::class.java.name]
+		if (service == null) {
+			service = AmazonApiGatewayClientBuilder.standard().build()
+			apigateway = service
+		}
+		return service as AmazonApiGateway
+	}
 	set(apigateway) {
 		this.capabilities[AmazonApiGateway::class.java.name] = apigateway
 	}

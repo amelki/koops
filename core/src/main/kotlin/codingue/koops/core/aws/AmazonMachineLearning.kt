@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.machinelearning.AmazonMachineLearning
+import com.amazonaws.services.machinelearning.AmazonMachineLearningClientBuilder
 import com.amazonaws.services.machinelearning.model.*
 
 var codingue.koops.core.Environment.machinelearning: AmazonMachineLearning
-	get() = this.capabilities[AmazonMachineLearning::class.java.name] as AmazonMachineLearning
+	get() {
+		var service = this.capabilities[AmazonMachineLearning::class.java.name]
+		if (service == null) {
+			service = AmazonMachineLearningClientBuilder.standard().build()
+			machinelearning = service
+		}
+		return service as AmazonMachineLearning
+	}
 	set(machinelearning) {
 		this.capabilities[AmazonMachineLearning::class.java.name] = machinelearning
 	}

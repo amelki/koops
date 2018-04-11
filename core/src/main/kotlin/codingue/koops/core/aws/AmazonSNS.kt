@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.sns.AmazonSNS
+import com.amazonaws.services.sns.AmazonSNSClientBuilder
 import com.amazonaws.services.sns.model.*
 
 var codingue.koops.core.Environment.sns: AmazonSNS
-	get() = this.capabilities[AmazonSNS::class.java.name] as AmazonSNS
+	get() {
+		var service = this.capabilities[AmazonSNS::class.java.name]
+		if (service == null) {
+			service = AmazonSNSClientBuilder.standard().build()
+			sns = service
+		}
+		return service as AmazonSNS
+	}
 	set(sns) {
 		this.capabilities[AmazonSNS::class.java.name] = sns
 	}

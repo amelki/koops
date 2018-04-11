@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.guardduty.AmazonGuardDuty
+import com.amazonaws.services.guardduty.AmazonGuardDutyClientBuilder
 import com.amazonaws.services.guardduty.model.*
 
 var codingue.koops.core.Environment.guardduty: AmazonGuardDuty
-	get() = this.capabilities[AmazonGuardDuty::class.java.name] as AmazonGuardDuty
+	get() {
+		var service = this.capabilities[AmazonGuardDuty::class.java.name]
+		if (service == null) {
+			service = AmazonGuardDutyClientBuilder.standard().build()
+			guardduty = service
+		}
+		return service as AmazonGuardDuty
+	}
 	set(guardduty) {
 		this.capabilities[AmazonGuardDuty::class.java.name] = guardduty
 	}

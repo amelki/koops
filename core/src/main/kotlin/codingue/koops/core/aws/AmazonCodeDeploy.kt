@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.codedeploy.AmazonCodeDeploy
+import com.amazonaws.services.codedeploy.AmazonCodeDeployClientBuilder
 import com.amazonaws.services.codedeploy.model.*
 
 var codingue.koops.core.Environment.codedeploy: AmazonCodeDeploy
-	get() = this.capabilities[AmazonCodeDeploy::class.java.name] as AmazonCodeDeploy
+	get() {
+		var service = this.capabilities[AmazonCodeDeploy::class.java.name]
+		if (service == null) {
+			service = AmazonCodeDeployClientBuilder.standard().build()
+			codedeploy = service
+		}
+		return service as AmazonCodeDeploy
+	}
 	set(codedeploy) {
 		this.capabilities[AmazonCodeDeploy::class.java.name] = codedeploy
 	}

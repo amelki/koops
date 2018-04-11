@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.lightsail.AmazonLightsail
+import com.amazonaws.services.lightsail.AmazonLightsailClientBuilder
 import com.amazonaws.services.lightsail.model.*
 
 var codingue.koops.core.Environment.lightsail: AmazonLightsail
-	get() = this.capabilities[AmazonLightsail::class.java.name] as AmazonLightsail
+	get() {
+		var service = this.capabilities[AmazonLightsail::class.java.name]
+		if (service == null) {
+			service = AmazonLightsailClientBuilder.standard().build()
+			lightsail = service
+		}
+		return service as AmazonLightsail
+	}
 	set(lightsail) {
 		this.capabilities[AmazonLightsail::class.java.name] = lightsail
 	}

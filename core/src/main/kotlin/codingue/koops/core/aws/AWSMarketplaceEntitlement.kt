@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.marketplaceentitlement.AWSMarketplaceEntitlement
+import com.amazonaws.services.marketplaceentitlement.AWSMarketplaceEntitlementClientBuilder
 import com.amazonaws.services.marketplaceentitlement.model.*
 
 var codingue.koops.core.Environment.aws_marketplace: AWSMarketplaceEntitlement
-	get() = this.capabilities[AWSMarketplaceEntitlement::class.java.name] as AWSMarketplaceEntitlement
+	get() {
+		var service = this.capabilities[AWSMarketplaceEntitlement::class.java.name]
+		if (service == null) {
+			service = AWSMarketplaceEntitlementClientBuilder.standard().build()
+			aws_marketplace = service
+		}
+		return service as AWSMarketplaceEntitlement
+	}
 	set(aws_marketplace) {
 		this.capabilities[AWSMarketplaceEntitlement::class.java.name] = aws_marketplace
 	}

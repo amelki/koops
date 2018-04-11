@@ -38,10 +38,10 @@ class Block(var environment: Environment): Command<Any> {
 
 	fun declare(command: Command<*>): Any {
 		commands.add(command)
-		if (environment.dryRun) {
-			return command.dryRun()
+		return if (environment.dryRun) {
+			command.dryRun()
 		} else {
-			return command.eval(environment)
+			command.eval(environment)
 		}
 	}
 
@@ -72,6 +72,10 @@ class Deferred(private val init: Block.() -> Unit): Command<Any> {
 
 fun block(environment: Environment, block: Block.() -> Unit): Block {
 	return Block(environment).apply(block)
+}
+
+fun block(block: Block.() -> Unit): Block {
+	return block(Environment(), block)
 }
 
 fun deferred(init: Block.() -> Unit): Deferred {

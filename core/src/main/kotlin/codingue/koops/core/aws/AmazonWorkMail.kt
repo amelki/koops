@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.workmail.AmazonWorkMail
+import com.amazonaws.services.workmail.AmazonWorkMailClientBuilder
 import com.amazonaws.services.workmail.model.*
 
 var codingue.koops.core.Environment.workmail: AmazonWorkMail
-	get() = this.capabilities[AmazonWorkMail::class.java.name] as AmazonWorkMail
+	get() {
+		var service = this.capabilities[AmazonWorkMail::class.java.name]
+		if (service == null) {
+			service = AmazonWorkMailClientBuilder.standard().build()
+			workmail = service
+		}
+		return service as AmazonWorkMail
+	}
 	set(workmail) {
 		this.capabilities[AmazonWorkMail::class.java.name] = workmail
 	}

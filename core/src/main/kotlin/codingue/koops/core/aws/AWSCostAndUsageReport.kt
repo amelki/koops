@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.costandusagereport.AWSCostAndUsageReport
+import com.amazonaws.services.costandusagereport.AWSCostAndUsageReportClientBuilder
 import com.amazonaws.services.costandusagereport.model.*
 
 var codingue.koops.core.Environment.cur: AWSCostAndUsageReport
-	get() = this.capabilities[AWSCostAndUsageReport::class.java.name] as AWSCostAndUsageReport
+	get() {
+		var service = this.capabilities[AWSCostAndUsageReport::class.java.name]
+		if (service == null) {
+			service = AWSCostAndUsageReportClientBuilder.standard().build()
+			cur = service
+		}
+		return service as AWSCostAndUsageReport
+	}
 	set(cur) {
 		this.capabilities[AWSCostAndUsageReport::class.java.name] = cur
 	}

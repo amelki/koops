@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.marketplacecommerceanalytics.AWSMarketplaceCommerceAnalytics
+import com.amazonaws.services.marketplacecommerceanalytics.AWSMarketplaceCommerceAnalyticsClientBuilder
 import com.amazonaws.services.marketplacecommerceanalytics.model.*
 
 var codingue.koops.core.Environment.marketplacecommerceanalytics: AWSMarketplaceCommerceAnalytics
-	get() = this.capabilities[AWSMarketplaceCommerceAnalytics::class.java.name] as AWSMarketplaceCommerceAnalytics
+	get() {
+		var service = this.capabilities[AWSMarketplaceCommerceAnalytics::class.java.name]
+		if (service == null) {
+			service = AWSMarketplaceCommerceAnalyticsClientBuilder.standard().build()
+			marketplacecommerceanalytics = service
+		}
+		return service as AWSMarketplaceCommerceAnalytics
+	}
 	set(marketplacecommerceanalytics) {
 		this.capabilities[AWSMarketplaceCommerceAnalytics::class.java.name] = marketplacecommerceanalytics
 	}

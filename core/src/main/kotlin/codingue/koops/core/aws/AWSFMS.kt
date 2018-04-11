@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.fms.AWSFMS
+import com.amazonaws.services.fms.AWSFMSClientBuilder
 import com.amazonaws.services.fms.model.*
 
 var codingue.koops.core.Environment.fms: AWSFMS
-	get() = this.capabilities[AWSFMS::class.java.name] as AWSFMS
+	get() {
+		var service = this.capabilities[AWSFMS::class.java.name]
+		if (service == null) {
+			service = AWSFMSClientBuilder.standard().build()
+			fms = service
+		}
+		return service as AWSFMS
+	}
 	set(fms) {
 		this.capabilities[AWSFMS::class.java.name] = fms
 	}

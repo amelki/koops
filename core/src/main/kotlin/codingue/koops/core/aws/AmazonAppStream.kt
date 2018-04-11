@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.appstream.AmazonAppStream
+import com.amazonaws.services.appstream.AmazonAppStreamClientBuilder
 import com.amazonaws.services.appstream.model.*
 
 var codingue.koops.core.Environment.appstream: AmazonAppStream
-	get() = this.capabilities[AmazonAppStream::class.java.name] as AmazonAppStream
+	get() {
+		var service = this.capabilities[AmazonAppStream::class.java.name]
+		if (service == null) {
+			service = AmazonAppStreamClientBuilder.standard().build()
+			appstream = service
+		}
+		return service as AmazonAppStream
+	}
 	set(appstream) {
 		this.capabilities[AmazonAppStream::class.java.name] = appstream
 	}

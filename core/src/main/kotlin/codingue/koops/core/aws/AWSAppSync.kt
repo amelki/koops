@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.appsync.AWSAppSync
+import com.amazonaws.services.appsync.AWSAppSyncClientBuilder
 import com.amazonaws.services.appsync.model.*
 
 var codingue.koops.core.Environment.appsync: AWSAppSync
-	get() = this.capabilities[AWSAppSync::class.java.name] as AWSAppSync
+	get() {
+		var service = this.capabilities[AWSAppSync::class.java.name]
+		if (service == null) {
+			service = AWSAppSyncClientBuilder.standard().build()
+			appsync = service
+		}
+		return service as AWSAppSync
+	}
 	set(appsync) {
 		this.capabilities[AWSAppSync::class.java.name] = appsync
 	}

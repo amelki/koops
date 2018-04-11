@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.rekognition.AmazonRekognition
+import com.amazonaws.services.rekognition.AmazonRekognitionClientBuilder
 import com.amazonaws.services.rekognition.model.*
 
 var codingue.koops.core.Environment.rekognition: AmazonRekognition
-	get() = this.capabilities[AmazonRekognition::class.java.name] as AmazonRekognition
+	get() {
+		var service = this.capabilities[AmazonRekognition::class.java.name]
+		if (service == null) {
+			service = AmazonRekognitionClientBuilder.standard().build()
+			rekognition = service
+		}
+		return service as AmazonRekognition
+	}
 	set(rekognition) {
 		this.capabilities[AmazonRekognition::class.java.name] = rekognition
 	}

@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.translate.AmazonTranslate
+import com.amazonaws.services.translate.AmazonTranslateClientBuilder
 import com.amazonaws.services.translate.model.*
 
 var codingue.koops.core.Environment.translate: AmazonTranslate
-	get() = this.capabilities[AmazonTranslate::class.java.name] as AmazonTranslate
+	get() {
+		var service = this.capabilities[AmazonTranslate::class.java.name]
+		if (service == null) {
+			service = AmazonTranslateClientBuilder.standard().build()
+			translate = service
+		}
+		return service as AmazonTranslate
+	}
 	set(translate) {
 		this.capabilities[AmazonTranslate::class.java.name] = translate
 	}

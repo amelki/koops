@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.cognitoidentity.AmazonCognitoIdentity
+import com.amazonaws.services.cognitoidentity.AmazonCognitoIdentityClientBuilder
 import com.amazonaws.services.cognitoidentity.model.*
 
 var codingue.koops.core.Environment.cognito_identity: AmazonCognitoIdentity
-	get() = this.capabilities[AmazonCognitoIdentity::class.java.name] as AmazonCognitoIdentity
+	get() {
+		var service = this.capabilities[AmazonCognitoIdentity::class.java.name]
+		if (service == null) {
+			service = AmazonCognitoIdentityClientBuilder.standard().build()
+			cognito_identity = service
+		}
+		return service as AmazonCognitoIdentity
+	}
 	set(cognito_identity) {
 		this.capabilities[AmazonCognitoIdentity::class.java.name] = cognito_identity
 	}

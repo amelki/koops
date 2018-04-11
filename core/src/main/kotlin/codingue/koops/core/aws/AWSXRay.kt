@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.xray.AWSXRay
+import com.amazonaws.services.xray.AWSXRayClientBuilder
 import com.amazonaws.services.xray.model.*
 
 var codingue.koops.core.Environment.xray: AWSXRay
-	get() = this.capabilities[AWSXRay::class.java.name] as AWSXRay
+	get() {
+		var service = this.capabilities[AWSXRay::class.java.name]
+		if (service == null) {
+			service = AWSXRayClientBuilder.standard().build()
+			xray = service
+		}
+		return service as AWSXRay
+	}
 	set(xray) {
 		this.capabilities[AWSXRay::class.java.name] = xray
 	}

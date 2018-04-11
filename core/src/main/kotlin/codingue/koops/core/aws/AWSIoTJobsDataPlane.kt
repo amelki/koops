@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.iotjobsdataplane.AWSIoTJobsDataPlane
+import com.amazonaws.services.iotjobsdataplane.AWSIoTJobsDataPlaneClientBuilder
 import com.amazonaws.services.iotjobsdataplane.model.*
 
 var codingue.koops.core.Environment.iot_jobs_data: AWSIoTJobsDataPlane
-	get() = this.capabilities[AWSIoTJobsDataPlane::class.java.name] as AWSIoTJobsDataPlane
+	get() {
+		var service = this.capabilities[AWSIoTJobsDataPlane::class.java.name]
+		if (service == null) {
+			service = AWSIoTJobsDataPlaneClientBuilder.standard().build()
+			iot_jobs_data = service
+		}
+		return service as AWSIoTJobsDataPlane
+	}
 	set(iot_jobs_data) {
 		this.capabilities[AWSIoTJobsDataPlane::class.java.name] = iot_jobs_data
 	}

@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.athena.AmazonAthena
+import com.amazonaws.services.athena.AmazonAthenaClientBuilder
 import com.amazonaws.services.athena.model.*
 
 var codingue.koops.core.Environment.athena: AmazonAthena
-	get() = this.capabilities[AmazonAthena::class.java.name] as AmazonAthena
+	get() {
+		var service = this.capabilities[AmazonAthena::class.java.name]
+		if (service == null) {
+			service = AmazonAthenaClientBuilder.standard().build()
+			athena = service
+		}
+		return service as AmazonAthena
+	}
 	set(athena) {
 		this.capabilities[AmazonAthena::class.java.name] = athena
 	}

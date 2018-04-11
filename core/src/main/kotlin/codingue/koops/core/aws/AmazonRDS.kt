@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.rds.AmazonRDS
+import com.amazonaws.services.rds.AmazonRDSClientBuilder
 import com.amazonaws.services.rds.model.*
 
 var codingue.koops.core.Environment.rds: AmazonRDS
-	get() = this.capabilities[AmazonRDS::class.java.name] as AmazonRDS
+	get() {
+		var service = this.capabilities[AmazonRDS::class.java.name]
+		if (service == null) {
+			service = AmazonRDSClientBuilder.standard().build()
+			rds = service
+		}
+		return service as AmazonRDS
+	}
 	set(rds) {
 		this.capabilities[AmazonRDS::class.java.name] = rds
 	}

@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.waf.AWSWAFRegional
+import com.amazonaws.services.waf.AWSWAFRegionalClientBuilder
 import com.amazonaws.services.waf.model.*
 
 var codingue.koops.core.Environment.waf_regional: AWSWAFRegional
-	get() = this.capabilities[AWSWAFRegional::class.java.name] as AWSWAFRegional
+	get() {
+		var service = this.capabilities[AWSWAFRegional::class.java.name]
+		if (service == null) {
+			service = AWSWAFRegionalClientBuilder.standard().build()
+			waf_regional = service
+		}
+		return service as AWSWAFRegional
+	}
 	set(waf_regional) {
 		this.capabilities[AWSWAFRegional::class.java.name] = waf_regional
 	}

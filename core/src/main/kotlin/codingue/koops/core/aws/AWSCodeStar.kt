@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.codestar.AWSCodeStar
+import com.amazonaws.services.codestar.AWSCodeStarClientBuilder
 import com.amazonaws.services.codestar.model.*
 
 var codingue.koops.core.Environment.codestar: AWSCodeStar
-	get() = this.capabilities[AWSCodeStar::class.java.name] as AWSCodeStar
+	get() {
+		var service = this.capabilities[AWSCodeStar::class.java.name]
+		if (service == null) {
+			service = AWSCodeStarClientBuilder.standard().build()
+			codestar = service
+		}
+		return service as AWSCodeStar
+	}
 	set(codestar) {
 		this.capabilities[AWSCodeStar::class.java.name] = codestar
 	}

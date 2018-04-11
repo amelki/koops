@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.kms.AWSKMS
+import com.amazonaws.services.kms.AWSKMSClientBuilder
 import com.amazonaws.services.kms.model.*
 
 var codingue.koops.core.Environment.kms: AWSKMS
-	get() = this.capabilities[AWSKMS::class.java.name] as AWSKMS
+	get() {
+		var service = this.capabilities[AWSKMS::class.java.name]
+		if (service == null) {
+			service = AWSKMSClientBuilder.standard().build()
+			kms = service
+		}
+		return service as AWSKMS
+	}
 	set(kms) {
 		this.capabilities[AWSKMS::class.java.name] = kms
 	}

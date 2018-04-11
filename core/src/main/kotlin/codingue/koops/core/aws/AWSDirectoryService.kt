@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.directory.AWSDirectoryService
+import com.amazonaws.services.directory.AWSDirectoryServiceClientBuilder
 import com.amazonaws.services.directory.model.*
 
 var codingue.koops.core.Environment.ds: AWSDirectoryService
-	get() = this.capabilities[AWSDirectoryService::class.java.name] as AWSDirectoryService
+	get() {
+		var service = this.capabilities[AWSDirectoryService::class.java.name]
+		if (service == null) {
+			service = AWSDirectoryServiceClientBuilder.standard().build()
+			ds = service
+		}
+		return service as AWSDirectoryService
+	}
 	set(ds) {
 		this.capabilities[AWSDirectoryService::class.java.name] = ds
 	}

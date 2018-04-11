@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.cloudfront.AmazonCloudFront
+import com.amazonaws.services.cloudfront.AmazonCloudFrontClientBuilder
 import com.amazonaws.services.cloudfront.model.*
 
 var codingue.koops.core.Environment.cloudfront: AmazonCloudFront
-	get() = this.capabilities[AmazonCloudFront::class.java.name] as AmazonCloudFront
+	get() {
+		var service = this.capabilities[AmazonCloudFront::class.java.name]
+		if (service == null) {
+			service = AmazonCloudFrontClientBuilder.standard().build()
+			cloudfront = service
+		}
+		return service as AmazonCloudFront
+	}
 	set(cloudfront) {
 		this.capabilities[AmazonCloudFront::class.java.name] = cloudfront
 	}

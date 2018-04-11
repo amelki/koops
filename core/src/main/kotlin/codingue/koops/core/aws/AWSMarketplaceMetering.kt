@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.marketplacemetering.AWSMarketplaceMetering
+import com.amazonaws.services.marketplacemetering.AWSMarketplaceMeteringClientBuilder
 import com.amazonaws.services.marketplacemetering.model.*
 
 var codingue.koops.core.Environment.meteringmarketplace: AWSMarketplaceMetering
-	get() = this.capabilities[AWSMarketplaceMetering::class.java.name] as AWSMarketplaceMetering
+	get() {
+		var service = this.capabilities[AWSMarketplaceMetering::class.java.name]
+		if (service == null) {
+			service = AWSMarketplaceMeteringClientBuilder.standard().build()
+			meteringmarketplace = service
+		}
+		return service as AWSMarketplaceMetering
+	}
 	set(meteringmarketplace) {
 		this.capabilities[AWSMarketplaceMetering::class.java.name] = meteringmarketplace
 	}

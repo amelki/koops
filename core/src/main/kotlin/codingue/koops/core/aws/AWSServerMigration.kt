@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.servermigration.AWSServerMigration
+import com.amazonaws.services.servermigration.AWSServerMigrationClientBuilder
 import com.amazonaws.services.servermigration.model.*
 
 var codingue.koops.core.Environment.sms: AWSServerMigration
-	get() = this.capabilities[AWSServerMigration::class.java.name] as AWSServerMigration
+	get() {
+		var service = this.capabilities[AWSServerMigration::class.java.name]
+		if (service == null) {
+			service = AWSServerMigrationClientBuilder.standard().build()
+			sms = service
+		}
+		return service as AWSServerMigration
+	}
 	set(sms) {
 		this.capabilities[AWSServerMigration::class.java.name] = sms
 	}

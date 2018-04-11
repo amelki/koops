@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.ecs.AmazonECS
+import com.amazonaws.services.ecs.AmazonECSClientBuilder
 import com.amazonaws.services.ecs.model.*
 
 var codingue.koops.core.Environment.ecs: AmazonECS
-	get() = this.capabilities[AmazonECS::class.java.name] as AmazonECS
+	get() {
+		var service = this.capabilities[AmazonECS::class.java.name]
+		if (service == null) {
+			service = AmazonECSClientBuilder.standard().build()
+			ecs = service
+		}
+		return service as AmazonECS
+	}
 	set(ecs) {
 		this.capabilities[AmazonECS::class.java.name] = ecs
 	}

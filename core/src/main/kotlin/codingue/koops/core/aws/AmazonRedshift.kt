@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.redshift.AmazonRedshift
+import com.amazonaws.services.redshift.AmazonRedshiftClientBuilder
 import com.amazonaws.services.redshift.model.*
 
 var codingue.koops.core.Environment.redshift: AmazonRedshift
-	get() = this.capabilities[AmazonRedshift::class.java.name] as AmazonRedshift
+	get() {
+		var service = this.capabilities[AmazonRedshift::class.java.name]
+		if (service == null) {
+			service = AmazonRedshiftClientBuilder.standard().build()
+			redshift = service
+		}
+		return service as AmazonRedshift
+	}
 	set(redshift) {
 		this.capabilities[AmazonRedshift::class.java.name] = redshift
 	}

@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.cloud9.AWSCloud9
+import com.amazonaws.services.cloud9.AWSCloud9ClientBuilder
 import com.amazonaws.services.cloud9.model.*
 
 var codingue.koops.core.Environment.cloud9: AWSCloud9
-	get() = this.capabilities[AWSCloud9::class.java.name] as AWSCloud9
+	get() {
+		var service = this.capabilities[AWSCloud9::class.java.name]
+		if (service == null) {
+			service = AWSCloud9ClientBuilder.standard().build()
+			cloud9 = service
+		}
+		return service as AWSCloud9
+	}
 	set(cloud9) {
 		this.capabilities[AWSCloud9::class.java.name] = cloud9
 	}

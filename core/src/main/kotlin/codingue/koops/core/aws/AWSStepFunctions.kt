@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.stepfunctions.AWSStepFunctions
+import com.amazonaws.services.stepfunctions.AWSStepFunctionsClientBuilder
 import com.amazonaws.services.stepfunctions.model.*
 
 var codingue.koops.core.Environment.states: AWSStepFunctions
-	get() = this.capabilities[AWSStepFunctions::class.java.name] as AWSStepFunctions
+	get() {
+		var service = this.capabilities[AWSStepFunctions::class.java.name]
+		if (service == null) {
+			service = AWSStepFunctionsClientBuilder.standard().build()
+			states = service
+		}
+		return service as AWSStepFunctions
+	}
 	set(states) {
 		this.capabilities[AWSStepFunctions::class.java.name] = states
 	}

@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.serverlessapplicationrepository.AWSServerlessApplicationRepository
+import com.amazonaws.services.serverlessapplicationrepository.AWSServerlessApplicationRepositoryClientBuilder
 import com.amazonaws.services.serverlessapplicationrepository.model.*
 
 var codingue.koops.core.Environment.serverlessrepo: AWSServerlessApplicationRepository
-	get() = this.capabilities[AWSServerlessApplicationRepository::class.java.name] as AWSServerlessApplicationRepository
+	get() {
+		var service = this.capabilities[AWSServerlessApplicationRepository::class.java.name]
+		if (service == null) {
+			service = AWSServerlessApplicationRepositoryClientBuilder.standard().build()
+			serverlessrepo = service
+		}
+		return service as AWSServerlessApplicationRepository
+	}
 	set(serverlessrepo) {
 		this.capabilities[AWSServerlessApplicationRepository::class.java.name] = serverlessrepo
 	}

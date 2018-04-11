@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.elastictranscoder.AmazonElasticTranscoder
+import com.amazonaws.services.elastictranscoder.AmazonElasticTranscoderClientBuilder
 import com.amazonaws.services.elastictranscoder.model.*
 
 var codingue.koops.core.Environment.elastictranscoder: AmazonElasticTranscoder
-	get() = this.capabilities[AmazonElasticTranscoder::class.java.name] as AmazonElasticTranscoder
+	get() {
+		var service = this.capabilities[AmazonElasticTranscoder::class.java.name]
+		if (service == null) {
+			service = AmazonElasticTranscoderClientBuilder.standard().build()
+			elastictranscoder = service
+		}
+		return service as AmazonElasticTranscoder
+	}
 	set(elastictranscoder) {
 		this.capabilities[AmazonElasticTranscoder::class.java.name] = elastictranscoder
 	}

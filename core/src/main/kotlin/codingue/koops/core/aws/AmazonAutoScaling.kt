@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.autoscaling.AmazonAutoScaling
+import com.amazonaws.services.autoscaling.AmazonAutoScalingClientBuilder
 import com.amazonaws.services.autoscaling.model.*
 
 var codingue.koops.core.Environment.autoscaling: AmazonAutoScaling
-	get() = this.capabilities[AmazonAutoScaling::class.java.name] as AmazonAutoScaling
+	get() {
+		var service = this.capabilities[AmazonAutoScaling::class.java.name]
+		if (service == null) {
+			service = AmazonAutoScalingClientBuilder.standard().build()
+			autoscaling = service
+		}
+		return service as AmazonAutoScaling
+	}
 	set(autoscaling) {
 		this.capabilities[AmazonAutoScaling::class.java.name] = autoscaling
 	}

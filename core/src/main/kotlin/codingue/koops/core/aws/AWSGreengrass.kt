@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.greengrass.AWSGreengrass
+import com.amazonaws.services.greengrass.AWSGreengrassClientBuilder
 import com.amazonaws.services.greengrass.model.*
 
 var codingue.koops.core.Environment.greengrass: AWSGreengrass
-	get() = this.capabilities[AWSGreengrass::class.java.name] as AWSGreengrass
+	get() {
+		var service = this.capabilities[AWSGreengrass::class.java.name]
+		if (service == null) {
+			service = AWSGreengrassClientBuilder.standard().build()
+			greengrass = service
+		}
+		return service as AWSGreengrass
+	}
 	set(greengrass) {
 		this.capabilities[AWSGreengrass::class.java.name] = greengrass
 	}

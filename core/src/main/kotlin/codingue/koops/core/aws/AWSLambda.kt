@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.lambda.AWSLambda
+import com.amazonaws.services.lambda.AWSLambdaClientBuilder
 import com.amazonaws.services.lambda.model.*
 
 var codingue.koops.core.Environment.lambda: AWSLambda
-	get() = this.capabilities[AWSLambda::class.java.name] as AWSLambda
+	get() {
+		var service = this.capabilities[AWSLambda::class.java.name]
+		if (service == null) {
+			service = AWSLambdaClientBuilder.standard().build()
+			lambda = service
+		}
+		return service as AWSLambda
+	}
 	set(lambda) {
 		this.capabilities[AWSLambda::class.java.name] = lambda
 	}

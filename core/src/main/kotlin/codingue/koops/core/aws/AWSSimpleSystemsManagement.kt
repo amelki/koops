@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.simplesystemsmanagement.AWSSimpleSystemsManagement
+import com.amazonaws.services.simplesystemsmanagement.AWSSimpleSystemsManagementClientBuilder
 import com.amazonaws.services.simplesystemsmanagement.model.*
 
 var codingue.koops.core.Environment.ssm: AWSSimpleSystemsManagement
-	get() = this.capabilities[AWSSimpleSystemsManagement::class.java.name] as AWSSimpleSystemsManagement
+	get() {
+		var service = this.capabilities[AWSSimpleSystemsManagement::class.java.name]
+		if (service == null) {
+			service = AWSSimpleSystemsManagementClientBuilder.standard().build()
+			ssm = service
+		}
+		return service as AWSSimpleSystemsManagement
+	}
 	set(ssm) {
 		this.capabilities[AWSSimpleSystemsManagement::class.java.name] = ssm
 	}

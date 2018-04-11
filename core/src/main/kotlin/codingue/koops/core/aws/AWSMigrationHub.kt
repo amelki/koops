@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.migrationhub.AWSMigrationHub
+import com.amazonaws.services.migrationhub.AWSMigrationHubClientBuilder
 import com.amazonaws.services.migrationhub.model.*
 
 var codingue.koops.core.Environment.mgh: AWSMigrationHub
-	get() = this.capabilities[AWSMigrationHub::class.java.name] as AWSMigrationHub
+	get() {
+		var service = this.capabilities[AWSMigrationHub::class.java.name]
+		if (service == null) {
+			service = AWSMigrationHubClientBuilder.standard().build()
+			mgh = service
+		}
+		return service as AWSMigrationHub
+	}
 	set(mgh) {
 		this.capabilities[AWSMigrationHub::class.java.name] = mgh
 	}

@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.pinpoint.AmazonPinpoint
+import com.amazonaws.services.pinpoint.AmazonPinpointClientBuilder
 import com.amazonaws.services.pinpoint.model.*
 
 var codingue.koops.core.Environment.mobiletargeting: AmazonPinpoint
-	get() = this.capabilities[AmazonPinpoint::class.java.name] as AmazonPinpoint
+	get() {
+		var service = this.capabilities[AmazonPinpoint::class.java.name]
+		if (service == null) {
+			service = AmazonPinpointClientBuilder.standard().build()
+			mobiletargeting = service
+		}
+		return service as AmazonPinpoint
+	}
 	set(mobiletargeting) {
 		this.capabilities[AmazonPinpoint::class.java.name] = mobiletargeting
 	}

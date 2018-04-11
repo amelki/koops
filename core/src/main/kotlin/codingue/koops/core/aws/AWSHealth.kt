@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.health.AWSHealth
+import com.amazonaws.services.health.AWSHealthClientBuilder
 import com.amazonaws.services.health.model.*
 
 var codingue.koops.core.Environment.health: AWSHealth
-	get() = this.capabilities[AWSHealth::class.java.name] as AWSHealth
+	get() {
+		var service = this.capabilities[AWSHealth::class.java.name]
+		if (service == null) {
+			service = AWSHealthClientBuilder.standard().build()
+			health = service
+		}
+		return service as AWSHealth
+	}
 	set(health) {
 		this.capabilities[AWSHealth::class.java.name] = health
 	}

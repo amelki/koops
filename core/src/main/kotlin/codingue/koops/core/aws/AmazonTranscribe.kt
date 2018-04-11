@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.transcribe.AmazonTranscribe
+import com.amazonaws.services.transcribe.AmazonTranscribeClientBuilder
 import com.amazonaws.services.transcribe.model.*
 
 var codingue.koops.core.Environment.transcribe: AmazonTranscribe
-	get() = this.capabilities[AmazonTranscribe::class.java.name] as AmazonTranscribe
+	get() {
+		var service = this.capabilities[AmazonTranscribe::class.java.name]
+		if (service == null) {
+			service = AmazonTranscribeClientBuilder.standard().build()
+			transcribe = service
+		}
+		return service as AmazonTranscribe
+	}
 	set(transcribe) {
 		this.capabilities[AmazonTranscribe::class.java.name] = transcribe
 	}

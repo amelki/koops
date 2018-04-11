@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.cloudsearchdomain.AmazonCloudSearchDomain
+import com.amazonaws.services.cloudsearchdomain.AmazonCloudSearchDomainClientBuilder
 import com.amazonaws.services.cloudsearchdomain.model.*
 
 var codingue.koops.core.Environment.cloudsearchdomain: AmazonCloudSearchDomain
-	get() = this.capabilities[AmazonCloudSearchDomain::class.java.name] as AmazonCloudSearchDomain
+	get() {
+		var service = this.capabilities[AmazonCloudSearchDomain::class.java.name]
+		if (service == null) {
+			service = AmazonCloudSearchDomainClientBuilder.standard().build()
+			cloudsearchdomain = service
+		}
+		return service as AmazonCloudSearchDomain
+	}
 	set(cloudsearchdomain) {
 		this.capabilities[AmazonCloudSearchDomain::class.java.name] = cloudsearchdomain
 	}

@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.simpleemail.AmazonSimpleEmailService
+import com.amazonaws.services.simpleemail.AmazonSimpleEmailServiceClientBuilder
 import com.amazonaws.services.simpleemail.model.*
 
 var codingue.koops.core.Environment.ses: AmazonSimpleEmailService
-	get() = this.capabilities[AmazonSimpleEmailService::class.java.name] as AmazonSimpleEmailService
+	get() {
+		var service = this.capabilities[AmazonSimpleEmailService::class.java.name]
+		if (service == null) {
+			service = AmazonSimpleEmailServiceClientBuilder.standard().build()
+			ses = service
+		}
+		return service as AmazonSimpleEmailService
+	}
 	set(ses) {
 		this.capabilities[AmazonSimpleEmailService::class.java.name] = ses
 	}

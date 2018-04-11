@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.waf.AWSWAF
+import com.amazonaws.services.waf.AWSWAFClientBuilder
 import com.amazonaws.services.waf.model.*
 
 var codingue.koops.core.Environment.waf: AWSWAF
-	get() = this.capabilities[AWSWAF::class.java.name] as AWSWAF
+	get() {
+		var service = this.capabilities[AWSWAF::class.java.name]
+		if (service == null) {
+			service = AWSWAFClientBuilder.standard().build()
+			waf = service
+		}
+		return service as AWSWAF
+	}
 	set(waf) {
 		this.capabilities[AWSWAF::class.java.name] = waf
 	}

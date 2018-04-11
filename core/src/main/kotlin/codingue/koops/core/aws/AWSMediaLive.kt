@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.medialive.AWSMediaLive
+import com.amazonaws.services.medialive.AWSMediaLiveClientBuilder
 import com.amazonaws.services.medialive.model.*
 
 var codingue.koops.core.Environment.medialive: AWSMediaLive
-	get() = this.capabilities[AWSMediaLive::class.java.name] as AWSMediaLive
+	get() {
+		var service = this.capabilities[AWSMediaLive::class.java.name]
+		if (service == null) {
+			service = AWSMediaLiveClientBuilder.standard().build()
+			medialive = service
+		}
+		return service as AWSMediaLive
+	}
 	set(medialive) {
 		this.capabilities[AWSMediaLive::class.java.name] = medialive
 	}

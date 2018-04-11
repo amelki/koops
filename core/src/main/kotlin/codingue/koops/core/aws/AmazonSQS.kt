@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.sqs.AmazonSQS
+import com.amazonaws.services.sqs.AmazonSQSClientBuilder
 import com.amazonaws.services.sqs.model.*
 
 var codingue.koops.core.Environment.sqs: AmazonSQS
-	get() = this.capabilities[AmazonSQS::class.java.name] as AmazonSQS
+	get() {
+		var service = this.capabilities[AmazonSQS::class.java.name]
+		if (service == null) {
+			service = AmazonSQSClientBuilder.standard().build()
+			sqs = service
+		}
+		return service as AmazonSQS
+	}
 	set(sqs) {
 		this.capabilities[AmazonSQS::class.java.name] = sqs
 	}

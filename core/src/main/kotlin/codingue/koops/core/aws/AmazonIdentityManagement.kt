@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.identitymanagement.AmazonIdentityManagement
+import com.amazonaws.services.identitymanagement.AmazonIdentityManagementClientBuilder
 import com.amazonaws.services.identitymanagement.model.*
 
 var codingue.koops.core.Environment.iam: AmazonIdentityManagement
-	get() = this.capabilities[AmazonIdentityManagement::class.java.name] as AmazonIdentityManagement
+	get() {
+		var service = this.capabilities[AmazonIdentityManagement::class.java.name]
+		if (service == null) {
+			service = AmazonIdentityManagementClientBuilder.standard().build()
+			iam = service
+		}
+		return service as AmazonIdentityManagement
+	}
 	set(iam) {
 		this.capabilities[AmazonIdentityManagement::class.java.name] = iam
 	}

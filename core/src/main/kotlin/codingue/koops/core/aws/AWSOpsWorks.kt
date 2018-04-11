@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.opsworks.AWSOpsWorks
+import com.amazonaws.services.opsworks.AWSOpsWorksClientBuilder
 import com.amazonaws.services.opsworks.model.*
 
 var codingue.koops.core.Environment.opsworks: AWSOpsWorks
-	get() = this.capabilities[AWSOpsWorks::class.java.name] as AWSOpsWorks
+	get() {
+		var service = this.capabilities[AWSOpsWorks::class.java.name]
+		if (service == null) {
+			service = AWSOpsWorksClientBuilder.standard().build()
+			opsworks = service
+		}
+		return service as AWSOpsWorks
+	}
 	set(opsworks) {
 		this.capabilities[AWSOpsWorks::class.java.name] = opsworks
 	}

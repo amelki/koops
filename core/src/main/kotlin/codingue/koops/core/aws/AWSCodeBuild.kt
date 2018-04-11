@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.codebuild.AWSCodeBuild
+import com.amazonaws.services.codebuild.AWSCodeBuildClientBuilder
 import com.amazonaws.services.codebuild.model.*
 
 var codingue.koops.core.Environment.codebuild: AWSCodeBuild
-	get() = this.capabilities[AWSCodeBuild::class.java.name] as AWSCodeBuild
+	get() {
+		var service = this.capabilities[AWSCodeBuild::class.java.name]
+		if (service == null) {
+			service = AWSCodeBuildClientBuilder.standard().build()
+			codebuild = service
+		}
+		return service as AWSCodeBuild
+	}
 	set(codebuild) {
 		this.capabilities[AWSCodeBuild::class.java.name] = codebuild
 	}

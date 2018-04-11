@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.batch.AWSBatch
+import com.amazonaws.services.batch.AWSBatchClientBuilder
 import com.amazonaws.services.batch.model.*
 
 var codingue.koops.core.Environment.batch: AWSBatch
-	get() = this.capabilities[AWSBatch::class.java.name] as AWSBatch
+	get() {
+		var service = this.capabilities[AWSBatch::class.java.name]
+		if (service == null) {
+			service = AWSBatchClientBuilder.standard().build()
+			batch = service
+		}
+		return service as AWSBatch
+	}
 	set(batch) {
 		this.capabilities[AWSBatch::class.java.name] = batch
 	}

@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.shield.AWSShield
+import com.amazonaws.services.shield.AWSShieldClientBuilder
 import com.amazonaws.services.shield.model.*
 
 var codingue.koops.core.Environment.shield: AWSShield
-	get() = this.capabilities[AWSShield::class.java.name] as AWSShield
+	get() {
+		var service = this.capabilities[AWSShield::class.java.name]
+		if (service == null) {
+			service = AWSShieldClientBuilder.standard().build()
+			shield = service
+		}
+		return service as AWSShield
+	}
 	set(shield) {
 		this.capabilities[AWSShield::class.java.name] = shield
 	}

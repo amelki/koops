@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.budgets.AWSBudgets
+import com.amazonaws.services.budgets.AWSBudgetsClientBuilder
 import com.amazonaws.services.budgets.model.*
 
 var codingue.koops.core.Environment.budgets: AWSBudgets
-	get() = this.capabilities[AWSBudgets::class.java.name] as AWSBudgets
+	get() {
+		var service = this.capabilities[AWSBudgets::class.java.name]
+		if (service == null) {
+			service = AWSBudgetsClientBuilder.standard().build()
+			budgets = service
+		}
+		return service as AWSBudgets
+	}
 	set(budgets) {
 		this.capabilities[AWSBudgets::class.java.name] = budgets
 	}

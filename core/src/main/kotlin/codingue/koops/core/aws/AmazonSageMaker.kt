@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.sagemaker.AmazonSageMaker
+import com.amazonaws.services.sagemaker.AmazonSageMakerClientBuilder
 import com.amazonaws.services.sagemaker.model.*
 
 var codingue.koops.core.Environment.sagemaker: AmazonSageMaker
-	get() = this.capabilities[AmazonSageMaker::class.java.name] as AmazonSageMaker
+	get() {
+		var service = this.capabilities[AmazonSageMaker::class.java.name]
+		if (service == null) {
+			service = AmazonSageMakerClientBuilder.standard().build()
+			sagemaker = service
+		}
+		return service as AmazonSageMaker
+	}
 	set(sagemaker) {
 		this.capabilities[AmazonSageMaker::class.java.name] = sagemaker
 	}

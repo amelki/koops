@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.inspector.AmazonInspector
+import com.amazonaws.services.inspector.AmazonInspectorClientBuilder
 import com.amazonaws.services.inspector.model.*
 
 var codingue.koops.core.Environment.inspector: AmazonInspector
-	get() = this.capabilities[AmazonInspector::class.java.name] as AmazonInspector
+	get() {
+		var service = this.capabilities[AmazonInspector::class.java.name]
+		if (service == null) {
+			service = AmazonInspectorClientBuilder.standard().build()
+			inspector = service
+		}
+		return service as AmazonInspector
+	}
 	set(inspector) {
 		this.capabilities[AmazonInspector::class.java.name] = inspector
 	}

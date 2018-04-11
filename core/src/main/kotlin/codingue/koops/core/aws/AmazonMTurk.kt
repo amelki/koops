@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.mturk.AmazonMTurk
+import com.amazonaws.services.mturk.AmazonMTurkClientBuilder
 import com.amazonaws.services.mturk.model.*
 
 var codingue.koops.core.Environment.mturk_requester: AmazonMTurk
-	get() = this.capabilities[AmazonMTurk::class.java.name] as AmazonMTurk
+	get() {
+		var service = this.capabilities[AmazonMTurk::class.java.name]
+		if (service == null) {
+			service = AmazonMTurkClientBuilder.standard().build()
+			mturk_requester = service
+		}
+		return service as AmazonMTurk
+	}
 	set(mturk_requester) {
 		this.capabilities[AmazonMTurk::class.java.name] = mturk_requester
 	}

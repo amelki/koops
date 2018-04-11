@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.kinesis.AmazonKinesis
+import com.amazonaws.services.kinesis.AmazonKinesisClientBuilder
 import com.amazonaws.services.kinesis.model.*
 
 var codingue.koops.core.Environment.kinesis: AmazonKinesis
-	get() = this.capabilities[AmazonKinesis::class.java.name] as AmazonKinesis
+	get() {
+		var service = this.capabilities[AmazonKinesis::class.java.name]
+		if (service == null) {
+			service = AmazonKinesisClientBuilder.standard().build()
+			kinesis = service
+		}
+		return service as AmazonKinesis
+	}
 	set(kinesis) {
 		this.capabilities[AmazonKinesis::class.java.name] = kinesis
 	}

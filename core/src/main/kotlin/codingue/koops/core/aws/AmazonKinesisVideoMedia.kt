@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.kinesisvideo.AmazonKinesisVideoMedia
+import com.amazonaws.services.kinesisvideo.AmazonKinesisVideoMediaClientBuilder
 import com.amazonaws.services.kinesisvideo.model.*
 
 var codingue.koops.core.Environment.kinesisvideo: AmazonKinesisVideoMedia
-	get() = this.capabilities[AmazonKinesisVideoMedia::class.java.name] as AmazonKinesisVideoMedia
+	get() {
+		var service = this.capabilities[AmazonKinesisVideoMedia::class.java.name]
+		if (service == null) {
+			service = AmazonKinesisVideoMediaClientBuilder.standard().build()
+			kinesisvideo = service
+		}
+		return service as AmazonKinesisVideoMedia
+	}
 	set(kinesisvideo) {
 		this.capabilities[AmazonKinesisVideoMedia::class.java.name] = kinesisvideo
 	}

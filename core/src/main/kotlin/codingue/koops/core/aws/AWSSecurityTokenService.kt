@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.securitytoken.AWSSecurityTokenService
+import com.amazonaws.services.securitytoken.AWSSecurityTokenServiceClientBuilder
 import com.amazonaws.services.securitytoken.model.*
 
 var codingue.koops.core.Environment.sts: AWSSecurityTokenService
-	get() = this.capabilities[AWSSecurityTokenService::class.java.name] as AWSSecurityTokenService
+	get() {
+		var service = this.capabilities[AWSSecurityTokenService::class.java.name]
+		if (service == null) {
+			service = AWSSecurityTokenServiceClientBuilder.standard().build()
+			sts = service
+		}
+		return service as AWSSecurityTokenService
+	}
 	set(sts) {
 		this.capabilities[AWSSecurityTokenService::class.java.name] = sts
 	}

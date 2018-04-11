@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.devicefarm.AWSDeviceFarm
+import com.amazonaws.services.devicefarm.AWSDeviceFarmClientBuilder
 import com.amazonaws.services.devicefarm.model.*
 
 var codingue.koops.core.Environment.devicefarm: AWSDeviceFarm
-	get() = this.capabilities[AWSDeviceFarm::class.java.name] as AWSDeviceFarm
+	get() {
+		var service = this.capabilities[AWSDeviceFarm::class.java.name]
+		if (service == null) {
+			service = AWSDeviceFarmClientBuilder.standard().build()
+			devicefarm = service
+		}
+		return service as AWSDeviceFarm
+	}
 	set(devicefarm) {
 		this.capabilities[AWSDeviceFarm::class.java.name] = devicefarm
 	}

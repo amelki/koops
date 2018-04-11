@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.storagegateway.AWSStorageGateway
+import com.amazonaws.services.storagegateway.AWSStorageGatewayClientBuilder
 import com.amazonaws.services.storagegateway.model.*
 
 var codingue.koops.core.Environment.storagegateway: AWSStorageGateway
-	get() = this.capabilities[AWSStorageGateway::class.java.name] as AWSStorageGateway
+	get() {
+		var service = this.capabilities[AWSStorageGateway::class.java.name]
+		if (service == null) {
+			service = AWSStorageGatewayClientBuilder.standard().build()
+			storagegateway = service
+		}
+		return service as AWSStorageGateway
+	}
 	set(storagegateway) {
 		this.capabilities[AWSStorageGateway::class.java.name] = storagegateway
 	}

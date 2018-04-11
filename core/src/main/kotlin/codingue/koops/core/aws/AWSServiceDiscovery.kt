@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.servicediscovery.AWSServiceDiscovery
+import com.amazonaws.services.servicediscovery.AWSServiceDiscoveryClientBuilder
 import com.amazonaws.services.servicediscovery.model.*
 
 var codingue.koops.core.Environment.servicediscovery: AWSServiceDiscovery
-	get() = this.capabilities[AWSServiceDiscovery::class.java.name] as AWSServiceDiscovery
+	get() {
+		var service = this.capabilities[AWSServiceDiscovery::class.java.name]
+		if (service == null) {
+			service = AWSServiceDiscoveryClientBuilder.standard().build()
+			servicediscovery = service
+		}
+		return service as AWSServiceDiscovery
+	}
 	set(servicediscovery) {
 		this.capabilities[AWSServiceDiscovery::class.java.name] = servicediscovery
 	}

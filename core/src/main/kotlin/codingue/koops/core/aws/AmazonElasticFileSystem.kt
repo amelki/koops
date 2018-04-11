@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.elasticfilesystem.AmazonElasticFileSystem
+import com.amazonaws.services.elasticfilesystem.AmazonElasticFileSystemClientBuilder
 import com.amazonaws.services.elasticfilesystem.model.*
 
 var codingue.koops.core.Environment.elasticfilesystem: AmazonElasticFileSystem
-	get() = this.capabilities[AmazonElasticFileSystem::class.java.name] as AmazonElasticFileSystem
+	get() {
+		var service = this.capabilities[AmazonElasticFileSystem::class.java.name]
+		if (service == null) {
+			service = AmazonElasticFileSystemClientBuilder.standard().build()
+			elasticfilesystem = service
+		}
+		return service as AmazonElasticFileSystem
+	}
 	set(elasticfilesystem) {
 		this.capabilities[AmazonElasticFileSystem::class.java.name] = elasticfilesystem
 	}

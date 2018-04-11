@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.acmpca.AWSACMPCA
+import com.amazonaws.services.acmpca.AWSACMPCAClientBuilder
 import com.amazonaws.services.acmpca.model.*
 
 var codingue.koops.core.Environment.acm_pca: AWSACMPCA
-	get() = this.capabilities[AWSACMPCA::class.java.name] as AWSACMPCA
+	get() {
+		var service = this.capabilities[AWSACMPCA::class.java.name]
+		if (service == null) {
+			service = AWSACMPCAClientBuilder.standard().build()
+			acm_pca = service
+		}
+		return service as AWSACMPCA
+	}
 	set(acm_pca) {
 		this.capabilities[AWSACMPCA::class.java.name] = acm_pca
 	}

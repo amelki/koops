@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.kinesisfirehose.AmazonKinesisFirehose
+import com.amazonaws.services.kinesisfirehose.AmazonKinesisFirehoseClientBuilder
 import com.amazonaws.services.kinesisfirehose.model.*
 
 var codingue.koops.core.Environment.firehose: AmazonKinesisFirehose
-	get() = this.capabilities[AmazonKinesisFirehose::class.java.name] as AmazonKinesisFirehose
+	get() {
+		var service = this.capabilities[AmazonKinesisFirehose::class.java.name]
+		if (service == null) {
+			service = AmazonKinesisFirehoseClientBuilder.standard().build()
+			firehose = service
+		}
+		return service as AmazonKinesisFirehose
+	}
 	set(firehose) {
 		this.capabilities[AmazonKinesisFirehose::class.java.name] = firehose
 	}

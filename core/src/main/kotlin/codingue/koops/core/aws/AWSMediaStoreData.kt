@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.mediastoredata.AWSMediaStoreData
+import com.amazonaws.services.mediastoredata.AWSMediaStoreDataClientBuilder
 import com.amazonaws.services.mediastoredata.model.*
 
 var codingue.koops.core.Environment.mediastoredata: AWSMediaStoreData
-	get() = this.capabilities[AWSMediaStoreData::class.java.name] as AWSMediaStoreData
+	get() {
+		var service = this.capabilities[AWSMediaStoreData::class.java.name]
+		if (service == null) {
+			service = AWSMediaStoreDataClientBuilder.standard().build()
+			mediastoredata = service
+		}
+		return service as AWSMediaStoreData
+	}
 	set(mediastoredata) {
 		this.capabilities[AWSMediaStoreData::class.java.name] = mediastoredata
 	}

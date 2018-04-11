@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.elasticache.AmazonElastiCache
+import com.amazonaws.services.elasticache.AmazonElastiCacheClientBuilder
 import com.amazonaws.services.elasticache.model.*
 
 var codingue.koops.core.Environment.elasticache: AmazonElastiCache
-	get() = this.capabilities[AmazonElastiCache::class.java.name] as AmazonElastiCache
+	get() {
+		var service = this.capabilities[AmazonElastiCache::class.java.name]
+		if (service == null) {
+			service = AmazonElastiCacheClientBuilder.standard().build()
+			elasticache = service
+		}
+		return service as AmazonElastiCache
+	}
 	set(elasticache) {
 		this.capabilities[AmazonElastiCache::class.java.name] = elasticache
 	}

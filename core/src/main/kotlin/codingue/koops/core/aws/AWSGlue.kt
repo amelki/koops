@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.glue.AWSGlue
+import com.amazonaws.services.glue.AWSGlueClientBuilder
 import com.amazonaws.services.glue.model.*
 
 var codingue.koops.core.Environment.glue: AWSGlue
-	get() = this.capabilities[AWSGlue::class.java.name] as AWSGlue
+	get() {
+		var service = this.capabilities[AWSGlue::class.java.name]
+		if (service == null) {
+			service = AWSGlueClientBuilder.standard().build()
+			glue = service
+		}
+		return service as AWSGlue
+	}
 	set(glue) {
 		this.capabilities[AWSGlue::class.java.name] = glue
 	}

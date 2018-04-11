@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.servicecatalog.AWSServiceCatalog
+import com.amazonaws.services.servicecatalog.AWSServiceCatalogClientBuilder
 import com.amazonaws.services.servicecatalog.model.*
 
 var codingue.koops.core.Environment.servicecatalog: AWSServiceCatalog
-	get() = this.capabilities[AWSServiceCatalog::class.java.name] as AWSServiceCatalog
+	get() {
+		var service = this.capabilities[AWSServiceCatalog::class.java.name]
+		if (service == null) {
+			service = AWSServiceCatalogClientBuilder.standard().build()
+			servicecatalog = service
+		}
+		return service as AWSServiceCatalog
+	}
 	set(servicecatalog) {
 		this.capabilities[AWSServiceCatalog::class.java.name] = servicecatalog
 	}

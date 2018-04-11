@@ -10,10 +10,18 @@ import codingue.koops.core.AmazonWebServiceDescriptor
 import codingue.koops.core.AwsContinuation
 import codingue.koops.core.Block
 import com.amazonaws.services.resourcegroupstaggingapi.AWSResourceGroupsTaggingAPI
+import com.amazonaws.services.resourcegroupstaggingapi.AWSResourceGroupsTaggingAPIClientBuilder
 import com.amazonaws.services.resourcegroupstaggingapi.model.*
 
 var codingue.koops.core.Environment.tagging: AWSResourceGroupsTaggingAPI
-	get() = this.capabilities[AWSResourceGroupsTaggingAPI::class.java.name] as AWSResourceGroupsTaggingAPI
+	get() {
+		var service = this.capabilities[AWSResourceGroupsTaggingAPI::class.java.name]
+		if (service == null) {
+			service = AWSResourceGroupsTaggingAPIClientBuilder.standard().build()
+			tagging = service
+		}
+		return service as AWSResourceGroupsTaggingAPI
+	}
 	set(tagging) {
 		this.capabilities[AWSResourceGroupsTaggingAPI::class.java.name] = tagging
 	}
