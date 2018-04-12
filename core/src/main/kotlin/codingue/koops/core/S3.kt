@@ -27,6 +27,10 @@ class S3Functions(val block: Block) {
 		return block.declare(PutObjectCommand(bucket, key, inputStream, metadata)) as PutObjectResult
 	}
 
+	fun listBuckets(): List<Bucket> {
+		return block.declare(ListBucketsCommand()) as List<Bucket>
+	}
+
 }
 
 var Environment.s3: AmazonS3
@@ -145,3 +149,26 @@ class ListObjectsCommand(val bucket: String) : S3Command<ListObjectsRequest, Obj
 				.argument("bucket", bucket)
 	}
 }
+
+class ListBucketsCommand : S3Command<ListBucketsRequest, List<Bucket>> {
+
+	override fun build(): ListBucketsRequest {
+		return ListBucketsRequest()
+	}
+
+	override fun dryRun(): List<Bucket> {
+		println(descriptor())
+		return ArrayList()
+	}
+
+
+	override fun eval(environment: Environment): List<Bucket> {
+		return environment.s3.listBuckets(build())
+	}
+
+	override fun descriptor(): AmazonWebServiceDescriptor {
+		return AmazonWebServiceDescriptor("aws s3 list-buckets")
+	}
+
+}
+
