@@ -1,7 +1,7 @@
 package codingue.koops.samples
 
 import codingue.koops.core.*
-import codingue.koops.core.aws.*
+import codingue.koops.aws.*
 import com.amazonaws.auth.PropertiesFileCredentialsProvider
 import com.amazonaws.regions.Regions
 import com.amazonaws.services.lambda.AWSLambdaClientBuilder

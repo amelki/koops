@@ -1,8 +1,6 @@
 package codingue.koops.core
 
 import com.amazonaws.AmazonWebServiceRequest
-import com.amazonaws.AmazonWebServiceResult
-import com.amazonaws.ResponseMetadata
 
 //class AwsEnvironment(val s3: AmazonS3, val lambda: AWSLambda): Environment()
 

@@ -17,6 +17,11 @@
             <artifactId>core</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>codingue.koops</groupId>
+            <artifactId>aws</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

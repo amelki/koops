@@ -13,7 +13,9 @@ import java.util.*
 import java.util.zip.ZipInputStream
 import kotlin.collections.ArrayList
 
-private const val targetDir = "../core/src/main/kotlin/codingue/koops/core/aws"
+private const val targetDir = "../aws/src/main/kotlin/codingue/koops/aws"
+private const val targetPackageName = "codingue.koops.aws"
+private const val corePackageName = "codingue.koops.core"
 
 fun main(args: Array<String>) {
 	val modelMapper = jacksonObjectMapper()
@@ -59,8 +61,8 @@ fun generate(schema: Schema, intermediate: IntermediateModel, targetDir: String)
 							intermediate.metadata.signingName)
 	val syncInterface = intermediate.metadata.syncInterface
 	val syncClientBuilderClassName = intermediate.metadata.syncClientBuilderClassName
-	val packageName = intermediate.metadata.packageName
-	val kmetadata = KMetadata(serviceName, cliName, packageName, syncInterface)
+	val awsServicePackageName = intermediate.metadata.packageName
+	val kmetadata = KMetadata(serviceName, cliName, awsServicePackageName, syncInterface)
 	val kops = intermediate.operations.values.filter {
 		val skipClientMethodForOperations = intermediate.customizationConfig.skipClientMethodForOperations
 		!(skipClientMethodForOperations != null && skipClientMethodForOperations.contains(it.operationName))
@@ -89,36 +91,30 @@ fun generate(schema: Schema, intermediate: IntermediateModel, targetDir: String)
 							 toKotlin(schema, intermediate, outputName),
 							 inputFields)
 	}
-	val targetPackageName = "codingue.koops.core"
 	val file = File("$targetDir/$syncInterface.kt")
 	val writer = file.bufferedWriter()
 	writer.use { w ->
 		w.write("""
 @file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
-package $targetPackageName.aws
+package $targetPackageName
 
 import javax.annotation.Generated
-import $targetPackageName.AmazonWebServiceCommand
-import $targetPackageName.AmazonWebServiceVoidCommand
-import $targetPackageName.AmazonWebServiceDescriptor
-import $targetPackageName.AwsContinuation
-import $targetPackageName.Block
-import $packageName.$syncInterface
-import $packageName.$syncClientBuilderClassName
-import $packageName.model.*
+import $corePackageName.*
+import $awsServicePackageName.*
+import $awsServicePackageName.model.*
 
 var codingue.koops.core.Environment.$serviceName: $syncInterface
 	get() {
-		var service = this.capabilities[$syncInterface::class.java.name]
+		var service = this.capabilities["aws-$serviceName"]
 		if (service == null) {
 			service = $syncClientBuilderClassName.standard().build()
-			$serviceName = service
+			this.capabilities["aws-$serviceName"] = service
 		}
 		return service as $syncInterface
 	}
 	set($serviceName) {
-		this.capabilities[$syncInterface::class.java.name] = $serviceName
+		this.capabilities["aws-$serviceName"] = $serviceName
 	}
 
 @Generated

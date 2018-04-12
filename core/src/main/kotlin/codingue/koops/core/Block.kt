@@ -1,5 +1,7 @@
 package codingue.koops.core
 
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+
 @DslMarker
 annotation class CliMarker
 
@@ -14,7 +16,7 @@ interface Command<out T: Any> {
 }
 
 @CliMarker
-class Block(var environment: Environment): Command<Any> {
+open class Block(var environment: Environment): Command<Any> {
 	private val commands = mutableListOf<Command<*>>()
 
 	override fun toString(): String {
@@ -36,13 +38,37 @@ class Block(var environment: Environment): Command<Any> {
 		})
 	}
 
-	fun declare(command: Command<*>): Any {
+	open fun declare(command: Command<*>): Any {
 		commands.add(command)
 		return if (environment.dryRun) {
 			command.dryRun()
 		} else {
 			command.eval(environment)
 		}
+	}
+
+	override fun eval(environment: Environment) {
+		// Does nothing
+	}
+
+	override fun dryRun() {
+		// Does nothing
+	}
+
+}
+
+@CliMarker
+class Pretty(environment: Environment): Block(environment) {
+	private val commands = mutableListOf<Command<*>>()
+
+	override fun toString(): String {
+		return "pretty { $commands }"
+	}
+
+	override fun declare(command: Command<*>) {
+		val any = super.declare(command)
+		commands.add(command)
+		jacksonObjectMapper().writerWithDefaultPrettyPrinter().writeValue(System.err, any)
 	}
 
 	override fun eval(environment: Environment) {
@@ -76,6 +102,10 @@ fun block(environment: Environment, block: Block.() -> Unit): Block {
 
 fun block(block: Block.() -> Unit): Block {
 	return block(Environment(), block)
+}
+
+fun pretty(init: Pretty.() -> Unit): Pretty {
+	return Pretty(Environment()).apply(init)
 }
 
 fun deferred(init: Block.() -> Unit): Deferred {

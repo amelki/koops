@@ -15,6 +15,7 @@
         <module>gen</module>
         <module>core</module>
         <module>samples</module>
+        <module>aws</module>
     </modules>
 
     <properties>
