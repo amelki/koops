@@ -32,7 +32,7 @@ class Maven(private val goals: List<Maven.Goal>) : Command<Maven.Result> {
 
 	class Result(val out: List<String>, val err: List<String>, val exitCode: Int, val exception: Exception?)
 
-	override fun title(): String? = "mvn ${goals.joinToString(" ")}"
+	override fun title(): String? = "mvn ${goals.joinToString(" ") { it.name.toLowerCase() }}"
 
 	override fun eval(environment: Environment): Result {
 		val outputs = mutableListOf<String>()

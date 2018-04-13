@@ -1,20 +1,21 @@
 package codingue.koops.core
 
 @CliMarker
-open class Block(var environment: Environment): Command<Any> {
-	private val commands = mutableListOf<Command<*>>()
-	private var result: Any? = null
+open class Block(var environment: Environment) : Command<Any?> {
+	private val results = mutableListOf<Result>()
+
+	class Result(val command: Command<*>, val value: Any?)
 
 	override fun title(): String? {
 		return null
 	}
 
 	override fun toString(): String {
-		return "block { $commands }"
+		return "block { ${results.map { it.command.toString() }} }"
 	}
 
 	fun declare(anonymousBlock: () -> Any, anonymousDryRun: (() -> Unit)? = null): Any? {
-		return declare(object: Command<Any> {
+		return declare(object : Command<Any> {
 			override fun eval(environment: Environment): Any {
 				return anonymousBlock()
 			}
@@ -31,19 +32,22 @@ open class Block(var environment: Environment): Command<Any> {
 		})
 	}
 
-	open fun declare(command: Command<*>): Any {
-		commands.add(command)
+	open fun declare(command: Command<*>): Any? {
 		val res = if (environment.dryRun) {
 			command.dryRun()
 		} else {
 			command.doEval(environment)
 		}
-		result = res
+		results.add(Result(command, res))
 		return res
 	}
 
-	override fun eval(environment: Environment): Any {
-		return result!!
+	override fun eval(environment: Environment): Any? {
+		return results.lastOrNull()?.value
+	}
+
+	fun evalAll(): List<Any?> {
+		return results.map { it.value }
 	}
 
 	override fun dryRun(): Any {

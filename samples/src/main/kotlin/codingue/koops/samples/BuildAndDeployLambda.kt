@@ -8,11 +8,14 @@ fun main(args: Array<String>) {
 	val environment = env {
 		workingDir = "~/Code/playground/listserv"
 	}
+	// JSON pretty print each result of each command declared inside this block
 	pretty(environment) {
-		jsonArray {
+		// Capture all command results in a JSON Array
+		log {
+			// mvn clean install
 			val buildStatus = mvn(Clean, Install)
-			add(buildStatus)
-			addIf(buildStatus.exitCode == 0) {
+			if (buildStatus.exitCode == 0) {
+				// If the build is successful, upload to S3 and update Lambda
 				aws s3 {
 					putObject("listserv1", "lambda/target/lambda-1.0-SNAPSHOT.jar")
 				}

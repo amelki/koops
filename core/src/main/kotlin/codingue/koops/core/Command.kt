@@ -4,10 +4,11 @@ package codingue.koops.core
 annotation class CliMarker
 
 @CliMarker
-interface Command<out T: Any> {
+interface Command<out T: Any?> {
 	fun eval(environment: Environment): T
 	fun dryRun(): T
 	fun title(): String?
+
 	fun doEval(environment: Environment): T {
 		val title = title()
 		if (title != null && environment.progress) print("Executing $title")
@@ -15,4 +16,5 @@ interface Command<out T: Any> {
 			if (title != null && environment.progress) print("\r")
 		}
 	}
+
 }

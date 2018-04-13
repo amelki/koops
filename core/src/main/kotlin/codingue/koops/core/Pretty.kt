@@ -39,7 +39,7 @@ class Pretty(environment: Environment): Block(environment) {
 		return "pretty { $commands }"
 	}
 
-	override fun declare(command: Command<*>): Any {
+	override fun declare(command: Command<*>): Any? {
 		val any = super.declare(command)
 		val jsonNode = objectMapper.valueToTree<JsonNode>(any)
 		jsonNode.nodeType
