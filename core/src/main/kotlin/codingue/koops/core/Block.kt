@@ -14,10 +14,6 @@ import jdk.nashorn.internal.runtime.regexp.joni.ast.StringNode
 @DslMarker
 annotation class CliMarker
 
-open class Environment(var dryRun: Boolean = false) {
-	val capabilities = HashMap<String, Any>()
-}
-
 @CliMarker
 interface Command<out T: Any> {
 	fun eval(environment: Environment): T

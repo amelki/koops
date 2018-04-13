@@ -51,6 +51,11 @@
             <artifactId>aws-java-sdk</artifactId>
             <version>1.11.311</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.maven.shared</groupId>
+            <artifactId>maven-invoker</artifactId>
+            <version>3.0.0</version>
+        </dependency>
     </dependencies>
 
     <build>

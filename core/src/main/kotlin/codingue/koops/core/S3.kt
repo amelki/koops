@@ -19,8 +19,12 @@ class S3Functions(val block: Block) {
 		return block.declare(PutObjectCommand(bucket, key, file)) as PutObjectResult
 	}
 
-	fun putObject(bucket: String, key: String, redirectLocation: String): PutObjectResult {
-		return block.declare(PutObjectCommand(bucket, key, redirectLocation)) as PutObjectResult
+	fun putObject(bucket: String, path: String): PutObjectResult {
+		return putObject(bucket, path.substringAfterLast("/"), path)
+	}
+
+	fun putObject(bucket: String, key: String, path: String): PutObjectResult {
+		return putObject(bucket, key, block.environment.resolvePath(path))
 	}
 
 	fun putObject(bucket: String, key: String, inputStream: InputStream, metadata: ObjectMetadata): PutObjectResult {
