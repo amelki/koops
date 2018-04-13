@@ -19,8 +19,9 @@ class Json(val environment: Environment): Command<Any> {
 	}
 
 	fun set(name: String, init: Block.() -> Unit): Any {
-		map[name] = Block(environment).apply(init).eval(environment)
-		return this
+		val result = Block(environment).apply(init).eval(environment)
+		map[name] = result
+		return result
 	}
 
 }
