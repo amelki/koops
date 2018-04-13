@@ -30,3 +30,11 @@ fun Block.pretty(init: Pretty.() -> Unit) {
 fun deferred(init: Block.() -> Unit): Deferred {
 	return Deferred(init)
 }
+
+fun log(init: Block.() -> Unit): Block {
+	return Pretty(Environment()).apply({ jsonCommandResults(init) })
+}
+
+fun log(environment: Environment, init: Block.() -> Unit): Block {
+	return Pretty(environment).apply({ jsonCommandResults(init) })
+}

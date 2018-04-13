@@ -94,15 +94,15 @@ open class JsonArray(environment: Environment) : Block(environment) {
 /**
  * A block that creates an array with the result of each command declared
  */
-fun <T> Block.log(init: CommandLog.() -> T): T {
-	val jsonCommand = CommandLog(this.environment)
+fun <T> Pretty.jsonCommandResults(init: Block.() -> T): T {
+	val jsonCommand = JsonCommandResults(this.environment)
 	val result = jsonCommand.run(init)
 	declare(jsonCommand)
 	return result
 }
 
 
-class CommandLog(environment: Environment) : JsonArray(environment) {
+class JsonCommandResults(environment: Environment) : JsonArray(environment) {
 	override fun declare(command: Command<*>): Any? {
 		val result = super.declare(command)
 		add {
@@ -114,3 +114,4 @@ class CommandLog(environment: Environment) : JsonArray(environment) {
 		return result
 	}
 }
+
