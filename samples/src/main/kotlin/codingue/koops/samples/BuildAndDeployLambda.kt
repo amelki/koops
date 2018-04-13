@@ -15,12 +15,11 @@ fun main(args: Array<String>) {
 			val buildStatus = set("maven") {
 				mvn(Clean, Install)
 			} as InvocationResult
-			set("lambda") {
-				when (buildStatus.exitCode) {
-					0 -> updateMyLambda("listserv",
-															"listserv1",
-															"lambda/target/lambda-1.0-SNAPSHOT.jar")
-					else -> "Error executing maven goals: ${buildStatus.executionException}"
+			if (buildStatus.exitCode == 0) {
+				set("lambda") {
+					updateMyLambda("listserv",
+												 "listserv1",
+												 "lambda/target/lambda-1.0-SNAPSHOT.jar")
 				}
 			}
 		}
@@ -30,12 +29,12 @@ fun main(args: Array<String>) {
 fun Block.updateMyLambda(functionName: String, bucketName: String, jarPath: String): UpdateFunctionCodeResult {
 	return run {
 		aws s3 {
-			putObject("listserv1", "lambda/target/lambda-1.0-SNAPSHOT.jar")
+			putObject(bucketName, jarPath)
 		}
 		aws lambda {
-			updateFunctionCode("listserv") {
-				s3Bucket = "listserv1"
-				s3Key = "lambda-1.0-SNAPSHOT.jar"
+			updateFunctionCode(functionName) {
+				s3Bucket = bucketName
+				s3Key = jarPath.substringAfterLast("/")
 			}
 		}
 	}

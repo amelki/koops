@@ -27,6 +27,9 @@ class Pretty(environment: Environment): Block(environment) {
 	var stream: PrintStream? = System.out
 	var colorMap: (JsonItem) -> JsonColor = defaultMap
 	var indentLevel: Int = 2
+	var includeNullFields = false
+	var includeEmptyArrays = false
+	var withColors = true
 
 	init {
 		objectMapper.configure(JsonGenerator.Feature.AUTO_CLOSE_TARGET, false)
@@ -41,7 +44,8 @@ class Pretty(environment: Environment): Block(environment) {
 		val jsonNode = objectMapper.valueToTree<JsonNode>(any)
 		jsonNode.nodeType
 		val w = writer ?: PrintWriter(stream)
-		JsonPrettyPrinter(w, indentLevel, colorMap).printNode(jsonNode, 0)
+		JsonPrettyPrinter(w, indentLevel, withColors, colorMap, includeNullFields, includeEmptyArrays)
+				.printNode(jsonNode, 0)
 		w.println()
 		w.flush()
 		return any
@@ -78,7 +82,12 @@ private val defaultMap: (item: JsonItem) -> JsonColor = {
  * Write our own pretty printer, with colorization - Jackson does not seem to provide any easy way
  * of doing this easily via serialization configuration
  */
-private class JsonPrettyPrinter(val out: PrintWriter, val indentLevel: Int, val colorMap: (JsonItem) -> JsonColor) {
+private class JsonPrettyPrinter(val out: PrintWriter,
+																val indentLevel: Int,
+																val withColors: Boolean,
+																val colorMap: (JsonItem) -> JsonColor,
+																val includeNullFields: Boolean,
+																val includeEmptyArrays: Boolean) {
 
 	fun indent(i: Int): String {
 		return String(CharArray(i * indentLevel)).replace('\u0000', ' ')
@@ -106,16 +115,32 @@ private class JsonPrettyPrinter(val out: PrintWriter, val indentLevel: Int, val 
 	}
 
 	private fun printColor(text: String, type: JsonItem) {
-		out.print(colorMap(type).ansiColor)
+		if (withColors) {
+			out.print(colorMap(type).ansiColor)
+		}
 		out.print(text)
-		out.print(ANSI_RESET)
+		if (withColors) {
+			out.print(ANSI_RESET)
+		}
 	}
 
 	private fun printObject(node: ObjectNode, indent: Int) {
 		out.println("{")
 		val fields = node.fields().asSequence()
-		val size = node.size()
-		fields.forEachIndexed { index, entry ->
+		var size = node.size()
+		fields.filter {
+			when {
+				it.value.isNull -> {
+					size--
+					includeNullFields
+				}
+				(it.value.isArray && it.value.size() == 0) -> {
+					size--
+					includeEmptyArrays
+				}
+				else -> true
+			}
+		}.forEachIndexed { index, entry ->
 			out.print(indent(indent + 1))
 			out.print("\"")
 			printColor(entry.key, JsonItem.Field)
