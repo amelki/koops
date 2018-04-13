@@ -18,35 +18,64 @@ private const val ANSI_PURPLE = "\u001B[35m"
 private const val ANSI_CYAN = "\u001B[36m"
 private const val ANSI_WHITE = "\u001B[37m"
 
-@CliMarker
-class Pretty(environment: Environment): Block(environment) {
-	private val commands = mutableListOf<Command<*>>()
-	private val objectMapper: ObjectMapper = jacksonObjectMapper()
+
+val Environment.printConfig: PrintConfig
+	get() {
+		var service = this.capabilities[PrintConfig::class.java.name]
+		if (service == null) {
+			service = PrintConfig()
+			this.capabilities[PrintConfig::class.java.name] = service
+		}
+		return service as PrintConfig
+	}
+
+class PrintConfig {
+
+	val jsonFeatures = JsonFeatures()
+
+	enum class Format {
+		Json, ToString
+	}
 
 	var writer: PrintWriter? = null
 	var stream: PrintStream? = System.out
-	var colorMap: (JsonItem) -> JsonColor = defaultMap
-	var indentLevel: Int = 2
-	var includeNullFields = false
-	var includeEmptyArrays = false
-	var withColors = true
+	var format: Format = Format.Json
+
+	class JsonFeatures {
+		var colorMap: (JsonItem) -> JsonColor = defaultMap
+		var indentLevel: Int = 2
+		var includeNullFields = false
+		var includeEmptyArrays = false
+		var withColors = true
+	}
+
+}
+
+@CliMarker
+class Print(environment: Environment): Block(environment) {
+	private val commands = mutableListOf<Command<*>>()
+	private val objectMapper: ObjectMapper = jacksonObjectMapper()
 
 	init {
 		objectMapper.configure(JsonGenerator.Feature.AUTO_CLOSE_TARGET, false)
 	}
 
 	override fun toString(): String {
-		return "pretty { $commands }"
+		return "print { $commands }"
 	}
 
 	override fun declare(command: Command<*>): Any? {
 		val any = super.declare(command)
-		val jsonNode = objectMapper.valueToTree<JsonNode>(any)
-		jsonNode.nodeType
-		val w = writer ?: PrintWriter(stream)
-		JsonPrettyPrinter(w, indentLevel, withColors, colorMap, includeNullFields, includeEmptyArrays)
-				.printNode(jsonNode, 0)
-		w.println()
+		val w = environment.printConfig.writer ?: PrintWriter(environment.printConfig.stream)
+		when (environment.printConfig.format) {
+			PrintConfig.Format.Json -> {
+				val jsonNode = objectMapper.valueToTree<JsonNode>(any)
+				JsonPrettyPrinter(w, environment.printConfig)
+						.printNode(jsonNode, 0)
+				w.println()
+			}
+			PrintConfig.Format.ToString -> w.println(any?.toString())
+		}
 		w.flush()
 		return any
 	}
@@ -83,14 +112,10 @@ private val defaultMap: (item: JsonItem) -> JsonColor = {
  * of doing this easily via serialization configuration
  */
 private class JsonPrettyPrinter(val out: PrintWriter,
-																val indentLevel: Int,
-																val withColors: Boolean,
-																val colorMap: (JsonItem) -> JsonColor,
-																val includeNullFields: Boolean,
-																val includeEmptyArrays: Boolean) {
+																val printConfig: PrintConfig) {
 
 	fun indent(i: Int): String {
-		return String(CharArray(i * indentLevel)).replace('\u0000', ' ')
+		return String(CharArray(i * printConfig.jsonFeatures.indentLevel)).replace('\u0000', ' ')
 	}
 
 	fun printNode(node: JsonNode, indent: Int) {
@@ -115,11 +140,11 @@ private class JsonPrettyPrinter(val out: PrintWriter,
 	}
 
 	private fun printColor(text: String, type: JsonItem) {
-		if (withColors) {
-			out.print(colorMap(type).ansiColor)
+		if (printConfig.jsonFeatures.withColors) {
+			out.print(printConfig.jsonFeatures.colorMap(type).ansiColor)
 		}
 		out.print(text)
-		if (withColors) {
+		if (printConfig.jsonFeatures.withColors) {
 			out.print(ANSI_RESET)
 		}
 	}
@@ -132,11 +157,11 @@ private class JsonPrettyPrinter(val out: PrintWriter,
 			when {
 				it.value.isNull -> {
 					size--
-					includeNullFields
+					printConfig.jsonFeatures.includeNullFields
 				}
 				(it.value.isArray && it.value.size() == 0) -> {
 					size--
-					includeEmptyArrays
+					printConfig.jsonFeatures.includeEmptyArrays
 				}
 				else -> true
 			}

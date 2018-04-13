@@ -7,8 +7,10 @@ import codingue.koops.core.*
 fun main(args: Array<String>) {
 	val environment = env {
 		workingDir = "~/Code/playground/listserv"
+		printConfig.format = PrintConfig.Format.ToString
 	}
-	// JSON pretty print each result of each command declared inside this block
+	// JSON pretty print an array where each item is made of a the descriptor and and result of each
+	// command declared in this block
 	log(environment) {
 		// Run mvn clean install
 		val buildStatus = mvn(Clean, Install)

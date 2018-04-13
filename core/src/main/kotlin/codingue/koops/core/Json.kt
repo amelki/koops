@@ -46,7 +46,6 @@ infix fun <T> Block.jsonArray(init: JsonArray.() -> T): T {
 	return result
 }
 
-
 open class JsonArray(environment: Environment) : Block(environment) {
 	val list = mutableListOf<Any>()
 	override fun eval(environment: Environment): Any? {
@@ -94,13 +93,12 @@ open class JsonArray(environment: Environment) : Block(environment) {
 /**
  * A block that creates an array with the result of each command declared
  */
-fun <T> Pretty.jsonCommandResults(init: Block.() -> T): T {
+fun <T> Print.jsonCommandResults(init: Block.() -> T): T {
 	val jsonCommand = JsonCommandResults(this.environment)
 	val result = jsonCommand.run(init)
 	declare(jsonCommand)
 	return result
 }
-
 
 class JsonCommandResults(environment: Environment) : JsonArray(environment) {
 	override fun declare(command: Command<*>): Any? {

@@ -15,16 +15,16 @@ fun block(block: Block.() -> Unit): Block {
 /**
  * Prints the result of the commands declared in the given init block
  */
-fun pretty(init: Pretty.() -> Unit): Pretty {
-	return Pretty(Environment()).apply(init)
+fun print(init: Print.() -> Unit): Print {
+	return Print(Environment()).apply(init)
 }
 
-fun pretty(environment: Environment, init: Pretty.() -> Unit): Pretty {
-	return Pretty(environment).apply(init)
+fun print(environment: Environment, init: Print.() -> Unit): Print {
+	return Print(environment).apply(init)
 }
 
-fun Block.pretty(init: Pretty.() -> Unit) {
-	return Pretty(environment).run(init)
+fun Block.print(init: Print.() -> Unit) {
+	return Print(environment).run(init)
 }
 
 fun deferred(init: Block.() -> Unit): Deferred {
@@ -32,9 +32,9 @@ fun deferred(init: Block.() -> Unit): Deferred {
 }
 
 fun log(init: Block.() -> Unit): Block {
-	return Pretty(Environment()).apply({ jsonCommandResults(init) })
+	return Print(Environment()).apply({ jsonCommandResults(init) })
 }
 
 fun log(environment: Environment, init: Block.() -> Unit): Block {
-	return Pretty(environment).apply({ jsonCommandResults(init) })
+	return Print(environment).apply({ jsonCommandResults(init) })
 }
