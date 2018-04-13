@@ -4,7 +4,6 @@ import codingue.koops.aws.lambda
 import codingue.koops.aws.updateFunctionCode
 import codingue.koops.core.*
 import com.amazonaws.services.lambda.model.UpdateFunctionCodeResult
-import org.apache.maven.shared.invoker.InvocationResult
 
 fun main(args: Array<String>) {
 	val environment = env {
@@ -12,15 +11,12 @@ fun main(args: Array<String>) {
 	}
 	pretty(environment) {
 		json {
-			val buildStatus = set("maven") {
-				mvn(Clean, Install)
-			} as InvocationResult
-			if (buildStatus.exitCode == 0) {
-				set("lambda") {
-					updateMyLambda("listserv",
-												 "listserv1",
-												 "lambda/target/lambda-1.0-SNAPSHOT.jar")
-				}
+			val buildStatus = mvn(Clean, Install)
+			set("maven", buildStatus)
+			setIf(buildStatus.exitCode == 0, "lambda") {
+				updateMyLambda("listserv",
+											 "listserv1",
+											 "lambda/target/lambda-1.0-SNAPSHOT.jar")
 			}
 		}
 	}

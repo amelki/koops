@@ -59,8 +59,8 @@ open class Block(var environment: Environment): Command<Any> {
 		return result!!
 	}
 
-	override fun dryRun() {
-		// Does nothing
+	override fun dryRun(): Any {
+		return ""
 	}
 
 }

@@ -8,7 +8,7 @@ infix fun <T> Block.json(init: Json.() -> T): T {
 }
 
 
-class Json(val environment: Environment): Command<Any> {
+class Json(environment: Environment) : Block(environment) {
 	val map = HashMap<String, Any>()
 	override fun eval(environment: Environment): Any {
 		return map
@@ -18,10 +18,22 @@ class Json(val environment: Environment): Command<Any> {
 		TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
 	}
 
+	fun set(name: String, value: Any): Any {
+		map[name] = value
+		return value
+	}
+
 	fun set(name: String, init: Block.() -> Unit): Any {
 		val result = Block(environment).apply(init).eval(environment)
-		map[name] = result
-		return result
+		return set(name, result)
+	}
+
+	fun setIf(predicate: Boolean, name: String, init: Block.() -> Unit): Any? {
+		if (predicate) {
+			val result = Block(environment).apply(init).eval(environment)
+			return set(name, result)
+		}
+		return null
 	}
 
 }
