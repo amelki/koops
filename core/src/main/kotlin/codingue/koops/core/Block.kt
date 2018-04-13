@@ -1,15 +1,5 @@
 package codingue.koops.core
 
-import com.fasterxml.jackson.core.JsonGenerator
-import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import java.io.*
-import com.fasterxml.jackson.core.JsonProcessingException
-import com.fasterxml.jackson.databind.*
-import com.fasterxml.jackson.databind.node.*
-import java.io.IOException
-import com.fasterxml.jackson.databind.ser.DefaultSerializerProvider
-import jdk.nashorn.internal.runtime.regexp.joni.ast.StringNode
-
 
 @DslMarker
 annotation class CliMarker
@@ -18,12 +8,24 @@ annotation class CliMarker
 interface Command<out T: Any> {
 	fun eval(environment: Environment): T
 	fun dryRun(): T
+	fun title(): String?
+	fun doEval(environment: Environment): T {
+		val title = title()
+		if (title != null && environment.progress) print("Executing $title")
+		return eval(environment).also {
+			if (title != null && environment.progress) print("\r")
+		}
+	}
 }
 
 @CliMarker
 open class Block(var environment: Environment): Command<Any> {
 	private val commands = mutableListOf<Command<*>>()
 	private var result: Any? = null
+
+	override fun title(): String? {
+		return null
+	}
 
 	override fun toString(): String {
 		return "block { $commands }"
@@ -34,6 +36,9 @@ open class Block(var environment: Environment): Command<Any> {
 			override fun eval(environment: Environment): Any {
 				return anonymousBlock()
 			}
+
+			override fun title(): String? = null
+
 			override fun dryRun() {
 				if (anonymousDryRun == null) {
 					println("Executing anonymous $anonymousBlock")
@@ -49,7 +54,7 @@ open class Block(var environment: Environment): Command<Any> {
 		val res = if (environment.dryRun) {
 			command.dryRun()
 		} else {
-			command.eval(environment)
+			command.doEval(environment)
 		}
 		result = res
 		return res
@@ -68,6 +73,8 @@ open class Block(var environment: Environment): Command<Any> {
 
 @CliMarker
 class Deferred(private val init: Block.() -> Unit): Command<Any> {
+
+	override fun title(): String? = null
 
 	override fun eval(environment: Environment) {
 		// Eval does nothing => must be explicitely run when needed

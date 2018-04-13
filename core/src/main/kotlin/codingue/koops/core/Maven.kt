@@ -28,8 +28,11 @@ class Maven(private val goals: List<Maven.Goal>) : Command<Maven.Result> {
 	}
 
 	var pom = "pom.xml"
+	var progressInPlace = true
 
 	class Result(val out: List<String>, val err: List<String>, val exitCode: Int, val exception: Exception?)
+
+	override fun title(): String? = "mvn ${goals.joinToString(" ")}"
 
 	override fun eval(environment: Environment): Result {
 		val outputs = mutableListOf<String>()
@@ -40,12 +43,12 @@ class Maven(private val goals: List<Maven.Goal>) : Command<Maven.Result> {
 //		request.baseDirectory = environment.resolvedWorkingDir()
 		request.isBatchMode = true
 		request.setOutputHandler {
-			print("\r")
+			if (progressInPlace) print("\r")
 			print(it)
 			outputs.add(it)
 		}
 		request.setErrorHandler {
-			print("\r")
+			if (progressInPlace) print("\r")
 			print(it)
 			errors.add(it)
 		}
@@ -56,7 +59,7 @@ class Maven(private val goals: List<Maven.Goal>) : Command<Maven.Result> {
 		invoker.logger = PrintStreamLogger(System.err, 1)
 		invoker.workingDirectory = environment.resolvedWorkingDir()
 		val result = invoker.execute(request)
-		print("\r")
+		if (progressInPlace) print("\r")
 		return Result(outputs, errors, result.exitCode, result.executionException)
 	}
 

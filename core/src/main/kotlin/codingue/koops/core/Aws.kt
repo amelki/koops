@@ -13,6 +13,10 @@ interface AmazonWebServiceCommand<out T : AmazonWebServiceRequest, out R: Any>: 
 		return dryResult()
 	}
 
+	override fun title(): String? {
+		return descriptor().toString()
+	}
+
 	fun descriptor(): AmazonWebServiceDescriptor
 }
 
@@ -21,6 +25,9 @@ interface AmazonWebServiceVoidCommand<out T : AmazonWebServiceRequest>: Command<
 	fun build(): T
 	override fun dryRun() {
 		println(descriptor())
+	}
+	override fun title(): String? {
+		return descriptor().toString()
 	}
 
 	fun descriptor(): AmazonWebServiceDescriptor

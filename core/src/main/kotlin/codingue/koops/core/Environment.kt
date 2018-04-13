@@ -6,6 +6,7 @@ import java.nio.file.Paths
 open class Environment(var dryRun: Boolean = false) {
 	val capabilities = HashMap<String, Any>()
 	var workingDir: String? = null
+	var progress = true
 
 	internal fun resolvedWorkingDir(): File {
 		if (workingDir != null) {

@@ -61,6 +61,7 @@ infix fun <T> AwsContinuation.s3(init: S3Functions.() -> T): T {
 interface S3Command<out T : AmazonWebServiceRequest, out R: Any> : Command<R> {
 	fun build(): T
 	fun descriptor(): AmazonWebServiceDescriptor
+	override fun title(): String? = descriptor().toString()
 }
 
 abstract class AbstractPutObjectCommand<T : AbstractPutObjectRequest, out R: Any> : S3Command<T, R> {
