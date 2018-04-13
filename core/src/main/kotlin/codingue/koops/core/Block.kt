@@ -1,23 +1,5 @@
 package codingue.koops.core
 
-
-@DslMarker
-annotation class CliMarker
-
-@CliMarker
-interface Command<out T: Any> {
-	fun eval(environment: Environment): T
-	fun dryRun(): T
-	fun title(): String?
-	fun doEval(environment: Environment): T {
-		val title = title()
-		if (title != null && environment.progress) print("Executing $title")
-		return eval(environment).also {
-			if (title != null && environment.progress) print("\r")
-		}
-	}
-}
-
 @CliMarker
 open class Block(var environment: Environment): Command<Any> {
 	private val commands = mutableListOf<Command<*>>()
@@ -67,23 +49,5 @@ open class Block(var environment: Environment): Command<Any> {
 	override fun dryRun(): Any {
 		return ""
 	}
-
-}
-
-
-@CliMarker
-class Deferred(private val init: Block.() -> Unit): Command<Any> {
-
-	override fun title(): String? = null
-
-	override fun eval(environment: Environment) {
-		// Eval does nothing => must be explicitely run when needed
-	}
-
-	override fun dryRun() {
-		// Does nothing
-	}
-
-	fun run(environment: Environment): Any = Block(environment).apply(init)
 
 }
