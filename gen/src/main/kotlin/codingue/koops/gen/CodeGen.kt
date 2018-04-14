@@ -16,6 +16,7 @@ import kotlin.collections.ArrayList
 private const val targetDir = "../aws/src/main/kotlin/codingue/koops/aws"
 private const val targetPackageName = "codingue.koops.aws"
 private const val corePackageName = "codingue.koops.core"
+private const val awsPackageName = "codingue.koops.aws"
 
 fun main(args: Array<String>) {
 	val modelMapper = jacksonObjectMapper()
@@ -91,16 +92,18 @@ fun generate(schema: Schema, intermediate: IntermediateModel, targetDir: String)
 							 toKotlin(schema, intermediate, outputName),
 							 inputFields)
 	}
-	val file = File("$targetDir/$syncInterface.kt")
+	File("$targetDir/$serviceName").mkdirs();
+	val file = File("$targetDir/$serviceName/$syncInterface.kt")
 	val writer = file.bufferedWriter()
 	writer.use { w ->
 		w.write("""
 @file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION", "RemoveEmptyPrimaryConstructor", "UnnecessaryVariable", "UsePropertyAccessSyntax", "USELESS_ELVIS")
 
-package $targetPackageName
+package $targetPackageName.$serviceName
 
 import javax.annotation.Generated
 import $corePackageName.*
+import $awsPackageName.*
 import $awsServicePackageName.*
 import $awsServicePackageName.model.*
 

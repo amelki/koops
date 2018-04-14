@@ -2,6 +2,8 @@ package codingue.koops.samples
 
 import codingue.koops.core.*
 import codingue.koops.aws.*
+import codingue.koops.aws.s3.*
+import codingue.koops.aws.lambda.*
 import com.amazonaws.auth.PropertiesFileCredentialsProvider
 import com.amazonaws.regions.Regions
 import com.amazonaws.services.lambda.AWSLambdaClientBuilder
@@ -11,7 +13,6 @@ import java.io.File
 
 fun main(args: Array<String>) {
 	val credentialsProvider = PropertiesFileCredentialsProvider("credentials.properties")
-	// TODO Could we specify the region via the credential properties file?
 	val region = Regions.US_EAST_1
 	val s3: AmazonS3 = AmazonS3ClientBuilder.standard()
 			.withCredentials(credentialsProvider)

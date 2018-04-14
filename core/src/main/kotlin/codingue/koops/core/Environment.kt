@@ -8,7 +8,7 @@ open class Environment(var dryRun: Boolean = false) {
 	var workingDir: String? = null
 	var progress = true
 
-	internal fun resolvedWorkingDir(): File {
+	fun resolvedWorkingDir(): File {
 		if (workingDir != null) {
 			if (workingDir!!.startsWith("~")) {
 				return File(System.getProperty("user.home") + workingDir!!.substring(1))
@@ -21,7 +21,7 @@ open class Environment(var dryRun: Boolean = false) {
 		}
 	}
 
-	internal fun resolvePath(path: String): File {
+	fun resolvePath(path: String): File {
 		val file = File(path)
 		if (!file.isAbsolute) {
 			return resolvedWorkingDir().resolve(path)

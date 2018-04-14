@@ -16,6 +16,7 @@
         <module>core</module>
         <module>samples</module>
         <module>aws</module>
+        <module>maven</module>
     </modules>
 
     <properties>
