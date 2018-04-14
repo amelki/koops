@@ -6,6 +6,7 @@ package codingue.koops.aws.lambda
 import javax.annotation.Generated
 import codingue.koops.core.*
 import codingue.koops.aws.*
+import codingue.koops.common.applyIfNotNull
 import com.amazonaws.services.lambda.*
 import com.amazonaws.services.lambda.model.*
 
@@ -861,8 +862,8 @@ class AWSLambdaListVersionsByFunctionCommand(val functionName: String) : AmazonW
 }
 
 
-fun AWSLambdaFunctions.publishVersion(functionName: String, init: AWSLambdaPublishVersionCommand.() -> Unit): com.amazonaws.services.lambda.model.PublishVersionResult {
-	return this.block.declare(AWSLambdaPublishVersionCommand(functionName).apply(init)) as com.amazonaws.services.lambda.model.PublishVersionResult
+fun AWSLambdaFunctions.publishVersion(functionName: String, init: (AWSLambdaPublishVersionCommand.() -> Unit)? = null): com.amazonaws.services.lambda.model.PublishVersionResult {
+	return this.block.declare(AWSLambdaPublishVersionCommand(functionName).applyIfNotNull(init, { init!! })) as com.amazonaws.services.lambda.model.PublishVersionResult
 }
 
 @Generated

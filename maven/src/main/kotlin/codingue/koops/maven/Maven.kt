@@ -24,6 +24,9 @@ var Environment.mavenHome: String?
 		}
 	}
 
+val Success = Maven.Status.Success
+val Failed = Maven.Status.Failed
+
 @CliMarker
 class Maven(private val goals: List<Goal>) : Command<Maven.Result> {
 
@@ -34,7 +37,21 @@ class Maven(private val goals: List<Goal>) : Command<Maven.Result> {
 	var pom = "pom.xml"
 	var progressInPlace = true
 
-	class Result(val out: List<String>, val err: List<String>, val exitCode: Int, val exception: Exception?)
+	enum class Status {
+		Success,
+		Failed
+	}
+
+	class Result(val out: List<String>, val err: List<String>, val exitCode: Int, val exception: Exception?) {
+		infix fun verifies(f: Result.() -> Boolean) {
+			if (!f()) {
+				throw AssertionError("Wrong expected result")
+			}
+		}
+		infix fun verifies(status: Status) {
+			verifies({ exitCode == status.ordinal })
+		}
+	}
 
 	override fun title(): String? = "mvn ${goals.joinToString(" ") { it.name.toLowerCase() }}"
 
