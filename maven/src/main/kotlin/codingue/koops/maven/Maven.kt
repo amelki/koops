@@ -1,10 +1,7 @@
 package codingue.koops.maven
 
 import codingue.koops.common.applyIfNotNull
-import codingue.koops.core.Block
-import codingue.koops.core.CliMarker
-import codingue.koops.core.Command
-import codingue.koops.core.Environment
+import codingue.koops.core.*
 import org.apache.maven.shared.invoker.DefaultInvocationRequest
 import org.apache.maven.shared.invoker.DefaultInvoker
 import org.apache.maven.shared.invoker.PrintStreamLogger
@@ -42,10 +39,10 @@ class Maven(private val goals: List<Goal>) : Command<Maven.Result> {
 		Failed
 	}
 
-	class Result(val out: List<String>, val err: List<String>, val exitCode: Int, val exception: Exception?) {
-		infix fun verifies(f: Result.() -> Boolean) {
+	inner class Result(val out: List<String>, val err: List<String>, val exitCode: Int, val exception: Exception?): Verifiable<Result> {
+		override infix fun verifies(f: Result.() -> Boolean) {
 			if (!f()) {
-				throw AssertionError("Wrong expected result")
+				throw VerificationException(this@Maven, "Wrong expected result")
 			}
 		}
 		infix fun verifies(status: Status) {

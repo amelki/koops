@@ -7,7 +7,7 @@ infix fun <T> Block.json(init: Json.() -> T): T {
 	return result
 }
 
-class Json(environment: Environment) : Block(environment) {
+open class Json(environment: Environment) : Block(environment) {
 	val map = HashMap<String, Any>()
 	override fun eval(environment: Environment): Any {
 		return map
@@ -93,22 +93,38 @@ open class JsonArray(environment: Environment) : Block(environment) {
 /**
  * A block that creates an array with the result of each command declared
  */
-fun <T> Print.jsonCommandResults(init: Block.() -> T): T {
+fun Print.jsonCommandResults(init: Block.() -> Any): Any {
 	val jsonCommand = JsonCommandResults(this.environment)
-	val result = jsonCommand.run(init)
-	declare(jsonCommand)
-	return result
+	return try {
+		jsonCommand.run(init).also {
+			jsonCommand.set("status", "completed")
+			declare(jsonCommand)
+		}
+	} catch (e: CommandException) {
+		jsonCommand.set("status", "stopped")
+		jsonCommand.set("exception", object {
+			val command = e.command.title()
+			val message = e.message
+			val exception = e.cause
+		})
+		declare(jsonCommand)
+		return e
+	}
 }
 
-class JsonCommandResults(environment: Environment) : JsonArray(environment) {
+class JsonCommandResults(environment: Environment) : Json(environment) {
+
+	private val results = mutableListOf<Result>()
+
+	init {
+		map["results"] = results
+	}
+
+	data class Result(val command: String, val result: Any?)
+
 	override fun declare(command: Command<*>): Any? {
 		val result = super.declare(command)
-		add {
-			json {
-				set("command", command.title())
-				set("result", result)
-			}
-		}
+		results.add(Result(command.title() ?: command.toString(), result))
 		return result
 	}
 }

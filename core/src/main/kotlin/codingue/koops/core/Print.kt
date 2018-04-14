@@ -70,8 +70,7 @@ class Print(environment: Environment): Block(environment) {
 		when (environment.printConfig.format) {
 			PrintConfig.Format.Json -> {
 				val jsonNode = objectMapper.valueToTree<JsonNode>(any)
-				JsonPrettyPrinter(w, environment.printConfig)
-						.printNode(jsonNode, 0)
+				JsonPrettyPrinter(w, environment.printConfig).printNode(jsonNode, 0)
 				w.println()
 			}
 			PrintConfig.Format.ToString -> w.println(any?.toString())
@@ -111,8 +110,7 @@ private val defaultMap: (item: JsonItem) -> JsonColor = {
  * Write our own pretty printer, with colorization - Jackson does not seem to provide any easy way
  * of doing this easily via serialization configuration
  */
-private class JsonPrettyPrinter(val out: PrintWriter,
-																val printConfig: PrintConfig) {
+private class JsonPrettyPrinter(val out: PrintWriter, val printConfig: PrintConfig) {
 
 	fun indent(i: Int): String {
 		return String(CharArray(i * printConfig.jsonFeatures.indentLevel)).replace('\u0000', ' ')
