@@ -89,8 +89,8 @@ open class Script(var environment: Environment) : Command<Any?> {
 			ReportType.Json -> {
 				val jsonNode = objectMapper.valueToTree<JsonNode>(report)
 				JsonPrettyPrinter(w, environment.printConfig).printNode(jsonNode, 0)
-				w.flush()
 				w.println()
+				w.flush()
 			}
 			ReportType.ToString -> {
 				w.println(report.toString())
