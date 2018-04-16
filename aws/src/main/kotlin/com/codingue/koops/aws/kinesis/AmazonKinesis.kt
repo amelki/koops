@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.kinesis: AmazonKinesis
 	}
 
 @Generated
-class AmazonKinesisFunctions(val block: Block)
+class AmazonKinesisFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.kinesis(init: AmazonKinesisFunctions.() -> T): T {
 	return AmazonKinesisFunctions(shell).run(init)

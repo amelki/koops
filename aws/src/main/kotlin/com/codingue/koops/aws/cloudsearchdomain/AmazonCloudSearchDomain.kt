@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.cloudsearchdomain: AmazonCloudSearchDoma
 	}
 
 @Generated
-class AmazonCloudSearchDomainFunctions(val block: Block)
+class AmazonCloudSearchDomainFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.cloudsearchdomain(init: AmazonCloudSearchDomainFunctions.() -> T): T {
 	return AmazonCloudSearchDomainFunctions(shell).run(init)

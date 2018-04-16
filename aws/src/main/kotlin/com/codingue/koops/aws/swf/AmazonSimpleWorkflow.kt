@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.swf: AmazonSimpleWorkflow
 	}
 
 @Generated
-class AmazonSimpleWorkflowFunctions(val block: Block)
+class AmazonSimpleWorkflowFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.swf(init: AmazonSimpleWorkflowFunctions.() -> T): T {
 	return AmazonSimpleWorkflowFunctions(shell).run(init)

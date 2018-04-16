@@ -1,7 +1,7 @@
 package com.codingue.koops.core
 
 @CliMarker
-class Deferred(private val init: Block.() -> Unit): Command<Any> {
+class Deferred(private val init: Script.() -> Unit): Command<Any> {
 	override fun commandName() = "deferred"
 
 	override fun description(): String? = null
@@ -14,6 +14,6 @@ class Deferred(private val init: Block.() -> Unit): Command<Any> {
 		// Does nothing
 	}
 
-	fun run(environment: Environment): Any = Block(environment).apply(init)
+	fun run(environment: Environment): Any = Script(environment).apply(init)
 
 }

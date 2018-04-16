@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.sms: AWSServerMigration
 	}
 
 @Generated
-class AWSServerMigrationFunctions(val block: Block)
+class AWSServerMigrationFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.sms(init: AWSServerMigrationFunctions.() -> T): T {
 	return AWSServerMigrationFunctions(shell).run(init)

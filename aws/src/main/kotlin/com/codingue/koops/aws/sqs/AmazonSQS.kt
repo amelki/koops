@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.sqs: AmazonSQS
 	}
 
 @Generated
-class AmazonSQSFunctions(val block: Block)
+class AmazonSQSFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.sqs(init: AmazonSQSFunctions.() -> T): T {
 	return AmazonSQSFunctions(shell).run(init)

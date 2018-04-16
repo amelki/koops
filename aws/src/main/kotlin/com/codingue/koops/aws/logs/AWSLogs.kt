@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.logs: AWSLogs
 	}
 
 @Generated
-class AWSLogsFunctions(val block: Block)
+class AWSLogsFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.logs(init: AWSLogsFunctions.() -> T): T {
 	return AWSLogsFunctions(shell).run(init)

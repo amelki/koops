@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.servicecatalog: AWSServiceCatalog
 	}
 
 @Generated
-class AWSServiceCatalogFunctions(val block: Block)
+class AWSServiceCatalogFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.servicecatalog(init: AWSServiceCatalogFunctions.() -> T): T {
 	return AWSServiceCatalogFunctions(shell).run(init)

@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.cloudtrail.*
-import com.amazonaws.services.cloudtrail.model.*
 
 var com.codingue.koops.core.Environment.cloudtrail: AWSCloudTrail
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.cloudtrail: AWSCloudTrail
 	}
 
 @Generated
-class AWSCloudTrailFunctions(val block: Block)
+class AWSCloudTrailFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.cloudtrail(init: AWSCloudTrailFunctions.() -> T): T {
 	return AWSCloudTrailFunctions(shell).run(init)

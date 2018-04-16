@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.elasticmapreduce: AmazonElasticMapReduce
 	}
 
 @Generated
-class AmazonElasticMapReduceFunctions(val block: Block)
+class AmazonElasticMapReduceFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.elasticmapreduce(init: AmazonElasticMapReduceFunctions.() -> T): T {
 	return AmazonElasticMapReduceFunctions(shell).run(init)

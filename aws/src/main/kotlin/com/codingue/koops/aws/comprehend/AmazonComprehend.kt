@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.comprehend: AmazonComprehend
 	}
 
 @Generated
-class AmazonComprehendFunctions(val block: Block)
+class AmazonComprehendFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.comprehend(init: AmazonComprehendFunctions.() -> T): T {
 	return AmazonComprehendFunctions(shell).run(init)

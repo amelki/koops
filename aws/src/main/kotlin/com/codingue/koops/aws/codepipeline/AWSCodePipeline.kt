@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.codepipeline: AWSCodePipeline
 	}
 
 @Generated
-class AWSCodePipelineFunctions(val block: Block)
+class AWSCodePipelineFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.codepipeline(init: AWSCodePipelineFunctions.() -> T): T {
 	return AWSCodePipelineFunctions(shell).run(init)

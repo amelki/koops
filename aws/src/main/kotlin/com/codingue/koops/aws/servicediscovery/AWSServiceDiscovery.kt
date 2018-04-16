@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.servicediscovery: AWSServiceDiscovery
 	}
 
 @Generated
-class AWSServiceDiscoveryFunctions(val block: Block)
+class AWSServiceDiscoveryFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.servicediscovery(init: AWSServiceDiscoveryFunctions.() -> T): T {
 	return AWSServiceDiscoveryFunctions(shell).run(init)

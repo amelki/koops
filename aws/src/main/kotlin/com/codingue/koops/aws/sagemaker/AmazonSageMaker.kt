@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.sagemaker: AmazonSageMaker
 	}
 
 @Generated
-class AmazonSageMakerFunctions(val block: Block)
+class AmazonSageMakerFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.sagemaker(init: AmazonSageMakerFunctions.() -> T): T {
 	return AmazonSageMakerFunctions(shell).run(init)

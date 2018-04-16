@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.codestar.*
-import com.amazonaws.services.codestar.model.*
 
 var com.codingue.koops.core.Environment.codestar: AWSCodeStar
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.codestar: AWSCodeStar
 	}
 
 @Generated
-class AWSCodeStarFunctions(val block: Block)
+class AWSCodeStarFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.codestar(init: AWSCodeStarFunctions.() -> T): T {
 	return AWSCodeStarFunctions(shell).run(init)

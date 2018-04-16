@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.simpledb.*
-import com.amazonaws.services.simpledb.model.*
 
 var com.codingue.koops.core.Environment.sdb: AmazonSimpleDB
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.sdb: AmazonSimpleDB
 	}
 
 @Generated
-class AmazonSimpleDBFunctions(val block: Block)
+class AmazonSimpleDBFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.sdb(init: AmazonSimpleDBFunctions.() -> T): T {
 	return AmazonSimpleDBFunctions(shell).run(init)

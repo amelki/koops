@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.lambda: AWSLambda
 	}
 
 @Generated
-class AWSLambdaFunctions(val block: Block)
+class AWSLambdaFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.lambda(init: AWSLambdaFunctions.() -> T): T {
 	return AWSLambdaFunctions(shell).run(init)

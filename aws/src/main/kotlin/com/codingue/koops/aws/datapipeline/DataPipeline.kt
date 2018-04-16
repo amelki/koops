@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.datapipeline: DataPipeline
 	}
 
 @Generated
-class DataPipelineFunctions(val block: Block)
+class DataPipelineFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.datapipeline(init: DataPipelineFunctions.() -> T): T {
 	return DataPipelineFunctions(shell).run(init)

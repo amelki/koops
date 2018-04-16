@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.ecr.*
-import com.amazonaws.services.ecr.model.*
 
 var com.codingue.koops.core.Environment.ecr: AmazonECR
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.ecr: AmazonECR
 	}
 
 @Generated
-class AmazonECRFunctions(val block: Block)
+class AmazonECRFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.ecr(init: AmazonECRFunctions.() -> T): T {
 	return AmazonECRFunctions(shell).run(init)

@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.ce: AWSCostExplorer
 	}
 
 @Generated
-class AWSCostExplorerFunctions(val block: Block)
+class AWSCostExplorerFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.ce(init: AWSCostExplorerFunctions.() -> T): T {
 	return AWSCostExplorerFunctions(shell).run(init)

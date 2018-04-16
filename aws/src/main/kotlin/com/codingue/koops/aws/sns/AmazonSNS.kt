@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.sns.*
-import com.amazonaws.services.sns.model.*
 
 var com.codingue.koops.core.Environment.sns: AmazonSNS
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.sns: AmazonSNS
 	}
 
 @Generated
-class AmazonSNSFunctions(val block: Block)
+class AmazonSNSFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.sns(init: AmazonSNSFunctions.() -> T): T {
 	return AmazonSNSFunctions(shell).run(init)

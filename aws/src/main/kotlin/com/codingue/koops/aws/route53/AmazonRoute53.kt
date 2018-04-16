@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.route53: AmazonRoute53
 	}
 
 @Generated
-class AmazonRoute53Functions(val block: Block)
+class AmazonRoute53Functions(val block: Script)
 
 infix fun <T> AwsContinuation.route53(init: AmazonRoute53Functions.() -> T): T {
 	return AmazonRoute53Functions(shell).run(init)

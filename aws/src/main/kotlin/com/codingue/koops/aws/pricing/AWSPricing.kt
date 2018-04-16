@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.pricing.*
-import com.amazonaws.services.pricing.model.*
 
 var com.codingue.koops.core.Environment.pricing: AWSPricing
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.pricing: AWSPricing
 	}
 
 @Generated
-class AWSPricingFunctions(val block: Block)
+class AWSPricingFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.pricing(init: AWSPricingFunctions.() -> T): T {
 	return AWSPricingFunctions(shell).run(init)

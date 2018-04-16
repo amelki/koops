@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.elastictranscoder.*
-import com.amazonaws.services.elastictranscoder.model.*
 
 var com.codingue.koops.core.Environment.elastictranscoder: AmazonElasticTranscoder
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.elastictranscoder: AmazonElasticTranscod
 	}
 
 @Generated
-class AmazonElasticTranscoderFunctions(val block: Block)
+class AmazonElasticTranscoderFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.elastictranscoder(init: AmazonElasticTranscoderFunctions.() -> T): T {
 	return AmazonElasticTranscoderFunctions(shell).run(init)

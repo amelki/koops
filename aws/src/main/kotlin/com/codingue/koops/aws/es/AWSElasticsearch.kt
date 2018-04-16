@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.es: AWSElasticsearch
 	}
 
 @Generated
-class AWSElasticsearchFunctions(val block: Block)
+class AWSElasticsearchFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.es(init: AWSElasticsearchFunctions.() -> T): T {
 	return AWSElasticsearchFunctions(shell).run(init)

@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.connect.*
-import com.amazonaws.services.connect.model.*
 
 var com.codingue.koops.core.Environment.connect: AmazonConnect
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.connect: AmazonConnect
 	}
 
 @Generated
-class AmazonConnectFunctions(val block: Block)
+class AmazonConnectFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.connect(init: AmazonConnectFunctions.() -> T): T {
 	return AmazonConnectFunctions(shell).run(init)

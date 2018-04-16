@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.rekognition: AmazonRekognition
 	}
 
 @Generated
-class AmazonRekognitionFunctions(val block: Block)
+class AmazonRekognitionFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.rekognition(init: AmazonRekognitionFunctions.() -> T): T {
 	return AmazonRekognitionFunctions(shell).run(init)

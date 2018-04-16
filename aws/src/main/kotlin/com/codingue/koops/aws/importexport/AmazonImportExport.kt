@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.importexport: AmazonImportExport
 	}
 
 @Generated
-class AmazonImportExportFunctions(val block: Block)
+class AmazonImportExportFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.importexport(init: AmazonImportExportFunctions.() -> T): T {
 	return AmazonImportExportFunctions(shell).run(init)

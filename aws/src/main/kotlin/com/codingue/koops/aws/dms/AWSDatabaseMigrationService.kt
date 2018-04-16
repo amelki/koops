@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.dms: AWSDatabaseMigrationService
 	}
 
 @Generated
-class AWSDatabaseMigrationServiceFunctions(val block: Block)
+class AWSDatabaseMigrationServiceFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.dms(init: AWSDatabaseMigrationServiceFunctions.() -> T): T {
 	return AWSDatabaseMigrationServiceFunctions(shell).run(init)

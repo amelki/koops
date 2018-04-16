@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.athena.*
-import com.amazonaws.services.athena.model.*
 
 var com.codingue.koops.core.Environment.athena: AmazonAthena
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.athena: AmazonAthena
 	}
 
 @Generated
-class AmazonAthenaFunctions(val block: Block)
+class AmazonAthenaFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.athena(init: AmazonAthenaFunctions.() -> T): T {
 	return AmazonAthenaFunctions(shell).run(init)

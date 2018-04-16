@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.cognito_sync: AmazonCognitoSync
 	}
 
 @Generated
-class AmazonCognitoSyncFunctions(val block: Block)
+class AmazonCognitoSyncFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.cognito_sync(init: AmazonCognitoSyncFunctions.() -> T): T {
 	return AmazonCognitoSyncFunctions(shell).run(init)

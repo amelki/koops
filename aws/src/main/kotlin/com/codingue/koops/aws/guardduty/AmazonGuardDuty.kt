@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.guardduty: AmazonGuardDuty
 	}
 
 @Generated
-class AmazonGuardDutyFunctions(val block: Block)
+class AmazonGuardDutyFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.guardduty(init: AmazonGuardDutyFunctions.() -> T): T {
 	return AmazonGuardDutyFunctions(shell).run(init)

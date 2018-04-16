@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.cognitoidentity.*
-import com.amazonaws.services.cognitoidentity.model.*
 
 var com.codingue.koops.core.Environment.cognito_identity: AmazonCognitoIdentity
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.cognito_identity: AmazonCognitoIdentity
 	}
 
 @Generated
-class AmazonCognitoIdentityFunctions(val block: Block)
+class AmazonCognitoIdentityFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.cognito_identity(init: AmazonCognitoIdentityFunctions.() -> T): T {
 	return AmazonCognitoIdentityFunctions(shell).run(init)

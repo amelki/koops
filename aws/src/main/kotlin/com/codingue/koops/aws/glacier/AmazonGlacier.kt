@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.glacier.*
-import com.amazonaws.services.glacier.model.*
 
 var com.codingue.koops.core.Environment.glacier: AmazonGlacier
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.glacier: AmazonGlacier
 	}
 
 @Generated
-class AmazonGlacierFunctions(val block: Block)
+class AmazonGlacierFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.glacier(init: AmazonGlacierFunctions.() -> T): T {
 	return AmazonGlacierFunctions(shell).run(init)

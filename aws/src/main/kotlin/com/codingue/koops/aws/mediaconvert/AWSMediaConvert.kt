@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.mediaconvert: AWSMediaConvert
 	}
 
 @Generated
-class AWSMediaConvertFunctions(val block: Block)
+class AWSMediaConvertFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.mediaconvert(init: AWSMediaConvertFunctions.() -> T): T {
 	return AWSMediaConvertFunctions(shell).run(init)

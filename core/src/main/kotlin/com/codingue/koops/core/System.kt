@@ -3,7 +3,7 @@ package com.codingue.koops.core
 import java.io.File
 
 @CliMarker
-class SystemContinuation(private val block: Block) {
+class SystemContinuation(private val block: Script) {
 
 	infix fun cd(directory: String) = block.declare({
 		setCurrentDirectory(directory)
@@ -13,12 +13,12 @@ class SystemContinuation(private val block: Block) {
 
 }
 
-val Block.system: SystemContinuation
+val Script.system: SystemContinuation
 	get() {
 		return SystemContinuation(this)
 	}
 
-fun Block.system(init: SystemContinuation.() -> Unit) {
+fun Script.system(init: SystemContinuation.() -> Unit) {
 	SystemContinuation(this).apply(init)
 }
 

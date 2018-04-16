@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.execute_api: AWSIot
 	}
 
 @Generated
-class AWSIotFunctions(val block: Block)
+class AWSIotFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.execute_api(init: AWSIotFunctions.() -> T): T {
 	return AWSIotFunctions(shell).run(init)

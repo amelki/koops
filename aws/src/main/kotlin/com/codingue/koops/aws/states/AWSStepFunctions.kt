@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.states: AWSStepFunctions
 	}
 
 @Generated
-class AWSStepFunctionsFunctions(val block: Block)
+class AWSStepFunctionsFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.states(init: AWSStepFunctionsFunctions.() -> T): T {
 	return AWSStepFunctionsFunctions(shell).run(init)

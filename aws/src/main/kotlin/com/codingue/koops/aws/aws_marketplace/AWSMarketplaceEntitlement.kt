@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.aws_marketplace: AWSMarketplaceEntitleme
 	}
 
 @Generated
-class AWSMarketplaceEntitlementFunctions(val block: Block)
+class AWSMarketplaceEntitlementFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.aws_marketplace(init: AWSMarketplaceEntitlementFunctions.() -> T): T {
 	return AWSMarketplaceEntitlementFunctions(shell).run(init)

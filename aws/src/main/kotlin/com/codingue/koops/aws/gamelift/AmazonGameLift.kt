@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.gamelift: AmazonGameLift
 	}
 
 @Generated
-class AmazonGameLiftFunctions(val block: Block)
+class AmazonGameLiftFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.gamelift(init: AmazonGameLiftFunctions.() -> T): T {
 	return AmazonGameLiftFunctions(shell).run(init)

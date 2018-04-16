@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.waf_regional: AWSWAFRegional
 	}
 
 @Generated
-class AWSWAFRegionalFunctions(val block: Block)
+class AWSWAFRegionalFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.waf_regional(init: AWSWAFRegionalFunctions.() -> T): T {
 	return AWSWAFRegionalFunctions(shell).run(init)

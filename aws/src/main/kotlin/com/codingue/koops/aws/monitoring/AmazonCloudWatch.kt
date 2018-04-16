@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.monitoring: AmazonCloudWatch
 	}
 
 @Generated
-class AmazonCloudWatchFunctions(val block: Block)
+class AmazonCloudWatchFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.monitoring(init: AmazonCloudWatchFunctions.() -> T): T {
 	return AmazonCloudWatchFunctions(shell).run(init)

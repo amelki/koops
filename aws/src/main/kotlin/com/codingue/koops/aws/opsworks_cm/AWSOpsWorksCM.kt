@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.opsworkscm.*
-import com.amazonaws.services.opsworkscm.model.*
 
 var com.codingue.koops.core.Environment.opsworks_cm: AWSOpsWorksCM
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.opsworks_cm: AWSOpsWorksCM
 	}
 
 @Generated
-class AWSOpsWorksCMFunctions(val block: Block)
+class AWSOpsWorksCMFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.opsworks_cm(init: AWSOpsWorksCMFunctions.() -> T): T {
 	return AWSOpsWorksCMFunctions(shell).run(init)

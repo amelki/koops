@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.serverlessapplicationrepository.*
-import com.amazonaws.services.serverlessapplicationrepository.model.*
 
 var com.codingue.koops.core.Environment.serverlessrepo: AWSServerlessApplicationRepository
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.serverlessrepo: AWSServerlessApplication
 	}
 
 @Generated
-class AWSServerlessApplicationRepositoryFunctions(val block: Block)
+class AWSServerlessApplicationRepositoryFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.serverlessrepo(init: AWSServerlessApplicationRepositoryFunctions.() -> T): T {
 	return AWSServerlessApplicationRepositoryFunctions(shell).run(init)

@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.autoscalingplans.*
-import com.amazonaws.services.autoscalingplans.model.*
 
 var com.codingue.koops.core.Environment.autoscaling_plans: AWSAutoScalingPlans
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.autoscaling_plans: AWSAutoScalingPlans
 	}
 
 @Generated
-class AWSAutoScalingPlansFunctions(val block: Block)
+class AWSAutoScalingPlansFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.autoscaling_plans(init: AWSAutoScalingPlansFunctions.() -> T): T {
 	return AWSAutoScalingPlansFunctions(shell).run(init)

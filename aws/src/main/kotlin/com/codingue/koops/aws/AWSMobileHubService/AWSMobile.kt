@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.AWSMobileHubService: AWSMobile
 	}
 
 @Generated
-class AWSMobileFunctions(val block: Block)
+class AWSMobileFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.AWSMobileHubService(init: AWSMobileFunctions.() -> T): T {
 	return AWSMobileFunctions(shell).run(init)

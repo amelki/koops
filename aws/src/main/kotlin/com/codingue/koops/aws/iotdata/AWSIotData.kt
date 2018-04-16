@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.iotdata.*
-import com.amazonaws.services.iotdata.model.*
 
 var com.codingue.koops.core.Environment.iotdata: AWSIotData
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.iotdata: AWSIotData
 	}
 
 @Generated
-class AWSIotDataFunctions(val block: Block)
+class AWSIotDataFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.iotdata(init: AWSIotDataFunctions.() -> T): T {
 	return AWSIotDataFunctions(shell).run(init)

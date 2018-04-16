@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.mturk_requester: AmazonMTurk
 	}
 
 @Generated
-class AmazonMTurkFunctions(val block: Block)
+class AmazonMTurkFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.mturk_requester(init: AmazonMTurkFunctions.() -> T): T {
 	return AmazonMTurkFunctions(shell).run(init)

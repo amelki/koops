@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.mgh: AWSMigrationHub
 	}
 
 @Generated
-class AWSMigrationHubFunctions(val block: Block)
+class AWSMigrationHubFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.mgh(init: AWSMigrationHubFunctions.() -> T): T {
 	return AWSMigrationHubFunctions(shell).run(init)

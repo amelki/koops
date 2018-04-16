@@ -193,7 +193,7 @@ class Maven(private val goals: List<Goal>) : Command<Maven.Result> {
 
 }
 
-fun Block.mvn(goal1: Maven.Goal, vararg goals: Maven.Goal, init: (Maven.() -> Unit)? = null): Maven.Result {
+fun Script.mvn(goal1: Maven.Goal, vararg goals: Maven.Goal, init: (Maven.() -> Unit)? = null): Maven.Result {
 	val all = listOf(goal1).plus(goals)
 	return declare(Maven(all).applyIfNotNull(init, { init!!() })) as Maven.Result
 }

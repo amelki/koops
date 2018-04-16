@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.devicefarm: AWSDeviceFarm
 	}
 
 @Generated
-class AWSDeviceFarmFunctions(val block: Block)
+class AWSDeviceFarmFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.devicefarm(init: AWSDeviceFarmFunctions.() -> T): T {
 	return AWSDeviceFarmFunctions(shell).run(init)

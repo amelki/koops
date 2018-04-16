@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.securitytoken.*
-import com.amazonaws.services.securitytoken.model.*
 
 var com.codingue.koops.core.Environment.sts: AWSSecurityTokenService
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.sts: AWSSecurityTokenService
 	}
 
 @Generated
-class AWSSecurityTokenServiceFunctions(val block: Block)
+class AWSSecurityTokenServiceFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.sts(init: AWSSecurityTokenServiceFunctions.() -> T): T {
 	return AWSSecurityTokenServiceFunctions(shell).run(init)

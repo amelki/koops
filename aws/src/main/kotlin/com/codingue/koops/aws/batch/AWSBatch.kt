@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.batch: AWSBatch
 	}
 
 @Generated
-class AWSBatchFunctions(val block: Block)
+class AWSBatchFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.batch(init: AWSBatchFunctions.() -> T): T {
 	return AWSBatchFunctions(shell).run(init)

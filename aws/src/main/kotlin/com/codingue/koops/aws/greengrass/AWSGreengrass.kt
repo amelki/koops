@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.greengrass: AWSGreengrass
 	}
 
 @Generated
-class AWSGreengrassFunctions(val block: Block)
+class AWSGreengrassFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.greengrass(init: AWSGreengrassFunctions.() -> T): T {
 	return AWSGreengrassFunctions(shell).run(init)

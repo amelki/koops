@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.config: AmazonConfig
 	}
 
 @Generated
-class AmazonConfigFunctions(val block: Block)
+class AmazonConfigFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.config(init: AmazonConfigFunctions.() -> T): T {
 	return AmazonConfigFunctions(shell).run(init)

@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.codedeploy: AmazonCodeDeploy
 	}
 
 @Generated
-class AmazonCodeDeployFunctions(val block: Block)
+class AmazonCodeDeployFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.codedeploy(init: AmazonCodeDeployFunctions.() -> T): T {
 	return AmazonCodeDeployFunctions(shell).run(init)

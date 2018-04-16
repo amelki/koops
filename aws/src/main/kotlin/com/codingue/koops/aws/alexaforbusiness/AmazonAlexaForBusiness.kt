@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.alexaforbusiness: AmazonAlexaForBusiness
 	}
 
 @Generated
-class AmazonAlexaForBusinessFunctions(val block: Block)
+class AmazonAlexaForBusinessFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.alexaforbusiness(init: AmazonAlexaForBusinessFunctions.() -> T): T {
 	return AmazonAlexaForBusinessFunctions(shell).run(init)

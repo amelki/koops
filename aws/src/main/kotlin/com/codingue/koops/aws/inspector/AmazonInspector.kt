@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.inspector: AmazonInspector
 	}
 
 @Generated
-class AmazonInspectorFunctions(val block: Block)
+class AmazonInspectorFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.inspector(init: AmazonInspectorFunctions.() -> T): T {
 	return AmazonInspectorFunctions(shell).run(init)

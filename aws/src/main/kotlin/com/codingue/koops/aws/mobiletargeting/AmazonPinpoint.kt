@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.pinpoint.*
-import com.amazonaws.services.pinpoint.model.*
 
 var com.codingue.koops.core.Environment.mobiletargeting: AmazonPinpoint
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.mobiletargeting: AmazonPinpoint
 	}
 
 @Generated
-class AmazonPinpointFunctions(val block: Block)
+class AmazonPinpointFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.mobiletargeting(init: AmazonPinpointFunctions.() -> T): T {
 	return AmazonPinpointFunctions(shell).run(init)

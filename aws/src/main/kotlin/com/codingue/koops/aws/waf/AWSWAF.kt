@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.waf: AWSWAF
 	}
 
 @Generated
-class AWSWAFFunctions(val block: Block)
+class AWSWAFFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.waf(init: AWSWAFFunctions.() -> T): T {
 	return AWSWAFFunctions(shell).run(init)

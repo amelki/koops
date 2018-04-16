@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.cloudformation: AmazonCloudFormation
 	}
 
 @Generated
-class AmazonCloudFormationFunctions(val block: Block)
+class AmazonCloudFormationFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.cloudformation(init: AmazonCloudFormationFunctions.() -> T): T {
 	return AmazonCloudFormationFunctions(shell).run(init)

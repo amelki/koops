@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.mediastoredata: AWSMediaStoreData
 	}
 
 @Generated
-class AWSMediaStoreDataFunctions(val block: Block)
+class AWSMediaStoreDataFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.mediastoredata(init: AWSMediaStoreDataFunctions.() -> T): T {
 	return AWSMediaStoreDataFunctions(shell).run(init)

@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.secretsmanager.*
-import com.amazonaws.services.secretsmanager.model.*
 
 var com.codingue.koops.core.Environment.secretsmanager: AWSSecretsManager
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.secretsmanager: AWSSecretsManager
 	}
 
 @Generated
-class AWSSecretsManagerFunctions(val block: Block)
+class AWSSecretsManagerFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.secretsmanager(init: AWSSecretsManagerFunctions.() -> T): T {
 	return AWSSecretsManagerFunctions(shell).run(init)

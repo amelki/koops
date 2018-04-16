@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.apigateway: AmazonApiGateway
 	}
 
 @Generated
-class AmazonApiGatewayFunctions(val block: Block)
+class AmazonApiGatewayFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.apigateway(init: AmazonApiGatewayFunctions.() -> T): T {
 	return AmazonApiGatewayFunctions(shell).run(init)

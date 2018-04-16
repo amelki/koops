@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.ssm: AWSSimpleSystemsManagement
 	}
 
 @Generated
-class AWSSimpleSystemsManagementFunctions(val block: Block)
+class AWSSimpleSystemsManagementFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.ssm(init: AWSSimpleSystemsManagementFunctions.() -> T): T {
 	return AWSSimpleSystemsManagementFunctions(shell).run(init)

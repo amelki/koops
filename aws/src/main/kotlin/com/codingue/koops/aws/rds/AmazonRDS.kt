@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.rds: AmazonRDS
 	}
 
 @Generated
-class AmazonRDSFunctions(val block: Block)
+class AmazonRDSFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.rds(init: AmazonRDSFunctions.() -> T): T {
 	return AmazonRDSFunctions(shell).run(init)

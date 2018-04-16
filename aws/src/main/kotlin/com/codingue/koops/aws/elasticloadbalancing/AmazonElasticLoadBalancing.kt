@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.elasticloadbalancing.*
-import com.amazonaws.services.elasticloadbalancing.model.*
 
 var com.codingue.koops.core.Environment.elasticloadbalancing: AmazonElasticLoadBalancing
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.elasticloadbalancing: AmazonElasticLoadB
 	}
 
 @Generated
-class AmazonElasticLoadBalancingFunctions(val block: Block)
+class AmazonElasticLoadBalancingFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.elasticloadbalancing(init: AmazonElasticLoadBalancingFunctions.() -> T): T {
 	return AmazonElasticLoadBalancingFunctions(shell).run(init)

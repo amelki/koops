@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.mediastore.*
-import com.amazonaws.services.mediastore.model.*
 
 var com.codingue.koops.core.Environment.mediastore: AWSMediaStore
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.mediastore: AWSMediaStore
 	}
 
 @Generated
-class AWSMediaStoreFunctions(val block: Block)
+class AWSMediaStoreFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.mediastore(init: AWSMediaStoreFunctions.() -> T): T {
 	return AWSMediaStoreFunctions(shell).run(init)

@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.snowball: AmazonSnowball
 	}
 
 @Generated
-class AmazonSnowballFunctions(val block: Block)
+class AmazonSnowballFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.snowball(init: AmazonSnowballFunctions.() -> T): T {
 	return AmazonSnowballFunctions(shell).run(init)

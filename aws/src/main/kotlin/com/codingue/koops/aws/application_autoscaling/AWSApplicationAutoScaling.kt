@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.application_autoscaling: AWSApplicationA
 	}
 
 @Generated
-class AWSApplicationAutoScalingFunctions(val block: Block)
+class AWSApplicationAutoScalingFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.application_autoscaling(init: AWSApplicationAutoScalingFunctions.() -> T): T {
 	return AWSApplicationAutoScalingFunctions(shell).run(init)

@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.codebuild: AWSCodeBuild
 	}
 
 @Generated
-class AWSCodeBuildFunctions(val block: Block)
+class AWSCodeBuildFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.codebuild(init: AWSCodeBuildFunctions.() -> T): T {
 	return AWSCodeBuildFunctions(shell).run(init)

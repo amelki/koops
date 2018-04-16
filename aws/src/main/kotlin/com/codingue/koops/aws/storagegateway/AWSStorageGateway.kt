@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.storagegateway: AWSStorageGateway
 	}
 
 @Generated
-class AWSStorageGatewayFunctions(val block: Block)
+class AWSStorageGatewayFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.storagegateway(init: AWSStorageGatewayFunctions.() -> T): T {
 	return AWSStorageGatewayFunctions(shell).run(init)

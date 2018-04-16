@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.cloud9: AWSCloud9
 	}
 
 @Generated
-class AWSCloud9Functions(val block: Block)
+class AWSCloud9Functions(val block: Script)
 
 infix fun <T> AwsContinuation.cloud9(init: AWSCloud9Functions.() -> T): T {
 	return AWSCloud9Functions(shell).run(init)

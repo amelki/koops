@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.fms.*
-import com.amazonaws.services.fms.model.*
 
 var com.codingue.koops.core.Environment.fms: AWSFMS
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.fms: AWSFMS
 	}
 
 @Generated
-class AWSFMSFunctions(val block: Block)
+class AWSFMSFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.fms(init: AWSFMSFunctions.() -> T): T {
 	return AWSFMSFunctions(shell).run(init)

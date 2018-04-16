@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.acm: AWSCertificateManager
 	}
 
 @Generated
-class AWSCertificateManagerFunctions(val block: Block)
+class AWSCertificateManagerFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.acm(init: AWSCertificateManagerFunctions.() -> T): T {
 	return AWSCertificateManagerFunctions(shell).run(init)

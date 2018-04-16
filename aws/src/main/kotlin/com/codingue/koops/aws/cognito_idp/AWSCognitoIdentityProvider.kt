@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.cognito_idp: AWSCognitoIdentityProvider
 	}
 
 @Generated
-class AWSCognitoIdentityProviderFunctions(val block: Block)
+class AWSCognitoIdentityProviderFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.cognito_idp(init: AWSCognitoIdentityProviderFunctions.() -> T): T {
 	return AWSCognitoIdentityProviderFunctions(shell).run(init)

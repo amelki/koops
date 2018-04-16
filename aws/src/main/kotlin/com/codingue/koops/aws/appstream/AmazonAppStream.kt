@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.appstream: AmazonAppStream
 	}
 
 @Generated
-class AmazonAppStreamFunctions(val block: Block)
+class AmazonAppStreamFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.appstream(init: AmazonAppStreamFunctions.() -> T): T {
 	return AmazonAppStreamFunctions(shell).run(init)

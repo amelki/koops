@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.route53domains.*
-import com.amazonaws.services.route53domains.model.*
 
 var com.codingue.koops.core.Environment.route53domains: AmazonRoute53Domains
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.route53domains: AmazonRoute53Domains
 	}
 
 @Generated
-class AmazonRoute53DomainsFunctions(val block: Block)
+class AmazonRoute53DomainsFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.route53domains(init: AmazonRoute53DomainsFunctions.() -> T): T {
 	return AmazonRoute53DomainsFunctions(shell).run(init)

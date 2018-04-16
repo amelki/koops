@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.kms: AWSKMS
 	}
 
 @Generated
-class AWSKMSFunctions(val block: Block)
+class AWSKMSFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.kms(init: AWSKMSFunctions.() -> T): T {
 	return AWSKMSFunctions(shell).run(init)

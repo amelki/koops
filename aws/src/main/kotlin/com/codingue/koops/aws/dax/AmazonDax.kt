@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.dax: AmazonDax
 	}
 
 @Generated
-class AmazonDaxFunctions(val block: Block)
+class AmazonDaxFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.dax(init: AmazonDaxFunctions.() -> T): T {
 	return AmazonDaxFunctions(shell).run(init)

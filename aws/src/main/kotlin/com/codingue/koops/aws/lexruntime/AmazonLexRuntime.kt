@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.lexruntime.*
-import com.amazonaws.services.lexruntime.model.*
 
 var com.codingue.koops.core.Environment.lexruntime: AmazonLexRuntime
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.lexruntime: AmazonLexRuntime
 	}
 
 @Generated
-class AmazonLexRuntimeFunctions(val block: Block)
+class AmazonLexRuntimeFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.lexruntime(init: AmazonLexRuntimeFunctions.() -> T): T {
 	return AmazonLexRuntimeFunctions(shell).run(init)

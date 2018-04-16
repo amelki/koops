@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.directconnect: AmazonDirectConnect
 	}
 
 @Generated
-class AmazonDirectConnectFunctions(val block: Block)
+class AmazonDirectConnectFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.directconnect(init: AmazonDirectConnectFunctions.() -> T): T {
 	return AmazonDirectConnectFunctions(shell).run(init)

@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.machinelearning: AmazonMachineLearning
 	}
 
 @Generated
-class AmazonMachineLearningFunctions(val block: Block)
+class AmazonMachineLearningFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.machinelearning(init: AmazonMachineLearningFunctions.() -> T): T {
 	return AmazonMachineLearningFunctions(shell).run(init)

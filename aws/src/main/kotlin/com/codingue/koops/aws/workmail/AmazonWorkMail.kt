@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.workmail: AmazonWorkMail
 	}
 
 @Generated
-class AmazonWorkMailFunctions(val block: Block)
+class AmazonWorkMailFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.workmail(init: AmazonWorkMailFunctions.() -> T): T {
 	return AmazonWorkMailFunctions(shell).run(init)

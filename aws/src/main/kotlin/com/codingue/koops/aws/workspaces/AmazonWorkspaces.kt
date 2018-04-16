@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.workspaces.*
-import com.amazonaws.services.workspaces.model.*
 
 var com.codingue.koops.core.Environment.workspaces: AmazonWorkspaces
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.workspaces: AmazonWorkspaces
 	}
 
 @Generated
-class AmazonWorkspacesFunctions(val block: Block)
+class AmazonWorkspacesFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.workspaces(init: AmazonWorkspacesFunctions.() -> T): T {
 	return AmazonWorkspacesFunctions(shell).run(init)

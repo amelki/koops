@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.cloudfront.*
-import com.amazonaws.services.cloudfront.model.*
 
 var com.codingue.koops.core.Environment.cloudfront: AmazonCloudFront
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.cloudfront: AmazonCloudFront
 	}
 
 @Generated
-class AmazonCloudFrontFunctions(val block: Block)
+class AmazonCloudFrontFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.cloudfront(init: AmazonCloudFrontFunctions.() -> T): T {
 	return AmazonCloudFrontFunctions(shell).run(init)

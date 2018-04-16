@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.cloudsearchv2.*
-import com.amazonaws.services.cloudsearchv2.model.*
 
 var com.codingue.koops.core.Environment.cloudsearch: AmazonCloudSearch
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.cloudsearch: AmazonCloudSearch
 	}
 
 @Generated
-class AmazonCloudSearchFunctions(val block: Block)
+class AmazonCloudSearchFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.cloudsearch(init: AmazonCloudSearchFunctions.() -> T): T {
 	return AmazonCloudSearchFunctions(shell).run(init)

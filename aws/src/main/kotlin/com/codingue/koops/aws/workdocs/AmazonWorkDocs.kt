@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.workdocs: AmazonWorkDocs
 	}
 
 @Generated
-class AmazonWorkDocsFunctions(val block: Block)
+class AmazonWorkDocsFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.workdocs(init: AmazonWorkDocsFunctions.() -> T): T {
 	return AmazonWorkDocsFunctions(shell).run(init)

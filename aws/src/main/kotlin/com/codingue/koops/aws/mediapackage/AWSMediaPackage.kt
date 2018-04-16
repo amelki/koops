@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.mediapackage.*
-import com.amazonaws.services.mediapackage.model.*
 
 var com.codingue.koops.core.Environment.mediapackage: AWSMediaPackage
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.mediapackage: AWSMediaPackage
 	}
 
 @Generated
-class AWSMediaPackageFunctions(val block: Block)
+class AWSMediaPackageFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.mediapackage(init: AWSMediaPackageFunctions.() -> T): T {
 	return AWSMediaPackageFunctions(shell).run(init)

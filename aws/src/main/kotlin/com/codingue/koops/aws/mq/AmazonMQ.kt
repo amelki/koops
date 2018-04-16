@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.mq: AmazonMQ
 	}
 
 @Generated
-class AmazonMQFunctions(val block: Block)
+class AmazonMQFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.mq(init: AmazonMQFunctions.() -> T): T {
 	return AmazonMQFunctions(shell).run(init)

@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.budgets.*
-import com.amazonaws.services.budgets.model.*
 
 var com.codingue.koops.core.Environment.budgets: AWSBudgets
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.budgets: AWSBudgets
 	}
 
 @Generated
-class AWSBudgetsFunctions(val block: Block)
+class AWSBudgetsFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.budgets(init: AWSBudgetsFunctions.() -> T): T {
 	return AWSBudgetsFunctions(shell).run(init)

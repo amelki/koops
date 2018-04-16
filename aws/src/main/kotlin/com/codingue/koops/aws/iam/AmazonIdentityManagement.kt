@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.iam: AmazonIdentityManagement
 	}
 
 @Generated
-class AmazonIdentityManagementFunctions(val block: Block)
+class AmazonIdentityManagementFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.iam(init: AmazonIdentityManagementFunctions.() -> T): T {
 	return AmazonIdentityManagementFunctions(shell).run(init)

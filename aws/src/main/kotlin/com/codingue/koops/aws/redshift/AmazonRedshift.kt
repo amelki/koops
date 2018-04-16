@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.redshift: AmazonRedshift
 	}
 
 @Generated
-class AmazonRedshiftFunctions(val block: Block)
+class AmazonRedshiftFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.redshift(init: AmazonRedshiftFunctions.() -> T): T {
 	return AmazonRedshiftFunctions(shell).run(init)

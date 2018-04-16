@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.marketplacemetering.*
-import com.amazonaws.services.marketplacemetering.model.*
 
 var com.codingue.koops.core.Environment.meteringmarketplace: AWSMarketplaceMetering
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.meteringmarketplace: AWSMarketplaceMeter
 	}
 
 @Generated
-class AWSMarketplaceMeteringFunctions(val block: Block)
+class AWSMarketplaceMeteringFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.meteringmarketplace(init: AWSMarketplaceMeteringFunctions.() -> T): T {
 	return AWSMarketplaceMeteringFunctions(shell).run(init)

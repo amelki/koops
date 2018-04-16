@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.dynamodbstreams: AmazonDynamoDBStreams
 	}
 
 @Generated
-class AmazonDynamoDBStreamsFunctions(val block: Block)
+class AmazonDynamoDBStreamsFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.dynamodbstreams(init: AmazonDynamoDBStreamsFunctions.() -> T): T {
 	return AmazonDynamoDBStreamsFunctions(shell).run(init)

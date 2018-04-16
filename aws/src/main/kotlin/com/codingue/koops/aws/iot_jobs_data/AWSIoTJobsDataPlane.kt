@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.iot_jobs_data: AWSIoTJobsDataPlane
 	}
 
 @Generated
-class AWSIoTJobsDataPlaneFunctions(val block: Block)
+class AWSIoTJobsDataPlaneFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.iot_jobs_data(init: AWSIoTJobsDataPlaneFunctions.() -> T): T {
 	return AWSIoTJobsDataPlaneFunctions(shell).run(init)

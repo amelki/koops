@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.lexmodels: AmazonLexModelBuilding
 	}
 
 @Generated
-class AmazonLexModelBuildingFunctions(val block: Block)
+class AmazonLexModelBuildingFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.lexmodels(init: AmazonLexModelBuildingFunctions.() -> T): T {
 	return AmazonLexModelBuildingFunctions(shell).run(init)

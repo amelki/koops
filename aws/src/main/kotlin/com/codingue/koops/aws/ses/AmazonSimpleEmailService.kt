@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.ses: AmazonSimpleEmailService
 	}
 
 @Generated
-class AmazonSimpleEmailServiceFunctions(val block: Block)
+class AmazonSimpleEmailServiceFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.ses(init: AmazonSimpleEmailServiceFunctions.() -> T): T {
 	return AmazonSimpleEmailServiceFunctions(shell).run(init)

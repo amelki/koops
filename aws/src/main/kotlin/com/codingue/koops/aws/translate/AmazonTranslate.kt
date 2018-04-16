@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.translate.*
-import com.amazonaws.services.translate.model.*
 
 var com.codingue.koops.core.Environment.translate: AmazonTranslate
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.translate: AmazonTranslate
 	}
 
 @Generated
-class AmazonTranslateFunctions(val block: Block)
+class AmazonTranslateFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.translate(init: AmazonTranslateFunctions.() -> T): T {
 	return AmazonTranslateFunctions(shell).run(init)

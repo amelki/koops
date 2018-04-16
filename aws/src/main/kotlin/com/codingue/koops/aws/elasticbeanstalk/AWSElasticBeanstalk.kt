@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.elasticbeanstalk: AWSElasticBeanstalk
 	}
 
 @Generated
-class AWSElasticBeanstalkFunctions(val block: Block)
+class AWSElasticBeanstalkFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.elasticbeanstalk(init: AWSElasticBeanstalkFunctions.() -> T): T {
 	return AWSElasticBeanstalkFunctions(shell).run(init)

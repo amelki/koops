@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.resourcegroupstaggingapi.*
-import com.amazonaws.services.resourcegroupstaggingapi.model.*
 
 var com.codingue.koops.core.Environment.tagging: AWSResourceGroupsTaggingAPI
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.tagging: AWSResourceGroupsTaggingAPI
 	}
 
 @Generated
-class AWSResourceGroupsTaggingAPIFunctions(val block: Block)
+class AWSResourceGroupsTaggingAPIFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.tagging(init: AWSResourceGroupsTaggingAPIFunctions.() -> T): T {
 	return AWSResourceGroupsTaggingAPIFunctions(shell).run(init)

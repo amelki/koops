@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.codecommit: AWSCodeCommit
 	}
 
 @Generated
-class AWSCodeCommitFunctions(val block: Block)
+class AWSCodeCommitFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.codecommit(init: AWSCodeCommitFunctions.() -> T): T {
 	return AWSCodeCommitFunctions(shell).run(init)

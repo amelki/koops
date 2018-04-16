@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.firehose: AmazonKinesisFirehose
 	}
 
 @Generated
-class AmazonKinesisFirehoseFunctions(val block: Block)
+class AmazonKinesisFirehoseFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.firehose(init: AmazonKinesisFirehoseFunctions.() -> T): T {
 	return AmazonKinesisFirehoseFunctions(shell).run(init)

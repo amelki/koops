@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.ecs: AmazonECS
 	}
 
 @Generated
-class AmazonECSFunctions(val block: Block)
+class AmazonECSFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.ecs(init: AmazonECSFunctions.() -> T): T {
 	return AmazonECSFunctions(shell).run(init)

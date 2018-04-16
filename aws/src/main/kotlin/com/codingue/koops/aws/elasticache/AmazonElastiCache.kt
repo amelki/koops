@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.elasticache: AmazonElastiCache
 	}
 
 @Generated
-class AmazonElastiCacheFunctions(val block: Block)
+class AmazonElastiCacheFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.elasticache(init: AmazonElastiCacheFunctions.() -> T): T {
 	return AmazonElastiCacheFunctions(shell).run(init)

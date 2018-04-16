@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.acm_pca: AWSACMPCA
 	}
 
 @Generated
-class AWSACMPCAFunctions(val block: Block)
+class AWSACMPCAFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.acm_pca(init: AWSACMPCAFunctions.() -> T): T {
 	return AWSACMPCAFunctions(shell).run(init)

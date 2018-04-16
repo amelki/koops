@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.kinesisanalytics.*
-import com.amazonaws.services.kinesisanalytics.model.*
 
 var com.codingue.koops.core.Environment.kinesisanalytics: AmazonKinesisAnalytics
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.kinesisanalytics: AmazonKinesisAnalytics
 	}
 
 @Generated
-class AmazonKinesisAnalyticsFunctions(val block: Block)
+class AmazonKinesisAnalyticsFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.kinesisanalytics(init: AmazonKinesisAnalyticsFunctions.() -> T): T {
 	return AmazonKinesisAnalyticsFunctions(shell).run(init)

@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.cloudhsm: AWSCloudHSM
 	}
 
 @Generated
-class AWSCloudHSMFunctions(val block: Block)
+class AWSCloudHSMFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.cloudhsm(init: AWSCloudHSMFunctions.() -> T): T {
 	return AWSCloudHSMFunctions(shell).run(init)

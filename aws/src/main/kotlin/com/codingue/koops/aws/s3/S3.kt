@@ -4,7 +4,7 @@ package com.codingue.koops.aws.s3
 
 import com.codingue.koops.aws.AmazonWebServiceDescriptor
 import com.codingue.koops.aws.AwsContinuation
-import com.codingue.koops.core.Block
+import com.codingue.koops.core.Script
 import com.codingue.koops.core.CliMarker
 import com.codingue.koops.core.Command
 import com.codingue.koops.core.Environment
@@ -15,7 +15,7 @@ import com.amazonaws.services.s3.model.*
 import java.io.File
 import java.io.InputStream
 
-class S3Functions(val block: Block) {
+class S3Functions(val block: Script) {
 
 	fun listObjects(bucket: String): ObjectListing {
 		return block.declare(ListObjectsCommand(bucket)) as ObjectListing

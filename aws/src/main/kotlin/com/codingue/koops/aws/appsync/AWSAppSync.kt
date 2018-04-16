@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.appsync: AWSAppSync
 	}
 
 @Generated
-class AWSAppSyncFunctions(val block: Block)
+class AWSAppSyncFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.appsync(init: AWSAppSyncFunctions.() -> T): T {
 	return AWSAppSyncFunctions(shell).run(init)

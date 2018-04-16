@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.opsworks: AWSOpsWorks
 	}
 
 @Generated
-class AWSOpsWorksFunctions(val block: Block)
+class AWSOpsWorksFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.opsworks(init: AWSOpsWorksFunctions.() -> T): T {
 	return AWSOpsWorksFunctions(shell).run(init)

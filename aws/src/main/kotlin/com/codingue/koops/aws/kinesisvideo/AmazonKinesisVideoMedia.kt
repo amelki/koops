@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.kinesisvideo.*
-import com.amazonaws.services.kinesisvideo.model.*
 
 var com.codingue.koops.core.Environment.kinesisvideo: AmazonKinesisVideoMedia
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.kinesisvideo: AmazonKinesisVideoMedia
 	}
 
 @Generated
-class AmazonKinesisVideoMediaFunctions(val block: Block)
+class AmazonKinesisVideoMediaFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.kinesisvideo(init: AmazonKinesisVideoMediaFunctions.() -> T): T {
 	return AmazonKinesisVideoMediaFunctions(shell).run(init)

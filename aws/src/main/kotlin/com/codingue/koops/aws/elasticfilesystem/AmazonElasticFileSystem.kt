@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.elasticfilesystem: AmazonElasticFileSyst
 	}
 
 @Generated
-class AmazonElasticFileSystemFunctions(val block: Block)
+class AmazonElasticFileSystemFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.elasticfilesystem(init: AmazonElasticFileSystemFunctions.() -> T): T {
 	return AmazonElasticFileSystemFunctions(shell).run(init)

@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.ec2: AmazonEC2
 	}
 
 @Generated
-class AmazonEC2Functions(val block: Block)
+class AmazonEC2Functions(val block: Script)
 
 infix fun <T> AwsContinuation.ec2(init: AmazonEC2Functions.() -> T): T {
 	return AmazonEC2Functions(shell).run(init)

@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.clouddirectory: AmazonCloudDirectory
 	}
 
 @Generated
-class AmazonCloudDirectoryFunctions(val block: Block)
+class AmazonCloudDirectoryFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.clouddirectory(init: AmazonCloudDirectoryFunctions.() -> T): T {
 	return AmazonCloudDirectoryFunctions(shell).run(init)

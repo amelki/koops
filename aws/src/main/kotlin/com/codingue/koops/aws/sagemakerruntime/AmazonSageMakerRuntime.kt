@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.sagemakerruntime.*
-import com.amazonaws.services.sagemakerruntime.model.*
 
 var com.codingue.koops.core.Environment.sagemakerruntime: AmazonSageMakerRuntime
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.sagemakerruntime: AmazonSageMakerRuntime
 	}
 
 @Generated
-class AmazonSageMakerRuntimeFunctions(val block: Block)
+class AmazonSageMakerRuntimeFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.sagemakerruntime(init: AmazonSageMakerRuntimeFunctions.() -> T): T {
 	return AmazonSageMakerRuntimeFunctions(shell).run(init)

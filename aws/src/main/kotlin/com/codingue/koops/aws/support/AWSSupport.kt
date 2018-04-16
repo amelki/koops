@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.support.*
-import com.amazonaws.services.support.model.*
 
 var com.codingue.koops.core.Environment.support: AWSSupport
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.support: AWSSupport
 	}
 
 @Generated
-class AWSSupportFunctions(val block: Block)
+class AWSSupportFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.support(init: AWSSupportFunctions.() -> T): T {
 	return AWSSupportFunctions(shell).run(init)

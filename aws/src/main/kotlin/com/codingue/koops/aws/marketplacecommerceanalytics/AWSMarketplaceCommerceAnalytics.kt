@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.marketplacecommerceanalytics: AWSMarketp
 	}
 
 @Generated
-class AWSMarketplaceCommerceAnalyticsFunctions(val block: Block)
+class AWSMarketplaceCommerceAnalyticsFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.marketplacecommerceanalytics(init: AWSMarketplaceCommerceAnalyticsFunctions.() -> T): T {
 	return AWSMarketplaceCommerceAnalyticsFunctions(shell).run(init)

@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.lightsail: AmazonLightsail
 	}
 
 @Generated
-class AmazonLightsailFunctions(val block: Block)
+class AmazonLightsailFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.lightsail(init: AmazonLightsailFunctions.() -> T): T {
 	return AmazonLightsailFunctions(shell).run(init)

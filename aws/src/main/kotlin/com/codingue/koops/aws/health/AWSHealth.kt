@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.health.*
-import com.amazonaws.services.health.model.*
 
 var com.codingue.koops.core.Environment.health: AWSHealth
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.health: AWSHealth
 	}
 
 @Generated
-class AWSHealthFunctions(val block: Block)
+class AWSHealthFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.health(init: AWSHealthFunctions.() -> T): T {
 	return AWSHealthFunctions(shell).run(init)

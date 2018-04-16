@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.transcribe: AmazonTranscribe
 	}
 
 @Generated
-class AmazonTranscribeFunctions(val block: Block)
+class AmazonTranscribeFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.transcribe(init: AmazonTranscribeFunctions.() -> T): T {
 	return AmazonTranscribeFunctions(shell).run(init)

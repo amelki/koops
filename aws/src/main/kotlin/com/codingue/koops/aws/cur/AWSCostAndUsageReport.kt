@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.costandusagereport.*
-import com.amazonaws.services.costandusagereport.model.*
 
 var com.codingue.koops.core.Environment.cur: AWSCostAndUsageReport
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.cur: AWSCostAndUsageReport
 	}
 
 @Generated
-class AWSCostAndUsageReportFunctions(val block: Block)
+class AWSCostAndUsageReportFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.cur(init: AWSCostAndUsageReportFunctions.() -> T): T {
 	return AWSCostAndUsageReportFunctions(shell).run(init)

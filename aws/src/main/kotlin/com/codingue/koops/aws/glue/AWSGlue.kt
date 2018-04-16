@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.glue: AWSGlue
 	}
 
 @Generated
-class AWSGlueFunctions(val block: Block)
+class AWSGlueFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.glue(init: AWSGlueFunctions.() -> T): T {
 	return AWSGlueFunctions(shell).run(init)

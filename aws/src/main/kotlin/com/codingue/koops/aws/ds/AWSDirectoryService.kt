@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.ds: AWSDirectoryService
 	}
 
 @Generated
-class AWSDirectoryServiceFunctions(val block: Block)
+class AWSDirectoryServiceFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.ds(init: AWSDirectoryServiceFunctions.() -> T): T {
 	return AWSDirectoryServiceFunctions(shell).run(init)

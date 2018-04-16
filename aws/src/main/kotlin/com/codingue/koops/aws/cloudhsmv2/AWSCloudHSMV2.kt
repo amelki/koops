@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.cloudhsmv2.*
-import com.amazonaws.services.cloudhsmv2.model.*
 
 var com.codingue.koops.core.Environment.cloudhsmv2: AWSCloudHSMV2
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.cloudhsmv2: AWSCloudHSMV2
 	}
 
 @Generated
-class AWSCloudHSMV2Functions(val block: Block)
+class AWSCloudHSMV2Functions(val block: Script)
 
 infix fun <T> AwsContinuation.cloudhsmv2(init: AWSCloudHSMV2Functions.() -> T): T {
 	return AWSCloudHSMV2Functions(shell).run(init)

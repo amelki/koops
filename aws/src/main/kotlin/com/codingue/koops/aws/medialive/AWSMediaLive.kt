@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.medialive: AWSMediaLive
 	}
 
 @Generated
-class AWSMediaLiveFunctions(val block: Block)
+class AWSMediaLiveFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.medialive(init: AWSMediaLiveFunctions.() -> T): T {
 	return AWSMediaLiveFunctions(shell).run(init)

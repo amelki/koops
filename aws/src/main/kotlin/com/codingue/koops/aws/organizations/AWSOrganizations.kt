@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.organizations: AWSOrganizations
 	}
 
 @Generated
-class AWSOrganizationsFunctions(val block: Block)
+class AWSOrganizationsFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.organizations(init: AWSOrganizationsFunctions.() -> T): T {
 	return AWSOrganizationsFunctions(shell).run(init)

@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.events: AmazonCloudWatchEvents
 	}
 
 @Generated
-class AmazonCloudWatchEventsFunctions(val block: Block)
+class AmazonCloudWatchEventsFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.events(init: AmazonCloudWatchEventsFunctions.() -> T): T {
 	return AmazonCloudWatchEventsFunctions(shell).run(init)

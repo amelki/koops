@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.shield.*
-import com.amazonaws.services.shield.model.*
 
 var com.codingue.koops.core.Environment.shield: AWSShield
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.shield: AWSShield
 	}
 
 @Generated
-class AWSShieldFunctions(val block: Block)
+class AWSShieldFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.shield(init: AWSShieldFunctions.() -> T): T {
 	return AWSShieldFunctions(shell).run(init)

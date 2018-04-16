@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.resourcegroups.*
-import com.amazonaws.services.resourcegroups.model.*
 
 var com.codingue.koops.core.Environment.resource_groups: AWSResourceGroups
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.resource_groups: AWSResourceGroups
 	}
 
 @Generated
-class AWSResourceGroupsFunctions(val block: Block)
+class AWSResourceGroupsFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.resource_groups(init: AWSResourceGroupsFunctions.() -> T): T {
 	return AWSResourceGroupsFunctions(shell).run(init)

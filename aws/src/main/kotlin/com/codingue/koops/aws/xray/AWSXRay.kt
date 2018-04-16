@@ -8,7 +8,6 @@ import com.codingue.koops.common.*
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*
 import com.amazonaws.services.xray.*
-import com.amazonaws.services.xray.model.*
 
 var com.codingue.koops.core.Environment.xray: AWSXRay
 	get() {
@@ -24,7 +23,7 @@ var com.codingue.koops.core.Environment.xray: AWSXRay
 	}
 
 @Generated
-class AWSXRayFunctions(val block: Block)
+class AWSXRayFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.xray(init: AWSXRayFunctions.() -> T): T {
 	return AWSXRayFunctions(shell).run(init)

@@ -1,6 +1,6 @@
 package com.codingue.koops.aws
 
-import com.codingue.koops.core.Block
+import com.codingue.koops.core.Script
 import com.codingue.koops.core.CliMarker
 import com.codingue.koops.core.Command
 import com.amazonaws.AmazonWebServiceRequest
@@ -72,9 +72,9 @@ class AmazonWebServiceDescriptor(val serviceName: String) {
 }
 
 @CliMarker
-class AwsContinuation(val shell: Block)
+class AwsContinuation(val shell: Script)
 
-val Block.aws: AwsContinuation
+val Script.aws: AwsContinuation
 	get() {
 		return AwsContinuation(this)
 	}

@@ -24,7 +24,7 @@ var com.codingue.koops.core.Environment.polly: AmazonPolly
 	}
 
 @Generated
-class AmazonPollyFunctions(val block: Block)
+class AmazonPollyFunctions(val block: Script)
 
 infix fun <T> AwsContinuation.polly(init: AmazonPollyFunctions.() -> T): T {
 	return AmazonPollyFunctions(shell).run(init)
