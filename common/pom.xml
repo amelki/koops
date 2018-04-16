@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>codingue.koops</groupId>
+        <groupId>com.codingue.koops</groupId>
         <artifactId>koops</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>common</artifactId>
+    <artifactId>koops-common</artifactId>
 
     <packaging>jar</packaging>
 
