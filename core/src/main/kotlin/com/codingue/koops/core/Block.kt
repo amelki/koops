@@ -1,10 +1,36 @@
 package com.codingue.koops.core
 
+import com.fasterxml.jackson.databind.JsonNode
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import java.io.PrintStream
+import java.io.PrintWriter
+
+val Json = Block.ReportType.Json
+val ToString = Block.ReportType.ToString
+
 @CliMarker
 open class Block(var environment: Environment) : Command<Any?> {
-	private val results = mutableListOf<Result>()
 
-	class Result(val command: Command<*>, val value: Any?)
+	private val objectMapper: ObjectMapper = jacksonObjectMapper()
+
+	private val report = Report()
+	var reportAs: ReportType = ReportType.Json
+
+	enum class ReportType {
+		Json, ToString, None
+	}
+
+	enum class Status {
+		NotStarted, Completed, Stopped
+	}
+
+	class Result(val command: String, val value: Any?)
+
+	class Report(val results: MutableList<Result> = mutableListOf()) {
+		var status: Status = Status.NotStarted
+		var exception: Exception? = null
+	}
 
 	override fun description(): String? {
 		return null
@@ -13,7 +39,7 @@ open class Block(var environment: Environment) : Command<Any?> {
 	override fun commandName() = "block"
 
 	override fun toString(): String {
-		return "block { ${results.map { it.command.toString() }} }"
+		return "block { ${report.results.map { it.command.toString() }} }"
 	}
 
 	fun declare(anonymousBlock: () -> Any, anonymousDryRun: (() -> Unit)? = null): Any? {
@@ -37,25 +63,59 @@ open class Block(var environment: Environment) : Command<Any?> {
 	}
 
 	open fun declare(command: Command<*>): Any? {
-		val res = if (environment.dryRun) {
+		return if (environment.dryRun) {
 			command.dryRun()
 		} else {
 			command.doEval(environment)
+		}.also {
+			report.results.add(Result(command.description()?: commandName(), it))
 		}
-		results.add(Result(command, res))
-		return res
+	}
+
+	internal fun applyInit(environment: Environment, init: Block.() -> Any?): Block {
+		try {
+			this.run(init)
+			report.status = Status.Completed
+		} catch (e: CommandException) {
+			if (reportAs != ReportType.None) {
+				report.status = Status.Stopped
+				report.exception = e
+			} else {
+				throw e
+			}
+		}
+		val w = environment.printConfig.writer ?: PrintWriter(environment.printConfig.stream)
+		when (reportAs) {
+			ReportType.Json -> {
+				val jsonNode = objectMapper.valueToTree<JsonNode>(report)
+				JsonPrettyPrinter(w, environment.printConfig).printNode(jsonNode, 0)
+				w.flush()
+				w.println()
+			}
+			ReportType.ToString -> {
+				w.println(report.toString())
+			}
+			else -> {
+				// Do nothing
+			}
+		}
+		return this
 	}
 
 	override fun eval(environment: Environment): Any? {
-		return results.lastOrNull()?.value
+		return report.results.lastOrNull()?.value
 	}
 
 	fun evalAll(): List<Any?> {
-		return results.map { it.value }
+		return report.results.map { it.value }
 	}
 
 	override fun dryRun(): Any {
 		return ""
+	}
+
+	infix fun report(out: PrintStream) {
+
 	}
 
 }

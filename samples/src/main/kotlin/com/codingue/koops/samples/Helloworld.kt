@@ -6,7 +6,7 @@ import com.codingue.koops.aws.ec2.*
 import com.codingue.koops.aws.s3.*
 
 fun main(args: Array<String>) {
-	log {
+	script {
 		aws ec2 {
 			describeInstances {
 				maxResults = 10

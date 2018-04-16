@@ -24,8 +24,8 @@ import com.codingue.koops.aws.s3.*
 val environment = env {
 	workingDir = "~/Code/myproject"
 }
-// Prints a JSON array made of a the descriptor and the result of each command executed inside this block
-log(environment) {
+
+script(environment) {
 	// Run mvn clean install command, making sure the build is successful
 	mvn(Clean, Install) verifies Success
 	// If the build is successful, upload to S3

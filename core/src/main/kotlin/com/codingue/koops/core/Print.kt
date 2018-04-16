@@ -39,7 +39,6 @@ class PrintConfig {
 
 	var writer: PrintWriter? = null
 	var stream: PrintStream? = System.out
-	var format: Format = Format.Json
 
 	class JsonFeatures {
 		var colorMap: (JsonItem) -> JsonColor = defaultMap
@@ -47,37 +46,6 @@ class PrintConfig {
 		var includeNullFields = false
 		var includeEmptyArrays = false
 		var withColors = true
-	}
-
-}
-
-@CliMarker
-class Print(environment: Environment): Block(environment) {
-	private val commands = mutableListOf<Command<*>>()
-	private val objectMapper: ObjectMapper = jacksonObjectMapper()
-	override fun commandName() = "print"
-
-	init {
-		objectMapper.configure(JsonGenerator.Feature.AUTO_CLOSE_TARGET, false)
-	}
-
-	override fun toString(): String {
-		return "print { $commands }"
-	}
-
-	override fun declare(command: Command<*>): Any? {
-		val any = super.declare(command)
-		val w = environment.printConfig.writer ?: PrintWriter(environment.printConfig.stream)
-		when (environment.printConfig.format) {
-			PrintConfig.Format.Json -> {
-				val jsonNode = objectMapper.valueToTree<JsonNode>(any)
-				JsonPrettyPrinter(w, environment.printConfig).printNode(jsonNode, 0)
-				w.println()
-			}
-			PrintConfig.Format.ToString -> w.println(any?.toString())
-		}
-		w.flush()
-		return any
 	}
 
 }
@@ -111,7 +79,7 @@ private val defaultMap: (item: JsonItem) -> JsonColor = {
  * Write our own pretty printer, with colorization - Jackson does not seem to provide any easy way
  * of doing this easily via serialization configuration
  */
-private class JsonPrettyPrinter(val out: PrintWriter, val printConfig: PrintConfig) {
+internal class JsonPrettyPrinter(val out: PrintWriter, val printConfig: PrintConfig) {
 
 	fun indent(i: Int): String {
 		return String(CharArray(i * printConfig.jsonFeatures.indentLevel)).replace('\u0000', ' ')

@@ -28,7 +28,7 @@ fun main(args: Array<String>) {
 
 	environment.dryRun = true
 
-	com.codingue.koops.core.block(environment) {
+	script(environment) {
 		system cd "/mydir/mysubdir"
 		aws s3 {
 			putObject("mybucket", "the key", File("foo.jar"))
