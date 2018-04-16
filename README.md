@@ -4,7 +4,8 @@
 
 Koops is Kotlin-based scripting language aimed at running command line tools commonly used in devops 
 day-to-day work, such as maven, gradle, docker, git, AWS SDK, Google Cloud SDK etc.
-It's an alternative to python or bash scripting, allowing a much more controlled way of writing your 
+
+It's an alternative to python or bash scripting, allowing a much more controlled way of writing devops
 scripts, combining a simple way of calling commands with the power of the Kotlin language. 
 
 ## Getting Started
