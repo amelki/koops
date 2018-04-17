@@ -1,4 +1,4 @@
-package com.codingue.koops.samples
+package com.codingue.koops.tests
 
 import com.codingue.koops.core.*
 import com.codingue.koops.aws.*

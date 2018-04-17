@@ -45,6 +45,24 @@ script(environment) {
 }
 ```
 
+## Running a script
+
+Any koops snippet being a Kotlin snippet, you can run it in any regular Kotlin program, just like 
+ [this one](samples/src/main/kotlin/com/codingue/koops/samples/Helloworld.kt).
+ 
+But more interestingly, you can run it as a simple Kotlin script, using [kscript](https://github.com/holgerbrandl/kscript).
+
+To install `kscript`, you can use [sdkman](http://sdkman.io/install.html):
+
+```bash
+curl -s "https://get.sdkman.io" | bash  # install sdkman
+source ~/.bash_profile                  # add sdkman to PATH
+
+sdk install kotlin                      # install Kotlin
+sdk install maven                       # install Maven
+sdk install kscript                     # install Kscript
+```
+
 
 ## Status
 

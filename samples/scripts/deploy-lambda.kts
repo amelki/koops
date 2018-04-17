@@ -6,24 +6,20 @@ import com.codingue.koops.aws.*
 import com.codingue.koops.aws.lambda.*
 import com.codingue.koops.aws.s3.*
 
-val environment = env {
-	workingDir = "~/Code/playground/listserv"
-}
-
-script(environment) {
+script {
 	// Run mvn clean install command, making sure the build is successful
 	mvn(Clean, Install) verifies Success
 	// If the build is successful, upload to S3
 	aws s3 {
-		putObject("listserv1", "lambda/target/lambda-1.0-SNAPSHOT.jar")
+		putObject("mybucket", "target/myproject.jar")
 	}
 	// And update our lambda with the uploaded content
 	aws lambda {
-		val updateFunctionCodeResult = updateFunctionCode("listserv") {
-			s3Bucket = "listserv1"
-			s3Key = "lambda-1.0-SNAPSHOT.jar"
+		val updateFunctionCodeResult = updateFunctionCode("mylambda") {
+			s3Bucket = "mybucket"
+			s3Key = "myproject.jar"
 		}
-		publishVersion("listserv", {
+		publishVersion("mylambda", {
 			codeSha256 = updateFunctionCodeResult.codeSha256
 		})
 	}

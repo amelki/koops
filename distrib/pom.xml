@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>koops-samples</artifactId>
+    <artifactId>koops-distrib</artifactId>
 
     <dependencies>
         <dependency>
@@ -19,20 +19,34 @@
         </dependency>
         <dependency>
             <groupId>com.codingue.koops</groupId>
-            <artifactId>koops-maven</artifactId>
+            <artifactId>koops-aws</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.codingue.koops</groupId>
-            <artifactId>koops-aws</artifactId>
+            <artifactId>koops-maven</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
 
     <build>
-        <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
-        <!--<testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>-->
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <createDependencyReducedPom>false</createDependencyReducedPom>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
-
-
 </project>

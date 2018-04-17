@@ -17,6 +17,9 @@
         <module>samples</module>
         <module>aws</module>
         <module>maven</module>
+        <module>samples</module>
+        <module>tests</module>
+        <module>distrib</module>
     </modules>
 
     <properties>
