@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.codingue.koops</groupId>
     <artifactId>koops</artifactId>
-    <version>1.0</version>
+    <version>${revision}</version>
 
     <packaging>pom</packaging>
 
@@ -28,8 +29,8 @@
         <connection>scm:git:git://github.com/amelki/koops.git</connection>
         <developerConnection>scm:git:ssh://github.com/amelki/koops.git</developerConnection>
         <url>http://github.com/amelki/koops/tree/master</url>
-      <tag>koops-1.0</tag>
-  </scm>
+        <tag>koops-1.0</tag>
+    </scm>
 
     <distributionManagement>
         <snapshotRepository>
@@ -55,6 +56,7 @@
     <properties>
         <kotlin.version>1.2.31</kotlin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <revision>1.0-SNAPSHOT</revision>
     </properties>
 
     <dependencies>
@@ -97,24 +99,49 @@
             <version>1.1.5</version>
             <scope>test</scope>
         </dependency>
-<!--
-        <dependency>
-            <groupId>com.amazonaws</groupId>
-            <artifactId>aws-lambda-java-log4j2</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>2.8.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-            <version>2.8.2</version>
-        </dependency>
--->
+        <!--
+                <dependency>
+                    <groupId>com.amazonaws</groupId>
+                    <artifactId>aws-lambda-java-log4j2</artifactId>
+                    <version>1.0.0</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-core</artifactId>
+                    <version>2.8.2</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-api</artifactId>
+                    <version>2.8.2</version>
+                </dependency>
+        -->
     </dependencies>
+
+    <profiles>
+        <profile>
+            <id>deploy</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.5</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
 
     <build>
         <plugins>
@@ -152,6 +179,31 @@
                         <version>2.15</version>
                     </dependency>
                 </dependencies>
+            </plugin>
+            <!--Flatten poms for deployment. See https://maven.apache.org/maven-ci-friendly.html-->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <configuration>
+                    <updatePomFile>true</updatePomFile>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

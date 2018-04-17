@@ -3,7 +3,7 @@
     <parent>
         <artifactId>koops</artifactId>
         <groupId>com.codingue.koops</groupId>
-        <version>1.0</version>
+        <version>${revision}</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
