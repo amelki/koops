@@ -50,8 +50,14 @@ But more interestingly, you can run `koops` as a simple Kotlin script, using [ks
 
 The easiest is to install Kotlin, Kscript and Koops using [sdkman](http://sdkman.io/install.html):
 
-```bash
-curl -s "http://get.koops.codingue.com" | bash  # install sdkman, kotlin, maven, kscript and koops
+```
+curl -s "https://get.sdkman.io" | bash              # install sdkman
+source ~/.bash_profile                              # add sdkman to PATH
+
+sdk install kotlin                                  # install Kotlin
+sdk install maven                                   # install Maven
+sdk install kscript                                 # install Kscript
+curl -s "http://get.koops.codingue.com" | bash      # install koops extension for kscript
 ```
 
 You can then run any .kts script:

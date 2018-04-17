@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-curl -s "https://get.sdkman.io" | bash
+#curl -s "https://get.sdkman.io" | bash
 source ~/.bash_profile
 
-sdk install kotlin                      # install Kotlin
-sdk install maven                       # install Maven
-sdk install kscript                     # install KScript
+#sdk install kotlin                      # install Kotlin
+#sdk install maven                       # install Maven
+#sdk install kscript                     # install KScript
 
 echo ""
 echo "======================================================================================================"
@@ -14,6 +14,7 @@ echo "Installing koops on top of SDKMAN and kscript..."
 echo ""
 echo "======================================================================================================"
 
+KOOPS_VERSION=0.0.1
 KSCRIPT_DIR=${SDKMAN_DIR}/candidates/kscript
 KSCRIPT_CURRENT_DIR=${KSCRIPT_DIR}/current
 
@@ -32,4 +33,4 @@ EOF
 
 chmod a+x ${KSCRIPT_CURRENT_DIR}/bin/koops
 
-echo "Installation of sdkman, kotlin, maven, kscript and koops done"
+echo "Installation of koops done"
