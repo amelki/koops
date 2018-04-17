@@ -3,9 +3,9 @@
 #curl -s "https://get.sdkman.io" | bash
 source ~/.bash_profile
 
-#sdk install kotlin                      # install Kotlin
-#sdk install maven                       # install Maven
-#sdk install kscript                     # install KScript
+sdk install kotlin                      # install Kotlin
+sdk install maven                       # install Maven
+sdk install kscript                     # install KScript
 
 echo ""
 echo "======================================================================================================"

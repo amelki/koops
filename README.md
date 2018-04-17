@@ -57,6 +57,7 @@ source ~/.bash_profile                              # add sdkman to PATH
 sdk install kotlin                                  # install Kotlin
 sdk install maven                                   # install Maven
 sdk install kscript                                 # install Kscript
+
 curl -s "http://get.koops.codingue.com" | bash      # install koops extension for kscript
 ```
 
@@ -65,11 +66,6 @@ You can then run any .kts script:
 ```bash
 koops -s <script.kts>
 ```
-
-
-## Status
-
-This is a very first shot. More information to come soon
 
 # License
 The source files found in this project are licensed under the [Apache License 2.0](LICENSE).
