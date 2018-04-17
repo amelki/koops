@@ -29,7 +29,6 @@
         <connection>scm:git:git://github.com/amelki/koops.git</connection>
         <developerConnection>scm:git:ssh://github.com/amelki/koops.git</developerConnection>
         <url>http://github.com/amelki/koops/tree/master</url>
-        <tag>koops-1.0</tag>
     </scm>
 
     <distributionManagement>
@@ -187,6 +186,7 @@
                 <version>1.0.0</version>
                 <configuration>
                     <updatePomFile>true</updatePomFile>
+                    <flattenMode>oss</flattenMode>
                 </configuration>
                 <executions>
                     <execution>
@@ -202,6 +202,36 @@
                         <goals>
                             <goal>clean</goal>
                         </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>empty-javadoc-jar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>javadoc</classifier>
+                            <classesDirectory>${basedir}/javadoc</classesDirectory>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>

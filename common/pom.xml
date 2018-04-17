@@ -11,9 +11,50 @@
     <artifactId>koops-common</artifactId>
     <packaging>jar</packaging>
 
+    <name>koops-common</name>
+    <description>A Kotlin DSL for devops</description>
+    <url>https://github.com/amelki/koops</url>
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>Antoine Melki</name>
+            <email>adonf156@gmail.com</email>
+            <id>amelki</id>
+        </developer>
+    </developers>
+    <scm>
+        <connection>scm:git:git://github.com/amelki/koops.git</connection>
+        <developerConnection>scm:git:ssh://github.com/amelki/koops.git</developerConnection>
+        <url>http://github.com/amelki/koops/tree/master</url>
+    </scm>
+
     <build>
         <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
         <!--<testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>-->
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>empty-javadoc-jar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>javadoc</classifier>
+                            <classesDirectory>${basedir}/javadoc</classesDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
 
 </project>

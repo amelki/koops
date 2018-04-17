@@ -14,31 +14,22 @@ echo "Installing koops on top of SDKMAN and kscript..."
 echo ""
 echo "======================================================================================================"
 
-KOOPS_DIR=${SDKMAN_DIR}/candidates/koops
-KOOPS_VERSION=1.0.0
+KSCRIPT_DIR=${SDKMAN_DIR}/candidates/kscript
+KSCRIPT_CURRENT_DIR=${KSCRIPT_DIR}/current
 
-mkdir -p ${KOOPS_DIR}
-mkdir -p ${KOOPS_DIR}/${KOOPS_VERSION}
-mkdir -p ${KOOPS_DIR}/${KOOPS_VERSION}/bin
-
-ln -sf ${SDKMAN_DIR}/candidates/koops/1.0.0 ${SDKMAN_DIR}/candidates/koops/current
-
-cat > ${SDKMAN_DIR}/candidates/koops/1.0.0/bin/koops << EOF
+cat > ${KSCRIPT_CURRENT_DIR}/bin/koops << EOF
 #!/usr/bin/env bash
 
 export CUSTOM_KSCRIPT_NAME='koops'
 
 export CUSTOM_KSCRIPT_PREAMBLE='
-@file:DependsOn("com.codingue.koops:koops-core:1.0-SNAPSHOT")
-@file:DependsOn("com.codingue.koops:koops-maven:1.0-SNAPSHOT")
-@file:DependsOn("com.codingue.koops:koops-aws:1.0-SNAPSHOT")
+@file:DependsOn("com.codingue.koops:koops-core:${KOOPS_VERSION}")
+@file:DependsOn("com.codingue.koops:koops-maven:${KOOPS_VERSION}")
+@file:DependsOn("com.codingue.koops:koops-aws:${KOOPS_VERSION}")
 '
 exec kscript \$@
 EOF
 
-chmod a+x ${SDKMAN_DIR}/candidates/koops/1.0.0/bin/koops
+chmod a+x ${KSCRIPT_CURRENT_DIR}/bin/koops
 
-if ! grep -q "koops" ${SDKMAN_DIR}/var/candidates; then
-    echo ",koops" >> ${SDKMAN_DIR}/var/candidates
-fi
-
+echo "Installation of sdkman, kotlin, maven, kscript and koops done"

@@ -9,6 +9,28 @@
 
     <artifactId>koops-tests</artifactId>
 
+    <name>koops-tests</name>
+    <description>A Kotlin DSL for devops</description>
+    <url>https://github.com/amelki/koops</url>
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>Antoine Melki</name>
+            <email>adonf156@gmail.com</email>
+            <id>amelki</id>
+        </developer>
+    </developers>
+    <scm>
+        <connection>scm:git:git://github.com/amelki/koops.git</connection>
+        <developerConnection>scm:git:ssh://github.com/amelki/koops.git</developerConnection>
+        <url>http://github.com/amelki/koops/tree/master</url>
+    </scm>
+
     <dependencies>
         <dependency>
             <groupId>com.codingue.koops</groupId>

@@ -5,12 +5,12 @@
 Koops is Kotlin-based scripting language aimed at running command line tools commonly used in devops 
 day-to-day work, such as maven, gradle, docker, git, AWS SDK, Google Cloud SDK etc.
 
-It's an alternative to python or bash scripting, allowing a much more controlled way of writing devops
-scripts, combining a simple way of calling commands with the power of the Kotlin language. 
+It's an alternative to `python` or `bash` scripting, combining a simple way of calling commands with 
+the power of the Kotlin language. 
 
 ## Getting Started
 
-Here is an example of a koops script:
+Here is an example of a `koops` script:
 
 ```kotlin
 #!/usr/bin/env kscript
@@ -21,11 +21,7 @@ import com.codingue.koops.aws.*
 import com.codingue.koops.aws.lambda.*
 import com.codingue.koops.aws.s3.*
 
-val environment = env {
-	workingDir = "~/Code/myproject"
-}
-
-script(environment) {
+script {
 	// Run mvn clean install command, making sure the build is successful
 	mvn(Clean, Install) verifies Success
 	// If the build is successful, upload to S3
@@ -45,22 +41,23 @@ script(environment) {
 }
 ```
 
-## Running a script
+## Installation
 
 Any koops snippet being a Kotlin snippet, you can run it in any regular Kotlin program, just like 
  [this one](samples/src/main/kotlin/com/codingue/koops/samples/Helloworld.kt).
  
-But more interestingly, you can run it as a simple Kotlin script, using [kscript](https://github.com/holgerbrandl/kscript).
+But more interestingly, you can run `koops` as a simple Kotlin script, using [kscript](https://github.com/holgerbrandl/kscript).
 
-To install `kscript`, you can use [sdkman](http://sdkman.io/install.html):
+The easiest is to install Kotlin, Kscript and Koops using [sdkman](http://sdkman.io/install.html):
 
 ```bash
-curl -s "https://get.sdkman.io" | bash  # install sdkman
-source ~/.bash_profile                  # add sdkman to PATH
+curl -s "http://get.koops.codingue.com" | bash  # install sdkman, kotlin, maven, kscript and koops
+```
 
-sdk install kotlin                      # install Kotlin
-sdk install maven                       # install Maven
-sdk install kscript                     # install Kscript
+You can then run any .kts script:
+
+```bash
+koops -s <script.kts>
 ```
 
 

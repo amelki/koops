@@ -12,3 +12,4 @@ tmp/
 
 *.gpg
 settings.xml
+.flattened-pom.xml
