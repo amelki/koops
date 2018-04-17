@@ -8,3 +8,6 @@ gen/models
 *.ear
 hs_err_pid*
 target/
+
+*.gpg
+settings.xml
